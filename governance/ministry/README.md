@@ -19,7 +19,7 @@ The Four-Book Foundation is canonical. It is the source from which all other gov
 | **Book One** | Community Manual | Approved |
 | **Book Two** | The Restoration Journey | Approved |
 | **Book Three** | The Digital Community Platform | Draft |
-| **Book Four** | Ministry Governance | In Development |
+| **Book Four** | The Platform Blueprint | Draft |
 
 ## How They Relate
 
@@ -38,10 +38,11 @@ The Four-Book Foundation is canonical. It is the source from which all other gov
 - How the platform strengthens (not replaces) Christian community
 - Technology's role in supporting mentoring, gatherings, and the Restoration Journey
 
-**Book Four** (Ministry Governance) answers: *How do we operate and lead?*
-- Ministry leadership and decision-making
-- Resource stewardship
-- Strategic direction and growth
+**Book Four** (The Platform Blueprint) answers: *How is technology faithfully developed to serve the mission?*
+- Platform philosophy and governance principles
+- User roles and community structure
+- Design foundations and implementation principles
+- How technology serves restoration without becoming the mission
 
 ## Authority
 
