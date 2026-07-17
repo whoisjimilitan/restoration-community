@@ -72,24 +72,63 @@ Every document in this repository has a clear status:
 
 ---
 
-## Document Precedence
+## Governance Hierarchy and Document Authority
 
-**When two documents appear to disagree, the document higher in the hierarchy takes precedence unless an approved revision explicitly changes it.**
+### The Governance Hierarchy
 
-The hierarchy is:
+The repository follows a clear authority hierarchy:
 
-1. **Scripture** (if referenced in governance)
-2. **Four-Book Foundation** (ministry identity and governance)
-3. **Engineering Constitution** (technology governance)
-4. **Requirements** (what the platform must do)
-5. **Architecture** (how the platform is designed)
-6. **Implementation** (running code)
-7. **Working Documentation** (supporting notes and guides)
+```
+Scripture
+    ↓
+Four-Book Foundation
+    ├── Book One: The Community Manual
+    ├── Book Two: The Restoration Journey
+    ├── Book Three: Discipleship Framework
+    └── Book Four: Ministry Governance
+    ↓
+Engineering Constitution
+    ↓
+Requirements
+    ↓
+Architecture
+    ↓
+Implementation
+    ↓
+Tests
+```
 
-For example:
-- A PRD cannot silently contradict the Engineering Constitution
-- Working documentation cannot override approved requirements
-- Code cannot redefine an approved architecture without an ADR
+### The Four-Book Foundation
+
+The Four-Book Foundation consists of four peer documents.
+
+**They are not hierarchical.** No book supersedes another. Each addresses a distinct aspect of the ministry:
+
+- **Book One** (The Community Manual) — Who we are and how we live together
+- **Book Two** (The Restoration Journey) — The seven stages guiding participants toward restoration
+- **Book Three** (Discipleship Framework) — How members grow and are discipled
+- **Book Four** (Ministry Governance) — How decisions are made and the ministry is led
+
+These books are interpreted together as a unified foundation. They inform and complement one another.
+
+### Document Precedence
+
+**When two documents appear to disagree:**
+
+1. **Within the same authority level** (e.g., two books in the Four-Book Foundation, or two requirements documents):
+   - First, determine whether they are addressing different concerns
+   - If both are addressing the same concern, resolve the apparent conflict through an approved governance revision
+   - Do not assume one document overrides another
+
+2. **At different authority levels** (e.g., Engineering Constitution vs. Requirements):
+   - The document higher in the hierarchy takes precedence
+   - Unless an approved revision has explicitly changed it
+
+3. **Examples:**
+   - A PRD cannot silently contradict the Engineering Constitution (higher authority)
+   - Book One cannot silently contradict Book Two (same authority level—resolve through revision)
+   - Working documentation cannot override approved requirements (lower authority)
+   - Code cannot redefine an approved architecture without an ADR (lower authority)
 
 ---
 
