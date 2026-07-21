@@ -2,6 +2,7 @@
 
 import { FormEvent, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { signIn } from 'next-auth/react';
 import Link from 'next/link';
 
 export default function Register() {
@@ -41,7 +42,21 @@ export default function Register() {
         throw new Error(data.error || 'Registration failed');
       }
 
-      router.push('/auth/signin?registered=true');
+      console.log('[REGISTER] Account created, signing in...');
+
+      // Automatically sign in after registration
+      const signInResult = await signIn('credentials', {
+        email,
+        password,
+        redirect: false,
+      });
+
+      if (!signInResult?.ok) {
+        throw new Error('Sign in failed after registration');
+      }
+
+      console.log('[REGISTER] Sign in successful, redirecting to onboarding');
+      router.push('/onboarding');
     } catch (err) {
       setError(
         err instanceof Error ? err.message : 'An error occurred'

@@ -14,7 +14,7 @@ interface ProfileData {
 
 export default function ProfilePage() {
   const router = useRouter();
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState('');
@@ -29,13 +29,17 @@ export default function ProfilePage() {
   });
 
   useEffect(() => {
-    if (!session) {
+    if (status === 'loading') return;
+
+    if (status === 'unauthenticated' || !session) {
+      console.log('[PROFILE] Not authenticated, redirecting to signin');
       router.push('/auth/signin');
       return;
     }
 
+    console.log('[PROFILE] Authenticated, fetching profile');
     fetchProfile();
-  }, [session, router]);
+  }, [status, session, router]);
 
   async function fetchProfile() {
     console.log('[PROFILE] Fetching profile data');
@@ -102,7 +106,7 @@ export default function ProfilePage() {
     }
   }
 
-  if (loading) {
+  if (status === 'loading' || loading) {
     return (
       <div className="min-h-screen bg-white py-12 px-4 flex items-center justify-center">
         <p className="text-gray-600">Loading...</p>
