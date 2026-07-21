@@ -25,6 +25,8 @@ model User {
   profile                Profile?
   userRestoration        UserRestoration?
   transitionsApproved    StageTransition[]
+  resourcesCreated       Resource[] @relation("ResourceCreator")
+  resourcesApproved      Resource[] @relation("ResourceApprover")
   sessions               Session[]
   accounts               Account[]
 
@@ -107,6 +109,7 @@ model RestorationStage {
   fromTransitions     StageTransition[] @relation("FromStage")
   toTransitions       StageTransition[] @relation("ToStage")
   reflections         StageReflection[]
+  stageResources      StageResource[]
 
   @@index([sequence])
   @@map("restoration_stages")
@@ -189,4 +192,104 @@ model StageReflection {
   @@index([userRestorationId])
   @@index([stageId])
   @@map("stage_reflections")
+}
+
+// ============================================================================
+// CONTENT FOUNDATION
+// ============================================================================
+// Flexible, versionable, publishable content system
+// Supports: Scripture, Teaching, Video, PDF, Reflection Question, Prayer, Assignment, External Link
+
+enum ResourceType {
+  SCRIPTURE
+  TEACHING
+  VIDEO
+  PDF
+  REFLECTION_QUESTION
+  PRAYER
+  ASSIGNMENT
+  EXTERNAL_LINK
+}
+
+model ResourceCategory {
+  id          String @id @default(cuid())
+  name        String @unique
+  description String?
+
+  resources   Resource[]
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("resource_categories")
+}
+
+model Resource {
+  id          String @id @default(cuid())
+  title       String
+  slug        String @unique
+  description String?
+  type        ResourceType
+
+  // Content storage
+  content           String? @db.Text // For teachings, reflections, prayers
+  scriptureReference String? // For scriptures (e.g., "John 8:31-32")
+  url               String? // For external links, videos
+  videoUrl          String? // Specific for videos
+  videoDuration     Int? // Duration in seconds for videos
+
+  // Metadata
+  categoryId        String?
+  category          ResourceCategory? @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+
+  author            String?
+  source            String? // internal, external, bible.com, etc.
+
+  // Versioning & Publishing
+  version           Int @default(1)
+  isDraft           Boolean @default(true)
+  isPublished       Boolean @default(false)
+  publishedAt       DateTime?
+  isRetired         Boolean @default(false)
+  retiredAt         DateTime?
+
+  // Content workflow
+  createdById       String?
+  createdBy         User? @relation("ResourceCreator", fields: [createdById], references: [id], onDelete: SetNull)
+
+  approvedById      String?
+  approvedBy        User? @relation("ResourceApprover", fields: [approvedById], references: [id], onDelete: SetNull)
+  approvedAt        DateTime?
+
+  // Relationships
+  stageResources    StageResource[]
+
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  @@index([type])
+  @@index([isDraft])
+  @@index([isPublished])
+  @@map("resources")
+}
+
+model StageResource {
+  id          String @id @default(cuid())
+  stageId     Int
+  stage       RestorationStage @relation(fields: [stageId], references: [id], onDelete: Cascade)
+
+  resourceId  String
+  resource    Resource @relation(fields: [resourceId], references: [id], onDelete: Cascade)
+
+  // Control display and importance
+  order       Int @default(0) // For ordering resources within a stage
+  isRequired  Boolean @default(false) // Essential for stage progression
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@unique([stageId, resourceId])
+  @@index([stageId])
+  @@index([resourceId])
+  @@map("stage_resources")
 }
