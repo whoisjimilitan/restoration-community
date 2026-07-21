@@ -12,13 +12,14 @@ datasource db {
 
 // Authentication: User manages email, password, sessions
 model User {
-  id            String    @id @default(cuid())
-  email         String    @unique
-  emailVerified DateTime?
-  password      String
-  role          Role      @default(PARTICIPANT)
-  createdAt     DateTime  @default(now())
-  updatedAt     DateTime  @updatedAt
+  id                    String    @id @default(cuid())
+  email                 String    @unique
+  emailVerified         DateTime?
+  password              String
+  role                  Role      @default(PARTICIPANT)
+  onboardingCompleted   Boolean   @default(false)
+  createdAt             DateTime  @default(now())
+  updatedAt             DateTime  @updatedAt
 
   // Relationships
   profile       Profile?
@@ -30,12 +31,18 @@ model User {
 
 // Ministry Data: Profile manages restoration-specific information
 model Profile {
-  id        String   @id @default(cuid())
-  userId    String   @unique
-  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  id                    String   @id @default(cuid())
+  userId                String   @unique
+  user                  User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
-  displayName String?
-  bio         String?
+  displayName           String
+  preferredName         String?
+  countryRegion         String?
+  timeZone              String?
+  bio                   String?
+  profilePhotoUrl       String?
+  covenantAccepted      Boolean  @default(false)
+  covenantAcceptedAt    DateTime?
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
