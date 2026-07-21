@@ -1,6 +1,7 @@
 'use client';
 
 import { FormEvent, useState } from 'react';
+import { signIn } from 'next-auth/react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 
@@ -19,22 +20,28 @@ export default function SignIn() {
     setLoading(true);
     setError('');
 
+    console.log('[AUTH] Sign in attempt:', email);
+
     try {
-      const response = await fetch('/api/auth/signin', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password }),
+      const result = await signIn('credentials', {
+        email,
+        password,
+        redirect: false,
       });
 
-      if (!response.ok) {
-        throw new Error('Sign in failed');
+      console.log('[AUTH] Sign in result:', result);
+
+      if (!result?.ok) {
+        throw new Error(result?.error || 'Sign in failed');
       }
 
+      console.log('[AUTH] Sign in successful');
       router.push(callbackUrl);
     } catch (err) {
-      setError(
-        err instanceof Error ? err.message : 'An error occurred'
-      );
+      const message =
+        err instanceof Error ? err.message : 'An error occurred';
+      console.error('[AUTH] Sign in error:', message);
+      setError(message);
     } finally {
       setLoading(false);
     }
