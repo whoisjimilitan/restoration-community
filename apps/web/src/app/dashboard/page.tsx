@@ -10,10 +10,15 @@ export default async function Dashboard() {
     redirect('/auth/signin');
   }
 
-  // Get user with onboarding status
+  // Get user with onboarding status and restoration journey
   const user = await prisma.user.findUnique({
     where: { email: session.user.email },
-    include: { profile: true },
+    include: {
+      profile: true,
+      userRestoration: {
+        include: { currentStage: true },
+      },
+    },
   });
 
   if (!user) {
@@ -78,6 +83,62 @@ export default async function Dashboard() {
             </a>
           </div>
 
+          {/* Restoration Journey */}
+          {user.userRestoration && (
+            <div className="bg-gradient-to-br from-teal-50 to-white rounded-lg p-6 border border-teal-200">
+              <h2 className="text-lg font-semibold text-gray-900 mb-4">
+                Your Restoration Journey
+              </h2>
+              <div className="space-y-4">
+                <div>
+                  <p className="text-gray-600 text-sm mb-2">Current Stage</p>
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-teal-600 text-white flex items-center justify-center font-bold text-sm">
+                      {user.userRestoration.currentStage.sequence}
+                    </div>
+                    <div>
+                      <p className="font-semibold text-gray-900">
+                        {user.userRestoration.currentStage.name}
+                      </p>
+                      <p className="text-xs text-gray-600">
+                        of 7 stages
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div className="flex items-center justify-between mb-2">
+                    <p className="text-gray-600 text-sm">Progress</p>
+                    <p className="text-sm font-medium text-gray-900">
+                      {Math.round(
+                        ((user.userRestoration.currentStage.sequence - 1) / 6) *
+                          100
+                      )}%
+                    </p>
+                  </div>
+                  <div className="w-full bg-gray-200 rounded-full h-2">
+                    <div
+                      className="bg-teal-600 h-2 rounded-full transition-all"
+                      style={{
+                        width: `${
+                          ((user.userRestoration.currentStage.sequence - 1) /
+                            6) *
+                          100
+                        }%`,
+                      }}
+                    />
+                  </div>
+                </div>
+                <a
+                  href="/journey"
+                  className="inline-block mt-4 text-teal-600 hover:text-teal-700 font-medium text-sm"
+                >
+                  View Your Journey →
+                </a>
+              </div>
+            </div>
+          )}
+
           {/* Getting Started */}
           <div className="bg-gray-50 rounded-lg p-6">
             <h2 className="text-lg font-semibold text-gray-900 mb-4">
@@ -92,12 +153,12 @@ export default async function Dashboard() {
                   Profile created
                 </p>
               </div>
-              <div className="flex items-center opacity-50">
-                <div className="w-8 h-8 rounded-full bg-gray-300 text-gray-600 flex items-center justify-center text-sm font-bold">
-                  2
+              <div className="flex items-center">
+                <div className="w-8 h-8 rounded-full bg-teal-600 text-white flex items-center justify-center text-sm font-bold">
+                  ✓
                 </div>
                 <p className="ml-3 text-sm text-gray-700">
-                  Begin restoration journey
+                  Restoration journey started
                 </p>
               </div>
               <div className="flex items-center opacity-50">

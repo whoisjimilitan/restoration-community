@@ -39,6 +39,7 @@ export default function ProfilePage() {
 
     console.log('[PROFILE] Authenticated, fetching profile');
     fetchProfile();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [status, session, router]);
 
   async function fetchProfile() {

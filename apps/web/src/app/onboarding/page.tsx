@@ -2,8 +2,6 @@
 
 import { FormEvent, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { getServerSession } from 'next-auth';
-import { authOptions } from '@/lib/auth';
 
 export default function OnboardingPage() {
   const router = useRouter();
@@ -70,7 +68,7 @@ export default function OnboardingPage() {
             Welcome to Restoration Community
           </h1>
           <p className="text-gray-600">
-            Let's set up your profile so the community can know you better.
+            Let&apos;s set up your profile so the community can know you better.
           </p>
         </div>
 

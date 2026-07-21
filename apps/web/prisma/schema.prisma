@@ -22,9 +22,11 @@ model User {
   updatedAt             DateTime  @updatedAt
 
   // Relationships
-  profile       Profile?
-  sessions      Session[]
-  accounts      Account[]
+  profile                Profile?
+  userRestoration        UserRestoration?
+  transitionsApproved    StageTransition[]
+  sessions               Session[]
+  accounts               Account[]
 
   @@map("users")
 }
@@ -91,4 +93,100 @@ enum Role {
   MENTOR
   COMMUNITY_LEADER
   ADMIN
+}
+
+// Restoration Journey: The seven immutable stages
+model RestorationStage {
+  id        Int      @id @default(autoincrement())
+  key       String   @unique // "truth", "confession", "repentance", etc.
+  name      String   // "Truth", "Confession", etc.
+  sequence  Int      @unique // 1-7, enforces order
+
+  content             StageContent?
+  currentStageUsers   UserRestoration[] @relation("CurrentStage")
+  fromTransitions     StageTransition[] @relation("FromStage")
+  toTransitions       StageTransition[] @relation("ToStage")
+  reflections         StageReflection[]
+
+  @@index([sequence])
+  @@map("restoration_stages")
+}
+
+// Editable teaching material for each stage (versionable)
+model StageContent {
+  id          Int     @id @default(autoincrement())
+  stageId     Int     @unique
+  stage       RestorationStage @relation(fields: [stageId], references: [id], onDelete: Cascade)
+
+  description String  // Full description of the stage
+  scripture   String? // Key scriptures
+  guidance    String? // Pastoral guidance
+  resources   Json?   // Future-proof: PDF URLs, video links, lesson IDs, etc.
+
+  version     Int     @default(1)
+  createdAt   DateTime @default(now())
+  publishedAt DateTime? // When this version was published
+  updatedAt   DateTime @updatedAt
+
+  @@map("stage_content")
+}
+
+// User's restoration journey (one per user)
+model UserRestoration {
+  id              Int     @id @default(autoincrement())
+  userId          String  @unique
+  user            User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  currentStageId  Int
+  currentStage    RestorationStage @relation("CurrentStage", fields: [currentStageId], references: [id])
+
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  transitions     StageTransition[]
+  reflections     StageReflection[]
+
+  @@map("user_restorations")
+}
+
+// Immutable history of stage progressions
+model StageTransition {
+  id                  Int     @id @default(autoincrement())
+  userRestorationId   Int
+  userRestoration     UserRestoration @relation(fields: [userRestorationId], references: [id], onDelete: Cascade)
+
+  fromStageId         Int
+  fromStage           RestorationStage @relation("FromStage", fields: [fromStageId], references: [id])
+
+  toStageId           Int
+  toStage             RestorationStage @relation("ToStage", fields: [toStageId], references: [id])
+
+  transitionedAt      DateTime @default(now())
+  transitionedById    String?
+  transitionedBy      User?    @relation(fields: [transitionedById], references: [id], onDelete: SetNull)
+  reason              String?  // Why the transition occurred
+
+  createdAt           DateTime @default(now())
+
+  @@index([userRestorationId])
+  @@index([transitionedAt])
+  @@map("stage_transitions")
+}
+
+// User reflections at each stage (stackable)
+model StageReflection {
+  id                  Int     @id @default(autoincrement())
+  userRestorationId   Int
+  userRestoration     UserRestoration @relation(fields: [userRestorationId], references: [id], onDelete: Cascade)
+
+  stageId             Int
+  stage               RestorationStage @relation(fields: [stageId], references: [id])
+
+  reflection          String  // User's personal note/reflection
+  createdAt           DateTime @default(now())
+  updatedAt           DateTime @updatedAt
+
+  @@index([userRestorationId])
+  @@index([stageId])
+  @@map("stage_reflections")
 }
