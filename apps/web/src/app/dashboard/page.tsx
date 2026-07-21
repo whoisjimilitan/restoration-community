@@ -2,6 +2,9 @@ import { getServerSession } from 'next-auth';
 import { authOptions } from '@/lib/auth';
 import { prisma } from '@/lib/prisma';
 import { redirect } from 'next/navigation';
+import Link from 'next/link';
+import { PageLayout, PageHeader, Section, Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui';
+import { Progress } from '@/components/ui';
 
 export default async function Dashboard() {
   const session = await getServerSession(authOptions);
@@ -10,7 +13,6 @@ export default async function Dashboard() {
     redirect('/auth/signin');
   }
 
-  // Get user with onboarding status and restoration journey
   const user = await prisma.user.findUnique({
     where: { email: session.user.email },
     include: {
@@ -25,154 +27,163 @@ export default async function Dashboard() {
     redirect('/auth/signin');
   }
 
-  // Enforce onboarding
   if (!user.onboardingCompleted) {
     console.log('[DASHBOARD] User not onboarded, redirecting to onboarding');
     redirect('/onboarding');
   }
 
+  const displayName = user.profile?.displayName || 'Friend';
+  const timeZone = user.profile?.timeZone || '';
+  const locationString =
+    user.profile?.countryRegion || '';
+
   return (
-    <div className="min-h-screen bg-white">
-      <div className="container mx-auto px-4 py-12">
-        <div className="flex justify-between items-center mb-8">
-          <div>
-            <h1 className="text-4xl font-bold text-gray-900">
-              Welcome back, {user.profile?.displayName}
-            </h1>
-            <p className="text-gray-600 mt-2">
-              {user.email}
-            </p>
-          </div>
-        </div>
+    <PageLayout>
+      <PageHeader
+        title={`Welcome back, ${displayName}`}
+        description={`You&apos;re on a journey of restoration. Here&apos;s what&apos;s next.`}
+      />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* Profile Card */}
-          <div className="bg-gray-50 rounded-lg p-6">
-            <h2 className="text-lg font-semibold text-gray-900 mb-4">
-              Your Profile
-            </h2>
-            <div className="space-y-3 text-sm">
-              <div>
-                <p className="text-gray-600">Display Name</p>
-                <p className="font-medium text-gray-900">
-                  {user.profile?.displayName || 'Not set'}
-                </p>
-              </div>
-              {user.profile?.countryRegion && (
+      {/* Current Journey Status */}
+      {user.userRestoration && (
+        <Section>
+          <Card>
+            <CardHeader>
+              <CardTitle>Your Restoration Journey</CardTitle>
+              <CardDescription>
+                Stage {user.userRestoration.currentStage.sequence} of 7
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-6">
+                {/* Stage Display */}
                 <div>
-                  <p className="text-gray-600">Location</p>
-                  <p className="font-medium text-gray-900">
-                    {user.profile.countryRegion}
-                  </p>
-                </div>
-              )}
-              {user.profile?.timeZone && (
-                <div>
-                  <p className="text-gray-600">Time Zone</p>
-                  <p className="font-medium text-gray-900">
-                    {user.profile.timeZone}
-                  </p>
-                </div>
-              )}
-            </div>
-            <a
-              href="/profile"
-              className="mt-4 inline-block text-teal-600 hover:text-teal-700 font-medium text-sm"
-            >
-              Edit Profile →
-            </a>
-          </div>
-
-          {/* Restoration Journey */}
-          {user.userRestoration && (
-            <div className="bg-gradient-to-br from-teal-50 to-white rounded-lg p-6 border border-teal-200">
-              <h2 className="text-lg font-semibold text-gray-900 mb-4">
-                Your Restoration Journey
-              </h2>
-              <div className="space-y-4">
-                <div>
-                  <p className="text-gray-600 text-sm mb-2">Current Stage</p>
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-teal-600 text-white flex items-center justify-center font-bold text-sm">
-                      {user.userRestoration.currentStage.sequence}
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-teal-100 flex items-center justify-center">
+                      <span className="text-lg font-semibold text-teal-900">
+                        {user.userRestoration.currentStage.sequence}
+                      </span>
                     </div>
                     <div>
-                      <p className="font-semibold text-gray-900">
+                      <h3 className="text-lg font-semibold text-gray-900">
                         {user.userRestoration.currentStage.name}
-                      </p>
-                      <p className="text-xs text-gray-600">
-                        of 7 stages
+                      </h3>
+                      <p className="text-sm text-gray-600">
+                        You&apos;re here right now
                       </p>
                     </div>
                   </div>
+
+                  {/* Progress Bar */}
+                  <Progress
+                    value={
+                      ((user.userRestoration.currentStage.sequence - 1) / 6) *
+                      100
+                    }
+                    showPercent
+                    label="Progress"
+                  />
                 </div>
+
+                {/* CTA */}
+                <div className="pt-4">
+                  <Link
+                    href="/journey"
+                    className="inline-flex items-center px-4 py-2.5 text-base font-medium text-teal-600 hover:text-teal-700 transition-colors duration-200"
+                  >
+                    View full journey →
+                  </Link>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </Section>
+      )}
+
+      {/* Profile Summary */}
+      <Section>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Identity */}
+          <Card>
+            <CardHeader>
+              <CardTitle>Your Identity</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-4">
                 <div>
-                  <div className="flex items-center justify-between mb-2">
-                    <p className="text-gray-600 text-sm">Progress</p>
-                    <p className="text-sm font-medium text-gray-900">
-                      {Math.round(
-                        ((user.userRestoration.currentStage.sequence - 1) / 6) *
-                          100
-                      )}%
+                  <p className="text-sm text-gray-600">Display Name</p>
+                  <p className="mt-1 font-medium text-gray-900">
+                    {user.profile?.displayName}
+                  </p>
+                </div>
+                {locationString && (
+                  <div>
+                    <p className="text-sm text-gray-600">Location</p>
+                    <p className="mt-1 font-medium text-gray-900">
+                      {locationString}
                     </p>
                   </div>
-                  <div className="w-full bg-gray-200 rounded-full h-2">
-                    <div
-                      className="bg-teal-600 h-2 rounded-full transition-all"
-                      style={{
-                        width: `${
-                          ((user.userRestoration.currentStage.sequence - 1) /
-                            6) *
-                          100
-                        }%`,
-                      }}
-                    />
+                )}
+                {timeZone && (
+                  <div>
+                    <p className="text-sm text-gray-600">Time Zone</p>
+                    <p className="mt-1 font-medium text-gray-900">
+                      {timeZone}
+                    </p>
                   </div>
-                </div>
-                <a
-                  href="/journey"
-                  className="inline-block mt-4 text-teal-600 hover:text-teal-700 font-medium text-sm"
-                >
-                  View Your Journey →
-                </a>
+                )}
               </div>
-            </div>
-          )}
+            </CardContent>
+          </Card>
 
-          {/* Getting Started */}
-          <div className="bg-gray-50 rounded-lg p-6">
-            <h2 className="text-lg font-semibold text-gray-900 mb-4">
-              Getting Started
-            </h2>
-            <div className="space-y-3">
-              <div className="flex items-center">
-                <div className="w-8 h-8 rounded-full bg-teal-600 text-white flex items-center justify-center text-sm font-bold">
-                  ✓
-                </div>
-                <p className="ml-3 text-sm text-gray-700">
-                  Profile created
-                </p>
-              </div>
-              <div className="flex items-center">
-                <div className="w-8 h-8 rounded-full bg-teal-600 text-white flex items-center justify-center text-sm font-bold">
-                  ✓
-                </div>
-                <p className="ml-3 text-sm text-gray-700">
-                  Restoration journey started
-                </p>
-              </div>
-              <div className="flex items-center opacity-50">
-                <div className="w-8 h-8 rounded-full bg-gray-300 text-gray-600 flex items-center justify-center text-sm font-bold">
-                  3
-                </div>
-                <p className="ml-3 text-sm text-gray-700">
-                  Join a community
-                </p>
-              </div>
-            </div>
-          </div>
+          {/* Next Steps */}
+          <Card>
+            <CardHeader>
+              <CardTitle>What&apos;s Next</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <ul className="space-y-3">
+                <li className="flex items-start gap-3">
+                  <span className="flex-shrink-0 w-5 h-5 rounded-full bg-teal-100 flex items-center justify-center text-sm font-semibold text-teal-900 mt-0.5">
+                    ✓
+                  </span>
+                  <span className="text-sm text-gray-700">
+                    Profile completed
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="flex-shrink-0 w-5 h-5 rounded-full bg-teal-100 flex items-center justify-center text-sm font-semibold text-teal-900 mt-0.5">
+                    ✓
+                  </span>
+                  <span className="text-sm text-gray-700">
+                    Restoration journey began
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="flex-shrink-0 w-5 h-5 rounded-full bg-gray-200 flex items-center justify-center text-sm font-semibold text-gray-600 mt-0.5">
+                    3
+                  </span>
+                  <span className="text-sm text-gray-700">
+                    Join or create a community
+                  </span>
+                </li>
+              </ul>
+            </CardContent>
+          </Card>
         </div>
-      </div>
-    </div>
+      </Section>
+
+      {/* Account Settings Link */}
+      <Section>
+        <div className="space-y-2">
+          <Link
+            href="/profile"
+            className="inline-flex text-base font-medium text-teal-600 hover:text-teal-700 transition-colors duration-200"
+          >
+            Edit your profile →
+          </Link>
+        </div>
+      </Section>
+    </PageLayout>
   );
 }

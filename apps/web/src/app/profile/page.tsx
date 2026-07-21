@@ -3,6 +3,7 @@
 import { FormEvent, useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useSession } from 'next-auth/react';
+import { PageLayout, PageHeader, Section, Card, CardContent, Input, Textarea, Button, Alert } from '@/components/ui';
 
 interface ProfileData {
   displayName: string;
@@ -19,6 +20,7 @@ export default function ProfilePage() {
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
+  const [formErrors, setFormErrors] = useState<Record<string, string>>({});
 
   const [formData, setFormData] = useState<ProfileData>({
     displayName: '',
@@ -43,8 +45,8 @@ export default function ProfilePage() {
   }, [status, session, router]);
 
   async function fetchProfile() {
-    console.log('[PROFILE] Fetching profile data');
     try {
+      console.log('[PROFILE] Fetching profile data');
       const response = await fetch('/api/profile');
 
       if (!response.ok) {
@@ -71,12 +73,13 @@ export default function ProfilePage() {
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    setFormErrors({});
     setSaving(true);
     setError('');
     setSuccess('');
 
     if (!formData.displayName.trim()) {
-      setError('Display name is required');
+      setFormErrors({ displayName: 'Display name is required' });
       setSaving(false);
       return;
     }
@@ -109,140 +112,115 @@ export default function ProfilePage() {
 
   if (status === 'loading' || loading) {
     return (
-      <div className="min-h-screen bg-white py-12 px-4 flex items-center justify-center">
-        <p className="text-gray-600">Loading...</p>
-      </div>
+      <PageLayout>
+        <PageHeader title="Loading..." />
+        <p className="text-gray-600">Loading your profile...</p>
+      </PageLayout>
     );
   }
 
+  if (!session) {
+    return null;
+  }
+
   return (
-    <div className="min-h-screen bg-white py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md mx-auto">
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">Your Profile</h1>
-          <p className="text-gray-600 mt-2">Update your information</p>
-        </div>
+    <PageLayout>
+      <PageHeader
+        title="Edit Your Profile"
+        description="Update your information anytime"
+      />
 
-        {error && (
-          <div className="rounded-md bg-red-50 p-4 mb-6">
-            <p className="text-sm text-red-800">{error}</p>
-          </div>
-        )}
+      <Section>
+        <Card>
+          <CardContent>
+            {error && (
+              <Alert
+                type="error"
+                title="Error"
+                message={error}
+                onClose={() => setError('')}
+              />
+            )}
 
-        {success && (
-          <div className="rounded-md bg-green-50 p-4 mb-6">
-            <p className="text-sm text-green-800">{success}</p>
-          </div>
-        )}
+            {success && (
+              <Alert
+                type="success"
+                title="Success"
+                message={success}
+                onClose={() => setSuccess('')}
+              />
+            )}
 
-        <form onSubmit={handleSubmit} className="space-y-6">
-          <div>
-            <label
-              htmlFor="displayName"
-              className="block text-sm font-medium text-gray-700 mb-1"
-            >
-              Display Name *
-            </label>
-            <input
-              id="displayName"
-              type="text"
-              required
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
-              value={formData.displayName}
-              onChange={(e) =>
-                setFormData({ ...formData, displayName: e.target.value })
-              }
-            />
-          </div>
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <Input
+                label="Display Name"
+                placeholder="How should we know you?"
+                value={formData.displayName}
+                onChange={(e) =>
+                  setFormData({ ...formData, displayName: e.target.value })
+                }
+                error={formErrors.displayName}
+                required
+              />
 
-          <div>
-            <label
-              htmlFor="preferredName"
-              className="block text-sm font-medium text-gray-700 mb-1"
-            >
-              Preferred Name (optional)
-            </label>
-            <input
-              id="preferredName"
-              type="text"
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
-              value={formData.preferredName}
-              onChange={(e) =>
-                setFormData({ ...formData, preferredName: e.target.value })
-              }
-            />
-          </div>
+              <Input
+                label="Preferred Name (optional)"
+                placeholder="What do you prefer to be called?"
+                value={formData.preferredName}
+                onChange={(e) =>
+                  setFormData({ ...formData, preferredName: e.target.value })
+                }
+              />
 
-          <div>
-            <label
-              htmlFor="countryRegion"
-              className="block text-sm font-medium text-gray-700 mb-1"
-            >
-              Country/Region (optional)
-            </label>
-            <input
-              id="countryRegion"
-              type="text"
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
-              value={formData.countryRegion}
-              onChange={(e) =>
-                setFormData({ ...formData, countryRegion: e.target.value })
-              }
-            />
-          </div>
+              <Input
+                label="Country/Region (optional)"
+                placeholder="Where are you located?"
+                value={formData.countryRegion}
+                onChange={(e) =>
+                  setFormData({ ...formData, countryRegion: e.target.value })
+                }
+              />
 
-          <div>
-            <label
-              htmlFor="timeZone"
-              className="block text-sm font-medium text-gray-700 mb-1"
-            >
-              Time Zone
-            </label>
-            <input
-              id="timeZone"
-              type="text"
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
-              value={formData.timeZone}
-              onChange={(e) =>
-                setFormData({ ...formData, timeZone: e.target.value })
-              }
-            />
-          </div>
+              <Input
+                label="Time Zone"
+                placeholder="Your time zone"
+                value={formData.timeZone}
+                onChange={(e) =>
+                  setFormData({ ...formData, timeZone: e.target.value })
+                }
+              />
 
-          <div>
-            <label
-              htmlFor="bio"
-              className="block text-sm font-medium text-gray-700 mb-1"
-            >
-              About You (optional)
-            </label>
-            <textarea
-              id="bio"
-              rows={4}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
-              value={formData.bio}
-              onChange={(e) =>
-                setFormData({ ...formData, bio: e.target.value })
-              }
-            />
-          </div>
+              <Textarea
+                label="About You (optional)"
+                placeholder="Tell us a bit about yourself—what you're learning, what matters to you..."
+                rows={4}
+                value={formData.bio}
+                onChange={(e) =>
+                  setFormData({ ...formData, bio: e.target.value })
+                }
+              />
 
-          <button
-            type="submit"
-            disabled={saving}
-            className="w-full bg-teal-600 text-white py-2 px-4 rounded-lg font-medium hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 disabled:opacity-50"
-          >
-            {saving ? 'Saving...' : 'Save Changes'}
-          </button>
-        </form>
-
-        <a
-          href="/dashboard"
-          className="block text-center mt-6 text-teal-600 hover:text-teal-700"
-        >
-          Back to Dashboard
-        </a>
-      </div>
-    </div>
+              <div className="flex gap-3 pt-4">
+                <Button
+                  type="submit"
+                  disabled={saving}
+                  isLoading={saving}
+                >
+                  Save Changes
+                </Button>
+                <Button
+                  type="button"
+                  variant="secondary"
+                  onClick={() => router.push('/dashboard')}
+                  disabled={saving}
+                >
+                  Cancel
+                </Button>
+              </div>
+            </form>
+          </CardContent>
+        </Card>
+      </Section>
+    </PageLayout>
   );
 }

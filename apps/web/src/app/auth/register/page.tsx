@@ -4,27 +4,34 @@ import { FormEvent, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { signIn } from 'next-auth/react';
 import Link from 'next/link';
+import { PageLayout, PageHeader, Section, Card, CardContent, Input, Button, Alert } from '@/components/ui';
 
-export default function Register() {
+export default function RegisterPage() {
   const router = useRouter();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const [name, setName] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const [formErrors, setFormErrors] = useState<Record<string, string>>({});
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setError('');
+    setFormErrors({});
+
+    const newErrors: Record<string, string> = {};
 
     if (password !== confirmPassword) {
-      setError('Passwords do not match');
-      return;
+      newErrors.confirmPassword = 'Passwords do not match';
     }
 
     if (password.length < 8) {
-      setError('Password must be at least 8 characters');
+      newErrors.password = 'Password must be at least 8 characters';
+    }
+
+    if (Object.keys(newErrors).length > 0) {
+      setFormErrors(newErrors);
       return;
     }
 
@@ -34,7 +41,7 @@ export default function Register() {
       const response = await fetch('/api/auth/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password, name }),
+        body: JSON.stringify({ email, password }),
       });
 
       if (!response.ok) {
@@ -44,7 +51,6 @@ export default function Register() {
 
       console.log('[REGISTER] Account created, signing in...');
 
-      // Automatically sign in after registration
       const signInResult = await signIn('credentials', {
         email,
         password,
@@ -67,111 +73,80 @@ export default function Register() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4">
-      <div className="w-full max-w-md space-y-8">
-        <div>
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-            Join Restoration Community
-          </h2>
-          <p className="mt-2 text-center text-sm text-gray-600">
-            Create an account to begin your restoration journey
-          </p>
-        </div>
+    <PageLayout className="flex items-center justify-center min-h-screen">
+      <Section className="w-full max-w-md mb-0">
+        <PageHeader
+          title="Start Your Journey"
+          description="Create an account to begin"
+        />
 
-        {error && (
-          <div className="rounded-md bg-red-50 p-4">
-            <p className="text-sm text-red-800">{error}</p>
-          </div>
-        )}
-
-        <form onSubmit={handleSubmit} className="mt-8 space-y-6">
-          <div className="space-y-4 rounded-md shadow-sm">
-            <div>
-              <label htmlFor="name" className="sr-only">
-                Name
-              </label>
-              <input
-                id="name"
-                name="name"
-                type="text"
-                autoComplete="name"
-                className="relative block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-teal-500 focus:outline-none focus:ring-teal-500 sm:text-sm"
-                placeholder="Full name (optional)"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
+        <Card>
+          <CardContent>
+            {error && (
+              <Alert
+                type="error"
+                title="Error"
+                message={error}
+                onClose={() => setError('')}
               />
-            </div>
-            <div>
-              <label htmlFor="email" className="sr-only">
-                Email address
-              </label>
-              <input
-                id="email"
-                name="email"
+            )}
+
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <Input
+                label="Email"
                 type="email"
-                autoComplete="email"
-                required
-                className="relative block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-teal-500 focus:outline-none focus:ring-teal-500 sm:text-sm"
-                placeholder="Email address"
+                placeholder="you@example.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-              />
-            </div>
-            <div>
-              <label htmlFor="password" className="sr-only">
-                Password
-              </label>
-              <input
-                id="password"
-                name="password"
-                type="password"
-                autoComplete="new-password"
                 required
-                className="relative block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-teal-500 focus:outline-none focus:ring-teal-500 sm:text-sm"
-                placeholder="Password (min 8 characters)"
+                autoFocus
+              />
+
+              <Input
+                label="Password"
+                type="password"
+                placeholder="••••••••"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-              />
-            </div>
-            <div>
-              <label htmlFor="confirmPassword" className="sr-only">
-                Confirm password
-              </label>
-              <input
-                id="confirmPassword"
-                name="confirmPassword"
-                type="password"
-                autoComplete="new-password"
+                hint="At least 8 characters"
+                error={formErrors.password}
                 required
-                className="relative block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-teal-500 focus:outline-none focus:ring-teal-500 sm:text-sm"
-                placeholder="Confirm password"
+              />
+
+              <Input
+                label="Confirm Password"
+                type="password"
+                placeholder="••••••••"
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
+                error={formErrors.confirmPassword}
+                required
               />
-            </div>
-          </div>
 
-          <button
-            type="submit"
-            disabled={loading}
-            className="group relative flex w-full justify-center rounded-md border border-transparent bg-teal-600 py-2 px-4 text-sm font-medium text-white hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 disabled:opacity-50"
-          >
-            {loading ? 'Creating account...' : 'Create account'}
-          </button>
-
-          <div className="text-center">
-            <p className="text-sm text-gray-600">
-              Already have an account?{' '}
-              <Link
-                href="/auth/signin"
-                className="font-medium text-teal-600 hover:text-teal-500"
+              <Button
+                type="submit"
+                disabled={loading}
+                isLoading={loading}
+                className="w-full"
               >
-                Sign in
-              </Link>
-            </p>
-          </div>
-        </form>
-      </div>
-    </div>
+                Create Account
+              </Button>
+
+              <div className="text-center pt-2">
+                <p className="text-sm text-gray-600">
+                  Already have an account?{' '}
+                  <Link
+                    href="/auth/signin"
+                    className="font-medium text-teal-600 hover:text-teal-700 transition-colors duration-200"
+                  >
+                    Sign in
+                  </Link>
+                </p>
+              </div>
+            </form>
+          </CardContent>
+        </Card>
+      </Section>
+    </PageLayout>
   );
 }

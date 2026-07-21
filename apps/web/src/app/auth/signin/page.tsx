@@ -4,8 +4,9 @@ import { FormEvent, useState } from 'react';
 import { signIn } from 'next-auth/react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
+import { PageLayout, PageHeader, Section, Card, CardContent, Input, Button, Alert } from '@/components/ui';
 
-export default function SignIn() {
+export default function SignInPage() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [email, setEmail] = useState('');
@@ -48,78 +49,68 @@ export default function SignIn() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4">
-      <div className="w-full max-w-md space-y-8">
-        <div>
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-            Sign in to Restoration Community
-          </h2>
-        </div>
+    <PageLayout className="flex items-center justify-center min-h-screen">
+      <Section className="w-full max-w-md mb-0">
+        <PageHeader
+          title="Welcome back"
+          description="Sign in to continue your restoration journey"
+        />
 
-        {error && (
-          <div className="rounded-md bg-red-50 p-4">
-            <p className="text-sm text-red-800">{error}</p>
-          </div>
-        )}
+        <Card>
+          <CardContent>
+            {error && (
+              <Alert
+                type="error"
+                title="Sign in failed"
+                message={error}
+                onClose={() => setError('')}
+              />
+            )}
 
-        <form onSubmit={handleSubmit} className="mt-8 space-y-6">
-          <input type="hidden" name="remember" value="true" />
-          <div className="-space-y-px rounded-md shadow-sm">
-            <div>
-              <label htmlFor="email" className="sr-only">
-                Email address
-              </label>
-              <input
-                id="email"
-                name="email"
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <Input
+                label="Email"
                 type="email"
-                autoComplete="email"
-                required
-                className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-teal-500 focus:outline-none focus:ring-teal-500 sm:text-sm"
-                placeholder="Email address"
+                placeholder="you@example.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-              />
-            </div>
-            <div>
-              <label htmlFor="password" className="sr-only">
-                Password
-              </label>
-              <input
-                id="password"
-                name="password"
-                type="password"
-                autoComplete="current-password"
                 required
-                className="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-teal-500 focus:outline-none focus:ring-teal-500 sm:text-sm"
-                placeholder="Password"
+                autoFocus
+              />
+
+              <Input
+                label="Password"
+                type="password"
+                placeholder="••••••••"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                required
               />
-            </div>
-          </div>
 
-          <button
-            type="submit"
-            disabled={loading}
-            className="group relative flex w-full justify-center rounded-md border border-transparent bg-teal-600 py-2 px-4 text-sm font-medium text-white hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 disabled:opacity-50"
-          >
-            {loading ? 'Signing in...' : 'Sign in'}
-          </button>
-
-          <div className="text-center">
-            <p className="text-sm text-gray-600">
-              Don&apos;t have an account?{' '}
-              <Link
-                href="/auth/register"
-                className="font-medium text-teal-600 hover:text-teal-500"
+              <Button
+                type="submit"
+                disabled={loading}
+                isLoading={loading}
+                className="w-full"
               >
-                Register
-              </Link>
-            </p>
-          </div>
-        </form>
-      </div>
-    </div>
+                Sign In
+              </Button>
+
+              <div className="text-center pt-2">
+                <p className="text-sm text-gray-600">
+                  Don&apos;t have an account?{' '}
+                  <Link
+                    href="/auth/register"
+                    className="font-medium text-teal-600 hover:text-teal-700 transition-colors duration-200"
+                  >
+                    Create one
+                  </Link>
+                </p>
+              </div>
+            </form>
+          </CardContent>
+        </Card>
+      </Section>
+    </PageLayout>
   );
 }

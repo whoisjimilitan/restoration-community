@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useSession } from 'next-auth/react';
+import { PageLayout, PageHeader, Section, Card, CardHeader, CardTitle, CardDescription, CardContent, Badge, Button, Textarea, Alert, Progress } from '@/components/ui';
 
 interface Stage {
   id: number;
@@ -13,7 +14,6 @@ interface Stage {
     description: string;
     scripture?: string;
     guidance?: string;
-    resources?: unknown;
   };
 }
 
@@ -22,23 +22,18 @@ interface Transition {
   fromStage: Stage;
   toStage: Stage;
   createdAt: string;
-  reason?: string;
 }
 
 interface Reflection {
   id: number;
-  stageId: number;
   reflection: string;
   createdAt: string;
 }
 
 interface Journey {
-  userId: string;
   currentStage: Stage;
   currentStageNumber: number;
   progressPercent: number;
-  totalStages: number;
-  createdAt: string;
   recentTransitions: Transition[];
   recentReflections: Reflection[];
 }
@@ -59,18 +54,15 @@ export default function JourneyPage() {
     if (status === 'loading') return;
 
     if (status === 'unauthenticated' || !session) {
-      console.log('[JOURNEY] Not authenticated, redirecting');
       router.push('/auth/signin');
       return;
     }
 
-    console.log('[JOURNEY] Authenticated, loading data');
     loadData();
   }, [status, session, router]);
 
   async function loadData() {
     try {
-      console.log('[JOURNEY] Fetching journey and stages');
       const [journeyRes, stagesRes] = await Promise.all([
         fetch('/api/restoration/journey'),
         fetch('/api/restoration/stages'),
@@ -85,10 +77,6 @@ export default function JourneyPage() {
 
       setJourney(journeyData);
       setAllStages(stagesData);
-      console.log(
-        '[JOURNEY] Loaded journey at stage',
-        journeyData.currentStageNumber
-      );
     } catch (err) {
       console.error('[JOURNEY] Error loading data:', err);
       setError('Could not load your journey');
@@ -104,17 +92,12 @@ export default function JourneyPage() {
     setError('');
     setSuccess('');
 
-    console.log(
-      '[JOURNEY] Advancing from stage',
-      journey.currentStageNumber
-    );
-
     try {
       const response = await fetch('/api/restoration/advance', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          reason: 'Self-directed advancement',
+          reason: 'Ready to move forward',
         }),
       });
 
@@ -124,9 +107,8 @@ export default function JourneyPage() {
 
       const data = await response.json();
       setSuccess(
-        `Progressed to ${data.toStage.name}. Well done on your journey!`
+        `You've progressed to ${data.toStage.name}. Keep going!`
       );
-      console.log('[JOURNEY] Advanced to stage', data.toStage.sequence);
 
       await new Promise((resolve) => setTimeout(resolve, 1500));
       await loadData();
@@ -141,15 +123,13 @@ export default function JourneyPage() {
   async function handleAddReflection(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     if (!reflection.trim()) {
-      setError('Please enter a reflection');
+      setError('Please share your thoughts');
       return;
     }
 
     setSubmittingReflection(true);
     setError('');
     setSuccess('');
-
-    console.log('[JOURNEY] Submitting reflection');
 
     try {
       const response = await fetch('/api/restoration/reflect', {
@@ -162,7 +142,6 @@ export default function JourneyPage() {
         throw new Error('Failed to save reflection');
       }
 
-      console.log('[JOURNEY] Reflection saved');
       setSuccess('Reflection saved');
       setReflection('');
 
@@ -178,213 +157,200 @@ export default function JourneyPage() {
 
   if (status === 'loading' || loading) {
     return (
-      <div className="min-h-screen bg-white py-12 px-4 flex items-center justify-center">
-        <p className="text-gray-600">Loading your restoration journey...</p>
-      </div>
+      <PageLayout>
+        <PageHeader title="Your Restoration Journey" />
+        <p className="text-gray-600">Loading...</p>
+      </PageLayout>
     );
   }
 
   if (!journey) {
     return (
-      <div className="min-h-screen bg-white py-12 px-4 flex items-center justify-center">
-        <p className="text-gray-600">Could not load your journey</p>
-      </div>
+      <PageLayout>
+        <PageHeader title="Your Restoration Journey" />
+        <Alert type="error" message="Could not load your journey" />
+      </PageLayout>
     );
   }
 
   return (
-    <div className="min-h-screen bg-white py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto">
-        {/* Header */}
-        <div className="mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-2">
-            Your Restoration Journey
-          </h1>
-          <p className="text-lg text-gray-600">
-            Progress: {journey.currentStageNumber} of {journey.totalStages}
-          </p>
-        </div>
+    <PageLayout>
+      <PageHeader
+        title="Your Restoration Journey"
+        description={`You're on stage ${journey.currentStageNumber} of 7`}
+      />
 
-        {error && (
-          <div className="rounded-md bg-red-50 p-4 mb-6">
-            <p className="text-sm text-red-800">{error}</p>
-          </div>
-        )}
+      {error && (
+        <Section>
+          <Alert
+            type="error"
+            message={error}
+            onClose={() => setError('')}
+          />
+        </Section>
+      )}
 
-        {success && (
-          <div className="rounded-md bg-green-50 p-4 mb-6">
-            <p className="text-sm text-green-800">{success}</p>
-          </div>
-        )}
+      {success && (
+        <Section>
+          <Alert
+            type="success"
+            message={success}
+            onClose={() => setSuccess('')}
+          />
+        </Section>
+      )}
 
-        {/* Progress Bar */}
-        <div className="mb-12">
-          <div className="flex items-center justify-between mb-2">
-            <h2 className="text-sm font-medium text-gray-700">Overall Progress</h2>
-            <span className="text-sm font-medium text-gray-900">
-              {journey.progressPercent}%
-            </span>
-          </div>
-          <div className="w-full bg-gray-200 rounded-full h-3">
-            <div
-              className="bg-teal-600 h-3 rounded-full transition-all duration-500"
-              style={{ width: `${journey.progressPercent}%` }}
-            />
-          </div>
-        </div>
+      {/* Current Stage */}
+      <Section>
+        <Card>
+          <CardHeader>
+            <div className="flex items-start justify-between">
+              <div className="flex-1">
+                <CardTitle>{journey.currentStage.name}</CardTitle>
+                <CardDescription>
+                  Stage {journey.currentStageNumber} of 7
+                </CardDescription>
+              </div>
+              <Badge variant="primary">Current</Badge>
+            </div>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-6">
+              {/* Progress */}
+              <Progress
+                value={journey.progressPercent}
+                label="Overall Progress"
+                showPercent
+              />
 
-        {/* Current Stage Card */}
-        <div className="mb-12 rounded-lg border border-gray-200 p-8 bg-gradient-to-br from-teal-50 to-white">
-          <div className="mb-4">
-            <span className="inline-block px-3 py-1 rounded-full text-sm font-medium bg-teal-100 text-teal-800">
-              Stage {journey.currentStageNumber} of {journey.totalStages}
-            </span>
-          </div>
-          <h3 className="text-2xl font-bold text-gray-900 mb-4">
-            {journey.currentStage.name}
-          </h3>
-          {journey.currentStage.content && (
-            <>
-              <p className="text-gray-700 mb-6 leading-relaxed">
-                {journey.currentStage.content.description}
-              </p>
-              {journey.currentStage.content.scripture && (
-                <div className="mb-6 p-4 bg-white rounded border-l-4 border-teal-600">
-                  <p className="text-sm font-medium text-gray-600 mb-2">
-                    Scripture
+              {/* Content */}
+              {journey.currentStage.content && (
+                <div className="space-y-4">
+                  <p className="text-gray-700 leading-relaxed">
+                    {journey.currentStage.content.description}
                   </p>
-                  <p className="text-gray-900 italic">
-                    {journey.currentStage.content.scripture}
+
+                  {journey.currentStage.content.scripture && (
+                    <div className="p-4 bg-teal-50 rounded-lg border-l-4 border-teal-600">
+                      <p className="text-sm font-medium text-teal-900 mb-1">
+                        Scripture
+                      </p>
+                      <p className="text-sm text-teal-800 italic">
+                        {journey.currentStage.content.scripture}
+                      </p>
+                    </div>
+                  )}
+
+                  {journey.currentStage.content.guidance && (
+                    <div className="p-4 bg-gray-50 rounded-lg">
+                      <p className="text-sm font-medium text-gray-900 mb-2">
+                        Guidance for This Stage
+                      </p>
+                      <p className="text-sm text-gray-700">
+                        {journey.currentStage.content.guidance}
+                      </p>
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {/* CTA */}
+              {journey.currentStageNumber < 7 && (
+                <div className="pt-4">
+                  <Button
+                    onClick={handleAdvance}
+                    disabled={advancing}
+                    isLoading={advancing}
+                  >
+                    Move to Next Stage
+                  </Button>
+                </div>
+              )}
+
+              {journey.currentStageNumber === 7 && (
+                <div className="p-4 bg-green-50 rounded-lg border border-green-200">
+                  <p className="text-sm font-medium text-green-900">
+                    ✓ You have completed all seven stages
                   </p>
                 </div>
               )}
-              {journey.currentStage.content.guidance && (
-                <div className="mb-6 p-4 bg-white rounded">
-                  <p className="text-sm font-medium text-gray-600 mb-2">
-                    Guidance
-                  </p>
-                  <p className="text-gray-700">
-                    {journey.currentStage.content.guidance}
-                  </p>
+            </div>
+          </CardContent>
+        </Card>
+      </Section>
+
+      {/* Reflections */}
+      <Section>
+        <Card>
+          <CardHeader>
+            <CardTitle>Your Reflections</CardTitle>
+            <CardDescription>
+              Capture your thoughts and growth at this stage
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-6">
+              {/* Add Reflection */}
+              <form onSubmit={handleAddReflection} className="space-y-3">
+                <Textarea
+                  placeholder="What are you learning? What's changing in you?"
+                  rows={3}
+                  value={reflection}
+                  onChange={(e) => setReflection(e.target.value)}
+                />
+                <Button
+                  type="submit"
+                  disabled={submittingReflection}
+                  isLoading={submittingReflection}
+                  variant="secondary"
+                >
+                  Save Reflection
+                </Button>
+              </form>
+
+              {/* Recent Reflections */}
+              {journey.recentReflections.length > 0 ? (
+                <div className="space-y-3 pt-4">
+                  {journey.recentReflections.map((ref) => (
+                    <div
+                      key={ref.id}
+                      className="p-3 bg-gray-50 rounded-lg text-sm"
+                    >
+                      <p className="text-xs text-gray-500 mb-1.5">
+                        {new Date(ref.createdAt).toLocaleDateString(
+                          'en-US',
+                          {
+                            year: 'numeric',
+                            month: 'short',
+                            day: 'numeric',
+                          }
+                        )}
+                      </p>
+                      <p className="text-gray-800">{ref.reflection}</p>
+                    </div>
+                  ))}
                 </div>
+              ) : (
+                <p className="text-sm text-gray-500 text-center py-4">
+                  No reflections yet. Start writing to capture your journey.
+                </p>
               )}
-            </>
-          )}
-
-          {journey.currentStageNumber < 7 && (
-            <button
-              onClick={handleAdvance}
-              disabled={advancing}
-              className="mt-6 inline-block bg-teal-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-teal-700 disabled:opacity-50 transition-colors"
-            >
-              {advancing ? 'Advancing...' : 'Move to Next Stage'}
-            </button>
-          )}
-          {journey.currentStageNumber === 7 && (
-            <div className="mt-6 p-4 bg-green-50 rounded-lg border border-green-200">
-              <p className="text-green-900 font-medium">
-                ✓ You have completed all seven stages of restoration.
-              </p>
             </div>
-          )}
-        </div>
+          </CardContent>
+        </Card>
+      </Section>
 
-        {/* Reflection Section */}
-        <div className="mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">
-            Your Reflections
-          </h2>
-
-          <form
-            onSubmit={handleAddReflection}
-            className="mb-8 rounded-lg border border-gray-200 p-6"
-          >
-            <label
-              htmlFor="reflection"
-              className="block text-sm font-medium text-gray-700 mb-2"
-            >
-              Share your thoughts on this stage
-            </label>
-            <textarea
-              id="reflection"
-              rows={4}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
-              placeholder="What is God teaching you? What progress are you making?"
-              value={reflection}
-              onChange={(e) => setReflection(e.target.value)}
-            />
-            <button
-              type="submit"
-              disabled={submittingReflection}
-              className="mt-4 bg-teal-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-teal-700 disabled:opacity-50 transition-colors"
-            >
-              {submittingReflection ? 'Saving...' : 'Save Reflection'}
-            </button>
-          </form>
-
-          {journey.recentReflections.length > 0 ? (
-            <div className="space-y-4">
-              {journey.recentReflections.map((ref) => (
-                <div
-                  key={ref.id}
-                  className="rounded-lg border border-gray-200 p-4 bg-gray-50"
-                >
-                  <p className="text-xs text-gray-500 mb-2">
-                    {new Date(ref.createdAt).toLocaleDateString()}
-                  </p>
-                  <p className="text-gray-800">{ref.reflection}</p>
-                </div>
-              ))}
-            </div>
-          ) : (
-            <p className="text-gray-500 text-center py-8">
-              No reflections yet. Start capturing your thoughts.
-            </p>
-          )}
-        </div>
-
-        {/* Progression History */}
-        {journey.recentTransitions.length > 0 && (
-          <div className="mb-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">
-              Your Progress
-            </h2>
-            <div className="space-y-4">
-              {journey.recentTransitions.map((transition) => (
-                <div
-                  key={transition.id}
-                  className="rounded-lg border border-gray-200 p-4 flex items-center gap-4"
-                >
-                  <div className="text-center">
-                    <p className="text-xs text-gray-500 mb-1">
-                      {new Date(transition.createdAt).toLocaleDateString()}
-                    </p>
-                  </div>
-                  <div className="flex-1">
-                    <p className="font-medium text-gray-900">
-                      {transition.fromStage.name} →{' '}
-                      {transition.toStage.name}
-                    </p>
-                    {transition.reason && (
-                      <p className="text-sm text-gray-600">{transition.reason}</p>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {/* All Stages Overview */}
-        <div className="mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">
-            The Seven Stages
+      {/* All Stages Overview */}
+      <Section>
+        <div>
+          <h2 className="text-2xl font-semibold text-gray-900 mb-4">
+            All Stages
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {allStages.map((stage) => (
               <div
                 key={stage.id}
-                className={`rounded-lg border-2 p-4 transition-all ${
+                className={`p-4 rounded-lg border-2 ${
                   stage.sequence <= journey.currentStageNumber
                     ? 'border-teal-600 bg-teal-50'
                     : 'border-gray-200 bg-white'
@@ -392,7 +358,7 @@ export default function JourneyPage() {
               >
                 <div className="flex items-start gap-3">
                   <div
-                    className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center font-medium text-sm ${
+                    className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center font-semibold text-sm ${
                       stage.sequence <= journey.currentStageNumber
                         ? 'bg-teal-600 text-white'
                         : 'bg-gray-200 text-gray-700'
@@ -401,17 +367,17 @@ export default function JourneyPage() {
                     {stage.sequence}
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900">
+                    <h3 className="font-medium text-gray-900">
                       {stage.name}
                     </h3>
                     {stage.sequence === journey.currentStageNumber && (
                       <p className="text-xs text-teal-600 font-medium mt-1">
-                        ● Current Stage
+                        You are here
                       </p>
                     )}
                     {stage.sequence < journey.currentStageNumber && (
                       <p className="text-xs text-teal-600 font-medium mt-1">
-                        ✓ Completed
+                        Completed
                       </p>
                     )}
                   </div>
@@ -420,14 +386,17 @@ export default function JourneyPage() {
             ))}
           </div>
         </div>
+      </Section>
 
+      {/* Back Link */}
+      <Section>
         <a
           href="/dashboard"
-          className="inline-block text-teal-600 hover:text-teal-700 font-medium"
+          className="inline-flex text-base font-medium text-teal-600 hover:text-teal-700 transition-colors duration-200"
         >
           ← Back to Dashboard
         </a>
-      </div>
-    </div>
+      </Section>
+    </PageLayout>
   );
 }
