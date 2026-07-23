@@ -1,47 +1,53 @@
 'use client';
 
-import Link from 'next/link';
-
 export default function ChristSection() {
   return (
-    <section className="w-full py-24 md:py-32 bg-rc-bg border-t border-rc-text/5">
-      <div className="max-w-2xl mx-auto px-6 sm:px-8 md:px-12">
-        <div className="space-y-8">
-          <div>
-            <h2 className="text-4xl md:text-5xl font-serif font-bold text-rc-text leading-tight">
+    <section className="w-full bg-rc-bg border-t border-rc-text/5">
+      {/* SCENE SEVEN: Christ — Emotional centre. Scripture-like. Pause here. */}
+      <div className="min-h-screen md:min-h-[130vh] flex flex-col justify-center px-6 sm:px-8 md:px-12 py-40 md:py-0">
+        <div className="max-w-lg mx-auto w-full">
+          {/* Enormous whitespace around the statement */}
+          <div className="mb-32 md:mb-48" />
+
+          {/* The central truth — like Scripture being read aloud */}
+          <div className="space-y-16 md:space-y-24 text-center">
+            <h2 className="text-6xl md:text-7xl font-serif font-bold text-rc-text leading-tight">
               Restoration is possible because of Jesus Christ.
             </h2>
+
+            {/* Long pause after headline — visitor should feel the weight */}
+            <div className="py-8 md:py-12" />
+
+            {/* Statements emerge slowly — contemplative */}
+            <div className="space-y-12 md:space-y-16">
+              <p className="text-lg md:text-xl text-rc-text leading-relaxed font-light">
+                No failure has the final word.
+              </p>
+
+              <p className="text-lg md:text-xl text-rc-text leading-relaxed font-light">
+                No past places anyone beyond God&apos;s grace.
+              </p>
+
+              <div className="py-4 md:py-8" />
+
+              <p className="text-lg md:text-xl text-rc-text leading-relaxed">
+                Jesus Christ remains the centre of our identity, our message, our community and our hope.
+              </p>
+
+              <div className="py-4 md:py-8" />
+
+              <p className="text-lg md:text-xl text-rc-text-secondary leading-relaxed font-light">
+                Because He restores people...
+              </p>
+
+              <p className="text-lg md:text-xl text-rc-text leading-relaxed">
+                we walk with one another as restoration continues.
+              </p>
+            </div>
           </div>
 
-          <div className="space-y-6 text-lg text-rc-text leading-relaxed">
-            <p>
-              No failure has the final word.
-            </p>
-            <p>
-              No past places anyone beyond God&apos;s grace.
-            </p>
-            <p>
-              Jesus Christ remains the centre of our identity, our message, our community and our hope.
-            </p>
-            <p>
-              Because He restores people...
-            </p>
-            <p>
-              we walk with one another as restoration continues.
-            </p>
-          </div>
-
-          <div className="pt-4">
-            <Link
-              href="#journey"
-              className="inline-flex items-center text-base font-medium text-rc-accent hover:text-rc-text transition-colors duration-200"
-            >
-              Explore the Restoration Journey
-              <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </Link>
-          </div>
+          {/* Whitespace after — let it breathe */}
+          <div className="mb-32 md:mb-48" />
         </div>
       </div>
     </section>
