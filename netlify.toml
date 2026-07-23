@@ -1,7 +1,7 @@
 [build]
-base = "apps/web"
 command = "npm run build"
-publish = "apps/web/.next/public"
+functions = "apps/web/.next/server"
+publish = ".next/public"
 
 [[redirects]]
 from = "/*"
