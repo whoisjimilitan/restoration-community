@@ -9,9 +9,15 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Ministry brand colors
-        primary: '#0F766E',
-        secondary: '#0D9488',
+        // Ministry brand colors per specification
+        'rc-bg': '#F8F6F2', // Warm off-white background
+        'rc-text': '#202124', // Very dark charcoal for primary text
+        'rc-text-secondary': '#8B8680', // Muted warm grey
+        'rc-accent': '#0F766E', // Deep restorative teal
+      },
+      fontFamily: {
+        'rc-serif': ['Georgia', 'Garamond', 'serif'],
+        'rc-sans': ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
       },
     },
   },

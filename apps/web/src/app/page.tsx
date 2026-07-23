@@ -1,14 +1,29 @@
+'use client';
+
+import Navigation from './components/landing/Navigation';
+import HeroSection from './components/landing/HeroSection';
+import RecognitionSection from './components/landing/RecognitionSection';
+import ChristSection from './components/landing/ChristSection';
+import JourneySection from './components/landing/JourneySection';
+import CommunitySection from './components/landing/CommunitySection';
+import HonestWorkSection from './components/landing/HonestWorkSection';
+import InvitationSection from './components/landing/InvitationSection';
+import Footer from './components/landing/Footer';
+
 export default function Home() {
   return (
-    <main className="min-h-screen bg-white">
-      <div className="container mx-auto px-4 py-12">
-        <h1 className="text-4xl font-bold text-gray-900">
-          Restoration Community Platform
-        </h1>
-        <p className="mt-4 text-gray-600">
-          Under construction. Phase 1: Engineering foundation.
-        </p>
-      </div>
-    </main>
+    <>
+      <Navigation />
+      <main className="bg-rc-bg">
+        <HeroSection />
+        <RecognitionSection />
+        <ChristSection />
+        <JourneySection />
+        <CommunitySection />
+        <HonestWorkSection />
+        <InvitationSection />
+      </main>
+      <Footer />
+    </>
   );
 }
