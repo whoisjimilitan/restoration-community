@@ -15,34 +15,67 @@ export default function HeroSection() {
       position: 'relative',
       width: '100%',
       minHeight: '100vh',
-      backgroundColor: '#F8F6F2',
-      padding: '4rem 2rem',
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'center',
-      alignItems: 'flex-start'
+      alignItems: 'flex-start',
+      paddingTop: '5rem',
+      paddingBottom: '6rem',
+      paddingLeft: '2rem',
+      paddingRight: '2rem',
+      overflow: 'hidden'
     }}>
+      {/* Atmospheric Background Layer */}
       <div style={{
-        maxWidth: '600px',
-        width: '100%'
+        position: 'absolute',
+        inset: 0,
+        background: 'linear-gradient(135deg, #FAFAF8 0%, #F8F6F2 40%, #F5F3F0 100%)',
+        zIndex: -2
+      }} />
+
+      {/* Morning Light Suggestion */}
+      <div style={{
+        position: 'absolute',
+        inset: 0,
+        background: 'radial-gradient(ellipse 120% 100% at 50% -10%, rgba(255, 255, 255, 0.5) 0%, transparent 60%)',
+        zIndex: -1,
+        pointerEvents: 'none'
+      }} />
+
+      {/* Subtle Depth Overlay */}
+      <div style={{
+        position: 'absolute',
+        inset: 0,
+        background: 'linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, transparent 30%, rgba(0, 0, 0, 0.03) 100%)',
+        zIndex: -1,
+        pointerEvents: 'none'
+      }} />
+
+      {/* Content Container */}
+      <div style={{
+        maxWidth: '560px',
+        width: '100%',
+        position: 'relative',
+        zIndex: 1
       }}>
         {/* Eyebrow */}
         <div
           style={{
             opacity: isLoaded ? 1 : 0,
-            transform: isLoaded ? 'translateY(0)' : 'translateY(8px)',
-            transition: 'all 700ms ease-out',
+            transform: isLoaded ? 'translateY(0)' : 'translateY(10px)',
+            transition: 'all 800ms cubic-bezier(0.4, 0, 0.2, 1)',
             transitionDelay: '100ms',
-            marginBottom: '2.5rem'
+            marginBottom: '3rem'
           }}
         >
           <p style={{
-            fontSize: '0.875rem',
+            fontSize: '0.8125rem',
             fontWeight: 500,
-            letterSpacing: '0.08em',
+            letterSpacing: '0.12em',
             color: '#8B8680',
             textTransform: 'uppercase',
-            margin: 0
+            margin: 0,
+            fontFamily: 'Inter, system-ui, -apple-system, sans-serif'
           }}>
             A Christian Community for Restoration
           </p>
@@ -52,18 +85,19 @@ export default function HeroSection() {
         <div
           style={{
             opacity: isLoaded ? 1 : 0,
-            transform: isLoaded ? 'translateY(0)' : 'translateY(8px)',
-            transition: 'all 700ms ease-out',
+            transform: isLoaded ? 'translateY(0)' : 'translateY(10px)',
+            transition: 'all 800ms cubic-bezier(0.4, 0, 0.2, 1)',
             transitionDelay: '150ms',
-            marginBottom: '2.5rem'
+            marginBottom: '2rem'
           }}
         >
           <h1 style={{
-            fontSize: '3.5rem',
-            fontFamily: 'Georgia, serif',
+            fontSize: '3.75rem',
+            fontFamily: 'Georgia, Garamond, serif',
             fontWeight: 700,
             color: '#202124',
-            lineHeight: 1.15,
+            lineHeight: 1.1,
+            letterSpacing: '-0.02em',
             margin: 0
           }}>
             Restoration begins where deception ends.
@@ -74,41 +108,53 @@ export default function HeroSection() {
         <div
           style={{
             opacity: isLoaded ? 1 : 0,
-            transform: isLoaded ? 'translateY(0)' : 'translateY(8px)',
-            transition: 'all 700ms ease-out',
+            transform: isLoaded ? 'translateY(0)' : 'translateY(10px)',
+            transition: 'all 800ms cubic-bezier(0.4, 0, 0.2, 1)',
             transitionDelay: '200ms',
-            marginBottom: '2.5rem'
+            marginBottom: '3.5rem'
           }}
         >
           <p style={{
-            fontSize: '1.125rem',
+            fontSize: '1.0625rem',
             color: '#202124',
-            lineHeight: 1.65,
-            margin: '0 0 1rem 0'
+            lineHeight: 1.7,
+            letterSpacing: '-0.005em',
+            margin: '0 0 1.25rem 0',
+            fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
+            fontWeight: 400
           }}>
             You already know what deception costs.
           </p>
           <p style={{
-            fontSize: '1.125rem',
+            fontSize: '1.0625rem',
             color: '#202124',
-            lineHeight: 1.65,
-            margin: '0 0 1rem 0'
+            lineHeight: 1.7,
+            letterSpacing: '-0.005em',
+            margin: '0 0 1.25rem 0',
+            fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
+            fontWeight: 400
           }}>
             Perhaps what has remained hidden is that our deepest need is not simply freedom from wrongdoing, but reconciliation with God.
           </p>
           <p style={{
-            fontSize: '1.125rem',
+            fontSize: '1.0625rem',
             color: '#202124',
-            lineHeight: 1.65,
-            margin: '0 0 1rem 0'
+            lineHeight: 1.7,
+            letterSpacing: '-0.005em',
+            margin: '0 0 1.25rem 0',
+            fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
+            fontWeight: 400
           }}>
             Through Jesus Christ, restoration is possible.
           </p>
           <p style={{
-            fontSize: '1.125rem',
+            fontSize: '1.0625rem',
             color: '#202124',
-            lineHeight: 1.65,
-            margin: 0
+            lineHeight: 1.7,
+            letterSpacing: '-0.005em',
+            margin: 0,
+            fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
+            fontWeight: 400
           }}>
             And no one should have to walk that journey alone.
           </p>
@@ -118,10 +164,10 @@ export default function HeroSection() {
         <div
           style={{
             opacity: isLoaded ? 1 : 0,
-            transform: isLoaded ? 'translateY(0)' : 'translateY(8px)',
-            transition: 'all 700ms ease-out',
+            transform: isLoaded ? 'translateY(0)' : 'translateY(10px)',
+            transition: 'all 800ms cubic-bezier(0.4, 0, 0.2, 1)',
             transitionDelay: '250ms',
-            marginBottom: '2rem',
+            marginBottom: '2.5rem',
             display: 'flex',
             gap: '1rem',
             flexWrap: 'wrap'
@@ -130,16 +176,29 @@ export default function HeroSection() {
           <Link
             href="/auth/register"
             style={{
-              padding: '0.75rem 1.5rem',
+              padding: '0.875rem 1.75rem',
               backgroundColor: '#0F766E',
               color: 'white',
-              fontSize: '0.875rem',
+              fontSize: '0.9375rem',
               fontWeight: 500,
+              letterSpacing: '0.01em',
               borderRadius: '0.375rem',
               textDecoration: 'none',
               display: 'inline-block',
               cursor: 'pointer',
-              transition: 'opacity 200ms'
+              transition: 'all 300ms cubic-bezier(0.4, 0, 0.2, 1)',
+              border: '1px solid #0F766E',
+              fontFamily: 'Inter, system-ui, -apple-system, sans-serif'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = '#0a5c59';
+              e.currentTarget.style.borderColor = '#0a5c59';
+              e.currentTarget.style.boxShadow = '0 8px 16px rgba(15, 118, 110, 0.15)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = '#0F766E';
+              e.currentTarget.style.borderColor = '#0F766E';
+              e.currentTarget.style.boxShadow = 'none';
             }}
           >
             Begin the Journey
@@ -147,14 +206,28 @@ export default function HeroSection() {
           <Link
             href="#about"
             style={{
-              padding: '0.75rem 1.5rem',
+              padding: '0.875rem 1.75rem',
               color: '#0F766E',
-              fontSize: '0.875rem',
+              fontSize: '0.9375rem',
               fontWeight: 500,
+              letterSpacing: '0.01em',
               textDecoration: 'none',
               display: 'inline-block',
               cursor: 'pointer',
-              transition: 'color 200ms'
+              transition: 'all 300ms cubic-bezier(0.4, 0, 0.2, 1)',
+              border: '1px solid rgba(15, 118, 110, 0.3)',
+              borderRadius: '0.375rem',
+              fontFamily: 'Inter, system-ui, -apple-system, sans-serif'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.color = '#202124';
+              e.currentTarget.style.borderColor = '#202124';
+              e.currentTarget.style.backgroundColor = 'rgba(15, 118, 110, 0.05)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.color = '#0F766E';
+              e.currentTarget.style.borderColor = 'rgba(15, 118, 110, 0.3)';
+              e.currentTarget.style.backgroundColor = 'transparent';
             }}
           >
             Learn More
@@ -165,16 +238,20 @@ export default function HeroSection() {
         <div
           style={{
             opacity: isLoaded ? 1 : 0,
-            transform: isLoaded ? 'translateY(0)' : 'translateY(8px)',
-            transition: 'all 700ms ease-out',
-            transitionDelay: '300ms'
+            transform: isLoaded ? 'translateY(0)' : 'translateY(10px)',
+            transition: 'all 800ms cubic-bezier(0.4, 0, 0.2, 1)',
+            transitionDelay: '300ms',
+            paddingTop: '1.5rem'
           }}
         >
           <p style={{
             fontSize: '0.75rem',
             color: '#8B8680',
-            letterSpacing: '0.06em',
-            margin: 0
+            letterSpacing: '0.08em',
+            margin: 0,
+            fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
+            fontWeight: 500,
+            textTransform: 'uppercase'
           }}>
             Guiding people toward honest work and living.
           </p>
@@ -189,20 +266,44 @@ export default function HeroSection() {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        opacity: 0.4
+        opacity: 0.4,
+        transition: 'opacity 300ms ease-out',
+        cursor: 'default'
+      }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.opacity = '0.6';
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.opacity = '0.4';
       }}>
         <p style={{
           fontSize: '0.75rem',
           color: '#8B8680',
           letterSpacing: '0.08em',
-          marginBottom: '0.75rem',
           textTransform: 'uppercase',
-          margin: '0 0 0.75rem 0'
+          margin: '0 0 0.75rem 0',
+          fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
+          fontWeight: 500
         }}>
           Scroll
         </p>
-        <svg style={{ width: '1.25rem', height: '1.25rem', color: '#8B8680' }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+        <svg
+          style={{
+            width: '1.25rem',
+            height: '1.25rem',
+            color: '#8B8680',
+            animation: 'gentle-float 3s ease-in-out infinite'
+          }}
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={1.5}
+            d="M19 14l-7 7m0 0l-7-7m7 7V3"
+          />
         </svg>
       </div>
     </section>
