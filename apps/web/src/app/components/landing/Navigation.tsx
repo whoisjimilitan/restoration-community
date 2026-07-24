@@ -14,7 +14,7 @@ export default function Navigation() {
           Restoration Community
         </Link>
 
-        {/* Navigation Links - Desktop */}
+        {/* Navigation Links - Desktop (4 minimal items centered) */}
         <div className="hidden md:flex items-center gap-8">
           <Link href="#about" className="text-sm text-rc-text hover:text-rc-accent transition-colors duration-200">
             About
@@ -22,20 +22,14 @@ export default function Navigation() {
           <Link href="#journey" className="text-sm text-rc-text hover:text-rc-accent transition-colors duration-200">
             Journey
           </Link>
-          <Link href="#community" className="text-sm text-rc-text hover:text-rc-accent transition-colors duration-200">
-            Community
-          </Link>
-          <Link href="#resources" className="text-sm text-rc-text hover:text-rc-accent transition-colors duration-200">
-            Resources
-          </Link>
           <Link href="/auth/signin" className="text-sm text-rc-text hover:text-rc-accent transition-colors duration-200">
             Sign In
           </Link>
           <Link
             href="/auth/register"
-            className="text-sm font-medium text-rc-accent hover:text-rc-text transition-colors duration-200"
+            className="text-sm text-rc-text hover:text-rc-accent transition-colors duration-200"
           >
-            Join Community
+            Begin Journey
           </Link>
         </div>
 
@@ -61,17 +55,11 @@ export default function Navigation() {
             <Link href="#journey" className="block text-sm text-rc-text hover:text-rc-accent transition-colors">
               Journey
             </Link>
-            <Link href="#community" className="block text-sm text-rc-text hover:text-rc-accent transition-colors">
-              Community
-            </Link>
-            <Link href="#resources" className="block text-sm text-rc-text hover:text-rc-accent transition-colors">
-              Resources
-            </Link>
             <Link href="/auth/signin" className="block text-sm text-rc-text hover:text-rc-accent transition-colors">
               Sign In
             </Link>
-            <Link href="/auth/register" className="block text-sm font-medium text-rc-accent hover:text-rc-text transition-colors">
-              Join Community
+            <Link href="/auth/register" className="block text-sm text-rc-text hover:text-rc-accent transition-colors">
+              Begin Journey
             </Link>
           </div>
         </div>
