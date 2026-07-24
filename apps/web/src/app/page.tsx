@@ -2,12 +2,9 @@
 
 import Navigation from './components/landing/Navigation';
 import HeroSection from './components/landing/HeroSection';
-import RecognitionSection from './components/landing/RecognitionSection';
-import HonestWorkSection from './components/landing/HonestWorkSection';
-import JourneySection from './components/landing/JourneySection';
-import CommunitySection from './components/landing/CommunitySection';
-import ChristSection from './components/landing/ChristSection';
-import InvitationSection from './components/landing/InvitationSection';
+import WhyWeExistSection from './components/landing/WhyWeExistSection';
+import WhatHappensNextSection from './components/landing/WhatHappensNextSection';
+import FinalInvitationSection from './components/landing/FinalInvitationSection';
 import Footer from './components/landing/Footer';
 
 export default function Home() {
@@ -15,26 +12,19 @@ export default function Home() {
     <>
       <Navigation />
       <main className="bg-rc-bg">
-        {/* SCENE ONE: Arrival */}
+        {/* Trust Funnel: Move visitor from uncertainty to beginning */}
+
+        {/* 1. Hero: Recognition & Truth */}
         <HeroSection />
 
-        {/* SCENE TWO & THREE: Recognition & Truth */}
-        <RecognitionSection />
+        {/* 2. Why We Exist: Establish purpose */}
+        <WhyWeExistSection />
 
-        {/* SCENE FOUR: Hope */}
-        <HonestWorkSection />
+        {/* 3. What Happens Next: Show the journey begins */}
+        <WhatHappensNextSection />
 
-        {/* SCENE FIVE: Journey */}
-        <JourneySection />
-
-        {/* SCENE SIX: Community */}
-        <CommunitySection />
-
-        {/* SCENE SEVEN: Christ (Emotional Centre) */}
-        <ChristSection />
-
-        {/* SCENE EIGHT: Invitation */}
-        <InvitationSection />
+        {/* 4. Final Invitation: Clear CTA as natural conclusion */}
+        <FinalInvitationSection />
       </main>
       <Footer />
     </>
