@@ -34,7 +34,7 @@ export default function HeroSection() {
             style={{ transitionDelay: '240ms' }}
           >
             <p className="text-lg text-rc-text leading-relaxed">
-              Whether you're beginning your restoration journey or you're another step along it, there's a place for you in this community.
+              Whether you&apos;re beginning your restoration journey or you&apos;re another step along it, there&apos;s a place for you in this community.
             </p>
             <p className="text-lg text-rc-text leading-relaxed mt-6">
               Through Jesus Christ, restoration is possible. And no one should have to walk that journey alone.
