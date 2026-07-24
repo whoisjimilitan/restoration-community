@@ -35,14 +35,6 @@ export default function Footer() {
           <div className="text-xs text-rc-text-secondary pt-4 border-t border-rc-text/5">
             © {new Date().getFullYear()} Restoration Community. All rights reserved.
           </div>
-
-          {/* FORENSIC AUDIT 001 — Deployed Commit Verification */}
-          <div style={{ fontSize: '0.625rem', color: '#8B8680', fontFamily: 'monospace', marginTop: '2rem', padding: '0.5rem', backgroundColor: 'rgba(139, 134, 128, 0.05)', borderRadius: '0.25rem' }}>
-            <div>🔬 FORENSIC AUDIT 001</div>
-            <div>Deployed Commit: c103f5ce33c0c68239c49d2f926beb761fb17e1c</div>
-            <div>Expected: c103f5c (redesign: Simplify Hero to full-width vertical layout)</div>
-            <div>Build Time: {new Date().toISOString()}</div>
-          </div>
         </div>
       </div>
     </footer>

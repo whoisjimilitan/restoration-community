@@ -22,25 +22,6 @@ export default function HeroSection() {
       justifyContent: 'center',
       alignItems: 'flex-start'
     }}>
-      {/* FORENSIC AUDIT 001 — Hero Version Marker */}
-      <div style={{
-        position: 'absolute',
-        top: '1rem',
-        right: '2rem',
-        fontSize: '0.625rem',
-        color: '#8B8680',
-        fontFamily: 'monospace',
-        backgroundColor: 'rgba(139, 134, 128, 0.1)',
-        padding: '0.5rem',
-        borderRadius: '0.25rem',
-        border: '1px solid rgba(139, 134, 128, 0.2)'
-      }}>
-        <div>🔬 HERO VERSION</div>
-        <div>Commit: c103f5c</div>
-        <div>Layout: Full-width vertical</div>
-        <div>Inline styles: YES</div>
-      </div>
-
       <div style={{
         maxWidth: '600px',
         width: '100%'
