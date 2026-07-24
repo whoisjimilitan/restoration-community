@@ -22,7 +22,7 @@ export default function HeroSection() {
             style={{ transitionDelay: '120ms' }}
           >
             <h1 className="text-5xl md:text-6xl font-serif font-bold text-rc-text leading-tight">
-              You are welcome here.
+              Your past does not have the final word.
             </h1>
           </div>
 
@@ -34,10 +34,13 @@ export default function HeroSection() {
             style={{ transitionDelay: '240ms' }}
           >
             <p className="text-lg text-rc-text leading-relaxed">
-              Whether you&apos;re beginning your restoration journey or you&apos;re another step along it, there&apos;s a place for you in this community.
+              In Christ Jesus, no failure removes your worth. No shame places you beyond God&apos;s grace.
             </p>
             <p className="text-lg text-rc-text leading-relaxed mt-6">
-              Through Jesus Christ, restoration is possible. And no one should have to walk that journey alone.
+              You are being restored to become the person God created you to be.
+            </p>
+            <p className="text-lg text-rc-text leading-relaxed mt-6">
+              This community exists for those leaving deception behind.
             </p>
           </div>
 
