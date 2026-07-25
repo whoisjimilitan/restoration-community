@@ -22,7 +22,7 @@ export default function HeroSection() {
             style={{ transitionDelay: '120ms' }}
           >
             <p className="text-sm font-medium text-rc-accent uppercase tracking-wide">
-              A Christian Community for Restoration
+              Deliverance Through Jesus Christ
             </p>
           </div>
 
@@ -46,10 +46,13 @@ export default function HeroSection() {
             style={{ transitionDelay: '360ms' }}
           >
             <p className="text-lg text-rc-text leading-relaxed">
-              You already know what deception costs. Perhaps what has remained hidden is that our deepest need is not simply freedom from wrongdoing, but reconciliation with God.
+              You know what deception costs. Fraud, dishonesty, and the life built around them can take you further from who God created you to be.
             </p>
             <p className="text-lg text-rc-text leading-relaxed mt-6">
-              Through Jesus Christ, restoration is possible. And no one should have to walk that journey alone.
+              But your past does not have to become your future.
+            </p>
+            <p className="text-lg text-rc-text leading-relaxed mt-6">
+              Jesus Christ alone delivers, restores, and leads people into a new life of truth and purpose.
             </p>
           </div>
 
@@ -62,16 +65,16 @@ export default function HeroSection() {
           >
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
-                href="/auth/register"
+                href="/deliverance"
                 className="inline-flex items-center justify-center px-8 py-4 bg-rc-accent text-white font-medium rounded-lg hover:bg-rc-text transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-rc-accent focus:ring-offset-2 focus:ring-offset-rc-bg"
               >
-                Begin the Journey
+                I Need Deliverance
               </Link>
               <Link
                 href="#about"
                 className="inline-flex items-center justify-center px-8 py-4 text-rc-accent font-medium hover:text-rc-text transition-colors duration-200"
               >
-                Learn About Our Community
+                Read My Story
               </Link>
             </div>
           </div>

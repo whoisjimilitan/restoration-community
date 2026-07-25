@@ -14,20 +14,14 @@ export default function CommunitySection() {
           {/* Heading */}
           <div className="max-w-2xl">
             <h2 className="text-4xl md:text-5xl font-serif font-bold text-rc-text leading-tight">
-              Restoration was never meant to happen alone.
+              Walking the Journey Together
             </h2>
           </div>
 
           {/* Description */}
           <div className="max-w-2xl space-y-4 text-lg text-rc-text">
             <p>
-              Mentors. Prayer. Scripture. Honest conversations. Faithful encouragement. Real relationships.
-            </p>
-            <p>
-              Not because community replaces Christ.
-            </p>
-            <p>
-              Because Christ often restores people through His people.
+              Christ is the one who restores. But He often strengthens people through prayer, encouragement, and faithful relationships.
             </p>
           </div>
 

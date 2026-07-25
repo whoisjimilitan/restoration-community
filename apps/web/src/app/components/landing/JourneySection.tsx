@@ -9,7 +9,7 @@ const stages = [
   { name: 'Forgiveness', description: 'Forgiveness restores peace.' },
   { name: 'Reconciliation', description: 'Reconciliation restores relationships.' },
   { name: 'Honest Work', description: 'Honest work restores dignity.' },
-  { name: 'Serving Others', description: 'Serving others restores purpose.' },
+  { name: 'Serving', description: 'Serving restores purpose.' },
 ];
 
 export default function JourneySection() {

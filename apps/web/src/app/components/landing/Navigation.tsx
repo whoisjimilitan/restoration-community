@@ -11,7 +11,7 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 py-4 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="text-lg font-serif font-bold text-rc-text">
-          Restoration Community
+          Restoration
         </Link>
 
         {/* Navigation Links - Desktop */}
@@ -23,7 +23,7 @@ export default function Navigation() {
             Journey
           </Link>
           <Link href="#community" className="text-sm text-rc-text hover:text-rc-accent transition-colors duration-200">
-            Community
+            Partnership
           </Link>
           <Link href="#resources" className="text-sm text-rc-text hover:text-rc-accent transition-colors duration-200">
             Resources
@@ -35,7 +35,7 @@ export default function Navigation() {
             href="/auth/register"
             className="text-sm font-medium text-rc-accent hover:text-rc-text transition-colors duration-200"
           >
-            Join Community
+            I Need Deliverance
           </Link>
         </div>
 
@@ -71,7 +71,7 @@ export default function Navigation() {
               Sign In
             </Link>
             <Link href="/auth/register" className="block text-sm font-medium text-rc-accent hover:text-rc-text transition-colors">
-              Join Community
+              I Need Deliverance
             </Link>
           </div>
         </div>
