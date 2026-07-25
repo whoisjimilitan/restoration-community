@@ -184,30 +184,75 @@ SERVICE
 
 ## Non-Negotiable Principles
 
-### 1. Prayer Precedes Platform Participation
+### 1. Prayer is the Ministry's First Act of Welcome; Platform Participation Follows
 
 **Principle:**
-A person does not need to understand the entire ministry architecture, commitment level, or seven-stage journey before asking for help.
+A person does not need to understand the entire ministry, commitment level, or journey before reaching out. Prayer is how the ministry welcomes the broken.
 
 **In practice:**
-- The first action should be simple: **"I need prayer."**
+- The first action should be simple and immediate: **"I need prayer."**
 - No prerequisite knowledge required
 - No account required
 - No onboarding burden
 - No profile to complete
+- Just a vulnerable person reaching toward God through a trusted servant
 
 **Why:**
-Someone carrying shame, guilt, desperation, or fear will not navigate a complex system. They will leave.
+Someone carrying shame, guilt, desperation, or fear will not navigate a complex system. They will leave before they ask.
 
 The threshold must be low.
 The welcome must be immediate.
+The first gesture must be one of mercy: **We will pray with you.**
 
 **Authority:**
 GOV-002 Part 4 (Confidentiality Principle): "A person's vulnerability belongs first between the person and God and trusted servants."
 
 This principle means the first encounter is **personal**, not **transactional**.
 
-### 2. The Ministry is Relationship-First, Not Registration-First
+### 2. The Platform Never Becomes the Hero
+
+**Principle:**
+The platform must never communicate that it is the source of transformation. Jesus Christ is the source. The platform is a tool in service of that truth.
+
+**In practice:**
+Every page, every feature, every message must answer one question: **Who is the hero of this experience?**
+
+- If the answer is: "the platform," something has drifted
+- If the answer is: "the community," something has drifted
+- If the answer is: "the mentor," something has drifted
+- If the answer is: "Brother Jimi," something has drifted
+
+The answer should always be:
+- **Jesus Christ is the source of restoration**
+- **The ministry serves His work**
+- **The platform supports the ministry**
+
+**What this prevents:**
+- ❌ "Download our app and change your life"
+- ❌ "Join our community and transform"
+- ❌ "Our program will restore you"
+- ❌ "This methodology will save you"
+
+**What this enables:**
+- ✅ "Jesus restores. This ministry walks with you as you seek Him."
+- ✅ "We pray. God works. You are transformed."
+- ✅ "Come as you are. Christ accepts you. The journey begins with prayer."
+
+**When this applies:**
+Every feature proposal, every hero section, every onboarding flow, every notification, every page—test it against this principle:
+
+**Is Jesus the hero, or has the platform become the hero?**
+
+If you cannot honestly say Jesus is the hero, the feature belongs in a different ministry or requires redesign.
+
+**Authority:**
+Four-Book Foundation, Book Three: "The platform exists to serve the ministry, not to become the ministry."
+
+Scripture: "Unless the Lord builds the house, those who build it labor in vain." (Psalm 127:1)
+
+---
+
+### 3. The Ministry is Relationship-First, Not Registration-First
 
 **Principle:**
 The platform must not force a vulnerable person through unnecessary barriers before they encounter **care**.
@@ -239,36 +284,36 @@ The registration happens **after** they know they are loved.
 **Authority:**
 Book Three, Chapter One (Digital Restoration Philosophy): "The platform exists to serve the ministry, not to become the ministry."
 
-### 3. Brother Jimi's Ministry Remains the Human Doorway
+### 4. Jesus Christ Is the Doorway; Brother Jimi Serves as the Ministry's Pastoral Contact
 
 **Principle:**
-The platform does not replace the servant of God.
-The platform **facilitates connection** to the servant of God.
+Jesus Christ is the doorway to restoration. The platform does not replace the servant of God. The platform **facilitates connection** to a faithful shepherd who points seekers toward Christ.
 
 **In practice:**
-- Prayer requests go to **Brother Jimi's prayer ministry**
+- Prayer requests are received by **Brother Jimi's prayer ministry**, a servant of Christ
 - Not to an automated system
 - Not to a community prayer wall
 - Not to an algorithm
-- To **a person who prays**
+- To **a person who prays and points to Jesus**
 
-- Initial response is **personal**
+- Initial response is **personal and pastoral**
 - Not automated confirmation email
 - Not chatbot
 - Not form letter
-- A **human response** from ministry
+- A **human response** that guides toward Christ
 
-- Spiritual authority remains **with the ministry**
-- Teaching is ministry-led
-- Mentoring is ministry-led
-- Pastoral care is ministry-led
-- Discipleship is ministry-led
+- Spiritual authority remains **with Christ and the ministry serving Him**
+- Teaching points to Christ
+- Mentoring points to Christ
+- Pastoral care shows Christ's love
+- Discipleship leads to Christ
 
 The platform is a **tool** that connects people to the ministry.
-The ministry is the **heart** that transforms people.
+The ministry is the **servant** that connects people to Christ.
+Christ is the **source** of restoration.
 
 **Authority:**
-GOV-002 Part 2 (Prayer Ministry Leadership): "Brother Jimi serves as the spiritual covering and authority for prayer ministry."
+GOV-002 Part 2 (Prayer Ministry Leadership): "Brother Jimi serves as the spiritual covering and authority for prayer ministry" — always pointing seekers toward Jesus Christ as the source of restoration.
 
 ---
 
@@ -406,14 +451,65 @@ Prayer is the **doorway**.
 
 ---
 
+## Important: ENTRY-001 Is an Operating Model, Not a Design Spec
+
+**Critical distinction:**
+
+ENTRY-001 is not a website redesign document. It is a **ministry operating model** that explains:
+- **Why** prayer exists
+- **Why** onboarding exists
+- **Why** the restoration journey exists
+- **Why** mentoring exists
+- **Why** testimony exists
+- **Why** serving exists
+
+These are no longer isolated features. They are stages in one coherent ministry movement.
+
+The homepage does not change because ENTRY-001 says "change your hero section."
+
+The homepage changes because ENTRY-001 clarifies **what story the website is supposed to tell**.
+
+---
+
+## Important: Homepage Redesign Is Intentionally Frozen
+
+**DO NOT redesign the homepage until these three authorities exist:**
+
+1. **ENCOUNTER-001** — What happens after someone asks for prayer?
+2. **ONBOARD-002** — When and how does someone become a participant?
+3. **EXPERIENCE-001** — How should every page reflect this ministry pathway?
+
+**Why?**
+
+Months of previous work tried to design a homepage using:
+- Color choices
+- Typography decisions
+- Navigation structures
+- Feature priorities
+
+Without understanding the story the website tells.
+
+Now you know the story.
+
+Before ENTRY-001: "Design an attractive platform"
+After ENTRY-001: "Design the first encounter of a ministry"
+
+That is a much stronger foundation.
+
+Once ENCOUNTER-001, ONBOARD-002, and EXPERIENCE-001 exist, every design decision has clear purpose. Every page reflects the ministry pathway. Every element answers: **Who is the hero?**
+
+Then redesign with authority.
+
+---
+
 ## Out of Scope (ENTRY-001 Does NOT Include)
 
-ENTRY-001 is an **authority document**.
+ENTRY-001 is an **authority document and operating model**.
 
 It does **not** implement:
 
-❌ Website redesign  
-❌ Homepage copy changes  
+❌ Website redesign (frozen until dependent authorities exist)
+❌ Homepage copy changes (frozen until dependent authorities exist)
 ❌ Marketing campaigns  
 ❌ Prayer request system (already covered by PRAYER-001)  
 ❌ Intake/encounter workflows  
@@ -422,6 +518,8 @@ It does **not** implement:
 ❌ Participant onboarding UX  
 
 These are **future implementation executables** that will use ENTRY-001 as their foundation.
+
+But homepage redesign specifically waits for ENCOUNTER-001, ONBOARD-002, and EXPERIENCE-001.
 
 ---
 
