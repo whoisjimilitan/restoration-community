@@ -1,90 +1,46 @@
 ---
 type: mission-statement
 id: MISSION-001
-title: Restoration Ministry Foundation — The Core Mission
+title: Restoration Ministry Foundation — Complete Authority
 status: canonical-authority
 date: 2026-07-25
 authority-level: Highest
 ---
 
 # MISSION-001
-## Restoration Ministry Foundation — The Core Mission
+## Restoration Ministry Foundation
+
+This is the highest-level authority document. It answers:
+- Why we exist
+- What we believe
+- How we organize
+- How we make decisions
+
+Everything else flows from MISSION-001.
 
 ---
 
-## The Foundational Truth
+## 1. Why We Exist
 
-**There is no answer to online scamming perpetration.**
+**The Foundational Truth**
 
-**The only answer is Jesus Christ.**
+There is no answer to online scamming perpetration.
 
-Everything else flows from this conviction.
+The only answer is Jesus Christ.
 
----
+**The Mission Statement**
 
-## Mission Statement
+The Restoration Community exists because we believe that no human system can ultimately free a person from the life of online fraud. Jesus Christ alone restores hearts, transforms lives, and gives people the power to walk in truth.
 
-**The Restoration Community exists because we believe that no human system can ultimately free a person from the life of online fraud. Jesus Christ alone restores hearts, transforms lives, and gives people the power to walk in truth.**
+**The Platform's Purpose**
 
----
-
-## Platform Purpose
-
-**The platform exists to offer a trusted pathway for people involved in online fraud who are desperate for change to receive deliverance prayer, encounter Jesus Christ, and begin a lifelong journey of restoration. As God transforms their lives, their testimonies become a witness that invites others to seek the same freedom.**
+The platform exists to help people seeking freedom from lives of online fraud connect with the ministry, receive prayer, and be invited into an encounter with Jesus Christ. It then supports them as they walk a lifelong journey of restoration within the Restoration Community.
 
 ---
 
-## The Ministry Cycle (Not a Software Funnel)
+## 2. What We Believe
 
-This is the true measure of faithfulness:
-
-```
-LIFE IN FRAUD
-    |
-    | recognition of deception
-    ↓
-DESPERATION
-    |
-    | "I need help"
-    ↓
-PRAYER
-    |
-    | request for deliverance
-    ↓
-ENCOUNTER WITH JESUS CHRIST
-    |
-    | meeting God's mercy through ministry
-    ↓
-REPENTANCE
-    |
-    | turning from old life
-    ↓
-RESTORATION JOURNEY
-    |
-    | walking the seven stages with community
-    ↓
-FAITHFUL LIVING
-    |
-    | new identity, honest work
-    ↓
-TESTIMONY
-    |
-    | witnessing God's work
-    ↓
-ANOTHER PERSON HEARS
-    |
-    | seeks prayer
-    ↓
-BACK TO PRAYER
-```
-
-**This cycle—not software metrics—is the ministry's primary measure of faithfulness.**
-
----
-
-## Core Convictions
-
-### Conviction 1: Only Jesus Restores
+### Belief 1: Only Jesus Restores
 
 No program can free a person from online fraud.
 No community can save someone trapped in deception.
@@ -99,18 +55,19 @@ Jesus Christ alone has the power to:
 - Provide purpose and identity
 - Create new life
 
-### Conviction 2: Prayer Is the Gateway
+### Belief 2: Prayer Is the Gateway
 
-Prayer is not a feature.
+Prayer is not a feature of the ministry.
+
 Prayer is not an activity inside a program.
 
 **Prayer is the trusted doorway through which desperate people encounter Jesus Christ.**
 
 When someone says "I need help," the ministry responds: "We will pray with you."
 
-That prayer is the point where God meets desperation.
+That prayer is where God meets desperation.
 
-### Conviction 3: Ministry Points to Christ
+### Belief 3: Ministry Points to Christ
 
 The ministry exists to serve Jesus Christ's work, not to build its own kingdom.
 
@@ -122,13 +79,12 @@ If someone is drawn to the ministry leader instead of to Jesus, something has dr
 
 If someone experiences transformation, the testimony belongs to Christ: "Jesus changed my life."
 
-Not: "This ministry changed my life."
-
 The servant is honored for faithfulness, not worshipped as saviour.
 
-### Conviction 4: Testimony Is Transformation Witnessed
+### Belief 4: Testimony Is Transformation Witnessed
 
 Testimony is not a social feature.
+
 Testimony is not a performance.
 
 **Testimony is evidence of God's work.**
@@ -141,227 +97,248 @@ That testimony invites the next person to seek prayer.
 
 The cycle continues.
 
-### Conviction 5: The Platform Serves, Never Leads
+---
 
-The platform is a tool.
-The ministry is the servant.
-Jesus Christ is the Lord.
+## 3. The Role of the Ministry
 
-Every feature must answer: **"How does this help someone encounter Jesus Christ, grow in restoration, or faithfully testify to God's work?"**
+The ministry does the spiritual work:
+- Receives prayer requests from desperate people
+- Prays with and for those seeking help
+- Guides people toward encounter with Jesus Christ
+- Walks alongside those pursuing restoration
+- Mentors and disciples participants
+- Preserves and encourages testimonies
+- Invites others into the cycle
 
-If a feature does not serve one of those purposes, it does not belong.
+The ministry is led by Jesus Christ through Scripture and pastoral authority.
 
-No feature for engagement metrics.
-No feature for social connection (beyond what ministry requires).
-No feature that makes the platform, the program, or the minister the hero.
+Brother Jimi serves as the pastoral point of contact, always pointing people toward Jesus as the Saviour and source of restoration.
+
+The ministry makes pastoral decisions:
+- Who is ready for the journey
+- How to respond to requests
+- What restoration looks like for each person
+- How to steward confidentiality and care
+
+**The ministry is the spiritual center.**
 
 ---
 
-## Authority Hierarchy
+## 4. The Role of the Platform
+
+The platform does not create the ministry.
+
+The platform does not replace the ministry.
+
+**The platform supports the ministry.**
+
+The platform's responsibilities:
+- Enables prayer requests from people seeking help
+- Connects seekers with the ministry
+- Facilitates the restoration journey (7 stages)
+- Enables pastoral communication
+- Supports community accountability
+- Preserves testimonies
+- Enables ministry stewardship and operations
+
+The platform is a tool that the ministry uses.
+
+The ministry is the purpose the platform serves.
+
+**The software doesn't create the ministry lifecycle. It supports one that already exists.**
+
+---
+
+## 5. Ministry-First Architecture
+
+### The Architectural Hierarchy
 
 ```
 JESUS CHRIST
-(Source of restoration, Lord of the ministry)
-    |
+(Lord and source of restoration)
     ↓
 SCRIPTURE
 (God's revealed Word)
-    |
     ↓
-MISSION-001: Restoration Ministry Foundation
-(Why the platform exists; what it serves)
-    |
-    ├─→ FOUR-BOOK FOUNDATION
-    |   (Theological and operational framework)
-    |   |
-    |   ├─→ GOV-002: Prayer Ministry Principle
-    |   |   (How prayer is protected and led)
-    |   |
-    |   └─→ ENTRY-001: Entry Pathway
-    |       (How desperate people find the ministry)
-    |
-    └─→ IMPLEMENTATION
-        (How the platform serves the ministry)
-        |
-        ├─→ PRAYER-001: Prayer System
-        ├─→ JOURNEY-001/002: Restoration Stages
-        ├─→ ENCOUNTER-001: Ministry Response (Future)
-        ├─→ ONBOARD-002: Participant Transition (Future)
-        ├─→ MENTORING-001: Pastoral Walking (Future)
-        ├─→ COMMUNITY-001: Fellowship Support (Future)
-        └─→ TESTIMONY-001: Witness Preservation (Future)
+MISSION-001: Ministry Mission
+(Why we exist, what we believe)
+    ↓
+GOVERNANCE LAYER
+(How the ministry operates: GOV-002, ENTRY-001)
+    ↓
+MINISTRY OPERATIONS
+(How pastoral work actually happens)
+    ↓
+PLATFORM REQUIREMENTS
+(What the software must enable)
+    ↓
+SOFTWARE IMPLEMENTATION
+(How the software is built)
+    ↓
+INTERFACE DESIGN
+(How the website looks and feels)
 ```
 
-**MISSION-001 sits at the top because it answers the fundamental question:**
+**Notice: Interface design is at the bottom, not the top.**
 
-**Why does this ministry exist?**
+The homepage doesn't decide what the ministry is.
 
-Answer: **To lead desperate people to encounter Jesus Christ through prayer and walk with them in lifelong restoration.**
+The homepage expresses what already exists.
 
-Everything else flows from that purpose.
+### The Architectural Principle
 
----
+**The platform is inside the ministry, not the ministry inside the platform.**
 
-## Brother Jimi's Role
+This means:
+- Ministry shapes software, not vice versa
+- Governance comes before implementation
+- Authority flows from Jesus → Scripture → Mission → Governance → Operations → Requirements → Implementation
+- Interface design is an expression of known ministry, not an invention of new ministry
 
-**Brother Jimi is a servant of Jesus Christ who has himself experienced Christ's restoring work.**
+This architectural principle means every future decision should flow from the top of the hierarchy downward, never from the bottom upward.
 
-He:
-- Teaches people to seek Jesus Christ
-- Mentors those walking the restoration journey
-- Prays for those in desperation
-- Walks alongside those pursuing freedom
-- Always points to Jesus Christ as the Saviour and source of restoration
+A feature request should ask: "Does this serve the ministry's mission?" not "Is this a cool feature?"
 
-He is honored for his faithfulness as a servant.
-
-He is not the saviour.
-He is not the source of transformation.
-He is not the hero of anyone's story.
-
-**Jesus Christ is the Saviour.**
-**Jesus Christ is the source of transformation.**
-**Jesus Christ is the hero of every restoration story.**
-
-Brother Jimi serves that work faithfully.
+A design decision should ask: "Does this express the ministry accurately?" not "Is this trendy?"
 
 ---
 
-## Ministry Principle
+## 6. The Decision Filter
 
-**The platform serves the ministry.**
+### Before Proposing Any Feature, Ask:
 
-**The ministry serves people.**
+**"Does this faithfully support the ministry's mission?"**
 
-**Jesus Christ is the source of restoration.**
+In practice, this means supporting one or more of these purposes:
 
-Therefore every feature, workflow, interface, and operational decision must answer:
+✅ Helping someone seek Christ through prayer
+✅ Supporting restoration through the seven-stage journey
+✅ Equipping pastoral care and mentoring
+✅ Strengthening faithful community
+✅ Preserving testimonies that glorify God and encourage others
+✅ Enabling wise stewardship of the ministry
 
-**"How does this help someone encounter Jesus Christ, grow in restoration, or faithfully testify to God's work?"**
+### Examples of Features That Support Stewardship
 
-If it does not serve one of those purposes, it does not belong in the platform.
+Not every feature directly affects participants. But many absolutely support the ministry that does:
 
----
+✅ Safeguarding protocols
+✅ Audit logs (accountability)
+✅ Ministry scheduling
+✅ Volunteer management
+✅ Data backups
+✅ Finance tracking
+✅ Legal compliance
 
-## What This Means for the Platform
+### Examples of Features That Don't Belong
 
-### The Homepage No Longer Says
+❌ Prayer metrics or leaderboards (quantifies spiritual work)
+❌ Public prayer walls (broadcasts vulnerability)
+❌ Engagement gamification (makes prayer a game)
+❌ Social media features (turns ministry into network)
+❌ Analytics dashboards focused on growth (measures earthly success)
 
-❌ "Join our restoration community"
-❌ "Walk the seven stages of restoration"
-❌ "Find mentors and support"
-❌ "Transform your life through our program"
+### Applying the Filter
 
-### The Homepage Now Says
+Before building anything, ask: "Does this help the ministry serve its mission better, or does it distract from it?"
 
-✅ **"Are you trapped in online fraud and longing for a different life?"**
+If the answer is unclear, the default is: don't build it.
 
-✅ **"You don't have to carry it alone. If you're ready to seek Jesus Christ and desire freedom from your old life, begin by requesting prayer."**
+If the answer is "it helps stewardship," it belongs.
 
-Only later do they discover there is a community, a journey, mentoring, and discipleship.
-
-But the first invitation is always prayer.
-The first encounter is always with Jesus Christ.
-The first hope is always the Gospel.
-
-### The First Flow Is Not
-
-❌ Register → Profile → Onboarding → Journey → Start Stage 1
-
-### The First Flow Is
-
-✅ Prayer Request → Ministry Encounter → Decide → Register → Journey → Start Stage 1
-
-Prayer comes first.
-Decision comes before registration.
-Encounter precedes everything else.
+If the answer is "it's a cool feature," it doesn't.
 
 ---
 
-## The Success Metric
+## The Ministry Lifecycle (Not a Software Funnel)
 
-**Not:** How many users downloaded the app?
-**Not:** How many people completed Stage 1?
-**Not:** How many testimonies posted?
-**Not:** How many referrals happened?
+This is the true measure of faithfulness:
 
-**Yes:** How many people moved from desperation to encounter with Jesus Christ?
+```
+LIFE IN FRAUD
+    ↓
+DESPERATION
+    ↓
+PRAYER REQUEST
+    ↓
+PASTORAL ENCOUNTER
+    ↓
+DECISION TO RESTORE
+    ↓
+PARTICIPANT IN JOURNEY
+    ↓
+RESTORATION (7 Stages)
+    ↓
+FAITHFUL LIVING
+    ↓
+TESTIMONY
+    ↓
+SERVING OTHERS
+    ↓
+ANOTHER PERSON SEEKS PRAYER
+    ↓
+BACK TO PRAYER REQUEST
+```
 
-**Yes:** How many people walked from fraud to faithful living?
+**This cycle—not software metrics—is the ministry's primary measure of faithfulness.**
 
-**Yes:** How many testimonies became invitations for others to seek freedom?
+The software's job is to enable this cycle, not create it.
 
-**Yes:** Did the cycle continue?
+The software succeeds when someone moves from desperation to testimony to service.
 
 ---
 
-## What MISSION-001 Prevents
+## How Governance Flows From This
 
-This mission statement prevents drift toward:
+All governance documents (GOV-002, ENTRY-001, etc.) are rooted in MISSION-001.
+
+All implementation (PRAYER-001, JOURNEY-001, etc.) flows from governance.
+
+All interface design expresses what has already been established in governance and implementation.
+
+Future decisions can always be traced back to MISSION-001.
+
+---
+
+## What This Prevents
+
+MISSION-001 prevents drift toward:
 - ❌ Building a generic "restoration app"
 - ❌ Creating a Christian social platform
 - ❌ Treating the program as the saviour
 - ❌ Measuring success by engagement metrics
 - ❌ Centering the ministry leader
 - ❌ Making prayer a feature instead of the gateway
-- ❌ Forgetting that Jesus is the source
-
-**MISSION-001 anchors the entire ministry.**
-
-Every decision flows from: **Only Jesus restores.**
+- ❌ Letting interface design decide what the ministry is
+- ❌ Letting technology redefine the ministry
 
 ---
 
-## The Complete Picture
+## A Caution About Governance Growth
 
-**Before MISSION-001:**
-The platform was a "restoration journey with prayer support."
+Authority documents should become fewer and more stable over time.
 
-**After MISSION-001:**
-The platform is "a trusted doorway through which desperate people encounter Jesus Christ and begin lifelong restoration, becoming witnesses to His transforming power."
+In the early stages, it is natural to create foundational documents as the ministry's shape is discovered (like MISSION-001, GOV-002, ENTRY-001).
 
-That is a completely different thing.
+But once the core mission, governance, and operating model are established, most new work should be implementations or revisions to existing authorities rather than an ever-growing tree of new governance documents.
 
-One is a program.
-The other is a ministry.
+This prevents the governance process from becoming heavier than the ministry itself.
 
 ---
 
-## Permanent Authority Statement
+## Permanent Status
 
-**MISSION-001 is the foundation of Restoration Community.**
+**MISSION-001 is permanent. Non-negotiable. Canonical.**
 
-Every governance document (GOV-002, ENTRY-001, ENCOUNTER-001, etc.) flows from MISSION-001.
+This document answers the foundational questions and will not change.
 
-Every implementation (PRAYER-001, JOURNEY-001, MENTORING-001, etc.) serves MISSION-001.
+Future documents will build upon MISSION-001, but will not contradict it.
 
 If any future work conflicts with MISSION-001, MISSION-001 wins.
 
-If any future work drifts from MISSION-001, that work is out of scope.
-
-**MISSION-001 is permanent. MISSION-001 is non-negotiable. MISSION-001 is the mission.**
-
 ---
 
-## Final Word
-
-**The Restoration Community exists because we believe that no human system can ultimately free a person from the life of online fraud.**
-
-**Jesus Christ alone restores hearts, transforms lives, and gives people the power to walk in truth.**
-
-**Our platform exists to offer a trusted pathway for people involved in online fraud who are desperate for change to receive deliverance prayer, encounter Jesus Christ, and begin a lifelong journey of restoration.**
-
-**As God transforms their lives, their testimonies become a witness that invites others to seek the same freedom.**
-
-**That is our mission.**
-
-**That is our purpose.**
-
-**That is why we exist.**
-
----
-
-**Authority:** Jesus Christ (Lord), Scripture (God's Word), MISSION-001 (Why we exist)
 **Date:** 2026-07-25
-**Status:** Canonical and Permanent
-**Revision:** Never. This is the mission. It does not change.
+**Authority Level:** Highest
+**Status:** Permanent and Canonical
+**This document is the foundation. Everything else serves it.**
