@@ -3,7 +3,7 @@ import { getServerSession } from 'next-auth';
 import { authOptions } from '@/lib/auth';
 import { prisma } from '@/lib/prisma';
 
-export async function POST(request: NextRequest) {
+export async function POST(_request: NextRequest) {
   console.log('[RESTORATION] POST /api/restoration/advance');
 
   try {
@@ -17,7 +17,6 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const { reason } = await request.json();
 
     const user = await prisma.user.findUnique({
       where: { email: session.user.email },
@@ -46,14 +45,32 @@ export async function POST(request: NextRequest) {
 
     const currentSequence = userRestoration.currentStage.sequence;
 
+    // Check if user is already at final stage
     if (currentSequence >= 7) {
-      console.log('[RESTORATION] User already at final stage');
+      console.log('[RESTORATION] Cannot progress - already at final stage (stage 7)');
       return NextResponse.json(
         { error: 'Already at final stage' },
         { status: 400 }
       );
     }
 
+    // CRITICAL: Validate reflection exists for current stage (GOV-001 requirement)
+    const existingReflection = await prisma.stageReflection.findFirst({
+      where: {
+        userRestorationId: userRestoration.id,
+        stageId: userRestoration.currentStageId,
+      },
+    });
+
+    if (!existingReflection) {
+      console.log('[RESTORATION] Cannot progress - no reflection for current stage');
+      return NextResponse.json(
+        { error: 'Reflection required before progression' },
+        { status: 400 }
+      );
+    }
+
+    // Find next stage
     const nextStage = await prisma.restorationStage.findFirst({
       where: { sequence: currentSequence + 1 },
     });
@@ -66,13 +83,15 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Create transition record
+    // Create transition record (GOV-001: Hybrid Participant-Led Model)
+    // transitionedById = null means participant-initiated (not approved)
     const transition = await prisma.stageTransition.create({
       data: {
         userRestorationId: userRestoration.id,
         fromStageId: userRestoration.currentStageId,
         toStageId: nextStage.id,
-        reason: reason || null,
+        transitionedById: null, // Participant-initiated, not approved by mentor
+        reason: 'participant progression',
       },
       include: {
         fromStage: true,
@@ -88,7 +107,7 @@ export async function POST(request: NextRequest) {
     });
 
     console.log(
-      `[RESTORATION] User advanced from stage ${currentSequence} to ${nextStage.sequence}`
+      `[RESTORATION] Progression recorded: Stage ${currentSequence} → ${nextStage.sequence} (user: ${user.id}, transitionId: ${transition.id})`
     );
 
     return NextResponse.json(

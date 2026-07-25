@@ -254,23 +254,42 @@ export default function JourneyPage() {
                 </div>
               )}
 
-              {/* CTA */}
+              {/* Progression CTA */}
               {journey.currentStageNumber < 7 && (
-                <div className="pt-4">
-                  <Button
-                    onClick={handleAdvance}
-                    disabled={advancing}
-                    isLoading={advancing}
-                  >
-                    Move to Next Stage
-                  </Button>
+                <div className="pt-4 space-y-3">
+                  {journey.recentReflections && journey.recentReflections.length > 0 ? (
+                    <div className="space-y-3">
+                      <p className="text-sm text-gray-600">
+                        You&apos;ve reflected on this stage. Ready to continue the journey?
+                      </p>
+                      <Button
+                        onClick={handleAdvance}
+                        disabled={advancing}
+                        isLoading={advancing}
+                      >
+                        Continue Journey
+                      </Button>
+                    </div>
+                  ) : (
+                    <div className="p-4 bg-blue-50 rounded-lg border border-blue-200">
+                      <p className="text-sm font-medium text-blue-900">
+                        Complete your reflection to continue
+                      </p>
+                      <p className="text-xs text-blue-800 mt-1">
+                        Take time to reflect on this stage before moving forward.
+                      </p>
+                    </div>
+                  )}
                 </div>
               )}
 
               {journey.currentStageNumber === 7 && (
                 <div className="p-4 bg-green-50 rounded-lg border border-green-200">
                   <p className="text-sm font-medium text-green-900">
-                    ✓ You have completed all seven stages
+                    ✓ You have engaged with all seven stages
+                  </p>
+                  <p className="text-xs text-green-800 mt-1">
+                    The Restoration Journey continues as a way of life.
                   </p>
                 </div>
               )}
