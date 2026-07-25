@@ -13,13 +13,13 @@ export default function RecognitionSection() {
 
           <div className="space-y-6">
             <p className="text-lg text-rc-text leading-relaxed">
-              Before restoration comes honesty.
+              The hardest part of restoration is rarely admitting something has gone wrong.
             </p>
             <p className="text-lg text-rc-text leading-relaxed">
-              Before change comes confession.
+              The hardest part is allowing truth to restore what deception has distorted.
             </p>
             <p className="text-lg text-rc-text leading-relaxed">
-              Every lasting work of God begins when we stop hiding and begin walking in truth.
+              Every lasting work of God begins there.
             </p>
           </div>
 
