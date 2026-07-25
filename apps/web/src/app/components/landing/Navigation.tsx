@@ -26,19 +26,13 @@ export default function Navigation() {
             My Story
           </Link>
           <Link href="#community" className="text-sm text-rc-text hover:text-rc-accent transition-colors duration-200">
-            Partnership
+            Partners
           </Link>
           <Link href="#resources" className="text-sm text-rc-text hover:text-rc-accent transition-colors duration-200">
             Resources
           </Link>
           <Link href="/auth/signin" className="text-sm text-rc-text hover:text-rc-accent transition-colors duration-200">
             Sign In
-          </Link>
-          <Link
-            href="/auth/register"
-            className="text-sm font-medium text-rc-accent hover:text-rc-text transition-colors duration-200"
-          >
-            Request Deliverance
           </Link>
         </div>
 
@@ -65,16 +59,13 @@ export default function Navigation() {
               Journey
             </Link>
             <Link href="#community" className="block text-sm text-rc-text hover:text-rc-accent transition-colors">
-              Community
+              Partners
             </Link>
             <Link href="#resources" className="block text-sm text-rc-text hover:text-rc-accent transition-colors">
               Resources
             </Link>
             <Link href="/auth/signin" className="block text-sm text-rc-text hover:text-rc-accent transition-colors">
               Sign In
-            </Link>
-            <Link href="/auth/register" className="block text-sm font-medium text-rc-accent hover:text-rc-text transition-colors">
-              Request Deliverance
             </Link>
           </div>
         </div>
