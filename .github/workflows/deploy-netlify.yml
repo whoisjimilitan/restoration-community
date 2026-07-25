@@ -11,4 +11,4 @@ jobs:
     steps:
       - name: Trigger Netlify Deploy
         run: |
-          curl -X POST https://api.netlify.com/build_hooks/6a63d72aa6943827ae15e4c0
+          curl -X POST https://api.netlify.com/build_hooks/2e637edc-3abd-4f00-8584-23d32925b3f4
