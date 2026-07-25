@@ -27,10 +27,16 @@ export default function InvitationSection() {
 
           <div className="pt-4 flex flex-col sm:flex-row gap-4">
             <Link
-              href="/deliverance"
+              href="/auth/register"
               className="inline-flex items-center justify-center px-8 py-4 bg-rc-accent text-white font-medium rounded-lg hover:bg-rc-text transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-rc-accent focus:ring-offset-2 focus:ring-offset-rc-bg"
             >
-              I Need Deliverance
+              Create Account
+            </Link>
+            <Link
+              href="/auth/signin"
+              className="inline-flex items-center justify-center px-8 py-4 text-rc-accent font-medium hover:text-rc-text transition-colors duration-200"
+            >
+              Sign In
             </Link>
           </div>
         </div>

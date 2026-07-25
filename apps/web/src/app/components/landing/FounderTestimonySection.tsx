@@ -26,7 +26,7 @@ export default function FounderTestimonySection() {
           marginBottom: '2.5rem',
           marginTop: 0
         }}>
-          A Message from Someone Who Walked This Road
+          A message from heart
         </h2>
 
         <div style={{

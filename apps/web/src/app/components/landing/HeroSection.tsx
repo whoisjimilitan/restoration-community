@@ -46,7 +46,7 @@ export default function HeroSection() {
             style={{ transitionDelay: '360ms' }}
           >
             <p className="text-lg text-rc-text leading-relaxed">
-              You know what deception costs. Fraud, dishonesty, and the life built around them can take you further from who God created you to be.
+              You know what deception costs. Fraud and a life built on falsehood can slowly take you away from who God created you to be.
             </p>
             <p className="text-lg text-rc-text leading-relaxed mt-6">
               But your past does not have to become your future.
@@ -65,16 +65,16 @@ export default function HeroSection() {
           >
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
-                href="/deliverance"
+                href="/auth/register"
                 className="inline-flex items-center justify-center px-8 py-4 bg-rc-accent text-white font-medium rounded-lg hover:bg-rc-text transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-rc-accent focus:ring-offset-2 focus:ring-offset-rc-bg"
               >
-                I Need Deliverance
+                Begin the Journey
               </Link>
               <Link
                 href="#about"
                 className="inline-flex items-center justify-center px-8 py-4 text-rc-accent font-medium hover:text-rc-text transition-colors duration-200"
               >
-                Read My Story
+                Learn About Our Community
               </Link>
             </div>
           </div>

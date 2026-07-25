@@ -7,7 +7,7 @@ export default function RecognitionSection() {
         <div className="space-y-8">
           <div>
             <h2 className="text-4xl md:text-5xl font-serif font-bold text-rc-text leading-tight">
-              I know this life is not who I was created to be.
+              Every meaningful journey begins with truth.
             </h2>
           </div>
 

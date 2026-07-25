@@ -23,7 +23,7 @@ export default function Navigation() {
             Journey
           </Link>
           <Link href="#community" className="text-sm text-rc-text hover:text-rc-accent transition-colors duration-200">
-            Partnership
+            Community
           </Link>
           <Link href="#resources" className="text-sm text-rc-text hover:text-rc-accent transition-colors duration-200">
             Resources
@@ -35,7 +35,7 @@ export default function Navigation() {
             href="/auth/register"
             className="text-sm font-medium text-rc-accent hover:text-rc-text transition-colors duration-200"
           >
-            I Need Deliverance
+            Join Community
           </Link>
         </div>
 
@@ -71,7 +71,7 @@ export default function Navigation() {
               Sign In
             </Link>
             <Link href="/auth/register" className="block text-sm font-medium text-rc-accent hover:text-rc-text transition-colors">
-              I Need Deliverance
+              Join Community
             </Link>
           </div>
         </div>
