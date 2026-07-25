@@ -17,19 +17,13 @@ export default function Navigation() {
         {/* Navigation Links - Desktop (4 minimal items centered) */}
         <div className="hidden md:flex items-center gap-8">
           <Link href="#about" className="text-sm text-rc-text hover:text-rc-accent transition-colors duration-200">
-            About
+            About the Ministry
           </Link>
           <Link href="#journey" className="text-sm text-rc-text hover:text-rc-accent transition-colors duration-200">
-            Journey
+            The Restoration Journey
           </Link>
           <Link href="/auth/signin" className="text-sm text-rc-text hover:text-rc-accent transition-colors duration-200">
             Sign In
-          </Link>
-          <Link
-            href="/auth/register"
-            className="text-sm text-rc-text hover:text-rc-accent transition-colors duration-200"
-          >
-            Begin Journey
           </Link>
         </div>
 
@@ -50,16 +44,13 @@ export default function Navigation() {
         <div className="md:hidden bg-rc-bg border-t border-rc-text/5">
           <div className="px-6 py-4 space-y-3">
             <Link href="#about" className="block text-sm text-rc-text hover:text-rc-accent transition-colors">
-              About
+              About the Ministry
             </Link>
             <Link href="#journey" className="block text-sm text-rc-text hover:text-rc-accent transition-colors">
-              Journey
+              The Restoration Journey
             </Link>
             <Link href="/auth/signin" className="block text-sm text-rc-text hover:text-rc-accent transition-colors">
               Sign In
-            </Link>
-            <Link href="/auth/register" className="block text-sm text-rc-text hover:text-rc-accent transition-colors">
-              Begin Journey
             </Link>
           </div>
         </div>

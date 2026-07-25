@@ -26,7 +26,7 @@ export default function FinalInvitationSection() {
           marginBottom: '1.5rem',
           marginTop: 0
         }}>
-          Ready to Begin?
+          Ready to Take the First Step?
         </h2>
 
         <p style={{
@@ -38,11 +38,11 @@ export default function FinalInvitationSection() {
           marginBottom: '3rem',
           marginTop: 0
         }}>
-          The first step is simple: join the community and introduce yourself. No judgment. No pressure. Just the beginning of a journey toward restoration.
+          The first step is a confession. Open your heart to the possibility that Jesus Christ can deliver you. Take a moment to acknowledge where you are. God is listening.
         </p>
 
         <Link
-          href="/auth/register"
+          href="/deliverance"
           style={{
             display: 'inline-flex',
             alignItems: 'center',
@@ -73,7 +73,7 @@ export default function FinalInvitationSection() {
             e.currentTarget.style.boxShadow = 'none';
           }}
         >
-          Begin Your Journey
+          I Need Deliverance
         </Link>
 
         <p style={{
@@ -84,7 +84,7 @@ export default function FinalInvitationSection() {
           marginTop: '2rem',
           marginBottom: 0
         }}>
-          It takes about 5 minutes to create an account and meet your community.
+          No registration. No pressure. Just the beginning of your encounter with Jesus Christ.
         </p>
       </div>
     </section>

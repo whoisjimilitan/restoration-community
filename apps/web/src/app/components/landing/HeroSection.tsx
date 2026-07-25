@@ -77,7 +77,7 @@ export default function HeroSection() {
             margin: 0,
             fontFamily: 'Inter, system-ui, -apple-system, sans-serif'
           }}>
-            A Christian Community for Restoration
+            Deliverance Through Jesus Christ
           </p>
         </div>
 
@@ -174,7 +174,7 @@ export default function HeroSection() {
           }}
         >
           <Link
-            href="/auth/register"
+            href="/deliverance"
             style={{
               padding: '0.875rem 1.75rem',
               backgroundColor: '#0F766E',
@@ -201,7 +201,7 @@ export default function HeroSection() {
               e.currentTarget.style.boxShadow = 'none';
             }}
           >
-            Begin the Journey
+            I Need Deliverance
           </Link>
           <Link
             href="#about"

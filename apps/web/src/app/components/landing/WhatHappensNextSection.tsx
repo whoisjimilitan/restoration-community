@@ -23,7 +23,7 @@ export default function WhatHappensNextSection() {
           marginBottom: '2rem',
           marginTop: 0
         }}>
-          What Happens Next
+          After Deliverance: The Restoration Journey
         </h2>
 
         <div style={{
@@ -40,7 +40,7 @@ export default function WhatHappensNextSection() {
               marginBottom: '0.75rem',
               marginTop: 0
             }}>
-              You begin
+              Truth
             </h3>
             <p style={{
               fontSize: '1rem',
@@ -50,7 +50,7 @@ export default function WhatHappensNextSection() {
               marginBottom: 0,
               marginTop: 0
             }}>
-              Join our community of people walking the same journey. Connect with peers, find mentoring, and begin the work of restoration.
+              You acknowledge where you are and what you have become. No hiding. No excuses. Just honest confrontation with reality and God.
             </p>
           </div>
 
@@ -63,7 +63,7 @@ export default function WhatHappensNextSection() {
               marginBottom: '0.75rem',
               marginTop: 0
             }}>
-              You grow
+              Confession through Repentance
             </h3>
             <p style={{
               fontSize: '1rem',
@@ -73,7 +73,7 @@ export default function WhatHappensNextSection() {
               marginBottom: 0,
               marginTop: 0
             }}>
-              Follow a clear path of seven stages: truth, confession, repentance, forgiveness, reconciliation, honest work, and serving others.
+              You confess your fraudulent ways to God. You turn away from deception. You receive forgiveness. You begin to rebuild your identity on truth.
             </p>
           </div>
 
@@ -86,7 +86,7 @@ export default function WhatHappensNextSection() {
               marginBottom: '0.75rem',
               marginTop: 0
             }}>
-              You lead
+              Reconciliation and Service
             </h3>
             <p style={{
               fontSize: '1rem',
@@ -96,7 +96,7 @@ export default function WhatHappensNextSection() {
               marginBottom: 0,
               marginTop: 0
             }}>
-              As you experience restoration, you guide others. The journey doesn&apos;t end at personal change—it leads to serving others.
+              You rebuild relationships. You pursue honest work. Your life becomes evidence of what Jesus does. Eventually, you help others find the freedom you found.
             </p>
           </div>
         </div>

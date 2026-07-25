@@ -2,6 +2,7 @@
 
 import Navigation from './components/landing/Navigation';
 import HeroSection from './components/landing/HeroSection';
+import FounderTestimonySection from './components/landing/FounderTestimonySection';
 import WhyWeExistSection from './components/landing/WhyWeExistSection';
 import WhatHappensNextSection from './components/landing/WhatHappensNextSection';
 import FinalInvitationSection from './components/landing/FinalInvitationSection';
@@ -17,13 +18,16 @@ export default function Home() {
         {/* 1. Hero: Recognition & Truth */}
         <HeroSection />
 
-        {/* 2. Why We Exist: Establish purpose */}
+        {/* 2. Founder's Testimony: Proof that deliverance is possible */}
+        <FounderTestimonySection />
+
+        {/* 3. Why We Exist: Establish purpose */}
         <WhyWeExistSection />
 
-        {/* 3. What Happens Next: Show the journey begins */}
+        {/* 4. What Happens Next: Show the journey after deliverance */}
         <WhatHappensNextSection />
 
-        {/* 4. Final Invitation: Clear CTA as natural conclusion */}
+        {/* 5. Final Invitation: Confession/prayer not registration */}
         <FinalInvitationSection />
       </main>
       <Footer />

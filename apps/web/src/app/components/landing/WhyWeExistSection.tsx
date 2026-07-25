@@ -35,7 +35,7 @@ export default function WhyWeExistSection() {
           marginBottom: '1.25rem',
           marginTop: 0
         }}>
-          We exist because no one should have to rebuild their life alone.
+          We exist because Jesus Christ alone can deliver people trapped in fraud and deception.
         </p>
 
         <p style={{
@@ -47,7 +47,7 @@ export default function WhyWeExistSection() {
           marginBottom: 0,
           marginTop: 0
         }}>
-          The Restoration Community is a peer support space for people leaving cybercrime and pursuing honest work and living through Jesus Christ.
+          Fraud is spiritual bondage. It binds you to a life of deception. Jesus Christ offers freedom. After you encounter His deliverance, we walk with you through a journey of restoration—rebuilding your identity, your relationships, and your life on truth.
         </p>
       </div>
     </section>
