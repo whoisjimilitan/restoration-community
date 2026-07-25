@@ -26,7 +26,7 @@ export default function FounderTestimonySection() {
           marginBottom: '2.5rem',
           marginTop: 0
         }}>
-          A message from heart
+          A Message From Someone Who Walked This Road
         </h2>
 
         <div style={{
@@ -71,7 +71,20 @@ export default function FounderTestimonySection() {
             fontStyle: 'italic',
             fontWeight: 400
           }}>
-            Jesus Christ delivered me completely.
+            But Jesus Christ found me.
+          </p>
+
+          <p style={{
+            fontSize: '1.125rem',
+            fontFamily: 'Georgia, Garamond, serif',
+            color: '#202124',
+            lineHeight: 1.8,
+            letterSpacing: '-0.004em',
+            margin: '0 0 1.25rem 0',
+            fontStyle: 'italic',
+            fontWeight: 400
+          }}>
+            He delivered me completely.
           </p>
 
           <p style={{

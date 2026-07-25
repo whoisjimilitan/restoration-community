@@ -7,7 +7,7 @@ export default function HonestWorkSection() {
         <div className="space-y-8">
           <div>
             <h2 className="text-4xl md:text-5xl font-serif font-bold text-rc-text leading-tight">
-              Restoration changes how we live.
+              The Holy Spirit Restores Every Part of Our Lives
             </h2>
           </div>
 
@@ -16,7 +16,7 @@ export default function HonestWorkSection() {
               Leaving deception is only the beginning.
             </p>
             <p>
-              Restoration also shapes how we work...
+              The Holy Spirit transforms how we work...
             </p>
             <p>
               how we serve...

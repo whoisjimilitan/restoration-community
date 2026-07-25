@@ -19,6 +19,13 @@ export default function JourneySection() {
     <section id="journey" className="w-full py-24 md:py-32 bg-rc-bg border-t border-rc-text/5">
       <div className="max-w-6xl mx-auto px-6 sm:px-8 md:px-12">
         <div className="space-y-16">
+          {/* Heading */}
+          <div className="max-w-2xl">
+            <h2 className="text-4xl md:text-5xl font-serif font-bold text-rc-text leading-tight">
+              After Deliverance: The Restoration Journey
+            </h2>
+          </div>
+
           {/* Timeline */}
           <div>
             {/* Desktop Timeline */}

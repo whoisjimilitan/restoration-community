@@ -65,16 +65,16 @@ export default function HeroSection() {
           >
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
-                href="/auth/register"
+                href="/deliverance"
                 className="inline-flex items-center justify-center px-8 py-4 bg-rc-accent text-white font-medium rounded-lg hover:bg-rc-text transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-rc-accent focus:ring-offset-2 focus:ring-offset-rc-bg"
               >
-                Begin the Journey
+                Request Deliverance
               </Link>
               <Link
-                href="#about"
+                href="#story"
                 className="inline-flex items-center justify-center px-8 py-4 text-rc-accent font-medium hover:text-rc-text transition-colors duration-200"
               >
-                Learn About Our Community
+                How Jesus Changed My Life
               </Link>
             </div>
           </div>

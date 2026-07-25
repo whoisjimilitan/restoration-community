@@ -14,7 +14,7 @@ export default function CommunitySection() {
           {/* Heading */}
           <div className="max-w-2xl">
             <h2 className="text-4xl md:text-5xl font-serif font-bold text-rc-text leading-tight">
-              Restoration was never meant to happen alone.
+              Walking the Journey Together
             </h2>
           </div>
 
