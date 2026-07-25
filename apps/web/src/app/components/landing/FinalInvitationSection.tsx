@@ -26,32 +26,8 @@ export default function FinalInvitationSection() {
           marginBottom: '2rem',
           marginTop: 0
         }}>
-          Every meaningful journey begins with truth.
+          Ready to Take the First Step?
         </h2>
-
-        <p style={{
-          fontSize: '1.0625rem',
-          fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
-          color: '#202124',
-          lineHeight: 1.7,
-          letterSpacing: '-0.004em',
-          marginBottom: '1rem',
-          marginTop: 0
-        }}>
-          The hardest part of restoration is rarely admitting that something has gone wrong.
-        </p>
-
-        <p style={{
-          fontSize: '1.0625rem',
-          fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
-          color: '#202124',
-          lineHeight: 1.7,
-          letterSpacing: '-0.004em',
-          marginBottom: '1rem',
-          marginTop: 0
-        }}>
-          The hardest part is allowing truth to restore reality.
-        </p>
 
         <p style={{
           fontSize: '1.0625rem',
@@ -62,11 +38,11 @@ export default function FinalInvitationSection() {
           marginBottom: '2.5rem',
           marginTop: 0
         }}>
-          This community exists because every lasting restoration begins there.
+          The first step is a confession. Open your heart to the possibility that Jesus Christ can deliver you. Take a moment to acknowledge where you are. God is listening.
         </p>
 
         <Link
-          href="/journey"
+          href="/deliverance"
           style={{
             display: 'inline-flex',
             alignItems: 'center',
@@ -95,8 +71,19 @@ export default function FinalInvitationSection() {
             e.currentTarget.style.boxShadow = 'none';
           }}
         >
-          Explore the Restoration Journey
+          I Need Deliverance
         </Link>
+
+        <p style={{
+          fontSize: '0.875rem',
+          fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
+          color: '#8B8680',
+          lineHeight: 1.6,
+          marginTop: '2rem',
+          marginBottom: 0
+        }}>
+          No registration. No pressure. Just the beginning of your encounter with Jesus Christ.
+        </p>
       </div>
     </section>
   );

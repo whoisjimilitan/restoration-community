@@ -2,13 +2,13 @@
 
 export default function WhatHappensNextSection() {
   const stages = [
-    { number: 1, name: 'Truth', description: 'Facing the reality of where you are.' },
-    { number: 2, name: 'Confession', description: 'Bringing your life before God.' },
-    { number: 3, name: 'Repentance', description: 'Turning from the old way.' },
-    { number: 4, name: 'Forgiveness', description: 'Receiving the freedom Christ gives.' },
-    { number: 5, name: 'Reconciliation', description: 'Restoring what was broken.' },
-    { number: 6, name: 'Honest Work', description: 'Building a life of truth and integrity.' },
-    { number: 7, name: 'Serving', description: 'Becoming a testimony that helps others.' }
+    { number: 1, name: 'Truth', description: 'Facing your reality honestly before God. No hiding. No excuses.' },
+    { number: 2, name: 'Confession', description: 'Turning away from deception and bringing your past before Jesus Christ.' },
+    { number: 3, name: 'Repentance', description: 'Leaving behind the old life and choosing a new direction.' },
+    { number: 4, name: 'Forgiveness', description: 'Receiving God\'s forgiveness and learning to walk in freedom.' },
+    { number: 5, name: 'Reconciliation', description: 'Beginning the work of restoring broken relationships and trust.' },
+    { number: 6, name: 'Honest Work', description: 'Building a life of integrity, purpose, and honest living.' },
+    { number: 7, name: 'Serving', description: 'Becoming a witness of God\'s work and helping others find freedom.' }
   ];
 
   return (
