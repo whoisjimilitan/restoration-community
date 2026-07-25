@@ -26,38 +26,68 @@ Everything built by this ministry must serve the mission stated here.
 
 ## 1. Why We Exist
 
+**The Mission Field**
+
+The Restoration Community exists to reach a specific group of people:
+
+Those who have become involved in fraud, online scams, romance scams, identity deception, dishonest gain, and fraudulent lifestyles, and who have reached a point where they desire freedom and a different life.
+
+**Primary focus:** Young people trapped in fraud
+**Extended reach:** Others seeking transformation from dishonest living through Jesus Christ
+
 **The Foundational Truth**
 
-There is no answer to online scamming perpetration.
+Fraud is not only a legal, economic, or social problem.
+
+At its deepest level, it is a spiritual issue involving identity, purpose, truth, relationship with God, and the direction of a person's life.
+
+There is no answer to this spiritual crisis through education, rehabilitation, skills training, or community support alone.
 
 The only answer is Jesus Christ.
 
 **The Mission Statement**
 
-The Restoration Community exists because we believe that no human system can ultimately free a person from the life of online fraud. Jesus Christ alone restores hearts, transforms lives, and gives people the power to walk in truth.
+The Restoration Community exists because we believe that Jesus Christ alone can deliver, restore, and transform people involved in fraudulent lifestyles. No human system—no program, no community, no technology—can ultimately free a person from the spiritual bondage of fraud. Jesus Christ alone gives people the power to leave behind dishonest living and walk in truth, purpose, and honest work.
 
 **The Platform's Purpose**
 
-The platform exists to help people seeking freedom from lives of online fraud connect with the ministry, receive prayer, and be invited into an encounter with Jesus Christ. It then supports them as they walk a lifelong journey of restoration within the Restoration Community.
+The platform exists to open a pathway for people trapped in fraud to encounter Jesus Christ. It enables:
+
+1. **Prayer encounter:** A desperate person reaches out saying "I need freedom," and receives prayer and pastoral response
+2. **Deliverance encounter:** Through prayer and encounter with Christ, the person experiences spiritual freedom and makes a decision to pursue transformation
+3. **Pastoral relationship:** The person is invited into an ongoing relationship with ministry
+4. **Restoration journey:** The person walks a lifelong process of growth in truth, confession, forgiveness, reconciliation, honest work, and serving others
+
+The platform supports this pathway. It does not create it. It does not replace it. It does not define it.
 
 ---
 
 ## 2. What We Believe
 
-### Belief 1: Only Jesus Restores
+### Belief 1: Jesus Christ Delivers and Restores
 
-No program can free a person from online fraud.
-No community can save someone trapped in deception.
-No technology can transform a heart.
+Fraud is a spiritual issue, not merely a behavioral one.
 
-**Jesus Christ alone restores.**
+It involves identity, purpose, truth, relationship with God, and the direction of a person's life.
 
-Jesus Christ alone has the power to:
-- Free from spiritual bondage
-- Transform hearts toward truth
-- Give strength to walk in honesty
-- Provide purpose and identity
-- Create new life
+No program can deliver a person from this spiritual bondage.
+No community can save someone trapped in the deception of fraudulent living.
+No skills training, education, or rehabilitation alone can transform a heart.
+No technology can save a person's life.
+
+**Jesus Christ alone delivers and restores.**
+
+Deliverance comes first. A person must encounter Jesus Christ and experience spiritual freedom from the bondage of fraud.
+
+Restoration comes after. From that foundation of deliverance, a person then walks a lifelong journey of healing and transformation.
+
+Jesus Christ has the power to:
+- Deliver from spiritual bondage and the grip of fraud
+- Restore identity and purpose in Christ
+- Transform hearts toward truth and honesty
+- Give strength to walk in a new life
+- Establish a relationship with God that defines everything
+- Create the possibility of restoration that lasts a lifetime
 
 ### Belief 2: Prayer Is the Gateway
 
@@ -100,6 +130,26 @@ Their testimony says: "Jesus is real. Restoration is possible. I have walked the
 That testimony invites the next person to seek prayer.
 
 The cycle continues.
+
+---
+
+## The Four-Part Spine (Immovable Foundation)
+
+This statement holds the entire mission together:
+
+**Fraud is the mission field.**
+We are called to reach people involved in fraud, scams, and fraudulent lifestyles—not a generic population.
+
+**Jesus Christ is the answer.**
+Not education. Not rehabilitation. Not skills training. Not community. Jesus Christ alone delivers and restores.
+
+**Restoration is the journey.**
+After deliverance, participants walk a lifelong process of transformation through the seven stages.
+
+**Testimony is the multiplication.**
+Transformed lives become evidence of God's work and invitations for others to seek freedom.
+
+This spine cannot be bent without losing the ministry's identity.
 
 ---
 
@@ -206,35 +256,44 @@ This is the true measure of faithfulness:
 
 ```
 LIFE IN FRAUD
-    ↓
+    ↓ (spiritual bondage, deception, dishonest identity)
 DESPERATION
-    ↓
+    ↓ ("I need freedom from this life")
 PRAYER REQUEST
-    ↓
+    ↓ (initial act of surrender and confession)
 PASTORAL ENCOUNTER
-    ↓
+    ↓ (ministry response: prayer, listening, pastoral care)
+DELIVERANCE
+    ↓ (encounter with Jesus Christ; spiritual freedom from fraud's bondage)
 DECISION TO RESTORE
-    ↓
+    ↓ (commitment to walk the restoration journey)
 PARTICIPANT IN JOURNEY
-    ↓
+    ↓ (enters the seven-stage restoration pathway)
 RESTORATION (7 Stages)
-    ↓
+    ↓ (Truth → Confession → Repentance → Forgiveness → Reconciliation → Honest Work → Serving)
 FAITHFUL LIVING
-    ↓
+    ↓ (new identity, new purpose, honest life)
 TESTIMONY
-    ↓
+    ↓ (transformed life witnesses to God's work)
 SERVING OTHERS
-    ↓
+    ↓ (helping others find freedom)
 ANOTHER PERSON SEEKS PRAYER
-    ↓
+    ↓ (testimony invites the next desperate person)
 BACK TO PRAYER REQUEST
+    ↓ (multiplication cycle continues)
 ```
 
 **This cycle—not software metrics—is the ministry's primary measure of faithfulness.**
 
+**Deliverance precedes restoration.** A person must experience spiritual freedom from fraud before the restoration journey can meaningfully begin.
+
+**Restoration is the journey, not the destination.** After encountering Christ and experiencing deliverance, participants walk a lifelong process of growth, healing, and transformation.
+
+**Testimony is the multiplication.** A transformed life becomes a light that invites others to seek the same freedom.
+
 The software's job is to enable this cycle, not create it.
 
-The software succeeds when someone moves from desperation to testimony to service.
+The software succeeds when someone moves from desperation to testimony to service—and when their testimony invites the next person into prayer.
 
 ---
 
