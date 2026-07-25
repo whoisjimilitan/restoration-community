@@ -6,64 +6,95 @@ export default function FounderTestimonySection() {
   return (
     <section style={{
       backgroundColor: '#FFFFFF',
-      paddingTop: '4rem',
-      paddingBottom: '4rem',
+      paddingTop: '6rem',
+      paddingBottom: '6rem',
       paddingLeft: '2rem',
       paddingRight: '2rem'
     }}>
       <div style={{
-        maxWidth: '600px',
-        margin: '0 auto'
+        maxWidth: '720px',
+        margin: '0 auto',
+        textAlign: 'center'
       }}>
         <h2 style={{
-          fontSize: '1.875rem',
+          fontSize: '2rem',
           fontFamily: 'Georgia, Garamond, serif',
           fontWeight: 700,
-          color: '#202124',
-          lineHeight: 1.2,
+          color: '#1a1a1a',
+          lineHeight: 1.3,
           letterSpacing: '-0.01em',
-          marginBottom: '1.5rem',
+          marginBottom: '2.5rem',
           marginTop: 0
         }}>
           A Message from Someone Who Walked This Road
         </h2>
 
         <div style={{
-          borderLeft: '4px solid #0F766E',
-          paddingLeft: '1.5rem',
-          marginBottom: '1.5rem'
+          borderLeft: '3px solid #555555',
+          paddingLeft: '2rem',
+          marginBottom: '2.5rem',
+          textAlign: 'left'
         }}>
           <p style={{
-            fontSize: '1.0625rem',
-            fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
-            color: '#202124',
-            lineHeight: 1.7,
+            fontSize: '1.1875rem',
+            fontFamily: 'Georgia, Garamond, serif',
+            color: '#2a2a2a',
+            lineHeight: 1.8,
             letterSpacing: '-0.005em',
-            margin: '0 0 1.25rem 0',
-            fontStyle: 'italic'
+            margin: '0 0 1.5rem 0',
+            fontStyle: 'italic',
+            fontWeight: 400
           }}>
-            I was once trapped like you. Jesus Christ delivered me completely. Now I help others receive their deliverance from Him.
+            I was once trapped like you.
+          </p>
+
+          <p style={{
+            fontSize: '1.1875rem',
+            fontFamily: 'Georgia, Garamond, serif',
+            color: '#2a2a2a',
+            lineHeight: 1.8,
+            letterSpacing: '-0.005em',
+            margin: '0 0 1.5rem 0',
+            fontStyle: 'italic',
+            fontWeight: 400
+          }}>
+            Jesus Christ delivered me completely.
+          </p>
+
+          <p style={{
+            fontSize: '1.1875rem',
+            fontFamily: 'Georgia, Garamond, serif',
+            color: '#2a2a2a',
+            lineHeight: 1.8,
+            letterSpacing: '-0.005em',
+            margin: 0,
+            fontStyle: 'italic',
+            fontWeight: 400
+          }}>
+            Now I help others receive their deliverance from Him.
           </p>
         </div>
 
         <Link
           href="/founder-story"
           style={{
-            color: '#0F766E',
-            textDecoration: 'underline',
-            fontSize: '1rem',
+            color: '#555555',
+            textDecoration: 'none',
+            fontSize: '0.95rem',
             fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
             cursor: 'pointer',
-            transition: 'all 300ms cubic-bezier(0.4, 0, 0.2, 1)'
+            transition: 'all 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94)',
+            fontWeight: 500,
+            letterSpacing: '0.02em'
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.color = '#0a5c59';
+            e.currentTarget.style.color = '#3a3a3a';
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.color = '#0F766E';
+            e.currentTarget.style.color = '#555555';
           }}
         >
-          Read My Story
+          Read My Full Story →
         </Link>
       </div>
     </section>
