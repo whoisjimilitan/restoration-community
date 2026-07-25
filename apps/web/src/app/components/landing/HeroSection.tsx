@@ -78,7 +78,7 @@ export default function HeroSection() {
             margin: 0,
             fontFamily: 'Inter, system-ui, -apple-system, sans-serif'
           }}>
-            Deliverance Through Jesus Christ
+            A CHRISTIAN COMMUNITY FOR RESTORATION
           </p>
         </div>
 
@@ -105,7 +105,7 @@ export default function HeroSection() {
           </h1>
         </div>
 
-        {/* Narrative - 4-Part Arc (VERSION B) - Single Flowing Paragraph */}
+        {/* Narrative - 4 Part Arc */}
         <div
           style={{
             opacity: isLoaded ? 1 : 0,
@@ -120,11 +120,44 @@ export default function HeroSection() {
             color: '#202124',
             lineHeight: 1.8,
             letterSpacing: '-0.004em',
+            margin: '0 0 1.25rem 0',
+            fontFamily: 'Georgia, Garamond, serif',
+            fontWeight: 400
+          }}>
+            You already know what deception costs.
+          </p>
+          <p style={{
+            fontSize: '1.125rem',
+            color: '#202124',
+            lineHeight: 1.8,
+            letterSpacing: '-0.004em',
+            margin: '0 0 1.25rem 0',
+            fontFamily: 'Georgia, Garamond, serif',
+            fontWeight: 400
+          }}>
+            Perhaps what has remained hidden is that our deepest need is not simply freedom from wrongdoing, but reconciliation with God.
+          </p>
+          <p style={{
+            fontSize: '1.125rem',
+            color: '#202124',
+            lineHeight: 1.8,
+            letterSpacing: '-0.004em',
+            margin: '0 0 1.25rem 0',
+            fontFamily: 'Georgia, Garamond, serif',
+            fontWeight: 400
+          }}>
+            Through Jesus Christ, restoration is possible.
+          </p>
+          <p style={{
+            fontSize: '1.125rem',
+            color: '#202124',
+            lineHeight: 1.8,
+            letterSpacing: '-0.004em',
             margin: 0,
             fontFamily: 'Georgia, Garamond, serif',
             fontWeight: 400
           }}>
-            You already know what deception costs. Perhaps what has remained hidden is that our deepest need is not simply freedom from wrongdoing, but reconciliation with God. Through Jesus Christ, restoration is possible. And no one should have to walk that journey alone.
+            And no one should have to walk that journey alone.
           </p>
         </div>
 
@@ -143,7 +176,7 @@ export default function HeroSection() {
           }}
         >
           <Link
-            href="/deliverance"
+            href="/journey"
             style={{
               padding: '0.875rem 2rem',
               backgroundColor: '#0F766E',
@@ -171,7 +204,40 @@ export default function HeroSection() {
               e.currentTarget.style.boxShadow = 'none';
             }}
           >
-            I Need Deliverance
+            Begin the Journey
+          </Link>
+          <Link
+            href="#community"
+            style={{
+              padding: '0.875rem 2rem',
+              backgroundColor: 'transparent',
+              color: '#0F766E',
+              fontSize: '0.95rem',
+              fontWeight: 500,
+              letterSpacing: '0.02em',
+              textDecoration: 'none',
+              display: 'inline-flex',
+              alignItems: 'center',
+              cursor: 'pointer',
+              transition: 'all 300ms cubic-bezier(0.4, 0, 0.2, 1)',
+              border: '1.5px solid #0F766E',
+              borderRadius: '0.5rem',
+              fontFamily: 'Inter, system-ui, -apple-system, sans-serif'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = 'rgba(15, 118, 110, 0.05)';
+              e.currentTarget.style.color = '#0a5c59';
+              e.currentTarget.style.borderColor = '#0a5c59';
+              e.currentTarget.style.transform = 'translateY(-2px)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = 'transparent';
+              e.currentTarget.style.color = '#0F766E';
+              e.currentTarget.style.borderColor = '#0F766E';
+              e.currentTarget.style.transform = 'translateY(0)';
+            }}
+          >
+            Learn About Our Community
           </Link>
         </div>
       </div>
