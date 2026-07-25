@@ -1,22 +1,25 @@
 ---
 type: mission-statement
 id: MISSION-001
-title: Restoration Ministry Foundation — Complete Authority
+title: Restoration Ministry Foundation
 status: canonical-authority
 date: 2026-07-25
-authority-level: Highest
+authority-level: Constitutional
 ---
 
 # MISSION-001
 ## Restoration Ministry Foundation
 
-This is the highest-level authority document. It answers:
-- Why we exist
-- What we believe
-- How we organize
-- How we make decisions
+This is the constitutional document that answers:
+- Why do we exist?
+- Who is the source of restoration?
+- Who do we serve?
+- What is our mission?
+- What never changes?
 
-Everything else flows from MISSION-001.
+MISSION-001 establishes the ministry's identity and purpose. For how authority flows and decisions are made, see ARCHITECTURE-001.
+
+Everything built by this ministry must serve the mission stated here.
 
 ---
 
@@ -149,61 +152,7 @@ The ministry is the purpose the platform serves.
 
 ---
 
-## 5. Ministry-First Architecture
-
-### The Architectural Hierarchy
-
-```
-JESUS CHRIST
-(Lord and source of restoration)
-    ↓
-SCRIPTURE
-(God's revealed Word)
-    ↓
-MISSION-001: Ministry Mission
-(Why we exist, what we believe)
-    ↓
-GOVERNANCE LAYER
-(How the ministry operates: GOV-002, ENTRY-001)
-    ↓
-MINISTRY OPERATIONS
-(How pastoral work actually happens)
-    ↓
-PLATFORM REQUIREMENTS
-(What the software must enable)
-    ↓
-SOFTWARE IMPLEMENTATION
-(How the software is built)
-    ↓
-INTERFACE DESIGN
-(How the website looks and feels)
-```
-
-**Notice: Interface design is at the bottom, not the top.**
-
-The homepage doesn't decide what the ministry is.
-
-The homepage expresses what already exists.
-
-### The Architectural Principle
-
-**The platform is inside the ministry, not the ministry inside the platform.**
-
-This means:
-- Ministry shapes software, not vice versa
-- Governance comes before implementation
-- Authority flows from Jesus → Scripture → Mission → Governance → Operations → Requirements → Implementation
-- Interface design is an expression of known ministry, not an invention of new ministry
-
-This architectural principle means every future decision should flow from the top of the hierarchy downward, never from the bottom upward.
-
-A feature request should ask: "Does this serve the ministry's mission?" not "Is this a cool feature?"
-
-A design decision should ask: "Does this express the ministry accurately?" not "Is this trendy?"
-
----
-
-## 6. The Decision Filter
+## 5. The Decision Filter
 
 ### Before Proposing Any Feature, Ask:
 
@@ -288,15 +237,19 @@ The software succeeds when someone moves from desperation to testimony to servic
 
 ---
 
-## How Governance Flows From This
+## How Authority Flows From This
 
-All governance documents (GOV-002, ENTRY-001, etc.) are rooted in MISSION-001.
+MISSION-001 establishes WHY the ministry exists.
+
+ARCHITECTURE-001 establishes HOW authority flows (see that document for the decision hierarchy).
+
+All governance documents (GOV-002, ENTRY-001, etc.) are rooted in both MISSION-001 and ARCHITECTURE-001.
 
 All implementation (PRAYER-001, JOURNEY-001, etc.) flows from governance.
 
 All interface design expresses what has already been established in governance and implementation.
 
-Future decisions can always be traced back to MISSION-001.
+Future decisions can always be traced back to MISSION-001 and ARCHITECTURE-001.
 
 ---
 
@@ -312,17 +265,7 @@ MISSION-001 prevents drift toward:
 - ❌ Letting interface design decide what the ministry is
 - ❌ Letting technology redefine the ministry
 
----
-
-## A Caution About Governance Growth
-
-Authority documents should become fewer and more stable over time.
-
-In the early stages, it is natural to create foundational documents as the ministry's shape is discovered (like MISSION-001, GOV-002, ENTRY-001).
-
-But once the core mission, governance, and operating model are established, most new work should be implementations or revisions to existing authorities rather than an ever-growing tree of new governance documents.
-
-This prevents the governance process from becoming heavier than the ministry itself.
+ARCHITECTURE-001 prevents drift toward architectural antipatterns by ensuring authority flows downward, never upward.
 
 ---
 
@@ -330,15 +273,25 @@ This prevents the governance process from becoming heavier than the ministry its
 
 **MISSION-001 is permanent. Non-negotiable. Canonical.**
 
-This document answers the foundational questions and will not change.
+This document answers the foundational questions about why the ministry exists and will not change unless the ministry's core purpose fundamentally changes.
 
-Future documents will build upon MISSION-001, but will not contradict it.
+Future documents will build upon MISSION-001 and ARCHITECTURE-001, but will not contradict either.
 
 If any future work conflicts with MISSION-001, MISSION-001 wins.
 
 ---
 
+## Constitutional Layer
+
+MISSION-001 and ARCHITECTURE-001 together form the constitutional authority:
+- **MISSION-001** establishes WHY we exist
+- **ARCHITECTURE-001** establishes HOW authority flows
+
+Both are permanent and non-negotiable. Everything else is built within their framework.
+
+---
+
 **Date:** 2026-07-25
-**Authority Level:** Highest
+**Authority Level:** Constitutional
 **Status:** Permanent and Canonical
-**This document is the foundation. Everything else serves it.**
+**This document establishes the ministry's identity and purpose.**

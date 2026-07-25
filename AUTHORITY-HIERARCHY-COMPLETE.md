@@ -2,10 +2,17 @@
 title: Complete Authority Hierarchy — 8-Level Decision Pyramid
 date: 2026-07-25
 status: canonical
+note: Reference document for understanding authority flow. For constitutional principles, see MISSION-001 and ARCHITECTURE-001.
 ---
 
 # The Complete Authority Hierarchy
 ## 8-Level Decision Pyramid — Interface Design at the Bottom
+
+This document provides detailed explanation of the authority hierarchy described in ARCHITECTURE-001.
+
+For the constitutional principles governing this hierarchy, see **ARCHITECTURE-001**.
+
+For the ministry's purpose and beliefs, see **MISSION-001**.
 
 ---
 
