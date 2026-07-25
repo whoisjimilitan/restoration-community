@@ -17,8 +17,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const { displayName, preferredName, countryRegion, timeZone, bio, covenantAccepted } =
-      await request.json();
+    const { displayName, covenantVersion } = await request.json();
 
     if (!displayName?.trim()) {
       console.log('[ONBOARDING] Missing displayName');
@@ -28,10 +27,10 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    if (!covenantAccepted) {
-      console.log('[ONBOARDING] Covenant not accepted');
+    if (!covenantVersion) {
+      console.log('[ONBOARDING] Missing covenantVersion');
       return NextResponse.json(
-        { error: 'You must accept the Community Covenant' },
+        { error: 'Covenant version required' },
         { status: 400 }
       );
     }
@@ -39,6 +38,7 @@ export async function POST(request: NextRequest) {
     // Get user
     const user = await prisma.user.findUnique({
       where: { email: session.user.email },
+      include: { profile: true, userRestoration: true },
     });
 
     if (!user) {
@@ -49,43 +49,70 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Create or update profile
+    // Get starting stage (stage 1 = Truth)
+    const startingStage = await prisma.restorationStage.findUnique({
+      where: { sequence: 1 },
+    });
+
+    if (!startingStage) {
+      console.log('[ONBOARDING] Starting stage not found');
+      return NextResponse.json(
+        { error: 'Restoration journey setup error' },
+        { status: 500 }
+      );
+    }
+
+    // Create profile
     const profile = await prisma.profile.upsert({
       where: { userId: user.id },
       create: {
         userId: user.id,
         displayName,
-        preferredName: preferredName || null,
-        countryRegion: countryRegion || null,
-        timeZone: timeZone || null,
-        bio: bio || null,
         covenantAccepted: true,
         covenantAcceptedAt: new Date(),
       },
       update: {
         displayName,
-        preferredName: preferredName || null,
-        countryRegion: countryRegion || null,
-        timeZone: timeZone || null,
-        bio: bio || null,
         covenantAccepted: true,
         covenantAcceptedAt: new Date(),
       },
     });
 
-    // Mark onboarding as completed
-    await prisma.user.update({
+    // Initialize restoration journey if not already created
+    let userRestoration = user.userRestoration;
+    if (!userRestoration) {
+      userRestoration = await prisma.userRestoration.create({
+        data: {
+          userId: user.id,
+          currentStageId: startingStage.id,
+        },
+      });
+      console.log('[ONBOARDING] Restoration journey created, starting at stage:', startingStage.name);
+    }
+
+    // Update user: change role to PARTICIPANT and mark onboarding complete
+    const updatedUser = await prisma.user.update({
       where: { id: user.id },
-      data: { onboardingCompleted: true },
+      data: {
+        role: 'PARTICIPANT',
+        onboardingCompleted: true,
+      },
     });
 
     console.log('[ONBOARDING] Success for user:', user.id);
+    console.log('[ONBOARDING] Covenant accepted - Version:', covenantVersion);
+    console.log('[ONBOARDING] Timestamp:', new Date().toISOString());
+    console.log('[ONBOARDING] User role changed to PARTICIPANT');
 
     return NextResponse.json(
       {
-        id: profile.id,
-        userId: profile.userId,
+        userId: updatedUser.id,
+        profileId: profile.id,
         displayName: profile.displayName,
+        journey: {
+          stage: startingStage.name,
+          stageSequence: startingStage.sequence,
+        },
       },
       { status: 200 }
     );
