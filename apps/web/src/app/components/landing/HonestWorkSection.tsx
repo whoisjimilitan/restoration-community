@@ -3,11 +3,11 @@
 export default function HonestWorkSection() {
   return (
     <section className="w-full py-24 md:py-32 bg-rc-bg border-t border-rc-text/5">
-      <div className="max-w-2xl mx-auto px-6 sm:px-8 md:px-12">
+      <div className="max-w-2xl ml-auto px-6 sm:px-8 md:px-12 mr-0">
         <div className="space-y-8">
           <div>
             <h2 className="text-4xl md:text-5xl font-serif font-bold text-rc-text leading-tight">
-              Life Rebuilt
+              The Holy Spirit Makes All Things New
             </h2>
           </div>
 
