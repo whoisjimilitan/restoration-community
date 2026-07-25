@@ -11,86 +11,300 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section className="relative w-full pt-32 pb-16 md:pt-0 md:pb-0 md:min-h-screen md:flex md:flex-col md:justify-center overflow-hidden">
-      {/* Atmospheric Background Layers */}
-      <div className="absolute inset-0 bg-gradient-to-br from-rc-cream via-rc-bg to-rc-cream-light z-0" />
-      <div className="absolute inset-0 bg-radial-gradient opacity-40 z-0" style={{
-        backgroundImage: 'radial-gradient(ellipse 120% 100% at 50% -10%, rgba(255, 255, 255, 0.6) 0%, transparent 60%)'
+    <section style={{
+      position: 'relative',
+      width: '100%',
+      minHeight: '100vh',
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'flex-start',
+      paddingTop: '5rem',
+      paddingBottom: '6rem',
+      paddingLeft: '2rem',
+      paddingRight: '2rem',
+      overflow: 'hidden'
+    }}>
+      {/* Atmospheric Background Layer */}
+      <div style={{
+        position: 'absolute',
+        inset: 0,
+        background: 'linear-gradient(135deg, #FAFAF8 0%, #F8F6F2 40%, #F5F3F0 100%)',
+        zIndex: -2
       }} />
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white/5 z-0" />
 
-      <div className="max-w-2xl mx-auto px-6 sm:px-8 md:px-12 relative z-10">
-        <div className="space-y-10 md:space-y-14">
-          {/* Eyebrow */}
-          <div
-            className={`transform transition-all duration-800 ${
-              isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
-            }`}
-            style={{ transitionDelay: '100ms' }}
-          >
-            <p className="text-xs font-semibold text-rc-accent uppercase tracking-[0.15em]">
-              A Christian Community for Restoration
-            </p>
-          </div>
+      {/* Morning Light Suggestion */}
+      <div style={{
+        position: 'absolute',
+        inset: 0,
+        background: 'radial-gradient(ellipse 120% 100% at 50% -10%, rgba(255, 255, 255, 0.5) 0%, transparent 60%)',
+        zIndex: -1,
+        pointerEvents: 'none'
+      }} />
 
-          {/* Headline */}
-          <div
-            className={`transform transition-all duration-800 ${
-              isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
-            }`}
-            style={{ transitionDelay: '200ms' }}
-          >
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-rc-text leading-[1.08] tracking-[-0.02em]">
-              Restoration begins where deception ends.
-            </h1>
-          </div>
+      {/* Subtle Depth Overlay */}
+      <div style={{
+        position: 'absolute',
+        inset: 0,
+        background: 'linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, transparent 30%, rgba(0, 0, 0, 0.03) 100%)',
+        zIndex: -1,
+        pointerEvents: 'none'
+      }} />
 
-          {/* Supporting Copy */}
-          <div
-            className={`transform transition-all duration-800 ${
-              isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
-            }`}
-            style={{ transitionDelay: '300ms' }}
-          >
-            <p className="text-base md:text-lg text-rc-text leading-[1.75] tracking-[-0.005em] max-w-xl">
-              You already know what deception costs. Perhaps what has remained hidden is that our deepest need is not simply freedom from wrongdoing, but reconciliation with God.
-            </p>
-            <p className="text-base md:text-lg text-rc-text leading-[1.75] tracking-[-0.005em] mt-7 max-w-xl">
-              Through Jesus Christ, restoration is possible. And no one should have to walk that journey alone.
-            </p>
-          </div>
-
-          {/* CTA Buttons */}
-          <div
-            className={`transform transition-all duration-800 pt-6 ${
-              isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
-            }`}
-            style={{ transitionDelay: '400ms' }}
-          >
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link
-                href="/auth/register"
-                className="inline-flex items-center justify-center px-8 py-4 bg-rc-accent text-white font-medium rounded-lg hover:bg-rc-accent/90 hover:shadow-[0_12px_24px_rgba(15,118,110,0.2)] hover:-translate-y-1 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-rc-accent focus:ring-offset-2 focus:ring-offset-rc-bg"
-              >
-                Begin the Journey
-              </Link>
-              <Link
-                href="#about"
-                className="inline-flex items-center justify-center px-8 py-4 text-rc-accent font-medium border border-rc-accent/20 hover:border-rc-accent/50 hover:bg-rc-accent/5 hover:text-rc-text transition-all duration-200 rounded-lg"
-              >
-                Learn About Our Community
-              </Link>
-            </div>
-          </div>
+      {/* Content Container */}
+      <div style={{
+        maxWidth: '560px',
+        width: '100%',
+        position: 'relative',
+        zIndex: 1
+      }}>
+        {/* Eyebrow */}
+        <div
+          style={{
+            opacity: isLoaded ? 1 : 0,
+            transform: isLoaded ? 'translateY(0)' : 'translateY(10px)',
+            transition: 'all 800ms cubic-bezier(0.4, 0, 0.2, 1)',
+            transitionDelay: '100ms',
+            marginBottom: '3rem'
+          }}
+        >
+          <p style={{
+            fontSize: '0.8125rem',
+            fontWeight: 500,
+            letterSpacing: '0.12em',
+            color: '#8B8680',
+            textTransform: 'uppercase',
+            margin: 0,
+            fontFamily: 'Inter, system-ui, -apple-system, sans-serif'
+          }}>
+            A Christian Community for Restoration
+          </p>
         </div>
 
-        {/* Scroll Indicator */}
-        <div className="hidden md:flex absolute bottom-8 left-1/2 transform -translate-x-1/2 flex-col items-center opacity-40 hover:opacity-70 transition-opacity duration-300">
-          <p className="text-xs text-rc-text-secondary uppercase tracking-[0.1em] mb-4 font-medium">Scroll</p>
-          <svg className="w-6 h-6 text-rc-accent animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-          </svg>
+        {/* Headline */}
+        <div
+          style={{
+            opacity: isLoaded ? 1 : 0,
+            transform: isLoaded ? 'translateY(0)' : 'translateY(10px)',
+            transition: 'all 800ms cubic-bezier(0.4, 0, 0.2, 1)',
+            transitionDelay: '150ms',
+            marginBottom: '2rem'
+          }}
+        >
+          <h1 style={{
+            fontSize: '3.75rem',
+            fontFamily: 'Georgia, Garamond, serif',
+            fontWeight: 700,
+            color: '#202124',
+            lineHeight: 1.1,
+            letterSpacing: '-0.02em',
+            margin: 0
+          }}>
+            Restoration begins where deception ends.
+          </h1>
         </div>
+
+        {/* Narrative */}
+        <div
+          style={{
+            opacity: isLoaded ? 1 : 0,
+            transform: isLoaded ? 'translateY(0)' : 'translateY(10px)',
+            transition: 'all 800ms cubic-bezier(0.4, 0, 0.2, 1)',
+            transitionDelay: '200ms',
+            marginBottom: '3.5rem'
+          }}
+        >
+          <p style={{
+            fontSize: '1.0625rem',
+            color: '#202124',
+            lineHeight: 1.7,
+            letterSpacing: '-0.005em',
+            margin: '0 0 1.25rem 0',
+            fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
+            fontWeight: 400
+          }}>
+            You already know what deception costs.
+          </p>
+          <p style={{
+            fontSize: '1.0625rem',
+            color: '#202124',
+            lineHeight: 1.7,
+            letterSpacing: '-0.005em',
+            margin: '0 0 1.25rem 0',
+            fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
+            fontWeight: 400
+          }}>
+            Perhaps what has remained hidden is that our deepest need is not simply freedom from wrongdoing, but reconciliation with God.
+          </p>
+          <p style={{
+            fontSize: '1.0625rem',
+            color: '#202124',
+            lineHeight: 1.7,
+            letterSpacing: '-0.005em',
+            margin: '0 0 1.25rem 0',
+            fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
+            fontWeight: 400
+          }}>
+            Through Jesus Christ, restoration is possible.
+          </p>
+          <p style={{
+            fontSize: '1.0625rem',
+            color: '#202124',
+            lineHeight: 1.7,
+            letterSpacing: '-0.005em',
+            margin: 0,
+            fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
+            fontWeight: 400
+          }}>
+            And no one should have to walk that journey alone.
+          </p>
+        </div>
+
+        {/* CTAs */}
+        <div
+          style={{
+            opacity: isLoaded ? 1 : 0,
+            transform: isLoaded ? 'translateY(0)' : 'translateY(10px)',
+            transition: 'all 800ms cubic-bezier(0.4, 0, 0.2, 1)',
+            transitionDelay: '250ms',
+            marginBottom: '2.5rem',
+            display: 'flex',
+            gap: '1rem',
+            flexWrap: 'wrap'
+          }}
+        >
+          <Link
+            href="/auth/register"
+            style={{
+              padding: '0.875rem 1.75rem',
+              backgroundColor: '#0F766E',
+              color: 'white',
+              fontSize: '0.9375rem',
+              fontWeight: 500,
+              letterSpacing: '0.01em',
+              borderRadius: '0.375rem',
+              textDecoration: 'none',
+              display: 'inline-block',
+              cursor: 'pointer',
+              transition: 'all 300ms cubic-bezier(0.4, 0, 0.2, 1)',
+              border: '1px solid #0F766E',
+              fontFamily: 'Inter, system-ui, -apple-system, sans-serif'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = '#0a5c59';
+              e.currentTarget.style.borderColor = '#0a5c59';
+              e.currentTarget.style.boxShadow = '0 8px 16px rgba(15, 118, 110, 0.15)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = '#0F766E';
+              e.currentTarget.style.borderColor = '#0F766E';
+              e.currentTarget.style.boxShadow = 'none';
+            }}
+          >
+            Begin the Journey
+          </Link>
+          <Link
+            href="#about"
+            style={{
+              padding: '0.875rem 1.75rem',
+              color: '#0F766E',
+              fontSize: '0.9375rem',
+              fontWeight: 500,
+              letterSpacing: '0.01em',
+              textDecoration: 'none',
+              display: 'inline-block',
+              cursor: 'pointer',
+              transition: 'all 300ms cubic-bezier(0.4, 0, 0.2, 1)',
+              border: '1px solid rgba(15, 118, 110, 0.3)',
+              borderRadius: '0.375rem',
+              fontFamily: 'Inter, system-ui, -apple-system, sans-serif'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.color = '#202124';
+              e.currentTarget.style.borderColor = '#202124';
+              e.currentTarget.style.backgroundColor = 'rgba(15, 118, 110, 0.05)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.color = '#0F766E';
+              e.currentTarget.style.borderColor = 'rgba(15, 118, 110, 0.3)';
+              e.currentTarget.style.backgroundColor = 'transparent';
+            }}
+          >
+            Learn More
+          </Link>
+        </div>
+
+        {/* Trust Statement */}
+        <div
+          style={{
+            opacity: isLoaded ? 1 : 0,
+            transform: isLoaded ? 'translateY(0)' : 'translateY(10px)',
+            transition: 'all 800ms cubic-bezier(0.4, 0, 0.2, 1)',
+            transitionDelay: '300ms',
+            paddingTop: '1.5rem'
+          }}
+        >
+          <p style={{
+            fontSize: '0.75rem',
+            color: '#8B8680',
+            letterSpacing: '0.08em',
+            margin: 0,
+            fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
+            fontWeight: 500,
+            textTransform: 'uppercase'
+          }}>
+            Guiding people toward honest work and living.
+          </p>
+        </div>
+      </div>
+
+      {/* Scroll Indicator */}
+      <div style={{
+        position: 'absolute',
+        bottom: '2rem',
+        left: '2rem',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        opacity: 0.4,
+        transition: 'opacity 300ms ease-out',
+        cursor: 'default'
+      }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.opacity = '0.6';
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.opacity = '0.4';
+      }}>
+        <p style={{
+          fontSize: '0.75rem',
+          color: '#8B8680',
+          letterSpacing: '0.08em',
+          textTransform: 'uppercase',
+          margin: '0 0 0.75rem 0',
+          fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
+          fontWeight: 500
+        }}>
+          Scroll
+        </p>
+        <svg
+          style={{
+            width: '1.25rem',
+            height: '1.25rem',
+            color: '#8B8680',
+            animation: 'gentle-float 3s ease-in-out infinite'
+          }}
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={1.5}
+            d="M19 14l-7 7m0 0l-7-7m7 7V3"
+          />
+        </svg>
       </div>
     </section>
   );
