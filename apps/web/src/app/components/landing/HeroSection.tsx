@@ -15,33 +15,46 @@ export default function HeroSection() {
       position: 'relative',
       width: '100%',
       minHeight: '100vh',
-      display: 'grid',
-      gridTemplateColumns: '1fr 1fr',
-      alignItems: 'center',
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'flex-start',
+      paddingTop: '5rem',
+      paddingBottom: '6rem',
+      paddingLeft: '2rem',
+      paddingRight: '2rem',
       overflow: 'hidden'
     }}>
-      {/* Premium Grey Background - Full Width */}
+      {/* Atmospheric Background Layer */}
       <div style={{
         position: 'absolute',
         inset: 0,
-        background: 'linear-gradient(135deg, #FAFAF9 0%, #F5F5F3 50%, #F0F0ED 100%)',
+        background: 'linear-gradient(135deg, #FAFAF8 0%, #F8F6F2 40%, #F5F3F0 100%)',
         zIndex: -2
       }} />
 
+      {/* Morning Light Suggestion */}
       <div style={{
         position: 'absolute',
         inset: 0,
-        background: 'radial-gradient(ellipse 100% 80% at 50% 0%, rgba(255, 255, 255, 0.5) 0%, transparent 70%)',
+        background: 'radial-gradient(ellipse 120% 100% at 50% -10%, rgba(255, 255, 255, 0.5) 0%, transparent 60%)',
         zIndex: -1,
         pointerEvents: 'none'
       }} />
 
-      {/* Left: Content - Premium Typography at Scale */}
+      {/* Subtle Depth Overlay */}
       <div style={{
-        paddingLeft: 'max(2rem, 5vw)',
-        paddingRight: '3rem',
-        paddingTop: '5rem',
-        paddingBottom: '5rem',
+        position: 'absolute',
+        inset: 0,
+        background: 'linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, transparent 30%, rgba(0, 0, 0, 0.03) 100%)',
+        zIndex: -1,
+        pointerEvents: 'none'
+      }} />
+
+      {/* Content Container */}
+      <div style={{
+        maxWidth: '560px',
+        width: '100%',
         position: 'relative',
         zIndex: 1
       }}>
@@ -49,40 +62,40 @@ export default function HeroSection() {
         <div
           style={{
             opacity: isLoaded ? 1 : 0,
-            transform: isLoaded ? 'translateY(0)' : 'translateY(12px)',
-            transition: 'all 1000ms cubic-bezier(0.16, 1, 0.3, 1)',
+            transform: isLoaded ? 'translateY(0)' : 'translateY(10px)',
+            transition: 'all 800ms cubic-bezier(0.4, 0, 0.2, 1)',
             transitionDelay: '100ms',
-            marginBottom: '2rem'
+            marginBottom: '3rem'
           }}
         >
           <p style={{
-            fontSize: '0.7rem',
-            fontWeight: 600,
-            letterSpacing: '0.2em',
-            color: '#777777',
+            fontSize: '0.8125rem',
+            fontWeight: 500,
+            letterSpacing: '0.12em',
+            color: '#8B8680',
             textTransform: 'uppercase',
             margin: 0,
             fontFamily: 'Inter, system-ui, -apple-system, sans-serif'
           }}>
-            Christian Community for Restoration
+            Deliverance Through Jesus Christ
           </p>
         </div>
 
-        {/* Headline - Powerful, Large */}
+        {/* Headline */}
         <div
           style={{
             opacity: isLoaded ? 1 : 0,
-            transform: isLoaded ? 'translateY(0)' : 'translateY(16px)',
-            transition: 'all 1000ms cubic-bezier(0.16, 1, 0.3, 1)',
-            transitionDelay: '200ms',
-            marginBottom: '2.5rem'
+            transform: isLoaded ? 'translateY(0)' : 'translateY(10px)',
+            transition: 'all 800ms cubic-bezier(0.4, 0, 0.2, 1)',
+            transitionDelay: '150ms',
+            marginBottom: '2rem'
           }}
         >
           <h1 style={{
-            fontSize: 'clamp(2.25rem, 5.5vw, 4.5rem)',
+            fontSize: '3.75rem',
             fontFamily: 'Georgia, Garamond, serif',
             fontWeight: 700,
-            color: '#0a0a0a',
+            color: '#202124',
             lineHeight: 1.1,
             letterSpacing: '-0.02em',
             margin: 0
@@ -91,129 +104,207 @@ export default function HeroSection() {
           </h1>
         </div>
 
-        {/* Theological Narrative */}
+        {/* Narrative */}
         <div
           style={{
             opacity: isLoaded ? 1 : 0,
-            transform: isLoaded ? 'translateY(0)' : 'translateY(16px)',
-            transition: 'all 1000ms cubic-bezier(0.16, 1, 0.3, 1)',
-            transitionDelay: '300ms',
-            marginBottom: '2.5rem',
-            maxWidth: '520px'
+            transform: isLoaded ? 'translateY(0)' : 'translateY(10px)',
+            transition: 'all 800ms cubic-bezier(0.4, 0, 0.2, 1)',
+            transitionDelay: '200ms',
+            marginBottom: '3.5rem'
           }}
         >
           <p style={{
-            fontSize: '1.125rem',
-            color: '#333333',
-            lineHeight: 1.8,
-            letterSpacing: '-0.004em',
+            fontSize: '1.0625rem',
+            color: '#202124',
+            lineHeight: 1.7,
+            letterSpacing: '-0.005em',
             margin: '0 0 1.25rem 0',
-            fontFamily: 'Georgia, Garamond, serif',
+            fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
             fontWeight: 400
           }}>
             You already know what deception costs.
           </p>
           <p style={{
-            fontSize: '1.125rem',
-            color: '#333333',
-            lineHeight: 1.8,
-            letterSpacing: '-0.004em',
+            fontSize: '1.0625rem',
+            color: '#202124',
+            lineHeight: 1.7,
+            letterSpacing: '-0.005em',
             margin: '0 0 1.25rem 0',
-            fontFamily: 'Georgia, Garamond, serif',
+            fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
             fontWeight: 400
           }}>
             Perhaps what has remained hidden is that our deepest need is not simply freedom from wrongdoing, but reconciliation with God.
           </p>
           <p style={{
-            fontSize: '1.125rem',
-            color: '#333333',
-            lineHeight: 1.8,
-            letterSpacing: '-0.004em',
+            fontSize: '1.0625rem',
+            color: '#202124',
+            lineHeight: 1.7,
+            letterSpacing: '-0.005em',
             margin: '0 0 1.25rem 0',
-            fontFamily: 'Georgia, Garamond, serif',
+            fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
             fontWeight: 400
           }}>
             Through Jesus Christ, restoration is possible.
           </p>
           <p style={{
-            fontSize: '1.125rem',
-            color: '#333333',
-            lineHeight: 1.8,
-            letterSpacing: '-0.004em',
+            fontSize: '1.0625rem',
+            color: '#202124',
+            lineHeight: 1.7,
+            letterSpacing: '-0.005em',
             margin: 0,
-            fontFamily: 'Georgia, Garamond, serif',
+            fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
             fontWeight: 400
           }}>
             And no one should have to walk that journey alone.
           </p>
         </div>
 
-        {/* CTA - Premium Button */}
+        {/* CTAs */}
         <div
           style={{
             opacity: isLoaded ? 1 : 0,
-            transform: isLoaded ? 'translateY(0)' : 'translateY(16px)',
-            transition: 'all 1000ms cubic-bezier(0.16, 1, 0.3, 1)',
-            transitionDelay: '400ms',
-            marginTop: '3rem',
+            transform: isLoaded ? 'translateY(0)' : 'translateY(10px)',
+            transition: 'all 800ms cubic-bezier(0.4, 0, 0.2, 1)',
+            transitionDelay: '250ms',
+            marginBottom: '2.5rem',
             display: 'flex',
             gap: '1rem',
             flexWrap: 'wrap'
           }}
         >
           <Link
-            href="/journey"
+            href="/deliverance"
             style={{
-              padding: '0.875rem 2rem',
-              backgroundColor: '#3a3a3a',
+              padding: '0.875rem 1.75rem',
+              backgroundColor: '#0F766E',
               color: 'white',
-              fontSize: '0.9rem',
+              fontSize: '0.9375rem',
               fontWeight: 500,
-              letterSpacing: '0.03em',
+              letterSpacing: '0.01em',
               borderRadius: '0.375rem',
               textDecoration: 'none',
-              display: 'inline-flex',
-              alignItems: 'center',
+              display: 'inline-block',
               cursor: 'pointer',
-              transition: 'all 450ms cubic-bezier(0.16, 1, 0.3, 1)',
-              border: '1.5px solid #3a3a3a',
+              transition: 'all 300ms cubic-bezier(0.4, 0, 0.2, 1)',
+              border: '1px solid #0F766E',
               fontFamily: 'Inter, system-ui, -apple-system, sans-serif'
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#1a1a1a';
-              e.currentTarget.style.borderColor = '#1a1a1a';
-              e.currentTarget.style.transform = 'translateY(-2px)';
-              e.currentTarget.style.boxShadow = '0 16px 32px rgba(0, 0, 0, 0.15)';
+              e.currentTarget.style.backgroundColor = '#0a5c59';
+              e.currentTarget.style.borderColor = '#0a5c59';
+              e.currentTarget.style.boxShadow = '0 8px 16px rgba(15, 118, 110, 0.15)';
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = '#3a3a3a';
-              e.currentTarget.style.borderColor = '#3a3a3a';
-              e.currentTarget.style.transform = 'translateY(0)';
+              e.currentTarget.style.backgroundColor = '#0F766E';
+              e.currentTarget.style.borderColor = '#0F766E';
               e.currentTarget.style.boxShadow = 'none';
             }}
           >
-            Begin the Journey
+            I Need Deliverance
           </Link>
+          <Link
+            href="#about"
+            style={{
+              padding: '0.875rem 1.75rem',
+              color: '#0F766E',
+              fontSize: '0.9375rem',
+              fontWeight: 500,
+              letterSpacing: '0.01em',
+              textDecoration: 'none',
+              display: 'inline-block',
+              cursor: 'pointer',
+              transition: 'all 300ms cubic-bezier(0.4, 0, 0.2, 1)',
+              border: '1px solid rgba(15, 118, 110, 0.3)',
+              borderRadius: '0.375rem',
+              fontFamily: 'Inter, system-ui, -apple-system, sans-serif'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.color = '#202124';
+              e.currentTarget.style.borderColor = '#202124';
+              e.currentTarget.style.backgroundColor = 'rgba(15, 118, 110, 0.05)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.color = '#0F766E';
+              e.currentTarget.style.borderColor = 'rgba(15, 118, 110, 0.3)';
+              e.currentTarget.style.backgroundColor = 'transparent';
+            }}
+          >
+            Learn More
+          </Link>
+        </div>
+
+        {/* Trust Statement */}
+        <div
+          style={{
+            opacity: isLoaded ? 1 : 0,
+            transform: isLoaded ? 'translateY(0)' : 'translateY(10px)',
+            transition: 'all 800ms cubic-bezier(0.4, 0, 0.2, 1)',
+            transitionDelay: '300ms',
+            paddingTop: '1.5rem'
+          }}
+        >
+          <p style={{
+            fontSize: '0.75rem',
+            color: '#8B8680',
+            letterSpacing: '0.08em',
+            margin: 0,
+            fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
+            fontWeight: 500,
+            textTransform: 'uppercase'
+          }}>
+            Guiding people toward honest work and living.
+          </p>
         </div>
       </div>
 
-      {/* Right: Visual Accent - Empty Space for Breathing */}
+      {/* Scroll Indicator */}
       <div style={{
-        position: 'relative',
-        zIndex: 1,
-        height: '100%',
+        position: 'absolute',
+        bottom: '2rem',
+        left: '2rem',
         display: 'flex',
+        flexDirection: 'column',
         alignItems: 'center',
-        justifyContent: 'center',
-        paddingRight: 'max(2rem, 5vw)'
+        opacity: 0.4,
+        transition: 'opacity 300ms ease-out',
+        cursor: 'default'
+      }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.opacity = '0.6';
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.opacity = '0.4';
       }}>
-        <div style={{
-          width: '100%',
-          height: '60%',
-          background: 'linear-gradient(135deg, rgba(100, 100, 100, 0.03) 0%, rgba(120, 120, 120, 0.05) 100%)',
-          borderRadius: '0.5rem',
-          border: '1px solid rgba(150, 150, 150, 0.1)'
-        }} />
+        <p style={{
+          fontSize: '0.75rem',
+          color: '#8B8680',
+          letterSpacing: '0.08em',
+          textTransform: 'uppercase',
+          margin: '0 0 0.75rem 0',
+          fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
+          fontWeight: 500
+        }}>
+          Scroll
+        </p>
+        <svg
+          style={{
+            width: '1.25rem',
+            height: '1.25rem',
+            color: '#8B8680',
+            animation: 'gentle-float 3s ease-in-out infinite'
+          }}
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={1.5}
+            d="M19 14l-7 7m0 0l-7-7m7 7V3"
+          />
+        </svg>
       </div>
     </section>
   );

@@ -1,101 +1,87 @@
 'use client';
 
-import Link from 'next/link';
-
 export default function FounderTestimonySection() {
   return (
     <section style={{
       backgroundColor: '#FFFFFF',
-      paddingTop: '6rem',
-      paddingBottom: '6rem',
+      paddingTop: '4rem',
+      paddingBottom: '4rem',
       paddingLeft: '2rem',
       paddingRight: '2rem'
     }}>
       <div style={{
-        maxWidth: '720px',
-        margin: '0 auto',
-        textAlign: 'center'
+        maxWidth: '600px',
+        margin: '0 auto'
       }}>
         <h2 style={{
-          fontSize: '2rem',
+          fontSize: '1.875rem',
           fontFamily: 'Georgia, Garamond, serif',
           fontWeight: 700,
-          color: '#1a1a1a',
-          lineHeight: 1.3,
+          color: '#202124',
+          lineHeight: 1.2,
           letterSpacing: '-0.01em',
-          marginBottom: '2.5rem',
+          marginBottom: '1.5rem',
           marginTop: 0
         }}>
           A Message from Someone Who Walked This Road
         </h2>
 
         <div style={{
-          borderLeft: '3px solid #555555',
-          paddingLeft: '2rem',
-          marginBottom: '2.5rem',
-          textAlign: 'left'
+          borderLeft: '4px solid #0F766E',
+          paddingLeft: '1.5rem'
         }}>
           <p style={{
-            fontSize: '1.1875rem',
-            fontFamily: 'Georgia, Garamond, serif',
-            color: '#2a2a2a',
-            lineHeight: 1.8,
+            fontSize: '1.0625rem',
+            fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
+            color: '#202124',
+            lineHeight: 1.7,
             letterSpacing: '-0.005em',
-            margin: '0 0 1.5rem 0',
-            fontStyle: 'italic',
-            fontWeight: 400
+            marginBottom: '1.25rem',
+            marginTop: 0,
+            fontStyle: 'italic'
           }}>
             I was once trapped like you.
           </p>
 
           <p style={{
-            fontSize: '1.1875rem',
-            fontFamily: 'Georgia, Garamond, serif',
-            color: '#2a2a2a',
-            lineHeight: 1.8,
+            fontSize: '1.0625rem',
+            fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
+            color: '#202124',
+            lineHeight: 1.7,
             letterSpacing: '-0.005em',
-            margin: '0 0 1.5rem 0',
-            fontStyle: 'italic',
-            fontWeight: 400
+            marginBottom: '1.25rem',
+            marginTop: 0,
+            fontStyle: 'italic'
+          }}>
+            I knew what I was doing was wrong. I told myself I could stop whenever I wanted. But fraud had its hooks in deep. I was building a life on deception, and the weight of it was crushing me.
+          </p>
+
+          <p style={{
+            fontSize: '1.0625rem',
+            fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
+            color: '#202124',
+            lineHeight: 1.7,
+            letterSpacing: '-0.005em',
+            marginBottom: '1.25rem',
+            marginTop: 0,
+            fontStyle: 'italic'
           }}>
             Jesus Christ delivered me completely.
           </p>
 
           <p style={{
-            fontSize: '1.1875rem',
-            fontFamily: 'Georgia, Garamond, serif',
-            color: '#2a2a2a',
-            lineHeight: 1.8,
+            fontSize: '1.0625rem',
+            fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
+            color: '#202124',
+            lineHeight: 1.7,
             letterSpacing: '-0.005em',
-            margin: 0,
-            fontStyle: 'italic',
-            fontWeight: 400
+            marginBottom: 0,
+            marginTop: 0,
+            fontStyle: 'italic'
           }}>
-            Now I help others receive their deliverance from Him.
+            Now I help others receive their deliverance from Him. That&apos;s why this exists.
           </p>
         </div>
-
-        <Link
-          href="/founder-story"
-          style={{
-            color: '#555555',
-            textDecoration: 'none',
-            fontSize: '0.95rem',
-            fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
-            cursor: 'pointer',
-            transition: 'all 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94)',
-            fontWeight: 500,
-            letterSpacing: '0.02em'
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.color = '#3a3a3a';
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.color = '#555555';
-          }}
-        >
-          Read My Full Story →
-        </Link>
       </div>
     </section>
   );
