@@ -1,6 +1,6 @@
 [build]
 base = "."
-command = "cd apps/web && npm run build"
+command = "cd apps/web && npx prisma generate && npm run build"
 publish = "apps/web/.next"
 
 [[plugins]]
