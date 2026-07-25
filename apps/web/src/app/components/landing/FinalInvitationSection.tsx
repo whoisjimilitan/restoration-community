@@ -16,19 +16,6 @@ export default function FinalInvitationSection() {
         margin: '0 auto',
         textAlign: 'center'
       }}>
-        <h2 style={{
-          fontSize: '2.5rem',
-          fontFamily: 'Georgia, Garamond, serif',
-          fontWeight: 700,
-          color: '#202124',
-          lineHeight: 1.2,
-          letterSpacing: '-0.01em',
-          marginBottom: '1.5rem',
-          marginTop: 0
-        }}>
-          Your Story Can Change
-        </h2>
-
         <p style={{
           fontSize: '1.0625rem',
           fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
@@ -38,20 +25,7 @@ export default function FinalInvitationSection() {
           marginBottom: '3rem',
           marginTop: 0
         }}>
-          If you are tired of the life you are living and desire freedom, Jesus Christ is able to deliver and restore you.
-        </p>
-
-        <p style={{
-          fontSize: '1.0625rem',
-          fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
-          color: '#202124',
-          lineHeight: 1.7,
-          letterSpacing: '-0.005em',
-          marginBottom: '3rem',
-          marginTop: 0,
-          fontWeight: 500
-        }}>
-          Take the first step today.
+          If you are tired of the life you are living, Jesus Christ is able to deliver you.
         </p>
 
         <Link
@@ -97,7 +71,7 @@ export default function FinalInvitationSection() {
           marginTop: '2rem',
           marginBottom: 0
         }}>
-          No pressure. No judgement. Just an honest first step toward Jesus Christ.
+          No registration. No pressure. Just the beginning of your encounter with Jesus Christ.
         </p>
       </div>
     </section>

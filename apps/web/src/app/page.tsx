@@ -3,10 +3,8 @@
 import Navigation from './components/landing/Navigation';
 import HeroSection from './components/landing/HeroSection';
 import FounderTestimonySection from './components/landing/FounderTestimonySection';
-import WhyWeExistSection from './components/landing/WhyWeExistSection';
 import WhatHappensNextSection from './components/landing/WhatHappensNextSection';
 import FinalInvitationSection from './components/landing/FinalInvitationSection';
-import PartnershipSection from './components/landing/PartnershipSection';
 import Footer from './components/landing/Footer';
 
 export default function Home() {
@@ -14,23 +12,17 @@ export default function Home() {
     <>
       <Navigation />
       <main className="bg-rc-bg">
-        {/* 1. Hero: Recognition & Call */}
+        {/* 1. The Encounter: Hero */}
         <HeroSection />
 
-        {/* 2. Founder's Testimony: Proof that deliverance is possible */}
+        {/* 2. The Witness: Founder Testimony */}
         <FounderTestimonySection />
 
-        {/* 3. Why We Exist: Establish purpose */}
-        <WhyWeExistSection />
-
-        {/* 4. After Deliverance: Show the restoration journey */}
+        {/* 3. The Promise: After Deliverance Comes Restoration */}
         <WhatHappensNextSection />
 
-        {/* 5. Final Invitation: Call to action */}
+        {/* 4. The Invitation: Final Call */}
         <FinalInvitationSection />
-
-        {/* 6. Partnership: Secondary invitation */}
-        <PartnershipSection />
       </main>
       <Footer />
     </>

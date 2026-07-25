@@ -100,7 +100,7 @@ export default function HeroSection() {
             letterSpacing: '-0.02em',
             margin: 0
           }}>
-            You were not created to live trapped in deception.
+            You were not created for a life built on deception.
           </h1>
         </div>
 
@@ -119,110 +119,80 @@ export default function HeroSection() {
             color: '#202124',
             lineHeight: 1.7,
             letterSpacing: '-0.005em',
+            margin: '0 0 1.25rem 0',
+            fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
+            fontWeight: 400
+          }}>
+            Many have become trapped in fraud, scams, and dishonest gain.
+          </p>
+          <p style={{
+            fontSize: '1.0625rem',
+            color: '#202124',
+            lineHeight: 1.7,
+            letterSpacing: '-0.005em',
+            margin: '0 0 1.25rem 0',
+            fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
+            fontWeight: 400
+          }}>
+            But your past does not have to become your future.
+          </p>
+          <p style={{
+            fontSize: '1.0625rem',
+            color: '#202124',
+            lineHeight: 1.7,
+            letterSpacing: '-0.005em',
             margin: 0,
             fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
             fontWeight: 400
           }}>
-            If fraud, scams, or dishonest living have become part of your life, there is a way out. Jesus Christ delivers, restores, and leads people into a new life of truth and purpose.
+            Jesus Christ can deliver and restore you.
           </p>
         </div>
 
-        {/* CTAs */}
+        {/* CTA */}
         <div
           style={{
             opacity: isLoaded ? 1 : 0,
             transform: isLoaded ? 'translateY(0)' : 'translateY(10px)',
             transition: 'all 800ms cubic-bezier(0.4, 0, 0.2, 1)',
             transitionDelay: '250ms',
-            marginBottom: '2.5rem',
-            display: 'flex',
-            gap: '1rem',
-            flexWrap: 'wrap'
+            marginBottom: '2.5rem'
           }}
         >
           <Link
             href="/deliverance"
             style={{
-              padding: '0.875rem 1.75rem',
+              padding: '1rem 2.5rem',
               backgroundColor: '#0F766E',
               color: 'white',
-              fontSize: '0.9375rem',
-              fontWeight: 500,
+              fontSize: '1rem',
+              fontWeight: 600,
               letterSpacing: '0.01em',
               borderRadius: '0.375rem',
               textDecoration: 'none',
               display: 'inline-block',
               cursor: 'pointer',
               transition: 'all 300ms cubic-bezier(0.4, 0, 0.2, 1)',
-              border: '1px solid #0F766E',
+              border: '2px solid #0F766E',
               fontFamily: 'Inter, system-ui, -apple-system, sans-serif'
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.backgroundColor = '#0a5c59';
               e.currentTarget.style.borderColor = '#0a5c59';
-              e.currentTarget.style.boxShadow = '0 8px 16px rgba(15, 118, 110, 0.15)';
+              e.currentTarget.style.transform = 'translateY(-2px)';
+              e.currentTarget.style.boxShadow = '0 12px 24px rgba(15, 118, 110, 0.2)';
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.backgroundColor = '#0F766E';
               e.currentTarget.style.borderColor = '#0F766E';
+              e.currentTarget.style.transform = 'translateY(0)';
               e.currentTarget.style.boxShadow = 'none';
             }}
           >
             I Need Deliverance
           </Link>
-          <Link
-            href="#testimony"
-            style={{
-              padding: '0.875rem 1.75rem',
-              color: '#0F766E',
-              fontSize: '0.9375rem',
-              fontWeight: 500,
-              letterSpacing: '0.01em',
-              textDecoration: 'none',
-              display: 'inline-block',
-              cursor: 'pointer',
-              transition: 'all 300ms cubic-bezier(0.4, 0, 0.2, 1)',
-              border: '1px solid rgba(15, 118, 110, 0.3)',
-              borderRadius: '0.375rem',
-              fontFamily: 'Inter, system-ui, -apple-system, sans-serif'
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.color = '#202124';
-              e.currentTarget.style.borderColor = '#202124';
-              e.currentTarget.style.backgroundColor = 'rgba(15, 118, 110, 0.05)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.color = '#0F766E';
-              e.currentTarget.style.borderColor = 'rgba(15, 118, 110, 0.3)';
-              e.currentTarget.style.backgroundColor = 'transparent';
-            }}
-          >
-            My Story
-          </Link>
         </div>
 
-        {/* Hero Closing Line */}
-        <div
-          style={{
-            opacity: isLoaded ? 1 : 0,
-            transform: isLoaded ? 'translateY(0)' : 'translateY(10px)',
-            transition: 'all 800ms cubic-bezier(0.4, 0, 0.2, 1)',
-            transitionDelay: '300ms',
-            paddingTop: '1.5rem'
-          }}
-        >
-          <p style={{
-            fontSize: '0.9375rem',
-            color: '#202124',
-            letterSpacing: '-0.005em',
-            margin: 0,
-            fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
-            fontWeight: 400,
-            fontStyle: 'italic'
-          }}>
-            The first step is not registration. It is confession.
-          </p>
-        </div>
       </div>
 
       {/* Scroll Indicator */}

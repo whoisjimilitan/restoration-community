@@ -23,21 +23,8 @@ export default function WhatHappensNextSection() {
           marginBottom: '1.5rem',
           marginTop: 0
         }}>
-          After Deliverance: The Restoration Journey
+          After Deliverance Comes Restoration
         </h2>
-
-        <p style={{
-          fontSize: '1.0625rem',
-          fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
-          color: '#202124',
-          lineHeight: 1.7,
-          letterSpacing: '-0.005em',
-          marginBottom: '2rem',
-          marginTop: 0,
-          fontWeight: 500
-        }}>
-          Deliverance is the beginning, not the end.
-        </p>
 
         <p style={{
           fontSize: '1.0625rem',
@@ -48,7 +35,7 @@ export default function WhatHappensNextSection() {
           marginBottom: '2rem',
           marginTop: 0
         }}>
-          After encountering Jesus Christ, we walk with you through a lifelong journey of restoration — learning truth, rebuilding your life, restoring relationships, pursuing honest work, and becoming a testimony of God&apos;s transforming power.
+          Deliverance is not the end. It is the beginning of a new life with Jesus Christ.
         </p>
 
         <div style={{
@@ -65,7 +52,7 @@ export default function WhatHappensNextSection() {
               marginBottom: '0.5rem',
               marginTop: 0
             }}>
-              1. Truth
+              Truth
             </h3>
             <p style={{
               fontSize: '1rem',
@@ -75,7 +62,7 @@ export default function WhatHappensNextSection() {
               marginBottom: 0,
               marginTop: 0
             }}>
-              Facing your reality honestly before God. No hiding. No excuses.
+              Facing the reality of where you are.
             </p>
           </div>
 
@@ -88,7 +75,7 @@ export default function WhatHappensNextSection() {
               marginBottom: '0.5rem',
               marginTop: 0
             }}>
-              2. Confession
+              Confession
             </h3>
             <p style={{
               fontSize: '1rem',
@@ -98,7 +85,7 @@ export default function WhatHappensNextSection() {
               marginBottom: 0,
               marginTop: 0
             }}>
-              Turning away from deception and bringing your past before Jesus Christ.
+              Bringing your life before God.
             </p>
           </div>
 
@@ -111,7 +98,7 @@ export default function WhatHappensNextSection() {
               marginBottom: '0.5rem',
               marginTop: 0
             }}>
-              3. Repentance
+              Repentance
             </h3>
             <p style={{
               fontSize: '1rem',
@@ -121,7 +108,7 @@ export default function WhatHappensNextSection() {
               marginBottom: 0,
               marginTop: 0
             }}>
-              Leaving behind the old life and choosing a new direction.
+              Turning from the old way.
             </p>
           </div>
 
@@ -134,7 +121,7 @@ export default function WhatHappensNextSection() {
               marginBottom: '0.5rem',
               marginTop: 0
             }}>
-              4. Forgiveness
+              Forgiveness
             </h3>
             <p style={{
               fontSize: '1rem',
@@ -144,7 +131,7 @@ export default function WhatHappensNextSection() {
               marginBottom: 0,
               marginTop: 0
             }}>
-              Receiving God&apos;s forgiveness and learning to walk in freedom.
+              Receiving the freedom Christ gives.
             </p>
           </div>
 
@@ -157,7 +144,7 @@ export default function WhatHappensNextSection() {
               marginBottom: '0.5rem',
               marginTop: 0
             }}>
-              5. Reconciliation
+              Reconciliation
             </h3>
             <p style={{
               fontSize: '1rem',
@@ -167,7 +154,7 @@ export default function WhatHappensNextSection() {
               marginBottom: 0,
               marginTop: 0
             }}>
-              Beginning the work of restoring broken relationships and trust.
+              Restoring what was broken.
             </p>
           </div>
 
@@ -180,7 +167,7 @@ export default function WhatHappensNextSection() {
               marginBottom: '0.5rem',
               marginTop: 0
             }}>
-              6. Honest Work
+              Honest Work
             </h3>
             <p style={{
               fontSize: '1rem',
@@ -190,7 +177,7 @@ export default function WhatHappensNextSection() {
               marginBottom: 0,
               marginTop: 0
             }}>
-              Building a life of integrity, purpose, and honest living.
+              Building a life of truth and integrity.
             </p>
           </div>
 
@@ -203,7 +190,7 @@ export default function WhatHappensNextSection() {
               marginBottom: '0.5rem',
               marginTop: 0
             }}>
-              7. Serving
+              Serving
             </h3>
             <p style={{
               fontSize: '1rem',
@@ -213,7 +200,7 @@ export default function WhatHappensNextSection() {
               marginBottom: 0,
               marginTop: 0
             }}>
-              Becoming a witness of God&apos;s work and helping others find freedom.
+              Becoming a testimony that helps others.
             </p>
           </div>
         </div>
