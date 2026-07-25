@@ -24,7 +24,7 @@ export default function FounderTestimonySection() {
           marginBottom: '2.5rem',
           marginTop: 0
         }}>
-          A Message From Someone Who Walked This Road
+          Proof That Jesus Still Delivers
         </h2>
 
         <div style={{

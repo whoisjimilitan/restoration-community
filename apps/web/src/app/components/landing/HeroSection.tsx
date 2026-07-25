@@ -46,13 +46,10 @@ export default function HeroSection() {
             style={{ transitionDelay: '360ms' }}
           >
             <p className="text-lg text-rc-text leading-relaxed">
-              Maybe you&apos;ve told yourself you&apos;ll stop one day.
+              You know what you&apos;ve done. You know the weight of it. You know you can&apos;t do this alone.
             </p>
-            <p className="text-lg text-rc-text leading-relaxed mt-6">
-              Maybe you&apos;ve started to believe this is just who you are now.
-            </p>
-            <p className="text-lg text-rc-text leading-relaxed mt-6">
-              Jesus Christ does not leave people trapped. He delivers. He restores. He makes all things new.
+            <p className="text-lg text-rc-text leading-relaxed mt-8">
+              Jesus Christ does not leave people trapped. He still delivers. He still restores. He makes all things new.
             </p>
           </div>
 
