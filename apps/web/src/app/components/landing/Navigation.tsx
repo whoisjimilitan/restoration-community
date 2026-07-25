@@ -11,25 +11,31 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 py-4 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="text-lg font-serif font-bold text-rc-text">
-          Restoration
+          Restoration Community
         </Link>
 
         {/* Navigation Links - Desktop */}
         <div className="hidden md:flex items-center gap-8">
           <Link href="#about" className="text-sm text-rc-text hover:text-rc-accent transition-colors duration-200">
-            About the Ministry
+            About
           </Link>
           <Link href="#journey" className="text-sm text-rc-text hover:text-rc-accent transition-colors duration-200">
-            My Journey
+            Journey
           </Link>
-          <Link href="#testimony" className="text-sm text-rc-text hover:text-rc-accent transition-colors duration-200">
-            Testimony
+          <Link href="#community" className="text-sm text-rc-text hover:text-rc-accent transition-colors duration-200">
+            Community
           </Link>
-          <Link href="#partnership" className="text-sm text-rc-text hover:text-rc-accent transition-colors duration-200">
-            Partnership
+          <Link href="#resources" className="text-sm text-rc-text hover:text-rc-accent transition-colors duration-200">
+            Resources
           </Link>
-          <Link href="/deliverance" className="text-sm font-medium text-rc-accent hover:text-rc-text transition-colors duration-200">
-            I Need Deliverance
+          <Link href="/auth/signin" className="text-sm text-rc-text hover:text-rc-accent transition-colors duration-200">
+            Sign In
+          </Link>
+          <Link
+            href="/auth/register"
+            className="text-sm font-medium text-rc-accent hover:text-rc-text transition-colors duration-200"
+          >
+            Join Community
           </Link>
         </div>
 
@@ -50,19 +56,22 @@ export default function Navigation() {
         <div className="md:hidden bg-rc-bg border-t border-rc-text/5">
           <div className="px-6 py-4 space-y-3">
             <Link href="#about" className="block text-sm text-rc-text hover:text-rc-accent transition-colors">
-              About the Ministry
+              About
             </Link>
             <Link href="#journey" className="block text-sm text-rc-text hover:text-rc-accent transition-colors">
-              My Journey
+              Journey
             </Link>
-            <Link href="#testimony" className="block text-sm text-rc-text hover:text-rc-accent transition-colors">
-              Testimony
+            <Link href="#community" className="block text-sm text-rc-text hover:text-rc-accent transition-colors">
+              Community
             </Link>
-            <Link href="#partnership" className="block text-sm text-rc-text hover:text-rc-accent transition-colors">
-              Partnership
+            <Link href="#resources" className="block text-sm text-rc-text hover:text-rc-accent transition-colors">
+              Resources
             </Link>
-            <Link href="/deliverance" className="block text-sm font-medium text-rc-accent hover:text-rc-text transition-colors">
-              I Need Deliverance
+            <Link href="/auth/signin" className="block text-sm text-rc-text hover:text-rc-accent transition-colors">
+              Sign In
+            </Link>
+            <Link href="/auth/register" className="block text-sm font-medium text-rc-accent hover:text-rc-text transition-colors">
+              Join Community
             </Link>
           </div>
         </div>

@@ -11,267 +11,79 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section style={{
-      position: 'relative',
-      width: '100%',
-      minHeight: '100vh',
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'center',
-      alignItems: 'center',
-      paddingTop: '5rem',
-      paddingBottom: '6rem',
-      paddingLeft: '2rem',
-      paddingRight: '2rem',
-      textAlign: 'center',
-      overflow: 'hidden'
-    }}>
-      {/* Atmospheric Gradient Background */}
-      <div style={{
-        position: 'absolute',
-        inset: 0,
-        background: 'linear-gradient(135deg, #FAFAF8 0%, #F8F6F2 40%, #F5F3F0 100%)',
-        zIndex: -2
-      }} />
-
-      {/* Radial Light */}
-      <div style={{
-        position: 'absolute',
-        inset: 0,
-        background: 'radial-gradient(ellipse 120% 100% at 50% -10%, rgba(255, 255, 255, 0.5) 0%, transparent 60%)',
-        zIndex: -1,
-        pointerEvents: 'none'
-      }} />
-
-      {/* Depth Overlay */}
-      <div style={{
-        position: 'absolute',
-        inset: 0,
-        background: 'linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, transparent 30%, rgba(0, 0, 0, 0.03) 100%)',
-        zIndex: -1,
-        pointerEvents: 'none'
-      }} />
-
-      {/* Content */}
-      <div style={{
-        maxWidth: '640px',
-        width: '100%',
-        position: 'relative',
-        zIndex: 1
-      }}>
-        {/* Eyebrow */}
-        <div
-          style={{
-            opacity: isLoaded ? 1 : 0,
-            transform: isLoaded ? 'translateY(0)' : 'translateY(12px)',
-            transition: 'all 800ms cubic-bezier(0.4, 0, 0.2, 1)',
-            transitionDelay: '100ms',
-            marginBottom: '1.5rem'
-          }}
-        >
-          <p style={{
-            fontSize: '0.75rem',
-            fontWeight: 600,
-            letterSpacing: '0.15em',
-            color: '#888888',
-            textTransform: 'uppercase',
-            margin: 0,
-            fontFamily: 'Inter, system-ui, -apple-system, sans-serif'
-          }}>
-            A CHRISTIAN COMMUNITY FOR RESTORATION
-          </p>
-        </div>
-
-        {/* Headline */}
-        <div
-          style={{
-            opacity: isLoaded ? 1 : 0,
-            transform: isLoaded ? 'translateY(0)' : 'translateY(12px)',
-            transition: 'all 800ms cubic-bezier(0.4, 0, 0.2, 1)',
-            transitionDelay: '150ms',
-            marginBottom: '2rem'
-          }}
-        >
-          <h1 style={{
-            fontSize: 'clamp(2.5rem, 6vw, 4.5rem)',
-            fontFamily: 'Georgia, Garamond, serif',
-            fontWeight: 700,
-            color: '#0a0a0a',
-            lineHeight: 1.15,
-            letterSpacing: '-0.02em',
-            margin: 0
-          }}>
-            Restoration begins where deception ends.
-          </h1>
-        </div>
-
-        {/* Narrative - 4 Part Arc */}
-        <div
-          style={{
-            opacity: isLoaded ? 1 : 0,
-            transform: isLoaded ? 'translateY(0)' : 'translateY(12px)',
-            transition: 'all 800ms cubic-bezier(0.4, 0, 0.2, 1)',
-            transitionDelay: '200ms',
-            marginBottom: '3rem'
-          }}
-        >
-          <p style={{
-            fontSize: '1.125rem',
-            color: '#202124',
-            lineHeight: 1.8,
-            letterSpacing: '-0.004em',
-            margin: '0 0 1.25rem 0',
-            fontFamily: 'Georgia, Garamond, serif',
-            fontWeight: 400
-          }}>
-            You already know what deception costs.
-          </p>
-          <p style={{
-            fontSize: '1.125rem',
-            color: '#202124',
-            lineHeight: 1.8,
-            letterSpacing: '-0.004em',
-            margin: '0 0 1.25rem 0',
-            fontFamily: 'Georgia, Garamond, serif',
-            fontWeight: 400
-          }}>
-            Perhaps what has remained hidden is that our deepest need is not simply freedom from wrongdoing, but reconciliation with God.
-          </p>
-          <p style={{
-            fontSize: '1.125rem',
-            color: '#202124',
-            lineHeight: 1.8,
-            letterSpacing: '-0.004em',
-            margin: '0 0 1.25rem 0',
-            fontFamily: 'Georgia, Garamond, serif',
-            fontWeight: 400
-          }}>
-            Through Jesus Christ, restoration is possible.
-          </p>
-          <p style={{
-            fontSize: '1.125rem',
-            color: '#202124',
-            lineHeight: 1.8,
-            letterSpacing: '-0.004em',
-            margin: 0,
-            fontFamily: 'Georgia, Garamond, serif',
-            fontWeight: 400
-          }}>
-            And no one should have to walk that journey alone.
-          </p>
-        </div>
-
-        {/* CTAs */}
-        <div
-          style={{
-            opacity: isLoaded ? 1 : 0,
-            transform: isLoaded ? 'translateY(0)' : 'translateY(12px)',
-            transition: 'all 800ms cubic-bezier(0.4, 0, 0.2, 1)',
-            transitionDelay: '250ms',
-            display: 'flex',
-            gap: '1rem',
-            justifyContent: 'center',
-            flexWrap: 'wrap',
-            marginTop: '2.5rem'
-          }}
-        >
-          <Link
-            href="/journey"
-            style={{
-              padding: '0.875rem 2rem',
-              backgroundColor: '#0F766E',
-              color: 'white',
-              fontSize: '0.95rem',
-              fontWeight: 500,
-              letterSpacing: '0.02em',
-              borderRadius: '0.5rem',
-              textDecoration: 'none',
-              display: 'inline-flex',
-              alignItems: 'center',
-              cursor: 'pointer',
-              transition: 'all 300ms cubic-bezier(0.4, 0, 0.2, 1)',
-              border: 'none',
-              fontFamily: 'Inter, system-ui, -apple-system, sans-serif'
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#0a5c59';
-              e.currentTarget.style.transform = 'translateY(-2px)';
-              e.currentTarget.style.boxShadow = '0 12px 24px rgba(15, 118, 110, 0.2)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = '#0F766E';
-              e.currentTarget.style.transform = 'translateY(0)';
-              e.currentTarget.style.boxShadow = 'none';
-            }}
+    <section className="relative w-full pt-32 pb-16 md:pt-0 md:pb-0 md:min-h-screen md:flex md:flex-col md:justify-center bg-rc-bg">
+      <div className="max-w-2xl mx-auto px-6 sm:px-8 md:px-12">
+        <div className="space-y-8 md:space-y-12">
+          {/* Eyebrow */}
+          <div
+            className={`transform transition-all duration-700 ${
+              isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+            }`}
+            style={{ transitionDelay: '120ms' }}
           >
-            Begin the Journey
-          </Link>
-          <Link
-            href="#community"
-            style={{
-              padding: '0.875rem 2rem',
-              backgroundColor: 'transparent',
-              color: '#0F766E',
-              fontSize: '0.95rem',
-              fontWeight: 500,
-              letterSpacing: '0.02em',
-              textDecoration: 'none',
-              display: 'inline-flex',
-              alignItems: 'center',
-              cursor: 'pointer',
-              transition: 'all 300ms cubic-bezier(0.4, 0, 0.2, 1)',
-              border: '1.5px solid #0F766E',
-              borderRadius: '0.5rem',
-              fontFamily: 'Inter, system-ui, -apple-system, sans-serif'
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = 'rgba(15, 118, 110, 0.05)';
-              e.currentTarget.style.color = '#0a5c59';
-              e.currentTarget.style.borderColor = '#0a5c59';
-              e.currentTarget.style.transform = 'translateY(-2px)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = 'transparent';
-              e.currentTarget.style.color = '#0F766E';
-              e.currentTarget.style.borderColor = '#0F766E';
-              e.currentTarget.style.transform = 'translateY(0)';
-            }}
-          >
-            Learn About Our Community
-          </Link>
-        </div>
-      </div>
+            <p className="text-sm font-medium text-rc-accent uppercase tracking-wide">
+              A Christian Community for Restoration
+            </p>
+          </div>
 
-      {/* Scroll Indicator */}
-      <div
-        style={{
-          position: 'absolute',
-          bottom: '2rem',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          opacity: 0.4,
-          cursor: 'default',
-          transition: 'opacity 300ms ease'
-        }}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.opacity = '0.7';
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.opacity = '0.4';
-        }}
-      >
-        <p style={{
-          fontSize: '0.7rem',
-          color: '#888888',
-          letterSpacing: '0.1em',
-          textTransform: 'uppercase',
-          margin: '0 0 0.75rem 0',
-          fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
-          fontWeight: 500
-        }}>
-          Scroll
-        </p>
+          {/* Headline */}
+          <div
+            className={`transform transition-all duration-700 ${
+              isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+            }`}
+            style={{ transitionDelay: '240ms' }}
+          >
+            <h1 className="text-5xl md:text-6xl font-serif font-bold text-rc-text leading-tight">
+              Restoration begins where deception ends.
+            </h1>
+          </div>
+
+          {/* Supporting Copy */}
+          <div
+            className={`transform transition-all duration-700 ${
+              isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+            }`}
+            style={{ transitionDelay: '360ms' }}
+          >
+            <p className="text-lg text-rc-text leading-relaxed">
+              You already know what deception costs. Perhaps what has remained hidden is that our deepest need is not simply freedom from wrongdoing, but reconciliation with God.
+            </p>
+            <p className="text-lg text-rc-text leading-relaxed mt-6">
+              Through Jesus Christ, restoration is possible. And no one should have to walk that journey alone.
+            </p>
+          </div>
+
+          {/* CTA Buttons */}
+          <div
+            className={`transform transition-all duration-700 pt-4 ${
+              isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+            }`}
+            style={{ transitionDelay: '480ms' }}
+          >
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Link
+                href="/auth/register"
+                className="inline-flex items-center justify-center px-8 py-4 bg-rc-accent text-white font-medium rounded-lg hover:bg-rc-text transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-rc-accent focus:ring-offset-2 focus:ring-offset-rc-bg"
+              >
+                Begin the Journey
+              </Link>
+              <Link
+                href="#about"
+                className="inline-flex items-center justify-center px-8 py-4 text-rc-accent font-medium hover:text-rc-text transition-colors duration-200"
+              >
+                Learn About Our Community
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        {/* Scroll Indicator */}
+        <div className="hidden md:flex absolute bottom-8 left-1/2 transform -translate-x-1/2 flex-col items-center opacity-50">
+          <p className="text-xs text-rc-text-secondary uppercase tracking-widest mb-3">Scroll</p>
+          <svg className="w-5 h-5 text-rc-text-secondary animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          </svg>
+        </div>
       </div>
     </section>
   );
