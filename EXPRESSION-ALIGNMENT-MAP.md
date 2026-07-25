@@ -34,10 +34,10 @@ status: audit-mapping
 ### 1. Hero Section
 **Existing Element:** Homepage hero heading and supporting text
 
-**Current Message:** [To be audited]
-**Desired Message:** Deliverance through Jesus Christ for those trapped in fraud
-**Reason for Change:** Someone in crisis needs to immediately recognize this is specifically for them and that the answer is Christ, not a programme
-**Change Needed:** [To be determined after audit]
+**Current Message:** "A Christian Community for Restoration" + "Restoration begins where deception ends" + narrative about reconciliation with God
+**Desired Message:** Deliverance through Jesus Christ for those trapped in fraud (specific mission field named upfront)
+**Reason for Change:** Someone in crisis needs to immediately recognize this ministry exists specifically for people trapped in fraud/deception. Current message sounds like generic Christian community, not specialized deliverance ministry
+**Change Needed:** ✅ CHANGE — Eyebrow should name fraud/deception specifically; headline should emphasize deliverance through Christ
 
 ---
 
