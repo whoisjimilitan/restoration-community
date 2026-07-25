@@ -25,7 +25,7 @@ export default function HeroSection() {
       paddingRight: '2rem',
       overflow: 'hidden'
     }}>
-      {/* Atmospheric Background Layer */}
+      {/* Atmospheric Background */}
       <div style={{
         position: 'absolute',
         inset: 0,
@@ -33,7 +33,7 @@ export default function HeroSection() {
         zIndex: -2
       }} />
 
-      {/* Morning Light Suggestion */}
+      {/* Light Overlay */}
       <div style={{
         position: 'absolute',
         inset: 0,
@@ -42,7 +42,7 @@ export default function HeroSection() {
         pointerEvents: 'none'
       }} />
 
-      {/* Subtle Depth Overlay */}
+      {/* Depth Overlay */}
       <div style={{
         position: 'absolute',
         inset: 0,
@@ -51,7 +51,7 @@ export default function HeroSection() {
         pointerEvents: 'none'
       }} />
 
-      {/* Content Container */}
+      {/* Content */}
       <div style={{
         maxWidth: '560px',
         width: '100%',
@@ -77,7 +77,7 @@ export default function HeroSection() {
             margin: 0,
             fontFamily: 'Inter, system-ui, -apple-system, sans-serif'
           }}>
-            Deliverance Through Jesus Christ
+            DELIVERANCE THROUGH JESUS CHRIST
           </p>
         </div>
 
@@ -100,7 +100,7 @@ export default function HeroSection() {
             letterSpacing: '-0.02em',
             margin: 0
           }}>
-            Restoration begins where deception ends.
+            You were not created to live trapped in deception.
           </h1>
         </div>
 
@@ -119,44 +119,11 @@ export default function HeroSection() {
             color: '#202124',
             lineHeight: 1.7,
             letterSpacing: '-0.005em',
-            margin: '0 0 1.25rem 0',
-            fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
-            fontWeight: 400
-          }}>
-            You already know what deception costs.
-          </p>
-          <p style={{
-            fontSize: '1.0625rem',
-            color: '#202124',
-            lineHeight: 1.7,
-            letterSpacing: '-0.005em',
-            margin: '0 0 1.25rem 0',
-            fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
-            fontWeight: 400
-          }}>
-            Perhaps what has remained hidden is that our deepest need is not simply freedom from wrongdoing, but reconciliation with God.
-          </p>
-          <p style={{
-            fontSize: '1.0625rem',
-            color: '#202124',
-            lineHeight: 1.7,
-            letterSpacing: '-0.005em',
-            margin: '0 0 1.25rem 0',
-            fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
-            fontWeight: 400
-          }}>
-            Through Jesus Christ, restoration is possible.
-          </p>
-          <p style={{
-            fontSize: '1.0625rem',
-            color: '#202124',
-            lineHeight: 1.7,
-            letterSpacing: '-0.005em',
             margin: 0,
             fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
             fontWeight: 400
           }}>
-            And no one should have to walk that journey alone.
+            If fraud, scams, or dishonest living have become part of your life, there is a way out. Jesus Christ delivers, restores, and leads people into a new life of truth and purpose.
           </p>
         </div>
 
@@ -204,7 +171,7 @@ export default function HeroSection() {
             I Need Deliverance
           </Link>
           <Link
-            href="#about"
+            href="#testimony"
             style={{
               padding: '0.875rem 1.75rem',
               color: '#0F766E',
@@ -230,11 +197,11 @@ export default function HeroSection() {
               e.currentTarget.style.backgroundColor = 'transparent';
             }}
           >
-            Learn More
+            My Story
           </Link>
         </div>
 
-        {/* Trust Statement */}
+        {/* Hero Closing Line */}
         <div
           style={{
             opacity: isLoaded ? 1 : 0,
@@ -245,15 +212,15 @@ export default function HeroSection() {
           }}
         >
           <p style={{
-            fontSize: '0.75rem',
-            color: '#8B8680',
-            letterSpacing: '0.08em',
+            fontSize: '0.9375rem',
+            color: '#202124',
+            letterSpacing: '-0.005em',
             margin: 0,
             fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
-            fontWeight: 500,
-            textTransform: 'uppercase'
+            fontWeight: 400,
+            fontStyle: 'italic'
           }}>
-            Guiding people toward honest work and living.
+            The first step is not registration. It is confession.
           </p>
         </div>
       </div>
@@ -296,14 +263,8 @@ export default function HeroSection() {
           }}
           fill="none"
           stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={1.5}
-            d="M19 14l-7 7m0 0l-7-7m7 7V3"
-          />
+          viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
         </svg>
       </div>
     </section>

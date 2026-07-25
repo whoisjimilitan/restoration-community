@@ -26,7 +26,7 @@ export default function FinalInvitationSection() {
           marginBottom: '1.5rem',
           marginTop: 0
         }}>
-          Ready to Take the First Step?
+          Your Story Can Change
         </h2>
 
         <p style={{
@@ -38,7 +38,20 @@ export default function FinalInvitationSection() {
           marginBottom: '3rem',
           marginTop: 0
         }}>
-          The first step is a confession. Open your heart to the possibility that Jesus Christ can deliver you. Take a moment to acknowledge where you are. God is listening.
+          If you are tired of the life you are living and desire freedom, Jesus Christ is able to deliver and restore you.
+        </p>
+
+        <p style={{
+          fontSize: '1.0625rem',
+          fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
+          color: '#202124',
+          lineHeight: 1.7,
+          letterSpacing: '-0.005em',
+          marginBottom: '3rem',
+          marginTop: 0,
+          fontWeight: 500
+        }}>
+          Take the first step today.
         </p>
 
         <Link
@@ -84,7 +97,7 @@ export default function FinalInvitationSection() {
           marginTop: '2rem',
           marginBottom: 0
         }}>
-          No registration. No pressure. Just the beginning of your encounter with Jesus Christ.
+          No pressure. No judgement. Just an honest first step toward Jesus Christ.
         </p>
       </div>
     </section>

@@ -11,19 +11,25 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 py-4 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="text-lg font-serif font-bold text-rc-text">
-          Restoration Community
+          Restoration
         </Link>
 
-        {/* Navigation Links - Desktop (4 minimal items centered) */}
+        {/* Navigation Links - Desktop */}
         <div className="hidden md:flex items-center gap-8">
           <Link href="#about" className="text-sm text-rc-text hover:text-rc-accent transition-colors duration-200">
             About the Ministry
           </Link>
           <Link href="#journey" className="text-sm text-rc-text hover:text-rc-accent transition-colors duration-200">
-            The Restoration Journey
+            My Journey
           </Link>
-          <Link href="/auth/signin" className="text-sm text-rc-text hover:text-rc-accent transition-colors duration-200">
-            Sign In
+          <Link href="#testimony" className="text-sm text-rc-text hover:text-rc-accent transition-colors duration-200">
+            Testimony
+          </Link>
+          <Link href="#partnership" className="text-sm text-rc-text hover:text-rc-accent transition-colors duration-200">
+            Partnership
+          </Link>
+          <Link href="/deliverance" className="text-sm font-medium text-rc-accent hover:text-rc-text transition-colors duration-200">
+            I Need Deliverance
           </Link>
         </div>
 
@@ -47,10 +53,16 @@ export default function Navigation() {
               About the Ministry
             </Link>
             <Link href="#journey" className="block text-sm text-rc-text hover:text-rc-accent transition-colors">
-              The Restoration Journey
+              My Journey
             </Link>
-            <Link href="/auth/signin" className="block text-sm text-rc-text hover:text-rc-accent transition-colors">
-              Sign In
+            <Link href="#testimony" className="block text-sm text-rc-text hover:text-rc-accent transition-colors">
+              Testimony
+            </Link>
+            <Link href="#partnership" className="block text-sm text-rc-text hover:text-rc-accent transition-colors">
+              Partnership
+            </Link>
+            <Link href="/deliverance" className="block text-sm font-medium text-rc-accent hover:text-rc-text transition-colors">
+              I Need Deliverance
             </Link>
           </div>
         </div>

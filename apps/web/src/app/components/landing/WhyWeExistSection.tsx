@@ -2,7 +2,7 @@
 
 export default function WhyWeExistSection() {
   return (
-    <section style={{
+    <section id="about" style={{
       backgroundColor: '#F8F6F2',
       paddingTop: '4rem',
       paddingBottom: '4rem',
@@ -35,7 +35,19 @@ export default function WhyWeExistSection() {
           marginBottom: '1.25rem',
           marginTop: 0
         }}>
-          We exist because Jesus Christ alone can deliver people trapped in fraud and deception.
+          We exist for people trapped in fraud and dishonest living who are searching for a way out.
+        </p>
+
+        <p style={{
+          fontSize: '1.0625rem',
+          fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
+          color: '#202124',
+          lineHeight: 1.7,
+          letterSpacing: '-0.005em',
+          marginBottom: '1.25rem',
+          marginTop: 0
+        }}>
+          Fraud is more than an action. It becomes a way of life that destroys purpose, relationships, and a person&apos;s relationship with God.
         </p>
 
         <p style={{
@@ -47,7 +59,7 @@ export default function WhyWeExistSection() {
           marginBottom: 0,
           marginTop: 0
         }}>
-          Fraud is spiritual bondage. It binds you to a life of deception. Jesus Christ offers freedom. After you encounter His deliverance, we walk with you through a journey of restoration—rebuilding your identity, your relationships, and your life on truth.
+          But Jesus Christ is the answer. He alone can deliver, transform, and restore a life built on deception into a life built on truth.
         </p>
       </div>
     </section>

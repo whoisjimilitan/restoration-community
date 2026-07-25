@@ -2,7 +2,7 @@
 
 export default function FounderTestimonySection() {
   return (
-    <section style={{
+    <section id="testimony" style={{
       backgroundColor: '#FFFFFF',
       paddingTop: '4rem',
       paddingBottom: '4rem',
@@ -23,7 +23,7 @@ export default function FounderTestimonySection() {
           marginBottom: '1.5rem',
           marginTop: 0
         }}>
-          A Message from Someone Who Walked This Road
+          I Was Once Trapped Like You
         </h2>
 
         <div style={{
@@ -37,10 +37,9 @@ export default function FounderTestimonySection() {
             lineHeight: 1.7,
             letterSpacing: '-0.005em',
             marginBottom: '1.25rem',
-            marginTop: 0,
-            fontStyle: 'italic'
+            marginTop: 0
           }}>
-            I was once trapped like you.
+            I know this road because I walked it.
           </p>
 
           <p style={{
@@ -50,10 +49,9 @@ export default function FounderTestimonySection() {
             lineHeight: 1.7,
             letterSpacing: '-0.005em',
             marginBottom: '1.25rem',
-            marginTop: 0,
-            fontStyle: 'italic'
+            marginTop: 0
           }}>
-            I knew what I was doing was wrong. I told myself I could stop whenever I wanted. But fraud had its hooks in deep. I was building a life on deception, and the weight of it was crushing me.
+            I was once trapped in fraud. I knew the life I was living was wrong, but I felt caught in a cycle I could not break by myself.
           </p>
 
           <p style={{
@@ -63,10 +61,21 @@ export default function FounderTestimonySection() {
             lineHeight: 1.7,
             letterSpacing: '-0.005em',
             marginBottom: '1.25rem',
-            marginTop: 0,
-            fontStyle: 'italic'
+            marginTop: 0
           }}>
-            Jesus Christ delivered me completely.
+            Jesus Christ delivered me completely. He gave me a new identity, a new direction, and a new purpose.
+          </p>
+
+          <p style={{
+            fontSize: '1.0625rem',
+            fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
+            color: '#202124',
+            lineHeight: 1.7,
+            letterSpacing: '-0.005em',
+            marginBottom: '1.5rem',
+            marginTop: 0
+          }}>
+            Now I help others receive their deliverance from Him.
           </p>
 
           <p style={{
@@ -77,9 +86,10 @@ export default function FounderTestimonySection() {
             letterSpacing: '-0.005em',
             marginBottom: 0,
             marginTop: 0,
-            fontStyle: 'italic'
+            fontStyle: 'italic',
+            fontWeight: 500
           }}>
-            Now I help others receive their deliverance from Him. That&apos;s why this exists.
+            Your past does not have to become your future.
           </p>
         </div>
       </div>
