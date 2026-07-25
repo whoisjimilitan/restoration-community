@@ -2,18 +2,29 @@
 
 import { FormEvent, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { signIn } from 'next-auth/react';
 import Link from 'next/link';
 import { PageLayout, PageHeader, Section, Card, CardContent, Input, Button, Alert } from '@/components/ui';
 
+const PASSWORD_MIN_LENGTH = 12;
+
 export default function RegisterPage() {
   const router = useRouter();
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const [formErrors, setFormErrors] = useState<Record<string, string>>({});
+
+  const isFormValid =
+    firstName.trim() &&
+    lastName.trim() &&
+    email.trim() &&
+    password.length >= PASSWORD_MIN_LENGTH &&
+    password === confirmPassword &&
+    !error;
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -22,12 +33,26 @@ export default function RegisterPage() {
 
     const newErrors: Record<string, string> = {};
 
-    if (password !== confirmPassword) {
-      newErrors.confirmPassword = 'Passwords do not match';
+    if (!firstName.trim()) {
+      newErrors.firstName = 'First name is required';
     }
 
-    if (password.length < 8) {
-      newErrors.password = 'Password must be at least 8 characters';
+    if (!lastName.trim()) {
+      newErrors.lastName = 'Last name is required';
+    }
+
+    if (!email.trim()) {
+      newErrors.email = 'Email is required';
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      newErrors.email = 'Email is not valid';
+    }
+
+    if (password.length < PASSWORD_MIN_LENGTH) {
+      newErrors.password = `Password must be at least ${PASSWORD_MIN_LENGTH} characters`;
+    }
+
+    if (password !== confirmPassword) {
+      newErrors.confirmPassword = 'Passwords do not match';
     }
 
     if (Object.keys(newErrors).length > 0) {
@@ -41,28 +66,28 @@ export default function RegisterPage() {
       const response = await fetch('/api/auth/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({
+          firstName: firstName.trim(),
+          lastName: lastName.trim(),
+          email: email.trim(),
+          password
+        }),
       });
 
       if (!response.ok) {
         const data = await response.json();
-        throw new Error(data.error || 'Registration failed');
+        const errorMessage = data.error || 'Registration failed';
+
+        if (response.status === 409) {
+          setError('An account already exists with this email address.');
+        } else {
+          setError(errorMessage);
+        }
+        return;
       }
 
-      console.log('[REGISTER] Account created, signing in...');
-
-      const signInResult = await signIn('credentials', {
-        email,
-        password,
-        redirect: false,
-      });
-
-      if (!signInResult?.ok) {
-        throw new Error('Sign in failed after registration');
-      }
-
-      console.log('[REGISTER] Sign in successful, redirecting to onboarding');
-      router.push('/onboarding');
+      console.log('[AUTH] Account created, redirecting to email verification');
+      router.push(`/auth/verify-email?email=${encodeURIComponent(email)}`);
     } catch (err) {
       setError(
         err instanceof Error ? err.message : 'An error occurred'
@@ -76,8 +101,8 @@ export default function RegisterPage() {
     <PageLayout className="flex items-center justify-center min-h-screen">
       <Section className="w-full max-w-md mb-0">
         <PageHeader
-          title="Start Your Journey"
-          description="Create an account to begin"
+          title="Begin Your Journey"
+          description="Create an account to join the community"
         />
 
         <Card>
@@ -93,13 +118,33 @@ export default function RegisterPage() {
 
             <form onSubmit={handleSubmit} className="space-y-4">
               <Input
-                label="Email"
+                label="First Name"
+                type="text"
+                placeholder="John"
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
+                error={formErrors.firstName}
+                required
+              />
+
+              <Input
+                label="Last Name"
+                type="text"
+                placeholder="Doe"
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
+                error={formErrors.lastName}
+                required
+              />
+
+              <Input
+                label="Email Address"
                 type="email"
                 placeholder="you@example.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                error={formErrors.email}
                 required
-                autoFocus
               />
 
               <Input
@@ -108,7 +153,7 @@ export default function RegisterPage() {
                 placeholder="••••••••"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                hint="At least 8 characters"
+                hint={`Minimum ${PASSWORD_MIN_LENGTH} characters`}
                 error={formErrors.password}
                 required
               />
@@ -125,7 +170,7 @@ export default function RegisterPage() {
 
               <Button
                 type="submit"
-                disabled={loading}
+                disabled={!isFormValid || loading}
                 isLoading={loading}
                 className="w-full"
               >
@@ -139,8 +184,14 @@ export default function RegisterPage() {
                     href="/auth/signin"
                     className="font-medium text-teal-600 hover:text-teal-700 transition-colors duration-200"
                   >
-                    Sign in
+                    Sign In
                   </Link>
+                </p>
+              </div>
+
+              <div className="pt-4 mt-4 border-t border-gray-200">
+                <p className="text-xs text-gray-600 text-center">
+                  Your information is handled with care and used only to support your participation in the Restoration Community.
                 </p>
               </div>
             </form>

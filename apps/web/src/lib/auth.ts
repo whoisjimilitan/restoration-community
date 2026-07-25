@@ -12,6 +12,7 @@ export const authOptions: NextAuthOptions = {
       },
       async authorize(credentials) {
         if (!credentials?.email || !credentials?.password) {
+          console.log('[AUTH] Missing credentials');
           return null;
         }
 
@@ -20,6 +21,7 @@ export const authOptions: NextAuthOptions = {
         });
 
         if (!user) {
+          console.log('[AUTH] User not found:', credentials.email);
           return null;
         }
 
@@ -29,13 +31,16 @@ export const authOptions: NextAuthOptions = {
         );
 
         if (!passwordMatch) {
+          console.log('[AUTH] Password mismatch for:', credentials.email);
           return null;
         }
 
         if (!user.emailVerified) {
+          console.log('[AUTH] Email not verified for:', credentials.email);
           return null;
         }
 
+        console.log('[AUTH] User authenticated:', user.id);
         return {
           id: user.id,
           email: user.email,
