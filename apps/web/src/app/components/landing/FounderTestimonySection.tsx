@@ -1,7 +1,5 @@
 'use client';
 
-import Link from 'next/link';
-
 export default function FounderTestimonySection() {
   return (
     <section style={{
@@ -114,27 +112,6 @@ export default function FounderTestimonySection() {
           </p>
         </div>
 
-        <Link
-          href="#"
-          style={{
-            color: '#0F766E',
-            textDecoration: 'none',
-            fontSize: '0.95rem',
-            fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
-            cursor: 'pointer',
-            transition: 'color 300ms ease',
-            fontWeight: 500,
-            letterSpacing: '0.02em'
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.color = '#0a5c59';
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.color = '#0F766E';
-          }}
-        >
-          Read My Full Story →
-        </Link>
       </div>
     </section>
   );

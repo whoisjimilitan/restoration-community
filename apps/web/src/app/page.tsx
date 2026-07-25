@@ -2,9 +2,8 @@
 
 import Navigation from './components/landing/Navigation';
 import HeroSection from './components/landing/HeroSection';
-import FounderTestimonySection from './components/landing/FounderTestimonySection';
 import RecognitionSection from './components/landing/RecognitionSection';
-import ChristSection from './components/landing/ChristSection';
+import FounderTestimonySection from './components/landing/FounderTestimonySection';
 import JourneySection from './components/landing/JourneySection';
 import CommunitySection from './components/landing/CommunitySection';
 import HonestWorkSection from './components/landing/HonestWorkSection';
@@ -17,9 +16,8 @@ export default function Home() {
       <Navigation />
       <main className="bg-rc-bg">
         <HeroSection />
-        <FounderTestimonySection />
         <RecognitionSection />
-        <ChristSection />
+        <FounderTestimonySection />
         <JourneySection />
         <CommunitySection />
         <HonestWorkSection />
