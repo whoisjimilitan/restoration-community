@@ -105,7 +105,7 @@ export default function HeroSection() {
           </h1>
         </div>
 
-        {/* Narrative - 4-Part Arc (VERSION B) */}
+        {/* Narrative - 4-Part Arc (VERSION B) - Single Flowing Paragraph */}
         <div
           style={{
             opacity: isLoaded ? 1 : 0,
@@ -120,44 +120,11 @@ export default function HeroSection() {
             color: '#202124',
             lineHeight: 1.8,
             letterSpacing: '-0.004em',
-            margin: '0 0 1.25rem 0',
-            fontFamily: 'Georgia, Garamond, serif',
-            fontWeight: 400
-          }}>
-            You already know what deception costs.
-          </p>
-          <p style={{
-            fontSize: '1.125rem',
-            color: '#202124',
-            lineHeight: 1.8,
-            letterSpacing: '-0.004em',
-            margin: '0 0 1.25rem 0',
-            fontFamily: 'Georgia, Garamond, serif',
-            fontWeight: 400
-          }}>
-            Perhaps what has remained hidden is that our deepest need is not simply freedom from wrongdoing, but reconciliation with God.
-          </p>
-          <p style={{
-            fontSize: '1.125rem',
-            color: '#202124',
-            lineHeight: 1.8,
-            letterSpacing: '-0.004em',
-            margin: '0 0 1.25rem 0',
-            fontFamily: 'Georgia, Garamond, serif',
-            fontWeight: 400
-          }}>
-            Through Jesus Christ, restoration is possible.
-          </p>
-          <p style={{
-            fontSize: '1.125rem',
-            color: '#202124',
-            lineHeight: 1.8,
-            letterSpacing: '-0.004em',
             margin: 0,
             fontFamily: 'Georgia, Garamond, serif',
             fontWeight: 400
           }}>
-            And no one should have to walk that journey alone.
+            You already know what deception costs. Perhaps what has remained hidden is that our deepest need is not simply freedom from wrongdoing, but reconciliation with God. Through Jesus Christ, restoration is possible. And no one should have to walk that journey alone.
           </p>
         </div>
 
