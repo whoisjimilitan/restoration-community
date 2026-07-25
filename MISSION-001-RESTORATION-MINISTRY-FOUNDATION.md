@@ -2,8 +2,9 @@
 type: mission-statement
 id: MISSION-001
 title: Restoration Ministry Foundation
-status: canonical-authority
+status: canonical-authority-frozen
 date: 2026-07-25
+frozen-date: 2026-07-25
 authority-level: Constitutional
 ---
 

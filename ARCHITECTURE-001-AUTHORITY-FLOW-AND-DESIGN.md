@@ -2,8 +2,9 @@
 type: architecture-constitution
 id: ARCHITECTURE-001
 title: Authority Flow and Architectural Design
-status: canonical-authority
+status: canonical-authority-frozen
 date: 2026-07-25
+frozen-date: 2026-07-25
 authority-level: Constitutional
 ---
 
@@ -52,6 +53,20 @@ LEVEL 8: INTERFACE DESIGN
 ```
 
 **Critical principle:** Interface design is at the BOTTOM. It expresses what has already been decided at higher levels. It does not decide what the ministry is.
+
+---
+
+## Constitutional Freeze
+
+**Constitutional documents are intentionally stable.**
+
+MISSION-001 and ARCHITECTURE-001 change only when the ministry itself fundamentally changes.
+
+New ministry understanding should first be evaluated to determine whether it is genuinely constitutional or whether it belongs in the governance layer.
+
+The constitutional layer should remain as small as possible.
+
+This prevents constitutional documents from being treated as living design notes and ensures they remain the stable foundation upon which governance and implementation depend.
 
 ---
 

@@ -2,8 +2,9 @@
 type: governance-principle
 id: GOV-002
 title: Restoration Prayer Ministry Principle
-status: canonical-governance
+status: canonical-governance-frozen
 date: 2026-07-25
+frozen-date: 2026-07-25
 authority-level: Foundational Governance
 ---
 

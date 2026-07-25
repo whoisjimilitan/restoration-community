@@ -1,12 +1,14 @@
 ---
-executable: ENTRY-001
-title: Restoration Ministry Entry Pathway Definition
+type: governance-pathway
 id: ENTRY-001
+title: Restoration Ministry Entry Pathway Definition
 phase: Phase 1 — Core Ministry Platform (Foundation)
 domain: Ministry Entry & Encounter
 priority: Foundational (Prerequisites All Future Work)
-status: authority-definition
+status: canonical-governance-frozen
+frozen-date: 2026-07-25
 date: 2026-07-25
+authority-level: Foundational Governance
 ---
 
 # EXECUTIVE: ENTRY-001
