@@ -32,6 +32,11 @@ model User {
   sessions               Session[]
   accounts               Account[]
 
+  // Prayer ministry relationships
+  prayerRequests         PrayerRequest[]
+  prayerWarrior          PrayerWarrior?
+  prayerResponses        PrayerResponse[]
+
   @@map("users")
 }
 
@@ -309,3 +314,92 @@ model StageResource {
   @@index([resourceId])
   @@map("stage_resources")
 }
+
+// ============================================================================
+// PRAYER MINISTRY FOUNDATION (PRAYER-001)
+// ============================================================================
+// Private prayer request system supporting Brother Jimi's prayer ministry
+// Authority: GOV-002 (Restoration Prayer Ministry Principle)
+
+enum PrayerStatus {
+  SUBMITTED
+  RECEIVED
+  IN_PRAYER
+  FOLLOW_UP_REQUIRED
+  COMPLETED
+}
+
+// Prayer request submitted by participant to Brother Jimi's prayer ministry
+model PrayerRequest {
+  id            String   @id @default(cuid())
+  participantId String
+  participant   User     @relation(fields: [participantId], references: [id], onDelete: Cascade)
+
+  content       String   @db.Text // Prayer request text
+  status        PrayerStatus @default(SUBMITTED)
+
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  // Relationships
+  assignments   PrayerAssignment[]
+  responses     PrayerResponse[]
+
+  @@index([participantId])
+  @@index([status])
+  @@index([createdAt])
+  @@map("prayer_requests")
+}
+
+// Prayer warrior: approved servant in prayer ministry (invisible to participants)
+model PrayerWarrior {
+  id        String   @id @default(cuid())
+  userId    String   @unique
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  approved  Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  // Relationships
+  assignments PrayerAssignment[]
+
+  @@index([approved])
+  @@map("prayer_warriors")
+}
+
+// Assignment of prayer warriors to specific prayer requests
+model PrayerAssignment {
+  id              String   @id @default(cuid())
+  prayerRequestId String
+  prayerRequest   PrayerRequest @relation(fields: [prayerRequestId], references: [id], onDelete: Cascade)
+
+  prayerWarriorId String
+  prayerWarrior   PrayerWarrior @relation(fields: [prayerWarriorId], references: [id], onDelete: Cascade)
+
+  assignedAt      DateTime @default(now())
+
+  @@unique([prayerRequestId, prayerWarriorId])
+  @@index([prayerRequestId])
+  @@index([prayerWarriorId])
+  @@map("prayer_assignments")
+}
+
+// Record that prayer ministry action occurred (not prayer content or effectiveness)
+model PrayerResponse {
+  id              String   @id @default(cuid())
+  prayerRequestId String
+  prayerRequest   PrayerRequest @relation(fields: [prayerRequestId], references: [id], onDelete: Cascade)
+
+  recordedById    String
+  recordedBy      User     @relation(fields: [recordedById], references: [id], onDelete: Cascade)
+
+  createdAt       DateTime @default(now())
+
+  @@index([prayerRequestId])
+  @@index([recordedById])
+  @@index([createdAt])
+  @@map("prayer_responses")
+}
+
+// Extend User model to include prayer ministry relationships
+// (User model updated: add relationships below)
