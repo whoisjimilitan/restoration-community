@@ -23,20 +23,24 @@ This document defines what happens after someone submits a prayer request. It an
 ## Authority Foundation
 
 This governance derives from:
-- **MISSION-001:** Jesus Christ restores; prayer is the gateway to encounter
+- **MISSION-001:** Fraud is the mission field; Jesus Christ delivers; deliverance precedes restoration; testimony is multiplication
 - **ARCHITECTURE-001:** Ministry precedes platform; platform supports, never replaces
-- **GOV-002:** Prayer ministry is pastoral, led by Brother Jimi, rooted in Scripture
-- **ENTRY-001:** Prayer request precedes membership; relationship precedes registration
+- **GOV-002:** Prayer ministry is pastoral, led by Brother Jimi, rooted in Scripture, leads to encounter with Christ
+- **ENTRY-001:** Prayer request precedes membership; relationship precedes registration; desperation is the doorway
 
 ---
 
 ## The Pastoral Question
 
-**What does the Restoration Community do after someone in desperation says, "I need prayer"?**
+**What does faithful ministry response look like when someone involved in fraud says: "I need Jesus Christ to change my life"?**
 
-This is not a software question. It is a ministry question.
+This is not a software question. It is a ministry question about deliverance and spiritual freedom.
 
-Software will eventually support the answer. But the answer must be rooted in pastoral theology and ministry practice, not in what is technically possible.
+The person arriving has already crossed a threshold. They are not seeking a program. They are seeking freedom from the spiritual bondage of fraudulent living.
+
+The response must be rooted in pastoral theology and the power of Christ to deliver, not in what is technically possible or what feels compassionate without being truthful about the spiritual nature of the issue.
+
+Software will eventually support this response. But the response itself is ministry, not software.
 
 ---
 
@@ -90,18 +94,32 @@ Questions to clarify:
 
 **Underlying principle:** The conversation should feel safe, personal, and spiritually grounded. Not like a form. Not like an intake. Like a shepherd responding to a sheep.
 
-### Pastoral Discernment
+### The Deliverance Encounter
 
-**How does the ministry discern readiness for the restoration journey?**
+**What does the moment of encounter with Jesus Christ look like?**
 
 Questions to clarify:
-- What indicators suggest someone is ready to enter the journey vs. needs more prayer/time?
-- Is there a formal "decision point" or does it emerge naturally?
-- What role does confession play in this discernment?
-- Are there people who receive ongoing prayer but never formally enter?
-- How does the ministry know when someone is ready for the next step?
+- Is there a distinct moment when someone experiences spiritual freedom from the bondage of fraud?
+- How does Brother Jimi guide someone to encounter Jesus in prayer?
+- What does confession look like in this encounter—is it personal acknowledgment, or spoken to the minister?
+- How does the person know they have been delivered vs. just receiving pastoral encouragement?
+- Is there a commitment moment ("I choose Christ over fraud"), or does it emerge gradually?
+- How does the ministry discern that deliverance has occurred?
 
-**Underlying principle:** Discernment is pastoral, not algorithmic. The shepherd knows the sheep. No automated checklist can replace wisdom.
+**Underlying principle:** Deliverance is not therapeutic progress; it is spiritual freedom. The distinction matters.
+
+### Pastoral Discernment for Restoration Journey
+
+**How does the ministry discern readiness to enter the restoration journey?**
+
+Questions to clarify:
+- What indicators suggest someone is ready to commit to the seven-stage restoration journey?
+- Does deliverance automatically lead to entering the journey, or is there a transition period?
+- What does the person commit to when they enter? (The journey itself? Mentoring relationship? Specific disciplines?)
+- Are there people who receive deliverance and prayer but do not enter the formal journey?
+- When someone is not ready, how does the ministry continue to walk with them?
+
+**Underlying principle:** Not everyone who experiences deliverance immediately enters restoration. Some need time. Some need additional prayer and pastoral care. Discernment is pastoral, not algorithmic.
 
 ### The Decision to Enter
 
@@ -150,17 +168,22 @@ Questions to clarify:
 - ❌ An intake form to be completed
 - ❌ An automated response system
 - ❌ A qualification checklist
-- ❌ A therapy session
+- ❌ Therapy or counseling
+- ❌ Rehabilitation or skills training
 - ❌ A transaction
+- ❌ An educational intervention
+- ❌ Treatment for addiction or behavior
 
 ## What This Encounter IS
 
-- ✅ A pastoral response to human desperation
-- ✅ A moment of personal encounter
-- ✅ Rooted in Scripture and prayer
-- ✅ Led by pastoral authority (Brother Jimi)
-- ✅ Safe and confidential
-- ✅ The doorway to transformation
+- ✅ A pastoral response to spiritual desperation
+- ✅ A moment of personal encounter with Jesus Christ
+- ✅ An experience of spiritual deliverance from the bondage of fraudulent living
+- ✅ Rooted in Scripture and prayer, not psychology or techniques
+- ✅ Led by pastoral authority (Brother Jimi) under Jesus Christ
+- ✅ Confidential and deeply personal
+- ✅ The beginning of a lifelong restoration journey
+- ✅ Multiplication mechanism: A delivered person becomes a witness to others
 
 ---
 
