@@ -9,21 +9,10 @@ const RESTORATION_STAGES = [
     sequence: 1,
     content: {
       description:
-        'The person recognizes and accepts the truth about their life, choices, and need for restoration. This is the foundation stage where honest self-awareness begins.',
-      scripture:
-        'John 8:32 - "Then you will know the truth, and the truth will set you free."',
+        'Many people become trapped in deception long before they become trapped in destructive behaviour. Sometimes we deceive others. Sometimes we deceive ourselves. We convince ourselves that dishonesty is necessary. That everyone else is doing the same. That no one is being harmed. That there is no other way to live. Over time, these beliefs begin to shape the way we see the world. The first step toward restoration is allowing God\'s truth to replace those false beliefs. Truth helps us see reality clearly. It helps us recognise both the consequences of our choices and the hope that God offers through Jesus Christ. Truth does not exist to condemn us. Truth exists to lead us toward freedom.',
+      scripture: 'John 8:32 - "Then you will know the truth, and the truth will set you free."',
       guidance:
-        'Help the participant face reality honestly. Acknowledge pain, mistakes, and consequences. Use Scripture to show how God values truth and how it leads to freedom.',
-      resources: JSON.stringify([
-        {
-          type: 'reflection',
-          title: 'What truths about yourself are hardest to accept?',
-        },
-        {
-          type: 'scripture',
-          reference: 'Psalm 51:6, Proverbs 28:13',
-        },
-      ]),
+        'Living in truth begins with honesty. Honesty before God. Honesty with ourselves. Honesty with others. This does not mean exposing every detail of our lives to everyone. It means refusing to build our lives upon deception. Living in truth also means allowing God\'s Word—not our feelings, circumstances, or past—to define reality. As we walk in truth, we begin leaving behind the patterns that once controlled us. Little by little, our lives become marked by honesty rather than deception. Truth becomes a way of living.',
     },
   },
   {
@@ -32,22 +21,10 @@ const RESTORATION_STAGES = [
     sequence: 2,
     content: {
       description:
-        'The person openly acknowledges wrongdoing before God and, where appropriate, before others. Confession moves from internal recognition to spoken accountability.',
-      scripture:
-        '1 John 1:9 - "If we confess our sins, he is faithful and just to forgive us our sins and to cleanse us from all unrighteousness."',
+        'Truth invites us into the light. Confession is our response to that invitation. Once we begin to see our lives as they truly are, we face a choice. We can continue hiding. Or we can bring what is hidden into the light. Confession is not about humiliation. It is about honesty. It is the moment we stop pretending and begin living truthfully before God and others. Confession is agreeing with God about the truth. It is acknowledging our sin without excuses. It is refusing to blame other people, our circumstances, or our past. Confession begins with God because every sin is ultimately against Him. It also has a place within Christian community. There are times when confession brings healing to relationships, restores trust, and allows others to walk with us in prayer and encouragement. Confession is not about exposing ourselves unnecessarily. It is about embracing honesty where honesty is needed. Honesty is the soil where restoration grows.',
+      scripture: '1 John 1:9 - "If we confess our sins, he is faithful and just and will forgive us our sins and purify us from all unrighteousness."',
       guidance:
-        'Guide the participant toward honest confession. Explain the power of speaking sin aloud. Emphasize the safety and confidentiality of this space while noting appropriate times to confess to others.',
-      resources: JSON.stringify([
-        {
-          type: 'reflection',
-          title:
-            'What are you struggling to confess, and why is confession important?',
-        },
-        {
-          type: 'scripture',
-          reference: 'James 5:16, 2 Samuel 12:1-13',
-        },
-      ]),
+        'Living a life of confession means refusing to return to hiddenness. When the Holy Spirit convicts us, we respond rather than resist. When we fail, we confess rather than conceal. When we have wronged someone, we acknowledge it honestly. Confession becomes a way of living because humility becomes a way of living. As we continue confessing our sins and failures to God, we discover that His grace is greater than our shame. The light becomes a place of freedom rather than fear.',
     },
   },
   {
@@ -56,22 +33,10 @@ const RESTORATION_STAGES = [
     sequence: 3,
     content: {
       description:
-        'The person turns away from former patterns and commits to a new direction of life. Repentance is the active decision to change course.',
-      scripture:
-        'Romans 6:9 - "Do you not know that all of us who have been baptized into Christ Jesus were baptized into his death?"',
+        'Every journey requires a decision. It is not enough to recognise the wrong path. It is not enough to admit we have taken it. There comes a moment when we must choose a different direction. This is repentance. Repentance is more than regret. It is more than feeling guilty. It is the decision to turn away from sin and turn toward God. Repentance begins in the heart. It is a change of mind that leads to a change of direction. It is not simply promising to do better. It is allowing God to reshape our desires, our priorities, and the way we live. True repentance does not ask, "How close can I remain to my old life?" It asks, "How faithfully can I follow Christ?" Repentance is not driven by fear alone. It is motivated by love for God and gratitude for His mercy. As our hearts are changed, our lives begin to change as well.',
+      scripture: 'Acts 3:19 - "Repent, then, and turn to God, so that your sins may be wiped out, that times of refreshing may come from the Lord."',
       guidance:
-        'Help the participant understand repentance as both sorrow for sin and commitment to change. Discuss specific behavioral changes, new habits, and structures of accountability.',
-      resources: JSON.stringify([
-        {
-          type: 'reflection',
-          title:
-            'What specific patterns will you turn away from, and what new directions will you pursue?',
-        },
-        {
-          type: 'scripture',
-          reference: 'Acts 3:19, 2 Corinthians 5:17',
-        },
-      ]),
+        'Living in repentance means making daily choices that reflect a new direction. Sometimes that means leaving behind unhealthy habits. Sometimes it means ending relationships that continually draw us back into sin. Sometimes it means developing new disciplines that help us grow in faithfulness. Repentance is not a single moment. It is a daily posture of turning toward God. Each day presents another opportunity to choose the path of truth, honesty, and faithful obedience. As we continue walking with Christ, He strengthens us to remain on that path.',
     },
   },
   {
@@ -80,22 +45,10 @@ const RESTORATION_STAGES = [
     sequence: 4,
     content: {
       description:
-        'The person receives God\'s forgiveness and learns to extend forgiveness to others. This stage addresses both receiving grace and offering mercy.',
-      scripture:
-        'Colossians 3:13 - "Bear with each other and forgive one another if any of you has a grievance against someone. Forgive as the Lord forgave you."',
+        'There are few burdens heavier than guilt. When we carry the weight of our past, it can seem impossible to imagine a different future. Some people believe they have gone too far. Some believe they have done too much. Some believe they are beyond God\'s mercy. The gospel tells a different story. In Jesus Christ, forgiveness is possible. Forgiveness does not deny that wrong has been done. It declares that God\'s grace is greater than our sin. Forgiveness begins with God. Before we learn to forgive others, we first receive His forgiveness. This forgiveness is not earned. It is a gift of grace through Jesus Christ. When God forgives, He does not treat us according to our past. He welcomes us as His children in Christ. That new identity changes the way we see ourselves. We are no longer defined by our worst decisions. We are defined by God\'s grace. Receiving God\'s forgiveness also changes the way we view others. Those who have received mercy learn to extend mercy. Those who have been forgiven begin to forgive.',
+      scripture: '1 John 1:9 - "If we confess our sins, he is faithful and just and will forgive us our sins and purify us from all unrighteousness."',
       guidance:
-        'Help the participant fully internalize God\'s forgiveness. Guide them through forgiving others, which is often the harder work. Address resentment, bitterness, and the freedom that forgiveness brings.',
-      resources: JSON.stringify([
-        {
-          type: 'reflection',
-          title:
-            'How do you experience God\'s forgiveness? Who do you need to forgive?',
-        },
-        {
-          type: 'scripture',
-          reference: 'Ephesians 1:7, Matthew 18:21-35',
-        },
-      ]),
+        'Living in forgiveness means choosing to believe God\'s promises more than our feelings. There may be days when memories return. There may be moments when shame tries to speak again. In those moments, we remember that God\'s Word is true. In Christ, we are forgiven. Living in forgiveness also means refusing to allow bitterness to take root in our hearts. As God teaches us to forgive others, He continues His work of healing within us. Forgiveness does not always remove pain immediately. But it opens the door for peace to grow.',
     },
   },
   {
@@ -104,22 +57,10 @@ const RESTORATION_STAGES = [
     sequence: 5,
     content: {
       description:
-        'The person pursues restored relationships where appropriate and possible. Reconciliation moves forgiveness into concrete actions of relationship repair.',
-      scripture:
-        '2 Corinthians 5:18 - "All this is from God, who reconciled us to himself through Christ and gave us the ministry of reconciliation."',
+        'Sin does more than separate us from God. It also damages our relationships with other people. Words spoken in anger. Promises broken. Trust lost. People hurt. One of the beautiful works of God\'s restoration is that He not only restores our relationship with Himself, but also teaches us to pursue peace with others. Reconciliation restores relationships. It is one of the clearest signs that God\'s grace is at work in our lives. Reconciliation begins with the work God has already done in us. Because we have been reconciled to Him through Jesus Christ, we are called to pursue reconciliation with others. Sometimes this means asking for forgiveness. Sometimes it means making amends where possible. Sometimes it means rebuilding trust over time. Sometimes it means accepting that healing will take patience. Reconciliation is not pretending that nothing happened. It is choosing to move toward peace with truth, humility, and grace. Even when full reconciliation is not possible, we can still live free from bitterness and committed to doing what is right.',
+      scripture: 'Romans 12:18 - "If it is possible, as far as it depends on you, live at peace with everyone."',
       guidance:
-        'Guide the participant in identifying relationships that need repair. Discuss when reconciliation is healthy, when boundaries are necessary, and how to pursue restoration with wisdom and safety.',
-      resources: JSON.stringify([
-        {
-          type: 'reflection',
-          title:
-            'Which relationships are worth pursuing, and how will you approach reconciliation?',
-        },
-        {
-          type: 'scripture',
-          reference: 'Matthew 5:23-24, Romans 12:18',
-        },
-      ]),
+        'Living as a person of reconciliation means becoming someone who seeks peace rather than conflict. It means taking responsibility for our actions. It means speaking truth with kindness. It means keeping our promises. It means rebuilding trust through consistent faithfulness. Reconciliation is rarely accomplished through one conversation. It is often built through many faithful choices over time. As we grow in Christ, we become people who help restore relationships rather than damage them.',
     },
   },
   {
@@ -128,22 +69,10 @@ const RESTORATION_STAGES = [
     sequence: 6,
     content: {
       description:
-        'The person embraces lawful, productive, and dignified work as part of restoration. This stage addresses earning, contribution, and self-sufficiency.',
-      scripture:
-        '2 Thessalonians 3:10-12 - "The one who is unwilling to work shall not eat... Such people we command and urge in the Lord Jesus Christ to settle down and earn the food they eat."',
+        'Every person longs to live a life of purpose and dignity. When our lives have been shaped by deception, it can be difficult to imagine building a future through honest work. Yet this is God\'s invitation. He calls us to leave behind dishonest gain and discover the joy of faithful labour. Honest work is more than earning an income. It is a way of honouring God, serving others, and rebuilding a life founded on truth. From the beginning, God created human beings to work. Work is not a punishment. It is part of His good design. Through honest work we develop character. We learn responsibility. We grow in faithfulness. We become dependable. For many people leaving cybercrime or other forms of dishonesty, work may feel unfamiliar, difficult, or even discouraging at first. The rewards may seem smaller. The progress may seem slower. But honest work offers something dishonest gain never can. It gives us the dignity of knowing that our lives are being built upon truth. Every honest day\'s work becomes another step in the journey of restoration.',
+      scripture: 'Ephesians 4:28 - "Let the thief no longer steal, but rather let him labor, doing honest work with his own hands, so that he may have something to share with anyone in need."',
       guidance:
-        'Help the participant develop or return to meaningful work. Discuss work as both provision and calling. Address obstacles like shame, limited opportunities, or past failures in employment.',
-      resources: JSON.stringify([
-        {
-          type: 'reflection',
-          title:
-            'What does honest work mean for you? What steps will you take toward employment or new work?',
-        },
-        {
-          type: 'scripture',
-          reference: 'Colossians 3:17, Proverbs 14:23',
-        },
-      ]),
+        'Living this stage means choosing integrity in every area of our work. Whether we are employed, self-employed, studying, learning a trade, or serving in our homes and communities, we work faithfully. We keep our word. We refuse shortcuts that require dishonesty. We honour our commitments. We treat people fairly. We pursue excellence because our work reflects our character. Honest work is not measured only by income. It is measured by integrity. As we faithfully work with our hands, our minds, and our gifts, God continues shaping us into people who honour Him in everyday life.',
     },
   },
   {
@@ -152,22 +81,10 @@ const RESTORATION_STAGES = [
     sequence: 7,
     content: {
       description:
-        'The restored person begins helping others pursue the same journey. This stage is about spiritual maturity expressed through service and mentoring.',
-      scripture:
-        '1 Peter 4:10 - "Each of you should use whatever gift you have received to serve others, as faithful stewards of God\'s grace in its various forms."',
+        'Restoration is never meant to end with us. God restores our lives so that we may become a blessing to others. As we grow in truth, honesty, forgiveness, reconciliation, and faithful work, we begin to discover a new purpose. We are no longer living only for ourselves. We become people who encourage. People who serve. People who give. People who help others continue their own journey of restoration. Serving others begins with ordinary acts of faithfulness. A listening ear. A word of encouragement. A prayer. An act of generosity. A helping hand. As we continue growing, God may entrust us with greater opportunities to serve. Some may become mentors. Some may facilitate gatherings. Some may quietly support others behind the scenes. Whatever our role, our purpose remains the same. We serve because Christ first served us. Our joy is not found in recognition. Our joy is found in faithfully loving others.',
+      scripture: 'Mark 10:45 - "For even the Son of Man came not to be served but to serve, and to give his life as a ransom for many."',
       guidance:
-        'Help the participant discover how their restoration story can help others. Discuss mentoring, advocacy, and service. Emphasize humility and the ongoing nature of personal restoration.',
-      resources: JSON.stringify([
-        {
-          type: 'reflection',
-          title:
-            'How has your restoration journey equipped you to serve others? Where might God be calling you to help?',
-        },
-        {
-          type: 'scripture',
-          reference: '2 Corinthians 1:3-4, 1 Thessalonians 5:11',
-        },
-      ]),
+        'Serving others begins with ordinary acts of faithfulness. A listening ear. A word of encouragement. A prayer. An act of generosity. A helping hand. As we continue growing, God may entrust us with greater opportunities to serve. Some may become mentors. Some may facilitate gatherings. Some may quietly support others behind the scenes. Whatever our role, our purpose remains the same. We serve because Christ first served us. Our joy is not found in recognition. Our joy is found in faithfully loving others.',
     },
   },
 ];
