@@ -13,19 +13,42 @@ export default function SignInPage() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const [formErrors, setFormErrors] = useState<Record<string, string>>({});
 
   const callbackUrl = searchParams.get('callbackUrl') || '/dashboard';
 
+  const isFormValid = email.trim() && password.trim();
+
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setLoading(true);
     setError('');
+    setFormErrors({});
+
+    // Validate form
+    const newErrors: Record<string, string> = {};
+
+    if (!email.trim()) {
+      newErrors.email = 'Email is required';
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      newErrors.email = 'Email is not valid';
+    }
+
+    if (!password.trim()) {
+      newErrors.password = 'Password is required';
+    }
+
+    if (Object.keys(newErrors).length > 0) {
+      setFormErrors(newErrors);
+      return;
+    }
+
+    setLoading(true);
 
     console.log('[AUTH] Sign in attempt:', email);
 
     try {
       const result = await signIn('credentials', {
-        email,
+        email: email.trim(),
         password,
         redirect: false,
       });
@@ -33,10 +56,24 @@ export default function SignInPage() {
       console.log('[AUTH] Sign in result:', result);
 
       if (!result?.ok) {
-        throw new Error(result?.error || 'Sign in failed');
+        // Distinguish between different failure reasons
+        const errorMessage = result?.error || 'Sign in failed';
+
+        if (errorMessage.includes('not found') || errorMessage.includes('does not exist')) {
+          setError('No account found with this email address.');
+        } else if (errorMessage.includes('not verified') || errorMessage.includes('emailVerified')) {
+          setError(
+            'Your email has not been verified yet. Please check your inbox for the verification link or request a new one.'
+          );
+        } else if (errorMessage.includes('password') || errorMessage.includes('mismatch')) {
+          setError('Incorrect email or password.');
+        } else {
+          setError(errorMessage);
+        }
+        return;
       }
 
-      console.log('[AUTH] Sign in successful');
+      console.log('[AUTH] Sign in successful, redirecting to:', callbackUrl);
       router.push(callbackUrl);
     } catch (err) {
       const message =
@@ -52,7 +89,7 @@ export default function SignInPage() {
     <PageLayout className="flex items-center justify-center min-h-screen">
       <Section className="w-full max-w-md mb-0">
         <PageHeader
-          title="Welcome back"
+          title="Welcome Back"
           description="Sign in to continue your restoration journey"
         />
 
@@ -61,7 +98,7 @@ export default function SignInPage() {
             {error && (
               <Alert
                 type="error"
-                title="Sign in failed"
+                title="Sign In Failed"
                 message={error}
                 onClose={() => setError('')}
               />
@@ -69,11 +106,12 @@ export default function SignInPage() {
 
             <form onSubmit={handleSubmit} className="space-y-4">
               <Input
-                label="Email"
+                label="Email Address"
                 type="email"
                 placeholder="you@example.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                error={formErrors.email}
                 required
                 autoFocus
               />
@@ -84,12 +122,13 @@ export default function SignInPage() {
                 placeholder="••••••••"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                error={formErrors.password}
                 required
               />
 
               <Button
                 type="submit"
-                disabled={loading}
+                disabled={!isFormValid || loading}
                 isLoading={loading}
                 className="w-full"
               >
@@ -98,6 +137,17 @@ export default function SignInPage() {
 
               <div className="text-center pt-2">
                 <p className="text-sm text-gray-600">
+                  <Link
+                    href="/auth/password-reset"
+                    className="text-teal-600 hover:text-teal-700 transition-colors duration-200"
+                  >
+                    Forgot password?
+                  </Link>
+                </p>
+              </div>
+
+              <div className="pt-4 border-t border-gray-200">
+                <p className="text-center text-sm text-gray-600">
                   Don&apos;t have an account?{' '}
                   <Link
                     href="/auth/register"
