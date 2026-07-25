@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { randomBytes } from 'crypto';
+import { sendVerificationEmail } from '@/lib/email';
 
 const VERIFICATION_TOKEN_EXPIRY = 24 * 60 * 60 * 1000; // 24 hours
 
@@ -56,7 +57,16 @@ export async function POST(request: NextRequest) {
       },
     });
 
-    console.log(`[AUTH] Verification email resent to: ${email}`);
+    console.log(`[AUTH] Verification token regenerated for: ${email}`);
+
+    // Send verification email
+    const emailResult = await sendVerificationEmail(email, verificationToken);
+    if (!emailResult.success) {
+      console.error(`[AUTH] Failed to send verification email to ${email}:`, emailResult.error);
+      // Don't fail the API response - token was created successfully
+    }
+
+    console.log(`[AUTH] Verification email sent to: ${email}`);
 
     return NextResponse.json(
       {
