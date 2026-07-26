@@ -34,7 +34,7 @@ export default function HeroSection() {
             style={{ transitionDelay: '240ms' }}
           >
             <h1 className="text-5xl md:text-6xl font-serif font-bold text-rc-text leading-tight">
-              You were not created for a life built on deception.
+              You were not created for a life that works by deception.
             </h1>
           </div>
 
@@ -52,13 +52,10 @@ export default function HeroSection() {
               But you cannot stop alone.
             </p>
             <p className="text-lg text-rc-text leading-relaxed mt-6">
-              Jesus Christ delivers people from what they cannot escape alone.
+              Jesus Christ delivers people from meaningless activities in life.
             </p>
-            <p className="text-lg text-rc-text leading-relaxed mt-3">
-              He restores.
-            </p>
-            <p className="text-lg text-rc-text leading-relaxed mt-3">
-              He makes all things new.
+            <p className="text-lg text-rc-text leading-relaxed mt-6">
+              And you may be the next to rejoice.
             </p>
           </div>
 
