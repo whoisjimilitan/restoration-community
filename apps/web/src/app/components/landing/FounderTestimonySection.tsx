@@ -39,7 +39,7 @@ export default function FounderTestimonySection() {
             marginBottom: '0.5rem',
             marginTop: 0
           }}>
-            A Message From Someone Who Has Walked This Road
+            How Jesus Christ Delivered Me
           </h2>
         </div>
 

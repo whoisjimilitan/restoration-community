@@ -9,11 +9,8 @@ export default function Footer() {
         <div className="space-y-8">
           {/* Links */}
           <div className="flex flex-wrap gap-8">
-            <Link href="#community" className="text-sm text-rc-text hover:text-rc-accent transition-colors">
-              Community
-            </Link>
             <Link href="#journey" className="text-sm text-rc-text hover:text-rc-accent transition-colors">
-              Journey
+              Journey of Truth
             </Link>
             <Link href="#resources" className="text-sm text-rc-text hover:text-rc-accent transition-colors">
               Resources
@@ -26,6 +23,11 @@ export default function Footer() {
             </Link>
           </div>
 
+          {/* About Restoration */}
+          <div className="text-xs text-rc-text-secondary">
+            Restoration is the ministry of Brother Jimi dedicated to helping people trapped in deception find deliverance through Jesus Christ.
+          </div>
+
           {/* Scripture Reference */}
           <div className="text-xs text-rc-text-secondary">
             &quot;Therefore if anyone is in Christ, he is a new creation; old things have passed away; behold, all things have become new.&quot; &mdash; 2 Corinthians 5:17
@@ -33,7 +35,7 @@ export default function Footer() {
 
           {/* Copyright */}
           <div className="text-xs text-rc-text-secondary pt-4 border-t border-rc-text/5">
-            © {new Date().getFullYear()} Restoration Community. All rights reserved.
+            © {new Date().getFullYear()} Brother Jimi. All rights reserved.
           </div>
         </div>
       </div>

@@ -9,9 +9,9 @@ export default function Navigation() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-rc-bg/95 backdrop-blur-sm border-b border-rc-text/5">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 py-4 flex items-center justify-between">
-        {/* Logo */}
-        <Link href="/" className="text-lg font-serif font-bold text-rc-text">
-          Restoration
+        {/* Logo - Minimal */}
+        <Link href="/" className="text-lg font-serif font-bold text-rc-text opacity-60 hover:opacity-100 transition-opacity">
+          BJ
         </Link>
 
         {/* Navigation Links - Desktop */}
@@ -19,17 +19,14 @@ export default function Navigation() {
           <Link href="#about" className="text-sm text-rc-text hover:text-rc-accent transition-colors duration-200">
             About
           </Link>
-          <Link href="#journey" className="text-sm text-rc-text hover:text-rc-accent transition-colors duration-200">
-            The Journey
-          </Link>
           <Link href="#story" className="text-sm text-rc-text hover:text-rc-accent transition-colors duration-200">
             My Story
           </Link>
+          <Link href="#journey" className="text-sm text-rc-text hover:text-rc-accent transition-colors duration-200">
+            Journey of Truth
+          </Link>
           <Link href="#resources" className="text-sm text-rc-text hover:text-rc-accent transition-colors duration-200">
             Resources
-          </Link>
-          <Link href="/auth/signin" className="text-sm text-rc-text hover:text-rc-accent transition-colors duration-200">
-            Sign In
           </Link>
           <Link
             href="/auth/register"
@@ -58,17 +55,14 @@ export default function Navigation() {
             <Link href="#about" className="block text-sm text-rc-text hover:text-rc-accent transition-colors">
               About
             </Link>
-            <Link href="#journey" className="block text-sm text-rc-text hover:text-rc-accent transition-colors">
-              The Journey
-            </Link>
             <Link href="#story" className="block text-sm text-rc-text hover:text-rc-accent transition-colors">
               My Story
             </Link>
+            <Link href="#journey" className="block text-sm text-rc-text hover:text-rc-accent transition-colors">
+              Journey of Truth
+            </Link>
             <Link href="#resources" className="block text-sm text-rc-text hover:text-rc-accent transition-colors">
               Resources
-            </Link>
-            <Link href="/auth/signin" className="block text-sm text-rc-text hover:text-rc-accent transition-colors">
-              Sign In
             </Link>
             <Link href="/auth/register" className="block text-sm font-medium text-rc-accent hover:text-rc-text transition-colors">
               Request Deliverance
