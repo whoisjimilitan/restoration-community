@@ -16,7 +16,7 @@ export default function FounderTestimonySection() {
       }}>
         <h2 style={{
           fontSize: '2rem',
-          fontFamily: 'EB Garamond, serif',
+          fontFamily: 'Georgia, Garamond, serif',
           fontWeight: 700,
           color: '#0a0a0a',
           lineHeight: 1.2,
@@ -35,7 +35,7 @@ export default function FounderTestimonySection() {
         }}>
           <p style={{
             fontSize: '1.125rem',
-            fontFamily: 'EB Garamond, serif',
+            fontFamily: 'Georgia, Garamond, serif',
             color: '#202124',
             lineHeight: 1.8,
             letterSpacing: '-0.004em',
@@ -48,7 +48,7 @@ export default function FounderTestimonySection() {
 
           <p style={{
             fontSize: '1.125rem',
-            fontFamily: 'EB Garamond, serif',
+            fontFamily: 'Georgia, Garamond, serif',
             color: '#202124',
             lineHeight: 1.8,
             letterSpacing: '-0.004em',
@@ -61,7 +61,7 @@ export default function FounderTestimonySection() {
 
           <p style={{
             fontSize: '1.125rem',
-            fontFamily: 'EB Garamond, serif',
+            fontFamily: 'Georgia, Garamond, serif',
             color: '#202124',
             lineHeight: 1.8,
             letterSpacing: '-0.004em',
@@ -74,7 +74,7 @@ export default function FounderTestimonySection() {
 
           <p style={{
             fontSize: '1.125rem',
-            fontFamily: 'EB Garamond, serif',
+            fontFamily: 'Georgia, Garamond, serif',
             color: '#202124',
             lineHeight: 1.8,
             letterSpacing: '-0.004em',
@@ -87,7 +87,7 @@ export default function FounderTestimonySection() {
 
           <p style={{
             fontSize: '1.125rem',
-            fontFamily: 'EB Garamond, serif',
+            fontFamily: 'Georgia, Garamond, serif',
             color: '#202124',
             lineHeight: 1.8,
             letterSpacing: '-0.004em',
@@ -100,7 +100,7 @@ export default function FounderTestimonySection() {
 
           <p style={{
             fontSize: '1.125rem',
-            fontFamily: 'EB Garamond, serif',
+            fontFamily: 'Georgia, Garamond, serif',
             color: '#202124',
             lineHeight: 1.8,
             letterSpacing: '-0.004em',
@@ -113,7 +113,7 @@ export default function FounderTestimonySection() {
 
           <p style={{
             fontSize: '1.125rem',
-            fontFamily: 'EB Garamond, serif',
+            fontFamily: 'Georgia, Garamond, serif',
             color: '#202124',
             lineHeight: 1.8,
             letterSpacing: '-0.004em',
@@ -126,7 +126,7 @@ export default function FounderTestimonySection() {
 
           <p style={{
             fontSize: '1.125rem',
-            fontFamily: 'EB Garamond, serif',
+            fontFamily: 'Georgia, Garamond, serif',
             color: '#202124',
             lineHeight: 1.8,
             letterSpacing: '-0.004em',

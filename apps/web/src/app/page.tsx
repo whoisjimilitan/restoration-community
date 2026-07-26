@@ -9,7 +9,6 @@ import JourneySection from './components/landing/JourneySection';
 import CommunitySection from './components/landing/CommunitySection';
 import HonestWorkSection from './components/landing/HonestWorkSection';
 import InvitationSection from './components/landing/InvitationSection';
-import PartnersSection from './components/landing/PartnersSection';
 import Footer from './components/landing/Footer';
 
 export default function Home() {
@@ -25,7 +24,6 @@ export default function Home() {
         <CommunitySection />
         <HonestWorkSection />
         <InvitationSection />
-        <PartnersSection />
       </main>
       <Footer />
     </>
