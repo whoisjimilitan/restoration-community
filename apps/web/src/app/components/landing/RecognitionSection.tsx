@@ -15,13 +15,13 @@ export default function RecognitionSection() {
 
           <div className="space-y-6">
             <p className="text-lg text-rc-text leading-relaxed">
-              You know the truth already. The question is whether you&apos;re ready to stop hiding from it.
+              The hardest part of restoration is rarely admitting something has gone wrong.
             </p>
             <p className="text-lg text-rc-text leading-relaxed">
-              Honesty feels dangerous. But silence is what keeps you trapped.
+              The hardest part is allowing truth to restore what deception has distorted.
             </p>
             <p className="text-lg text-rc-text leading-relaxed">
-              Every restoration that lasts begins when someone finally tells the truth.
+              Every lasting work of God begins there.
             </p>
           </div>
 
