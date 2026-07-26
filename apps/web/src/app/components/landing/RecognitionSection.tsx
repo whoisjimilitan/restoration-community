@@ -13,7 +13,7 @@ export default function RecognitionSection() {
 
           <div className="space-y-6">
             <p className="text-lg text-rc-text leading-relaxed">
-              Deception rarely begins with what we do.
+              Lies don&apos;t begin with what we do.
             </p>
             <p className="text-lg text-rc-text leading-relaxed">
               It begins with what we believe.
