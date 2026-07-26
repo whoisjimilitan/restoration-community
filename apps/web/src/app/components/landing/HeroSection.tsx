@@ -46,26 +46,46 @@ export default function HeroSection() {
             style={{ transitionDelay: '360ms' }}
           >
             <p className="text-lg text-rc-text leading-relaxed">
-              You know you&apos;re trapped. You know the weight of it.
+              Maybe you&apos;ve told yourself you&apos;ll stop one day.
             </p>
             <p className="text-lg text-rc-text leading-relaxed mt-6">
-              Jesus Christ does not leave people trapped. He delivers. He restores.
+              Maybe you feel you have no other choice.
+            </p>
+            <p className="text-lg text-rc-text leading-relaxed mt-6">
+              Maybe everyone around you is doing it.
+            </p>
+            <p className="text-lg text-rc-text leading-relaxed mt-6">
+              Maybe you&apos;ve started to believe this is just who you are now.
+            </p>
+            <p className="text-lg text-rc-text leading-relaxed mt-6">
+              But this is not who God created you to be.
+            </p>
+            <p className="text-lg text-rc-text leading-relaxed mt-6">
+              Jesus Christ does not leave people trapped. He delivers. He restores. He makes all things new.
             </p>
           </div>
 
-          {/* CTA Button */}
+          {/* CTA Buttons */}
           <div
             className={`transform transition-all duration-700 pt-4 ${
               isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
             }`}
             style={{ transitionDelay: '480ms' }}
           >
-            <Link
-              href="/deliverance"
-              className="inline-flex items-center justify-center px-8 py-4 bg-rc-accent text-white font-medium rounded-lg hover:bg-rc-text transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-rc-accent focus:ring-offset-2 focus:ring-offset-rc-bg"
-            >
-              Request Deliverance
-            </Link>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Link
+                href="/deliverance"
+                className="inline-flex items-center justify-center px-8 py-4 bg-rc-accent text-white font-medium rounded-lg hover:bg-rc-text transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-rc-accent focus:ring-offset-2 focus:ring-offset-rc-bg"
+              >
+                Request Deliverance
+              </Link>
+              <Link
+                href="#story"
+                className="inline-flex items-center justify-center px-8 py-4 text-rc-accent font-medium hover:text-rc-text transition-colors duration-200"
+              >
+                How Jesus Changed My Life
+              </Link>
+            </div>
           </div>
         </div>
 

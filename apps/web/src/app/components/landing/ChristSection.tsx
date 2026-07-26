@@ -13,10 +13,19 @@ export default function ChristSection() {
 
           <div className="space-y-6 text-lg text-rc-text leading-relaxed">
             <p>
-              No failure is final. No past places anyone beyond God&apos;s grace.
+              No failure has the final word.
             </p>
             <p>
-              Jesus Christ remains the centre of everything—our message, our hope, every restored life.
+              No past places anyone beyond God&apos;s grace.
+            </p>
+            <p>
+              Jesus Christ remains the centre of our message, our hope, and every restored life.
+            </p>
+            <p>
+              Because He restores people...
+            </p>
+            <p>
+              we walk with one another as restoration continues.
             </p>
           </div>
         </div>

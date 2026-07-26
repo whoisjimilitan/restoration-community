@@ -1,7 +1,5 @@
 'use client';
 
-import Link from 'next/link';
-
 export default function FounderTestimonySection() {
   return (
     <section style={{
@@ -16,24 +14,6 @@ export default function FounderTestimonySection() {
         margin: '0 auto',
         textAlign: 'center'
       }}>
-        <div style={{
-          marginBottom: '2.5rem'
-        }}>
-          <Link
-            href="#story"
-            style={{
-              fontSize: '0.875rem',
-              textDecoration: 'none',
-              color: '#0F766E',
-              fontWeight: 500,
-              letterSpacing: '0.05em',
-              textTransform: 'uppercase'
-            }}
-            className="hover:opacity-75 transition-opacity"
-          >
-            How Jesus Changed My Life
-          </Link>
-        </div>
         <h2 style={{
           fontSize: '2rem',
           fontFamily: 'Georgia, Garamond, serif',

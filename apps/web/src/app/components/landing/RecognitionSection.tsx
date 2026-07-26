@@ -13,10 +13,13 @@ export default function RecognitionSection() {
 
           <div className="space-y-6">
             <p className="text-lg text-rc-text leading-relaxed">
-              Truth is the beginning of all restoration.
+              The hardest part of restoration is rarely admitting something has gone wrong.
             </p>
             <p className="text-lg text-rc-text leading-relaxed">
-              When we stop hiding and let God restore what deception has distorted, we discover that His grace is larger than our failure.
+              The hardest part is allowing truth to restore what deception has distorted.
+            </p>
+            <p className="text-lg text-rc-text leading-relaxed">
+              Every lasting work of God begins there.
             </p>
           </div>
 
