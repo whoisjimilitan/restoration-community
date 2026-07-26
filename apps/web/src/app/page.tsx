@@ -2,9 +2,13 @@
 
 import Navigation from './components/landing/Navigation';
 import HeroSection from './components/landing/HeroSection';
+import RecognitionSection from './components/landing/RecognitionSection';
 import FounderTestimonySection from './components/landing/FounderTestimonySection';
-import WhatHappensNextSection from './components/landing/WhatHappensNextSection';
-import FinalInvitationSection from './components/landing/FinalInvitationSection';
+import ChristSection from './components/landing/ChristSection';
+import JourneySection from './components/landing/JourneySection';
+import CommunitySection from './components/landing/CommunitySection';
+import HonestWorkSection from './components/landing/HonestWorkSection';
+import InvitationSection from './components/landing/InvitationSection';
 import Footer from './components/landing/Footer';
 
 export default function Home() {
@@ -12,17 +16,14 @@ export default function Home() {
     <>
       <Navigation />
       <main className="bg-rc-bg">
-        {/* 1. The Encounter: Hero */}
         <HeroSection />
-
-        {/* 2. The Witness: Founder Testimony */}
+        <RecognitionSection />
         <FounderTestimonySection />
-
-        {/* 3. The Promise: After Deliverance Comes Restoration */}
-        <WhatHappensNextSection />
-
-        {/* 4. The Invitation: Final Call */}
-        <FinalInvitationSection />
+        <ChristSection />
+        <JourneySection />
+        <CommunitySection />
+        <HonestWorkSection />
+        <InvitationSection />
       </main>
       <Footer />
     </>

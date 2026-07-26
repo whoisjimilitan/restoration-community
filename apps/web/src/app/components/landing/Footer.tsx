@@ -9,17 +9,11 @@ export default function Footer() {
         <div className="space-y-8">
           {/* Links */}
           <div className="flex flex-wrap gap-8">
-            <Link href="#about" className="text-sm text-rc-text hover:text-rc-accent transition-colors">
-              About
+            <Link href="#community" className="text-sm text-rc-text hover:text-rc-accent transition-colors">
+              Community
             </Link>
             <Link href="#journey" className="text-sm text-rc-text hover:text-rc-accent transition-colors">
               Journey
-            </Link>
-            <Link href="#story" className="text-sm text-rc-text hover:text-rc-accent transition-colors">
-              My Story
-            </Link>
-            <Link href="#partners" className="text-sm text-rc-text hover:text-rc-accent transition-colors">
-              Partners
             </Link>
             <Link href="#resources" className="text-sm text-rc-text hover:text-rc-accent transition-colors">
               Resources
@@ -34,7 +28,7 @@ export default function Footer() {
 
           {/* Scripture Reference */}
           <div className="text-xs text-rc-text-secondary">
-            &quot;Therefore, if anyone is in Christ, he is a new creation. The old has passed away; behold, the new has come.&quot; &mdash; 2 Corinthians 5:17
+            &quot;Therefore if anyone is in Christ, he is a new creation; old things have passed away; behold, all things have become new.&quot; &mdash; 2 Corinthians 5:17
           </div>
 
           {/* Copyright */}

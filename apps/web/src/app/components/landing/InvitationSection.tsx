@@ -13,21 +13,21 @@ export default function InvitationSection() {
             </h2>
           </div>
 
-          <div className="space-y-8 text-lg text-rc-text leading-relaxed">
+          <div className="space-y-4 text-lg text-rc-text leading-relaxed">
             <p>
-              If you are trapped in fraud, scams, deception, or dishonest living and desire freedom, Jesus Christ is the answer.
+              This ministry exists for people trapped in fraud, scams, and dishonest living who desire freedom through Jesus Christ.
             </p>
             <p>
-              He delivers.
+              But anyone sincerely seeking Jesus Christ is welcome here.
             </p>
             <p>
-              He restores.
+              Whether today is the beginning of your journey,
             </p>
             <p>
-              He makes all things new.
+              or another step toward Jesus Christ,
             </p>
             <p>
-              And if you are seeking Him from another place of brokenness, you are welcome here.
+              you are welcome here.
             </p>
           </div>
 

@@ -39,50 +39,11 @@ export default function FounderTestimonySection() {
             color: '#202124',
             lineHeight: 1.8,
             letterSpacing: '-0.004em',
-            margin: '0 0 1.5rem 0',
+            margin: '0 0 1.25rem 0',
             fontStyle: 'italic',
             fontWeight: 400
           }}>
-            I was once trapped in the same deception.
-          </p>
-
-          <p style={{
-            fontSize: '1.125rem',
-            fontFamily: 'Georgia, Garamond, serif',
-            color: '#202124',
-            lineHeight: 1.8,
-            letterSpacing: '-0.004em',
-            margin: '0 0 1.5rem 0',
-            fontStyle: 'italic',
-            fontWeight: 400
-          }}>
-            I knew the life I was living was not the life God created me for.
-          </p>
-
-          <p style={{
-            fontSize: '1.125rem',
-            fontFamily: 'Georgia, Garamond, serif',
-            color: '#202124',
-            lineHeight: 1.8,
-            letterSpacing: '-0.004em',
-            margin: '0 0 1.5rem 0',
-            fontStyle: 'italic',
-            fontWeight: 400
-          }}>
-            I tried to escape it myself, but I could not.
-          </p>
-
-          <p style={{
-            fontSize: '1.125rem',
-            fontFamily: 'Georgia, Garamond, serif',
-            color: '#202124',
-            lineHeight: 1.8,
-            letterSpacing: '-0.004em',
-            margin: '0 0 2rem 0',
-            fontStyle: 'italic',
-            fontWeight: 400
-          }}>
-            Then Jesus Christ delivered me.
+            I was once trapped like you.
           </p>
 
           <p style={{
@@ -95,7 +56,7 @@ export default function FounderTestimonySection() {
             fontStyle: 'italic',
             fontWeight: 400
           }}>
-            He gave me a new identity.
+            I knew the life I was living was wrong, but I did not know how to escape it.
           </p>
 
           <p style={{
@@ -108,7 +69,7 @@ export default function FounderTestimonySection() {
             fontStyle: 'italic',
             fontWeight: 400
           }}>
-            A new direction.
+            But Jesus Christ found me.
           </p>
 
           <p style={{
@@ -117,11 +78,24 @@ export default function FounderTestimonySection() {
             color: '#202124',
             lineHeight: 1.8,
             letterSpacing: '-0.004em',
-            margin: '0 0 2rem 0',
+            margin: '0 0 1.25rem 0',
             fontStyle: 'italic',
             fontWeight: 400
           }}>
-            A new purpose.
+            He delivered me completely.
+          </p>
+
+          <p style={{
+            fontSize: '1.125rem',
+            fontFamily: 'Georgia, Garamond, serif',
+            color: '#202124',
+            lineHeight: 1.8,
+            letterSpacing: '-0.004em',
+            margin: '0 0 1.25rem 0',
+            fontStyle: 'italic',
+            fontWeight: 400
+          }}>
+            He gave me a new identity, a new direction, and a new purpose.
           </p>
 
           <p style={{
@@ -134,7 +108,7 @@ export default function FounderTestimonySection() {
             fontStyle: 'italic',
             fontWeight: 400
           }}>
-            Now I help others discover the same freedom through Him.
+            Now I help others receive their deliverance from Him.
           </p>
         </div>
 

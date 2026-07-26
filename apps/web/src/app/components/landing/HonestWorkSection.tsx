@@ -7,11 +7,11 @@ export default function HonestWorkSection() {
         <div className="space-y-8">
           <div>
             <h2 className="text-4xl md:text-5xl font-serif font-bold text-rc-text leading-tight">
-              A Life Restored
+              The Holy Spirit Restores Every Part of Our Lives
             </h2>
           </div>
 
-          <div className="space-y-8 text-lg text-rc-text leading-relaxed">
+          <div className="space-y-6 text-lg text-rc-text leading-relaxed">
             <p>
               Leaving deception is only the beginning.
             </p>

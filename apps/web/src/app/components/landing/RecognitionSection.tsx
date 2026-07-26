@@ -11,7 +11,7 @@ export default function RecognitionSection() {
             </h2>
           </div>
 
-          <div className="space-y-8">
+          <div className="space-y-6">
             <p className="text-lg text-rc-text leading-relaxed">
               The hardest part of restoration is rarely admitting something has gone wrong.
             </p>
