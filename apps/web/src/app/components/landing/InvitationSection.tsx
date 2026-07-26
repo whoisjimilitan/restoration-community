@@ -15,7 +15,7 @@ export default function InvitationSection() {
 
           <div className="space-y-6 text-lg text-rc-text leading-relaxed">
             <p>
-              If you are trapped in fraud, scams, or deception, and you want to break free,
+              If you are trapped in fraud and deception, and you want to break free,
             </p>
             <p>
               Jesus Christ is calling you home.
