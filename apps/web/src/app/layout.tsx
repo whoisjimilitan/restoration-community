@@ -3,8 +3,8 @@ import { Providers } from './providers';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Restoration Community',
-  description: 'A platform for spiritual restoration and community.',
+  title: 'Brother Jimi - Deliverance Through Jesus Christ',
+  description: 'Jesus Christ still delivers people from deception. Brother Jimi\'s ministry of restoration.',
 };
 
 export default function RootLayout({
