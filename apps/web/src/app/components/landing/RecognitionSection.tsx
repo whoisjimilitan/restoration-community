@@ -13,14 +13,24 @@ export default function RecognitionSection() {
 
           <div className="space-y-6">
             <p className="text-lg text-rc-text leading-relaxed">
-              The hardest part of restoration is rarely admitting something has gone wrong.
+              The hardest part is rarely admitting something has gone wrong.
             </p>
             <p className="text-lg text-rc-text leading-relaxed">
-              The hardest part is allowing truth to restore what deception has distorted.
+              The hardest part is believing that Jesus Christ can restore what deception has broken.
             </p>
             <p className="text-lg text-rc-text leading-relaxed">
               Every lasting work of God begins there.
             </p>
+          </div>
+
+          <div className="pt-8">
+            <a
+              href="#story"
+              className="text-sm font-medium text-rc-accent hover:text-rc-text transition-colors inline-flex items-center gap-2"
+            >
+              How Jesus Changed My Life
+              <span>→</span>
+            </a>
           </div>
 
         </div>

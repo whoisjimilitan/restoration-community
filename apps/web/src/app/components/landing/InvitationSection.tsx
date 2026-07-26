@@ -9,25 +9,22 @@ export default function InvitationSection() {
         <div className="space-y-8">
           <div>
             <h2 className="text-4xl md:text-5xl font-serif font-bold text-rc-text leading-tight">
-              Take the first faithful step.
+              There Is A Way Out
             </h2>
           </div>
 
           <div className="space-y-4 text-lg text-rc-text leading-relaxed">
             <p>
-              This ministry exists for people trapped in fraud, scams, and dishonest living who desire freedom through Jesus Christ.
+              If you are trapped in fraud, scams, deception, or dishonest living and want a different life, this ministry exists to point you to Jesus Christ.
             </p>
             <p>
-              But anyone sincerely seeking Jesus Christ is welcome here.
+              He alone delivers.
             </p>
             <p>
-              Whether today is the beginning of your journey,
+              He alone restores.
             </p>
             <p>
-              or another step toward Jesus Christ,
-            </p>
-            <p>
-              you are welcome here.
+              If you are sincerely seeking Jesus Christ from any other place of brokenness, you are welcome too.
             </p>
           </div>
 

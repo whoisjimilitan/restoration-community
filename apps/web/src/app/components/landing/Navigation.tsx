@@ -26,7 +26,7 @@ export default function Navigation() {
             My Story
           </Link>
           <Link href="#community" className="text-sm text-rc-text hover:text-rc-accent transition-colors duration-200">
-            Partnership
+            Partners
           </Link>
           <Link href="#resources" className="text-sm text-rc-text hover:text-rc-accent transition-colors duration-200">
             Resources

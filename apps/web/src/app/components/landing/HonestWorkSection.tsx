@@ -7,8 +7,14 @@ export default function HonestWorkSection() {
         <div className="space-y-8">
           <div>
             <h2 className="text-4xl md:text-5xl font-serif font-bold text-rc-text leading-tight">
-              The Holy Spirit Restores Every Part of Our Lives
+              Life
             </h2>
+          </div>
+
+          <div>
+            <h3 className="text-lg font-serif font-bold text-rc-text mb-6">
+              The Holy Spirit Restores Every Part of Life
+            </h3>
           </div>
 
           <div className="space-y-6 text-lg text-rc-text leading-relaxed">
@@ -16,16 +22,16 @@ export default function HonestWorkSection() {
               Leaving deception is only the beginning.
             </p>
             <p>
-              The Holy Spirit transforms how we work...
+              The Holy Spirit transforms how we work.
             </p>
             <p>
-              how we serve...
+              How we love.
             </p>
             <p>
-              how we love...
+              How we serve.
             </p>
             <p>
-              and how we live with integrity.
+              And how we live with integrity.
             </p>
           </div>
         </div>

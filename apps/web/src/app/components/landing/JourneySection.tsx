@@ -3,13 +3,13 @@
 import { useState } from 'react';
 
 const stages = [
-  { name: 'Truth', description: 'Truth restores reality.' },
-  { name: 'Confession', description: 'Confession restores honesty.' },
-  { name: 'Repentance', description: 'Repentance restores direction.' },
-  { name: 'Forgiveness', description: 'Forgiveness restores peace.' },
-  { name: 'Reconciliation', description: 'Reconciliation restores relationships.' },
-  { name: 'Honest Work', description: 'Honest work restores dignity.' },
-  { name: 'Serving', description: 'Serving restores purpose.' },
+  { name: 'Truth' },
+  { name: 'Confession' },
+  { name: 'Repentance' },
+  { name: 'Forgiveness' },
+  { name: 'Reconciliation' },
+  { name: 'Honest Work' },
+  { name: 'Serving' },
 ];
 
 export default function JourneySection() {
@@ -65,37 +65,23 @@ export default function JourneySection() {
                 </div>
               </div>
 
-              {/* Description */}
-              {selectedIndex !== null && (
-                <div className="mt-12 text-center fade-in">
-                  <p className="text-lg text-rc-text">
-                    {stages[selectedIndex].description}
-                  </p>
-                </div>
-              )}
             </div>
 
             {/* Mobile Timeline */}
             <div className="md:hidden">
               <div className="space-y-4">
                 {stages.map((stage, index) => (
-                  <button
+                  <div
                     key={index}
-                    onClick={() => setSelectedIndex(selectedIndex === index ? null : index)}
-                    className="w-full text-left p-4 border border-rc-text/10 rounded-lg hover:border-rc-accent transition-colors duration-200 group"
+                    className="w-full text-left p-4 border border-rc-text/10 rounded-lg hover:border-rc-accent transition-colors duration-200"
                   >
                     <div className="flex items-center gap-4">
-                      <div className="w-10 h-10 rounded-full border-2 border-rc-text/20 flex items-center justify-center font-medium text-sm group-hover:border-rc-accent transition-colors">
+                      <div className="w-10 h-10 rounded-full border-2 border-rc-text/20 flex items-center justify-center font-medium text-sm">
                         {index + 1}
                       </div>
                       <p className="font-medium text-rc-text">{stage.name}</p>
                     </div>
-                    {selectedIndex === index && (
-                      <p className="mt-3 ml-14 text-rc-text text-sm">
-                        {stage.description}
-                      </p>
-                    )}
-                  </button>
+                  </div>
                 ))}
               </div>
             </div>
