@@ -64,7 +64,7 @@ export default function HeroSection() {
               But Jesus Christ still delivers people from deception.
             </p>
             <p className="text-lg text-rc-text leading-relaxed mt-6">
-              And He still makes all things new.
+              If only you&apos;ll reach out by faith.
             </p>
           </div>
 

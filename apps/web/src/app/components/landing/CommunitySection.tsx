@@ -21,7 +21,7 @@ export default function CommunitySection() {
           {/* Description */}
           <div className="max-w-2xl space-y-4 text-lg text-rc-text">
             <p>
-              Restoration was never meant to happen alone.
+              Truth was never meant to be walked alone.
             </p>
             <p>
               Mentors.
@@ -45,7 +45,7 @@ export default function CommunitySection() {
               Not because community replaces Christ.
             </p>
             <p>
-              Because Christ often restores people through His people.
+              Because Christ often brings divine truth to you through His people.
             </p>
           </div>
 

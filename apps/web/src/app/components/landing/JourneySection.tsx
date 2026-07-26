@@ -18,7 +18,7 @@ export default function JourneySection() {
           {/* Heading */}
           <div className="max-w-2xl">
             <h2 className="text-4xl md:text-5xl font-serif font-bold text-rc-text leading-tight">
-              The Restoration Journey
+              The Journey of Truth
             </h2>
           </div>
 
