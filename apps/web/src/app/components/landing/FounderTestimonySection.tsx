@@ -72,7 +72,20 @@ export default function FounderTestimonySection() {
             fontStyle: 'italic',
             fontWeight: 400
           }}>
-            I knew the life I was living was wrong, but I could not find a way out.
+            I knew the life I was living was wrong,
+          </p>
+
+          <p style={{
+            fontSize: '1.125rem',
+            fontFamily: 'Georgia, Garamond, serif',
+            color: '#202124',
+            lineHeight: 1.8,
+            letterSpacing: '-0.004em',
+            margin: '0 0 1.25rem 0',
+            fontStyle: 'italic',
+            fontWeight: 400
+          }}>
+            but I could not find a way out.
           </p>
 
           <p style={{
@@ -172,11 +185,24 @@ export default function FounderTestimonySection() {
             color: '#202124',
             lineHeight: 1.8,
             letterSpacing: '-0.004em',
+            margin: '0 0 1.25rem 0',
+            fontStyle: 'italic',
+            fontWeight: 400
+          }}>
+            Today,
+          </p>
+
+          <p style={{
+            fontSize: '1.125rem',
+            fontFamily: 'Georgia, Garamond, serif',
+            color: '#202124',
+            lineHeight: 1.8,
+            letterSpacing: '-0.004em',
             margin: 0,
             fontStyle: 'italic',
             fontWeight: 400
           }}>
-            Today, I help others find that same Deliverer.
+            I help others find that same Deliverer.
           </p>
         </div>
 

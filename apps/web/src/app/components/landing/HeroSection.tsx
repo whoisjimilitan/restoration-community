@@ -34,7 +34,7 @@ export default function HeroSection() {
             style={{ transitionDelay: '240ms' }}
           >
             <h1 className="text-5xl md:text-6xl font-serif font-bold text-rc-text leading-tight">
-              You were not created for a life that works by deception.
+              You were not created to live by deception.
             </h1>
           </div>
 
@@ -46,19 +46,25 @@ export default function HeroSection() {
             style={{ transitionDelay: '360ms' }}
           >
             <p className="text-lg text-rc-text leading-relaxed">
-              You already know this life isn&apos;t leading where you hoped.
+              You already know where deception leads.
             </p>
             <p className="text-lg text-rc-text leading-relaxed mt-6">
-              The deeper problem isn&apos;t fraud.
+              It promises freedom.
             </p>
             <p className="text-lg text-rc-text leading-relaxed mt-6">
-              It&apos;s deception.
+              It leaves people trapped.
             </p>
             <p className="text-lg text-rc-text leading-relaxed mt-6">
-              And deception always takes us further from God.
+              Fraud, scams, and dishonest living all begin with the same lie:
             </p>
             <p className="text-lg text-rc-text leading-relaxed mt-6">
-              Jesus Christ still delivers people from both.
+              that life can be built apart from God&apos;s truth.
+            </p>
+            <p className="text-lg text-rc-text leading-relaxed mt-6">
+              But Jesus Christ still delivers people from deception.
+            </p>
+            <p className="text-lg text-rc-text leading-relaxed mt-6">
+              And He still makes all things new.
             </p>
           </div>
 
