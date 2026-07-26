@@ -16,22 +16,10 @@ export default function HonestWorkSection() {
 
           <div className="space-y-6 text-lg text-rc-text leading-relaxed">
             <p>
-              Leaving deception is only the beginning.
+              When Jesus Christ restores you, everything changes.
             </p>
             <p>
-              The Holy Spirit transforms:
-            </p>
-            <p>
-              How we work.
-            </p>
-            <p>
-              How we serve.
-            </p>
-            <p>
-              How we love.
-            </p>
-            <p>
-              How we live with integrity.
+              How you work. How you serve. How you love. How you live with integrity.
             </p>
           </div>
         </div>

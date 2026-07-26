@@ -13,16 +13,13 @@ export default function RecognitionSection() {
 
           <div className="space-y-6">
             <p className="text-lg text-rc-text leading-relaxed">
-              The hardest truth to face is often the one we already know.
+              Deception is more than what you&apos;ve done.
             </p>
             <p className="text-lg text-rc-text leading-relaxed">
-              Deception changes more than our actions.
+              It&apos;s what you&apos;ve believed about yourself.
             </p>
             <p className="text-lg text-rc-text leading-relaxed">
-              It changes what we believe about ourselves.
-            </p>
-            <p className="text-lg text-rc-text leading-relaxed">
-              Restoration begins when we return to God&apos;s truth.
+              Jesus Christ restores you to God&apos;s truth.
             </p>
           </div>
 

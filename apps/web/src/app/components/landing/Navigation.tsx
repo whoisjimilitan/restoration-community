@@ -25,9 +25,6 @@ export default function Navigation() {
           <Link href="#story" className="text-sm text-rc-text hover:text-rc-accent transition-colors duration-200">
             My Story
           </Link>
-          <Link href="#partners" className="text-sm text-rc-text hover:text-rc-accent transition-colors duration-200">
-            Partners
-          </Link>
           <Link href="#resources" className="text-sm text-rc-text hover:text-rc-accent transition-colors duration-200">
             Resources
           </Link>
@@ -66,9 +63,6 @@ export default function Navigation() {
             </Link>
             <Link href="#story" className="block text-sm text-rc-text hover:text-rc-accent transition-colors">
               My Story
-            </Link>
-            <Link href="#partners" className="block text-sm text-rc-text hover:text-rc-accent transition-colors">
-              Partners
             </Link>
             <Link href="#resources" className="block text-sm text-rc-text hover:text-rc-accent transition-colors">
               Resources

@@ -46,31 +46,16 @@ export default function HeroSection() {
             style={{ transitionDelay: '360ms' }}
           >
             <p className="text-lg text-rc-text leading-relaxed">
-              You may tell yourself:
+              You already know what deception costs.
             </p>
             <p className="text-lg text-rc-text leading-relaxed mt-6">
-              &ldquo;I have no choice.&rdquo;
-            </p>
-            <p className="text-lg text-rc-text leading-relaxed mt-3">
-              &ldquo;I will stop one day.&rdquo;
-            </p>
-            <p className="text-lg text-rc-text leading-relaxed mt-3">
-              &ldquo;Everyone is doing it.&rdquo;
-            </p>
-            <p className="text-lg text-rc-text leading-relaxed mt-3">
-              &ldquo;This is just who I am now.&rdquo;
-            </p>
-            <p className="text-lg text-rc-text leading-relaxed mt-6">
-              But deception becomes a prison.
-            </p>
-            <p className="text-lg text-rc-text leading-relaxed mt-3">
-              It convinces you that you cannot change.
+              But you cannot stop alone.
             </p>
             <p className="text-lg text-rc-text leading-relaxed mt-6">
               Jesus Christ delivers people from what they cannot escape alone.
             </p>
             <p className="text-lg text-rc-text leading-relaxed mt-3">
-              He restores what has been broken.
+              He restores.
             </p>
             <p className="text-lg text-rc-text leading-relaxed mt-3">
               He makes all things new.
