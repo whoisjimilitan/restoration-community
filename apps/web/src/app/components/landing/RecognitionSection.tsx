@@ -7,22 +7,22 @@ export default function RecognitionSection() {
         <div className="space-y-8">
           <div>
             <h2 className="text-4xl md:text-5xl font-serif font-bold text-rc-text leading-tight">
-              The deeper issue.
+              Every meaningful journey begins with truth.
             </h2>
           </div>
 
           <div className="space-y-6">
             <p className="text-lg text-rc-text leading-relaxed">
-              Fraud is more than an action. It is a life shaped by deception.
+              The hardest truth to face is often the one we already know.
             </p>
             <p className="text-lg text-rc-text leading-relaxed">
-              And deception separates people from the truth of who God created them to be.
+              Deception does not only change what we do.
             </p>
             <p className="text-lg text-rc-text leading-relaxed">
-              The thing holding you is not only what you have done. It is the false identity you have believed about yourself.
+              It changes what we believe about ourselves.
             </p>
             <p className="text-lg text-rc-text leading-relaxed">
-              But Jesus Christ is able to deliver you, restore you, and make all things new.
+              Restoration begins when truth returns.
             </p>
           </div>
 

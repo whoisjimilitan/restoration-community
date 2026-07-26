@@ -1,9 +1,9 @@
 'use client';
 
 const communityElements = [
-  { title: 'Mentors', description: 'Guided by those who have walked the restoration journey' },
-  { title: 'Prayer', description: 'Held in the prayers of a community that believes in transformation' },
-  { title: 'Scripture', description: 'Grounded in the unchanging truth of God\'s Word' },
+  { title: 'Mentors', description: 'Guided by people who understand the restoration journey.' },
+  { title: 'Prayer', description: 'Supported through faithful prayer as you seek Jesus Christ.' },
+  { title: 'Scripture', description: 'Grounded in the unchanging truth of God\'s Word.' },
 ];
 
 export default function CommunitySection() {
@@ -14,17 +14,32 @@ export default function CommunitySection() {
           {/* Heading */}
           <div className="max-w-2xl">
             <h2 className="text-4xl md:text-5xl font-serif font-bold text-rc-text leading-tight">
-              You will not walk alone.
+              Walking The Journey Together
             </h2>
           </div>
 
           {/* Description */}
           <div className="max-w-2xl space-y-4 text-lg text-rc-text">
             <p>
-              Restoration is the work of Jesus Christ. Community is how He supports you through it.
+              Restoration was never meant to happen alone.
             </p>
             <p>
-              Mentors. Prayer. Scripture. Honest conversations. Faithful encouragement. Real relationships.
+              Mentors.
+            </p>
+            <p>
+              Prayer.
+            </p>
+            <p>
+              Scripture.
+            </p>
+            <p>
+              Honest conversations.
+            </p>
+            <p>
+              Faithful encouragement.
+            </p>
+            <p>
+              Real relationships.
             </p>
             <p>
               Not because community replaces Christ.

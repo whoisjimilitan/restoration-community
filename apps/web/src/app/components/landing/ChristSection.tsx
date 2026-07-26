@@ -1,5 +1,7 @@
 'use client';
 
+import Link from 'next/link';
+
 export default function ChristSection() {
   return (
     <section className="w-full py-24 md:py-32 bg-rc-bg border-t border-rc-text/5">
@@ -19,17 +21,23 @@ export default function ChristSection() {
               No past places anyone beyond God&apos;s grace.
             </p>
             <p>
-              Jesus Christ is not a step in the process.
+              Jesus Christ remains the centre of our message, our hope, and every restored life.
             </p>
             <p>
-              He is the entire answer.
+              Because He restores people...
             </p>
             <p>
-              He delivers. He restores. He makes all things new.
+              we walk together as restoration continues.
             </p>
-            <p>
-              And because He does, we are able to walk with one another as restoration continues.
-            </p>
+          </div>
+
+          <div className="pt-4">
+            <Link
+              href="#journey"
+              className="inline-flex items-center justify-center px-8 py-4 bg-rc-accent text-white font-medium rounded-lg hover:bg-rc-text transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-rc-accent focus:ring-offset-2 focus:ring-offset-rc-bg"
+            >
+              Explore The Restoration Journey
+            </Link>
           </div>
         </div>
       </div>

@@ -4,21 +4,21 @@ import Link from 'next/link';
 
 export default function PartnersSection() {
   return (
-    <section className="w-full py-24 md:py-32 bg-rc-bg border-t border-rc-text/5">
+    <section id="partners" className="w-full py-24 md:py-32 bg-rc-bg border-t border-rc-text/5">
       <div className="max-w-2xl mx-auto px-6 sm:px-8 md:px-12">
         <div className="space-y-8">
           <div>
             <h2 className="text-4xl md:text-5xl font-serif font-bold text-rc-text leading-tight">
-              Walk With Us
+              Partners
             </h2>
           </div>
 
           <div className="space-y-6 text-lg text-rc-text leading-relaxed">
             <p>
-              This ministry exists because people who believe in what Jesus Christ is doing choose to stand with us.
+              This ministry moves forward through people who believe Jesus Christ is still restoring lives.
             </p>
             <p>
-              If you would like to partner with this work, we would love to hear from you.
+              If you would like to stand with this work, we would love to hear from you.
             </p>
           </div>
 

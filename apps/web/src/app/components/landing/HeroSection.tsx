@@ -34,7 +34,7 @@ export default function HeroSection() {
             style={{ transitionDelay: '240ms' }}
           >
             <h1 className="text-5xl md:text-6xl font-serif font-bold text-rc-text leading-tight">
-              Restoration begins where deception ends.
+              You were not created for a life built on deception.
             </h1>
           </div>
 
@@ -46,22 +46,37 @@ export default function HeroSection() {
             style={{ transitionDelay: '360ms' }}
           >
             <p className="text-lg text-rc-text leading-relaxed">
-              Maybe you&apos;ve told yourself you&apos;ll stop one day.
+              You may have told yourself:
             </p>
             <p className="text-lg text-rc-text leading-relaxed mt-6">
-              Maybe you feel you have no other choice.
+              &ldquo;I have no choice.&rdquo;
+            </p>
+            <p className="text-lg text-rc-text leading-relaxed mt-3">
+              &ldquo;I will stop one day.&rdquo;
+            </p>
+            <p className="text-lg text-rc-text leading-relaxed mt-3">
+              &ldquo;Everyone is doing it.&rdquo;
+            </p>
+            <p className="text-lg text-rc-text leading-relaxed mt-3">
+              &ldquo;This is just who I am now.&rdquo;
             </p>
             <p className="text-lg text-rc-text leading-relaxed mt-6">
-              Maybe everyone around you is doing it.
+              But deception is a prison that promises freedom.
             </p>
             <p className="text-lg text-rc-text leading-relaxed mt-6">
-              Maybe you&apos;ve started to believe this is just who you are now.
+              It takes you further from who God created you to be.
             </p>
             <p className="text-lg text-rc-text leading-relaxed mt-6">
-              But this is not who God created you to be.
+              Jesus Christ does not leave people trapped.
             </p>
-            <p className="text-lg text-rc-text leading-relaxed mt-6">
-              Jesus Christ does not leave people trapped. He delivers. He restores. He makes all things new.
+            <p className="text-lg text-rc-text leading-relaxed mt-3">
+              He delivers.
+            </p>
+            <p className="text-lg text-rc-text leading-relaxed mt-3">
+              He restores.
+            </p>
+            <p className="text-lg text-rc-text leading-relaxed mt-3">
+              He makes all things new.
             </p>
           </div>
 
@@ -72,20 +87,12 @@ export default function HeroSection() {
             }`}
             style={{ transitionDelay: '480ms' }}
           >
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link
-                href="/deliverance"
-                className="inline-flex items-center justify-center px-8 py-4 bg-rc-accent text-white font-medium rounded-lg hover:bg-rc-text transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-rc-accent focus:ring-offset-2 focus:ring-offset-rc-bg"
-              >
-                Request Deliverance
-              </Link>
-              <Link
-                href="#story"
-                className="inline-flex items-center justify-center px-8 py-4 text-rc-accent font-medium hover:text-rc-text transition-colors duration-200"
-              >
-                How Jesus Changed My Life
-              </Link>
-            </div>
+            <Link
+              href="/deliverance"
+              className="inline-flex items-center justify-center px-8 py-4 bg-rc-accent text-white font-medium rounded-lg hover:bg-rc-text transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-rc-accent focus:ring-offset-2 focus:ring-offset-rc-bg"
+            >
+              Request Deliverance
+            </Link>
           </div>
         </div>
 

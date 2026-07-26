@@ -9,25 +9,25 @@ export default function InvitationSection() {
         <div className="space-y-8">
           <div>
             <h2 className="text-4xl md:text-5xl font-serif font-bold text-rc-text leading-tight">
-              Take the first faithful step.
+              Come Home
             </h2>
           </div>
 
-          <div className="space-y-4 text-lg text-rc-text leading-relaxed">
+          <div className="space-y-6 text-lg text-rc-text leading-relaxed">
             <p>
-              The first step is not joining a community.
+              If you are trapped in fraud, scams, or a life built on deception, Jesus Christ is calling you into freedom.
             </p>
             <p>
-              The first step is coming to Jesus Christ and asking Him to deliver you.
+              He alone delivers.
             </p>
             <p>
-              He is waiting for you.
+              He alone restores.
             </p>
             <p>
-              He does not condemn you.
+              This ministry exists to point people back to Him.
             </p>
             <p>
-              He has already paid the price for your freedom.
+              If you are seeking Jesus Christ from another place of brokenness, you are welcome here.
             </p>
           </div>
 
