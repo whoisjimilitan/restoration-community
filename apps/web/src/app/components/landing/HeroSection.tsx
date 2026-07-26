@@ -34,7 +34,7 @@ export default function HeroSection() {
             style={{ transitionDelay: '240ms' }}
           >
             <h1 className="text-5xl md:text-6xl font-serif font-bold text-rc-text leading-tight">
-              You know this life is not who God created you to be.
+              Restoration begins where deception ends.
             </h1>
           </div>
 
@@ -46,28 +46,25 @@ export default function HeroSection() {
             style={{ transitionDelay: '360ms' }}
           >
             <p className="text-lg text-rc-text leading-relaxed">
-              Maybe you have told yourself you will stop one day.
+              You know where this life leads.
+            </p>
+            <p className="text-lg text-rc-text leading-relaxed mt-8">
+              You have told yourself you can stop one day.
+            </p>
+            <p className="text-lg text-rc-text leading-relaxed mt-8">
+              You have convinced yourself there is no other way.
+            </p>
+            <p className="text-lg text-rc-text leading-relaxed mt-8">
+              But deception was never your identity.
+            </p>
+            <p className="text-lg text-rc-text leading-relaxed mt-12">
+              Jesus Christ delivers.
             </p>
             <p className="text-lg text-rc-text leading-relaxed mt-6">
-              Maybe you believe you have no other choice.
+              Jesus Christ restores.
             </p>
             <p className="text-lg text-rc-text leading-relaxed mt-6">
-              Maybe you have convinced yourself this is simply the way life works.
-            </p>
-            <p className="text-lg text-rc-text leading-relaxed mt-6">
-              But deep down, you know deception is taking you somewhere you were never meant to go.
-            </p>
-            <p className="text-lg text-rc-text leading-relaxed mt-6">
-              Jesus Christ does not leave people trapped in deception.
-            </p>
-            <p className="text-lg text-rc-text leading-relaxed mt-6">
-              He delivers.
-            </p>
-            <p className="text-lg text-rc-text leading-relaxed mt-6">
-              He restores.
-            </p>
-            <p className="text-lg text-rc-text leading-relaxed mt-6">
-              He makes all things new.
+              Jesus Christ makes all things new.
             </p>
           </div>
 

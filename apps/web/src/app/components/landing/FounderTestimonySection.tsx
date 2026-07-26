@@ -39,11 +39,11 @@ export default function FounderTestimonySection() {
             color: '#202124',
             lineHeight: 1.8,
             letterSpacing: '-0.004em',
-            margin: '0 0 1.25rem 0',
+            margin: '0 0 1.5rem 0',
             fontStyle: 'italic',
             fontWeight: 400
           }}>
-            I was once trapped like you.
+            I was once trapped in the same deception.
           </p>
 
           <p style={{
@@ -52,11 +52,11 @@ export default function FounderTestimonySection() {
             color: '#202124',
             lineHeight: 1.8,
             letterSpacing: '-0.004em',
-            margin: '0 0 1.25rem 0',
+            margin: '0 0 1.5rem 0',
             fontStyle: 'italic',
             fontWeight: 400
           }}>
-            I knew the life I was living was wrong, but I could not find a way out.
+            I knew the life I was living was not the life God created me for.
           </p>
 
           <p style={{
@@ -65,11 +65,11 @@ export default function FounderTestimonySection() {
             color: '#202124',
             lineHeight: 1.8,
             letterSpacing: '-0.004em',
-            margin: '0 0 1.25rem 0',
+            margin: '0 0 1.5rem 0',
             fontStyle: 'italic',
             fontWeight: 400
           }}>
-            But Jesus Christ found me.
+            I tried to escape it myself, but I could not.
           </p>
 
           <p style={{
@@ -78,11 +78,11 @@ export default function FounderTestimonySection() {
             color: '#202124',
             lineHeight: 1.8,
             letterSpacing: '-0.004em',
-            margin: '0 0 1.25rem 0',
+            margin: '0 0 2rem 0',
             fontStyle: 'italic',
             fontWeight: 400
           }}>
-            He delivered me completely.
+            Then Jesus Christ delivered me.
           </p>
 
           <p style={{
@@ -117,11 +117,11 @@ export default function FounderTestimonySection() {
             color: '#202124',
             lineHeight: 1.8,
             letterSpacing: '-0.004em',
-            margin: '0 0 1.25rem 0',
+            margin: '0 0 2rem 0',
             fontStyle: 'italic',
             fontWeight: 400
           }}>
-            And a new purpose.
+            A new purpose.
           </p>
 
           <p style={{
@@ -134,7 +134,7 @@ export default function FounderTestimonySection() {
             fontStyle: 'italic',
             fontWeight: 400
           }}>
-            Today, I help others receive that same deliverance through Him.
+            Now I help others discover the same freedom through Him.
           </p>
         </div>
 

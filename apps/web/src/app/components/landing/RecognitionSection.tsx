@@ -11,23 +11,16 @@ export default function RecognitionSection() {
             </h2>
           </div>
 
-          <div className="space-y-6">
+          <div className="space-y-8">
             <p className="text-lg text-rc-text leading-relaxed">
-              The hardest part is rarely admitting the truth.
+              The hardest part of restoration is rarely admitting something has gone wrong.
             </p>
             <p className="text-lg text-rc-text leading-relaxed">
-              The hardest part is allowing truth to restore what deception has broken.
+              The hardest part is allowing truth to restore what deception has distorted.
             </p>
-          </div>
-
-          <div className="pt-8">
-            <a
-              href="#story"
-              className="text-sm font-medium text-rc-accent hover:text-rc-text transition-colors inline-flex items-center gap-2"
-            >
-              My Story
-              <span>→</span>
-            </a>
+            <p className="text-lg text-rc-text leading-relaxed">
+              Every lasting work of God begins there.
+            </p>
           </div>
 
         </div>

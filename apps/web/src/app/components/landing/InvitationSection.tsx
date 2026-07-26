@@ -9,22 +9,25 @@ export default function InvitationSection() {
         <div className="space-y-8">
           <div>
             <h2 className="text-4xl md:text-5xl font-serif font-bold text-rc-text leading-tight">
-              There Is A Way Out
+              Take the first faithful step.
             </h2>
           </div>
 
-          <div className="space-y-4 text-lg text-rc-text leading-relaxed">
+          <div className="space-y-8 text-lg text-rc-text leading-relaxed">
             <p>
-              If you are trapped in fraud, scams, deception, or dishonest living and desire freedom, Jesus Christ is the way out.
+              If you are trapped in fraud, scams, deception, or dishonest living and desire freedom, Jesus Christ is the answer.
             </p>
             <p>
-              He alone delivers.
+              He delivers.
             </p>
             <p>
-              He alone restores.
+              He restores.
             </p>
             <p>
-              If you are sincerely seeking Jesus Christ from another place of brokenness, you are welcome here.
+              He makes all things new.
+            </p>
+            <p>
+              And if you are seeking Him from another place of brokenness, you are welcome here.
             </p>
           </div>
 
