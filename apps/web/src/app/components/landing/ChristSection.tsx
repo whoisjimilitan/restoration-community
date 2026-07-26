@@ -15,10 +15,13 @@ export default function ChristSection() {
               No failure has the final word.
             </p>
             <p>
-              No past is beyond God&apos;s grace.
+              No past places anyone beyond God&apos;s grace.
             </p>
             <p>
-              Because Christ restores people...
+              Jesus Christ remains the centre of our message, our hope, and every restored life.
+            </p>
+            <p>
+              Because He restores people...
             </p>
             <p>
               we walk together as restoration continues.

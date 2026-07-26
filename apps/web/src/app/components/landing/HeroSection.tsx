@@ -34,7 +34,7 @@ export default function HeroSection() {
             style={{ transitionDelay: '240ms' }}
           >
             <h1 className="text-5xl md:text-6xl font-serif font-bold text-rc-text leading-tight">
-              You were not created to live this way.
+              You know this life is not who God created you to be.
             </h1>
           </div>
 
@@ -46,22 +46,28 @@ export default function HeroSection() {
             style={{ transitionDelay: '360ms' }}
           >
             <p className="text-lg text-rc-text leading-relaxed">
-              You already know what this life is costing you.
+              Maybe you have told yourself you will stop one day.
             </p>
             <p className="text-lg text-rc-text leading-relaxed mt-6">
-              Deep down, you know this is not who God created you to be.
+              Maybe you believe you have no other choice.
             </p>
             <p className="text-lg text-rc-text leading-relaxed mt-6">
-              But your story does not have to end here.
+              Maybe you have convinced yourself this is simply the way life works.
             </p>
             <p className="text-lg text-rc-text leading-relaxed mt-6">
-              Jesus Christ still delivers.
+              But deep down, you know deception is taking you somewhere you were never meant to go.
             </p>
             <p className="text-lg text-rc-text leading-relaxed mt-6">
-              He still restores.
+              Jesus Christ does not leave people trapped in deception.
             </p>
             <p className="text-lg text-rc-text leading-relaxed mt-6">
-              He still makes all things new.
+              He delivers.
+            </p>
+            <p className="text-lg text-rc-text leading-relaxed mt-6">
+              He restores.
+            </p>
+            <p className="text-lg text-rc-text leading-relaxed mt-6">
+              He makes all things new.
             </p>
           </div>
 

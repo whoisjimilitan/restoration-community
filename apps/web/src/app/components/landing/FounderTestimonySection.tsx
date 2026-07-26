@@ -69,7 +69,7 @@ export default function FounderTestimonySection() {
             fontStyle: 'italic',
             fontWeight: 400
           }}>
-            Then Jesus Christ found me.
+            But Jesus Christ found me.
           </p>
 
           <p style={{
@@ -134,7 +134,7 @@ export default function FounderTestimonySection() {
             fontStyle: 'italic',
             fontWeight: 400
           }}>
-            Today I help others find that same deliverance through Him.
+            Today, I help others receive that same deliverance through Him.
           </p>
         </div>
 

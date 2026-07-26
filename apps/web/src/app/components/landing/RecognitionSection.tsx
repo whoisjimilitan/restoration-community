@@ -13,13 +13,10 @@ export default function RecognitionSection() {
 
           <div className="space-y-6">
             <p className="text-lg text-rc-text leading-relaxed">
-              The hardest part is rarely admitting something has gone wrong.
+              The hardest part is rarely admitting the truth.
             </p>
             <p className="text-lg text-rc-text leading-relaxed">
-              The hardest part is believing that Jesus Christ can restore what deception has broken.
-            </p>
-            <p className="text-lg text-rc-text leading-relaxed">
-              Every lasting work of God begins there.
+              The hardest part is allowing truth to restore what deception has broken.
             </p>
           </div>
 
@@ -28,7 +25,7 @@ export default function RecognitionSection() {
               href="#story"
               className="text-sm font-medium text-rc-accent hover:text-rc-text transition-colors inline-flex items-center gap-2"
             >
-              How Jesus Changed My Life
+              My Story
               <span>→</span>
             </a>
           </div>

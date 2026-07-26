@@ -15,7 +15,7 @@ export default function InvitationSection() {
 
           <div className="space-y-4 text-lg text-rc-text leading-relaxed">
             <p>
-              If you are trapped in fraud, scams, deception, or dishonest living and want a different life, this ministry exists to point you to Jesus Christ.
+              If you are trapped in fraud, scams, deception, or dishonest living and desire freedom, Jesus Christ is the way out.
             </p>
             <p>
               He alone delivers.
@@ -24,7 +24,7 @@ export default function InvitationSection() {
               He alone restores.
             </p>
             <p>
-              If you are sincerely seeking Jesus Christ from any other place of brokenness, you are welcome too.
+              If you are sincerely seeking Jesus Christ from another place of brokenness, you are welcome here.
             </p>
           </div>
 
