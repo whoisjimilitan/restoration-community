@@ -52,19 +52,19 @@ export default function HeroSection() {
               It only ever leaves people trapped.
             </p>
             <p className="text-lg text-rc-text leading-relaxed mt-6">
-              Every life built on fraud, scams, and deception begins with the same lie:
+              Every life built on fraud or deception begins with the same lie:
             </p>
             <p className="text-lg text-rc-text leading-relaxed mt-6">
               that life can be built apart from God.
             </p>
             <p className="text-lg text-rc-text leading-relaxed mt-6">
-              But Jesus Christ still delivers people from deception.
-            </p>
-            <p className="text-lg text-rc-text leading-relaxed mt-6">
-              I know the Deliverer.
+              But God is still delivering people from deception.
             </p>
             <p className="text-lg text-rc-text leading-relaxed mt-6">
               His name is Jesus Christ.
+            </p>
+            <p className="text-lg text-rc-text leading-relaxed mt-6">
+              He is the Deliverer.
             </p>
           </div>
 
