@@ -46,10 +46,10 @@ export default function HeroSection() {
             style={{ transitionDelay: '360ms' }}
           >
             <p className="text-lg text-rc-text leading-relaxed">
-              You are beginning to sense the true cost of deceiving for a living.
+              You already know what deception costs.
             </p>
             <p className="text-lg text-rc-text leading-relaxed mt-6">
-              Nightmares. Evil Attacks. Lack of Direction. Rising and Falling.
+              But you cannot stop alone.
             </p>
             <p className="text-lg text-rc-text leading-relaxed mt-6">
               Jesus Christ alone delivers people from a caged life.
