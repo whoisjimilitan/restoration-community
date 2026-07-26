@@ -16,13 +16,13 @@ export default function RecognitionSection() {
               The hardest truth to face is often the one we already know.
             </p>
             <p className="text-lg text-rc-text leading-relaxed">
-              Deception does not only change what we do.
+              Deception changes more than our actions.
             </p>
             <p className="text-lg text-rc-text leading-relaxed">
               It changes what we believe about ourselves.
             </p>
             <p className="text-lg text-rc-text leading-relaxed">
-              Restoration begins when truth returns.
+              Restoration begins when we return to God&apos;s truth.
             </p>
           </div>
 

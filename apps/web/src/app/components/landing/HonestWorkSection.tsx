@@ -19,7 +19,10 @@ export default function HonestWorkSection() {
               Leaving deception is only the beginning.
             </p>
             <p>
-              The Holy Spirit transforms how we work.
+              The Holy Spirit transforms:
+            </p>
+            <p>
+              How we work.
             </p>
             <p>
               How we serve.
@@ -28,7 +31,7 @@ export default function HonestWorkSection() {
               How we love.
             </p>
             <p>
-              And how we live with integrity.
+              How we live with integrity.
             </p>
           </div>
         </div>

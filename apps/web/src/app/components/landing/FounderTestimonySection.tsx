@@ -37,7 +37,7 @@ export default function FounderTestimonySection() {
             fontWeight: 500,
             margin: 0
           }}>
-            Brother Jimi&apos;s Story of Deliverance
+            A testimony of Jesus Christ&apos;s deliverance
           </p>
         </div>
 
