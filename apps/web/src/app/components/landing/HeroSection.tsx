@@ -46,37 +46,16 @@ export default function HeroSection() {
             style={{ transitionDelay: '360ms' }}
           >
             <p className="text-lg text-rc-text leading-relaxed">
-              You may have told yourself:
+              You cannot stop sinning without God being involved.
             </p>
             <p className="text-lg text-rc-text leading-relaxed mt-6">
-              &ldquo;I have no choice.&rdquo;
-            </p>
-            <p className="text-lg text-rc-text leading-relaxed mt-3">
-              &ldquo;I will stop one day.&rdquo;
-            </p>
-            <p className="text-lg text-rc-text leading-relaxed mt-3">
-              &ldquo;Everyone is doing it.&rdquo;
-            </p>
-            <p className="text-lg text-rc-text leading-relaxed mt-3">
-              &ldquo;This is just who I am now.&rdquo;
+              The power to break free from deception, fraud, and the life you have built does not come from willpower or better choices.
             </p>
             <p className="text-lg text-rc-text leading-relaxed mt-6">
-              But deception is a prison that promises freedom.
+              It comes from Jesus Christ.
             </p>
             <p className="text-lg text-rc-text leading-relaxed mt-6">
-              It takes you further from who God created you to be.
-            </p>
-            <p className="text-lg text-rc-text leading-relaxed mt-6">
-              Jesus Christ does not leave people trapped.
-            </p>
-            <p className="text-lg text-rc-text leading-relaxed mt-3">
-              He delivers.
-            </p>
-            <p className="text-lg text-rc-text leading-relaxed mt-3">
-              He restores.
-            </p>
-            <p className="text-lg text-rc-text leading-relaxed mt-3">
-              He makes all things new.
+              He delivers. He restores. He makes all things new.
             </p>
           </div>
 
