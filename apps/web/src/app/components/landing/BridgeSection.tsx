@@ -27,7 +27,7 @@ export default function BridgeSection() {
               href="#journey"
               className="inline-flex items-center justify-center px-8 py-4 bg-rc-accent text-white font-medium rounded-lg hover:bg-rc-text transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-rc-accent focus:ring-offset-2 focus:ring-offset-rc-bg"
             >
-              Explore The Restoration Journey
+              Begin In Truth
             </Link>
           </div>
         </div>

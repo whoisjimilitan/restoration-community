@@ -7,11 +7,8 @@ export default function HonestWorkSection() {
         <div className="space-y-8">
           <div>
             <h2 className="text-4xl md:text-5xl font-serif font-bold text-rc-text leading-tight">
-              A Life Restored
+              The Holy Spirit Restores Us To Truth
             </h2>
-            <p className="text-lg text-rc-text leading-relaxed mt-4">
-              The Holy Spirit Restores Every Part of Life
-            </p>
           </div>
 
           <div className="space-y-6 text-lg text-rc-text leading-relaxed">

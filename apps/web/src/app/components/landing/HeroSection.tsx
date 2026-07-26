@@ -55,13 +55,7 @@ export default function HeroSection() {
               It leaves people trapped.
             </p>
             <p className="text-lg text-rc-text leading-relaxed mt-6">
-              Fraud, scams, and dishonest living all begin with the same lie:
-            </p>
-            <p className="text-lg text-rc-text leading-relaxed mt-6">
-              that life can be built apart from God&apos;s truth.
-            </p>
-            <p className="text-lg text-rc-text leading-relaxed mt-6">
-              But Jesus Christ still delivers people from deception.
+              Jesus Christ still delivers people from deception.
             </p>
             <p className="text-lg text-rc-text leading-relaxed mt-6">
               If only you&apos;ll reach out by faith.
