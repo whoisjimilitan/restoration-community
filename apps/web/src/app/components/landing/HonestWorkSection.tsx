@@ -7,16 +7,19 @@ export default function HonestWorkSection() {
         <div className="space-y-8">
           <div>
             <h2 className="text-4xl md:text-5xl font-serif font-bold text-rc-text leading-tight">
-              The Holy Spirit Restores Us To Truth
+              A Life Restored
             </h2>
           </div>
 
           <div className="space-y-6 text-lg text-rc-text leading-relaxed">
             <p>
-              When Jesus Christ restores a life,
+              The Holy Spirit restores every part of life.
             </p>
             <p>
-              everything begins to change.
+              Deliverance is the beginning.
+            </p>
+            <p>
+              The Holy Spirit teaches us a new way to live.
             </p>
             <p>
               How we work.

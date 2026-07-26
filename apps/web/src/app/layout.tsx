@@ -4,7 +4,7 @@ import './globals.css';
 
 export const metadata: Metadata = {
   title: 'Brother Jimi - Deliverance Through Jesus Christ',
-  description: 'Jesus Christ still delivers people from deception. Brother Jimi\'s ministry of restoration.',
+  description: 'Jesus Christ still delivers people from deception. A ministry of restoration through the Gospel.',
 };
 
 export default function RootLayout({

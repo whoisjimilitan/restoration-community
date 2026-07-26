@@ -15,22 +15,25 @@ export default function InvitationSection() {
 
           <div className="space-y-6 text-lg text-rc-text leading-relaxed">
             <p>
-              If deception has become the life you know...
+              If you are trapped in fraud, scams, or a life built on deception,
             </p>
             <p>
               Jesus Christ is calling you home.
             </p>
             <p>
-              He still delivers.
+              He alone delivers.
             </p>
             <p>
-              He still restores.
-            </p>
-            <p>
-              He still makes all things new.
+              He alone restores.
             </p>
             <p>
               This ministry exists to point people to Him.
+            </p>
+            <p>
+              If you are ready to leave deception behind and walk in God&apos;s truth,
+            </p>
+            <p>
+              we are ready to walk with you.
             </p>
           </div>
 

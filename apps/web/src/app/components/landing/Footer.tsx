@@ -9,8 +9,14 @@ export default function Footer() {
         <div className="space-y-8">
           {/* Links */}
           <div className="flex flex-wrap gap-8">
+            <Link href="#story" className="text-sm text-rc-text hover:text-rc-accent transition-colors">
+              My Story
+            </Link>
+            <Link href="#trap" className="text-sm text-rc-text hover:text-rc-accent transition-colors">
+              The Spiritual Trap
+            </Link>
             <Link href="#journey" className="text-sm text-rc-text hover:text-rc-accent transition-colors">
-              Journey of Truth
+              The Journey of Truth
             </Link>
             <Link href="#resources" className="text-sm text-rc-text hover:text-rc-accent transition-colors">
               Resources
@@ -21,11 +27,6 @@ export default function Footer() {
             <Link href="#contact" className="text-sm text-rc-text hover:text-rc-accent transition-colors">
               Contact
             </Link>
-          </div>
-
-          {/* About Restoration */}
-          <div className="text-xs text-rc-text-secondary">
-            Restoration is the ministry of Brother Jimi dedicated to helping people trapped in deception find deliverance through Jesus Christ.
           </div>
 
           {/* Scripture Reference */}

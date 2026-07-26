@@ -39,7 +39,7 @@ export default function FounderTestimonySection() {
             marginBottom: '0.5rem',
             marginTop: 0
           }}>
-            How Jesus Christ Delivered Me
+            A Message From Someone Who Has Walked This Road
           </h2>
         </div>
 
@@ -72,7 +72,7 @@ export default function FounderTestimonySection() {
             fontStyle: 'italic',
             fontWeight: 400
           }}>
-            I knew the life I was living was wrong,
+            I knew what I was doing was wrong.
           </p>
 
           <p style={{
@@ -85,7 +85,20 @@ export default function FounderTestimonySection() {
             fontStyle: 'italic',
             fontWeight: 400
           }}>
-            but I could not find a way out.
+            I wanted to leave.
+          </p>
+
+          <p style={{
+            fontSize: '1.125rem',
+            fontFamily: 'Georgia, Garamond, serif',
+            color: '#202124',
+            lineHeight: 1.8,
+            letterSpacing: '-0.004em',
+            margin: '0 0 1.25rem 0',
+            fontStyle: 'italic',
+            fontWeight: 400
+          }}>
+            I just didn&apos;t know how.
           </p>
 
           <p style={{
@@ -111,7 +124,7 @@ export default function FounderTestimonySection() {
             fontStyle: 'italic',
             fontWeight: 400
           }}>
-            He delivered me completely.
+            He delivered me.
           </p>
 
           <p style={{
@@ -124,7 +137,7 @@ export default function FounderTestimonySection() {
             fontStyle: 'italic',
             fontWeight: 400
           }}>
-            He gave me a new identity.
+            He gave me a new heart.
           </p>
 
           <p style={{
@@ -150,7 +163,7 @@ export default function FounderTestimonySection() {
             fontStyle: 'italic',
             fontWeight: 400
           }}>
-            A new purpose.
+            A new life.
           </p>
 
           <p style={{
@@ -163,7 +176,7 @@ export default function FounderTestimonySection() {
             fontStyle: 'italic',
             fontWeight: 400
           }}>
-            My story is not about what I changed.
+            I&apos;m not the deliverer.
           </p>
 
           <p style={{
@@ -176,20 +189,7 @@ export default function FounderTestimonySection() {
             fontStyle: 'italic',
             fontWeight: 400
           }}>
-            It is about the One who changed me.
-          </p>
-
-          <p style={{
-            fontSize: '1.125rem',
-            fontFamily: 'Georgia, Garamond, serif',
-            color: '#202124',
-            lineHeight: 1.8,
-            letterSpacing: '-0.004em',
-            margin: '0 0 1.25rem 0',
-            fontStyle: 'italic',
-            fontWeight: 400
-          }}>
-            Today,
+            I&apos;m simply a witness to the One who delivered me.
           </p>
 
           <p style={{
@@ -202,7 +202,7 @@ export default function FounderTestimonySection() {
             fontStyle: 'italic',
             fontWeight: 400
           }}>
-            I help others find that same Deliverer.
+            Today I point people to Him.
           </p>
         </div>
 
@@ -225,7 +225,7 @@ export default function FounderTestimonySection() {
             e.currentTarget.style.color = '#0F766E';
           }}
         >
-          Read My Full Story
+          Read My Full Story →
         </Link>
       </div>
     </section>

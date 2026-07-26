@@ -13,28 +13,25 @@ export default function RecognitionSection() {
 
           <div className="space-y-6">
             <p className="text-lg text-rc-text leading-relaxed">
-              Lies don&apos;t begin with what we do.
+              Fraud is more than deception.
             </p>
             <p className="text-lg text-rc-text leading-relaxed">
-              It begins with what we believe.
+              It is the spirit of deception.
             </p>
             <p className="text-lg text-rc-text leading-relaxed">
-              That we have no choice.
+              The spirit of deception changes what we believe—
             </p>
             <p className="text-lg text-rc-text leading-relaxed">
-              That everyone is doing it.
+              about God,
             </p>
             <p className="text-lg text-rc-text leading-relaxed">
-              That we&apos;ll stop later.
+              about ourselves,
             </p>
             <p className="text-lg text-rc-text leading-relaxed">
-              That God will understand.
+              and about the life we think we must live.
             </p>
             <p className="text-lg text-rc-text leading-relaxed">
-              Lies like these become prisons.
-            </p>
-            <p className="text-lg text-rc-text leading-relaxed">
-              But Jesus Christ came to set people free.
+              But Jesus Christ came to destroy the lie and set people free.
             </p>
           </div>
 
