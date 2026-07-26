@@ -15,19 +15,19 @@ export default function InvitationSection() {
 
           <div className="space-y-4 text-lg text-rc-text leading-relaxed">
             <p>
-              This ministry exists for people trapped in fraud, scams, and dishonest living who desire freedom through Jesus Christ.
+              The first step is not joining a community.
             </p>
             <p>
-              But anyone sincerely seeking Jesus Christ is welcome here.
+              The first step is coming to Jesus Christ and asking Him to deliver you.
             </p>
             <p>
-              Whether today is the beginning of your journey,
+              He is waiting for you.
             </p>
             <p>
-              or another step toward Jesus Christ,
+              He does not condemn you.
             </p>
             <p>
-              you are welcome here.
+              He has already paid the price for your freedom.
             </p>
           </div>
 

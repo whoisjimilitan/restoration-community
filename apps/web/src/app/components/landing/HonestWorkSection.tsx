@@ -16,16 +16,22 @@ export default function HonestWorkSection() {
               Leaving deception is only the beginning.
             </p>
             <p>
-              The Holy Spirit transforms how we work...
+              Deliverance through Jesus Christ transforms your entire life.
             </p>
             <p>
-              how we serve...
+              It changes how you work...
             </p>
             <p>
-              how we love...
+              how you serve...
             </p>
             <p>
-              and how we live with integrity.
+              how you love...
+            </p>
+            <p>
+              and how you live with integrity.
+            </p>
+            <p>
+              This is not self-improvement. This is the fruit of being made new in Christ.
             </p>
           </div>
         </div>

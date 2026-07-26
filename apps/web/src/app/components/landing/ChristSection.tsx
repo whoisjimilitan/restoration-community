@@ -19,13 +19,16 @@ export default function ChristSection() {
               No past places anyone beyond God&apos;s grace.
             </p>
             <p>
-              Jesus Christ remains the centre of our message, our hope, and every restored life.
+              Jesus Christ is not a step in the process.
             </p>
             <p>
-              Because He restores people...
+              He is the entire answer.
             </p>
             <p>
-              we walk with one another as restoration continues.
+              He delivers. He restores. He makes all things new.
+            </p>
+            <p>
+              And because He does, we are able to walk with one another as restoration continues.
             </p>
           </div>
         </div>

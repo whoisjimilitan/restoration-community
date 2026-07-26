@@ -14,12 +14,15 @@ export default function CommunitySection() {
           {/* Heading */}
           <div className="max-w-2xl">
             <h2 className="text-4xl md:text-5xl font-serif font-bold text-rc-text leading-tight">
-              Walking the Journey Together
+              You will not walk alone.
             </h2>
           </div>
 
           {/* Description */}
           <div className="max-w-2xl space-y-4 text-lg text-rc-text">
+            <p>
+              Restoration is the work of Jesus Christ. Community is how He supports you through it.
+            </p>
             <p>
               Mentors. Prayer. Scripture. Honest conversations. Faithful encouragement. Real relationships.
             </p>
