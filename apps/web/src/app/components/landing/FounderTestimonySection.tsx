@@ -29,7 +29,7 @@ export default function FounderTestimonySection() {
             marginBottom: '0.5rem',
             marginTop: 0
           }}>
-            A Message From Someone Who Walked This Road
+            I was trapped exactly like you.
           </h2>
           <p style={{
             fontSize: '1rem',
@@ -57,20 +57,7 @@ export default function FounderTestimonySection() {
             fontStyle: 'italic',
             fontWeight: 400
           }}>
-            I know this life because I lived it.
-          </p>
-
-          <p style={{
-            fontSize: '1.125rem',
-            fontFamily: 'Georgia, Garamond, serif',
-            color: '#202124',
-            lineHeight: 1.8,
-            letterSpacing: '-0.004em',
-            margin: '0 0 1.25rem 0',
-            fontStyle: 'italic',
-            fontWeight: 400
-          }}>
-            I knew the life I was living was wrong, but I did not know how to escape it.
+            I knew this life was wrong, but I couldn&apos;t escape it.
           </p>
 
           <p style={{
@@ -96,33 +83,7 @@ export default function FounderTestimonySection() {
             fontStyle: 'italic',
             fontWeight: 400
           }}>
-            He delivered me.
-          </p>
-
-          <p style={{
-            fontSize: '1.125rem',
-            fontFamily: 'Georgia, Garamond, serif',
-            color: '#202124',
-            lineHeight: 1.8,
-            letterSpacing: '-0.004em',
-            margin: '0 0 0.625rem 0',
-            fontStyle: 'italic',
-            fontWeight: 400
-          }}>
-            He gave me a new identity.
-          </p>
-
-          <p style={{
-            fontSize: '1.125rem',
-            fontFamily: 'Georgia, Garamond, serif',
-            color: '#202124',
-            lineHeight: 1.8,
-            letterSpacing: '-0.004em',
-            margin: '0 0 0.625rem 0',
-            fontStyle: 'italic',
-            fontWeight: 400
-          }}>
-            A new direction.
+            He delivered me completely.
           </p>
 
           <p style={{
@@ -135,33 +96,7 @@ export default function FounderTestimonySection() {
             fontStyle: 'italic',
             fontWeight: 400
           }}>
-            A new purpose.
-          </p>
-
-          <p style={{
-            fontSize: '1.125rem',
-            fontFamily: 'Georgia, Garamond, serif',
-            color: '#202124',
-            lineHeight: 1.8,
-            letterSpacing: '-0.004em',
-            margin: '0 0 1.25rem 0',
-            fontStyle: 'italic',
-            fontWeight: 400
-          }}>
-            My story is not about what I changed.
-          </p>
-
-          <p style={{
-            fontSize: '1.125rem',
-            fontFamily: 'Georgia, Garamond, serif',
-            color: '#202124',
-            lineHeight: 1.8,
-            letterSpacing: '-0.004em',
-            margin: '0 0 1.25rem 0',
-            fontStyle: 'italic',
-            fontWeight: 400
-          }}>
-            It is about the One who changed me.
+            My story is proof that you can be freed too.
           </p>
 
           <p style={{

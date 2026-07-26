@@ -52,7 +52,7 @@ export default function HeroSection() {
               But you cannot stop alone.
             </p>
             <p className="text-lg text-rc-text leading-relaxed mt-6">
-              Jesus Christ delivers people from meaningless activities in life.
+              Jesus Christ alone delivers people from a caged life.
             </p>
             <p className="text-lg text-rc-text leading-relaxed mt-6">
               And you may be the next to rejoice.

@@ -15,19 +15,19 @@ export default function ChristSection() {
 
           <div className="space-y-6 text-lg text-rc-text leading-relaxed">
             <p>
-              No failure has the final word.
+              No failure can separate you from His grace.
             </p>
             <p>
-              No past places anyone beyond God&apos;s grace.
+              Jesus Christ alone is the answer because He breaks people free from the exact trap you&apos;re in.
             </p>
             <p>
-              Jesus Christ remains the centre of our message, our hope, and every restored life.
+              He is the only one who can truly restore you.
             </p>
             <p>
               Because He restores people...
             </p>
             <p>
-              we walk together as restoration continues.
+              you will not walk alone.
             </p>
           </div>
 

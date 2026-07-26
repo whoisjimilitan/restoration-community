@@ -15,16 +15,16 @@ export default function InvitationSection() {
 
           <div className="space-y-6 text-lg text-rc-text leading-relaxed">
             <p>
-              Jesus Christ is calling you back.
+              So you can be next to rejoice.
+            </p>
+            <p>
+              Jesus Christ is calling you home.
             </p>
             <p>
               He alone delivers. He alone restores.
             </p>
             <p>
-              If you are trapped in fraud, scams, or deception, this is for you.
-            </p>
-            <p>
-              If you are seeking Jesus from any place of brokenness, you are welcome here.
+              And your life begins again.
             </p>
           </div>
 
