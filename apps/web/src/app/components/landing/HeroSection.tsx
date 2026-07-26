@@ -46,16 +46,19 @@ export default function HeroSection() {
             style={{ transitionDelay: '360ms' }}
           >
             <p className="text-lg text-rc-text leading-relaxed">
-              You already know what deception costs.
+              You already know this life isn&apos;t leading where you hoped.
             </p>
             <p className="text-lg text-rc-text leading-relaxed mt-6">
-              But you cannot stop alone.
+              The deeper problem isn&apos;t fraud.
             </p>
             <p className="text-lg text-rc-text leading-relaxed mt-6">
-              Jesus Christ alone delivers people from a caged life.
+              It&apos;s deception.
             </p>
             <p className="text-lg text-rc-text leading-relaxed mt-6">
-              And you may be the next to rejoice.
+              And deception always takes us further from God.
+            </p>
+            <p className="text-lg text-rc-text leading-relaxed mt-6">
+              Jesus Christ still delivers people from both.
             </p>
           </div>
 

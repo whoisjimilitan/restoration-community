@@ -10,16 +10,28 @@ export default function HonestWorkSection() {
               A Life Restored
             </h2>
             <p className="text-lg text-rc-text leading-relaxed mt-4">
-              The Holy Spirit restores every part of our lives.
+              The Holy Spirit Restores Every Part of Life
             </p>
           </div>
 
           <div className="space-y-6 text-lg text-rc-text leading-relaxed">
             <p>
-              When Jesus Christ restores you, everything changes.
+              When Jesus Christ restores a life,
             </p>
             <p>
-              How you work. How you serve. How you love. How you live with integrity.
+              everything begins to change.
+            </p>
+            <p>
+              How we work.
+            </p>
+            <p>
+              How we serve.
+            </p>
+            <p>
+              How we love.
+            </p>
+            <p>
+              How we live with integrity.
             </p>
           </div>
         </div>

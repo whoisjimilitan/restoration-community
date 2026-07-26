@@ -9,25 +9,25 @@ export default function PartnersSection() {
         <div className="space-y-8">
           <div>
             <h2 className="text-4xl md:text-5xl font-serif font-bold text-rc-text leading-tight">
-              Partners
+              Partner With The Mission
             </h2>
           </div>
 
           <div className="space-y-6 text-lg text-rc-text leading-relaxed">
             <p>
-              This ministry moves forward through people who believe Jesus Christ is still restoring lives.
+              This work continues because people choose to stand with what Jesus Christ is doing.
             </p>
             <p>
-              If you would like to stand with this work, we would love to hear from you.
+              If you believe in this mission, we would be honoured to have you walk with us.
             </p>
           </div>
 
           <div className="pt-4">
             <Link
-              href="#partners"
+              href="/partner"
               className="inline-flex items-center justify-center px-8 py-4 bg-rc-accent text-white font-medium rounded-lg hover:bg-rc-text transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-rc-accent focus:ring-offset-2 focus:ring-offset-rc-bg"
             >
-              Partner With Us
+              Become a Partner
             </Link>
           </div>
         </div>

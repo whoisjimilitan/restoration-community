@@ -4,11 +4,12 @@ import Navigation from './components/landing/Navigation';
 import HeroSection from './components/landing/HeroSection';
 import RecognitionSection from './components/landing/RecognitionSection';
 import FounderTestimonySection from './components/landing/FounderTestimonySection';
-import ChristSection from './components/landing/ChristSection';
+import BridgeSection from './components/landing/BridgeSection';
 import JourneySection from './components/landing/JourneySection';
 import CommunitySection from './components/landing/CommunitySection';
 import HonestWorkSection from './components/landing/HonestWorkSection';
 import InvitationSection from './components/landing/InvitationSection';
+import PartnersSection from './components/landing/PartnersSection';
 import Footer from './components/landing/Footer';
 
 export default function Home() {
@@ -25,11 +26,11 @@ export default function Home() {
         {/* 3. Evidence: Testimony */}
         <FounderTestimonySection />
 
-        {/* 4. Restoration: Journey */}
-        <JourneySection />
+        {/* 4. Bridge: Answer to doubts */}
+        <BridgeSection />
 
-        {/* 5. Hope: Christ Centred */}
-        <ChristSection />
+        {/* 5. Restoration: Journey */}
+        <JourneySection />
 
         {/* 6. Community: Support */}
         <CommunitySection />
@@ -37,8 +38,11 @@ export default function Home() {
         {/* 7. Life Restored: Fruit */}
         <HonestWorkSection />
 
-        {/* 8. Response: Invitation */}
+        {/* 8. Final Invitation: Response */}
         <InvitationSection />
+
+        {/* 9. Partners: Mission Support */}
+        <PartnersSection />
       </main>
       <Footer />
     </>

@@ -13,16 +13,24 @@ export default function RecognitionSection() {
 
           <div className="space-y-6">
             <p className="text-lg text-rc-text leading-relaxed">
-              It&apos;s not just what you&apos;ve done.
+              Fraud is more than an action.
             </p>
             <p className="text-lg text-rc-text leading-relaxed">
-              It&apos;s what you&apos;ve believed about yourself.
+              It is the spirit of deception.
             </p>
             <p className="text-lg text-rc-text leading-relaxed">
-              Jesus Christ restores you to God&apos;s truth about who you are.
+              The spirit of deception separates people from the truth of who God created them to be.
+            </p>
+            <p className="text-lg text-rc-text leading-relaxed">
+              Restoration begins when truth returns.
             </p>
           </div>
 
+          <div className="pt-4">
+            <a className="text-sm font-medium text-rc-accent hover:text-rc-text transition-colors duration-200" href="/story">
+              How Jesus Changed My Life →
+            </a>
+          </div>
         </div>
       </div>
     </section>

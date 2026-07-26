@@ -2,47 +2,32 @@
 
 import Link from 'next/link';
 
-export default function InvitationSection() {
+export default function BridgeSection() {
   return (
     <section className="w-full py-24 md:py-32 bg-rc-bg border-t border-rc-text/5">
       <div className="max-w-2xl mx-auto px-6 sm:px-8 md:px-12">
         <div className="space-y-8">
-          <div>
-            <h2 className="text-4xl md:text-5xl font-serif font-bold text-rc-text leading-tight">
-              Come Home
-            </h2>
-          </div>
-
           <div className="space-y-6 text-lg text-rc-text leading-relaxed">
             <p>
-              If you are trapped in fraud,
+              Jesus Christ has not changed.
             </p>
             <p>
-              scams,
+              The One who delivered me still delivers today.
             </p>
             <p>
-              or a life built on deception,
+              No one is beyond His mercy.
             </p>
             <p>
-              Jesus Christ is calling you home.
-            </p>
-            <p>
-              He alone delivers.
-            </p>
-            <p>
-              He alone restores.
-            </p>
-            <p>
-              This ministry exists to point people to Him.
+              No one is beyond His power.
             </p>
           </div>
 
           <div className="pt-4">
             <Link
-              href="/deliverance"
+              href="#journey"
               className="inline-flex items-center justify-center px-8 py-4 bg-rc-accent text-white font-medium rounded-lg hover:bg-rc-text transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-rc-accent focus:ring-offset-2 focus:ring-offset-rc-bg"
             >
-              Request Deliverance
+              Explore The Restoration Journey
             </Link>
           </div>
         </div>

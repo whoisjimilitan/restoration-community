@@ -24,13 +24,28 @@ export default function CommunitySection() {
               Restoration was never meant to happen alone.
             </p>
             <p>
-              Mentors. Prayer. Scripture.
+              Mentors.
+            </p>
+            <p>
+              Prayer.
+            </p>
+            <p>
+              Scripture.
+            </p>
+            <p>
+              Honest conversations.
+            </p>
+            <p>
+              Faithful encouragement.
+            </p>
+            <p>
+              Real relationships.
             </p>
             <p>
               Not because community replaces Christ.
             </p>
             <p>
-              Because Christ restores people through His people.
+              Because Christ often restores people through His people.
             </p>
           </div>
 
