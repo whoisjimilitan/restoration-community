@@ -13,7 +13,7 @@ export default function RecognitionSection() {
 
           <div className="space-y-6">
             <p className="text-lg text-rc-text leading-relaxed">
-              Fraud is more than deception.
+              Fraud is more than an act of deception.
             </p>
             <p className="text-lg text-rc-text leading-relaxed">
               It is the spirit of deception.

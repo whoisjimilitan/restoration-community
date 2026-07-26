@@ -19,11 +19,8 @@ export default function Navigation() {
           <Link href="#story" className="text-sm text-rc-text hover:text-rc-accent transition-colors duration-200">
             My Story
           </Link>
-          <Link href="#trap" className="text-sm text-rc-text hover:text-rc-accent transition-colors duration-200">
-            The Spiritual Trap
-          </Link>
           <Link href="#journey" className="text-sm text-rc-text hover:text-rc-accent transition-colors duration-200">
-            The Journey of Truth
+            Journey
           </Link>
           <Link href="#resources" className="text-sm text-rc-text hover:text-rc-accent transition-colors duration-200">
             Resources
@@ -55,11 +52,8 @@ export default function Navigation() {
             <Link href="#story" className="block text-sm text-rc-text hover:text-rc-accent transition-colors">
               My Story
             </Link>
-            <Link href="#trap" className="block text-sm text-rc-text hover:text-rc-accent transition-colors">
-              The Spiritual Trap
-            </Link>
             <Link href="#journey" className="block text-sm text-rc-text hover:text-rc-accent transition-colors">
-              The Journey of Truth
+              Journey
             </Link>
             <Link href="#resources" className="block text-sm text-rc-text hover:text-rc-accent transition-colors">
               Resources

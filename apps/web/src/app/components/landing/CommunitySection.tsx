@@ -45,7 +45,7 @@ export default function CommunitySection() {
               Not because community replaces Christ.
             </p>
             <p>
-              Because Christ often brings divine truth to you through His people.
+              Because Christ often restores people through His people.
             </p>
           </div>
 

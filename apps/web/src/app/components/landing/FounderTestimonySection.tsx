@@ -189,7 +189,20 @@ export default function FounderTestimonySection() {
             fontStyle: 'italic',
             fontWeight: 400
           }}>
-            I&apos;m simply a witness to the One who delivered me.
+            I am not the Deliverer.
+          </p>
+
+          <p style={{
+            fontSize: '1.125rem',
+            fontFamily: 'Georgia, Garamond, serif',
+            color: '#202124',
+            lineHeight: 1.8,
+            letterSpacing: '-0.004em',
+            margin: '0 0 1.25rem 0',
+            fontStyle: 'italic',
+            fontWeight: 400
+          }}>
+            I am a witness to the One who delivered me.
           </p>
 
           <p style={{
