@@ -203,7 +203,7 @@ export default function IntakePage() {
               </thead>
               <tbody>
                 {entries.map((entry) => (
-                  <tr key={entry.id} style={{ borderBottom: '1px solid #eee', hover: { backgroundColor: '#fafafa' } }}>
+                  <tr key={entry.id} style={{ borderBottom: '1px solid #eee' }}>
                     <td style={{ padding: '1rem' }}>{entry.name}</td>
                     <td style={{ padding: '1rem', fontSize: '0.9rem', color: '#666' }}>{entry.contact}</td>
                     <td style={{ padding: '1rem' }}>

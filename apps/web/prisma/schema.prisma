@@ -41,6 +41,9 @@ model User {
   entryEncounters        EntryPrayerRequest[] @relation("EntryEncounters")
   entryConversions       EntryPrayerRequest[] @relation("EntryConversions")
 
+  // Onboarding relationships (ONBOARD-002)
+  signupTokensCreated    OneTimeSignupToken[]
+
   @@map("users")
 }
 
@@ -462,6 +465,9 @@ model EntryPrayerRequest {
   convertedToUser   User?   @relation("EntryConversions", fields: [convertedToUserId], references: [id], onDelete: SetNull)
   convertedAt   DateTime?
 
+  // Onboarding token
+  signupToken   OneTimeSignupToken?
+
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
 
@@ -469,6 +475,36 @@ model EntryPrayerRequest {
   @@index([createdAt])
   @@index([contact])
   @@map("entry_prayer_requests")
+}
+
+// ============================================================================
+// ONBOARDING TOKENS (ONBOARD-002)
+// ============================================================================
+// One-time signup tokens for seekers transitioning to participants
+// Generated after encounter decision = YES
+
+model OneTimeSignupToken {
+  id            String   @id @default(cuid())
+
+  // Seeker information (pre-account)
+  entryRequestId String   @unique
+  entryRequest   EntryPrayerRequest @relation(fields: [entryRequestId], references: [id], onDelete: Cascade)
+
+  // Token details
+  token         String   @unique @default(cuid()) // Unique, random token
+  expiresAt     DateTime
+  usedAt        DateTime?
+
+  // Account created from this token
+  createdUserId String?
+  createdUser   User?    @relation(fields: [createdUserId], references: [id], onDelete: SetNull)
+
+  createdAt     DateTime @default(now())
+
+  @@index([token])
+  @@index([entryRequestId])
+  @@index([expiresAt])
+  @@map("onetime_signup_tokens")
 }
 
 // Extend User model to include entry-related relationships
