@@ -7,31 +7,44 @@ export default function RecognitionSection() {
         <div className="space-y-8">
           <div>
             <h2 className="text-4xl md:text-5xl font-serif font-bold text-rc-text leading-tight">
-              The real prison isn&apos;t what you&apos;ve done.
+              Why You&apos;re Still Bound
             </h2>
           </div>
 
           <div className="space-y-6">
             <p className="text-lg text-rc-text leading-relaxed">
-              Fraud is more than an act of deception.
+              You&apos;re bound because you&apos;re in prison.
             </p>
             <p className="text-lg text-rc-text leading-relaxed">
-              It is the spirit of deception.
+              The real prison is not within walls.
             </p>
             <p className="text-lg text-rc-text leading-relaxed">
-              The spirit of deception changes what you believe.
+              It&apos;s within what you&apos;ve come to believe:
+            </p>
+
+            <div className="pl-6 border-l-2 border-rc-accent/30 space-y-4">
+              <p className="text-lg text-rc-text leading-relaxed">
+                You believe deception is a way of life.
+              </p>
+              <p className="text-lg text-rc-text leading-relaxed">
+                You believe you have no choice.
+              </p>
+              <p className="text-lg text-rc-text leading-relaxed">
+                That God cannot forgive someone like you.
+              </p>
+            </div>
+
+            <p className="text-lg text-rc-text leading-relaxed italic text-rc-text-secondary">
+              That is the voice of the spirit of deception.
             </p>
             <p className="text-lg text-rc-text leading-relaxed">
-              About God.
+              Corrupting your beliefs about God, yourself, and what you deserve.
             </p>
-            <p className="text-lg text-rc-text leading-relaxed">
-              About yourself.
-            </p>
-            <p className="text-lg text-rc-text leading-relaxed">
-              About the life you think you have to live.
-            </p>
-            <p className="text-lg text-rc-text leading-relaxed">
-              But Jesus Christ came to destroy the lie and set people free.
+
+            <div className="h-px bg-rc-text/10 my-4"></div>
+
+            <p className="text-lg text-rc-accent font-serif font-bold leading-relaxed">
+              But Jesus Christ came to deliver you.
             </p>
           </div>
 

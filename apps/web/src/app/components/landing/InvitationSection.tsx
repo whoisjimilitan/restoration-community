@@ -15,25 +15,24 @@ export default function InvitationSection() {
 
           <div className="space-y-6 text-lg text-rc-text leading-relaxed">
             <p>
-              If you are trapped in fraud and deception, and you want to break free,
+              If you are trapped in fraud and deception, and you want to break free, Jesus Christ is calling you home.
             </p>
-            <p>
-              Jesus Christ is calling you home.
-            </p>
-            <p>
-              He alone delivers.
-            </p>
-            <p>
-              He alone restores.
-            </p>
+
+            <div className="space-y-4">
+              <p className="font-serif font-semibold">
+                He alone delivers.
+              </p>
+              <p className="font-serif font-semibold">
+                He alone restores.
+              </p>
+            </div>
+
             <p>
               This ministry exists to point people to Him.
             </p>
+
             <p>
-              If you are ready to leave deception behind and walk in God&apos;s truth,
-            </p>
-            <p>
-              we are ready to walk with you.
+              If you are ready to leave deception behind and walk in God&apos;s truth, we are ready to walk with you.
             </p>
           </div>
 

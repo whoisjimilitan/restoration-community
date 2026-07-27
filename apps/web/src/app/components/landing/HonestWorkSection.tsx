@@ -13,25 +13,13 @@ export default function HonestWorkSection() {
 
           <div className="space-y-6 text-lg text-rc-text leading-relaxed">
             <p>
-              The Holy Spirit restores every part of life.
+              The Holy Spirit restores every part of life. Deliverance is the beginning.
             </p>
             <p>
-              Deliverance is the beginning.
+              The Holy Spirit teaches us a new way to live. How we work. How we serve. How we love. How we live with integrity.
             </p>
-            <p>
-              The Holy Spirit teaches us a new way to live.
-            </p>
-            <p>
-              How we work.
-            </p>
-            <p>
-              How we serve.
-            </p>
-            <p>
-              How we love.
-            </p>
-            <p>
-              How we live with integrity.
+            <p className="text-rc-accent font-serif font-bold">
+              This is restoration. This is new life in Christ.
             </p>
           </div>
         </div>
