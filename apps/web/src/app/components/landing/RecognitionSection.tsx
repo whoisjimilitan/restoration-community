@@ -13,13 +13,13 @@ export default function RecognitionSection() {
 
           <div className="space-y-6">
             <p className="text-lg text-rc-text leading-relaxed">
-              The real prison is not a set of walls.
+              The real prison is not within walls.
             </p>
             <p className="text-lg text-rc-text leading-relaxed">
-              It&apos;s what you&apos;ve come to believe:
+              It&apos;s within what you&apos;ve come to believe:
             </p>
             <p className="text-lg text-rc-text leading-relaxed">
-              You believe that deception is a way of life.
+              You believe deception is a way of life.
             </p>
             <p className="text-lg text-rc-text leading-relaxed">
               You believe you have no choice.
@@ -31,23 +31,17 @@ export default function RecognitionSection() {
               But that is the spirit of deception at work.
             </p>
             <p className="text-lg text-rc-text leading-relaxed">
-              To further corrupt what you believe.
-            </p>
-            <p className="text-lg text-rc-text leading-relaxed">
-              About yourself.
-            </p>
-            <p className="text-lg text-rc-text leading-relaxed">
-              About God.
-            </p>
-            <p className="text-lg text-rc-text leading-relaxed">
-              About the life you imagined you have to live.
-            </p>
-            <p className="text-lg text-rc-text leading-relaxed">
-              About what you think you deserve to have.
+              Corrupting your beliefs about yourself, God, and what you deserve.
             </p>
             <p className="text-lg text-rc-text leading-relaxed">
               But Jesus Christ came to destroy this lie and set you free.
             </p>
+          </div>
+
+          <div className="pt-4">
+            <a className="text-sm font-medium text-rc-accent hover:text-rc-text transition-colors duration-200" href="/story">
+              How Jesus Changed My Life →
+            </a>
           </div>
 
           <div className="pt-4">
