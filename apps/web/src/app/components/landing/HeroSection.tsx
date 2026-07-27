@@ -34,7 +34,7 @@ export default function HeroSection() {
             style={{ transitionDelay: '240ms' }}
           >
             <h1 className="text-5xl md:text-6xl font-serif font-bold text-rc-text leading-tight">
-              You were not created to live by deception.
+              You were not created to be bound by deception.
             </h1>
           </div>
 
@@ -58,13 +58,13 @@ export default function HeroSection() {
               that your desires matter more than obedience to God.
             </p>
             <p className="text-lg text-rc-text leading-relaxed mt-6">
-              But someone is still delivering people from deception.
+              But Someone is still delivering people from deception.
             </p>
             <p className="text-lg text-rc-text leading-relaxed mt-6">
               His name is Jesus Christ.
             </p>
             <p className="text-lg text-rc-text leading-relaxed mt-6">
-              The Son Of God.
+              He is The Son Of God.
             </p>
           </div>
 
