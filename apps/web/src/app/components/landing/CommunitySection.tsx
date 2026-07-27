@@ -9,17 +9,17 @@ const communityElements = [
 export default function CommunitySection() {
   return (
     <section id="community" className="section">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12">
-        <div className="space-y-16">
+      <div className="max-w-5xl mx-auto px-6 sm:px-8 md:px-12 py-32 md:py-48">
+        <div className="space-y-24">
           {/* Heading */}
           <div>
-            <h2 className="text-4xl md:text-6xl font-serif font-bold text-rc-navy leading-tight">
+            <h2 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-rc-text leading-tight">
               You won&apos;t walk alone.
             </h2>
           </div>
 
           {/* Description */}
-          <div className="max-w-3xl space-y-8 md:space-y-10 text-lg md:text-xl text-rc-navy leading-relaxed font-light">
+          <div className="max-w-4xl space-y-12 md:space-y-16 text-lg md:text-2xl text-rc-text leading-relaxed font-light">
             <p>
               Truth was never meant to be walked alone. Mentors. Prayer. Scripture. Honest conversations. Faithful encouragement. Real relationships.
             </p>
@@ -29,16 +29,16 @@ export default function CommunitySection() {
           </div>
 
           {/* Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
             {communityElements.map((element, index) => (
               <div
                 key={index}
-                className="group p-8 md:p-10 border border-rc-border bg-rc-warm-white/50 rounded-lg hover:border-rc-accent hover:bg-rc-warm-white transition-all duration-300"
+                className="group p-10 md:p-12 border border-rc-border bg-transparent rounded-lg hover:border-rc-accent transition-all duration-300"
               >
-                <h3 className="text-xl font-serif font-bold text-rc-navy mb-4 group-hover:text-rc-accent transition-colors">
+                <h3 className="text-2xl font-serif font-bold text-rc-text mb-6 group-hover:text-rc-accent transition-colors">
                   {element.title}
                 </h3>
-                <p className="text-rc-text-secondary text-base leading-relaxed">
+                <p className="text-rc-text-secondary text-lg leading-relaxed">
                   {element.description}
                 </p>
               </div>

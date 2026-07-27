@@ -9,18 +9,17 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Burak-inspired premium brand palette (navy + yellow + off-white)
-        'rc-bg': '#F5F5F5', // Off-white background (breathing room)
-        'rc-text': '#1A1F2E', // Deep navy/charcoal (primary text)
-        'rc-text-secondary': '#6B7280', // Muted gray (secondary text)
-        'rc-text-tertiary': '#9CA3AF', // Lighter gray (tertiary text)
-        'rc-accent': '#FFEB3B', // Bright yellow (primary CTA, identity)
-        'rc-accent-dark': '#F9D923', // Darker yellow for hover
-        'rc-accent-light': '#FFFACD', // Light yellow for accents
-        'rc-navy': '#1A1F2E', // Deep navy (primary)
-        'rc-navy-light': '#2D3748', // Lighter navy for backgrounds
-        'rc-border': '#E5E7EB', // Subtle borders
-        'rc-warm-white': '#FAFAF7', // Warm white for cards
+        // Burak-inspired palette: Dark navy + bright lime-yellow
+        'rc-bg': '#0F1419', // Deep navy/near-black background
+        'rc-navy': '#0F1419', // Primary dark navy
+        'rc-navy-light': '#1A1F2E', // Slightly lighter navy
+        'rc-text': '#F5F5F5', // Off-white text
+        'rc-text-secondary': '#D1D5DB', // Light gray
+        'rc-text-tertiary': '#9CA3AF', // Muted gray
+        'rc-accent': '#C4FF00', // Bright lime-yellow (electric, Burak-style)
+        'rc-accent-dark': '#B8E600', // Darker yellow for hover
+        'rc-border': '#27293D', // Dark border for contrast
+        'rc-warm-white': '#1A1F2E', // Dark white alternative
       },
       fontFamily: {
         'rc-serif': ['Georgia', 'Garamond', 'serif'],
