@@ -7,31 +7,40 @@ export default function RecognitionSection() {
         <div className="space-y-8">
           <div>
             <h2 className="text-4xl md:text-5xl font-serif font-bold text-rc-text leading-tight">
-              The Spirit of Deception
+              The real prison isn&apos;t a set of walls.
             </h2>
           </div>
 
           <div className="space-y-6">
             <p className="text-lg text-rc-text leading-relaxed">
-              Defrauding is more than an act.
+              It&apos;s what you&apos;ve come to believe:
             </p>
             <p className="text-lg text-rc-text leading-relaxed">
-              It is the spirit of deception at work.
+              That deception is a way of life.
             </p>
             <p className="text-lg text-rc-text leading-relaxed">
-              The spirit of deception changes what you believe.
+              That you have no choice.
             </p>
             <p className="text-lg text-rc-text leading-relaxed">
-              About God.
+              That God cannot restore someone like you.
+            </p>
+            <p className="text-lg text-rc-text leading-relaxed">
+              But that is the spirit of deception at work.
+            </p>
+            <p className="text-lg text-rc-text leading-relaxed">
+              It corrupts what you believe.
             </p>
             <p className="text-lg text-rc-text leading-relaxed">
               About yourself.
             </p>
             <p className="text-lg text-rc-text leading-relaxed">
+              About God.
+            </p>
+            <p className="text-lg text-rc-text leading-relaxed">
               About the life you think you have to live.
             </p>
             <p className="text-lg text-rc-text leading-relaxed">
-              But Jesus Christ came to destroy the lie and set people free.
+              But Jesus Christ came to destroy this lie and set you free.
             </p>
           </div>
 
