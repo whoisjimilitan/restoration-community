@@ -13,7 +13,10 @@ export default function RecognitionSection() {
 
           <div className="space-y-6">
             <p className="text-lg text-rc-text leading-relaxed">
-              You&apos;re bound because you&apos;re in prison. The real prison is not within walls.
+              You&apos;re bound because you&apos;re in prison.
+            </p>
+            <p className="text-lg text-rc-text leading-relaxed">
+              The real prison is not within walls.
             </p>
             <p className="text-lg text-rc-text leading-relaxed">
               It&apos;s within what you&apos;ve come to believe:
