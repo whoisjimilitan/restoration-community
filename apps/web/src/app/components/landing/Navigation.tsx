@@ -29,7 +29,7 @@ export default function Navigation() {
             href="/auth/register"
             className="text-sm font-medium text-rc-accent hover:text-rc-text transition-colors duration-200"
           >
-            Request Deliverance
+            Get Delivered
           </Link>
         </div>
 
@@ -59,7 +59,7 @@ export default function Navigation() {
               Resources
             </Link>
             <Link href="/auth/register" className="block text-sm font-medium text-rc-accent hover:text-rc-text transition-colors">
-              Request Deliverance
+              Get Delivered
             </Link>
           </div>
         </div>
