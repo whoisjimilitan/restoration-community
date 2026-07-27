@@ -34,7 +34,7 @@ export default function HeroSection() {
             style={{ transitionDelay: '240ms' }}
           >
             <h1 className="text-5xl md:text-6xl font-serif font-bold text-rc-text leading-tight">
-              You were not created to be bound by deception.
+              You were not meant to be bound by deception.
             </h1>
           </div>
 
