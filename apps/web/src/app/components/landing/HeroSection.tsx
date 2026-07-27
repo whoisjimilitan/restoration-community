@@ -46,19 +46,31 @@ export default function HeroSection() {
             style={{ transitionDelay: '360ms' }}
           >
             <p className="text-lg text-rc-text leading-relaxed">
-              Deception promises freedom. It only ever leaves people trapped.
+              Deception promises freedom.
             </p>
             <p className="text-lg text-rc-text leading-relaxed mt-6">
-              Every life bound by deception begins with the same lie: that your desires matter more than your obedience to God.
+              It only ever leaves people trapped.
             </p>
             <p className="text-lg text-rc-text leading-relaxed mt-6">
-              But Someone still delivers people from this illusion. His name is Jesus Christ. The Son of God.
+              Every life bound by deception begins with the same lie:
+            </p>
+            <p className="text-lg text-rc-text leading-relaxed mt-6">
+              that your desires matter more than your obedience to God.
+            </p>
+            <p className="text-lg text-rc-text leading-relaxed mt-6">
+              But Someone still delivers people from this illusion.
+            </p>
+            <p className="text-lg text-rc-text leading-relaxed mt-6">
+              His name is Jesus Christ.
+            </p>
+            <p className="text-lg text-rc-text leading-relaxed mt-6">
+              The Son Of God.
             </p>
           </div>
 
           {/* CTA Buttons */}
           <div
-            className={`transform transition-all duration-700 pt-4 ${
+            className={`transform transition-all duration-700 pt-8 ${
               isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
             }`}
             style={{ transitionDelay: '480ms' }}
@@ -67,7 +79,7 @@ export default function HeroSection() {
               href="/deliverance"
               className="inline-flex items-center justify-center px-8 py-4 bg-rc-accent text-white font-medium rounded-lg hover:bg-rc-text transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-rc-accent focus:ring-offset-2 focus:ring-offset-rc-bg"
             >
-              Request Deliverance
+              Get Delivered
             </Link>
           </div>
         </div>

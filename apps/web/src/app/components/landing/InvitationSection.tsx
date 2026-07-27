@@ -15,24 +15,25 @@ export default function InvitationSection() {
 
           <div className="space-y-6 text-lg text-rc-text leading-relaxed">
             <p>
-              If you are trapped in fraud and deception, and you want to break free, Jesus Christ is calling you home.
+              If you are trapped in fraud and deception, and you want to break free,
             </p>
-
-            <div className="space-y-4">
-              <p className="font-serif font-semibold">
-                He alone delivers.
-              </p>
-              <p className="font-serif font-semibold">
-                He alone restores.
-              </p>
-            </div>
-
+            <p>
+              Jesus Christ is calling you home.
+            </p>
+            <p>
+              He alone delivers.
+            </p>
+            <p>
+              He alone restores.
+            </p>
             <p>
               This ministry exists to point people to Him.
             </p>
-
             <p>
-              If you are ready to leave deception behind and walk in God&apos;s truth, we are ready to walk with you.
+              If you are ready to leave deception behind and walk in God&apos;s truth,
+            </p>
+            <p>
+              we are ready to walk with you.
             </p>
           </div>
 
@@ -41,7 +42,7 @@ export default function InvitationSection() {
               href="/deliverance"
               className="inline-flex items-center justify-center px-8 py-4 bg-rc-accent text-white font-medium rounded-lg hover:bg-rc-text transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-rc-accent focus:ring-offset-2 focus:ring-offset-rc-bg"
             >
-              Request Deliverance
+              Get Delivered
             </Link>
           </div>
         </div>

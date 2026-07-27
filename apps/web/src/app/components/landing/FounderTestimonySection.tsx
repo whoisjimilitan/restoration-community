@@ -72,7 +72,7 @@ export default function FounderTestimonySection() {
             fontStyle: 'italic',
             fontWeight: 400
           }}>
-            I knew what I was doing was wrong. I wanted to leave. I just didn&apos;t know how.
+            I knew what I was doing was wrong.
           </p>
 
           <p style={{
@@ -85,7 +85,7 @@ export default function FounderTestimonySection() {
             fontStyle: 'italic',
             fontWeight: 400
           }}>
-            Then Jesus Christ found me. He delivered me. He gave me a new heart. A new direction. A new life.
+            I wanted to leave.
           </p>
 
           <p style={{
@@ -98,7 +98,111 @@ export default function FounderTestimonySection() {
             fontStyle: 'italic',
             fontWeight: 400
           }}>
-            I&apos;m not the deliverer. I am not the Deliverer.
+            I just didn&apos;t know how.
+          </p>
+
+          <p style={{
+            fontSize: '1.125rem',
+            fontFamily: 'Georgia, Garamond, serif',
+            color: '#202124',
+            lineHeight: 1.8,
+            letterSpacing: '-0.004em',
+            margin: '0 0 1.25rem 0',
+            fontStyle: 'italic',
+            fontWeight: 400
+          }}>
+            Then Jesus Christ found me.
+          </p>
+
+          <p style={{
+            fontSize: '1.125rem',
+            fontFamily: 'Georgia, Garamond, serif',
+            color: '#202124',
+            lineHeight: 1.8,
+            letterSpacing: '-0.004em',
+            margin: '0 0 1.25rem 0',
+            fontStyle: 'italic',
+            fontWeight: 400
+          }}>
+            He delivered me.
+          </p>
+
+          <p style={{
+            fontSize: '1.125rem',
+            fontFamily: 'Georgia, Garamond, serif',
+            color: '#202124',
+            lineHeight: 1.8,
+            letterSpacing: '-0.004em',
+            margin: '0 0 1.25rem 0',
+            fontStyle: 'italic',
+            fontWeight: 400
+          }}>
+            He gave me a new heart.
+          </p>
+
+          <p style={{
+            fontSize: '1.125rem',
+            fontFamily: 'Georgia, Garamond, serif',
+            color: '#202124',
+            lineHeight: 1.8,
+            letterSpacing: '-0.004em',
+            margin: '0 0 1.25rem 0',
+            fontStyle: 'italic',
+            fontWeight: 400
+          }}>
+            A new direction.
+          </p>
+
+          <p style={{
+            fontSize: '1.125rem',
+            fontFamily: 'Georgia, Garamond, serif',
+            color: '#202124',
+            lineHeight: 1.8,
+            letterSpacing: '-0.004em',
+            margin: '0 0 1.25rem 0',
+            fontStyle: 'italic',
+            fontWeight: 400
+          }}>
+            A new life.
+          </p>
+
+          <p style={{
+            fontSize: '1.125rem',
+            fontFamily: 'Georgia, Garamond, serif',
+            color: '#202124',
+            lineHeight: 1.8,
+            letterSpacing: '-0.004em',
+            margin: '0 0 1.25rem 0',
+            fontStyle: 'italic',
+            fontWeight: 400
+          }}>
+            I&apos;m not the deliverer.
+          </p>
+
+          <p style={{
+            fontSize: '1.125rem',
+            fontFamily: 'Georgia, Garamond, serif',
+            color: '#202124',
+            lineHeight: 1.8,
+            letterSpacing: '-0.004em',
+            margin: '0 0 1.25rem 0',
+            fontStyle: 'italic',
+            fontWeight: 400
+          }}>
+            I am not the Deliverer.
+          </p>
+
+          <p style={{
+            fontSize: '1.125rem',
+            fontFamily: 'Georgia, Garamond, serif',
+            color: '#202124',
+            lineHeight: 1.8,
+            letterSpacing: '-0.004em',
+            margin: '0 0 1.25rem 0',
+            fontStyle: 'italic',
+            fontWeight: 400
+          }}>
+            I am a witness to the One who delivered me.
           </p>
 
           <p style={{
@@ -111,7 +215,7 @@ export default function FounderTestimonySection() {
             fontStyle: 'italic',
             fontWeight: 400
           }}>
-            I am a witness to the One who delivered me. Today I point people to Him.
+            Today I point people to Him.
           </p>
         </div>
 

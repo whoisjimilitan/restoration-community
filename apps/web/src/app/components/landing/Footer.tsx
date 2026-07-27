@@ -29,11 +29,6 @@ export default function Footer() {
             </Link>
           </div>
 
-          {/* Scripture Reference */}
-          <div className="text-xs text-rc-text-secondary">
-            &quot;Therefore if anyone is in Christ, he is a new creation; old things have passed away; behold, all things have become new.&quot; &mdash; 2 Corinthians 5:17
-          </div>
-
           {/* Copyright */}
           <div className="text-xs text-rc-text-secondary pt-4 border-t border-rc-text/5">
             © {new Date().getFullYear()} Brother Jimi. All rights reserved.

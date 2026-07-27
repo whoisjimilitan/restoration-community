@@ -21,29 +21,22 @@ export default function RecognitionSection() {
             <p className="text-lg text-rc-text leading-relaxed">
               It&apos;s within what you&apos;ve come to believe:
             </p>
-
-            <div className="pl-6 border-l-2 border-rc-accent/30 space-y-4">
-              <p className="text-lg text-rc-text leading-relaxed">
-                You believe deception is a way of life.
-              </p>
-              <p className="text-lg text-rc-text leading-relaxed">
-                You believe you have no choice.
-              </p>
-              <p className="text-lg text-rc-text leading-relaxed">
-                That God cannot forgive someone like you.
-              </p>
-            </div>
-
-            <p className="text-lg text-rc-text leading-relaxed italic text-rc-text-secondary">
+            <p className="text-lg text-rc-text leading-relaxed">
+              You believe deception is a way of life.
+            </p>
+            <p className="text-lg text-rc-text leading-relaxed">
+              You believe you have no choice.
+            </p>
+            <p className="text-lg text-rc-text leading-relaxed">
+              That God cannot forgive someone like you.
+            </p>
+            <p className="text-lg text-rc-text leading-relaxed">
               That is the voice of the spirit of deception.
             </p>
             <p className="text-lg text-rc-text leading-relaxed">
               Corrupting your beliefs about God, yourself, and what you deserve.
             </p>
-
-            <div className="h-px bg-rc-text/10 my-4"></div>
-
-            <p className="text-lg text-rc-accent font-serif font-bold leading-relaxed">
+            <p className="text-lg text-rc-text leading-relaxed">
               But Jesus Christ came to deliver you.
             </p>
           </div>
