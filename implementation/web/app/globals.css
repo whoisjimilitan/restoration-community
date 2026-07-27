@@ -1,0 +1,202 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base Typography */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: #202124;
+    background-color: #FFFFFF;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: Georgia, Garamond, serif;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  /* Remove default link styling */
+  a[href] {
+    text-decoration: none;
+  }
+
+  /* Focus states for accessibility */
+  :focus-visible {
+    outline: 2px solid #0F766E;
+    outline-offset: 2px;
+  }
+}
+
+/* Component Styles */
+@layer components {
+  /* Semantic spacing classes */
+  .section-padding {
+    @apply py-20 px-6;
+  }
+
+  .container-max {
+    @apply max-w-5xl mx-auto;
+  }
+
+  .hero-container {
+    @apply max-w-2xl w-full;
+  }
+
+  /* Button base styles */
+  .btn-base {
+    @apply inline-flex items-center justify-center px-7 py-3 rounded-md font-medium transition-all duration-300;
+  }
+
+  .btn-primary {
+    @apply btn-base bg-rc-teal text-white border-rc-teal hover:bg-rc-teal-dark hover:border-rc-teal-dark;
+  }
+
+  .btn-secondary {
+    @apply btn-base text-rc-teal border border-rc-teal/30 hover:text-rc-charcoal hover:border-rc-charcoal hover:bg-rc-teal/5;
+  }
+
+  /* Card base */
+  .card {
+    @apply flex flex-col p-8 rounded-lg border border-rc-border bg-white transition-all duration-300 hover:bg-rc-cream hover:border-rc-warm-gray;
+  }
+
+  /* Typography utilities */
+  .text-eyebrow {
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    letter-spacing: 0.12em;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: #8B8680;
+  }
+
+  .text-headline-lg {
+    font-family: Georgia, Garamond, serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: #202124;
+  }
+
+  .text-headline-md {
+    font-family: Georgia, Garamond, serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    color: #202124;
+  }
+
+  .text-body-lg {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    letter-spacing: -0.005em;
+    color: #202124;
+  }
+
+  .text-body-sm {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #555555;
+  }
+
+  .text-muted {
+    @apply text-rc-warm-gray;
+  }
+
+  /* Link hover effect */
+  .link-hover {
+    @apply hover:text-rc-teal transition-colors duration-200;
+  }
+}
+
+/* Utility animations */
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.7s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Staggered animation delays */
+  .delay-100 {
+    animation-delay: 100ms;
+  }
+
+  .delay-150 {
+    animation-delay: 150ms;
+  }
+
+  .delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .delay-250 {
+    animation-delay: 250ms;
+  }
+
+  .delay-300 {
+    animation-delay: 300ms;
+  }
+
+  /* Smooth gradient backgrounds */
+  .gradient-cream {
+    @apply bg-gradient-to-br from-rc-cream via-rc-cream-light to-rc-cream;
+  }
+
+  /* Focus ring utilities */
+  .focus-ring {
+    @apply focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-rc-teal;
+  }
+}
+
+/* Print styles */
+@media print {
+  body {
+    @apply bg-white;
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

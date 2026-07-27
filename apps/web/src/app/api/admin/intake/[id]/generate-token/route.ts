@@ -8,7 +8,7 @@ import { prisma } from '@/lib/prisma';
  * Generate one-time signup token for seeker after "YES" decision
  */
 export async function POST(
-  request: NextRequest,
+  _request: NextRequest,
   { params }: { params: { id: string } }
 ) {
   console.log(`[ONBOARD] Generating signup token for entry ${params.id}`);

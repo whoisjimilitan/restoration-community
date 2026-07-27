@@ -317,7 +317,7 @@ export default function IntakePage() {
                 {selectedEntry.name}
               </h2>
 
-              <div style={{ space: '1rem', marginBottom: '2rem' }}>
+              <div style={{ marginBottom: '2rem' }}>
                 <div style={{ marginBottom: '1rem' }}>
                   <label style={{ display: 'block', fontWeight: 'bold', marginBottom: '0.5rem' }}>Contact</label>
                   <p style={{ color: '#666' }}>{selectedEntry.contact}</p>

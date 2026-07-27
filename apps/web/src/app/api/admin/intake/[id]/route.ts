@@ -78,7 +78,7 @@ export async function PUT(
  * Fetch single entry with full details
  */
 export async function GET(
-  request: NextRequest,
+  _request: NextRequest,
   { params }: { params: { id: string } }
 ) {
   console.log(`[ADMIN-INTAKE-GET] GET request for entry ${params.id}`);
