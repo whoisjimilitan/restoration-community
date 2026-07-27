@@ -58,7 +58,7 @@ export default function HeroSection() {
               that your desires matter more than your obedience to God.
             </p>
             <p className="text-lg text-rc-text leading-relaxed mt-6">
-              But Someone still delivers people from deception.
+              But Someone still delivers people from this illusion.
             </p>
             <p className="text-lg text-rc-text leading-relaxed mt-6">
               His name is Jesus Christ.
