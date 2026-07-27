@@ -2,7 +2,7 @@
 
 export default function RecognitionSection() {
   return (
-    <section id="about" className="w-full py-24 md:py-32 bg-rc-bg border-t border-rc-text/5">
+    <section id="about" className="w-full py-20 md:py-28 bg-rc-bg border-t border-rc-text/5">
       <div className="max-w-2xl mx-auto px-6 sm:px-8 md:px-12">
         <div className="space-y-8">
           <div>
@@ -39,12 +39,6 @@ export default function RecognitionSection() {
             <p className="text-lg text-rc-text leading-relaxed">
               But Jesus Christ came to deliver you.
             </p>
-          </div>
-
-          <div className="pt-4">
-            <a className="text-sm font-medium text-rc-accent hover:text-rc-text transition-colors duration-200" href="/story">
-              How Jesus Changed My Life →
-            </a>
           </div>
 
           <div className="pt-4">

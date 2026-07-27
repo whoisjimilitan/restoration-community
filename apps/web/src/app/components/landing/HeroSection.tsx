@@ -11,7 +11,7 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section className="relative w-full pt-32 pb-16 md:pt-0 md:pb-0 md:min-h-screen md:flex md:flex-col md:justify-center bg-rc-bg">
+    <section className="relative w-full pt-20 pb-16 md:pt-0 md:pb-0 md:min-h-screen md:flex md:flex-col md:justify-center bg-rc-bg">
       <div className="max-w-2xl mx-auto px-6 sm:px-8 md:px-12">
         <div className="space-y-8 md:space-y-12">
           {/* Eyebrow */}
