@@ -11,73 +11,57 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section className="relative w-full pt-32 pb-16 md:pt-0 md:pb-0 md:min-h-screen md:flex md:flex-col md:justify-center bg-rc-bg">
-      <div className="max-w-2xl mx-auto px-6 sm:px-8 md:px-12">
-        <div className="space-y-8 md:space-y-12">
+    <section className="relative w-full pt-40 pb-20 md:pt-0 md:pb-0 md:min-h-screen md:flex md:flex-col md:justify-center bg-rc-bg">
+      <div className="max-w-3xl mx-auto px-6 sm:px-8 md:px-12 w-full">
+        <div className="space-y-12 md:space-y-16">
           {/* Eyebrow */}
           <div
-            className={`transform transition-all duration-700 ${
+            className={`animate-fade-rise ${
               isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
             }`}
-            style={{ transitionDelay: '120ms' }}
           >
-            <p className="text-sm font-medium text-rc-accent uppercase tracking-wide">
+            <p className="text-xs md:text-sm font-semibold text-rc-accent uppercase tracking-widest">
               Deliverance Through Jesus Christ
             </p>
           </div>
 
-          {/* Headline */}
+          {/* Headline - Premium Typography */}
           <div
-            className={`transform transition-all duration-700 ${
+            className={`animate-fade-rise-delay ${
               isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
             }`}
-            style={{ transitionDelay: '240ms' }}
           >
-            <h1 className="text-5xl md:text-6xl font-serif font-bold text-rc-text leading-tight">
+            <h1 className="text-5xl md:text-7xl font-serif font-bold text-rc-navy leading-tight">
               You were not made to be bound by deception.
             </h1>
           </div>
 
-          {/* Supporting Copy */}
+          {/* Supporting Copy - Generous Spacing */}
           <div
-            className={`transform transition-all duration-700 ${
+            className={`animate-fade-rise-delay-2 space-y-8 ${
               isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
             }`}
-            style={{ transitionDelay: '360ms' }}
           >
-            <p className="text-lg text-rc-text leading-relaxed">
-              Deception promises freedom.
+            <p className="text-lg md:text-xl text-rc-navy leading-relaxed font-light">
+              Deception promises freedom. It only ever leaves people trapped.
             </p>
-            <p className="text-lg text-rc-text leading-relaxed mt-6">
-              It only ever leaves people trapped.
+            <p className="text-lg md:text-xl text-rc-navy leading-relaxed font-light">
+              Every life bound by deception begins with the same lie: that your desires matter more than your obedience to God.
             </p>
-            <p className="text-lg text-rc-text leading-relaxed mt-6">
-              Every life bound by deception begins with the same lie:
-            </p>
-            <p className="text-lg text-rc-text leading-relaxed mt-6">
-              that your desires matter more than your obedience to God.
-            </p>
-            <p className="text-lg text-rc-text leading-relaxed mt-6">
-              But Someone still delivers people from this illusion.
-            </p>
-            <p className="text-lg text-rc-text leading-relaxed mt-6">
-              His name is Jesus Christ.
-            </p>
-            <p className="text-lg text-rc-text leading-relaxed mt-6">
-              The Son Of God.
+            <p className="text-lg md:text-xl text-rc-navy leading-relaxed font-light">
+              But Someone still delivers people from this illusion. His name is Jesus Christ. The Son of God.
             </p>
           </div>
 
-          {/* CTA Buttons */}
+          {/* CTA Button - Burak Style */}
           <div
-            className={`transform transition-all duration-700 pt-8 ${
+            className={`animate-fade-rise-delay-3 pt-4 ${
               isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
             }`}
-            style={{ transitionDelay: '480ms' }}
           >
             <Link
               href="/deliverance"
-              className="inline-flex items-center justify-center px-8 py-4 bg-rc-accent text-white font-medium rounded-lg hover:bg-rc-text transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-rc-accent focus:ring-offset-2 focus:ring-offset-rc-bg"
+              className="btn-primary inline-flex animate-glow-pulse"
             >
               Get Delivered
             </Link>
@@ -85,8 +69,8 @@ export default function HeroSection() {
         </div>
 
         {/* Scroll Indicator */}
-        <div className="hidden md:flex absolute bottom-8 left-1/2 transform -translate-x-1/2 flex-col items-center opacity-50">
-          <p className="text-xs text-rc-text-secondary uppercase tracking-widest mb-3">Scroll</p>
+        <div className="hidden md:flex absolute bottom-12 left-1/2 transform -translate-x-1/2 flex-col items-center opacity-40">
+          <p className="text-xs text-rc-text-secondary uppercase tracking-wider mb-3 font-medium">Scroll</p>
           <svg className="w-5 h-5 text-rc-text-secondary animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
           </svg>
