@@ -34,7 +34,7 @@ export default function HeroSection() {
             style={{ transitionDelay: '240ms' }}
           >
             <h1 className="text-5xl md:text-6xl font-serif font-bold text-rc-text leading-tight">
-              You were not created for a life built on deception.
+              You were not created to live by deception.
             </h1>
           </div>
 
@@ -52,19 +52,19 @@ export default function HeroSection() {
               It only ever leaves people trapped.
             </p>
             <p className="text-lg text-rc-text leading-relaxed mt-6">
-              Every life built on fraud or deception begins with the same lie:
+              Every life built on deception begins with the same lie:
             </p>
             <p className="text-lg text-rc-text leading-relaxed mt-6">
-              that life can be built apart from God.
+              that a good life can be built apart from God.
             </p>
             <p className="text-lg text-rc-text leading-relaxed mt-6">
-              But God is still delivering people from deception.
+              But someone is still delivering people from deception.
             </p>
             <p className="text-lg text-rc-text leading-relaxed mt-6">
               His name is Jesus Christ.
             </p>
             <p className="text-lg text-rc-text leading-relaxed mt-6">
-              He is the Deliverer.
+              The Son Of God.
             </p>
           </div>
 
