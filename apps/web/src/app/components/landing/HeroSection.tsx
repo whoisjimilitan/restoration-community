@@ -55,7 +55,7 @@ export default function HeroSection() {
               Every life built on deception begins with the same lie:
             </p>
             <p className="text-lg text-rc-text leading-relaxed mt-6">
-              that a good life can be built apart from God.
+              that your desires matter more than obedience to God.
             </p>
             <p className="text-lg text-rc-text leading-relaxed mt-6">
               But someone is still delivering people from deception.
