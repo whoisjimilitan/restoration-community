@@ -7,31 +7,31 @@ export default function RecognitionSection() {
         <div className="space-y-8">
           <div>
             <h2 className="text-4xl md:text-5xl font-serif font-bold text-rc-text leading-tight">
-              The real prison isn&apos;t what you&apos;ve done.
+              The real prison isn&apos;t a set of walls.
             </h2>
           </div>
 
           <div className="space-y-6">
             <p className="text-lg text-rc-text leading-relaxed">
-              Fraud is more than an act of deception.
+              It&apos;s what you&apos;ve come to believe:
             </p>
             <p className="text-lg text-rc-text leading-relaxed">
-              It is the spirit of deception.
+              That you have no choice.
             </p>
             <p className="text-lg text-rc-text leading-relaxed">
-              The spirit of deception changes what you believe.
+              That everyone is doing it.
             </p>
             <p className="text-lg text-rc-text leading-relaxed">
-              About God.
+              That this was the only way to survive.
             </p>
             <p className="text-lg text-rc-text leading-relaxed">
-              About yourself.
+              That God cannot restore someone like you.
             </p>
             <p className="text-lg text-rc-text leading-relaxed">
-              About the life you think you have to live.
+              That you&apos;re too far gone.
             </p>
             <p className="text-lg text-rc-text leading-relaxed">
-              But Jesus Christ came to destroy the lie and set people free.
+              But Jesus Christ came to destroy these lies and set people free.
             </p>
           </div>
 
