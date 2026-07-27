@@ -13,7 +13,7 @@ export default function RecognitionSection() {
 
           <div className="space-y-6">
             <p className="text-lg text-rc-text leading-relaxed">
-              The real prison is not within walls.
+              You&apos;re bound because you&apos;re in prison. The real prison is not within walls.
             </p>
             <p className="text-lg text-rc-text leading-relaxed">
               It&apos;s within what you&apos;ve come to believe:
@@ -28,13 +28,13 @@ export default function RecognitionSection() {
               That God cannot forgive someone like you.
             </p>
             <p className="text-lg text-rc-text leading-relaxed">
-              But that is the spirit of deception at work.
+              That is the voice of the spirit of deception.
             </p>
             <p className="text-lg text-rc-text leading-relaxed">
               Corrupting your beliefs about yourself, God, and what you deserve.
             </p>
             <p className="text-lg text-rc-text leading-relaxed">
-              But Jesus Christ came to destroy this lie and set you free.
+              But Jesus Christ came to destroy these lies and set you free.
             </p>
           </div>
 
