@@ -7,19 +7,22 @@ export default function RecognitionSection() {
         <div className="space-y-8">
           <div>
             <h2 className="text-4xl md:text-5xl font-serif font-bold text-rc-text leading-tight">
-              The real prison is not a set of walls.
+              Why You&apos;re Still Bound
             </h2>
           </div>
 
           <div className="space-y-6">
             <p className="text-lg text-rc-text leading-relaxed">
+              The real prison is not a set of walls.
+            </p>
+            <p className="text-lg text-rc-text leading-relaxed">
               It&apos;s what you&apos;ve come to believe:
             </p>
             <p className="text-lg text-rc-text leading-relaxed">
-              That deception is a way of life.
+              You believe that deception is a way of life.
             </p>
             <p className="text-lg text-rc-text leading-relaxed">
-              That you have no choice.
+              You believe you have no choice.
             </p>
             <p className="text-lg text-rc-text leading-relaxed">
               That God cannot forgive someone like you.
@@ -38,6 +41,9 @@ export default function RecognitionSection() {
             </p>
             <p className="text-lg text-rc-text leading-relaxed">
               About the life you imagined you have to live.
+            </p>
+            <p className="text-lg text-rc-text leading-relaxed">
+              About what you think you deserve to have.
             </p>
             <p className="text-lg text-rc-text leading-relaxed">
               But Jesus Christ came to destroy this lie and set you free.
