@@ -34,7 +34,7 @@ export default function RecognitionSection() {
               Corrupting your beliefs about yourself, God, and what you deserve.
             </p>
             <p className="text-lg text-rc-text leading-relaxed">
-              But Jesus Christ came to destroy these lies and set you free.
+              But Jesus Christ came to deliver you.
             </p>
           </div>
 
