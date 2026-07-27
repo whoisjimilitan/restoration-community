@@ -1,41 +1,50 @@
 'use client';
 
 import Link from 'next/link';
+import BrotherJimiLogo from '@/components/BrotherJimiLogo';
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-rc-bg border-t border-rc-text/5">
-      <div className="max-w-6xl mx-auto px-6 sm:px-8 md:px-12 py-12 md:py-16">
-        <div className="space-y-8">
+    <footer className="w-full bg-rc-bg border-t border-rc-border">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-16 lg:px-12 py-16 md:py-20">
+        <div className="space-y-12">
+          {/* Logo and tagline */}
+          <div className="flex items-center gap-3">
+            <BrotherJimiLogo size="md" className="text-rc-accent" />
+            <div>
+              <p className="text-sm font-semibold text-rc-accent">Brother Jimi</p>
+              <p className="text-xs text-rc-text-secondary">Deliverance Through Jesus Christ</p>
+            </div>
+          </div>
+
           {/* Links */}
-          <div className="flex flex-wrap gap-8">
-            <Link href="#story" className="text-sm text-rc-text hover:text-rc-accent transition-colors">
+          <div className="flex flex-wrap gap-6 md:gap-8">
+            <Link href="#story" className="text-sm font-medium text-rc-text hover:text-rc-accent transition-colors duration-200">
               My Story
             </Link>
-            <Link href="#trap" className="text-sm text-rc-text hover:text-rc-accent transition-colors">
-              The Spiritual Trap
+            <Link href="#journey" className="text-sm font-medium text-rc-text hover:text-rc-accent transition-colors duration-200">
+              The Journey
             </Link>
-            <Link href="#journey" className="text-sm text-rc-text hover:text-rc-accent transition-colors">
-              The Journey of Truth
+            <Link href="#community" className="text-sm font-medium text-rc-text hover:text-rc-accent transition-colors duration-200">
+              Community
             </Link>
-            <Link href="#resources" className="text-sm text-rc-text hover:text-rc-accent transition-colors">
-              Resources
-            </Link>
-            <Link href="#privacy" className="text-sm text-rc-text hover:text-rc-accent transition-colors">
+            <Link href="/privacy" className="text-sm font-medium text-rc-text hover:text-rc-accent transition-colors duration-200">
               Privacy
             </Link>
-            <Link href="#contact" className="text-sm text-rc-text hover:text-rc-accent transition-colors">
+            <Link href="/contact" className="text-sm font-medium text-rc-text hover:text-rc-accent transition-colors duration-200">
               Contact
             </Link>
           </div>
 
           {/* Scripture Reference */}
-          <div className="text-xs text-rc-text-secondary">
-            &quot;Therefore if anyone is in Christ, he is a new creation; old things have passed away; behold, all things have become new.&quot; &mdash; 2 Corinthians 5:17
+          <div className="pt-8 border-t border-rc-border max-w-2xl">
+            <p className="text-sm text-rc-text-secondary italic leading-relaxed">
+              &quot;Therefore if anyone is in Christ, he is a new creation; old things have passed away; behold, all things have become new.&quot; &mdash; <span className="font-semibold">2 Corinthians 5:17</span>
+            </p>
           </div>
 
           {/* Copyright */}
-          <div className="text-xs text-rc-text-secondary pt-4 border-t border-rc-text/5">
+          <div className="text-xs text-rc-text-tertiary font-medium">
             © {new Date().getFullYear()} Brother Jimi. All rights reserved.
           </div>
         </div>

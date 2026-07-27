@@ -9,22 +9,26 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Ministry brand colors per specification
-        'rc-bg': '#F8F6F2', // Warm off-white background
-        'rc-text': '#202124', // Very dark charcoal for primary text
-        'rc-text-secondary': '#8B8680', // Muted warm grey
-        'rc-accent': '#0F766E', // Deep restorative teal
-        'rc-gold': '#D4A574', // Warm gold - grace, warmth, humanity
-        'rc-gold-light': '#E8DCC8', // Light gold for accents
-        'rc-warm-gray': '#E8E3DC', // Warm gray for subtle contrast
+        // Premium ministry brand palette
+        'rc-bg': '#FAFAF7', // Ultra-refined off-white (luxury paper)
+        'rc-text': '#1A1A18', // Premium deep charcoal
+        'rc-text-secondary': '#8A8A80', // Sophisticated muted gray
+        'rc-text-tertiary': '#A8A8A0', // Lighter secondary text
+        'rc-accent': '#0D5E57', // Refined deep teal (restoration)
+        'rc-accent-light': '#1B7A6F', // Medium teal for hover states
+        'rc-gold': '#C9925A', // Refined warm gold (grace, humanity)
+        'rc-gold-light': '#E5D5C0', // Soft gold for accents
+        'rc-warm-gray': '#EBE7E0', // Refined warm gray
+        'rc-border': '#E0D9D0', // Premium border color
       },
       fontFamily: {
         'rc-serif': ['Georgia', 'Garamond', 'serif'],
-        'rc-sans': ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        'rc-sans': ['system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'sans-serif'],
       },
       animation: {
         'subtle-pulse': 'subtle-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
         'gentle-float': 'gentle-float 6s ease-in-out infinite',
+        'fade-in-up': 'fade-in-up 600ms cubic-bezier(0.4, 0, 0.2, 1)',
       },
       keyframes: {
         'subtle-pulse': {
@@ -35,6 +39,15 @@ const config: Config = {
           '0%, 100%': { transform: 'translateY(0px)' },
           '50%': { transform: 'translateY(-8px)' },
         },
+        'fade-in-up': {
+          '0%': { opacity: '0', transform: 'translateY(12px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+      },
+      spacing: {
+        'section-sm': '64px',
+        'section-md': '96px',
+        'section-lg': '128px',
       },
     },
   },

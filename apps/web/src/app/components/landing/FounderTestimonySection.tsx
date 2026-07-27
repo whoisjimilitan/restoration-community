@@ -4,242 +4,50 @@ import Link from 'next/link';
 
 export default function FounderTestimonySection() {
   return (
-    <section id="story" style={{
-      backgroundColor: '#FFFFFF',
-      paddingTop: '5rem',
-      paddingBottom: '5rem',
-      paddingLeft: '2rem',
-      paddingRight: '2rem'
-    }}>
-      <div style={{
-        maxWidth: '640px',
-        margin: '0 auto'
-      }}>
-        <div style={{
-          textAlign: 'center',
-          marginBottom: '2.5rem'
-        }}>
-          <p style={{
-            fontSize: '0.875rem',
-            color: '#0F766E',
-            fontWeight: 500,
-            margin: '0 0 1rem 0',
-            textTransform: 'uppercase',
-            letterSpacing: '0.05em'
-          }}>
-            Brother Jimi&apos;s Story of Deliverance
-          </p>
-          <h2 style={{
-            fontSize: '2rem',
-            fontFamily: 'Georgia, Garamond, serif',
-            fontWeight: 700,
-            color: '#0a0a0a',
-            lineHeight: 1.2,
-            letterSpacing: '-0.01em',
-            marginBottom: '0.5rem',
-            marginTop: 0
-          }}>
-            A Message From Someone Who Has Walked This Road
-          </h2>
+    <section id="story" className="w-full py-24 md:py-32 bg-rc-warm-gray/40 border-t border-rc-border">
+      <div className="max-w-3xl mx-auto px-6 sm:px-8 md:px-16 lg:px-12">
+        <div className="space-y-12">
+          <div className="space-y-4">
+            <p className="text-xs font-semibold text-rc-accent uppercase tracking-widest">
+              Brother Jimi&apos;s Story of Deliverance
+            </p>
+            <h2 className="text-4xl md:text-6xl font-serif font-bold text-rc-text leading-tight tracking-tight">
+              A Message From Someone Who Has Walked This Road
+            </h2>
+          </div>
+
+          <div className="border-l-2 border-rc-accent/40 pl-8 md:pl-12 space-y-8 md:space-y-10">
+            <p className="text-lg md:text-xl text-rc-text font-serif italic leading-relaxed">
+              I know this life because I lived it.
+            </p>
+
+            <p className="text-lg md:text-xl text-rc-text font-serif italic leading-relaxed">
+              I knew what I was doing was wrong. I wanted to leave. I just didn&apos;t know how.
+            </p>
+
+            <p className="text-lg md:text-xl text-rc-text font-serif italic leading-relaxed">
+              Then Jesus Christ found me. He delivered me. He gave me a new heart. A new direction. A new life.
+            </p>
+
+            <p className="text-lg md:text-xl text-rc-text font-serif italic leading-relaxed">
+              I&apos;m not the deliverer. I am not the Deliverer.
+            </p>
+
+            <p className="text-lg md:text-xl text-rc-accent font-serif italic leading-relaxed font-bold">
+              I am a witness to the One who delivered me. Today I point people to Him.
+            </p>
+          </div>
+
+          <div className="pt-4">
+            <Link
+              href="/story"
+              className="inline-flex items-center gap-2 text-base font-medium text-rc-accent hover:text-rc-accent-light group transition-colors duration-200"
+            >
+              Read My Full Story
+              <span className="transform group-hover:translate-x-1 transition-transform duration-200">→</span>
+            </Link>
+          </div>
         </div>
-
-        <div style={{
-          borderLeft: '3px solid #0F766E',
-          paddingLeft: '2rem',
-          marginBottom: '2rem',
-          textAlign: 'left'
-        }}>
-          <p style={{
-            fontSize: '1.125rem',
-            fontFamily: 'Georgia, Garamond, serif',
-            color: '#202124',
-            lineHeight: 1.8,
-            letterSpacing: '-0.004em',
-            margin: '0 0 1.25rem 0',
-            fontStyle: 'italic',
-            fontWeight: 400
-          }}>
-            I know this life because I lived it.
-          </p>
-
-          <p style={{
-            fontSize: '1.125rem',
-            fontFamily: 'Georgia, Garamond, serif',
-            color: '#202124',
-            lineHeight: 1.8,
-            letterSpacing: '-0.004em',
-            margin: '0 0 1.25rem 0',
-            fontStyle: 'italic',
-            fontWeight: 400
-          }}>
-            I knew what I was doing was wrong.
-          </p>
-
-          <p style={{
-            fontSize: '1.125rem',
-            fontFamily: 'Georgia, Garamond, serif',
-            color: '#202124',
-            lineHeight: 1.8,
-            letterSpacing: '-0.004em',
-            margin: '0 0 1.25rem 0',
-            fontStyle: 'italic',
-            fontWeight: 400
-          }}>
-            I wanted to leave.
-          </p>
-
-          <p style={{
-            fontSize: '1.125rem',
-            fontFamily: 'Georgia, Garamond, serif',
-            color: '#202124',
-            lineHeight: 1.8,
-            letterSpacing: '-0.004em',
-            margin: '0 0 1.25rem 0',
-            fontStyle: 'italic',
-            fontWeight: 400
-          }}>
-            I just didn&apos;t know how.
-          </p>
-
-          <p style={{
-            fontSize: '1.125rem',
-            fontFamily: 'Georgia, Garamond, serif',
-            color: '#202124',
-            lineHeight: 1.8,
-            letterSpacing: '-0.004em',
-            margin: '0 0 1.25rem 0',
-            fontStyle: 'italic',
-            fontWeight: 400
-          }}>
-            Then Jesus Christ found me.
-          </p>
-
-          <p style={{
-            fontSize: '1.125rem',
-            fontFamily: 'Georgia, Garamond, serif',
-            color: '#202124',
-            lineHeight: 1.8,
-            letterSpacing: '-0.004em',
-            margin: '0 0 1.25rem 0',
-            fontStyle: 'italic',
-            fontWeight: 400
-          }}>
-            He delivered me.
-          </p>
-
-          <p style={{
-            fontSize: '1.125rem',
-            fontFamily: 'Georgia, Garamond, serif',
-            color: '#202124',
-            lineHeight: 1.8,
-            letterSpacing: '-0.004em',
-            margin: '0 0 1.25rem 0',
-            fontStyle: 'italic',
-            fontWeight: 400
-          }}>
-            He gave me a new heart.
-          </p>
-
-          <p style={{
-            fontSize: '1.125rem',
-            fontFamily: 'Georgia, Garamond, serif',
-            color: '#202124',
-            lineHeight: 1.8,
-            letterSpacing: '-0.004em',
-            margin: '0 0 1.25rem 0',
-            fontStyle: 'italic',
-            fontWeight: 400
-          }}>
-            A new direction.
-          </p>
-
-          <p style={{
-            fontSize: '1.125rem',
-            fontFamily: 'Georgia, Garamond, serif',
-            color: '#202124',
-            lineHeight: 1.8,
-            letterSpacing: '-0.004em',
-            margin: '0 0 1.25rem 0',
-            fontStyle: 'italic',
-            fontWeight: 400
-          }}>
-            A new life.
-          </p>
-
-          <p style={{
-            fontSize: '1.125rem',
-            fontFamily: 'Georgia, Garamond, serif',
-            color: '#202124',
-            lineHeight: 1.8,
-            letterSpacing: '-0.004em',
-            margin: '0 0 1.25rem 0',
-            fontStyle: 'italic',
-            fontWeight: 400
-          }}>
-            I&apos;m not the deliverer.
-          </p>
-
-          <p style={{
-            fontSize: '1.125rem',
-            fontFamily: 'Georgia, Garamond, serif',
-            color: '#202124',
-            lineHeight: 1.8,
-            letterSpacing: '-0.004em',
-            margin: '0 0 1.25rem 0',
-            fontStyle: 'italic',
-            fontWeight: 400
-          }}>
-            I am not the Deliverer.
-          </p>
-
-          <p style={{
-            fontSize: '1.125rem',
-            fontFamily: 'Georgia, Garamond, serif',
-            color: '#202124',
-            lineHeight: 1.8,
-            letterSpacing: '-0.004em',
-            margin: '0 0 1.25rem 0',
-            fontStyle: 'italic',
-            fontWeight: 400
-          }}>
-            I am a witness to the One who delivered me.
-          </p>
-
-          <p style={{
-            fontSize: '1.125rem',
-            fontFamily: 'Georgia, Garamond, serif',
-            color: '#202124',
-            lineHeight: 1.8,
-            letterSpacing: '-0.004em',
-            margin: 0,
-            fontStyle: 'italic',
-            fontWeight: 400
-          }}>
-            Today I point people to Him.
-          </p>
-        </div>
-
-        <Link
-          href="/story"
-          style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            fontSize: '1rem',
-            fontWeight: 500,
-            color: '#0F766E',
-            textDecoration: 'none',
-            transition: 'color 200ms',
-            cursor: 'pointer'
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.color = '#0a5c59';
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.color = '#0F766E';
-          }}
-        >
-          Read My Full Story →
-        </Link>
       </div>
     </section>
   );
