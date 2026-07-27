@@ -34,7 +34,7 @@ export default function RecognitionSection() {
               That is the voice of the spirit of deception.
             </p>
             <p className="text-lg text-rc-text leading-relaxed">
-              Corrupting your beliefs about yourself, God, and what you deserve.
+              Corrupting your beliefs about God, yourself, and what you deserve.
             </p>
             <p className="text-lg text-rc-text leading-relaxed">
               But Jesus Christ came to deliver you.
