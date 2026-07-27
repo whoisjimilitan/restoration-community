@@ -12,13 +12,13 @@ export default function Footer() {
             <Link href="#story" className="text-sm text-rc-text hover:text-rc-accent transition-colors">
               My Story
             </Link>
-            <Link href="#trap" className="text-sm text-rc-text hover:text-rc-accent transition-colors">
+            <Link href="#about" className="text-sm text-rc-text hover:text-rc-accent transition-colors">
               The Spiritual Trap
             </Link>
             <Link href="#journey" className="text-sm text-rc-text hover:text-rc-accent transition-colors">
               The Journey of Truth
             </Link>
-            <Link href="#resources" className="text-sm text-rc-text hover:text-rc-accent transition-colors">
+            <Link href="/dashboard" className="text-sm text-rc-text hover:text-rc-accent transition-colors">
               Resources
             </Link>
             <Link href="#privacy" className="text-sm text-rc-text hover:text-rc-accent transition-colors">
