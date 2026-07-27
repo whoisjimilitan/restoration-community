@@ -1,15 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Georgia:wght@400;700&family=Inter:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Georgia:wght@400;700&family=Inter:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-/**
- * Burak-Inspired Design System
- * Brother Jimi - Restoration Community
- * Dark navy + bright lime-yellow aesthetic
- * Premium through generosity of space
- */
 
 @layer base {
   * {
@@ -23,143 +16,14 @@
   }
 
   body {
-    font-family: 'Inter', system-ui, -apple-system, 'BlinkMacSystemFont', 'Segoe UI', sans-serif;
-    background-color: #0F1419;
-    color: #F5F5F5;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: #F8F6F2;
+    color: #202124;
     line-height: 1.6;
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Georgia', serif;
-    color: #F5F5F5;
-    font-weight: 700;
-    line-height: 1.2;
-    letter-spacing: -0.01em;
+    color: #202124;
   }
-
-  h1 {
-    font-size: clamp(2.8rem, 8vw, 5rem);
-    letter-spacing: -0.02em;
-  }
-
-  h2 {
-    font-size: clamp(2rem, 5vw, 4rem);
-    letter-spacing: -0.015em;
-  }
-
-  h3 {
-    font-size: clamp(1.5rem, 4vw, 2.25rem);
-  }
-
-  p {
-    line-height: 1.8;
-    color: #F5F5F5;
-    font-weight: 300;
-  }
-
-  a {
-    color: #C4FF00;
-    text-decoration: none;
-    transition: color 200ms cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  a:hover {
-    color: #B8E600;
-  }
-
-  a:focus-visible {
-    outline: 2px solid #C4FF00;
-    outline-offset: 2px;
-  }
-}
-
-/* ===== ANIMATIONS ===== */
-@media (prefers-reduced-motion: no-preference) {
-  @keyframes fade-rise {
-    from {
-      opacity: 0;
-      transform: translateY(32px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes glow-pulse {
-    0%, 100% {
-      box-shadow: 0 0 24px rgba(196, 255, 0, 0.5);
-    }
-    50% {
-      box-shadow: 0 0 48px rgba(196, 255, 0, 0.8);
-    }
-  }
-
-  .animate-fade-rise {
-    animation: fade-rise 0.9s cubic-bezier(0.4, 0, 0.2, 1) both;
-  }
-
-  .animate-fade-rise-delay {
-    animation: fade-rise 0.9s cubic-bezier(0.4, 0, 0.2, 1) 0.2s both;
-  }
-
-  .animate-fade-rise-delay-2 {
-    animation: fade-rise 0.9s cubic-bezier(0.4, 0, 0.2, 1) 0.4s both;
-  }
-
-  .animate-fade-rise-delay-3 {
-    animation: fade-rise 0.9s cubic-bezier(0.4, 0, 0.2, 1) 0.6s both;
-  }
-
-  .animate-glow-pulse {
-    animation: glow-pulse 2.5s ease-in-out infinite;
-  }
-}
-
-/* ===== COMPONENT STYLES ===== */
-@layer components {
-  .btn-primary {
-    @apply inline-flex items-center justify-center px-8 py-4 bg-rc-accent text-rc-navy font-bold rounded-full hover:bg-rc-accent-dark active:scale-95 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-rc-accent focus:ring-offset-2 focus:ring-offset-rc-bg shadow-lg hover:shadow-xl;
-  }
-
-  .btn-secondary {
-    @apply inline-flex items-center justify-center px-8 py-4 border-2 border-rc-accent text-rc-accent font-semibold rounded-full hover:bg-rc-accent hover:text-rc-navy transition-all duration-200;
-  }
-
-  .btn-ghost {
-    @apply text-rc-accent hover:text-rc-accent-dark font-medium transition-colors duration-200;
-  }
-
-  .section {
-    @apply w-full bg-rc-bg border-b border-rc-border;
-  }
-
-  .section-content {
-    @apply max-w-4xl mx-auto px-6 sm:px-8 md:px-12 py-32 md:py-48;
-  }
-}
-
-/* ===== ACCESSIBILITY ===== */
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
-}
-
-/* ===== UTILITY CLASSES ===== */
-.text-gradient {
-  background: linear-gradient(135deg, #C4FF00, #B8E600);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.glow-accent {
-  box-shadow: 0 0 24px rgba(196, 255, 0, 0.3);
 }

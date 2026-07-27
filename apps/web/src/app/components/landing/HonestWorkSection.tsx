@@ -2,26 +2,36 @@
 
 export default function HonestWorkSection() {
   return (
-    <section className="section">
-      <div className="section-content">
-        <div className="space-y-20">
+    <section className="w-full py-24 md:py-32 bg-rc-bg border-t border-rc-text/5">
+      <div className="max-w-2xl mx-auto px-6 sm:px-8 md:px-12">
+        <div className="space-y-8">
           <div>
-            <h2 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-rc-text leading-tight max-w-4xl">
+            <h2 className="text-4xl md:text-5xl font-serif font-bold text-rc-text leading-tight">
               A Life Restored
             </h2>
           </div>
 
-          <div className="space-y-12 md:space-y-16 text-xl md:text-2xl text-rc-text leading-relaxed font-light max-w-4xl">
+          <div className="space-y-6 text-lg text-rc-text leading-relaxed">
             <p>
-              The Holy Spirit restores every part of life. Deliverance is the beginning.
+              The Holy Spirit restores every part of life.
             </p>
-
             <p>
-              The Holy Spirit teaches us a new way to live. How we work. How we serve. How we love. How we live with integrity.
+              Deliverance is the beginning.
             </p>
-
-            <p className="text-2xl md:text-3xl text-rc-accent font-serif font-bold">
-              This is restoration. This is new life in Christ.
+            <p>
+              The Holy Spirit teaches us a new way to live.
+            </p>
+            <p>
+              How we work.
+            </p>
+            <p>
+              How we serve.
+            </p>
+            <p>
+              How we love.
+            </p>
+            <p>
+              How we live with integrity.
             </p>
           </div>
         </div>

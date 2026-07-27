@@ -4,34 +4,33 @@ import Link from 'next/link';
 
 export default function BridgeSection() {
   return (
-    <section className="section">
-      <div className="section-content">
-        <div className="space-y-20">
+    <section className="w-full py-24 md:py-32 bg-rc-bg border-t border-rc-text/5">
+      <div className="max-w-2xl mx-auto px-6 sm:px-8 md:px-12">
+        <div className="space-y-8">
           <div>
-            <h2 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-rc-text leading-tight max-w-4xl">
+            <h2 className="text-4xl md:text-5xl font-serif font-bold text-rc-text leading-tight">
               The Same Jesus Christ
             </h2>
           </div>
-
-          <div className="space-y-12 md:space-y-16 max-w-4xl">
-            <p className="text-xl md:text-2xl text-rc-text leading-relaxed font-light">
+          <div className="space-y-6 text-lg text-rc-text leading-relaxed">
+            <p>
               Jesus Christ has not changed.
             </p>
-            <p className="text-xl md:text-2xl text-rc-text leading-relaxed font-light">
+            <p>
               The One who delivered me still delivers today.
             </p>
-            <p className="text-xl md:text-2xl text-rc-text leading-relaxed font-light">
+            <p>
               No one is beyond His mercy.
             </p>
-            <p className="text-xl md:text-2xl text-rc-text leading-relaxed font-light">
+            <p>
               No one is beyond His power.
             </p>
           </div>
 
-          <div className="pt-8">
+          <div className="pt-4">
             <Link
               href="#journey"
-              className="btn-primary"
+              className="inline-flex items-center justify-center px-8 py-4 bg-rc-accent text-white font-medium rounded-lg hover:bg-rc-text transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-rc-accent focus:ring-offset-2 focus:ring-offset-rc-bg"
             >
               Begin the Journey of Truth
             </Link>

@@ -2,56 +2,42 @@
 
 export default function RecognitionSection() {
   return (
-    <section id="about" className="section">
-      <div className="section-content">
-        <div className="space-y-20">
+    <section id="about" className="w-full py-24 md:py-32 bg-rc-bg border-t border-rc-text/5">
+      <div className="max-w-2xl mx-auto px-6 sm:px-8 md:px-12">
+        <div className="space-y-8">
           <div>
-            <h2 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-rc-text leading-tight">
-              Why You&apos;re Still Bound
+            <h2 className="text-4xl md:text-5xl font-serif font-bold text-rc-text leading-tight">
+              The real prison isn&apos;t what you&apos;ve done.
             </h2>
           </div>
 
-          <div className="space-y-12 md:space-y-16 max-w-4xl">
-            <p className="text-xl md:text-2xl text-rc-text leading-relaxed font-light">
-              You&apos;re bound because you&apos;re in prison.
+          <div className="space-y-6">
+            <p className="text-lg text-rc-text leading-relaxed">
+              Fraud is more than an act of deception.
             </p>
-            <p className="text-xl md:text-2xl text-rc-text leading-relaxed font-light">
-              The real prison is not within walls.
+            <p className="text-lg text-rc-text leading-relaxed">
+              It is the spirit of deception.
             </p>
-            <p className="text-xl md:text-2xl text-rc-text leading-relaxed font-light">
-              It&apos;s within what you&apos;ve come to believe:
+            <p className="text-lg text-rc-text leading-relaxed">
+              The spirit of deception changes what you believe.
             </p>
-
-            <div className="pl-8 md:pl-12 border-l-2 border-rc-accent/40 space-y-12">
-              <p className="text-lg md:text-2xl text-rc-text leading-relaxed font-light">
-                You believe deception is a way of life.
-              </p>
-              <p className="text-lg md:text-2xl text-rc-text leading-relaxed font-light">
-                You believe you have no choice.
-              </p>
-              <p className="text-lg md:text-2xl text-rc-text leading-relaxed font-light">
-                That God cannot forgive someone like you.
-              </p>
-            </div>
-
-            <p className="text-lg md:text-2xl text-rc-text-secondary leading-relaxed font-light italic">
-              That is the voice of the spirit of deception.
+            <p className="text-lg text-rc-text leading-relaxed">
+              About God.
             </p>
-            <p className="text-lg md:text-2xl text-rc-text leading-relaxed font-light">
-              Corrupting your beliefs about God, yourself, and what you deserve.
+            <p className="text-lg text-rc-text leading-relaxed">
+              About yourself.
             </p>
-
-            <div className="h-px bg-rc-border my-8"></div>
-
-            <p className="text-2xl md:text-3xl text-rc-accent font-serif font-bold leading-relaxed">
-              But Jesus Christ came to deliver you.
+            <p className="text-lg text-rc-text leading-relaxed">
+              About the life you think you have to live.
+            </p>
+            <p className="text-lg text-rc-text leading-relaxed">
+              But Jesus Christ came to destroy the lie and set people free.
             </p>
           </div>
 
-          <div className="pt-8">
-            <a href="/story" className="inline-flex items-center gap-3 text-base font-bold text-rc-accent hover:text-rc-accent-dark group transition-colors duration-200">
-              How Jesus Changed My Life
-              <span className="transform group-hover:translate-x-1 transition-transform duration-200">→</span>
+          <div className="pt-4">
+            <a className="text-sm font-medium text-rc-accent hover:text-rc-text transition-colors duration-200" href="/story">
+              How Jesus Changed My Life →
             </a>
           </div>
         </div>
