@@ -12,12 +12,12 @@ const stages = [
 
 export default function JourneySection() {
   return (
-    <section id="journey" className="w-full py-24 md:py-32 bg-rc-bg border-t border-rc-border">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-16 lg:px-12">
-        <div className="space-y-20">
+    <section id="journey" className="w-full py-24 md:py-32 bg-rc-bg border-t border-rc-text/5">
+      <div className="max-w-6xl mx-auto px-6 sm:px-8 md:px-12">
+        <div className="space-y-16">
           {/* Heading */}
-          <div>
-            <h2 className="text-4xl md:text-6xl font-serif font-bold text-rc-text leading-tight tracking-tight">
+          <div className="max-w-2xl">
+            <h2 className="text-4xl md:text-5xl font-serif font-bold text-rc-text leading-tight">
               The Journey of Truth
             </h2>
           </div>
@@ -26,9 +26,9 @@ export default function JourneySection() {
           <div>
             {/* Desktop Timeline */}
             <div className="hidden md:block">
-              <div className="flex items-center justify-between relative py-4">
+              <div className="flex items-center justify-between relative">
                 {/* Connecting line */}
-                <div className="absolute top-8 left-0 right-0 h-px bg-rc-border" />
+                <div className="absolute top-6 left-0 right-0 h-px bg-rc-text/10" />
 
                 {/* Stages */}
                 <div className="relative flex justify-between w-full">
@@ -37,11 +37,11 @@ export default function JourneySection() {
                       key={index}
                       className="flex flex-col items-center group"
                     >
-                      <div className="w-14 h-14 rounded-full border-2 border-rc-border flex items-center justify-center font-medium text-sm text-rc-text bg-rc-warm-gray/50 group-hover:border-rc-accent group-hover:bg-rc-gold-light/30 transition-all duration-200">
+                      <div className="w-12 h-12 rounded-full border-2 border-rc-text/20 flex items-center justify-center font-medium text-sm text-rc-text transition-all duration-200 group-hover:border-rc-accent">
                         {index + 1}
                       </div>
-                      <div className="mt-6 text-center">
-                        <p className="text-sm font-semibold text-rc-text group-hover:text-rc-accent transition-colors">
+                      <div className="mt-4 text-center">
+                        <p className="text-sm font-medium text-rc-text">
                           {stage.name}
                         </p>
                       </div>
@@ -52,22 +52,41 @@ export default function JourneySection() {
             </div>
 
             {/* Mobile Timeline */}
-            <div className="md:hidden space-y-3">
-              {stages.map((stage, index) => (
-                <div
-                  key={index}
-                  className="flex items-center gap-4 p-4 bg-rc-warm-gray/30 rounded-lg border border-rc-border hover:border-rc-accent hover:bg-rc-warm-gray/60 transition-all duration-200 group"
-                >
-                  <div className="w-10 h-10 rounded-full border-2 border-rc-border flex items-center justify-center font-medium text-xs text-rc-text bg-rc-warm-gray/50 group-hover:border-rc-accent group-hover:bg-rc-gold-light/30 transition-all flex-shrink-0">
-                    {index + 1}
+            <div className="md:hidden">
+              <div className="space-y-4">
+                {stages.map((stage, index) => (
+                  <div
+                    key={index}
+                    className="w-full text-left p-4 border border-rc-text/10 rounded-lg transition-colors duration-200 group"
+                  >
+                    <div className="flex items-center gap-4">
+                      <div className="w-10 h-10 rounded-full border-2 border-rc-text/20 flex items-center justify-center font-medium text-sm text-rc-text group-hover:border-rc-accent transition-colors">
+                        {index + 1}
+                      </div>
+                      <p className="font-medium text-rc-text">{stage.name}</p>
+                    </div>
                   </div>
-                  <p className="font-semibold text-rc-text text-sm group-hover:text-rc-accent transition-colors">{stage.name}</p>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </div>
+
+      <style jsx>{`
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+
+        .fade-in {
+          animation: fadeIn 400ms ease-out;
+        }
+      `}</style>
     </section>
   );
 }
