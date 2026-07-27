@@ -37,6 +37,10 @@ model User {
   prayerWarrior          PrayerWarrior?
   prayerResponses        PrayerResponse[]
 
+  // Entry pathway relationships (ENTRY-001)
+  entryEncounters        EntryPrayerRequest[] @relation("EntryEncounters")
+  entryConversions       EntryPrayerRequest[] @relation("EntryConversions")
+
   @@map("users")
 }
 
@@ -401,5 +405,71 @@ model PrayerResponse {
   @@map("prayer_responses")
 }
 
-// Extend User model to include prayer ministry relationships
+// ============================================================================
+// ENTRY PRAYER REQUESTS (ENTRY-001)
+// ============================================================================
+// Unauthenticated seekers requesting prayer/deliverance
+// First touchpoint in the restoration funnel
+
+enum EntrySituation {
+  CURRENTLY_INVOLVED
+  PAST_INVOLVED
+  STRUGGLING_TO_LEAVE
+  AFFECTED_BY_LIFESTYLE
+  OTHER
+}
+
+enum EntryReadiness {
+  YES_READY
+  WANT_TO_BE_READY
+  NEED_HELP
+}
+
+enum EntryRequestStatus {
+  SUBMITTED
+  RECEIVED
+  SCHEDULED
+  COMPLETED
+}
+
+model EntryPrayerRequest {
+  id            String   @id @default(cuid())
+
+  // Seeker Information
+  name          String
+  contact       String   // Phone or email
+  country       String?
+
+  // Situation Assessment
+  situation     EntrySituation
+  seeking       String[] @default([]) // JSON array of what they're seeking
+  story         String   @db.Text // Their story/testimony
+  readiness     EntryReadiness
+
+  // Status & Workflow
+  status        EntryRequestStatus @default(SUBMITTED)
+
+  // Encounter tracking (will be filled during ENCOUNTER-001)
+  encounteredAt DateTime?
+  encounteredById String?
+  encounteredBy  User?    @relation("EntryEncounters", fields: [encounteredById], references: [id], onDelete: SetNull)
+
+  decisionMade  Boolean  @default(false) // Did they say yes to restoration journey?
+  decision      String?  // "yes", "no", "need_more_time"
+
+  // Conversion to participant (ONBOARD-002)
+  convertedToUserId String?
+  convertedToUser   User?   @relation("EntryConversions", fields: [convertedToUserId], references: [id], onDelete: SetNull)
+  convertedAt   DateTime?
+
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@index([status])
+  @@index([createdAt])
+  @@index([contact])
+  @@map("entry_prayer_requests")
+}
+
+// Extend User model to include entry-related relationships
 // (User model updated: add relationships below)
