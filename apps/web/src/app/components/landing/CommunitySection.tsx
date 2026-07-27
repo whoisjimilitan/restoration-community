@@ -1,7 +1,7 @@
 'use client';
 
 const communityElements = [
-  { title: 'Mentors', description: 'Guided by people who understand the restoration journey.' },
+  { title: 'People', description: 'Guided by people who understand the restoration journey.' },
   { title: 'Prayer', description: 'Supported through faithful prayer as you seek Jesus Christ.' },
   { title: 'Scripture', description: 'Grounded in the unchanging truth of God\'s Word.' },
 ];
