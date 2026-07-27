@@ -83,15 +83,10 @@ export async function POST(request: NextRequest) {
       },
       { status: 201 }
     );
-  } catch (error: any) {
-    console.error('[AUTH] Registration error:', {
-      message: error?.message,
-      code: error?.code,
-      meta: error?.meta,
-      stack: error?.stack?.split('\n')[0]
-    });
+  } catch (error) {
+    console.error('[AUTH] Registration error:', error);
     return NextResponse.json(
-      { error: 'Registration failed', details: error?.message || 'Unknown error' },
+      { error: 'Registration failed' },
       { status: 500 }
     );
   }
