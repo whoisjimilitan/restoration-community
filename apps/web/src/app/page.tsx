@@ -9,7 +9,7 @@ const stages = [
   { number: 3, name: 'Repentance', color: '#B3E5E0', textColor: 'text-rc-text' },
   { number: 4, name: 'Forgiveness', color: '#95DDD7', textColor: 'text-rc-text' },
   { number: 5, name: 'Reconciliation', color: '#4DB5A6', textColor: 'text-rc-text' },
-  { number: 6, name: 'Right Living', color: '#1B7A6F', textColor: 'text-white' },
+  { number: 6, name: 'Honest Work', color: '#1B7A6F', textColor: 'text-white' },
   { number: 7, name: 'Service', color: '#0D5E57', textColor: 'text-white' },
 ];
 
@@ -24,7 +24,7 @@ export default function Home() {
     <div className="bg-rc-bg text-rc-text">
       {/* HERO */}
       <section className="w-full min-h-screen flex flex-col justify-center bg-gradient-to-br from-rc-accent to-rc-text px-6 sm:px-8 md:px-12 py-24 md:py-32">
-        <div className="max-w-2xl mx-auto w-full space-y-8">
+        <div className="max-w-2xl mx-auto w-full space-y-6">
           <div className={`transform transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '120ms' }}>
             <p className="text-xs font-medium text-white/70 uppercase tracking-wider">Deliverance Through Jesus Christ</p>
           </div>
@@ -36,7 +36,7 @@ export default function Home() {
           </div>
 
           <div className={`transform transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '360ms' }}>
-            <div className="space-y-4 text-base md:text-lg text-white/90 leading-relaxed font-light">
+            <div className="space-y-3 text-base md:text-lg text-white/90 leading-relaxed font-light">
               <p>Scamming and fraud promise freedom.</p>
               <p>They only bind you tighter.</p>
               <p className="pt-2">This is a spiritual trap.</p>
