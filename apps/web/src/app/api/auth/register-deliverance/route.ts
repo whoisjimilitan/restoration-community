@@ -13,7 +13,7 @@ export async function POST(request: NextRequest) {
 
   try {
     const body = await request.json();
-    const { situation, seeking, story, readiness, name, contact, country } = body;
+    const { situation, seeking, story, readiness, name, contact, state, country } = body;
 
     // Validation
     if (!name || !contact) {
@@ -54,6 +54,7 @@ export async function POST(request: NextRequest) {
         story,
         readiness,
         contact,
+        state,
         country,
       },
     });

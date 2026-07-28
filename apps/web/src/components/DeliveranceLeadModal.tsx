@@ -3,12 +3,39 @@
 import { useState, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 
+const COUNTRY_CODES = [
+  { name: 'United States', code: '+1', flag: '🇺🇸' },
+  { name: 'Canada', code: '+1', flag: '🇨🇦' },
+  { name: 'United Kingdom', code: '+44', flag: '🇬🇧' },
+  { name: 'Australia', code: '+61', flag: '🇦🇺' },
+  { name: 'Nigeria', code: '+234', flag: '🇳🇬' },
+  { name: 'Ghana', code: '+233', flag: '🇬🇭' },
+  { name: 'South Africa', code: '+27', flag: '🇿🇦' },
+  { name: 'Kenya', code: '+254', flag: '🇰🇪' },
+  { name: 'India', code: '+91', flag: '🇮🇳' },
+  { name: 'Pakistan', code: '+92', flag: '🇵🇰' },
+  { name: 'Singapore', code: '+65', flag: '🇸🇬' },
+  { name: 'Germany', code: '+49', flag: '🇩🇪' },
+  { name: 'France', code: '+33', flag: '🇫🇷' },
+  { name: 'Italy', code: '+39', flag: '🇮🇹' },
+  { name: 'Spain', code: '+34', flag: '🇪🇸' },
+  { name: 'Netherlands', code: '+31', flag: '🇳🇱' },
+  { name: 'Sweden', code: '+46', flag: '🇸🇪' },
+  { name: 'Norway', code: '+47', flag: '🇳🇴' },
+  { name: 'Brazil', code: '+55', flag: '🇧🇷' },
+  { name: 'Mexico', code: '+52', flag: '🇲🇽' },
+  { name: 'Japan', code: '+81', flag: '🇯🇵' },
+  { name: 'South Korea', code: '+82', flag: '🇰🇷' },
+];
+
 const STEPS = [
   { id: 's1', type: 'options', q: 'What is your current situation?', opts: ['Currently trapped in this lifestyle', 'Want to escape but unsure how', 'Tried to leave but keep returning', 'Ready for complete freedom in Jesus'] },
   { id: 's2', type: 'options', q: 'What are you seeking from Jesus?', opts: ['Freedom from deception', 'A completely new life', 'Restoration and peace', 'All of the above'] },
-  { id: 's3', type: 'text', q: 'Your name', name: 'name', placeholder: 'Full name' },
-  { id: 's4', type: 'text', q: 'How can we reach you?', name: 'contact', placeholder: 'Email or phone' },
-  { id: 's5', type: 'success', q: 'Jesus is calling you home' },
+  { id: 's3', type: 'text', q: 'Your full name', name: 'name', placeholder: 'e.g., John Smith' },
+  { id: 's4', type: 'text', q: 'Your state or region', name: 'state', placeholder: 'e.g., California, Lagos' },
+  { id: 's5', type: 'select', q: 'Which country are you in?', name: 'country', opts: COUNTRY_CODES.map(c => c.name) },
+  { id: 's6', type: 'phone', q: 'Your phone number', name: 'phone' },
+  { id: 's7', type: 'success', q: 'Jesus is calling you home' },
 ];
 
 function OptionCard({ label, selected, onClick }: { label: string; selected: boolean; onClick: () => void }) {
@@ -63,12 +90,19 @@ export default function DeliveranceLeadModal({ onClose }: { onClose: () => void 
 
   const currentStep = STEPS[step];
   const progress = ((step + 1) / STEPS.length) * 100;
+
   const isAnswered = currentStep.type === 'text'
     ? answers[currentStep.name!] && answers[currentStep.name!].trim().length > 0
+    : currentStep.type === 'phone'
+    ? answers[currentStep.name!] && answers[currentStep.name!].trim().length > 0
+    : currentStep.type === 'select'
+    ? answers[currentStep.name!]
     : answers[currentStep.id];
 
   // Auto-expand after 800ms
-  setTimeout(() => setExpanded(true), 800);
+  if (!expanded) {
+    setTimeout(() => setExpanded(true), 800);
+  }
 
   const handleSubmit = async () => {
     if (step === STEPS.length - 1) return;
@@ -77,6 +111,7 @@ export default function DeliveranceLeadModal({ onClose }: { onClose: () => void 
       // Submit form
       setLoading(true);
       try {
+        const selectedCountry = COUNTRY_CODES.find(c => c.name === answers.country);
         const response = await fetch('/api/auth/register-deliverance', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -85,9 +120,10 @@ export default function DeliveranceLeadModal({ onClose }: { onClose: () => void 
             seeking: [answers.s2],
             story: '',
             readiness: 'ready',
-            name: answers.s3,
-            contact: answers.s4,
-            country: ''
+            name: answers.name,
+            contact: `${selectedCountry?.code} ${answers.phone}`,
+            country: answers.country,
+            state: answers.state
           })
         });
 
@@ -95,7 +131,10 @@ export default function DeliveranceLeadModal({ onClose }: { onClose: () => void 
           const data = await response.json();
           localStorage.setItem('user_name', data.user?.name || 'Friend');
           setStep(step + 1); // Show success screen
-          setTimeout(() => router.push(data.redirectTo || '/dashboard/stages'), 1500);
+          setTimeout(() => router.push('/dashboard/stages'), 1500);
+        } else {
+          const error = await response.json();
+          console.error('Registration error:', error);
         }
       } catch (err) {
         console.error('Submission error:', err);
@@ -193,6 +232,7 @@ export default function DeliveranceLeadModal({ onClose }: { onClose: () => void 
           maxHeight: '85vh',
           overflow: 'hidden',
           transition: 'width 0.5s cubic-bezier(0.22,1,0.36,1), max-height 0.5s cubic-bezier(0.22,1,0.36,1)',
+          boxShadow: expanded ? '0 20px 25px -5px rgba(13,94,87,0.1)' : 'none',
         }}
       >
         {!expanded && (
@@ -293,11 +333,127 @@ export default function DeliveranceLeadModal({ onClose }: { onClose: () => void 
                   backgroundColor: '#ffffff',
                   boxSizing: 'border-box',
                   marginBottom: '24px',
-                  transition: 'border-color 200ms'
+                  transition: 'border-color 200ms, box-shadow 200ms',
+                  outline: 'none'
                 }}
-                onFocus={(e) => (e.currentTarget.style.borderColor = '#0D5E57')}
-                onBlur={(e) => (e.currentTarget.style.borderColor = '#d1d5db')}
+                onFocus={(e) => {
+                  e.currentTarget.style.borderColor = '#0D5E57';
+                  e.currentTarget.style.boxShadow = '0 0 0 3px rgba(13,94,87,0.1)';
+                }}
+                onBlur={(e) => {
+                  e.currentTarget.style.borderColor = '#d1d5db';
+                  e.currentTarget.style.boxShadow = 'none';
+                }}
               />
+            )}
+
+            {/* Country select */}
+            {currentStep.type === 'select' && (
+              <select
+                value={(answers[currentStep.name!] as string) ?? ''}
+                onChange={(e) => setAnswers({ ...answers, [currentStep.name!]: e.target.value })}
+                autoFocus
+                style={{
+                  width: '100%',
+                  padding: '12px 16px',
+                  fontSize: '1rem',
+                  fontFamily: 'system-ui, -apple-system, sans-serif',
+                  color: '#1a1a1a',
+                  border: '1px solid #d1d5db',
+                  borderRadius: '0.375rem',
+                  backgroundColor: '#ffffff',
+                  boxSizing: 'border-box',
+                  marginBottom: '24px',
+                  transition: 'border-color 200ms, box-shadow 200ms',
+                  outline: 'none',
+                  cursor: 'pointer'
+                }}
+                onFocus={(e) => {
+                  e.currentTarget.style.borderColor = '#0D5E57';
+                  e.currentTarget.style.boxShadow = '0 0 0 3px rgba(13,94,87,0.1)';
+                }}
+                onBlur={(e) => {
+                  e.currentTarget.style.borderColor = '#d1d5db';
+                  e.currentTarget.style.boxShadow = 'none';
+                }}
+              >
+                <option value="">Select your country...</option>
+                {currentStep.opts?.map((opt) => (
+                  <option key={opt} value={opt}>{opt}</option>
+                ))}
+              </select>
+            )}
+
+            {/* Phone with country code */}
+            {currentStep.type === 'phone' && (
+              <div style={{ marginBottom: '24px' }}>
+                <div style={{
+                  display: 'flex',
+                  gap: '8px',
+                  alignItems: 'flex-end'
+                }}>
+                  <select
+                    value={answers.countryCode || ''}
+                    onChange={(e) => setAnswers({ ...answers, countryCode: e.target.value })}
+                    style={{
+                      padding: '12px 8px',
+                      fontSize: '0.9rem',
+                      fontFamily: 'system-ui, -apple-system, sans-serif',
+                      color: '#1a1a1a',
+                      border: '1px solid #d1d5db',
+                      borderRadius: '0.375rem',
+                      backgroundColor: '#ffffff',
+                      boxSizing: 'border-box',
+                      transition: 'border-color 200ms, box-shadow 200ms',
+                      outline: 'none',
+                      cursor: 'pointer',
+                      width: '100px'
+                    }}
+                    onFocus={(e) => {
+                      e.currentTarget.style.borderColor = '#0D5E57';
+                      e.currentTarget.style.boxShadow = '0 0 0 3px rgba(13,94,87,0.1)';
+                    }}
+                    onBlur={(e) => {
+                      e.currentTarget.style.borderColor = '#d1d5db';
+                      e.currentTarget.style.boxShadow = 'none';
+                    }}
+                  >
+                    <option value="">Code</option>
+                    {COUNTRY_CODES.map((c) => (
+                      <option key={c.code + c.name} value={c.code}>{c.code} {c.flag}</option>
+                    ))}
+                  </select>
+                  <input
+                    type="tel"
+                    value={(answers[currentStep.name!] as string) ?? ''}
+                    onChange={(e) => setAnswers({ ...answers, [currentStep.name!]: e.target.value })}
+                    onKeyDown={(e) => e.key === 'Enter' && isAnswered && handleSubmit()}
+                    placeholder="1234567890"
+                    autoFocus
+                    style={{
+                      flex: 1,
+                      padding: '12px 16px',
+                      fontSize: '1rem',
+                      fontFamily: 'system-ui, -apple-system, sans-serif',
+                      color: '#1a1a1a',
+                      border: '1px solid #d1d5db',
+                      borderRadius: '0.375rem',
+                      backgroundColor: '#ffffff',
+                      boxSizing: 'border-box',
+                      transition: 'border-color 200ms, box-shadow 200ms',
+                      outline: 'none'
+                    }}
+                    onFocus={(e) => {
+                      e.currentTarget.style.borderColor = '#0D5E57';
+                      e.currentTarget.style.boxShadow = '0 0 0 3px rgba(13,94,87,0.1)';
+                    }}
+                    onBlur={(e) => {
+                      e.currentTarget.style.borderColor = '#d1d5db';
+                      e.currentTarget.style.boxShadow = 'none';
+                    }}
+                  />
+                </div>
+              </div>
             )}
 
             {/* Next button */}

@@ -62,6 +62,7 @@ model DeliveranceIntake {
   story                 String    @db.Text // Their story/background
   readiness             String    // Readiness to leave lifestyle
   contact               String    // Phone/WhatsApp contact
+  state                 String?   // State or region
   country               String?   // Country of residence
 
   createdAt             DateTime  @default(now())
