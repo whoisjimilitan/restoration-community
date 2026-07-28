@@ -215,17 +215,26 @@ export default function Home() {
       {/* SECTION 7: FINAL CALL */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-gradient-to-br from-rc-accent to-rc-text border-t border-rc-border">
         <div className="max-w-2xl mx-auto space-y-8">
-          <div className="space-y-6 text-lg text-white/90 leading-relaxed">
-            <p>Tir<span className="italic">e</span>d of living a li<span className="italic">e</span>?</p>
-            <p>R<span className="italic">e</span>ady to b<span className="italic">e</span> fr<span className="italic">e</span>e at last?</p>
-            <p>J<span className="italic">e</span>sus is calling you hom<span className="italic">e</span>.</p>
+          <div className="space-y-6 leading-relaxed">
+            <p className="text-xl md:text-2xl text-white/90">
+              In th<span className="italic">e</span> parable of the prodigal son, a young man l<span className="italic">e</span>ft everything for a distant country.
+            </p>
+            <p className="text-xl md:text-2xl text-white/90">
+              H<span className="italic">e</span> sp<span className="italic">e</span>nt his inhritanc<span className="italic">e</span> on dull pl<span className="italic">e</span>asur<span className="italic">e</span>s until h<span className="italic">e</span> had nothing.
+            </p>
+            <p className="text-xl md:text-2xl text-white/90">
+              But his fath<span className="italic">e</span>r ran to m<span className="italic">e</span>et him. H<span className="italic">e</span> was waiting.
+            </p>
+            <p className="text-2xl md:text-3xl font-serif font-bold text-white mt-8">
+              J<span className="italic">e</span>sus is calling you hom<span className="italic">e</span>. Will you com<span className="italic">e</span> back?
+            </p>
           </div>
 
           <Link
             href="/deliverance"
             className="inline-flex items-center justify-center px-8 py-4 min-h-[48px] bg-white text-rc-accent font-medium rounded-lg hover:shadow-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-rc-gold focus:ring-offset-2 focus:ring-offset-rc-accent"
           >
-            R<span className="italic">e</span>qu<span className="italic">e</span>st D<span className="italic">e</span>liv<span className="italic">e</span>ranc<span className="italic">e</span>
+            G<span className="italic">e</span>t D<span className="italic">e</span>liv<span className="italic">e</span>r<span className="italic">e</span>d
           </Link>
         </div>
       </section>
