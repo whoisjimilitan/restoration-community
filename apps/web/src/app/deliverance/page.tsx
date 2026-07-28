@@ -30,6 +30,59 @@ export default function DeliverancePage() {
         pointerEvents: 'none'
       }} />
 
+      {/* Prayer meditation illustration watermark */}
+      <svg
+        style={{
+          position: 'absolute',
+          bottom: '-10%',
+          right: '-5%',
+          width: '600px',
+          height: '600px',
+          opacity: 0.08,
+          pointerEvents: 'none',
+          zIndex: 0
+        }}
+        viewBox="0 0 400 500"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        {/* Water/horizon */}
+        <path d="M 0 320 Q 100 310 200 320 T 400 320 L 400 500 L 0 500 Z" fill="rgba(13, 94, 87, 0.3)" />
+        <path d="M 0 320 Q 100 310 200 320 T 400 320" stroke="rgba(13, 94, 87, 0.4)" strokeWidth="2" fill="none" />
+
+        {/* Rock formations */}
+        <path d="M 80 280 L 120 350 L 60 380 L 40 320 Z" fill="rgba(26, 26, 24, 0.4)" stroke="rgba(26, 26, 24, 0.5)" strokeWidth="1.5" />
+        <path d="M 120 260 L 180 330 L 140 400 L 100 310 Z" fill="rgba(26, 26, 24, 0.35)" stroke="rgba(26, 26, 24, 0.45)" strokeWidth="1.5" />
+        <path d="M 200 240 L 280 320 L 240 420 L 160 300 Z" fill="rgba(26, 26, 24, 0.4)" stroke="rgba(26, 26, 24, 0.5)" strokeWidth="1.5" />
+        <path d="M 280 270 L 340 340 L 310 410 L 260 330 Z" fill="rgba(26, 26, 24, 0.32)" stroke="rgba(26, 26, 24, 0.45)" strokeWidth="1.5" />
+
+        {/* Figure in prayer - sitting on rocks */}
+        {/* Head */}
+        <circle cx="180" cy="180" r="22" fill="rgba(26, 26, 24, 0.5)" />
+
+        {/* Shoulders and torso */}
+        <path d="M 160 205 Q 160 250 180 280 Q 200 250 200 205" fill="rgba(26, 26, 24, 0.45)" stroke="rgba(26, 26, 24, 0.5)" strokeWidth="1.5" />
+
+        {/* Arms in prayer position */}
+        <path d="M 175 220 Q 170 240 175 260" stroke="rgba(26, 26, 24, 0.5)" strokeWidth="2.5" fill="none" strokeLinecap="round" />
+        <path d="M 185 220 Q 190 240 185 260" stroke="rgba(26, 26, 24, 0.5)" strokeWidth="2.5" fill="none" strokeLinecap="round" />
+
+        {/* Hands together */}
+        <path d="M 175 258 L 185 265 L 185 258 Z" fill="rgba(26, 26, 24, 0.5)" />
+
+        {/* Legs folded */}
+        <path d="M 165 280 Q 155 310 160 330" stroke="rgba(26, 26, 24, 0.45)" strokeWidth="2.5" fill="none" strokeLinecap="round" />
+        <path d="M 195 280 Q 205 310 200 330" stroke="rgba(26, 26, 24, 0.45)" strokeWidth="2.5" fill="none" strokeLinecap="round" />
+
+        {/* Tree branch overhead */}
+        <path d="M 20 80 Q 100 60 200 100 Q 280 140 340 120" stroke="rgba(26, 26, 24, 0.25)" strokeWidth="2" fill="none" strokeLinecap="round" />
+        <path d="M 60 80 Q 80 50 100 70" stroke="rgba(26, 26, 24, 0.2)" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+        <path d="M 240 90 Q 270 70 290 100" stroke="rgba(26, 26, 24, 0.2)" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+
+        {/* Distant landscape elements */}
+        <path d="M 0 160 Q 50 140 100 160" stroke="rgba(13, 94, 87, 0.2)" strokeWidth="1.5" fill="none" />
+        <path d="M 300 150 Q 340 135 400 155" stroke="rgba(13, 94, 87, 0.2)" strokeWidth="1.5" fill="none" />
+      </svg>
+
       {/* Subtle silhouette figures at edges—suggest human presence without competing */}
       <div style={{
         position: 'absolute',
