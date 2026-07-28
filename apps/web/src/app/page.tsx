@@ -58,7 +58,7 @@ export default function Home() {
             }`}
             style={{ transitionDelay: '240ms' }}
           >
-            <h1 className="text-6xl md:text-7xl font-serif font-bold text-white leading-tight tracking-tight">
+            <h1 className="text-6xl md:text-7xl font-rc-serif font-bold text-white leading-tight tracking-tight">
               You w<span className="italic">e</span>r<span className="italic">e</span> mad<span className="italic">e</span> for som<span className="italic">e</span>thing far b<span className="italic">e</span>tt<span className="italic">e</span>r.
             </h1>
           </div>
@@ -80,7 +80,7 @@ export default function Home() {
       {/* SECTION 2: THE TRAP */}
       <section className="w-full py-32 md:py-40 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border/50">
         <div className="max-w-3xl mx-auto space-y-10">
-          <h2 className="text-5xl md:text-6xl font-serif font-bold text-rc-text leading-tight tracking-tight">
+          <h2 className="text-5xl md:text-6xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">
             Th<span className="italic">e</span> Trap
           </h2>
           <div className="space-y-7 text-lg md:text-xl text-rc-text leading-relaxed font-light">
@@ -97,7 +97,7 @@ export default function Home() {
       {/* SECTION 3: THE WITNESS - WITH WARM GLOW */}
       <section className="w-full py-32 md:py-40 px-6 sm:px-8 md:px-12 border-t border-rc-border/50" style={{ backgroundColor: '#FAFAF8' }}>
         <div className="max-w-3xl mx-auto space-y-10">
-          <h2 className="text-5xl md:text-6xl font-serif font-bold text-rc-text leading-tight tracking-tight">
+          <h2 className="text-5xl md:text-6xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">
             Th<span className="italic">e</span> Witn<span className="italic">e</span>ss
           </h2>
           <div className="border-l-4 border-rc-accent pl-10 space-y-7 text-lg md:text-xl text-rc-text leading-relaxed font-light">
@@ -114,7 +114,7 @@ export default function Home() {
       {/* SECTION 4: THE ONLY WAY */}
       <section className="w-full py-32 md:py-40 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border/50">
         <div className="max-w-3xl mx-auto space-y-10">
-          <h2 className="text-5xl md:text-6xl font-serif font-bold text-rc-text leading-tight tracking-tight">
+          <h2 className="text-5xl md:text-6xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">
             Th<span className="italic">e</span> Only Way
           </h2>
           <div className="space-y-7 text-lg md:text-xl text-rc-text leading-relaxed font-light">
@@ -133,7 +133,7 @@ export default function Home() {
       {/* SECTION 5: THE JOURNEY OUT */}
       <section id="journey" className="w-full py-32 md:py-40 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border/50">
         <div className="max-w-3xl mx-auto space-y-14">
-          <h2 className="text-5xl md:text-6xl font-serif font-bold text-rc-text leading-tight tracking-tight">
+          <h2 className="text-5xl md:text-6xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">
             Th<span className="italic">e</span> J<span className="italic">o</span>urn<span className="italic">e</span>y Out
           </h2>
 
@@ -197,7 +197,7 @@ export default function Home() {
       {/* SECTION 6: THE NEW LIFE */}
       <section className="w-full py-32 md:py-40 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border/50">
         <div className="max-w-3xl mx-auto space-y-10">
-          <h2 className="text-5xl md:text-6xl font-serif font-bold text-rc-text leading-tight tracking-tight">
+          <h2 className="text-5xl md:text-6xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">
             Th<span className="italic">e</span> N<span className="italic">e</span>w Lif<span className="italic">e</span>
           </h2>
           <div className="space-y-7 text-lg md:text-xl text-rc-text leading-relaxed font-light">
@@ -213,7 +213,7 @@ export default function Home() {
       {/* SECTION 7: RETURN */}
       <section className="w-full py-32 md:py-40 px-6 sm:px-8 md:px-12 bg-gradient-to-br from-rc-accent to-rc-text border-t border-rc-border/50">
         <div className="max-w-3xl mx-auto space-y-14">
-          <h2 className="text-6xl md:text-7xl font-serif font-bold text-white leading-tight tracking-tight">
+          <h2 className="text-6xl md:text-7xl font-rc-serif font-bold text-white leading-tight tracking-tight">
             R<span className="italic">e</span>turn
           </h2>
 
