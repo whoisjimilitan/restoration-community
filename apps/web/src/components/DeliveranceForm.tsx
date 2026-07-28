@@ -1,12 +1,14 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 interface DeliveranceFormProps {
   onSubmitSuccess?: () => void;
 }
 
 export default function DeliveranceForm({ onSubmitSuccess }: DeliveranceFormProps) {
+  const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [formData, setFormData] = useState({
@@ -24,20 +26,38 @@ export default function DeliveranceForm({ onSubmitSuccess }: DeliveranceFormProp
     setError('');
     setLoading(true);
 
+    console.log('[DELIVERANCE-FORM] Submitting form:', { name: formData.name, situation: formData.situation });
+
     try {
-      const response = await fetch('/api/deliverance-request', {
+      const response = await fetch('/api/auth/register-deliverance', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
       });
 
+      const data = await response.json();
+
       if (response.ok) {
+        console.log('[DELIVERANCE-FORM] Registration successful, redirecting to:', data.redirectTo);
+
+        // Store user name in localStorage for dashboard greeting
+        if (data.user?.name) {
+          localStorage.setItem('user_name', data.user.name);
+        }
+
+        // Call success callback first (for success page display)
         onSubmitSuccess?.();
+
+        // Then redirect after a brief delay to show success message
+        setTimeout(() => {
+          router.push(data.redirectTo || '/dashboard/stages');
+        }, 2000);
       } else {
-        setError('Failed to submit. Please try again.');
+        console.error('[DELIVERANCE-FORM] Registration failed:', data.error);
+        setError(data.error || 'Registration failed. Please try again.');
       }
     } catch (err) {
-      console.error('Submission error:', err);
+      console.error('[DELIVERANCE-FORM] Submission error:', err);
       setError('An error occurred. Please try again.');
     } finally {
       setLoading(false);
