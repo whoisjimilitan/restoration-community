@@ -2,10 +2,6 @@
 
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import {
-  DoorOpeningIcon,
-  EmptyToFilledIcon
-} from '@/components/DeliverationIllustrations';
 
 const stages = [
   { number: 1, name: 'Truth', color: '#E8F4F3', textColor: 'text-rc-text' },
@@ -80,31 +76,18 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="pt-8 space-y-4">
-            <div
-              className={`transform transition-all duration-700 ${
-                isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-              }`}
-              style={{ transitionDelay: '480ms' }}
+          <div
+            className={`transform transition-all duration-700 pt-8 ${
+              isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+            }`}
+            style={{ transitionDelay: '480ms' }}
+          >
+            <Link
+              href="/deliverance"
+              className="inline-flex items-center justify-center px-8 py-4 min-h-[48px] bg-white text-rc-accent font-medium rounded-lg hover:shadow-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-rc-gold focus:ring-offset-2 focus:ring-offset-rc-accent"
             >
-              <Link
-                href="/deliverance"
-                className="inline-flex items-center justify-center px-8 py-4 min-h-[48px] bg-white text-rc-accent font-medium rounded-lg hover:shadow-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-rc-gold focus:ring-offset-2 focus:ring-offset-rc-accent"
-              >
-                R<span className="italic">e</span>qu<span className="italic">e</span>st D<span className="italic">e</span>liv<span className="italic">e</span>ranc<span className="italic">e</span>
-              </Link>
-            </div>
-            <a
-              href="#journey"
-              className={`inline-block transform transition-all duration-700 ${
-                isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-              }`}
-              style={{ transitionDelay: '600ms' }}
-            >
-              <span className="text-white/60 hover:text-white text-sm transition-colors duration-200">
-                S<span className="italic">e</span>e th<span className="italic">e</span> Journ<span className="italic">e</span>y ↓
-              </span>
-            </a>
+              R<span className="italic">e</span>qu<span className="italic">e</span>st D<span className="italic">e</span>liv<span className="italic">e</span>ranc<span className="italic">e</span>
+            </Link>
           </div>
         </div>
       </section>
@@ -156,11 +139,6 @@ export default function Home() {
             <p>No on<span className="italic">e</span> is too far gon<span className="italic">e</span>.</p>
           </div>
         </div>
-      </section>
-
-      {/* VISUAL BREAK - Door Opening */}
-      <section className="w-full py-12 md:py-16 px-6 sm:px-8 md:px-12 bg-rc-bg flex items-center justify-center">
-        <DoorOpeningIcon />
       </section>
 
       {/* SECTION 5: THE JOURNEY OUT */}
@@ -232,11 +210,6 @@ export default function Home() {
             <p>To build som<span className="italic">e</span>thing that lasts.</p>
           </div>
         </div>
-      </section>
-
-      {/* VISUAL BREAK - Empty to Filled */}
-      <section className="w-full py-12 md:py-16 px-6 sm:px-8 md:px-12 bg-rc-bg flex items-center justify-center">
-        <EmptyToFilledIcon />
       </section>
 
       {/* SECTION 7: FINAL CALL */}
