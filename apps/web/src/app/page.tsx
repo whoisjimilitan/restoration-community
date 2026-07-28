@@ -179,12 +179,15 @@ export default function Home() {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 pt-8">
-            <Link
-              href="/deliverance"
-              className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-white text-rc-accent font-medium rounded-lg hover:shadow-lg transition-all duration-200"
+            <button
+              onClick={() => {
+                const event = new CustomEvent('open-deliverance-modal');
+                document.dispatchEvent(event);
+              }}
+              className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-white text-rc-accent font-medium rounded-lg hover:shadow-lg transition-all duration-200 cursor-pointer"
             >
               Request Deliverance
-            </Link>
+            </button>
             <Link
               href="/auth/signin"
               className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] text-white font-medium border-2 border-white rounded-lg hover:bg-white/10 transition-all duration-200"
