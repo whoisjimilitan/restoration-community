@@ -31,7 +31,7 @@ export default function Home() {
 
           <div className={`transform transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '240ms' }}>
             <h1 className="text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight">
-              You were never made to eat from lies.
+              You were never destined to eat from lies.
             </h1>
           </div>
 
