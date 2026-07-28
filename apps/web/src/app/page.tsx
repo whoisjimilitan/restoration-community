@@ -58,7 +58,14 @@ export default function Home() {
             }`}
             style={{ transitionDelay: '240ms' }}
           >
-            <h1 className="text-6xl md:text-7xl font-rc-serif font-bold text-white leading-tight tracking-tight">
+            <h1 style={{
+              fontSize: 'clamp(2rem, 7vw, 3.5rem)',
+              fontFamily: 'Georgia, Garamond, serif',
+              fontWeight: 700,
+              color: 'white',
+              lineHeight: 1.2,
+              letterSpacing: '-0.02em'
+            }}>
               You w<span className="italic">e</span>r<span className="italic">e</span> mad<span className="italic">e</span> for som<span className="italic">e</span>thing far b<span className="italic">e</span>tt<span className="italic">e</span>r.
             </h1>
           </div>
