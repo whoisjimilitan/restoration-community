@@ -141,7 +141,7 @@ export default function DeliverancePage() {
           fontWeight: 500,
           fontStyle: 'italic'
         }}>
-          You don't have to live this way anymore.
+          You don&apos;t have to live this way anymore.
         </p>
 
         {/* Description - warm, personal tone */}
