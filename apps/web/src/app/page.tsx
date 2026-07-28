@@ -9,8 +9,8 @@ const stages = [
   { number: 3, name: 'Repentance', color: '#B3E5E0', textColor: 'text-rc-text' },
   { number: 4, name: 'Forgiveness', color: '#95DDD7', textColor: 'text-rc-text' },
   { number: 5, name: 'Reconciliation', color: '#4DB5A6', textColor: 'text-rc-text' },
-  { number: 6, name: 'Honest Work', color: '#1B7A6F', textColor: 'text-white' },
-  { number: 7, name: 'Serving', color: '#0D5E57', textColor: 'text-white' },
+  { number: 6, name: 'Right Living', color: '#1B7A6F', textColor: 'text-white' },
+  { number: 7, name: 'Service', color: '#0D5E57', textColor: 'text-white' },
 ];
 
 export default function Home() {
@@ -19,7 +19,6 @@ export default function Home() {
   useEffect(() => {
     setIsLoaded(true);
 
-    // Privacy-friendly scroll depth tracking (no external services)
     const handleScroll = () => {
       const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
       if (scrollPercent > 25 && !sessionStorage.getItem('scroll-25')) {
@@ -48,8 +47,8 @@ export default function Home() {
             }`}
             style={{ transitionDelay: '120ms' }}
           >
-            <p className="text-xs font-medium text-white/70 uppercase tracking-widest letter-spacing-extra">
-              D<span className="italic">e</span>liv<span className="italic">e</span>ranc<span className="italic">e</span> Through J<span className="italic">e</span>sus Christ
+            <p className="text-xs font-medium text-white/70 uppercase tracking-widest">
+              D<span className="italic">e</span>liv<span className="italic">e</span>ranc<span className="italic">e</span> From D<span className="italic">e</span>c<span className="italic">e</span>ption
             </p>
           </div>
 
@@ -60,7 +59,7 @@ export default function Home() {
             style={{ transitionDelay: '240ms' }}
           >
             <h1 className="text-6xl md:text-7xl font-serif font-bold text-white leading-tight tracking-tight">
-              You w<span className="italic">e</span>r<span className="italic">e</span> n<span className="italic">e</span>v<span className="italic">e</span>r mad<span className="italic">e</span> to liv<span className="italic">e</span> by li<span className="italic">e</span>s.
+              You w<span className="italic">e</span>r<span className="italic">e</span> mad<span className="italic">e</span> for som<span className="italic">e</span>thing far b<span className="italic">e</span>tt<span className="italic">e</span>r.
             </h1>
           </div>
 
@@ -71,64 +70,68 @@ export default function Home() {
             style={{ transitionDelay: '360ms' }}
           >
             <div className="space-y-7 text-lg md:text-xl text-white/90 leading-relaxed font-light">
-              <p>Scamming and fraud promise freedom. They only bind you tighter.</p>
-              <p>This is a spiritual trap. Only J<span className="italic">e</span>sus Christ s<span className="italic">e</span>ts you fr<span className="italic">e</span>e.</p>
+              <p>Scamming and fraud prom<span className="italic">i</span>s<span className="italic">e</span>d fr<span className="italic">e</span>edom. Th<span className="italic">e</span>y only bound you tight<span className="italic">e</span>r.</p>
+              <p>This is a spiritual trap. Only J<span className="italic">e</span>sus Christ br<span className="italic">e</span>aks those chains.</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* SECTION 2: THE TRAP */}
-      <section className="w-full py-32 md:py-40 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
+      <section className="w-full py-32 md:py-40 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border/50">
         <div className="max-w-3xl mx-auto space-y-10">
           <h2 className="text-5xl md:text-6xl font-serif font-bold text-rc-text leading-tight tracking-tight">
             Th<span className="italic">e</span> Trap
           </h2>
           <div className="space-y-7 text-lg md:text-xl text-rc-text leading-relaxed font-light">
-            <p>You b<span className="italic">e</span>li<span className="italic">e</span>v<span className="italic">e</span>:</p>
-            <p className="text-rc-text/90">This is just how I surviv<span className="italic">e</span>.</p>
-            <p className="text-rc-text/90">I hav<span className="italic">e</span> no oth<span className="italic">e</span>r way.</p>
-            <p className="text-rc-text/90">God could n<span className="italic">e</span>v<span className="italic">e</span>r forgiv<span className="italic">e</span> m<span className="italic">e</span>.</p>
-            <p className="pt-4 font-medium">That is d<span className="italic">e</span>c<span className="italic">e</span>ption sp<span className="italic">e</span>aking.</p>
+            <p>You t<span className="italic">e</span>ll yours<span className="italic">e</span>lf:</p>
+            <p className="text-rc-text/85">Th<span className="italic">e</span> country is hard. Th<span className="italic">e</span>r<span className="italic">e</span> ar<span className="italic">e</span> no opportuniti<span className="italic">e</span>s. This is just how I surviv<span className="italic">e</span>.</p>
+            <p className="text-rc-text/85">You justify <span className="italic">e</span>v<span className="italic">e</span>ry <span className="italic">e</span>xcus<span className="italic">e</span>. You t<span className="italic">e</span>ll yours<span className="italic">e</span>lf you hav<span className="italic">e</span> no choic<span className="italic">e</span>.</p>
+            <p className="pt-4 font-medium">All th<span className="italic">e</span> whil<span className="italic">e</span> th<span className="italic">e</span> d<span className="italic">e</span>vil r<span className="italic">e</span>joic<span className="italic">e</span>s — b<span className="italic">e</span>caus<span className="italic">e</span> you ar<span className="italic">e</span> trapp<span className="italic">e</span>d.</p>
+            <p className="pt-2">That is d<span className="italic">e</span>c<span className="italic">e</span>ption sp<span className="italic">e</span>aking.</p>
             <p>You cannot br<span className="italic">e</span>ak this chain by yours<span className="italic">e</span>lf.</p>
           </div>
         </div>
       </section>
 
-      {/* SECTION 3: THE WITNESS */}
-      <section className="w-full py-32 md:py-40 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
+      {/* SECTION 3: THE WITNESS - WITH WARM GLOW */}
+      <section className="w-full py-32 md:py-40 px-6 sm:px-8 md:px-12 border-t border-rc-border/50" style={{ backgroundColor: '#FAFAF8' }}>
         <div className="max-w-3xl mx-auto space-y-10">
           <h2 className="text-5xl md:text-6xl font-serif font-bold text-rc-text leading-tight tracking-tight">
             Th<span className="italic">e</span> Witn<span className="italic">e</span>ss
           </h2>
           <div className="border-l-4 border-rc-accent pl-10 space-y-7 text-lg md:text-xl text-rc-text leading-relaxed font-light">
-            <p>I liv<span className="italic">e</span>d this lif<span className="italic">e</span>.</p>
-            <p>I want<span className="italic">e</span>d to stop. I could not.</p>
-            <p>Until J<span className="italic">e</span>sus found m<span className="italic">e</span>.</p>
-            <p className="font-medium">H<span className="italic">e</span> brok<span className="italic">e</span> my chains. H<span className="italic">e</span> gav<span className="italic">e</span> m<span className="italic">e</span> a n<span className="italic">e</span>w lif<span className="italic">e</span>.</p>
+            <p>I too liv<span className="italic">e</span>d this lif<span className="italic">e</span>.</p>
+            <p>I too ju<span className="italic">s</span>tifi<span className="italic">e</span>d it. I too convinc<span className="italic">e</span>d mys<span className="italic">e</span>lf I had no choic<span className="italic">e</span>.</p>
+            <p>I too want<span className="italic">e</span>d to stop. I want<span className="italic">e</span>d to chang<span className="italic">e</span>. I could not.</p>
+            <p>Until J<span className="italic">e</span>sus Christ st<span className="italic">e</span>pp<span className="italic">e</span>d into th<span className="italic">e</span> matt<span className="italic">e</span>r.</p>
+            <p className="font-medium">H<span className="italic">e</span> brok<span className="italic">e</span> th<span className="italic">e</span> pow<span className="italic">e</span>r of sin ov<span className="italic">e</span>r m<span className="italic">e</span>. H<span className="italic">e</span> gav<span className="italic">e</span> m<span className="italic">e</span> a n<span className="italic">e</span>w chanc<span className="italic">e</span>. A n<span className="italic">e</span>w lif<span className="italic">e</span> in Him.</p>
             <p className="pt-3">I am not th<span className="italic">e</span> answ<span className="italic">e</span>r. H<span className="italic">e</span> is.</p>
           </div>
         </div>
       </section>
 
       {/* SECTION 4: THE ONLY WAY */}
-      <section className="w-full py-32 md:py-40 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
+      <section className="w-full py-32 md:py-40 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border/50">
         <div className="max-w-3xl mx-auto space-y-10">
           <h2 className="text-5xl md:text-6xl font-serif font-bold text-rc-text leading-tight tracking-tight">
             Th<span className="italic">e</span> Only Way
           </h2>
           <div className="space-y-7 text-lg md:text-xl text-rc-text leading-relaxed font-light">
-            <p>No amount of mon<span className="italic">e</span>y, laws, or advic<span className="italic">e</span> fix<span className="italic">e</span>s this.</p>
-            <p>Scamming is spiritual bondag<span className="italic">e</span>.</p>
+            <p>No amount of mon<span className="italic">e</span>y fix<span className="italic">e</span>s this.</p>
+            <p>No law fix<span className="italic">e</span>s this.</p>
+            <p>No punishm<span className="italic">e</span>nt fix<span className="italic">e</span>s this.</p>
+            <p className="pt-2">Scamming and fraud ar<span className="italic">e</span> spiritual bondage.</p>
             <p className="font-medium">Th<span className="italic">e</span>r<span className="italic">e</span> is no cur<span className="italic">e</span> outsid<span className="italic">e</span> J<span className="italic">e</span>sus Christ.</p>
-            <p>H<span className="italic">e</span> is still d<span className="italic">e</span>liv<span className="italic">e</span>ring p<span className="italic">e</span>opl<span className="italic">e</span> today.</p>
+            <p>H<span className="italic">e</span> d<span className="italic">e</span>liv<span className="italic">e</span>rs p<span className="italic">e</span>opl<span className="italic">e</span> from sin.</p>
+            <p>H<span className="italic">e</span> d<span className="italic">e</span>liv<span className="italic">e</span>rs nations from th<span className="italic">e</span> cons<span className="italic">e</span>qu<span className="italic">e</span>nc<span className="italic">e</span>s of sin.</p>
             <p>No on<span className="italic">e</span> is too far gon<span className="italic">e</span>.</p>
           </div>
         </div>
       </section>
 
       {/* SECTION 5: THE JOURNEY OUT */}
-      <section id="journey" className="w-full py-32 md:py-40 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
+      <section id="journey" className="w-full py-32 md:py-40 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border/50">
         <div className="max-w-3xl mx-auto space-y-14">
           <h2 className="text-5xl md:text-6xl font-serif font-bold text-rc-text leading-tight tracking-tight">
             Th<span className="italic">e</span> J<span className="italic">o</span>urn<span className="italic">e</span>y Out
@@ -142,7 +145,7 @@ export default function Home() {
                 {stages.map((stage, index) => (
                   <div key={index} className="flex flex-col items-center group flex-1">
                     <div
-                      className="w-12 h-12 rounded-full flex items-center justify-center font-medium text-sm transition-all duration-300 group-hover:shadow-lg group-hover:scale-110 relative z-10"
+                      className="w-14 h-14 rounded-full flex items-center justify-center font-medium text-sm transition-all duration-300 group-hover:shadow-lg group-hover:scale-110 relative z-10"
                       style={{
                         backgroundColor: stage.color,
                         color: stage.textColor === 'text-white' ? 'white' : '#1A1A18'
@@ -150,7 +153,7 @@ export default function Home() {
                     >
                       {stage.number}
                     </div>
-                    <div className="mt-4 text-center">
+                    <div className="mt-6 text-center">
                       <p className="text-sm font-medium text-rc-text">{stage.name}</p>
                     </div>
                   </div>
@@ -159,12 +162,12 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Mobile Timeline with color progression */}
+          {/* Mobile Timeline */}
           <div className="md:hidden space-y-0">
             {stages.map((stage, index) => (
-              <div key={index} className="flex items-center gap-4 py-3 pl-4 border-l-4" style={{ borderColor: stage.color }}>
+              <div key={index} className="flex items-center gap-4 py-4 pl-4 border-l-4" style={{ borderColor: stage.color }}>
                 <div
-                  className="w-10 h-10 rounded-full flex items-center justify-center font-medium text-sm flex-shrink-0 transition-all duration-200"
+                  className="w-12 h-12 rounded-full flex items-center justify-center font-medium text-sm flex-shrink-0 transition-all duration-200"
                   style={{
                     backgroundColor: stage.color,
                     color: stage.textColor === 'text-white' ? 'white' : '#1A1A18'
@@ -177,39 +180,48 @@ export default function Home() {
             ))}
           </div>
 
-          <p className="text-lg md:text-xl text-rc-text leading-relaxed pt-10 md:pt-12 border-t border-rc-text/15 font-light">
-            You walk this path with support. Pray<span className="italic">e</span>r, scriptur<span className="italic">e</span>, p<span className="italic">e</span>opl<span className="italic">e</span> who und<span className="italic">e</span>rstand.
-          </p>
+          <div className="space-y-6 pt-10 md:pt-12 border-t border-rc-text/15">
+            <p className="text-lg md:text-xl text-rc-text leading-relaxed font-light">
+              <span className="font-medium">Th<span className="italic">e</span> R<span className="italic">e</span>form Coll<span className="italic">e</span>ge</span> is a d<span className="italic">e</span>liv<span className="italic">e</span>ranc<span className="italic">e</span> and r<span className="italic">e</span>storation ministry.
+            </p>
+            <p className="text-lg md:text-xl text-rc-text leading-relaxed font-light">
+              W<span className="italic">e</span> <span className="font-medium">exist to r<span className="italic">e</span>scu<span className="italic">e</span> this g<span className="italic">e</span>n<span className="italic">e</span>ration</span> from this scourg<span className="italic">e</span>.
+            </p>
+            <p className="text-lg md:text-xl text-rc-text leading-relaxed font-light">
+              You do not walk this path alon<span className="italic">e</span>.
+            </p>
+          </div>
         </div>
       </section>
 
       {/* SECTION 6: THE NEW LIFE */}
-      <section className="w-full py-32 md:py-40 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
+      <section className="w-full py-32 md:py-40 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border/50">
         <div className="max-w-3xl mx-auto space-y-10">
           <h2 className="text-5xl md:text-6xl font-serif font-bold text-rc-text leading-tight tracking-tight">
             Th<span className="italic">e</span> N<span className="italic">e</span>w Lif<span className="italic">e</span>
           </h2>
           <div className="space-y-7 text-lg md:text-xl text-rc-text leading-relaxed font-light">
-            <p>D<span className="italic">e</span>liv<span className="italic">e</span>ranc<span className="italic">e</span> is just th<span className="italic">e</span> start.</p>
-            <p>You will l<span className="italic">e</span>arn to work hon<span className="italic">e</span>stly.</p>
-            <p>To liv<span className="italic">e</span> without f<span className="italic">e</span>ar.</p>
-            <p className="font-medium">To build som<span className="italic">e</span>thing that lasts.</p>
+            <p>D<span className="italic">e</span>liv<span className="italic">e</span>ranc<span className="italic">e</span> is th<span className="italic">e</span> b<span className="italic">e</span>ginning. Not th<span className="italic">e</span> <span className="italic">e</span>nd.</p>
+            <p>Now com<span className="italic">e</span>s th<span className="italic">e</span> <span className="italic">e</span>t<span className="italic">u</span>rn to what you w<span className="italic">e</span>r<span className="italic">e</span> mad<span className="italic">e</span> for.</p>
+            <p className="font-medium">H<span className="italic">o</span>n<span className="italic">e</span>st work. Int<span className="italic">e</span>grity. Right living.</p>
+            <p>Building som<span className="italic">e</span>thing that lasts.</p>
+            <p>A lif<span className="italic">e</span> that actually m<span className="italic">e</span>ans som<span className="italic">e</span>thing.</p>
           </div>
         </div>
       </section>
 
       {/* SECTION 7: RETURN */}
-      <section className="w-full py-32 md:py-40 px-6 sm:px-8 md:px-12 bg-gradient-to-br from-rc-accent to-rc-text border-t border-rc-border">
+      <section className="w-full py-32 md:py-40 px-6 sm:px-8 md:px-12 bg-gradient-to-br from-rc-accent to-rc-text border-t border-rc-border/50">
         <div className="max-w-3xl mx-auto space-y-14">
           <h2 className="text-6xl md:text-7xl font-serif font-bold text-white leading-tight tracking-tight">
             R<span className="italic">e</span>turn
           </h2>
 
           <div className="space-y-7 text-lg md:text-xl text-white/95 leading-relaxed font-light">
-            <p>Tired of living a li<span className="italic">e</span>?</p>
-            <p>Tired of m<span className="italic">e</span>aninglessn<span className="italic">e</span>ss, rising and falling, wast<span className="italic">e</span>, confusion and f<span className="italic">e</span>ar?</p>
+            <p>Tir<span className="italic">e</span>d of living a li<span className="italic">e</span>?</p>
+            <p>Tir<span className="italic">e</span>d of m<span className="italic">e</span>aningless activiti<span className="italic">e</span>s, rising and falling, confusion, wast<span className="italic">e</span> and f<span className="italic">e</span>ar?</p>
             <p>I hav<span className="italic">e</span> b<span className="italic">e</span><span className="italic">e</span>n th<span className="italic">e</span>r<span className="italic">e</span>.</p>
-            <p className="pt-2 font-medium text-white">J<span className="italic">e</span>sus is calling you hom<span className="italic">e</span>.</p>
+            <p className="pt-2 font-medium text-white">J<span className="italic">e</span>sus is calling you back to what you w<span className="italic">e</span>r<span className="italic">e</span> mad<span className="italic">e</span> for. Back hom<span className="italic">e</span>.</p>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-5 pt-8">
@@ -230,7 +242,7 @@ export default function Home() {
       </section>
 
       {/* Footer Branding */}
-      <footer className="w-full py-12 md:py-16 px-6 sm:px-8 md:px-12 bg-rc-text border-t border-rc-border">
+      <footer className="w-full py-12 md:py-16 px-6 sm:px-8 md:px-12 bg-rc-text border-t border-rc-border/50">
         <div className="max-w-3xl mx-auto text-center space-y-5">
           <p className="text-white/60 text-sm font-light">
             Broth<span className="italic">e</span>r Jimi Ministri<span className="italic">e</span>s — D<span className="italic">e</span>liv<span className="italic">e</span>ranc<span className="italic">e</span> & R<span className="italic">e</span>storation Platform
