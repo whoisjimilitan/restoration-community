@@ -227,7 +227,7 @@ export default function Home() {
 
             {/* Question 2: The hardest-hitting reality */}
             <p className="text-3xl md:text-4xl font-serif font-bold text-white leading-tight">
-              Tired of rising and falling, f<span className="italic">e</span>ar, confusion, r<span className="italic">e</span>p<span className="italic">e</span>at<span className="italic">e</span>d failur<span className="italic">e</span>?
+              Tired of d<span className="italic">e</span>pr<span className="italic">e</span>ssion, confusion, frustration, failur<span className="italic">e</span>, f<span className="italic">e</span>ar?
             </p>
 
             {/* Question 3: The turning point - heaviest */}
