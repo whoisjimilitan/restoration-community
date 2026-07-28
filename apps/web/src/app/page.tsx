@@ -172,10 +172,10 @@ export default function Home() {
           <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-white leading-tight">Return</h2>
 
           <div className="space-y-4 text-base md:text-lg text-white/90 leading-relaxed font-light">
-            <p>You know the trap.</p>
-            <p>You know it&apos;s tightening.</p>
-            <p className="pt-2">You cannot stop alone.</p>
-            <p className="pt-3 font-medium text-white">This is your moment. Jesus is calling you out.</p>
+            <p>Tired of living a lie?</p>
+            <p>Tired of meaninglessness, rising and falling, waste, confusion and fear?</p>
+            <p className="pt-2">I have been there.</p>
+            <p className="pt-3 font-medium text-white">Jesus is calling you home.</p>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 pt-8">
