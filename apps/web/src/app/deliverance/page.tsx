@@ -7,29 +7,30 @@ export default function DeliverancePage() {
     <div style={{
       minHeight: '100vh',
       position: 'relative',
-      backgroundColor: '#ffffff',
+      backgroundColor: '#FAFAF8',
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
       justifyContent: 'center',
       paddingLeft: '2rem',
       paddingRight: '2rem',
+      paddingTop: '4rem',
+      paddingBottom: '4rem',
       overflow: 'hidden'
     }}>
-      {/* Warm background with subtle breathing effect */}
+      {/* Elegant background gradient */}
       <div style={{
         position: 'absolute',
         inset: 0,
         zIndex: 0,
         background: `
-          linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(255,250,245,0.6) 50%, rgba(240,254,253,0.3) 100%),
-          radial-gradient(ellipse 900px 500px at 50% 50%, rgba(13,94,87,0.02) 0%, transparent 60%)
+          linear-gradient(135deg, rgba(250,250,248,1) 0%, rgba(255,250,245,0.4) 50%, rgba(240,254,253,0.2) 100%),
+          radial-gradient(ellipse 900px 500px at 50% 50%, rgba(13,94,87,0.015) 0%, transparent 60%)
         `,
         pointerEvents: 'none'
       }} />
 
       {/* Subtle silhouette figures at edges—suggest human presence without competing */}
-      {/* Left figure silhouette */}
       <div style={{
         position: 'absolute',
         bottom: '10%',
@@ -37,13 +38,11 @@ export default function DeliverancePage() {
         width: '120px',
         height: '240px',
         borderRadius: '50% 50% 50% 50% / 60% 60% 40% 40%',
-        background: 'rgba(180, 220, 215, 0.08)',
-        opacity: 0.5,
+        background: 'rgba(180, 220, 215, 0.06)',
         pointerEvents: 'none',
         zIndex: 0,
         filter: 'blur(1px)'
       }} />
-      {/* Right figure silhouette */}
       <div style={{
         position: 'absolute',
         bottom: '12%',
@@ -51,13 +50,11 @@ export default function DeliverancePage() {
         width: '110px',
         height: '235px',
         borderRadius: '50% 50% 50% 50% / 60% 60% 40% 40%',
-        background: 'rgba(180, 220, 215, 0.07)',
-        opacity: 0.5,
+        background: 'rgba(180, 220, 215, 0.05)',
         pointerEvents: 'none',
         zIndex: 0,
         filter: 'blur(1px)'
       }} />
-      {/* Center-back subtle figure */}
       <div style={{
         position: 'absolute',
         bottom: '8%',
@@ -66,8 +63,7 @@ export default function DeliverancePage() {
         width: '100px',
         height: '220px',
         borderRadius: '50% 50% 50% 50% / 60% 60% 40% 40%',
-        background: 'rgba(180, 220, 215, 0.05)',
-        opacity: 0.4,
+        background: 'rgba(180, 220, 215, 0.03)',
         pointerEvents: 'none',
         zIndex: 0,
         filter: 'blur(1.5px)'
@@ -79,11 +75,11 @@ export default function DeliverancePage() {
         top: '50%',
         left: '50%',
         transform: 'translate(-50%, -50%)',
-        opacity: 0.06,
+        opacity: 0.04,
         pointerEvents: 'none',
         zIndex: 0
       }}>
-        <svg width="450" height="450" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <svg width="500" height="500" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
           <line x1="50" y1="10" x2="50" y2="90" stroke="#0D5E57" strokeWidth="2.5"/>
           <line x1="10" y1="50" x2="90" y2="50" stroke="#0D5E57" strokeWidth="2.5"/>
         </svg>
@@ -97,7 +93,7 @@ export default function DeliverancePage() {
         width: '350px',
         height: '350px',
         borderRadius: '50%',
-        background: 'radial-gradient(circle, rgba(255,240,230,0.3) 0%, transparent 70%)',
+        background: 'radial-gradient(circle, rgba(255,240,230,0.2) 0%, transparent 70%)',
         pointerEvents: 'none',
         zIndex: 0
       }} />
@@ -108,35 +104,71 @@ export default function DeliverancePage() {
         width: '320px',
         height: '320px',
         borderRadius: '50%',
-        background: 'radial-gradient(circle, rgba(240,254,253,0.2) 0%, transparent 70%)',
+        background: 'radial-gradient(circle, rgba(240,254,253,0.15) 0%, transparent 70%)',
         pointerEvents: 'none',
         zIndex: 0
       }} />
 
-      {/* Center message */}
-      <div style={{ textAlign: 'center', position: 'relative', zIndex: 1 }}>
+      {/* Center message - Premium typography */}
+      <div style={{
+        textAlign: 'center',
+        position: 'relative',
+        zIndex: 1,
+        maxWidth: '600px'
+      }}>
+        {/* Main heading with serif and italic vowels */}
         <h1 style={{
-          fontSize: '1.5rem',
-          fontFamily: 'system-ui, -apple-system, sans-serif',
+          fontSize: '3.25rem',
+          fontFamily: 'Georgia, Garamond, serif',
           fontWeight: 700,
-          color: '#0D5E57',
-          lineHeight: 1.4,
-          marginBottom: '1rem',
+          color: '#1a1a1a',
+          lineHeight: 1.2,
+          marginBottom: '1.25rem',
           marginTop: 0,
-          letterSpacing: '0.05em'
+          letterSpacing: '-0.02em'
         }}>
-          JESUS DELIVERS
+          J<span style={{ fontStyle: 'italic' }}>e</span>sus D<span style={{ fontStyle: 'italic' }}>e</span>liv<span style={{ fontStyle: 'italic' }}>e</span>rs
         </h1>
 
+        {/* Subheading - compelling message */}
         <p style={{
-          fontSize: '1rem',
-          fontFamily: 'system-ui, -apple-system, sans-serif',
-          color: '#666666',
+          fontSize: '1.25rem',
+          fontFamily: 'Georgia, Garamond, serif',
+          color: '#0D5E57',
           lineHeight: 1.6,
           marginTop: 0,
-          maxWidth: '400px'
+          marginBottom: '1.5rem',
+          fontWeight: 500,
+          fontStyle: 'italic'
         }}>
-          Jesus Christ is your ultimate deliverer. Your journey toward freedom begins here.
+          You don't have to live this way anymore.
+        </p>
+
+        {/* Description - warm, personal tone */}
+        <p style={{
+          fontSize: '1.0625rem',
+          fontFamily: 'system-ui, -apple-system, sans-serif',
+          color: '#666666',
+          lineHeight: 1.8,
+          marginTop: 0,
+          marginBottom: 0
+        }}>
+          J<span style={{ fontStyle: 'italic' }}>e</span>sus Christ off<span style={{ fontStyle: 'italic' }}>e</span>rs tr<span style={{ fontStyle: 'italic' }}>u</span>e fr<span style={{ fontStyle: 'italic' }}>e</span>edom from d<span style={{ fontStyle: 'italic' }}>e</span>c<span style={{ fontStyle: 'italic' }}>e</span>ption, r<span style={{ fontStyle: 'italic' }}>e</span>storation of id<span style={{ fontStyle: 'italic' }}>e</span>ntity, and a lif<span style={{ fontStyle: 'italic' }}>e</span> that actually matt<span style={{ fontStyle: 'italic' }}>e</span>rs.
+        </p>
+
+        {/* Call to action text */}
+        <p style={{
+          fontSize: '0.9375rem',
+          fontFamily: 'system-ui, -apple-system, sans-serif',
+          color: '#0D5E57',
+          lineHeight: 1.7,
+          marginTop: '2rem',
+          marginBottom: 0,
+          fontWeight: 500,
+          letterSpacing: '0.5px',
+          textTransform: 'uppercase'
+        }}>
+          Your journey begins below.
         </p>
       </div>
 
