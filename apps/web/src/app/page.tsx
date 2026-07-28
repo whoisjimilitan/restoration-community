@@ -213,48 +213,63 @@ export default function Home() {
       </section>
 
       {/* SECTION 7: FINAL CALL */}
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-gradient-to-br from-rc-accent to-rc-text border-t border-rc-border">
-        <div className="max-w-2xl mx-auto">
-          {/* Visual isolation - separator before the moment */}
-          <div className="mb-12 h-px bg-white/20"></div>
+      <section className="w-full py-32 md:py-48 px-6 sm:px-8 md:px-12 bg-gradient-to-br from-rc-accent to-rc-text border-t border-rc-border">
+        <div className="max-w-3xl mx-auto">
+          {/* Opening space - sacred pause before the moment */}
+          <div className="mb-20"></div>
 
-          {/* Progressive building questions */}
-          <div className="space-y-8 md:space-y-10 mb-12">
-            {/* Question 1: Foundation */}
-            <p className="text-2xl md:text-3xl font-serif font-bold text-white leading-tight">
+          {/* Question 1: Direct, intimate - left aligned, smaller */}
+          <div className="mb-16 md:mb-20">
+            <p className="text-2xl md:text-3xl font-serif text-white leading-loose">
               Tired of living a li<span className="italic">e</span>?
             </p>
+          </div>
 
-            {/* Question 2: The hardest-hitting reality */}
-            <p className="text-3xl md:text-4xl font-serif font-bold text-white leading-tight">
-              Tired of d<span className="italic">e</span>pr<span className="italic">e</span>ssion, confusion, frustration, failur<span className="italic">e</span>, f<span className="italic">e</span>ar?
+          {/* Breathing space */}
+          <div className="mb-12 md:mb-16"></div>
+
+          {/* Question 2: The reality hits - larger, heavier */}
+          <div className="mb-16 md:mb-20">
+            <p className="text-3xl md:text-4xl font-serif font-bold text-white leading-relaxed">
+              Tired of rising and falling, confusion, frustration, wast<span className="italic">e</span> and f<span className="italic">e</span>ar?
             </p>
+          </div>
 
-            {/* Question 3: The turning point - heaviest */}
-            <p className="text-4xl md:text-5xl font-serif font-bold text-white leading-tight pt-4">
+          {/* Breathing space */}
+          <div className="mb-16 md:mb-20"></div>
+
+          {/* Question 3: The turning point - largest, boldest, heaviest weight */}
+          <div className="mb-20 md:mb-24">
+            <p className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-white leading-tight">
               R<span className="italic">e</span>ady to b<span className="italic">e</span> fr<span className="italic">e</span><span className="italic">e</span> at last?
             </p>
           </div>
 
-          {/* Breathing room - visual break */}
-          <div className="mb-12 h-px bg-white/20"></div>
+          {/* Sacred pause - deep breathing space before the revelation */}
+          <div className="mb-24 md:mb-32"></div>
 
-          {/* The moment: Jesus calling - centered, special treatment */}
-          <div className="mb-12 text-center">
-            <p className="text-3xl md:text-4xl font-serif font-bold text-white leading-tight">
-              J<span className="italic">e</span>sus is calling you hom<span className="italic">e</span>.
+          {/* The revelation: Jesus calling - centered, gold accent, serif */}
+          <div className="mb-24 md:mb-32 text-center">
+            <p className="text-4xl md:text-5xl font-serif font-bold leading-tight">
+              <span className="text-rc-gold">J<span className="not-italic">e</span>sus is calling you hom<span className="not-italic">e</span>.</span>
             </p>
           </div>
 
-          {/* The button - inevitable, prominent */}
+          {/* Final breathing room before commitment */}
+          <div className="mb-12 md:mb-16"></div>
+
+          {/* The button - centered, powerful, inevitable */}
           <div className="flex justify-center">
             <Link
               href="/deliverance"
-              className="inline-flex items-center justify-center px-10 py-5 min-h-[56px] bg-white text-rc-accent font-bold text-lg rounded-lg hover:shadow-2xl hover:scale-105 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-rc-gold focus:ring-offset-2 focus:ring-offset-rc-accent"
+              className="inline-flex items-center justify-center px-12 py-6 min-h-[64px] bg-white text-rc-accent font-bold text-lg md:text-xl rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 focus:outline-none focus:ring-3 focus:ring-rc-gold focus:ring-offset-2 focus:ring-offset-rc-accent"
             >
               R<span className="italic">e</span>qu<span className="italic">e</span>st D<span className="italic">e</span>liv<span className="italic">e</span>ranc<span className="italic">e</span>
             </Link>
           </div>
+
+          {/* Closing space - breathing room after commitment */}
+          <div className="mb-16 md:mb-20"></div>
         </div>
       </section>
 
