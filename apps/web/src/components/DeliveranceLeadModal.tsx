@@ -63,7 +63,9 @@ export default function DeliveranceLeadModal({ onClose }: { onClose: () => void 
 
   const currentStep = STEPS[step];
   const progress = ((step + 1) / STEPS.length) * 100;
-  const isAnswered = answers[currentStep.id];
+  const isAnswered = currentStep.type === 'text'
+    ? answers[currentStep.name!] && answers[currentStep.name!].trim().length > 0
+    : answers[currentStep.id];
 
   // Auto-expand after 800ms
   setTimeout(() => setExpanded(true), 800);
