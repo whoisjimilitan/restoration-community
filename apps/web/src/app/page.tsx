@@ -214,28 +214,47 @@ export default function Home() {
 
       {/* SECTION 7: FINAL CALL */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-gradient-to-br from-rc-accent to-rc-text border-t border-rc-border">
-        <div className="max-w-2xl mx-auto space-y-8">
-          <div className="space-y-6 leading-relaxed">
-            <p className="text-2xl md:text-3xl font-serif font-bold text-white">
+        <div className="max-w-2xl mx-auto">
+          {/* Visual isolation - separator before the moment */}
+          <div className="mb-12 h-px bg-white/20"></div>
+
+          {/* Progressive building questions */}
+          <div className="space-y-8 md:space-y-10 mb-12">
+            {/* Question 1: Foundation */}
+            <p className="text-2xl md:text-3xl font-serif font-bold text-white leading-tight">
               Tired of living a li<span className="italic">e</span>?
             </p>
-            <p className="text-2xl md:text-3xl font-serif font-bold text-white">
+
+            {/* Question 2: The hardest-hitting reality */}
+            <p className="text-3xl md:text-4xl font-serif font-bold text-white leading-tight">
               Tired of rising and falling, f<span className="italic">e</span>ar, confusion, r<span className="italic">e</span>p<span className="italic">e</span>at<span className="italic">e</span>d failur<span className="italic">e</span>?
             </p>
-            <p className="text-2xl md:text-3xl font-serif font-bold text-white pt-4">
+
+            {/* Question 3: The turning point - heaviest */}
+            <p className="text-4xl md:text-5xl font-serif font-bold text-white leading-tight pt-4">
               R<span className="italic">e</span>ady to b<span className="italic">e</span> fr<span className="italic">e</span><span className="italic">e</span> at last?
             </p>
-            <p className="text-2xl md:text-3xl font-serif font-bold text-white">
+          </div>
+
+          {/* Breathing room - visual break */}
+          <div className="mb-12 h-px bg-white/20"></div>
+
+          {/* The moment: Jesus calling - centered, special treatment */}
+          <div className="mb-12 text-center">
+            <p className="text-3xl md:text-4xl font-serif font-bold text-white leading-tight">
               J<span className="italic">e</span>sus is calling you hom<span className="italic">e</span>.
             </p>
           </div>
 
-          <Link
-            href="/deliverance"
-            className="inline-flex items-center justify-center px-8 py-4 min-h-[48px] bg-white text-rc-accent font-medium rounded-lg hover:shadow-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-rc-gold focus:ring-offset-2 focus:ring-offset-rc-accent"
-          >
-            G<span className="italic">e</span>t D<span className="italic">e</span>liv<span className="italic">e</span>r<span className="italic">e</span>d
-          </Link>
+          {/* The button - inevitable, prominent */}
+          <div className="flex justify-center">
+            <Link
+              href="/deliverance"
+              className="inline-flex items-center justify-center px-10 py-5 min-h-[56px] bg-white text-rc-accent font-bold text-lg rounded-lg hover:shadow-2xl hover:scale-105 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-rc-gold focus:ring-offset-2 focus:ring-offset-rc-accent"
+            >
+              R<span className="italic">e</span>qu<span className="italic">e</span>st D<span className="italic">e</span>liv<span className="italic">e</span>ranc<span className="italic">e</span>
+            </Link>
+          </div>
         </div>
       </section>
 
