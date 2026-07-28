@@ -212,13 +212,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SECTION 7: FINAL CALL */}
+      {/* SECTION 7: RETURN */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-gradient-to-br from-rc-accent to-rc-text border-t border-rc-border">
         <div className="max-w-2xl mx-auto space-y-8">
           <div className="space-y-6 text-lg text-white leading-relaxed">
             <p>Tired of living a li<span className="italic">e</span>?</p>
-            <p>Tired of rising and falling, confusion, frustration, wast<span className="italic">e</span> and f<span className="italic">e</span>ar?</p>
-            <p>R<span className="italic">e</span>ady to b<span className="italic">e</span> fr<span className="italic">e</span><span className="italic">e</span> at last?</p>
+            <p>Tired of m<span className="italic">e</span>aningless activ<span className="italic">i</span>ti<span className="italic">e</span>s, rising and falling, wast<span className="italic">e</span>, confusion and f<span className="italic">e</span>ar?</p>
+            <p>I hav<span className="italic">e</span> b<span className="italic">e</span><span className="italic">e</span>n th<span className="italic">e</span>r<span className="italic">e</span>.</p>
             <p className="pt-4">J<span className="italic">e</span>sus is calling you hom<span className="italic">e</span>.</p>
           </div>
 
