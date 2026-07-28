@@ -13,59 +13,6 @@ const stages = [
   { number: 7, name: 'Serving', color: '#0D5E57', textColor: 'text-white' },
 ];
 
-const testimonials = [
-  {
-    quote: 'I ran scams for 12 years. Jesus broke those chains.',
-    name: 'David M.',
-    detail: 'Fraud operations'
-  },
-  {
-    quote: 'The shame was crushing. But forgiveness reached me there. I\'m actually free.',
-    name: 'Sarah K.',
-    detail: 'Cryptocurrency scams'
-  },
-  {
-    quote: 'I didn\'t believe God would have me. He did. I\'m standing now.',
-    name: 'Marcus J.',
-    detail: 'Fraud consultant'
-  }
-];
-
-const faqs = [
-  {
-    question: 'Is this just psychology or therapy?',
-    answer: 'No. This is spiritual deliverance grounded in Jesus Christ. Psychology can help with coping, but only the Holy Spirit can break spiritual bondage. We address the root, not just the symptom.'
-  },
-  {
-    question: 'What if I\'ve done really terrible things?',
-    answer: 'No one is beyond Jesus Christ\'s reach. The Gospel doesn\'t say "good people" or "people who haven\'t done much damage." It says "while we were still sinners." Forgiveness is available to everyone.'
-  },
-  {
-    question: 'Will this be kept confidential?',
-    answer: 'Yes. We operate under strict confidentiality. What you share on the form goes only to our team. We respect your privacy and trust completely.'
-  },
-  {
-    question: 'How long does the process take?',
-    answer: 'Deliverance happens in a day. The journey of restoration takes 7 days of guided truth-work. But real transformation—learning to live honestly—is a lifelong journey of following Jesus.'
-  },
-  {
-    question: 'What if I\'m not religious?',
-    answer: 'You don\'t need to be religious. You just need to be honest about where you are. Jesus meets you there. Many who come to us say they never believed until they experienced His deliverance firsthand.'
-  },
-  {
-    question: 'Can I do this if I still have legal issues?',
-    answer: 'Yes. Deliverance and restoration don\'t require a clean legal record. In fact, many people find that walking in truth helps them address legal consequences with integrity, which courts often recognize.'
-  },
-  {
-    question: 'What happens after the 7 days?',
-    answer: 'You enter our community of restored people. You continue learning to live honestly, build real relationships, do honest work, and serve others. You\'re never alone in this.'
-  },
-  {
-    question: 'Is there a cost?',
-    answer: 'No. Deliverance is free. We don\'t charge for prayer, counsel, or spiritual freedom. Our mission is restoration through Jesus Christ, not profit.'
-  }
-];
-
 export default function Home() {
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -102,7 +49,7 @@ export default function Home() {
             style={{ transitionDelay: '120ms' }}
           >
             <p className="text-sm font-medium text-white/80 uppercase tracking-wide">
-              Deliverance Through Jesus Christ
+              D<span className="italic">e</span>liv<span className="italic">e</span>ranc<span className="italic">e</span> Through J<span className="italic">e</span>sus Christ
             </p>
           </div>
 
@@ -113,7 +60,7 @@ export default function Home() {
             style={{ transitionDelay: '240ms' }}
           >
             <h1 className="text-5xl md:text-6xl font-serif font-bold text-white leading-tight">
-              You were never made to live by li<span className="italic">e</span>s.
+              You w<span className="italic">e</span>r<span className="italic">e</span> n<span className="italic">e</span>v<span className="italic">e</span>r mad<span className="italic">e</span> to liv<span className="italic">e</span> by li<span className="italic">e</span>s.
             </h1>
           </div>
 
@@ -125,7 +72,7 @@ export default function Home() {
           >
             <div className="space-y-6 text-lg text-white/90 leading-relaxed">
               <p>Scamming and fraud promise freedom. They only bind you tighter.</p>
-              <p>This is a spiritual trap. Only Jesus Christ sets you free.</p>
+              <p>This is a spiritual trap. Only J<span className="italic">e</span>sus Christ s<span className="italic">e</span>ts you fr<span className="italic">e</span>e.</p>
             </div>
           </div>
 
@@ -139,7 +86,7 @@ export default function Home() {
               href="/deliverance"
               className="inline-flex items-center justify-center px-8 py-4 min-h-[48px] bg-white text-rc-accent font-medium rounded-lg hover:shadow-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-rc-gold focus:ring-offset-2 focus:ring-offset-rc-accent"
             >
-              Request Deliverance
+              R<span className="italic">e</span>qu<span className="italic">e</span>st D<span className="italic">e</span>liv<span className="italic">e</span>ranc<span className="italic">e</span>
             </Link>
           </div>
         </div>
@@ -149,15 +96,15 @@ export default function Home() {
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
         <div className="max-w-2xl mx-auto space-y-8">
           <h2 className="text-4xl md:text-5xl font-serif font-bold text-rc-text leading-tight">
-            The Tr<span className="italic">a</span>p
+            Th<span className="italic">e</span> Trap
           </h2>
           <div className="space-y-6 text-lg text-rc-text leading-relaxed">
-            <p>You believe:</p>
-            <p>This is just how I survive.</p>
-            <p>I have no other way.</p>
-            <p>God could never forgive me.</p>
-            <p className="pt-4">That is deception speaking.</p>
-            <p>You cannot break this chain by yourself.</p>
+            <p>You b<span className="italic">e</span>li<span className="italic">e</span>v<span className="italic">e</span>:</p>
+            <p>This is just how I surviv<span className="italic">e</span>.</p>
+            <p>I hav<span className="italic">e</span> no oth<span className="italic">e</span>r way.</p>
+            <p>God could n<span className="italic">e</span>v<span className="italic">e</span>r forgiv<span className="italic">e</span> m<span className="italic">e</span>.</p>
+            <p className="pt-4">That is d<span className="italic">e</span>c<span className="italic">e</span>ption sp<span className="italic">e</span>aking.</p>
+            <p>You cannot br<span className="italic">e</span>ak this chain by yours<span className="italic">e</span>lf.</p>
           </div>
         </div>
       </section>
@@ -166,14 +113,14 @@ export default function Home() {
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
         <div className="max-w-2xl mx-auto space-y-8">
           <h2 className="text-4xl md:text-5xl font-serif font-bold text-rc-text leading-tight">
-            The Witn<span className="italic">e</span>ss
+            Th<span className="italic">e</span> Witn<span className="italic">e</span>ss
           </h2>
           <div className="border-l-4 border-rc-gold pl-8 space-y-6 text-lg text-rc-text leading-relaxed">
-            <p>I lived this life.</p>
-            <p>I wanted to stop. I could not.</p>
-            <p>Until Jesus found me.</p>
-            <p>He broke my chains. He gave me a new life.</p>
-            <p>I am not the answer. He is.</p>
+            <p>I liv<span className="italic">e</span>d this lif<span className="italic">e</span>.</p>
+            <p>I want<span className="italic">e</span>d to stop. I could not.</p>
+            <p>Until J<span className="italic">e</span>sus found m<span className="italic">e</span>.</p>
+            <p>H<span className="italic">e</span> brok<span className="italic">e</span> my chains. H<span className="italic">e</span> gav<span className="italic">e</span> m<span className="italic">e</span> a n<span className="italic">e</span>w lif<span className="italic">e</span>.</p>
+            <p>I am not th<span className="italic">e</span> answ<span className="italic">e</span>r. H<span className="italic">e</span> is.</p>
           </div>
         </div>
       </section>
@@ -182,14 +129,14 @@ export default function Home() {
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
         <div className="max-w-2xl mx-auto space-y-8">
           <h2 className="text-4xl md:text-5xl font-serif font-bold text-rc-text leading-tight">
-            The Only W<span className="italic">a</span>y
+            Th<span className="italic">e</span> Only Way
           </h2>
           <div className="space-y-6 text-lg text-rc-text leading-relaxed">
-            <p>No amount of money, laws, or advice fixes this.</p>
-            <p>Scamming is spiritual bondage.</p>
-            <p>There is no cure outside Jesus Christ.</p>
-            <p>He is still delivering people today.</p>
-            <p>No one is too far gone.</p>
+            <p>No amount of mon<span className="italic">e</span>y, laws, or advic<span className="italic">e</span> fix<span className="italic">e</span>s this.</p>
+            <p>Scamming is spiritual bondag<span className="italic">e</span>.</p>
+            <p>Th<span className="italic">e</span>r<span className="italic">e</span> is no cur<span className="italic">e</span> outsid<span className="italic">e</span> J<span className="italic">e</span>sus Christ.</p>
+            <p>H<span className="italic">e</span> is still d<span className="italic">e</span>liv<span className="italic">e</span>ring p<span className="italic">e</span>opl<span className="italic">e</span> today.</p>
+            <p>No on<span className="italic">e</span> is too far gon<span className="italic">e</span>.</p>
           </div>
         </div>
       </section>
@@ -198,7 +145,7 @@ export default function Home() {
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
         <div className="max-w-2xl mx-auto space-y-12">
           <h2 className="text-4xl md:text-5xl font-serif font-bold text-rc-text leading-tight">
-            The Journey <span className="italic">O</span>ut
+            Th<span className="italic">e</span> J<span className="italic">o</span>urn<span className="italic">e</span>y Out
           </h2>
 
           {/* Desktop Timeline */}
@@ -245,7 +192,7 @@ export default function Home() {
           </div>
 
           <p className="text-lg text-rc-text leading-relaxed pt-8 border-t border-rc-text/10">
-            You walk this path with support. Prayer, scripture, people who understand.
+            You walk this path with support. Pray<span className="italic">e</span>r, scriptur<span className="italic">e</span>, p<span className="italic">e</span>opl<span className="italic">e</span> who und<span className="italic">e</span>rstand.
           </p>
         </div>
       </section>
@@ -254,70 +201,13 @@ export default function Home() {
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
         <div className="max-w-2xl mx-auto space-y-8">
           <h2 className="text-4xl md:text-5xl font-serif font-bold text-rc-text leading-tight">
-            The New Lif<span className="italic">e</span>
+            Th<span className="italic">e</span> N<span className="italic">e</span>w Lif<span className="italic">e</span>
           </h2>
           <div className="space-y-6 text-lg text-rc-text leading-relaxed">
-            <p>Deliverance is just the start.</p>
-            <p>You will learn to work honestly.</p>
-            <p>To live without fear.</p>
-            <p>To build something that lasts.</p>
-          </div>
-        </div>
-      </section>
-
-      {/* BONUS: TESTIMONIALS (Before Final Call) */}
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
-        <div className="max-w-2xl mx-auto space-y-12">
-          <div>
-            <p className="text-sm font-medium text-rc-accent uppercase tracking-wide mb-2">Real Stories</p>
-            <h2 className="text-4xl md:text-5xl font-serif font-bold text-rc-text leading-tight">
-              P<span className="italic">e</span>ople Like You
-            </h2>
-          </div>
-
-          <div className="grid gap-6 md:gap-8">
-            {testimonials.map((testimonial, index) => (
-              <div
-                key={index}
-                className="border-l-4 border-rc-gold pl-6 py-4 bg-white rounded-r"
-              >
-                <p className="text-lg text-rc-text italic mb-4 leading-relaxed">
-                  &quot;{testimonial.quote}&quot;
-                </p>
-                <p className="text-sm font-medium text-rc-text">
-                  {testimonial.name}
-                </p>
-                <p className="text-xs text-rc-text-secondary">
-                  {testimonial.detail}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* BONUS: FAQ SECTION */}
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
-        <div className="max-w-2xl mx-auto space-y-8">
-          <h2 className="text-4xl md:text-5xl font-serif font-bold text-rc-text leading-tight">
-            Questions
-          </h2>
-
-          <div className="space-y-4">
-            {faqs.map((faq, index) => (
-              <details
-                key={index}
-                className="border-b border-rc-border pb-4 last:border-b-0 group"
-              >
-                <summary className="text-lg font-medium text-rc-text cursor-pointer py-2 flex items-center justify-between hover:text-rc-accent transition-colors">
-                  {faq.question}
-                  <span className="text-rc-accent group-open:rotate-180 transition-transform">▼</span>
-                </summary>
-                <p className="text-rc-text-secondary leading-relaxed pt-4">
-                  {faq.answer}
-                </p>
-              </details>
-            ))}
+            <p>D<span className="italic">e</span>liv<span className="italic">e</span>ranc<span className="italic">e</span> is just th<span className="italic">e</span> start.</p>
+            <p>You will l<span className="italic">e</span>arn to work hon<span className="italic">e</span>stly.</p>
+            <p>To liv<span className="italic">e</span> without f<span className="italic">e</span>ar.</p>
+            <p>To build som<span className="italic">e</span>thing that lasts.</p>
           </div>
         </div>
       </section>
@@ -326,16 +216,16 @@ export default function Home() {
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-gradient-to-br from-rc-accent to-rc-text border-t border-rc-border">
         <div className="max-w-2xl mx-auto space-y-8">
           <div className="space-y-6 text-lg text-white/90 leading-relaxed">
-            <p>Tired of living a lie?</p>
-            <p>Ready to be free at last?</p>
-            <p>Jesus is calling you home.</p>
+            <p>Tir<span className="italic">e</span>d of living a li<span className="italic">e</span>?</p>
+            <p>R<span className="italic">e</span>ady to b<span className="italic">e</span> fr<span className="italic">e</span>e at last?</p>
+            <p>J<span className="italic">e</span>sus is calling you hom<span className="italic">e</span>.</p>
           </div>
 
           <Link
             href="/deliverance"
             className="inline-flex items-center justify-center px-8 py-4 min-h-[48px] bg-white text-rc-accent font-medium rounded-lg hover:shadow-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-rc-gold focus:ring-offset-2 focus:ring-offset-rc-accent"
           >
-            Request Deliverance
+            R<span className="italic">e</span>qu<span className="italic">e</span>st D<span className="italic">e</span>liv<span className="italic">e</span>ranc<span className="italic">e</span>
           </Link>
         </div>
       </section>
@@ -344,10 +234,10 @@ export default function Home() {
       <footer className="w-full py-12 px-6 sm:px-8 md:px-12 bg-rc-text border-t border-rc-border">
         <div className="max-w-2xl mx-auto text-center space-y-4">
           <p className="text-white/60 text-sm">
-            Restoration Community — Jesus Christ Delivers
+            R<span className="italic">e</span>storation Community — J<span className="italic">e</span>sus Christ D<span className="italic">e</span>liv<span className="italic">e</span>rs
           </p>
           <p className="text-white/40 text-xs">
-            © 2026. All rights reserved.
+            © 2026. All rights r<span className="italic">e</span>s<span className="italic">e</span>rv<span className="italic">e</span>d.
           </p>
         </div>
       </footer>
