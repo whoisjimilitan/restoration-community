@@ -217,12 +217,15 @@ export default function Home() {
         <div className="max-w-2xl mx-auto space-y-8">
           <div className="space-y-6 leading-relaxed">
             <p className="text-2xl md:text-3xl font-serif font-bold text-white">
-              Tired of living a lie?
+              Tired of living a li<span className="italic">e</span>?
             </p>
             <p className="text-2xl md:text-3xl font-serif font-bold text-white">
-              R<span className="italic">e</span>ady to b<span className="italic">e</span> fr<span className="italic">e</span><span className="italic">e</span> at last?
+              Tired of rising and falling, f<span className="italic">e</span>ar, confusion, r<span className="italic">e</span>p<span className="italic">e</span>at<span className="italic">e</span>d failur<span className="italic">e</span>?
             </p>
             <p className="text-2xl md:text-3xl font-serif font-bold text-white pt-4">
+              R<span className="italic">e</span>ady to b<span className="italic">e</span> fr<span className="italic">e</span><span className="italic">e</span> at last?
+            </p>
+            <p className="text-2xl md:text-3xl font-serif font-bold text-white">
               J<span className="italic">e</span>sus is calling you hom<span className="italic">e</span>.
             </p>
           </div>
