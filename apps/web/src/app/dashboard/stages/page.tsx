@@ -219,13 +219,12 @@ export default function DashboardStagesPage() {
               >
                 <div style={{ marginBottom: '8px' }}>
                   <span style={{
-                    display: 'inline-block',
+                    display: 'flex',
                     width: '32px',
                     height: '32px',
                     borderRadius: '6px',
                     backgroundColor: stage.status === 'current' ? '#0D5E57' : '#e5e5e5',
                     color: stage.status === 'current' ? 'white' : '#999999',
-                    display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
                     fontSize: '14px',

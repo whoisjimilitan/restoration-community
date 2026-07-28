@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import AutoOpenModal from '@/components/AutoOpenModal';
-import DeliveranceForm from '@/components/DeliveranceForm';
+import ProgressiveDeliveranceModal from '@/components/ProgressiveDeliveranceModal';
 
 export default function DeliverancePage() {
   const [submitted, setSubmitted] = useState(false);
@@ -120,34 +120,62 @@ export default function DeliverancePage() {
   }
 
   return (
-    <div style={{ minHeight: '100vh', paddingTop: '6rem', paddingBottom: '4rem', paddingLeft: '2rem', paddingRight: '2rem', backgroundColor: '#FAFAF8' }}>
-      <div style={{ maxWidth: '600px', margin: '0 auto', textAlign: 'center' }}>
+    <div style={{
+      minHeight: '100vh',
+      position: 'relative',
+      background: 'linear-gradient(135deg, #ffffff 0%, #f0fffe 100%)',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
+      paddingLeft: '2rem',
+      paddingRight: '2rem',
+      overflow: 'hidden'
+    }}>
+      {/* Subtle cross/light symbol in center background */}
+      <div style={{
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        opacity: 0.05,
+        pointerEvents: 'none'
+      }}>
+        <svg width="300" height="300" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <line x1="50" y1="20" x2="50" y2="80" stroke="#0D5E57" strokeWidth="2"/>
+          <line x1="20" y1="50" x2="80" y2="50" stroke="#0D5E57" strokeWidth="2"/>
+        </svg>
+      </div>
+
+      {/* Center message */}
+      <div style={{ textAlign: 'center', marginBottom: '4rem', position: 'relative', zIndex: 1 }}>
         <h1 style={{
-          fontSize: '2.5rem',
-          fontFamily: 'Georgia, Garamond, serif',
+          fontSize: '1.5rem',
+          fontFamily: 'system-ui, -apple-system, sans-serif',
           fontWeight: 700,
-          color: '#202124',
-          lineHeight: 1.2,
-          marginBottom: '1.5rem',
-          marginTop: 0
+          color: '#0D5E57',
+          lineHeight: 1.4,
+          marginBottom: '1rem',
+          marginTop: 0,
+          letterSpacing: '0.05em'
         }}>
-          Your First St<span style={{ fontStyle: 'italic' }}>e</span>p is Fr<span style={{ fontStyle: 'italic' }}>e</span><span style={{ fontStyle: 'italic' }}>e</span>dom
+          JESUS DELIVERS
         </h1>
 
         <p style={{
-          fontSize: '1.0625rem',
-          fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
-          color: '#202124',
-          lineHeight: 1.7,
-          marginBottom: '2rem',
-          marginTop: 0
+          fontSize: '0.9375rem',
+          fontFamily: 'system-ui, -apple-system, sans-serif',
+          color: '#666666',
+          lineHeight: 1.6,
+          marginTop: 0,
+          maxWidth: '400px'
         }}>
-          We&apos;r<span style={{ fontStyle: 'italic' }}>e</span> h<span style={{ fontStyle: 'italic' }}>e</span>r<span style={{ fontStyle: 'italic' }}>e</span> to h<span style={{ fontStyle: 'italic' }}>e</span>lp you <span style={{ fontStyle: 'italic' }}>e</span>nt<span style={{ fontStyle: 'italic' }}>e</span>r th<span style={{ fontStyle: 'italic' }}>e</span> journ<span style={{ fontStyle: 'italic' }}>e</span>y of d<span style={{ fontStyle: 'italic' }}>e</span>liv<span style={{ fontStyle: 'italic' }}>e</span>ranc<span style={{ fontStyle: 'italic' }}>e</span> through J<span style={{ fontStyle: 'italic' }}>e</span>sus Christ.
+          Jesus Christ is your ultimate deliverer. Your journey toward freedom begins here.
         </p>
       </div>
 
-      <AutoOpenModal delayMs={2000}>
-        <DeliveranceForm onSubmitSuccess={() => setSubmitted(true)} />
+      <AutoOpenModal delayMs={1200}>
+        <ProgressiveDeliveranceModal />
       </AutoOpenModal>
     </div>
   );
