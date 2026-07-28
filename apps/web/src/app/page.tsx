@@ -26,7 +26,7 @@ export default function Home() {
       <section className="w-full min-h-screen flex flex-col justify-center bg-gradient-to-br from-rc-accent to-rc-text px-6 sm:px-8 md:px-12 py-24 md:py-32">
         <div className="max-w-2xl mx-auto w-full space-y-6">
           <div className={`transform transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '120ms' }}>
-            <p className="text-xs font-medium text-white/70 uppercase tracking-wider">Deliverance Through Jesus Christ</p>
+            <p className="text-xs font-medium text-white/70 uppercase tracking-wider">For Young People Caught in Fraud</p>
           </div>
 
           <div className={`transform transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '240ms' }}>
@@ -69,13 +69,13 @@ export default function Home() {
 
           <div className="border-l-4 border-rc-accent pl-8 space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
             <p>I lived this life.</p>
-            <p>I wanted to stop.</p>
+            <p>I tried to stop.</p>
             <p>I could not.</p>
-            <p className="pt-2">Until Jesus Christ found me.</p>
+            <p className="pt-2">Until Jesus Christ stepped in.</p>
             <p className="font-medium">He broke my chains.</p>
             <p className="font-medium">He gave me a new life.</p>
-            <p>I am not the answer.</p>
-            <p>He is.</p>
+            <p className="pt-3">Deliverance is real. It happens today.</p>
+            <p>It will happen for you.</p>
           </div>
         </div>
       </section>
@@ -172,10 +172,10 @@ export default function Home() {
           <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-white leading-tight">Return</h2>
 
           <div className="space-y-4 text-base md:text-lg text-white/90 leading-relaxed font-light">
-            <p>Tired of living a lie?</p>
-            <p>Tired of meaninglessness, rising and falling, waste, confusion and fear?</p>
-            <p className="pt-2">I have been there.</p>
-            <p className="pt-3 font-medium text-white">Jesus is calling you home.</p>
+            <p>You know the trap.</p>
+            <p>You know it&apos;s tightening.</p>
+            <p className="pt-2">You cannot stop alone.</p>
+            <p className="pt-3 font-medium text-white">This is your moment. Jesus is calling you out.</p>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 pt-8">
