@@ -214,63 +214,17 @@ export default function Home() {
 
       {/* SECTION 7: FINAL CALL */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-gradient-to-br from-rc-accent to-rc-text border-t border-rc-border">
-        <div className="max-w-2xl mx-auto space-y-12">
-          <div className="space-y-10 leading-relaxed">
-            {/* Bridge to current state */}
-            <div className="space-y-6">
-              <p className="text-xl md:text-2xl font-serif font-bold text-white">
-                But first, you hav<span className="italic">e</span> to answ<span className="italic">e</span>r th<span className="italic">e</span> r<span className="italic">e</span>al qu<span className="italic">e</span>stion.
-              </p>
-
-              <div className="space-y-3 text-lg text-white/85">
-                <p>Right now, you might f<span className="italic">e</span>el:</p>
-                <ul className="space-y-2 ml-6 text-white/80">
-                  <li>• Trapp<span className="italic">e</span>d by choic<span className="italic">e</span>s you&apos;v<span className="italic">e</span> mad<span className="italic">e</span></li>
-                  <li>• Alon<span className="italic">e</span> in your sham<span className="italic">e</span></li>
-                  <li>• Too far gon<span className="italic">e</span> for grac<span className="italic">e</span></li>
-                </ul>
-              </div>
-            </div>
-
-            {/* Pause before revelation */}
-            <div className="h-px bg-white/10"></div>
-
-            {/* God's response - the revelation */}
-            <div className="space-y-6">
-              <p className="text-lg text-white/90 font-medium">
-                List<span className="italic">e</span>n to what th<span className="italic">e</span> Fath<span className="italic">e</span>r says:
-              </p>
-
-              <p className="text-lg md:text-xl text-white leading-relaxed italic font-serif">
-                &quot;Quick! Bring th<span className="not-italic">e</span> b<span className="not-italic">e</span>st rob<span className="not-italic">e</span>. Put a ring on his fing<span className="not-italic">e</span>r and sandals on his f<span className="not-italic">e</span>et. For this son of min<span className="not-italic">e</span> was d<span className="not-italic">e</span>ad and is aliv<span className="not-italic">e</span> again; h<span className="not-italic">e</span> was lost and is found.&quot;
-              </p>
-              <p className="text-sm text-white/60 font-medium">
-                Luk<span className="italic">e</span> 15:22-23
-              </p>
-            </div>
-
-            {/* The turning point - His response to you */}
-            <div className="space-y-5 pt-4">
-              <p className="text-xl md:text-2xl text-white font-serif font-bold leading-relaxed">
-                H<span className="italic">e</span>&apos;s not angry at you.
-              </p>
-              <p className="text-xl md:text-2xl text-white font-serif font-bold leading-relaxed">
-                H<span className="italic">e</span>&apos;s running toward you.
-              </p>
-            </div>
-
-            {/* Final pause and question */}
-            <div className="h-px bg-white/10"></div>
-
-            {/* The choice - centered, powerful */}
-            <div className="space-y-6 text-center pt-4">
-              <p className="text-lg md:text-xl text-white/90">
-                Th<span className="italic">e</span> qu<span className="italic">e</span>stion isn&apos;t wh<span className="italic">e</span>th<span className="italic">e</span>r H<span className="italic">e</span>&apos;ll acc<span className="italic">e</span>pt you back.
-              </p>
-              <p className="text-2xl md:text-3xl font-serif font-bold text-white">
-                Th<span className="italic">e</span> qu<span className="italic">e</span>stion is: Will you com<span className="italic">e</span> hom<span className="italic">e</span>?
-              </p>
-            </div>
+        <div className="max-w-2xl mx-auto space-y-8">
+          <div className="space-y-6 leading-relaxed">
+            <p className="text-2xl md:text-3xl font-serif font-bold text-white">
+              Tired of living a lie?
+            </p>
+            <p className="text-2xl md:text-3xl font-serif font-bold text-white">
+              R<span className="italic">e</span>ady to b<span className="italic">e</span> fr<span className="italic">e</span><span className="italic">e</span> at last?
+            </p>
+            <p className="text-2xl md:text-3xl font-serif font-bold text-white pt-4">
+              J<span className="italic">e</span>sus is calling you hom<span className="italic">e</span>.
+            </p>
           </div>
 
           <Link
