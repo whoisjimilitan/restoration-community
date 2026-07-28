@@ -612,6 +612,8 @@ We are no longer defined by our worst decisions.
 
 We are defined by God's grace.
 
+For those who have participated in fraud, scams and other forms of deception, shame can feel especially heavy. But God's forgiveness reaches even there. In Christ, you are forgiven completely.
+
 Receiving God's forgiveness also changes the way we view others.
 
 Those who have received mercy learn to extend mercy.
@@ -763,6 +765,8 @@ Sometimes it means making amends where possible.
 Sometimes it means rebuilding trust over time.
 
 Sometimes it means accepting that healing will take patience.
+
+Where fraud and scams have caused financial harm, restoration may include making amends. This is not earning forgiveness. It is living out the integrity that God has restored in you.
 
 Reconciliation is not pretending that nothing happened.
 
