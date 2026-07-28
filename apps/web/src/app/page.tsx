@@ -75,20 +75,6 @@ export default function Home() {
               <p>This is a spiritual trap. Only J<span className="italic">e</span>sus Christ s<span className="italic">e</span>ts you fr<span className="italic">e</span>e.</p>
             </div>
           </div>
-
-          <div
-            className={`transform transition-all duration-700 pt-8 ${
-              isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-            }`}
-            style={{ transitionDelay: '480ms' }}
-          >
-            <Link
-              href="/deliverance"
-              className="inline-flex items-center justify-center px-8 py-4 min-h-[48px] bg-white text-rc-accent font-medium rounded-lg hover:shadow-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-rc-gold focus:ring-offset-2 focus:ring-offset-rc-accent"
-            >
-              R<span className="italic">e</span>qu<span className="italic">e</span>st D<span className="italic">e</span>liv<span className="italic">e</span>ranc<span className="italic">e</span>
-            </Link>
-          </div>
         </div>
       </section>
 
@@ -214,54 +200,40 @@ export default function Home() {
 
       {/* SECTION 7: RETURN */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-gradient-to-br from-rc-accent to-rc-text border-t border-rc-border">
-        <div className="max-w-2xl mx-auto space-y-8">
+        <div className="max-w-2xl mx-auto space-y-12">
+          <h2 className="text-4xl md:text-5xl font-serif font-bold text-white leading-tight">
+            R<span className="italic">e</span>turn
+          </h2>
+
           <div className="space-y-6 text-lg text-white leading-relaxed">
             <p>Tired of living a li<span className="italic">e</span>?</p>
-            <p>Tired of m<span className="italic">e</span>aningless activ<span className="italic">i</span>ti<span className="italic">e</span>s, rising and falling, wast<span className="italic">e</span>, confusion and f<span className="italic">e</span>ar?</p>
+            <p>Tired of m<span className="italic">e</span>aninglessn<span className="italic">e</span>ss, rising and falling, wast<span className="italic">e</span>, confusion and f<span className="italic">e</span>ar?</p>
             <p>I hav<span className="italic">e</span> b<span className="italic">e</span><span className="italic">e</span>n th<span className="italic">e</span>r<span className="italic">e</span>.</p>
             <p className="pt-4">J<span className="italic">e</span>sus is calling you hom<span className="italic">e</span>.</p>
           </div>
 
-          <Link
-            href="/deliverance"
-            className="inline-flex items-center justify-center px-8 py-4 min-h-[48px] bg-white text-rc-accent font-medium rounded-lg hover:shadow-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-rc-gold focus:ring-offset-2 focus:ring-offset-rc-accent"
-          >
-            R<span className="italic">e</span>qu<span className="italic">e</span>st D<span className="italic">e</span>liv<span className="italic">e</span>ranc<span className="italic">e</span>
-          </Link>
-        </div>
-      </section>
-
-      {/* Footer Navigation */}
-      <footer className="w-full py-8 px-6 sm:px-8 md:px-12 bg-rc-text border-t border-rc-border">
-        <div className="max-w-2xl mx-auto flex items-center justify-between">
-          <Link
-            href="/"
-            className="text-white/60 hover:text-white text-sm transition-colors duration-200"
-          >
-            Hom<span className="italic">e</span>
-          </Link>
-          <div className="flex items-center gap-6">
-            <a
-              href="#journey"
-              className="text-white/60 hover:text-white text-sm transition-colors duration-200"
-            >
-              Th<span className="italic">e</span> Journ<span className="italic">e</span>y
-            </a>
+          <div className="flex flex-col sm:flex-row gap-4 pt-4">
             <Link
               href="/deliverance"
-              className="text-white/60 hover:text-white text-sm transition-colors duration-200"
+              className="inline-flex items-center justify-center px-8 py-4 min-h-[48px] bg-white text-rc-accent font-medium rounded-lg hover:shadow-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-rc-gold focus:ring-offset-2 focus:ring-offset-rc-accent"
             >
-              Start Now
+              R<span className="italic">e</span>qu<span className="italic">e</span>st D<span className="italic">e</span>liv<span className="italic">e</span>ranc<span className="italic">e</span>
+            </Link>
+            <Link
+              href="/auth/signin"
+              className="inline-flex items-center justify-center px-8 py-4 min-h-[48px] text-white font-medium border border-white rounded-lg hover:bg-white/10 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-rc-gold focus:ring-offset-2 focus:ring-offset-rc-accent"
+            >
+              R<span className="italic">e</span>turn to Your Journ<span className="italic">e</span>y
             </Link>
           </div>
         </div>
-      </footer>
+      </section>
 
       {/* Footer Branding */}
-      <footer className="w-full py-6 px-6 sm:px-8 md:px-12 bg-rc-text border-t border-rc-border">
-        <div className="max-w-2xl mx-auto text-center space-y-2">
-          <p className="text-white/50 text-xs">
-            R<span className="italic">e</span>storation Community — J<span className="italic">e</span>sus Christ D<span className="italic">e</span>liv<span className="italic">e</span>rs
+      <footer className="w-full py-8 px-6 sm:px-8 md:px-12 bg-rc-text border-t border-rc-border">
+        <div className="max-w-2xl mx-auto text-center space-y-4">
+          <p className="text-white/60 text-sm">
+            Broth<span className="italic">e</span>r Jimi Ministri<span className="italic">e</span>s — D<span className="italic">e</span>liv<span className="italic">e</span>ranc<span className="italic">e</span> & R<span className="italic">e</span>storation Platform
           </p>
           <p className="text-white/30 text-xs">
             © 2026. All rights r<span className="italic">e</span>s<span className="italic">e</span>rv<span className="italic">e</span>d.
