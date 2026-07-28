@@ -9,7 +9,7 @@ export default function InvitationSection() {
         <div className="space-y-8">
           <div>
             <h2 className="text-4xl md:text-5xl font-serif font-bold text-rc-text leading-tight">
-              Come Home
+              Com<span className="italic">e</span> Home
             </h2>
           </div>
 
@@ -40,7 +40,7 @@ export default function InvitationSection() {
           <div className="pt-4">
             <Link
               href="/deliverance"
-              className="inline-flex items-center justify-center px-8 py-4 bg-rc-accent text-white font-medium rounded-lg hover:bg-rc-text transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-rc-accent focus:ring-offset-2 focus:ring-offset-rc-bg"
+              className="inline-flex items-center justify-center px-8 py-4 min-h-[48px] bg-rc-accent text-white font-medium rounded-lg hover:bg-rc-accent-light hover:shadow-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-rc-gold focus:ring-offset-2 focus:ring-offset-rc-bg"
             >
               Get Delivered
             </Link>

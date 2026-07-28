@@ -7,7 +7,7 @@ export default function RecognitionSection() {
         <div className="space-y-8">
           <div>
             <h2 className="text-4xl md:text-5xl font-serif font-bold text-rc-text leading-tight">
-              Why You&apos;re Still Bound
+              Why You&apos;r<span className="italic">e</span> Still Bound
             </h2>
           </div>
 
