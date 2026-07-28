@@ -77,7 +77,7 @@ export default function Home() {
           </div>
 
           <div
-            className={`transform transition-all duration-700 pt-8 ${
+            className={`transform transition-all duration-700 pt-8 flex flex-col sm:flex-row items-start sm:items-center gap-6 ${
               isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
             }`}
             style={{ transitionDelay: '480ms' }}
@@ -86,8 +86,14 @@ export default function Home() {
               href="/deliverance"
               className="inline-flex items-center justify-center px-8 py-4 min-h-[48px] bg-white text-rc-accent font-medium rounded-lg hover:shadow-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-rc-gold focus:ring-offset-2 focus:ring-offset-rc-accent"
             >
-              R<span className="italic">e</span>qu<span className="italic">e</span>st D<span className="italic">e</span>liv<span className="italic">e</span>ranc<span className="italic">e</span>
+              G<span className="italic">e</span>t D<span className="italic">e</span>liv<span className="italic">e</span>r<span className="italic">e</span>d
             </Link>
+            <a
+              href="#journey"
+              className="text-white/70 hover:text-white text-sm font-medium transition-colors duration-200"
+            >
+              S<span className="italic">e</span>e th<span className="italic">e</span> Journ<span className="italic">e</span>y ↓
+            </a>
           </div>
         </div>
       </section>
@@ -142,7 +148,7 @@ export default function Home() {
       </section>
 
       {/* SECTION 5: THE JOURNEY OUT */}
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
+      <section id="journey" className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
         <div className="max-w-2xl mx-auto space-y-12">
           <h2 className="text-4xl md:text-5xl font-serif font-bold text-rc-text leading-tight">
             Th<span className="italic">e</span> J<span className="italic">o</span>urn<span className="italic">e</span>y Out
@@ -239,13 +245,39 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="w-full py-12 px-6 sm:px-8 md:px-12 bg-rc-text border-t border-rc-border">
-        <div className="max-w-2xl mx-auto text-center space-y-4">
-          <p className="text-white/60 text-sm">
+      {/* Footer Navigation */}
+      <footer className="w-full py-8 px-6 sm:px-8 md:px-12 bg-rc-text border-t border-rc-border">
+        <div className="max-w-2xl mx-auto flex items-center justify-between">
+          <Link
+            href="/"
+            className="text-white/60 hover:text-white text-sm transition-colors duration-200"
+          >
+            Hom<span className="italic">e</span>
+          </Link>
+          <div className="flex items-center gap-6">
+            <a
+              href="#journey"
+              className="text-white/60 hover:text-white text-sm transition-colors duration-200"
+            >
+              Th<span className="italic">e</span> Journ<span className="italic">e</span>y
+            </a>
+            <Link
+              href="/deliverance"
+              className="text-white/60 hover:text-white text-sm transition-colors duration-200"
+            >
+              Start Now
+            </Link>
+          </div>
+        </div>
+      </footer>
+
+      {/* Footer Branding */}
+      <footer className="w-full py-6 px-6 sm:px-8 md:px-12 bg-rc-text border-t border-rc-border">
+        <div className="max-w-2xl mx-auto text-center space-y-2">
+          <p className="text-white/50 text-xs">
             R<span className="italic">e</span>storation Community — J<span className="italic">e</span>sus Christ D<span className="italic">e</span>liv<span className="italic">e</span>rs
           </p>
-          <p className="text-white/40 text-xs">
+          <p className="text-white/30 text-xs">
             © 2026. All rights r<span className="italic">e</span>s<span className="italic">e</span>rv<span className="italic">e</span>d.
           </p>
         </div>
