@@ -83,48 +83,72 @@ export default function SignInPage() {
   }
 
   return (
-    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', paddingLeft: '2rem', paddingRight: '2rem', backgroundColor: '#ffffff' }}>
-      <div style={{ maxWidth: '500px', margin: '0 auto', width: '100%' }}>
-        <div style={{ marginBottom: '3rem' }}>
+    <div style={{
+      minHeight: '100vh',
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      paddingLeft: '2rem',
+      paddingRight: '2rem',
+      backgroundColor: '#FAFAF8'
+    }}>
+      <div style={{ maxWidth: '480px', margin: '0 auto', width: '100%' }}>
+        {/* Header */}
+        <div style={{ marginBottom: '3.5rem' }}>
           <h1 style={{
-            fontSize: '2rem',
-            fontFamily: 'system-ui, -apple-system, sans-serif',
+            fontSize: '2.75rem',
+            fontFamily: 'Georgia, Garamond, serif',
             fontWeight: 700,
             color: '#1a1a1a',
             lineHeight: 1.2,
-            marginBottom: '0.5rem',
-            marginTop: 0
+            marginBottom: '0.75rem',
+            marginTop: 0,
+            letterSpacing: '-0.02em'
           }}>
-            Welcome back
+            W<span style={{ fontStyle: 'italic' }}>e</span>lcom<span style={{ fontStyle: 'italic' }}>e</span> Back
           </h1>
           <p style={{
-            fontSize: '0.9375rem',
+            fontSize: '1.0625rem',
             fontFamily: 'system-ui, -apple-system, sans-serif',
             color: '#666666',
-            lineHeight: 1.6,
+            lineHeight: 1.7,
             marginTop: 0
           }}>
             Sign in to continue your restoration journey.
           </p>
         </div>
 
-        <div style={{ marginBottom: '2rem' }}>
+        {/* Form Container */}
+        <div style={{
+          backgroundColor: '#FFFFFF',
+          padding: '2.5rem',
+          borderRadius: '8px',
+          marginBottom: '2rem',
+          boxShadow: '0 1px 3px rgba(0,0,0,0.05)',
+          border: '1px solid #f0f0f0'
+        }}>
+          {/* Error Banner */}
           {error && (
             <div style={{
               backgroundColor: '#FEE2E2',
               border: '1px solid #FCA5A5',
               color: '#991B1B',
               padding: '1rem',
-              borderRadius: '0.375rem',
+              borderRadius: '6px',
               marginBottom: '1.5rem'
             }}>
-              <p style={{ margin: 0, fontSize: '0.9375rem', fontWeight: 500 }}>
+              <p style={{ margin: 0, fontSize: '0.9375rem', fontWeight: 600 }}>
+                Sign In Failed
+              </p>
+              <p style={{ margin: '0.5rem 0 0 0', fontSize: '0.9375rem', lineHeight: 1.5 }}>
                 {error}
               </p>
             </div>
           )}
 
+          {/* Form */}
           <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+            {/* Email Field */}
             <div>
               <label style={{
                 display: 'block',
@@ -132,7 +156,9 @@ export default function SignInPage() {
                 fontFamily: 'system-ui, -apple-system, sans-serif',
                 fontWeight: 600,
                 color: '#1a1a1a',
-                marginBottom: '0.5rem'
+                marginBottom: '0.5rem',
+                textTransform: 'uppercase',
+                letterSpacing: '0.5px'
               }}>
                 Email Address
               </label>
@@ -145,24 +171,36 @@ export default function SignInPage() {
                 autoFocus
                 style={{
                   width: '100%',
-                  padding: '0.75rem',
+                  padding: '0.875rem',
                   fontSize: '1rem',
                   fontFamily: 'system-ui, -apple-system, sans-serif',
                   color: '#1a1a1a',
                   border: formErrors.email ? '1px solid #DC2626' : '1px solid #D1D5DB',
-                  borderRadius: '0.375rem',
+                  borderRadius: '6px',
                   backgroundColor: '#FFFFFF',
                   boxSizing: 'border-box',
-                  transition: 'border-color 200ms'
+                  transition: 'all 200ms',
+                  outline: 'none'
+                }}
+                onFocus={(e) => {
+                  if (!formErrors.email) {
+                    e.currentTarget.style.borderColor = '#0D5E57';
+                    e.currentTarget.style.boxShadow = '0 0 0 3px rgba(13,94,87,0.1)';
+                  }
+                }}
+                onBlur={(e) => {
+                  e.currentTarget.style.borderColor = formErrors.email ? '#DC2626' : '#D1D5DB';
+                  e.currentTarget.style.boxShadow = 'none';
                 }}
               />
               {formErrors.email && (
-                <p style={{ color: '#DC2626', fontSize: '0.875rem', marginTop: '0.25rem', margin: '0.25rem 0 0 0', fontFamily: 'system-ui, -apple-system, sans-serif' }}>
+                <p style={{ color: '#DC2626', fontSize: '0.8125rem', marginTop: '0.375rem', margin: '0.375rem 0 0 0', fontFamily: 'system-ui, -apple-system, sans-serif', fontWeight: 500 }}>
                   {formErrors.email}
                 </p>
               )}
             </div>
 
+            {/* Password Field */}
             <div>
               <label style={{
                 display: 'block',
@@ -170,7 +208,9 @@ export default function SignInPage() {
                 fontFamily: 'system-ui, -apple-system, sans-serif',
                 fontWeight: 600,
                 color: '#1a1a1a',
-                marginBottom: '0.5rem'
+                marginBottom: '0.5rem',
+                textTransform: 'uppercase',
+                letterSpacing: '0.5px'
               }}>
                 Password
               </label>
@@ -182,98 +222,122 @@ export default function SignInPage() {
                 required
                 style={{
                   width: '100%',
-                  padding: '0.75rem',
+                  padding: '0.875rem',
                   fontSize: '1rem',
                   fontFamily: 'system-ui, -apple-system, sans-serif',
                   color: '#1a1a1a',
                   border: formErrors.password ? '1px solid #DC2626' : '1px solid #D1D5DB',
-                  borderRadius: '0.375rem',
+                  borderRadius: '6px',
                   backgroundColor: '#FFFFFF',
                   boxSizing: 'border-box',
-                  transition: 'border-color 200ms'
+                  transition: 'all 200ms',
+                  outline: 'none'
+                }}
+                onFocus={(e) => {
+                  if (!formErrors.password) {
+                    e.currentTarget.style.borderColor = '#0D5E57';
+                    e.currentTarget.style.boxShadow = '0 0 0 3px rgba(13,94,87,0.1)';
+                  }
+                }}
+                onBlur={(e) => {
+                  e.currentTarget.style.borderColor = formErrors.password ? '#DC2626' : '#D1D5DB';
+                  e.currentTarget.style.boxShadow = 'none';
                 }}
               />
               {formErrors.password && (
-                <p style={{ color: '#DC2626', fontSize: '0.875rem', marginTop: '0.25rem', margin: '0.25rem 0 0 0', fontFamily: 'system-ui, -apple-system, sans-serif' }}>
+                <p style={{ color: '#DC2626', fontSize: '0.8125rem', marginTop: '0.375rem', margin: '0.375rem 0 0 0', fontFamily: 'system-ui, -apple-system, sans-serif', fontWeight: 500 }}>
                   {formErrors.password}
                 </p>
               )}
             </div>
 
+            {/* Sign In Button */}
             <button
               type="submit"
               disabled={!isFormValid || loading}
               style={{
-                padding: '0.75rem 1.5rem',
-                backgroundColor: !isFormValid || loading ? '#D1D5DB' : '#0D5E57',
+                padding: '0.875rem 1.5rem',
+                backgroundColor: !isFormValid || loading ? '#E5E7EB' : '#0D5E57',
                 color: 'white',
                 fontSize: '1rem',
                 fontWeight: 600,
-                borderRadius: '0.375rem',
-                border: '1px solid #0D5E57',
+                borderRadius: '6px',
+                border: 'none',
                 cursor: !isFormValid || loading ? 'not-allowed' : 'pointer',
                 transition: 'all 200ms',
                 fontFamily: 'system-ui, -apple-system, sans-serif',
-                opacity: loading ? 0.7 : 1
+                opacity: loading ? 0.8 : 1,
+                marginTop: '0.5rem'
               }}
               onMouseEnter={(e) => {
                 if (isFormValid && !loading) {
                   e.currentTarget.style.backgroundColor = '#0a4a47';
-                  e.currentTarget.style.borderColor = '#0a4a47';
                 }
               }}
               onMouseLeave={(e) => {
                 if (isFormValid && !loading) {
                   e.currentTarget.style.backgroundColor = '#0D5E57';
-                  e.currentTarget.style.borderColor = '#0D5E57';
                 }
               }}
             >
               {loading ? 'Signing in...' : 'Sign In'}
             </button>
-
-            <div style={{ textAlign: 'center', paddingTop: '1rem', borderTop: '1px solid #E5E7EB' }}>
-              <p style={{ fontSize: '0.875rem', fontFamily: 'system-ui, -apple-system, sans-serif', color: '#666666', margin: '1rem 0 0 0' }}>
-                <Link
-                  href="/auth/password-reset"
-                  style={{
-                    color: '#0D5E57',
-                    textDecoration: 'none',
-                    cursor: 'pointer',
-                    fontWeight: 500
-                  }}
-                  onMouseEnter={(e) => {
-                    (e.target as HTMLElement).style.textDecoration = 'underline';
-                  }}
-                  onMouseLeave={(e) => {
-                    (e.target as HTMLElement).style.textDecoration = 'none';
-                  }}
-                >
-                  Forgot password?
-                </Link>
-              </p>
-              <p style={{ fontSize: '0.875rem', fontFamily: 'system-ui, -apple-system, sans-serif', color: '#666666', margin: '1rem 0 0 0' }}>
-                Don&apos;t have an account?{' '}
-                <Link
-                  href="/deliverance"
-                  style={{
-                    fontWeight: 600,
-                    color: '#0D5E57',
-                    textDecoration: 'none',
-                    cursor: 'pointer'
-                  }}
-                  onMouseEnter={(e) => {
-                    (e.target as HTMLElement).style.textDecoration = 'underline';
-                  }}
-                  onMouseLeave={(e) => {
-                    (e.target as HTMLElement).style.textDecoration = 'none';
-                  }}
-                >
-                  Start your journey
-                </Link>
-              </p>
-            </div>
           </form>
+
+          {/* Links */}
+          <div style={{ paddingTop: '1.5rem', borderTop: '1px solid #F0F0F0' }}>
+            <p style={{
+              fontSize: '0.9375rem',
+              fontFamily: 'system-ui, -apple-system, sans-serif',
+              color: '#666666',
+              textAlign: 'center',
+              margin: '1rem 0 0 0'
+            }}>
+              <Link
+                href="/auth/password-reset"
+                style={{
+                  color: '#0D5E57',
+                  textDecoration: 'none',
+                  fontWeight: 500,
+                  cursor: 'pointer'
+                }}
+                onMouseEnter={(e) => {
+                  (e.target as HTMLElement).style.textDecoration = 'underline';
+                }}
+                onMouseLeave={(e) => {
+                  (e.target as HTMLElement).style.textDecoration = 'none';
+                }}
+              >
+                Forgot password?
+              </Link>
+            </p>
+            <p style={{
+              fontSize: '0.9375rem',
+              fontFamily: 'system-ui, -apple-system, sans-serif',
+              color: '#666666',
+              textAlign: 'center',
+              margin: '1rem 0 0 0'
+            }}>
+              Don&apos;t have an account?{' '}
+              <Link
+                href="/deliverance"
+                style={{
+                  fontWeight: 600,
+                  color: '#0D5E57',
+                  textDecoration: 'none',
+                  cursor: 'pointer'
+                }}
+                onMouseEnter={(e) => {
+                  (e.target as HTMLElement).style.textDecoration = 'underline';
+                }}
+                onMouseLeave={(e) => {
+                  (e.target as HTMLElement).style.textDecoration = 'none';
+                }}
+              >
+                Start your journey
+              </Link>
+            </p>
+          </div>
         </div>
       </div>
     </div>
