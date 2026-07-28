@@ -2,24 +2,6 @@
 
 import { useState } from 'react';
 
-const testimonials = [
-  {
-    quote: 'I ran scams for 12 years. I thought I was trapped forever. When I met the team, they didn\'t judge me—they just pointed me to Jesus. That changed everything.',
-    name: 'David',
-    detail: 'Ran fraud operations, now honest work'
-  },
-  {
-    quote: 'The shame was suffocating. But they showed me that forgiveness reaches even into the darkest places. I\'m free now. Really free.',
-    name: 'Sarah',
-    detail: 'Involved in cryptocurrency scams for 8 years'
-  },
-  {
-    quote: 'I didn\'t believe anyone could help me. I didn\'t believe God would take me back. But they walked with me through every step. I\'m standing now.',
-    name: 'Marcus',
-    detail: 'Fraud consultant, now leading others to freedom'
-  }
-];
-
 export default function DeliverancePage() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -84,20 +66,20 @@ export default function DeliverancePage() {
             </div>
 
             <div className="space-y-6 text-lg text-rc-text leading-relaxed">
-              <p>We have received your request.</p>
-              <p>We will call you personally very soon.</p>
+              <p>We have r<span className="italic">e</span>c<span className="italic">e</span>iv<span className="italic">e</span>d your r<span className="italic">e</span>qu<span className="italic">e</span>st.</p>
+              <p>W<span className="italic">e</span> will call you p<span className="italic">e</span>rsonally v<span className="italic">e</span>ry soon.</p>
             </div>
 
             <div className="space-y-6 text-lg text-rc-text-secondary leading-relaxed border-l-4 border-rc-gold pl-8 py-4">
-              <p>We will speak with you.</p>
-              <p>We will listen to you.</p>
-              <p>We will counsel you.</p>
-              <p>We will help you get ready.</p>
-              <p>We will arrange a time for your deliverance.</p>
+              <p>W<span className="italic">e</span> will sp<span className="italic">e</span>ak with you.</p>
+              <p>W<span className="italic">e</span> will list<span className="italic">e</span>n to you.</p>
+              <p>W<span className="italic">e</span> will coun<span className="italic">e</span>l you.</p>
+              <p>W<span className="italic">e</span> will h<span className="italic">e</span>lp you g<span className="italic">e</span>t r<span className="italic">e</span>ady.</p>
+              <p>W<span className="italic">e</span> will arrang<span className="italic">e</span> a tim<span className="italic">e</span> for your d<span className="italic">e</span>liv<span className="italic">e</span>ranc<span className="italic">e</span>.</p>
               <p className="pt-4 border-t border-rc-text/10">
-                After you are set free we will walk with you through seven days of truth. One day at a time. To help you stand firm in your new life.
+                Aft<span className="italic">e</span>r you ar<span className="italic">e</span> s<span className="italic">e</span>t fr<span className="italic">e</span><span className="italic">e</span> w<span className="italic">e</span> will walk with you through s<span className="italic">e</span>v<span className="italic">e</span>n days of truth. On<span className="italic">e</span> day at a tim<span className="italic">e</span>. To h<span className="italic">e</span>lp you stand firm in your n<span className="italic">e</span>w lif<span className="italic">e</span>.
               </p>
-              <p>Be encouraged. Jesus Christ is able to set you free.</p>
+              <p>B<span className="italic">e</span> <span className="italic">e</span>ncourag<span className="italic">e</span>d. J<span className="italic">e</span>sus Christ is abl<span className="italic">e</span> to s<span className="italic">e</span>t you fr<span className="italic">e</span><span className="italic">e</span>.</p>
             </div>
           </div>
         </div>
@@ -109,49 +91,23 @@ export default function DeliverancePage() {
     <div className="min-h-screen bg-rc-bg py-24 md:py-32 px-6 sm:px-8 md:px-12">
       <div className="max-w-2xl mx-auto">
         {/* Header */}
-        <div className="space-y-12 mb-20">
+        <div className="space-y-8 mb-16">
           <div>
             <h1 className="text-5xl md:text-6xl font-serif font-bold text-rc-text leading-tight">
-              Request D<span className="italic">e</span>liverance
+              R<span className="italic">e</span>qu<span className="italic">e</span>st D<span className="italic">e</span>liv<span className="italic">e</span>ranc<span className="italic">e</span>
             </h1>
           </div>
 
           <p className="text-lg text-rc-text-secondary leading-relaxed">
-            Tell us about yourself. We will call you personally to discuss how we can help you walk toward freedom in Jesus Christ.
+            T<span className="italic">e</span>ll us about yours<span className="italic">e</span>lf. W<span className="italic">e</span> will call you p<span className="italic">e</span>rsonally to discuss how w<span className="italic">e</span> can h<span className="italic">e</span>lp you walk toward fr<span className="italic">e</span>edom in J<span className="italic">e</span>sus Christ.
           </p>
-        </div>
-
-        {/* Testimonials Section */}
-        <div className="mb-20">
-          <p className="text-sm font-medium text-rc-text uppercase tracking-wide mb-8">
-            Real people. Real freedom.
-          </p>
-
-          <div className="grid gap-6 md:gap-8">
-            {testimonials.map((testimonial, index) => (
-              <div
-                key={index}
-                className="border-l-4 border-rc-gold pl-6 py-4 bg-rc-warm-gray/30 rounded-r"
-              >
-                <p className="text-lg text-rc-text italic mb-4 leading-relaxed">
-                  &quot;{testimonial.quote}&quot;
-                </p>
-                <p className="text-sm font-medium text-rc-text">
-                  {testimonial.name}
-                </p>
-                <p className="text-xs text-rc-text-secondary">
-                  {testimonial.detail}
-                </p>
-              </div>
-            ))}
-          </div>
         </div>
 
         {/* Form Section */}
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
             <label className="block text-sm font-medium text-rc-text mb-3">
-              First Name
+              First Nam<span className="italic">e</span>
             </label>
             <input
               type="text"
@@ -166,7 +122,7 @@ export default function DeliverancePage() {
 
           <div>
             <label className="block text-sm font-medium text-rc-text mb-3">
-              Contact Number
+              Contact Numb<span className="italic">e</span>r
             </label>
             <input
               type="tel"
@@ -181,7 +137,7 @@ export default function DeliverancePage() {
 
           <div>
             <label className="block text-sm font-medium text-rc-text mb-3">
-              How long have you lived in this situation?
+              How long hav<span className="italic">e</span> you liv<span className="italic">e</span>d in this situation?
             </label>
             <input
               type="text"
@@ -197,7 +153,7 @@ export default function DeliverancePage() {
           <div>
             <div className="flex items-end justify-between mb-3">
               <label className="block text-sm font-medium text-rc-text">
-                What is one thing you want to be free from most?
+                What is on<span className="italic">e</span> thing you want to b<span className="italic">e</span> fr<span className="italic">e</span><span className="italic">e</span> from most?
               </label>
               <span className="text-xs text-rc-text-tertiary">
                 {charCount}/500
@@ -221,7 +177,7 @@ export default function DeliverancePage() {
               disabled={loading}
               className="w-full sm:w-auto px-8 py-3 sm:py-4 min-h-[48px] sm:min-h-[48px] bg-rc-accent hover:bg-rc-accent-light text-white font-medium rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-rc-gold focus:ring-offset-2 focus:ring-offset-rc-bg disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-lg"
             >
-              {loading ? 'Submitting...' : 'Request Deliverance'}
+              {loading ? 'Submitting...' : 'R<span className="italic">e</span>qu<span className="italic">e</span>st D<span className="italic">e</span>liv<span className="italic">e</span>ranc<span className="italic">e</span>'}
             </button>
           </div>
         </form>
