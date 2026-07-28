@@ -34,11 +34,11 @@ export default function DeliverancePage() {
       <svg
         style={{
           position: 'absolute',
-          bottom: '-10%',
-          right: '-5%',
-          width: '600px',
-          height: '600px',
-          opacity: 0.08,
+          bottom: '5%',
+          right: '0%',
+          width: '500px',
+          height: '500px',
+          opacity: 0.12,
           pointerEvents: 'none',
           zIndex: 0
         }}
