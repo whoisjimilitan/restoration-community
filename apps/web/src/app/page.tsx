@@ -2,6 +2,10 @@
 
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
+import {
+  DoorOpeningIcon,
+  EmptyToFilledIcon
+} from '@/components/DeliverationIllustrations';
 
 const stages = [
   { number: 1, name: 'Truth', color: '#E8F4F3', textColor: 'text-rc-text' },
@@ -154,6 +158,11 @@ export default function Home() {
         </div>
       </section>
 
+      {/* VISUAL BREAK - Door Opening */}
+      <section className="w-full py-12 md:py-16 px-6 sm:px-8 md:px-12 bg-rc-bg flex items-center justify-center">
+        <DoorOpeningIcon />
+      </section>
+
       {/* SECTION 5: THE JOURNEY OUT */}
       <section id="journey" className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
         <div className="max-w-2xl mx-auto space-y-12">
@@ -223,6 +232,11 @@ export default function Home() {
             <p>To build som<span className="italic">e</span>thing that lasts.</p>
           </div>
         </div>
+      </section>
+
+      {/* VISUAL BREAK - Empty to Filled */}
+      <section className="w-full py-12 md:py-16 px-6 sm:px-8 md:px-12 bg-rc-bg flex items-center justify-center">
+        <EmptyToFilledIcon />
       </section>
 
       {/* SECTION 7: FINAL CALL */}
