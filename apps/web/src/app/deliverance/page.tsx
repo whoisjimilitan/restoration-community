@@ -2,6 +2,12 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import {
+  JourneyJustBeginningIcon,
+  ProdigalReturnIcon,
+  ChainsToLightIcon,
+  EmptyToFilledIcon
+} from '@/components/DeliverationIllustrations';
 
 const testimonials = [
   {
@@ -189,9 +195,23 @@ export default function DeliverancePage() {
 
   return (
     <div className="bg-rc-bg text-rc-text">
+      {/* JOURNEY BEGINS - Visual intro */}
+      <section className="w-full py-16 md:py-20 px-6 sm:px-8 md:px-12 bg-rc-bg border-b border-rc-border flex items-center justify-center">
+        <div className="max-w-2xl mx-auto w-full text-center space-y-6">
+          <JourneyJustBeginningIcon />
+          <p className="text-lg text-rc-text/70">
+            Your journey of r<span className="italic">e</span>storation starts h<span className="italic">e</span>r<span className="italic">e</span>
+          </p>
+        </div>
+      </section>
+
       {/* TESTIMONIALS - EXPANDABLE */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-b border-rc-border">
         <div className="max-w-2xl mx-auto">
+          <div className="flex justify-center mb-12">
+            <ProdigalReturnIcon />
+          </div>
+
           <button
             onClick={() => setShowTestimonials(!showTestimonials)}
             className="w-full text-left mb-8 flex items-center justify-between hover:text-rc-accent transition-colors"
@@ -224,6 +244,10 @@ export default function DeliverancePage() {
       {/* FAQ - EXPANDABLE */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-b border-rc-border">
         <div className="max-w-2xl mx-auto">
+          <div className="flex justify-center mb-12">
+            <ChainsToLightIcon />
+          </div>
+
           <button
             onClick={() => setShowFAQ(!showFAQ)}
             className="w-full text-left mb-8 flex items-center justify-between hover:text-rc-accent transition-colors"
@@ -257,6 +281,10 @@ export default function DeliverancePage() {
       {/* ACCOUNT CREATION FORM */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg">
         <div className="max-w-2xl mx-auto">
+          <div className="flex justify-center mb-12">
+            <EmptyToFilledIcon />
+          </div>
+
           <h1 className="text-5xl md:text-6xl font-serif font-bold text-rc-text leading-tight mb-8">
             G<span className="italic">e</span>t D<span className="italic">e</span>liv<span className="italic">e</span>r<span className="italic">e</span>d
           </h1>
