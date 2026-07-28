@@ -11,6 +11,7 @@ You are generating a conversion-optimized landing page for Restoration Community
 - **Compassionate:** Speak to people in pain, offering hope through Jesus Christ.
 - **Premium:** Professional design, smooth interactions, elegant typography.
 - **Accessible:** Mobile-first. No distractions. One clear conversion path.
+- **Crafted:** Every detail intentional. Built by humans who understand the audience, not formula-generated.
 
 ---
 
@@ -35,31 +36,31 @@ Examples:
 ## Design System (NON-NEGOTIABLE)
 
 ```
-PRIMARY PALETTE:
-  Deep Navy:      #0F766E (action, promise, growth) — buttons, accents
-  Charcoal:       #1a1a1a (text, substance) — headings, body
-  Warm Gray:      #8B8680 (support, context) — secondary text
-  Cream:          #FFFBF7 (breathing room) — backgrounds
-  Light Gray:     #F5F3F0 (subtle separation) — section dividers
+PRIMARY PALETTE (aligned with Restoration Community):
+  Deep Teal:      #0D5E57 (action, promise, growth) — buttons, accents
+  Charcoal:       #1A1A18 (text, substance) — headings, body
+  Warm Gray:      #8A8A80 (support, context) — secondary text
+  Off-white:      #FAFAF7 (breathing room) — backgrounds
+  Warm Gray Light:#EBE7E0 (subtle separation) — section dividers
 
 TYPOGRAPHY:
-  Headlines:      Georgia serif, bold, dark navy/charcoal
-  Body:           System sans-serif (Inter preferred), #1a1a1a
-  Accents:        Italic vowel spans for visual interest
-  Secondary:      #8B8680, smaller size
+  Headlines:      Georgia serif, bold, deep teal/charcoal
+  Body:           Inter or system sans-serif, #1A1A18
+  Accents:        Italic vowel spans for visual interest (judicious)
+  Secondary:      #8A8A80, smaller size
 
 SPACING:
   Section padding: 3rem vertical, 1.5rem horizontal (mobile) → 4rem/2rem (desktop)
-  Max content width: 640px (narrow, readable)
+  Max content width: 640px (narrow, readable, intimate)
   Grid gaps: 1.5rem (mobile) → 2rem (desktop)
 
 BUTTONS:
-  Primary (CTA):  bg-#0F766E, hover:bg-#0a5c59, text-white, rounded-lg, 1rem padding
-  Secondary:      border-2 border-#0F766E, text-#0F766E, hover:bg-#FFFBF7
+  Primary (CTA):  bg-#0D5E57, hover:bg-#1B7A6F, text-white, rounded-lg, py-4 px-8
+  Secondary:      border-2 border-#0D5E57, text-#0D5E57, hover:bg-rc-warm-gray
   All buttons:    smooth 200ms transition, no animations on load
 
 BORDERS:
-  Subtle dividers: 1px solid #E5E5E5
+  Subtle dividers: 1px solid #E0D9D0
   No heavy borders
 ```
 
@@ -101,7 +102,7 @@ export default function FormCTA({
   return (
     <button
       onClick={onClick}
-      className={`px-8 py-4 bg-[#0F766E] hover:bg-[#0a5c59] text-white font-semibold rounded-lg transition-colors duration-200 ${className}`}
+      className={`px-8 py-4 bg-rc-accent hover:bg-rc-accent-light text-white font-semibold rounded-lg transition-colors duration-200 ${className}`}
     >
       {label}
     </button>
@@ -111,218 +112,119 @@ export default function FormCTA({
 
 ---
 
-## Typography Rule: Italic Vowel Spans
+## Key Pattern: Restoration Community Form
 
-Every section heading (h1, h2) should wrap select vowels (a, e, i, o, u) in italic for visual interest:
+The `/deliverance` form page uses this exact structure:
 
 ```tsx
-<h1>
-  You were never made to live by lies.
-  <br />
-  D<span style={{ fontStyle: 'italic' }}>e</span>liverance starts with truth.
-</h1>
+'use client';
+import { useState } from 'react';
+
+export default function DeliverancePage() {
+  const [submitted, setSubmitted] = useState(false);
+  const [formData, setFormData] = useState({
+    firstName: '',
+    contactNumber: '',
+    duration: '',
+    freedomFrom: ''
+  });
+
+  // Form submission handler
+  const handleSubmit = async (e: React.FormEvent) => {
+    // POST to /api/deliverance-request
+    // On success: show confirmation page
+  };
+
+  // Confirmation page shows:
+  // "Thank you. We have received your request. We will call you personally very soon."
+  // + 7 lines of next steps
+}
 ```
 
-Apply to 1–2 vowels per heading, naturally. Do not over-apply; editorial judgment is essential.
+**Form Fields (always):**
+1. First Name
+2. Contact Number
+3. Duration (or context-specific field)
+4. One thing you want to be free from (or custom based on journey)
+
+**No:** account creation, email verification, signup flow.
+**Only:** identification + context capture.
 
 ---
 
-## 8-Section Page Structure
+## Homepage Pattern
 
-### SECTION 1: Hero
+The homepage (`/`) showcases the full journey journey:
 
-Dark background (#0F766E gradient to navy). Centered, spacious.
+1. **HeroSection** — Gradient dark teal to charcoal, centered headline, load-in animations (opacity + translate-y)
+2. **RecognitionSection** — Content blocks addressing visitor's pain
+3. **TestimonySection** — Founder or community witness
+4. **BridgeSection** — Answer doubts, clarify approach
+5. **JourneySection** — 7-stage timeline with interactive elements
+6. **CommunitySection** — Support structure, belonging
+7. **HonestWorkSection** — Practical transformation outcomes
+8. **InvitationSection** — Final CTA linking to `/deliverance` form
 
-```tsx
-<section style={{ background: 'linear-gradient(135deg, #0F766E 0%, #1a1a1a 100%)', padding: '4rem 1.5rem', minHeight: '80vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center', color: 'white' }}>
-  <p style={{ fontSize: '0.875rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.15em', marginBottom: '1.5rem', opacity: 0.8 }}>
-    {subtitle}
-  </p>
-  <h1 style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', fontFamily: 'Georgia, serif', fontWeight: 700, lineHeight: 1.2, marginBottom: '1.5rem', maxWidth: '800px' }}>
-    {title}
-  </h1>
-  <p style={{ fontSize: '1.125rem', lineHeight: 1.8, marginBottom: '2rem', maxWidth: '600px', opacity: 0.9 }}>
-    {description}
-  </p>
-  <FormCTA label="Request Deliverance" />
-</section>
-```
-
-### SECTION 2: Content Blocks (Recognition)
-
-Light background. 3–4 short blocks. Direct messaging.
-
-```tsx
-<section style={{ background: '#FFFBF7', padding: '3rem 1.5rem', maxWidth: '640px', margin: '0 auto' }}>
-  <h2 style={{ fontSize: '1.5rem', fontFamily: 'Georgia, serif', fontWeight: 700, marginBottom: '2rem', color: '#1a1a1a' }}>
-    Why You're Still Bound
-  </h2>
-  <div style={{ space: '1.5rem', marginBottom: '2rem' }}>
-    <p style={{ fontSize: '1.125rem', lineHeight: 1.8, marginBottom: '1rem', color: '#1a1a1a' }}>Block 1 content</p>
-    <p style={{ fontSize: '1.125rem', lineHeight: 1.8, marginBottom: '1rem', color: '#1a1a1a' }}>Block 2 content</p>
-  </div>
-</section>
-```
-
-### SECTION 3: How It Works
-
-White background. 4–7 numbered steps. `grid sm:grid-cols-2 lg:grid-cols-4` layout.
-
-```tsx
-<section style={{ background: 'white', padding: '3rem 1.5rem', borderTop: '1px solid #E5E5E5' }}>
-  <h2 style={{ fontSize: '2rem', fontFamily: 'Georgia, serif', fontWeight: 700, marginBottom: '2rem', maxWidth: '640px', margin: '0 auto 2rem' }}>
-    The Journey Out
-  </h2>
-  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', gap: '1.5rem', maxWidth: '900px', margin: '0 auto' }}>
-    {steps.map((step, i) => (
-      <div key={i}>
-        <p style={{ fontSize: '1.5rem', fontFamily: 'Georgia, serif', fontWeight: 700, color: '#0F766E', marginBottom: '0.5rem' }}>
-          {i + 1}
-        </p>
-        <p style={{ fontSize: '1rem', fontWeight: 600, color: '#1a1a1a', marginBottom: '0.5rem' }}>
-          {step.title}
-        </p>
-        <p style={{ fontSize: '0.9rem', color: '#8B8680' }}>
-          {step.description}
-        </p>
-      </div>
-    ))}
-  </div>
-</section>
-```
-
-### SECTION 4: Testimonials
-
-Light gray background. 3 testimonial cards. Varied names, specific details.
-
-```tsx
-<section style={{ background: '#F5F3F0', padding: '3rem 1.5rem', borderTop: '1px solid #E5E5E5' }}>
-  <h2 style={{ fontSize: '2rem', fontFamily: 'Georgia, serif', fontWeight: 700, marginBottom: '2rem', maxWidth: '900px', margin: '0 auto 2rem' }}>
-    Real Stories of Deliverance
-  </h2>
-  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem', maxWidth: '900px', margin: '0 auto' }}>
-    {testimonials.map((t, i) => (
-      <div key={i} style={{ background: 'white', padding: '1.5rem', borderRadius: '0.5rem', border: '1px solid #E5E5E5' }}>
-        <p style={{ fontSize: '1rem', color: '#1a1a1a', lineHeight: 1.8, marginBottom: '1rem' }}>
-          "{t.quote}"
-        </p>
-        <p style={{ fontSize: '0.9rem', fontWeight: 600, color: '#1a1a1a' }}>
-          {t.name}
-        </p>
-        <p style={{ fontSize: '0.85rem', color: '#8B8680' }}>
-          {t.detail}
-        </p>
-      </div>
-    ))}
-  </div>
-</section>
-```
-
-### SECTION 5: Features/Why Us
-
-White background. Left heading, right 3–4 feature cards.
-
-```tsx
-<section style={{ background: 'white', padding: '3rem 1.5rem', borderTop: '1px solid #E5E5E5' }}>
-  <div style={{ maxWidth: '900px', margin: '0 auto', display: 'grid', mdGridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
-    <h2 style={{ fontSize: '2rem', fontFamily: 'Georgia, serif', fontWeight: 700, color: '#1a1a1a' }}>
-      Why This Matters
-    </h2>
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-      {features.map((f, i) => (
-        <div key={i} style={{ background: '#F5F3F0', padding: '1rem', borderRadius: '0.5rem' }}>
-          <p style={{ fontSize: '0.95rem', fontWeight: 600, color: '#1a1a1a', marginBottom: '0.25rem' }}>
-            {f.title}
-          </p>
-          <p style={{ fontSize: '0.9rem', color: '#8B8680' }}>
-            {f.description}
-          </p>
-        </div>
-      ))}
-    </div>
-  </div>
-</section>
-```
-
-### SECTION 6: FAQ
-
-White background. 8 questions using native `<details>/<summary>` (no JavaScript).
-
-```tsx
-<section style={{ background: 'white', padding: '3rem 1.5rem', borderTop: '1px solid #E5E5E5' }}>
-  <h2 style={{ fontSize: '2rem', fontFamily: 'Georgia, serif', fontWeight: 700, marginBottom: '2rem', maxWidth: '640px', margin: '0 auto 2rem' }}>
-    Questions
-  </h2>
-  <div style={{ maxWidth: '640px', margin: '0 auto' }}>
-    {faqs.map((faq, i) => (
-      <details key={i} style={{ borderBottom: '1px solid #E5E5E5', paddingBottom: '1rem', marginBottom: '1rem' }}>
-        <summary style={{ fontSize: '1rem', fontWeight: 600, color: '#1a1a1a', cursor: 'pointer', userSelect: 'none' }}>
-          {faq.question}
-        </summary>
-        <p style={{ fontSize: '0.95rem', color: '#8B8680', marginTop: '1rem', lineHeight: 1.7 }}>
-          {faq.answer}
-        </p>
-      </details>
-    ))}
-  </div>
-</section>
-```
-
-### SECTION 7: Bottom CTA
-
-Dark gradient background. Strong call-to-action.
-
-```tsx
-<section style={{ background: 'linear-gradient(135deg, #0F766E 0%, #1a1a1a 100%)', padding: '3rem 1.5rem', textAlign: 'center', color: 'white' }}>
-  <div style={{ maxWidth: '640px', margin: '0 auto' }}>
-    <h2 style={{ fontSize: '2rem', fontFamily: 'Georgia, serif', fontWeight: 700, marginBottom: '1rem' }}>
-      Ready to be free?
-    </h2>
-    <p style={{ fontSize: '1.125rem', lineHeight: 1.8, marginBottom: '2rem', opacity: 0.9 }}>
-      Jesus Christ is calling you home.
-    </p>
-    <FormCTA label="Request Deliverance" />
-  </div>
-</section>
-```
-
-### SECTION 8: Footer
-
-Minimal. Contact, links, copyright.
-
-```tsx
-<footer style={{ background: '#1a1a1a', color: 'white', padding: '2rem 1.5rem', textAlign: 'center', fontSize: '0.9rem', borderTop: '1px solid #E5E5E5' }}>
-  <p style={{ marginBottom: '1rem' }}>
-    Restoration Community — Jesus Christ Delivers
-  </p>
-  <p style={{ fontSize: '0.85rem', opacity: 0.6 }}>
-    © 2026. All rights reserved.
-  </p>
-</footer>
-```
+Each section uses:
+- Tailwind classes, not inline styles
+- Color variables (rc-text, rc-accent, rc-bg, etc.)
+- Cascading fade-in animations on load (120ms, 240ms, 360ms delays)
+- Max-width: 2xl (max-w-2xl), centered content
+- Generous whitespace and vertical rhythm
 
 ---
 
 ## Animation Guidance
 
-- **Page Load:** Sections fade in as user scrolls (Intersection Observer).
-- **Button Hover:** Smooth 200ms color transition.
-- **Modal Open:** Slide up from bottom (300ms ease-in-out).
-- **Form Focus:** Subtle border highlight (no shake, no bounce).
+- **Page Load:** Sections fade in on mount with staggered delays (no excessive motion)
+- **Button Hover:** Smooth 200ms bg-color transition
+- **Modal Open:** Slide up from bottom (300ms ease-in-out)
+- **Form Focus:** Subtle border highlight + ring (no shake, no bounce)
+- **Scroll:** Content transitions as user scrolls (optional Intersection Observer)
 
 ---
 
-## Form Pattern
+## Typography Rule: Italic Vowel Spans
 
-All pages use the same form structure:
-- First Name
-- Contact Number
-- Duration (or custom field based on page type)
-- One thing you want to be free from most (or custom based on context)
+Use sparingly for emphasis and visual interest:
 
-No account creation. No email required for initial submission. All data POSTed to `/api/deliverance-request`.
+```tsx
+<p>
+  D<span style={{ fontStyle: 'italic' }}>e</span>liverance is just the start.
+</p>
+```
 
-Post-submission shows confirmation screen with exact message from spec.
+Apply 1–2 vowels per heading, naturally. **Do NOT over-apply.** Editorial judgment is essential. This is a craft detail, not a formula.
+
+---
+
+## Form Pattern (Detailed)
+
+All deliverance-related forms follow this pattern:
+
+```tsx
+<div>
+  <label className="block text-sm font-medium text-rc-text mb-2">
+    First Name
+  </label>
+  <input
+    type="text"
+    name="firstName"
+    value={formData.firstName}
+    onChange={handleChange}
+    required
+    className="w-full px-4 py-3 border border-rc-border rounded-lg text-rc-text placeholder-rc-text-tertiary focus:outline-none focus:ring-2 focus:ring-rc-accent focus:border-transparent transition-all duration-200"
+    placeholder="Your first name"
+  />
+</div>
+```
+
+- Clear, readable labels
+- Ample padding (py-3, px-4)
+- Soft borders (#E0D9D0)
+- Focus ring in brand accent color
+- Placeholder text in tertiary gray
+- No spinners or loaders on load
 
 ---
 
@@ -337,16 +239,18 @@ export const metadata: Metadata = {
 
 ---
 
-## Rules (NON-NEGOTIABLE)
+## Non-Negotiable Rules
 
 1. **Mobile First** — Every breakpoint tested on real devices.
-2. **No Animations on Load** — Users hate spinners and fade-ins. Content appears instantly.
-3. **Direct Messaging** — No corporate speak. No hype. Truthful language only.
-4. **Compassion First** — Speak to people in pain. Offer hope through Jesus Christ.
-5. **Single Conversion Path** — One clear CTA. No distracting links or secondary paths.
-6. **Premium Feel** — Whitespace, typography, subtle color. Feels expensive, not cheap.
-7. **No Third-Party Analytics** — Privacy respected. No tracking pixels.
+2. **No Animations on Load** — Content appears instantly. Users hate spinners.
+3. **Direct Messaging** — No corporate speak. No hype. Truthful language.
+4. **Compassion First** — Speak to pain. Offer hope through Jesus Christ.
+5. **Single Conversion Path** — One clear CTA per page. No distracting links.
+6. **Premium Feel** — Whitespace, typography, subtle color. Feels intentional, not generated.
+7. **No Analytics** — Privacy respected. No tracking pixels or third-party data.
 8. **Accessibility** — Proper contrast, semantic HTML, keyboard navigation.
+9. **Human Crafted** — Intentional detail. Built by people who understand the audience.
+10. **Use Tailwind Classes** — Never inline styles. Maintainability and consistency.
 
 ---
 
@@ -354,6 +258,6 @@ export const metadata: Metadata = {
 
 All pages follow this exact structure. No variations. No deviations.
 
-Generate 8-section pages that feel premium, direct, and spiritually grounded.
+Generate premium, direct, truthful landing pages that feel human-crafted and spiritually grounded.
 
 This is the canonical landing page system for Restoration Community.
