@@ -162,7 +162,7 @@ export default function DeliverancePage() {
     return (
       <div className="min-h-screen bg-rc-bg flex flex-col justify-center py-24 md:py-32 px-6 sm:px-8 md:px-12">
         <div className="max-w-2xl mx-auto w-full">
-          <div className="space-y-8">
+          <div className="space-y-8 border-l-4 border-rc-gold pl-8">
             <h1 className="text-5xl md:text-6xl font-serif font-bold text-rc-text leading-tight">
               Your First St<span className="italic">e</span>p Has B<span className="italic">e</span>en Tak<span className="italic">e</span>n
             </h1>
@@ -214,12 +214,17 @@ export default function DeliverancePage() {
 
           <button
             onClick={() => setShowTestimonials(!showTestimonials)}
-            className="w-full text-left mb-8 flex items-center justify-between hover:text-rc-accent transition-colors"
+            className="w-full text-left mb-8 flex items-center justify-between hover:text-rc-accent transition-colors group"
           >
-            <h2 className="text-3xl md:text-4xl font-serif font-bold text-rc-text">
-              P<span className="italic">e</span>opl<span className="italic">e</span> Lik<span className="italic">e</span> You
-            </h2>
-            <span className={`text-2xl text-rc-accent transition-transform ${showTestimonials ? 'rotate-180' : ''}`}>
+            <div>
+              <h2 className="text-3xl md:text-4xl font-serif font-bold text-rc-text">
+                P<span className="italic">e</span>opl<span className="italic">e</span> Lik<span className="italic">e</span> You
+              </h2>
+              {!showTestimonials && (
+                <p className="text-sm text-rc-text/60 mt-1">+{testimonials.length} stories</p>
+              )}
+            </div>
+            <span className={`text-2xl text-rc-accent transition-transform flex-shrink-0 ${showTestimonials ? 'rotate-180' : ''}`}>
               ▼
             </span>
           </button>
@@ -332,7 +337,7 @@ export default function DeliverancePage() {
               </div>
             </div>
 
-            <div>
+            <div className="bg-rc-warm-gray p-4 rounded">
               <label className="block text-sm font-medium text-rc-text mb-2">
                 <span className="italic">E</span>mail
               </label>
@@ -349,7 +354,7 @@ export default function DeliverancePage() {
               {formErrors.email && <p className="text-red-600 text-sm mt-1">{formErrors.email}</p>}
             </div>
 
-            <div>
+            <div className="bg-rc-warm-gray p-4 rounded">
               <label className="block text-sm font-medium text-rc-text mb-2">
                 Contact Numb<span className="italic">e</span>r
               </label>

@@ -76,23 +76,30 @@ export default function Home() {
             </div>
           </div>
 
-          <div
-            className={`transform transition-all duration-700 pt-8 flex flex-col sm:flex-row items-start sm:items-center gap-6 ${
-              isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-            }`}
-            style={{ transitionDelay: '480ms' }}
-          >
-            <Link
-              href="/deliverance"
-              className="inline-flex items-center justify-center px-8 py-4 min-h-[48px] bg-white text-rc-accent font-medium rounded-lg hover:shadow-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-rc-gold focus:ring-offset-2 focus:ring-offset-rc-accent"
+          <div className="pt-8 space-y-4">
+            <div
+              className={`transform transition-all duration-700 ${
+                isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+              }`}
+              style={{ transitionDelay: '480ms' }}
             >
-              G<span className="italic">e</span>t D<span className="italic">e</span>liv<span className="italic">e</span>r<span className="italic">e</span>d
-            </Link>
+              <Link
+                href="/deliverance"
+                className="inline-flex items-center justify-center px-8 py-4 min-h-[48px] bg-white text-rc-accent font-medium rounded-lg hover:shadow-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-rc-gold focus:ring-offset-2 focus:ring-offset-rc-accent"
+              >
+                R<span className="italic">e</span>qu<span className="italic">e</span>st D<span className="italic">e</span>liv<span className="italic">e</span>ranc<span className="italic">e</span>
+              </Link>
+            </div>
             <a
               href="#journey"
-              className="text-white/70 hover:text-white text-sm font-medium transition-colors duration-200"
+              className={`inline-block transform transition-all duration-700 ${
+                isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+              }`}
+              style={{ transitionDelay: '600ms' }}
             >
-              S<span className="italic">e</span>e th<span className="italic">e</span> Journ<span className="italic">e</span>y ↓
+              <span className="text-white/60 hover:text-white text-sm transition-colors duration-200">
+                S<span className="italic">e</span>e th<span className="italic">e</span> Journ<span className="italic">e</span>y ↓
+              </span>
             </a>
           </div>
         </div>
@@ -179,10 +186,10 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Mobile Timeline */}
-          <div className="md:hidden space-y-4">
+          {/* Mobile Timeline with color progression */}
+          <div className="md:hidden space-y-0">
             {stages.map((stage, index) => (
-              <div key={index} className="flex items-center gap-4">
+              <div key={index} className="flex items-center gap-4 py-3 pl-4 border-l-4" style={{ borderColor: stage.color }}>
                 <div
                   className="w-10 h-10 rounded-full flex items-center justify-center font-medium text-sm flex-shrink-0 transition-all duration-200"
                   style={{

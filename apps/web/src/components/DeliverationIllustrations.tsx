@@ -8,7 +8,7 @@ export function ChainsToLightIcon() {
   return (
     <svg
       viewBox="0 0 200 200"
-      className="w-20 h-20 mx-auto"
+      className="w-20 h-20 md:w-24 md:h-24 mx-auto"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -38,7 +38,7 @@ export function DoorOpeningIcon() {
   return (
     <svg
       viewBox="0 0 200 200"
-      className="w-20 h-20 mx-auto"
+      className="w-20 h-20 md:w-24 md:h-24 mx-auto"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -68,7 +68,7 @@ export function DescentToAscentIcon() {
   return (
     <svg
       viewBox="0 0 200 200"
-      className="w-20 h-20 mx-auto"
+      className="w-20 h-20 md:w-24 md:h-24 mx-auto"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -107,7 +107,7 @@ export function EmptyToFilledIcon() {
   return (
     <svg
       viewBox="0 0 200 200"
-      className="w-20 h-20 mx-auto"
+      className="w-20 h-20 md:w-24 md:h-24 mx-auto"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -147,7 +147,7 @@ export function ProdigalReturnIcon() {
   return (
     <svg
       viewBox="0 0 200 200"
-      className="w-20 h-20 mx-auto"
+      className="w-20 h-20 md:w-24 md:h-24 mx-auto"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -184,7 +184,7 @@ export function JourneyJustBeginningIcon() {
   return (
     <svg
       viewBox="0 0 200 200"
-      className="w-20 h-20 mx-auto"
+      className="w-20 h-20 md:w-24 md:h-24 mx-auto"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
