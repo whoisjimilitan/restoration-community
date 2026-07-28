@@ -54,8 +54,6 @@ const faqs = [
 const PASSWORD_MIN_LENGTH = 12;
 
 export default function DeliverancePage() {
-  const [showTestimonials, setShowTestimonials] = useState(false);
-  const [showFAQ, setShowFAQ] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -74,7 +72,6 @@ export default function DeliverancePage() {
       ...formData,
       [e.target.name]: e.target.value
     });
-    // Clear error for this field when user starts typing
     if (formErrors[e.target.name]) {
       setFormErrors({
         ...formErrors,
@@ -160,7 +157,7 @@ export default function DeliverancePage() {
 
   if (submitted) {
     return (
-      <div className="min-h-screen bg-rc-bg flex flex-col justify-center py-24 md:py-32 px-6 sm:px-8 md:px-12">
+      <div className="bg-rc-bg text-rc-text min-h-screen flex flex-col justify-center py-24 md:py-32 px-6 sm:px-8 md:px-12">
         <div className="max-w-2xl mx-auto w-full">
           <div className="space-y-8 border-l-4 border-rc-gold pl-8">
             <h1 className="text-5xl md:text-6xl font-serif font-bold text-rc-text leading-tight">
@@ -195,115 +192,109 @@ export default function DeliverancePage() {
 
   return (
     <div className="bg-rc-bg text-rc-text">
-      {/* JOURNEY BEGINS - Visual intro */}
-      <section className="w-full py-16 md:py-20 px-6 sm:px-8 md:px-12 bg-rc-bg border-b border-rc-border flex items-center justify-center">
-        <div className="max-w-2xl mx-auto w-full text-center space-y-6">
-          <JourneyJustBeginningIcon />
-          <p className="text-lg text-rc-text/70">
-            Your journey of r<span className="italic">e</span>storation starts h<span className="italic">e</span>r<span className="italic">e</span>
-          </p>
+      {/* HERO SECTION */}
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-b border-rc-border">
+        <div className="max-w-2xl mx-auto space-y-8">
+          <div>
+            <h1 className="text-5xl md:text-6xl font-serif font-bold text-rc-text leading-tight">
+              Your First St<span className="italic">e</span>p
+            </h1>
+          </div>
+          <div className="space-y-6 text-lg text-rc-text leading-relaxed">
+            <p>You&apos;ve heard the truth. You know what you need to do.</p>
+            <p>This is where your deliverance begins. Cr<span className="italic">e</span>ate your account below and join us on this journey toward fr<span className="italic">e</span>edom.</p>
+          </div>
         </div>
       </section>
 
-      {/* TESTIMONIALS - EXPANDABLE */}
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-b border-rc-border">
-        <div className="max-w-2xl mx-auto">
-          <div className="flex justify-center mb-12">
+      {/* VISUAL BREAK - Journey Beginning */}
+      <section className="w-full py-12 md:py-16 px-6 sm:px-8 md:px-12 bg-rc-bg flex items-center justify-center">
+        <JourneyJustBeginningIcon />
+      </section>
+
+      {/* TESTIMONIALS SECTION */}
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
+        <div className="max-w-2xl mx-auto space-y-12">
+          <div>
+            <h2 className="text-4xl md:text-5xl font-serif font-bold text-rc-text leading-tight">
+              P<span className="italic">e</span>opl<span className="italic">e</span> Lik<span className="italic">e</span> You
+            </h2>
+          </div>
+
+          <div className="flex justify-center mb-8">
             <ProdigalReturnIcon />
           </div>
 
-          <button
-            onClick={() => setShowTestimonials(!showTestimonials)}
-            className="w-full text-left mb-8 flex items-center justify-between hover:text-rc-accent transition-colors group"
-          >
-            <div>
-              <h2 className="text-3xl md:text-4xl font-serif font-bold text-rc-text">
-                P<span className="italic">e</span>opl<span className="italic">e</span> Lik<span className="italic">e</span> You
-              </h2>
-              {!showTestimonials && (
-                <p className="text-sm text-rc-text/60 mt-1">+{testimonials.length} stories</p>
-              )}
-            </div>
-            <span className={`text-2xl text-rc-accent transition-transform flex-shrink-0 ${showTestimonials ? 'rotate-180' : ''}`}>
-              ▼
-            </span>
-          </button>
-
-          {showTestimonials && (
-            <div className="space-y-6">
-              {testimonials.map((testimonial, index) => (
-                <div key={index} className="border-l-4 border-rc-gold pl-6 py-4 bg-white rounded-r">
-                  <p className="text-lg text-rc-text italic mb-3">
-                    &quot;{testimonial.quote}&quot;
-                  </p>
-                  <p className="text-sm font-medium text-rc-text">
-                    {testimonial.name}
-                  </p>
-                </div>
-              ))}
-            </div>
-          )}
+          <div className="space-y-6">
+            {testimonials.map((testimonial, index) => (
+              <div key={index} className="border-l-4 border-rc-gold pl-6 py-4">
+                <p className="text-lg text-rc-text italic mb-3">
+                  {`"${testimonial.quote}"`}
+                </p>
+                <p className="text-sm font-medium text-rc-text">
+                  {testimonial.name}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* FAQ - EXPANDABLE */}
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-b border-rc-border">
-        <div className="max-w-2xl mx-auto">
-          <div className="flex justify-center mb-12">
-            <ChainsToLightIcon />
-          </div>
+      {/* VISUAL BREAK - Chains to Light */}
+      <section className="w-full py-12 md:py-16 px-6 sm:px-8 md:px-12 bg-rc-warm-gray flex items-center justify-center">
+        <ChainsToLightIcon />
+      </section>
 
-          <button
-            onClick={() => setShowFAQ(!showFAQ)}
-            className="w-full text-left mb-8 flex items-center justify-between hover:text-rc-accent transition-colors"
-          >
-            <h2 className="text-3xl md:text-4xl font-serif font-bold text-rc-text">
+      {/* FAQ SECTION */}
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
+        <div className="max-w-2xl mx-auto space-y-12">
+          <div>
+            <h2 className="text-4xl md:text-5xl font-serif font-bold text-rc-text leading-tight">
               Qu<span className="italic">e</span>stions
             </h2>
-            <span className={`text-2xl text-rc-accent transition-transform ${showFAQ ? 'rotate-180' : ''}`}>
-              ▼
-            </span>
-          </button>
+          </div>
 
-          {showFAQ && (
-            <div className="space-y-4">
-              {faqs.map((faq, index) => (
-                <details key={index} className="border-b border-rc-border pb-4 last:border-b-0 group">
-                  <summary className="text-lg font-medium text-rc-text cursor-pointer py-2 flex items-center justify-between hover:text-rc-accent transition-colors">
-                    {faq.question}
-                    <span className="text-rc-accent group-open:rotate-180 transition-transform">▼</span>
-                  </summary>
-                  <p className="text-rc-text-secondary leading-relaxed pt-4">
-                    {faq.answer}
-                  </p>
-                </details>
-              ))}
-            </div>
-          )}
+          <div className="space-y-4">
+            {faqs.map((faq, index) => (
+              <details key={index} className="border-b border-rc-border pb-4 last:border-b-0 group">
+                <summary className="text-lg font-medium text-rc-text cursor-pointer py-2 flex items-center justify-between hover:text-rc-accent transition-colors">
+                  {faq.question}
+                  <span className="text-rc-accent group-open:rotate-180 transition-transform">▼</span>
+                </summary>
+                <p className="text-rc-text leading-relaxed pt-4">
+                  {faq.answer}
+                </p>
+              </details>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* ACCOUNT CREATION FORM */}
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg">
-        <div className="max-w-2xl mx-auto">
-          <div className="flex justify-center mb-12">
-            <EmptyToFilledIcon />
+      {/* VISUAL BREAK - Empty to Filled */}
+      <section className="w-full py-12 md:py-16 px-6 sm:px-8 md:px-12 bg-rc-bg flex items-center justify-center">
+        <EmptyToFilledIcon />
+      </section>
+
+      {/* FORM SECTION */}
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
+        <div className="max-w-2xl mx-auto space-y-8">
+          <div>
+            <h2 className="text-4xl md:text-5xl font-serif font-bold text-rc-text leading-tight">
+              G<span className="italic">e</span>t D<span className="italic">e</span>liv<span className="italic">e</span>r<span className="italic">e</span>d
+            </h2>
           </div>
 
-          <h1 className="text-5xl md:text-6xl font-serif font-bold text-rc-text leading-tight mb-8">
-            G<span className="italic">e</span>t D<span className="italic">e</span>liv<span className="italic">e</span>r<span className="italic">e</span>d
-          </h1>
-
           {error && (
-            <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg">
+            <div className="p-4 bg-red-50 border-l-4 border-red-500 rounded">
               <p className="text-red-800">{error}</p>
             </div>
           )}
 
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-8">
+            {/* Name Row */}
             <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <label className="block text-sm font-medium text-rc-text mb-2">
+              <div className="space-y-3">
+                <label className="block text-sm font-medium text-rc-text">
                   First Nam<span className="italic">e</span>
                 </label>
                 <input
@@ -311,16 +302,16 @@ export default function DeliverancePage() {
                   name="firstName"
                   value={formData.firstName}
                   onChange={handleChange}
-                  className={`w-full px-4 py-3 border-b-2 bg-white text-rc-text placeholder-rc-text-tertiary focus:outline-none transition-colors ${
+                  className={`w-full px-4 py-3 border-b-2 bg-transparent text-rc-text placeholder-rc-text/40 focus:outline-none transition-colors ${
                     formErrors.firstName ? 'border-b-red-500 focus:border-b-red-500' : 'border-b-rc-border focus:border-b-rc-gold'
                   }`}
                   placeholder="Your first name"
                 />
-                {formErrors.firstName && <p className="text-red-600 text-sm mt-1">{formErrors.firstName}</p>}
+                {formErrors.firstName && <p className="text-red-600 text-sm">{formErrors.firstName}</p>}
               </div>
 
-              <div>
-                <label className="block text-sm font-medium text-rc-text mb-2">
+              <div className="space-y-3">
+                <label className="block text-sm font-medium text-rc-text">
                   Last Nam<span className="italic">e</span>
                 </label>
                 <input
@@ -328,92 +319,97 @@ export default function DeliverancePage() {
                   name="lastName"
                   value={formData.lastName}
                   onChange={handleChange}
-                  className={`w-full px-4 py-3 border-b-2 bg-white text-rc-text placeholder-rc-text-tertiary focus:outline-none transition-colors ${
+                  className={`w-full px-4 py-3 border-b-2 bg-transparent text-rc-text placeholder-rc-text/40 focus:outline-none transition-colors ${
                     formErrors.lastName ? 'border-b-red-500 focus:border-b-red-500' : 'border-b-rc-border focus:border-b-rc-gold'
                   }`}
                   placeholder="Your last name"
                 />
-                {formErrors.lastName && <p className="text-red-600 text-sm mt-1">{formErrors.lastName}</p>}
+                {formErrors.lastName && <p className="text-red-600 text-sm">{formErrors.lastName}</p>}
               </div>
             </div>
 
-            <div className="bg-rc-warm-gray p-4 rounded">
-              <label className="block text-sm font-medium text-rc-text mb-2">
-                <span className="italic">E</span>mail
-              </label>
-              <input
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                className={`w-full px-4 py-3 border-b-2 bg-white text-rc-text placeholder-rc-text-tertiary focus:outline-none transition-colors ${
-                  formErrors.email ? 'border-b-red-500 focus:border-b-red-500' : 'border-b-rc-border focus:border-b-rc-gold'
-                }`}
-                placeholder="your@email.com"
-              />
-              {formErrors.email && <p className="text-red-600 text-sm mt-1">{formErrors.email}</p>}
+            {/* Contact Fields (emphasized) */}
+            <div className="bg-rc-warm-gray p-6 rounded space-y-6">
+              <div className="space-y-3">
+                <label className="block text-sm font-medium text-rc-text">
+                  <span className="italic">E</span>mail
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  className={`w-full px-4 py-3 border-b-2 bg-transparent text-rc-text placeholder-rc-text/40 focus:outline-none transition-colors ${
+                    formErrors.email ? 'border-b-red-500 focus:border-b-red-500' : 'border-b-rc-border focus:border-b-rc-gold'
+                  }`}
+                  placeholder="your@email.com"
+                />
+                {formErrors.email && <p className="text-red-600 text-sm">{formErrors.email}</p>}
+              </div>
+
+              <div className="space-y-3">
+                <label className="block text-sm font-medium text-rc-text">
+                  Contact Numb<span className="italic">e</span>r
+                </label>
+                <input
+                  type="tel"
+                  name="contactNumber"
+                  value={formData.contactNumber}
+                  onChange={handleChange}
+                  className={`w-full px-4 py-3 border-b-2 bg-transparent text-rc-text placeholder-rc-text/40 focus:outline-none transition-colors ${
+                    formErrors.contactNumber ? 'border-b-red-500 focus:border-b-red-500' : 'border-b-rc-border focus:border-b-rc-gold'
+                  }`}
+                  placeholder="+1 (555) 000-0000"
+                />
+                {formErrors.contactNumber && <p className="text-red-600 text-sm">{formErrors.contactNumber}</p>}
+              </div>
             </div>
 
-            <div className="bg-rc-warm-gray p-4 rounded">
-              <label className="block text-sm font-medium text-rc-text mb-2">
-                Contact Numb<span className="italic">e</span>r
-              </label>
-              <input
-                type="tel"
-                name="contactNumber"
-                value={formData.contactNumber}
-                onChange={handleChange}
-                className={`w-full px-4 py-3 border-b-2 bg-white text-rc-text placeholder-rc-text-tertiary focus:outline-none transition-colors ${
-                  formErrors.contactNumber ? 'border-b-red-500 focus:border-b-red-500' : 'border-b-rc-border focus:border-b-rc-gold'
-                }`}
-                placeholder="+1 (555) 000-0000"
-              />
-              {formErrors.contactNumber && <p className="text-red-600 text-sm mt-1">{formErrors.contactNumber}</p>}
+            {/* Password Fields */}
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="space-y-3">
+                <label className="block text-sm font-medium text-rc-text">
+                  Passw<span className="italic">o</span>rd (min {PASSWORD_MIN_LENGTH} char)
+                </label>
+                <input
+                  type="password"
+                  name="password"
+                  value={formData.password}
+                  onChange={handleChange}
+                  className={`w-full px-4 py-3 border-b-2 bg-transparent text-rc-text placeholder-rc-text/40 focus:outline-none transition-colors ${
+                    formErrors.password ? 'border-b-red-500 focus:border-b-red-500' : 'border-b-rc-border focus:border-b-rc-gold'
+                  }`}
+                  placeholder="Enter a strong password"
+                />
+                {formErrors.password && <p className="text-red-600 text-sm">{formErrors.password}</p>}
+              </div>
+
+              <div className="space-y-3">
+                <label className="block text-sm font-medium text-rc-text">
+                  Confirm Passw<span className="italic">o</span>rd
+                </label>
+                <input
+                  type="password"
+                  name="confirmPassword"
+                  value={formData.confirmPassword}
+                  onChange={handleChange}
+                  className={`w-full px-4 py-3 border-b-2 bg-transparent text-rc-text placeholder-rc-text/40 focus:outline-none transition-colors ${
+                    formErrors.confirmPassword ? 'border-b-red-500 focus:border-b-red-500' : 'border-b-rc-border focus:border-b-rc-gold'
+                  }`}
+                  placeholder="Confirm your password"
+                />
+                {formErrors.confirmPassword && <p className="text-red-600 text-sm">{formErrors.confirmPassword}</p>}
+              </div>
             </div>
 
-            <div>
-              <label className="block text-sm font-medium text-rc-text mb-2">
-                Passw<span className="italic">o</span>rd (min {PASSWORD_MIN_LENGTH} characters)
-              </label>
-              <input
-                type="password"
-                name="password"
-                value={formData.password}
-                onChange={handleChange}
-                className={`w-full px-4 py-3 border-b-2 bg-white text-rc-text placeholder-rc-text-tertiary focus:outline-none transition-colors ${
-                  formErrors.password ? 'border-b-red-500 focus:border-b-red-500' : 'border-b-rc-border focus:border-b-rc-gold'
-                }`}
-                placeholder="Enter a strong password"
-              />
-              {formErrors.password && <p className="text-red-600 text-sm mt-1">{formErrors.password}</p>}
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-rc-text mb-2">
-                Confirm Passw<span className="italic">o</span>rd
-              </label>
-              <input
-                type="password"
-                name="confirmPassword"
-                value={formData.confirmPassword}
-                onChange={handleChange}
-                className={`w-full px-4 py-3 border-b-2 bg-white text-rc-text placeholder-rc-text-tertiary focus:outline-none transition-colors ${
-                  formErrors.confirmPassword ? 'border-b-red-500 focus:border-b-red-500' : 'border-b-rc-border focus:border-b-rc-gold'
-                }`}
-                placeholder="Confirm your password"
-              />
-              {formErrors.confirmPassword && <p className="text-red-600 text-sm mt-1">{formErrors.confirmPassword}</p>}
-            </div>
-
-            <div className="pt-4">
-              <button
-                type="submit"
-                disabled={loading || !isFormValid}
-                className="w-full px-8 py-4 min-h-[48px] bg-rc-accent hover:bg-rc-accent-light text-white font-medium rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-rc-gold focus:ring-offset-2 focus:ring-offset-rc-bg disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-lg"
-              >
-                {loading ? 'Creating Account...' : 'G<span className="italic">e</span>t D<span className="italic">e</span>liv<span className="italic">e</span>r<span className="italic">e</span>d'}
-              </button>
-            </div>
+            {/* Submit Button */}
+            <button
+              type="submit"
+              disabled={loading || !isFormValid}
+              className="w-full px-8 py-4 min-h-[48px] bg-rc-accent hover:bg-rc-accent-light text-white font-medium rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-rc-gold focus:ring-offset-2 focus:ring-offset-rc-bg disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {loading ? 'Creating Account...' : 'Get Delivered'}
+            </button>
           </form>
         </div>
       </section>

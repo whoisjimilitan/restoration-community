@@ -228,18 +228,15 @@ export default function Home() {
       {/* SECTION 7: FINAL CALL */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-gradient-to-br from-rc-accent to-rc-text border-t border-rc-border">
         <div className="max-w-2xl mx-auto space-y-8">
-          <div className="space-y-6 leading-relaxed">
-            <p className="text-xl md:text-2xl text-white/90">
-              In th<span className="italic">e</span> parable of the prodigal son, a young man l<span className="italic">e</span>ft everything for a distant country.
+          <div className="space-y-8 leading-relaxed">
+            <p className="text-lg md:text-xl text-white/90 italic">
+              &quot;But th<span className="not-italic">e</span> fath<span className="not-italic">e</span>r said to his s<span className="not-italic">e</span>rvants, &apos;Quick! Bring th<span className="not-italic">e</span> b<span className="not-italic">e</span>st rob<span className="not-italic">e</span> and put it on him. Put a ring on his fing<span className="not-italic">e</span>r and sandals on his f<span className="not-italic">e</span>et. For this son of min<span className="not-italic">e</span> was d<span className="not-italic">e</span>ad and is aliv<span className="not-italic">e</span> again; h<span className="not-italic">e</span> was lost and is found.&apos;&quot;
             </p>
-            <p className="text-xl md:text-2xl text-white/90">
-              H<span className="italic">e</span> sp<span className="italic">e</span>nt his inhritanc<span className="italic">e</span> on dull pl<span className="italic">e</span>asur<span className="italic">e</span>s until h<span className="italic">e</span> had nothing.
+            <p className="text-sm text-white/70">
+              Luk<span className="italic">e</span> 15:22-23
             </p>
-            <p className="text-xl md:text-2xl text-white/90">
-              But his fath<span className="italic">e</span>r ran to m<span className="italic">e</span>et him. H<span className="italic">e</span> was waiting.
-            </p>
-            <p className="text-2xl md:text-3xl font-serif font-bold text-white mt-8">
-              J<span className="italic">e</span>sus is calling you hom<span className="italic">e</span>. Will you com<span className="italic">e</span> back?
+            <p className="text-xl md:text-2xl text-white pt-4">
+              That&apos;s you. That&apos;s J<span className="italic">e</span>sus waiting for you.
             </p>
           </div>
 
