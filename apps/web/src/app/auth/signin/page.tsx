@@ -14,7 +14,7 @@ export default function SignInPage() {
   const [loading, setLoading] = useState(false);
   const [formErrors, setFormErrors] = useState<Record<string, string>>({});
 
-  const callbackUrl = searchParams.get('callbackUrl') || '/dashboard';
+  const callbackUrl = searchParams.get('callbackUrl') || '/dashboard/stages';
 
   const isFormValid = email.trim() && password.trim();
 
@@ -83,45 +83,42 @@ export default function SignInPage() {
   }
 
   return (
-    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', paddingLeft: '2rem', paddingRight: '2rem', backgroundColor: '#FAFAF8' }}>
+    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', paddingLeft: '2rem', paddingRight: '2rem', backgroundColor: '#ffffff' }}>
       <div style={{ maxWidth: '500px', margin: '0 auto', width: '100%' }}>
         <div style={{ marginBottom: '3rem' }}>
           <h1 style={{
-            fontSize: '2.5rem',
-            fontFamily: 'Georgia, Garamond, serif',
+            fontSize: '2rem',
+            fontFamily: 'system-ui, -apple-system, sans-serif',
             fontWeight: 700,
-            color: '#202124',
+            color: '#1a1a1a',
             lineHeight: 1.2,
             marginBottom: '0.5rem',
             marginTop: 0
           }}>
-            W<span style={{ fontStyle: 'italic' }}>e</span>lcom<span style={{ fontStyle: 'italic' }}>e</span> Back
+            Welcome back
           </h1>
           <p style={{
-            fontSize: '1.0625rem',
-            fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
-            color: '#202124',
-            lineHeight: 1.7,
+            fontSize: '0.9375rem',
+            fontFamily: 'system-ui, -apple-system, sans-serif',
+            color: '#666666',
+            lineHeight: 1.6,
             marginTop: 0
           }}>
-            Sign in to continue your r<span style={{ fontStyle: 'italic' }}>e</span>storation journ<span style={{ fontStyle: 'italic' }}>e</span>y.
+            Sign in to continue your restoration journey.
           </p>
         </div>
 
-        <div style={{ backgroundColor: '#FFFFFF', padding: '2rem', borderRadius: '0.5rem', marginBottom: '2rem' }}>
+        <div style={{ marginBottom: '2rem' }}>
           {error && (
             <div style={{
               backgroundColor: '#FEE2E2',
-              border: '1px solid #FECACA',
+              border: '1px solid #FCA5A5',
               color: '#991B1B',
               padding: '1rem',
               borderRadius: '0.375rem',
               marginBottom: '1.5rem'
             }}>
-              <p style={{ margin: '0 0 0.5rem 0', fontWeight: 600, fontSize: '0.9375rem' }}>
-                Sign In Failed
-              </p>
-              <p style={{ margin: 0, fontSize: '0.9375rem' }}>
+              <p style={{ margin: 0, fontSize: '0.9375rem', fontWeight: 500 }}>
                 {error}
               </p>
             </div>
@@ -131,10 +128,10 @@ export default function SignInPage() {
             <div>
               <label style={{
                 display: 'block',
-                fontSize: '0.9375rem',
-                fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
+                fontSize: '0.875rem',
+                fontFamily: 'system-ui, -apple-system, sans-serif',
                 fontWeight: 600,
-                color: '#202124',
+                color: '#1a1a1a',
                 marginBottom: '0.5rem'
               }}>
                 Email Address
@@ -150,16 +147,17 @@ export default function SignInPage() {
                   width: '100%',
                   padding: '0.75rem',
                   fontSize: '1rem',
-                  fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
-                  color: '#202124',
-                  border: formErrors.email ? '1px solid #EF4444' : '1px solid #D5D3CF',
+                  fontFamily: 'system-ui, -apple-system, sans-serif',
+                  color: '#1a1a1a',
+                  border: formErrors.email ? '1px solid #DC2626' : '1px solid #D1D5DB',
                   borderRadius: '0.375rem',
                   backgroundColor: '#FFFFFF',
-                  boxSizing: 'border-box'
+                  boxSizing: 'border-box',
+                  transition: 'border-color 200ms'
                 }}
               />
               {formErrors.email && (
-                <p style={{ color: '#DC2626', fontSize: '0.875rem', marginTop: '0.25rem', margin: '0.25rem 0 0 0' }}>
+                <p style={{ color: '#DC2626', fontSize: '0.875rem', marginTop: '0.25rem', margin: '0.25rem 0 0 0', fontFamily: 'system-ui, -apple-system, sans-serif' }}>
                   {formErrors.email}
                 </p>
               )}
@@ -168,10 +166,10 @@ export default function SignInPage() {
             <div>
               <label style={{
                 display: 'block',
-                fontSize: '0.9375rem',
-                fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
+                fontSize: '0.875rem',
+                fontFamily: 'system-ui, -apple-system, sans-serif',
                 fontWeight: 600,
-                color: '#202124',
+                color: '#1a1a1a',
                 marginBottom: '0.5rem'
               }}>
                 Password
@@ -186,16 +184,17 @@ export default function SignInPage() {
                   width: '100%',
                   padding: '0.75rem',
                   fontSize: '1rem',
-                  fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
-                  color: '#202124',
-                  border: formErrors.password ? '1px solid #EF4444' : '1px solid #D5D3CF',
+                  fontFamily: 'system-ui, -apple-system, sans-serif',
+                  color: '#1a1a1a',
+                  border: formErrors.password ? '1px solid #DC2626' : '1px solid #D1D5DB',
                   borderRadius: '0.375rem',
                   backgroundColor: '#FFFFFF',
-                  boxSizing: 'border-box'
+                  boxSizing: 'border-box',
+                  transition: 'border-color 200ms'
                 }}
               />
               {formErrors.password && (
-                <p style={{ color: '#DC2626', fontSize: '0.875rem', marginTop: '0.25rem', margin: '0.25rem 0 0 0' }}>
+                <p style={{ color: '#DC2626', fontSize: '0.875rem', marginTop: '0.25rem', margin: '0.25rem 0 0 0', fontFamily: 'system-ui, -apple-system, sans-serif' }}>
                   {formErrors.password}
                 </p>
               )}
@@ -210,12 +209,11 @@ export default function SignInPage() {
                 color: 'white',
                 fontSize: '1rem',
                 fontWeight: 600,
-                letterSpacing: '0.01em',
                 borderRadius: '0.375rem',
-                border: '2px solid #0D5E57',
+                border: '1px solid #0D5E57',
                 cursor: !isFormValid || loading ? 'not-allowed' : 'pointer',
-                transition: 'all 300ms cubic-bezier(0.4, 0, 0.2, 1)',
-                fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
+                transition: 'all 200ms',
+                fontFamily: 'system-ui, -apple-system, sans-serif',
                 opacity: loading ? 0.7 : 1
               }}
               onMouseEnter={(e) => {
@@ -234,14 +232,15 @@ export default function SignInPage() {
               {loading ? 'Signing in...' : 'Sign In'}
             </button>
 
-            <div style={{ textAlign: 'center', paddingTop: '0.5rem' }}>
-              <p style={{ fontSize: '0.9375rem', fontFamily: 'Inter, system-ui, -apple-system, sans-serif', color: '#202124', margin: 0 }}>
+            <div style={{ textAlign: 'center', paddingTop: '1rem', borderTop: '1px solid #E5E7EB' }}>
+              <p style={{ fontSize: '0.875rem', fontFamily: 'system-ui, -apple-system, sans-serif', color: '#666666', margin: '1rem 0 0 0' }}>
                 <Link
                   href="/auth/password-reset"
                   style={{
                     color: '#0D5E57',
                     textDecoration: 'none',
-                    cursor: 'pointer'
+                    cursor: 'pointer',
+                    fontWeight: 500
                   }}
                   onMouseEnter={(e) => {
                     (e.target as HTMLElement).style.textDecoration = 'underline';
@@ -253,13 +252,10 @@ export default function SignInPage() {
                   Forgot password?
                 </Link>
               </p>
-            </div>
-
-            <div style={{ paddingTop: '1rem', borderTop: '1px solid #E5E5E5' }}>
-              <p style={{ textAlign: 'center', fontSize: '0.9375rem', fontFamily: 'Inter, system-ui, -apple-system, sans-serif', color: '#202124', margin: 0 }}>
+              <p style={{ fontSize: '0.875rem', fontFamily: 'system-ui, -apple-system, sans-serif', color: '#666666', margin: '1rem 0 0 0' }}>
                 Don&apos;t have an account?{' '}
                 <Link
-                  href="/auth/register"
+                  href="/deliverance"
                   style={{
                     fontWeight: 600,
                     color: '#0D5E57',
@@ -273,7 +269,7 @@ export default function SignInPage() {
                     (e.target as HTMLElement).style.textDecoration = 'none';
                   }}
                 >
-                  Cr<span style={{ fontStyle: 'italic' }}>e</span>at<span style={{ fontStyle: 'italic' }}>e</span> on<span style={{ fontStyle: 'italic' }}>e</span>
+                  Start your journey
                 </Link>
               </p>
             </div>
