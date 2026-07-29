@@ -26,12 +26,12 @@ export default function Home() {
       <section className="w-full min-h-screen flex flex-col justify-center bg-gradient-to-br from-rc-accent to-rc-text px-6 sm:px-8 md:px-12 py-24 md:py-32">
         <div className="max-w-2xl mx-auto w-full space-y-6">
           <div className={`transform transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '120ms' }}>
-            <p className="text-xs font-medium text-white/70 uppercase tracking-wider">For Young People</p>
+            <p className="text-xs font-medium text-white/70 uppercase tracking-wider">For Those In A Hurry</p>
           </div>
 
           <div className={`transform transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '240ms' }}>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight">
-              You were never made to eat from lies.
+              You were made for something far better.
             </h1>
           </div>
 
@@ -52,12 +52,12 @@ export default function Home() {
           <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight">The Trap</h2>
 
           <div className="space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
-            <p>You believe:</p>
-            <p className="text-rc-text/80">This is just how I survive.</p>
-            <p className="text-rc-text/80">I have no other way.</p>
-            <p className="text-rc-text/80">God could never forgive me.</p>
-            <p className="pt-3 font-medium">That is deception speaking.</p>
-            <p>You cannot break this chain by yourself.</p>
+            <p>You tell yourself:</p>
+            <p className="text-rc-text/80">The country is hard.</p>
+            <p className="text-rc-text/80">I have no opportunities.</p>
+            <p className="text-rc-text/80">I am just recovering what was stolen.</p>
+            <p className="pt-3 font-medium">That is the voice of deception.</p>
+            <p>You cannot ignore this voice without help.</p>
           </div>
         </div>
       </section>
@@ -68,14 +68,15 @@ export default function Home() {
           <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight">The Witness</h2>
 
           <div className="border-l-4 border-rc-accent pl-8 space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
-            <p>I lived this life.</p>
-            <p>I tried to stop.</p>
-            <p>I could not.</p>
-            <p className="pt-2">Until Jesus Christ stepped in.</p>
+            <p>I once responded to that voice.</p>
+            <p>I too justified my actions.</p>
+            <p>I too convinced myself I had no choice.</p>
+            <p className="pt-2">I fought alone but nothing changed.</p>
+            <p className="pt-3">Until Jesus came.</p>
             <p className="font-medium">He broke my chains.</p>
             <p className="font-medium">He gave me a new life.</p>
-            <p className="pt-3">Deliverance is real. It happens today.</p>
-            <p>It will happen for you.</p>
+            <p className="pt-3">I know the Deliverer.</p>
+            <p className="font-medium">His name is Jesus Christ.</p>
           </div>
         </div>
       </section>
@@ -86,12 +87,18 @@ export default function Home() {
           <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight">The Only Way</h2>
 
           <div className="space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
-            <p>No amount of money fixes this.</p>
+            <p>Deliverance means one thing:</p>
+            <p>Total freedom from sin and its consequence.</p>
+            <p>It is the only way out of fraud.</p>
+            <p className="pt-2 font-medium">Only Jesus Christ offers this deliverance.</p>
+            <p className="pt-2">He broke my chains.</p>
+            <p>He gave me a new life.</p>
+            <p className="pt-3">No amount of money fixes this.</p>
             <p>No law fixes this.</p>
             <p>No punishment fixes this.</p>
-            <p className="pt-2 font-medium">Scamming is spiritual bondage.</p>
+            <p className="pt-2 font-medium">Fraud is spiritual bondage.</p>
             <p className="font-medium">There is no cure outside Jesus Christ.</p>
-            <p>He is still delivering people today.</p>
+            <p>He delivers people from sin.</p>
             <p>No one is too far gone.</p>
           </div>
         </div>
@@ -172,10 +179,11 @@ export default function Home() {
           <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-white leading-tight">Return</h2>
 
           <div className="space-y-4 text-base md:text-lg text-white/90 leading-relaxed font-light">
-            <p>Tired of living a lie?</p>
-            <p>Tired of meaninglessness, rising and falling, waste, confusion and fear?</p>
-            <p className="pt-2">I have been there.</p>
-            <p className="pt-3 font-medium text-white">Jesus is calling you home.</p>
+            <p>You know the trap.</p>
+            <p>You know time is running out.</p>
+            <p>You cannot stop alone.</p>
+            <p className="pt-3">I have been there.</p>
+            <p className="pt-3 font-medium text-white">Jesus is calling you out.</p>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 pt-8">
