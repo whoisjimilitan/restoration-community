@@ -204,7 +204,7 @@ export default function Home() {
       {/* Footer */}
       <footer className="w-full py-8 px-6 sm:px-8 md:px-12 bg-rc-text border-t border-rc-border">
         <div className="max-w-2xl mx-auto text-center space-y-3">
-          <p className="text-white/60 text-sm">Brother Jimi Ministries — Inspired by Jesus Christ</p>
+          <p className="text-white/60 text-sm">Brother Jimi Ministries — An Inspiration from Jesus Christ</p>
           <p className="text-white/30 text-xs">© 2026. All rights reserved.</p>
         </div>
       </footer>
