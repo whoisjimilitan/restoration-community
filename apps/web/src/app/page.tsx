@@ -40,7 +40,7 @@ export default function Home() {
               <p>Scamming and fraud promise freedom.</p>
               <p>They only bind you tighter.</p>
               <p className="pt-2">This is a spiritual trap.</p>
-              <p>Only Jesus Christ sets you free.</p>
+              <p>Only One Man can set you free.</p>
             </div>
           </div>
         </div>
