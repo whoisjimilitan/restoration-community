@@ -68,13 +68,13 @@ export default function Home() {
           <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight">The Witness</h2>
 
           <div className="border-l-4 border-rc-accent pl-8 space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
-            <p>I too was controlled by that spirit.</p>
+            <p>I too was controlled by <em className="not-italic font-medium">that spirit</em>.</p>
             <p>I justified my actions.</p>
             <p>I convinced myself I had no choice.</p>
             <p className="pt-3">Until my encounter with God.</p>
-            <p className="font-medium">He delivered me from that spirit.</p>
+            <p className="font-medium">He delivered me from <em className="not-italic">that spirit</em>.</p>
             <p className="font-medium">He gave me a new beginning.</p>
-            <p className="pt-3">My God. My Deliverer.</p>
+            <p className="pt-3"><em className="not-italic font-medium">My God.</em> <em className="not-italic font-medium">My Deliverer.</em></p>
             <p className="font-medium">His name is Jesus Christ.</p>
           </div>
         </div>
@@ -205,7 +205,7 @@ export default function Home() {
       {/* Footer */}
       <footer className="w-full py-8 px-6 sm:px-8 md:px-12 bg-rc-text border-t border-rc-border">
         <div className="max-w-2xl mx-auto text-center space-y-3">
-          <p className="text-white/60 text-sm">Brother Jimi Ministries - Inspired by Jesus Christ</p>
+          <p className="text-white/60 text-sm">Brother Jimi Ministries — Inspired by Jesus Christ</p>
           <p className="text-white/30 text-xs">© 2026. All rights reserved.</p>
         </div>
       </footer>
