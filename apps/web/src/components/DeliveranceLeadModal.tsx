@@ -205,13 +205,13 @@ const COUNTRY_CODES = [
 ];
 
 const STEPS = [
-  { id: 's1', type: 'options', q: 'What is your current situation?', opts: ['Currently trapped in this lifestyle', 'Want to escape but unsure how', 'Tried to leave but keep returning', 'Ready for complete freedom in Jesus'] },
-  { id: 's2', type: 'options', q: 'What are you seeking from Jesus?', opts: ['Freedom from deception', 'A completely new life', 'Restoration and peace', 'All of the above'] },
+  { id: 's1', type: 'options', q: 'What brought you here?', opts: ['I want freedom from fraud', 'I\'m tired of the trap', 'I want Jesus to set me free', 'I\'m ready for a new life'] },
+  { id: 's2', type: 'options', q: 'What do you need from Jesus?', opts: ['Deliverance from deception', 'Restoration and healing', 'A path out of this', 'Everything above'] },
   { id: 's3', type: 'text', q: 'Your full name', name: 'name', placeholder: 'e.g., John Smith' },
-  { id: 's4', type: 'text', q: 'Your state or region', name: 'state', placeholder: 'e.g., California' },
+  { id: 's4', type: 'text', q: 'Your state or region', name: 'state', placeholder: 'e.g., Lagos' },
   { id: 's5', type: 'select', q: 'Which country are you in?', name: 'country' },
   { id: 's6', type: 'phone', q: 'Your phone number', name: 'phone' },
-  { id: 's7', type: 'success', q: 'Jesus is calling you home' },
+  { id: 's7', type: 'success', q: 'Brother Jimi is praying for you' },
 ];
 
 function OptionPill({ label, selected, onClick }: { label: string; selected: boolean; onClick: () => void }) {
@@ -370,7 +370,7 @@ export default function DeliveranceLeadModal({ onClose }: { onClose: () => void 
             marginTop: '12px',
             lineHeight: 1.6
           }}>
-            Your journey toward freedom has begun. We are with you every step.
+            Brother Jimi will respond personally with prayer and encouragement. Your restoration begins with prayer.
           </p>
           <button
             onClick={() => router.push('/dashboard/stages')}

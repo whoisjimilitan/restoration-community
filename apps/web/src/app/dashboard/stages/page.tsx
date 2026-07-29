@@ -1,263 +1,302 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import Link from 'next/link';
+import { useState, useEffect } from 'react';
 
 const STAGES = [
-  { number: 1, name: 'Truth', sequence: 1, status: 'current' },
-  { number: 2, name: 'Confession', sequence: 2, status: 'locked' },
-  { number: 3, name: 'Repentance', sequence: 3, status: 'locked' },
-  { number: 4, name: 'Forgiveness', sequence: 4, status: 'locked' },
-  { number: 5, name: 'Reconciliation', sequence: 5, status: 'locked' },
-  { number: 6, name: 'Honest Work', sequence: 6, status: 'locked' },
-  { number: 7, name: 'Serving', sequence: 7, status: 'locked' }
+  { number: 1, name: 'Truth', color: '#E8F4F3', textColor: '#0D5E57' },
+  { number: 2, name: 'Confession', color: '#D1EEEA', textColor: '#0D5E57' },
+  { number: 3, name: 'Repentance', color: '#B3E5E0', textColor: '#0D5E57' },
+  { number: 4, name: 'Forgiveness', color: '#95DDD7', textColor: '#0D5E57' },
+  { number: 5, name: 'Reconciliation', color: '#4DB5A6', textColor: '#0D5E57' },
+  { number: 6, name: 'Honest Work', color: '#1B7A6F', textColor: '#ffffff' },
+  { number: 7, name: 'Service', color: '#0D5E57', textColor: '#ffffff' },
 ];
 
-export default function DashboardStagesPage() {
-  const [displayName, setDisplayName] = useState('Friend');
+const PROMPTS = {
+  1: 'Who have you become through fraud? Who does God say you are?',
+  2: 'What lies have you told yourself? What is the truth?',
+  3: 'What do you need to turn away from? What will you choose?',
+  4: 'Where do you need Jesus\' forgiveness? Who do you need to forgive?',
+  5: 'Which relationships need healing? What does peace look like?',
+  6: 'What honest work is Jesus calling you to?',
+  7: 'How will your restored life serve others?'
+};
+
+export default function DashboardStages() {
+  const [currentStage, setCurrentStage] = useState(1);
+  const [reflection, setReflection] = useState('');
+  const [submitted, setSubmitted] = useState(false);
+  const [userName, setUserName] = useState('Friend');
 
   useEffect(() => {
-    const userName = localStorage.getItem('user_name') || 'Friend';
-    setDisplayName(userName);
+    setUserName(localStorage.getItem('user_name') || 'Friend');
   }, []);
 
-  const currentStage = STAGES[0]; // Stage 1 is always current for new users
-  const progressPercent = ((currentStage.sequence - 1) / 6) * 100;
+  const stage = STAGES[currentStage - 1];
+  const prompt = PROMPTS[currentStage as keyof typeof PROMPTS];
+
+  const handleSubmit = () => {
+    if (!reflection.trim()) return;
+    localStorage.setItem(`stage_${currentStage}_reflection`, reflection);
+    setSubmitted(true);
+    setTimeout(() => {
+      setReflection('');
+      setSubmitted(false);
+    }, 2000);
+  };
 
   return (
-    <div style={{ minHeight: '100vh', backgroundColor: 'white' }}>
-      <div style={{ maxWidth: '1024px', margin: '0 auto', padding: '48px 32px 48px 32px' }}>
-
+    <div style={{ backgroundColor: '#FAFAF8', minHeight: '100vh', fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif' }}>
+      <div style={{ maxWidth: '960px', margin: '0 auto' }}>
         {/* Header */}
-        <div style={{ marginBottom: '48px' }}>
-          <h1 style={{
-            fontSize: '32px',
-            fontWeight: 'bold',
-            color: '#1a1a1a',
-            marginBottom: '12px',
-            marginTop: 0,
-            fontFamily: 'system-ui, -apple-system, sans-serif'
-          }}>
-            Welcome back, {displayName}
+        <div style={{ padding: '48px 24px 32px', backgroundColor: '#FAFAF8', borderBottom: '1px solid #E8E8E6' }}>
+          <p style={{ fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.05em', color: '#0D5E57', textTransform: 'uppercase', margin: 0, marginBottom: '12px' }}>
+            Welcome back
+          </p>
+          <h1 style={{ fontSize: '2.5rem', fontWeight: 700, margin: 0, color: '#1A1A18', fontFamily: 'Georgia, serif', lineHeight: 1.1 }}>
+            {userName}
           </h1>
-          <p style={{
-            fontSize: '16px',
-            color: '#666666',
-            margin: '0',
-            fontFamily: 'system-ui, -apple-system, sans-serif'
-          }}>
-            You&apos;re on a journey of restoration. Here&apos;s what&apos;s next.
+          <p style={{ fontSize: '1rem', color: '#7A7A78', margin: '12px 0 0', fontWeight: 400 }}>
+            Stage {currentStage} of 7 — {stage.name}
           </p>
         </div>
 
-        {/* Current Journey Status Card */}
-        <div style={{
-          marginBottom: '32px',
-          border: '1px solid #e5e5e5',
-          borderRadius: '8px',
-          padding: '24px',
-          backgroundColor: '#ffffff'
-        }}>
-          <div style={{ marginBottom: '24px' }}>
-            <h2 style={{
-              fontSize: '18px',
-              fontWeight: '600',
-              color: '#1a1a1a',
-              marginBottom: '8px',
-              marginTop: 0,
-              fontFamily: 'system-ui, -apple-system, sans-serif'
-            }}>
-              Your Restoration Journey
-            </h2>
-            <p style={{
-              fontSize: '14px',
-              color: '#999999',
-              margin: '0',
-              fontFamily: 'system-ui, -apple-system, sans-serif'
-            }}>
-              Stage {currentStage.sequence} of 7
-            </p>
-          </div>
-
-          {/* Stage Display */}
-          <div style={{ marginBottom: '24px' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '24px' }}>
+        {/* Current Stage */}
+        <div style={{ padding: '48px 24px' }}>
+          <div style={{
+            backgroundColor: stage.color,
+            borderRadius: '16px',
+            padding: '48px',
+            marginBottom: '48px',
+            transition: 'all 300ms ease'
+          }}>
+            <div style={{ marginBottom: '32px' }}>
               <div style={{
-                width: '48px',
-                height: '48px',
-                borderRadius: '8px',
-                backgroundColor: '#e8f4f3',
+                width: '64px',
+                height: '64px',
+                borderRadius: '12px',
+                backgroundColor: 'rgba(255,255,255,0.3)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                flexShrink: 0
+                fontSize: '1.875rem',
+                fontWeight: 700,
+                color: stage.textColor,
+                marginBottom: '16px'
               }}>
-                <span style={{
-                  fontSize: '18px',
-                  fontWeight: '600',
-                  color: '#0D5E57',
-                  fontFamily: 'system-ui, -apple-system, sans-serif'
-                }}>
-                  {currentStage.sequence}
-                </span>
+                {currentStage}
               </div>
-              <div>
-                <h3 style={{
-                  fontSize: '18px',
-                  fontWeight: '600',
-                  color: '#1a1a1a',
-                  marginBottom: '4px',
-                  marginTop: 0,
-                  fontFamily: 'system-ui, -apple-system, sans-serif'
-                }}>
-                  {currentStage.name}
-                </h3>
-                <p style={{
-                  fontSize: '14px',
-                  color: '#666666',
-                  margin: '0',
-                  fontFamily: 'system-ui, -apple-system, sans-serif'
-                }}>
-                  You&apos;re here right now
+              <h2 style={{
+                fontSize: '2rem',
+                fontWeight: 700,
+                margin: 0,
+                color: stage.textColor,
+                fontFamily: 'Georgia, serif',
+                lineHeight: 1.2
+              }}>
+                {stage.name}
+              </h2>
+            </div>
+
+            <div style={{
+              backgroundColor: 'rgba(255,255,255,0.4)',
+              borderRadius: '12px',
+              padding: '16px',
+              marginBottom: '32px',
+              backdropFilter: 'blur(10px)'
+            }}>
+              <p style={{
+                fontSize: '0.75rem',
+                fontWeight: 600,
+                letterSpacing: '0.05em',
+                textTransform: 'uppercase',
+                color: stage.textColor,
+                opacity: 0.8,
+                margin: '0 0 8px'
+              }}>
+                Friday 3pm
+              </p>
+              <p style={{
+                fontSize: '1.125rem',
+                fontWeight: 600,
+                color: stage.textColor,
+                margin: 0
+              }}>
+                SCOAN Accra, Ghana
+              </p>
+            </div>
+
+            <div style={{ marginBottom: '24px' }}>
+              <p style={{
+                fontSize: '0.875rem',
+                fontWeight: 600,
+                color: stage.textColor,
+                opacity: 0.9,
+                margin: '0 0 12px',
+                textTransform: 'uppercase',
+                letterSpacing: '0.05em'
+              }}>
+                This Week
+              </p>
+              <p style={{
+                fontSize: '1.25rem',
+                fontWeight: 500,
+                color: stage.textColor,
+                lineHeight: 1.6,
+                margin: 0
+              }}>
+                {prompt}
+              </p>
+            </div>
+
+            {submitted ? (
+              <div style={{
+                backgroundColor: 'rgba(255,255,255,0.3)',
+                borderRadius: '12px',
+                padding: '16px',
+                textAlign: 'center'
+              }}>
+                <p style={{ fontSize: '1rem', fontWeight: 600, color: stage.textColor, margin: 0 }}>
+                  ✓ Reflection submitted
                 </p>
               </div>
-            </div>
+            ) : (
+              <div>
+                <textarea
+                  value={reflection}
+                  onChange={(e) => setReflection(e.target.value)}
+                  placeholder="Share your reflection..."
+                  style={{
+                    width: '100%',
+                    minHeight: '100px',
+                    padding: '16px',
+                    fontSize: '1rem',
+                    fontFamily: 'inherit',
+                    backgroundColor: 'rgba(255,255,255,0.9)',
+                    border: 'none',
+                    borderRadius: '8px',
+                    boxSizing: 'border-box',
+                    marginBottom: '12px',
+                    lineHeight: 1.6,
+                    resize: 'vertical'
+                  }}
+                />
+                <button
+                  onClick={handleSubmit}
+                  disabled={!reflection.trim()}
+                  style={{
+                    width: '100%',
+                    padding: '14px',
+                    backgroundColor: reflection.trim() ? 'rgba(255,255,255,0.9)' : 'rgba(255,255,255,0.4)',
+                    color: stage.textColor,
+                    fontSize: '1rem',
+                    fontWeight: 600,
+                    border: 'none',
+                    borderRadius: '8px',
+                    cursor: reflection.trim() ? 'pointer' : 'not-allowed',
+                    fontFamily: 'inherit',
+                    transition: 'all 200ms'
+                  }}
+                  onMouseEnter={(e) => {
+                    if (reflection.trim()) {
+                      e.currentTarget.style.backgroundColor = '#ffffff';
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (reflection.trim()) {
+                      e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.9)';
+                    }
+                  }}
+                >
+                  Submit Reflection
+                </button>
+              </div>
+            )}
+          </div>
 
-            {/* Progress Bar */}
-            <div style={{ marginBottom: '16px' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
-                <label style={{
-                  fontSize: '14px',
-                  fontWeight: '600',
-                  color: '#1a1a1a',
-                  fontFamily: 'system-ui, -apple-system, sans-serif'
-                }}>
-                  Progress
-                </label>
-                <span style={{
-                  fontSize: '14px',
-                  fontWeight: '600',
-                  color: '#0D5E57',
-                  fontFamily: 'system-ui, -apple-system, sans-serif'
-                }}>
-                  {Math.round(progressPercent)}%
-                </span>
-              </div>
-              <div style={{
-                width: '100%',
-                height: '8px',
-                backgroundColor: '#e5e5e5',
-                borderRadius: '4px',
-                overflow: 'hidden'
-              }}>
-                <div style={{
-                  width: `${progressPercent}%`,
-                  height: '100%',
-                  backgroundColor: '#0D5E57',
-                  transition: 'width 300ms ease'
-                }} />
-              </div>
+          {/* All Stages */}
+          <div style={{ marginBottom: '48px' }}>
+            <h3 style={{
+              fontSize: '0.875rem',
+              fontWeight: 600,
+              letterSpacing: '0.05em',
+              textTransform: 'uppercase',
+              color: '#7A7A78',
+              margin: '0 0 20px'
+            }}>
+              Your Journey
+            </h3>
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))',
+              gap: '12px'
+            }}>
+              {STAGES.map((s) => (
+                <button
+                  key={s.number}
+                  onClick={() => setCurrentStage(s.number)}
+                  style={{
+                    padding: '20px 16px',
+                    backgroundColor: currentStage === s.number ? s.color : '#ffffff',
+                    border: currentStage === s.number ? `2px solid ${s.color}` : '1px solid #E8E8E6',
+                    borderRadius: '12px',
+                    cursor: 'pointer',
+                    textAlign: 'center',
+                    transition: 'all 200ms',
+                    fontFamily: 'inherit'
+                  }}
+                  onMouseEnter={(e) => {
+                    if (currentStage !== s.number) {
+                      e.currentTarget.style.backgroundColor = '#F5F5F3';
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (currentStage !== s.number) {
+                      e.currentTarget.style.backgroundColor = '#ffffff';
+                    }
+                  }}
+                >
+                  <div style={{
+                    fontSize: '1.5rem',
+                    fontWeight: 700,
+                    marginBottom: '6px',
+                    color: currentStage === s.number ? s.textColor : '#0D5E57'
+                  }}>
+                    {s.number}
+                  </div>
+                  <div style={{
+                    fontSize: '0.75rem',
+                    fontWeight: 600,
+                    color: currentStage === s.number ? s.textColor : '#0D5E57',
+                    lineHeight: 1.2
+                  }}>
+                    {s.name}
+                  </div>
+                </button>
+              ))}
             </div>
           </div>
 
-          {/* CTA */}
-          <div style={{ paddingTop: '16px' }}>
-            <Link
-              href="/dashboard/stage/1"
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                padding: '10px 16px',
-                fontSize: '16px',
-                fontWeight: '500',
-                color: '#0D5E57',
-                textDecoration: 'none',
-                transition: 'color 200ms ease',
-                fontFamily: 'system-ui, -apple-system, sans-serif',
-                cursor: 'pointer'
-              }}
-              onMouseEnter={(e) => {
-                (e.currentTarget as HTMLElement).style.color = '#0a4a47';
-              }}
-              onMouseLeave={(e) => {
-                (e.currentTarget as HTMLElement).style.color = '#0D5E57';
-              }}
-            >
-              Continue to Stage 1 →
-            </Link>
-          </div>
-        </div>
-
-        {/* All Stages Grid */}
-        <div style={{ marginBottom: '32px' }}>
-          <h2 style={{
-            fontSize: '18px',
-            fontWeight: '600',
-            color: '#1a1a1a',
-            marginBottom: '16px',
-            marginTop: 0,
-            fontFamily: 'system-ui, -apple-system, sans-serif'
-          }}>
-            All Stages
-          </h2>
-
+          {/* Mentor Info */}
           <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-            gap: '16px'
+            backgroundColor: '#ffffff',
+            border: '1px solid #E8E8E6',
+            borderRadius: '12px',
+            padding: '24px'
           }}>
-            {STAGES.map((stage) => (
-              <div
-                key={stage.number}
-                style={{
-                  border: stage.status === 'current' ? '2px solid #0D5E57' : '1px solid #e5e5e5',
-                  borderRadius: '8px',
-                  padding: '16px',
-                  backgroundColor: stage.status === 'current' ? '#f9fffe' : '#ffffff',
-                  opacity: stage.status === 'locked' ? 0.6 : 1
-                }}
-              >
-                <div style={{ marginBottom: '8px' }}>
-                  <span style={{
-                    display: 'flex',
-                    width: '32px',
-                    height: '32px',
-                    borderRadius: '6px',
-                    backgroundColor: stage.status === 'current' ? '#0D5E57' : '#e5e5e5',
-                    color: stage.status === 'current' ? 'white' : '#999999',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    fontSize: '14px',
-                    fontWeight: '600',
-                    fontFamily: 'system-ui, -apple-system, sans-serif'
-                  }}>
-                    {stage.sequence}
-                  </span>
-                </div>
-                <h3 style={{
-                  fontSize: '16px',
-                  fontWeight: '600',
-                  color: '#1a1a1a',
-                  marginBottom: '4px',
-                  marginTop: 0,
-                  fontFamily: 'system-ui, -apple-system, sans-serif'
-                }}>
-                  {stage.name}
-                </h3>
-                {stage.status === 'locked' && (
-                  <p style={{
-                    fontSize: '12px',
-                    color: '#999999',
-                    margin: '0',
-                    fontFamily: 'system-ui, -apple-system, sans-serif',
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.5px'
-                  }}>
-                    Locked
-                  </p>
-                )}
-              </div>
-            ))}
+            <p style={{
+              fontSize: '0.75rem',
+              fontWeight: 600,
+              letterSpacing: '0.05em',
+              textTransform: 'uppercase',
+              color: '#7A7A78',
+              margin: '0 0 8px'
+            }}>
+              Your Mentor
+            </p>
+            <p style={{ fontSize: '1rem', fontWeight: 500, color: '#1A1A18', margin: 0 }}>
+              Assigned after first gathering
+            </p>
           </div>
         </div>
       </div>
