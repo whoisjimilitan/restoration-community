@@ -179,7 +179,7 @@ export default function Home() {
             <p>No one can go it alone.</p>
             <p className="pt-3">I have been there.</p>
             <p>I have come back by grace.</p>
-            <p>Now it is your turn.</p>
+            <p>Now enter into that grace.</p>
             <p className="pt-3">Take the first step of faith.</p>
             <p className="pt-2 font-medium text-white">It will be your best step of faith.</p>
           </div>
