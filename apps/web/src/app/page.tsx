@@ -57,7 +57,7 @@ export default function Home() {
             <p className="text-rc-text/80">I have no opportunities.</p>
             <p className="text-rc-text/80">I am just recovering what was stolen.</p>
             <p className="pt-3 font-medium">That is the voice of deception.</p>
-            <p className="font-medium">The spirit recruiting our youths in many nations.</p>
+            <p className="font-medium">The spirit recruiting our youths across nations.</p>
           </div>
         </div>
       </section>
@@ -91,7 +91,6 @@ export default function Home() {
             <p>It is the only way out of fraud.</p>
             <p className="pt-3">Our money cannot offer it.</p>
             <p>Our laws cannot offer it.</p>
-            <p>Punishment cannot offer it.</p>
             <p className="pt-2 font-medium">Fraud is a spiritual issue.</p>
             <p className="font-medium">Jesus Christ is the only way.</p>
           </div>
