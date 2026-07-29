@@ -90,12 +90,11 @@ export default function Home() {
             <p>From sin and its consequences.</p>
             <p>It is the only way out of fraud.</p>
             <p className="pt-2 font-medium">Only Jesus Christ offers this deliverance.</p>
-            <p className="pt-3">Your money cannot fix this.</p>
-            <p>The Law cannot fix this.</p>
-            <p>Punishment cannot fix this.</p>
+            <p className="pt-3">Our money cannot offer it.</p>
+            <p>Our laws cannot offer it.</p>
+            <p>Punishment cannot offer it.</p>
             <p className="pt-2 font-medium">Fraud is a spiritual issue.</p>
-            <p className="font-medium">There is no cure outside Jesus Christ.</p>
-            <p>He is the only way.</p>
+            <p className="font-medium">Jesus Christ is the only way.</p>
           </div>
         </div>
       </section>
