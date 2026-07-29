@@ -148,7 +148,7 @@ export default function Home() {
 
           <div className="space-y-4 pt-10 md:pt-12 border-t border-rc-text/15 text-base md:text-lg text-rc-text leading-relaxed font-light">
             <p>You move through this divine journey with support.</p>
-            <p>Prayer Encouragement. People who understand.</p>
+            <p>Prayer. Encouragement. People who understand.</p>
           </div>
         </div>
       </section>
@@ -207,7 +207,7 @@ export default function Home() {
       {/* Footer */}
       <footer className="w-full py-8 px-6 sm:px-8 md:px-12 bg-rc-text border-t border-rc-border">
         <div className="max-w-2xl mx-auto text-center space-y-3">
-          <p className="text-white/60 text-sm">Brother Jimi Skool — An Inspiration from Jesus Christ</p>
+          <p className="text-white/60 text-sm">Brother Jimi Ministries - Inspired by Jesus Christ</p>
           <p className="text-white/30 text-xs">© 2026. All rights reserved.</p>
         </div>
       </footer>
