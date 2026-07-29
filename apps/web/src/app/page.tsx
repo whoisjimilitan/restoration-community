@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
+import Navigation from '@/components/Navigation';
 
 const stages = [
   { number: 1, name: 'Truth', color: '#E8F4F3', textColor: 'text-rc-text' },
@@ -22,8 +23,9 @@ export default function Home() {
 
   return (
     <div className="bg-rc-bg text-rc-text">
+      <Navigation />
       {/* HERO */}
-      <section className="w-full min-h-screen flex flex-col justify-center bg-gradient-to-br from-rc-accent to-rc-text px-6 sm:px-8 md:px-12 py-24 md:py-32">
+      <section className="w-full min-h-screen flex flex-col justify-center bg-gradient-to-br from-rc-accent to-rc-text px-6 sm:px-8 md:px-12 py-24 md:py-32 pt-32 md:pt-40">
         <div className="max-w-2xl mx-auto w-full space-y-6">
           <div className={`transform transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '120ms' }}>
             <p className="text-xs font-medium text-white/70 uppercase tracking-wider">For Young People In A Hurry</p>
