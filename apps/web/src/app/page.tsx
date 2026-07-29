@@ -57,7 +57,7 @@ export default function Home() {
             <p className="text-rc-text/80">I have no opportunities.</p>
             <p className="text-rc-text/80">I am just recovering what was stolen.</p>
             <p className="pt-3 font-medium">That is the voice of deception.</p>
-            <p>You cannot ignore this voice without help.</p>
+            <p className="font-medium">The spirit behind fraud and scams across nations.</p>
           </div>
         </div>
       </section>
@@ -71,11 +71,10 @@ export default function Home() {
             <p>I once responded to that voice.</p>
             <p>I too justified my actions.</p>
             <p>I too convinced myself I had no choice.</p>
-            <p className="pt-2">I fought alone but nothing changed.</p>
             <p className="pt-3">Until Jesus came.</p>
-            <p className="font-medium">He broke my chains.</p>
+            <p className="font-medium">He rescued me from the trap.</p>
             <p className="font-medium">He gave me a new life.</p>
-            <p className="pt-3">I know the Deliverer.</p>
+            <p className="pt-3">I know my Deliverer.</p>
             <p className="font-medium">His name is Jesus Christ.</p>
           </div>
         </div>
@@ -87,19 +86,16 @@ export default function Home() {
           <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight">The Only Way</h2>
 
           <div className="space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
-            <p>Deliverance means one thing:</p>
-            <p>Total freedom from sin and its consequence.</p>
+            <p>Deliverance means total freedom.</p>
+            <p>From sin and its consequences.</p>
             <p>It is the only way out of fraud.</p>
             <p className="pt-2 font-medium">Only Jesus Christ offers this deliverance.</p>
-            <p className="pt-2">He broke my chains.</p>
-            <p>He gave me a new life.</p>
-            <p className="pt-3">No amount of money fixes this.</p>
-            <p>No law fixes this.</p>
-            <p>No punishment fixes this.</p>
-            <p className="pt-2 font-medium">Fraud is spiritual bondage.</p>
+            <p className="pt-3">Your money cannot fix this.</p>
+            <p>The Law cannot fix this.</p>
+            <p>Punishment cannot fix this.</p>
+            <p className="pt-2 font-medium">Fraud is a spiritual issue.</p>
             <p className="font-medium">There is no cure outside Jesus Christ.</p>
-            <p>He delivers people from sin.</p>
-            <p>No one is too far gone.</p>
+            <p>He is the only way.</p>
           </div>
         </div>
       </section>
@@ -154,7 +150,7 @@ export default function Home() {
 
           <div className="space-y-4 pt-10 md:pt-12 border-t border-rc-text/15 text-base md:text-lg text-rc-text leading-relaxed font-light">
             <p>You walk this path with support.</p>
-            <p>Prayer. Scripture. People who understand.</p>
+            <p>Encouragement. Prayer. People who understand.</p>
           </div>
         </div>
       </section>
@@ -169,6 +165,7 @@ export default function Home() {
             <p>You will learn to work honestly.</p>
             <p>To live without fear.</p>
             <p>To build something that lasts.</p>
+            <p className="pt-2">Because of Christ.</p>
           </div>
         </div>
       </section>
@@ -179,11 +176,12 @@ export default function Home() {
           <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-white leading-tight">Return</h2>
 
           <div className="space-y-4 text-base md:text-lg text-white/90 leading-relaxed font-light">
-            <p>You know the trap.</p>
+            <p>You feel this trap.</p>
             <p>You know time is running out.</p>
-            <p>You cannot stop alone.</p>
-            <p className="pt-3">I have been there.</p>
-            <p className="pt-3 font-medium text-white">Jesus is calling you out.</p>
+            <p>No one can go it alone.</p>
+            <p className="pt-3">I have been there and know this.</p>
+            <p className="pt-2">Take the first step of faith.</p>
+            <p className="pt-3 font-medium text-white">It will be your best step of faith.</p>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 pt-8">
