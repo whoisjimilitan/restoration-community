@@ -57,7 +57,7 @@ export default function Home() {
             <p className="text-rc-text/80">I have no opportunities.</p>
             <p className="text-rc-text/80">I am just recovering what was stolen.</p>
             <p className="pt-3 font-medium">That is the voice of deception.</p>
-            <p className="font-medium">The spirit behind fraud and scams across nations.</p>
+            <p className="font-medium">The spirit recruiting our youths in many nations.</p>
           </div>
         </div>
       </section>
@@ -68,13 +68,13 @@ export default function Home() {
           <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight">The Witness</h2>
 
           <div className="border-l-4 border-rc-accent pl-8 space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
-            <p>I once responded to that voice.</p>
-            <p>I too justified my actions.</p>
-            <p>I too convinced myself I had no choice.</p>
-            <p className="pt-3">Until Jesus came.</p>
-            <p className="font-medium">He rescued me from the trap.</p>
-            <p className="font-medium">He gave me a new life.</p>
-            <p className="pt-3">I know my Deliverer.</p>
+            <p>I too was controlled by that spirit.</p>
+            <p>I justified my actions.</p>
+            <p>I convinced myself I had no choice.</p>
+            <p className="pt-3">Until my encounter with God.</p>
+            <p className="font-medium">He delivered me from that spirit.</p>
+            <p className="font-medium">He gave me a new beginning.</p>
+            <p className="pt-3">My God. My Deliverer.</p>
             <p className="font-medium">His name is Jesus Christ.</p>
           </div>
         </div>
@@ -89,7 +89,6 @@ export default function Home() {
             <p>Deliverance means total freedom.</p>
             <p>From sin and its consequences.</p>
             <p>It is the only way out of fraud.</p>
-            <p className="pt-2 font-medium">Only Jesus Christ offers this deliverance.</p>
             <p className="pt-3">Our money cannot offer it.</p>
             <p>Our laws cannot offer it.</p>
             <p>Punishment cannot offer it.</p>
@@ -148,8 +147,8 @@ export default function Home() {
           </div>
 
           <div className="space-y-4 pt-10 md:pt-12 border-t border-rc-text/15 text-base md:text-lg text-rc-text leading-relaxed font-light">
-            <p>You walk this path with support.</p>
-            <p>Encouragement. Prayer. People who understand.</p>
+            <p>You move through this divine journey with support.</p>
+            <p>Prayer Encouragement. People who understand.</p>
           </div>
         </div>
       </section>
@@ -161,10 +160,10 @@ export default function Home() {
 
           <div className="space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
             <p>Deliverance is just the start.</p>
-            <p>You will learn to work honestly.</p>
+            <p>His grace will teach you to work honestly.</p>
             <p>To live without fear.</p>
             <p>To build something that lasts.</p>
-            <p className="pt-2">Because of Christ.</p>
+            <p className="pt-2">For His glory.</p>
           </div>
         </div>
       </section>
@@ -178,9 +177,11 @@ export default function Home() {
             <p>You feel this trap.</p>
             <p>You know time is running out.</p>
             <p>No one can go it alone.</p>
-            <p className="pt-3">I have been there and know this.</p>
-            <p className="pt-2">Take the first step of faith.</p>
-            <p className="pt-3 font-medium text-white">It will be your best step of faith.</p>
+            <p className="pt-3">I have been there.</p>
+            <p>I have come back by grace.</p>
+            <p>Now it is your turn.</p>
+            <p className="pt-3">Take the first step of faith.</p>
+            <p className="pt-2 font-medium text-white">It will be your best step of faith.</p>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 pt-8">
