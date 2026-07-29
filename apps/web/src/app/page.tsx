@@ -202,18 +202,19 @@ export default function Home() {
       </section>
 
       {/* Explore More */}
-      <section className="w-full py-12 md:py-16 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
-        <div className="max-w-2xl mx-auto">
-          <p className="text-xs text-rc-text/50 uppercase tracking-wider mb-6">Or explore</p>
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Link href="/testimonies" className="px-6 py-2 text-sm text-rc-text/70 hover:text-rc-text border border-rc-border rounded hover:border-rc-accent transition-all duration-200">
-              See What Changed
+      <section className="w-full py-16 md:py-20 px-6 sm:px-8 md:px-12 bg-rc-bg">
+        <div className="max-w-2xl mx-auto space-y-8">
+          <div>
+            <p className="text-xs font-medium text-rc-text/40 uppercase tracking-widest">Or explore</p>
+          </div>
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-8 sm:gap-12">
+            <Link href="/testimonies" className="text-base text-rc-text/70 hover:text-rc-text transition-colors duration-200 group">
+              Lives Changed
+              <span className="block h-px w-0 group-hover:w-full bg-rc-accent transition-all duration-300 mt-1"></span>
             </Link>
-            <Link href="/partnership" className="px-6 py-2 text-sm text-rc-text/70 hover:text-rc-text border border-rc-border rounded hover:border-rc-accent transition-all duration-200">
+            <Link href="/partnership" className="text-base text-rc-text/70 hover:text-rc-text transition-colors duration-200 group">
               Join As Partner
-            </Link>
-            <Link href="/auth/signin" className="px-6 py-2 text-sm text-rc-text/70 hover:text-rc-text border border-rc-border rounded hover:border-rc-accent transition-all duration-200">
-              Return to Journey
+              <span className="block h-px w-0 group-hover:w-full bg-rc-accent transition-all duration-300 mt-1"></span>
             </Link>
           </div>
         </div>
