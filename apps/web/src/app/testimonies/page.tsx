@@ -5,24 +5,24 @@ export default function TestimoniesPage() {
       name: 'Samuel',
       stage: 'Honest Work',
       image: '👨',
-      quote: 'I learned that honest work builds dignity. Jesus gave me purpose again.',
-      story: 'After leaving fraud, Samuel rebuilt his life through legitimate employment. He now mentors others in his community, showing them that transformation is real and lasting.'
+      quote: 'Fraud had me convinced I was smart. But Jesus showed me I was just lost. Now when I work, I work because He freed me.',
+      story: 'Eight years. That is how long Samuel sold fake products and thought he was winning. Then prayer happened. Brother Jimi prayed with him and Jesus Christ met him. Not metaphorically. Actually. Samuel says he felt the weight lift off him during the prayer. Now he works an honest job. He does not need the money. He works because everything he does is an act of worship to the God who saved him.'
     },
     {
       id: 2,
       name: 'Zainab',
       stage: 'Service',
       image: '👩',
-      quote: 'My restored life is now my witness. Helping others find freedom is my calling.',
-      story: 'Zainab completed the 7-stage restoration journey and now serves as a mentor, walking alongside others. Her testimony has helped 5 others find Jesus.'
+      quote: 'I wasted ten years. Jesus gave me back my life. Now I give it away to show people the way back.',
+      story: 'Zainab came to Brother Jimi broken. Deception had destroyed her reputation and her relationships. Through the 7-stage journey, Jesus Christ rebuilt her from the inside out. She is not a therapist or counselor. She is a woman who knows what Jesus does. And when she talks to someone trapped in fraud, they listen because they see Jesus in her transformation. She has walked 5 people into the same restoration she found.'
     },
     {
       id: 3,
       name: 'James',
       stage: 'Honest Work',
       image: '👨',
-      quote: 'Jesus did not just set me free from fraud. He set me free to live with purpose.',
-      story: 'James now runs his own legitimate business and is rebuilding relationships he damaged through fraud. His family sees the real change in him and they are slowly restoring trust.'
+      quote: 'I thought I needed more money. Turns out I just needed Jesus. Everything changed after that prayer.',
+      story: 'James ran fraud operations. Calculated. Deliberate. He got caught and went to prison. But prison did not break him. Prayer did. In Brother Jimi prayer encounter, Jesus Christ confronted him with the reality of what he had done and the reality of forgiveness. James says he wept for three hours straight. Now he works an honest job. His family is slowly trusting him again. But more than that, he knows who Jesus is. He cannot keep quiet about it.'
     }
   ];
 
@@ -30,9 +30,9 @@ export default function TestimoniesPage() {
     <div style={{ backgroundColor: '#FAFAF8', minHeight: '100vh', fontFamily: '-apple-system, BlinkMacSystemFont, sans-serif' }}>
       <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '64px 24px 48px' }}>
         <div style={{ maxWidth: '720px', marginBottom: '48px' }}>
-          <p style={{ fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase', color: '#0D5E57', margin: '0 0 12px' }}>Real Transformation</p>
+          <p style={{ fontSize: '0.75rem', fontWeight: 600, letterSpacing: '0.05em', textTransform: 'uppercase', color: '#0D5E57', margin: '0 0 12px' }}>What Jesus Does</p>
           <h1 style={{ fontSize: '3rem', fontWeight: 700, margin: '0 0 16px', color: '#1A1A18', fontFamily: 'Georgia, serif', lineHeight: 1.1 }}>Testimonies</h1>
-          <p style={{ fontSize: '1.125rem', color: '#7A7A78', lineHeight: 1.8, margin: 0 }}>Meet people who found freedom through Jesus Christ. Their stories show what transformation looks like when the gospel is lived out in community.</p>
+          <p style={{ fontSize: '1.125rem', color: '#7A7A78', lineHeight: 1.8, margin: 0 }}>People who found Jesus Christ in prayer and in community. This is what real transformation looks like.</p>
         </div>
       </div>
 
@@ -56,9 +56,9 @@ export default function TestimoniesPage() {
 
       <div style={{ backgroundColor: '#0D5E57', color: '#ffffff', padding: '64px 24px' }}>
         <div style={{ maxWidth: '720px', margin: '0 auto', textAlign: 'center' }}>
-          <h2 style={{ fontSize: '2rem', fontWeight: 700, margin: '0 0 16px', fontFamily: 'Georgia, serif', lineHeight: 1.2 }}>Help us reach more people</h2>
-          <p style={{ fontSize: '1.125rem', opacity: 0.9, margin: '0 0 32px', lineHeight: 1.8 }}>Every testimony costs something - Brother Jimi time, prayer, and faithful care. Partner with us to help more find freedom through Jesus Christ.</p>
-          <a href="/partnership" style={{ display: 'inline-block', padding: '14px 32px', backgroundColor: '#ffffff', color: '#0D5E57', fontSize: '1rem', fontWeight: 600, borderRadius: '8px', textDecoration: 'none' }}>Become a Partner</a>
+          <h2 style={{ fontSize: '2rem', fontWeight: 700, margin: '0 0 16px', fontFamily: 'Georgia, serif', lineHeight: 1.2 }}>Help more people find Jesus</h2>
+          <p style={{ fontSize: '1.125rem', opacity: 0.9, margin: '0 0 32px', lineHeight: 1.8 }}>This ministry is completely free. We exist because people partner with us to help those still trapped find the One who sets captives free.</p>
+          <a href="mailto:james@saintandstory.co.uk" style={{ display: 'inline-block', padding: '14px 32px', backgroundColor: '#ffffff', color: '#0D5E57', fontSize: '1rem', fontWeight: 600, borderRadius: '8px', textDecoration: 'none' }}>Become a Partner</a>
         </div>
       </div>
     </div>
