@@ -2,7 +2,6 @@
 
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import Navigation from '@/components/Navigation';
 
 const stages = [
   { number: 1, name: 'Truth', color: '#E8F4F3', textColor: 'text-rc-text' },
@@ -23,9 +22,8 @@ export default function Home() {
 
   return (
     <div className="bg-rc-bg text-rc-text">
-      <Navigation />
       {/* HERO */}
-      <section className="w-full min-h-screen flex flex-col justify-center bg-gradient-to-br from-rc-accent to-rc-text px-6 sm:px-8 md:px-12 py-24 md:py-32 pt-32 md:pt-40">
+      <section className="w-full min-h-screen flex flex-col justify-center bg-gradient-to-br from-rc-accent to-rc-text px-6 sm:px-8 md:px-12 py-24 md:py-32">
         <div className="max-w-2xl mx-auto w-full space-y-6">
           <div className={`transform transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '120ms' }}>
             <p className="text-xs font-medium text-white/70 uppercase tracking-wider">For Young People In A Hurry</p>
@@ -198,6 +196,24 @@ export default function Home() {
               className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] text-white font-medium border-2 border-white rounded-lg hover:bg-white/10 transition-all duration-200"
             >
               Return to Your Journey
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Explore More */}
+      <section className="w-full py-12 md:py-16 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
+        <div className="max-w-2xl mx-auto">
+          <p className="text-xs text-rc-text/50 uppercase tracking-wider mb-6">Or explore</p>
+          <div className="flex flex-col sm:flex-row gap-4">
+            <Link href="/testimonies" className="px-6 py-2 text-sm text-rc-text/70 hover:text-rc-text border border-rc-border rounded hover:border-rc-accent transition-all duration-200">
+              See What Changed
+            </Link>
+            <Link href="/partnership" className="px-6 py-2 text-sm text-rc-text/70 hover:text-rc-text border border-rc-border rounded hover:border-rc-accent transition-all duration-200">
+              Join As Partner
+            </Link>
+            <Link href="/auth/signin" className="px-6 py-2 text-sm text-rc-text/70 hover:text-rc-text border border-rc-border rounded hover:border-rc-accent transition-all duration-200">
+              Return to Journey
             </Link>
           </div>
         </div>

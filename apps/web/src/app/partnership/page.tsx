@@ -1,14 +1,10 @@
 'use client';
 
-import Navigation from '@/components/Navigation';
-
 export default function PartnershipPage() {
   return (
     <div className="bg-rc-bg text-rc-text">
-      <Navigation />
-
       {/* Hero */}
-      <section className="w-full py-20 md:py-28 px-6 sm:px-8 md:px-12 border-b border-rc-border pt-32 md:pt-40">
+      <section className="w-full py-20 md:py-28 px-6 sm:px-8 md:px-12 border-b border-rc-border">
         <div className="max-w-2xl mx-auto space-y-6">
           <div>
             <p className="text-xs font-medium text-rc-accent uppercase tracking-wider mb-4">Partner With Us</p>

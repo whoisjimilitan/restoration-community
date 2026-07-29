@@ -1,7 +1,5 @@
 'use client';
 
-import Navigation from '@/components/Navigation';
-
 export default function TestimoniesPage() {
   const testimonies = [
     { id: 1, name: 'Samuel', stage: 'Honest Work', image: '👨', quote: 'Brother Jimi prayed with me. I met Jesus. Everything changed.', story: 'Samuel had money from fraud. Lots of it. A car. Respect. But he was empty inside. His cousin told him about Brother Jimi. Samuel called. During prayer, he felt God. Real. Present. Not like a story. Real. He cried. The next week he left fraud. Now he works a normal job. Makes way less money. But he is free. His mom says she has her son back.' },
@@ -12,9 +10,8 @@ export default function TestimoniesPage() {
 
   return (
     <div className="bg-rc-bg text-rc-text">
-      <Navigation />
       {/* Hero */}
-      <section className="w-full py-20 md:py-28 px-6 sm:px-8 md:px-12 border-b border-rc-border pt-32 md:pt-40">
+      <section className="w-full py-20 md:py-28 px-6 sm:px-8 md:px-12 border-b border-rc-border">
         <div className="max-w-2xl mx-auto space-y-6">
           <div>
             <p className="text-xs font-medium text-rc-accent uppercase tracking-wider mb-4">Real Stories</p>
