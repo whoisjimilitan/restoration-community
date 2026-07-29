@@ -163,7 +163,6 @@ export default function Home() {
             <p>His grace will teach you to work honestly.</p>
             <p>To live without fear.</p>
             <p>To build something that lasts.</p>
-            <p className="pt-2">For His glory.</p>
           </div>
         </div>
       </section>
@@ -181,7 +180,6 @@ export default function Home() {
             <p>I have come back by grace.</p>
             <p>Now enter into that grace.</p>
             <p className="pt-3">Take the first step of faith.</p>
-            <p className="pt-2 font-medium text-white">It will be your best step of faith.</p>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 pt-8">
