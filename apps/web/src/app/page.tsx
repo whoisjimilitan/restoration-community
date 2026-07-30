@@ -172,12 +172,13 @@ export default function Home() {
           <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-white leading-tight">Return</h2>
 
           <div className="space-y-4 text-base md:text-lg text-white/90 leading-relaxed font-light">
+            <p>Everything you have heard is true.</p>
             <p>I have been there.</p>
-            <p>I have come back by grace.</p>
-            <p>You can too.</p>
-            <p className="pt-3">Not by wishing.</p>
-            <p>Not by waiting.</p>
-            <p>By your first step of faith.</p>
+            <p>I have come back by His grace.</p>
+            <p>Through deliverance.</p>
+            <p className="pt-3">The trap is real.</p>
+            <p>Jesus Christ is the Deliverer.</p>
+            <p className="pt-3">You were made for something better.</p>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 pt-6">
