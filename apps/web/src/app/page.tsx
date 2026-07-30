@@ -175,8 +175,9 @@ export default function Home() {
             <p>I have been there.</p>
             <p>I have come back by grace.</p>
             <p>You can too.</p>
-            <p className="pt-3">Not by wishfully thinking change will happen.</p>
-            <p>But by taking your first step of faith.</p>
+            <p className="pt-3">Not by wishing.</p>
+            <p>Not by waiting.</p>
+            <p>By your first step of faith.</p>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 pt-6">
@@ -203,11 +204,11 @@ export default function Home() {
             </div>
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-8 sm:gap-12">
               <Link href="/testimonies" className="text-base text-white/80 hover:text-white transition-colors duration-200 group">
-                Lives Changing
+                Success Stories
                 <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-2"></span>
               </Link>
               <Link href="/partnership" className="text-base text-white/80 hover:text-white transition-colors duration-200 group">
-                Join Us
+                Becoming A Partner
                 <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-2"></span>
               </Link>
             </div>
