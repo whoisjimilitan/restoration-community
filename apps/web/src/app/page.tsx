@@ -208,7 +208,7 @@ export default function Home() {
                 <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-2"></span>
               </Link>
               <Link href="/partnership" className="text-base text-white/80 hover:text-white transition-colors duration-200 group">
-                Becoming A Partner
+                Our Partners
                 <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-2"></span>
               </Link>
             </div>
