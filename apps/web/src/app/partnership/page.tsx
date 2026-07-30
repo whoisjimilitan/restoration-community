@@ -240,11 +240,11 @@ export default function PartnershipPage() {
         </div>
       </section>
 
-      {/* Founding Partners */}
+      {/* Founding Restorers */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
         <div className="max-w-5xl mx-auto space-y-12">
           <div className="text-center space-y-2">
-            <p className="text-xs font-medium text-rc-accent uppercase tracking-wider">Founding Partners</p>
+            <p className="text-xs font-medium text-rc-accent uppercase tracking-wider">Founding Restorers</p>
             <h2 className="text-2xl md:text-3xl font-rc-serif font-bold text-rc-text">They saw this needed to happen.</h2>
           </div>
 
@@ -306,7 +306,7 @@ export default function PartnershipPage() {
                 onClick={() => {
                   const email = 'james@saintandstory.co.uk';
                   const subject = 'I want to explore partnership with Brother Jimi Ministries';
-                  const body = 'Hello,\n\nI see what you see. I believe Jesus delivers. I want His work to spread.\n\nLet\'s talk about partnership.\n\nThanks';
+                  const body = 'Hello,\n\nI see what you see. I believe Jesus delivers. I want His work to spread.\n\nLet's talk about partnership.\n\nThanks';
                   window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
                 }}
                 className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] text-rc-accent font-medium border-2 border-rc-accent rounded-lg hover:bg-rc-accent/5 transition-all duration-200"
