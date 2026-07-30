@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { FormattedTestimony } from '@/lib/testimony-helpers';
 
 interface StoryCard {
   id: string;
