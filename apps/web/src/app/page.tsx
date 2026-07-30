@@ -175,8 +175,8 @@ export default function Home() {
             <p>I have been there.</p>
             <p>I have come back by grace.</p>
             <p>You can too.</p>
-            <p className="pt-3">This is not a promise I am making.</p>
-            <p>This is a reality I am testifying to.</p>
+            <p className="pt-3">Not by wishfully thinking change will happen.</p>
+            <p>But by taking your first step of faith.</p>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 pt-6">
