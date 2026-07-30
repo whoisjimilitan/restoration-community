@@ -48,6 +48,10 @@ model User {
   // Deliverance intake
   deliveranceIntake      DeliveranceIntake?
 
+  // Content generation relationships
+  contentPlans           ContentPlan[] @relation("ContentPlans")
+  processedSources       ProcessedSource[] @relation("ProcessedSources")
+
   @@map("users")
 }
 
@@ -563,6 +567,66 @@ model TestimonyImage {
   createdAt DateTime @default(now())
 
   @@map("testimony_images")
+}
+
+// ============================================================================
+// CONTENT GENERATION ENGINE (Identity-Centered Content)
+// ============================================================================
+// Tracks daily content generation plans, outputs, and source processing
+// Supports: daily letters, social posts, micro-insights, devotionals, articles, videos, podcasts, emails
+
+model ContentPlan {
+  id            String   @id @default(cuid())
+  createdAt     DateTime @default(now())
+  identityChoice Int     // Which of the 7 identity choices (1-7)
+  identityLabel String   // Label like "Truth vs Deception"
+  sourceType    String   // "wordpress" | "podcast" | "facebook" | "raw"
+  sourceUrl     String?  // Optional source URL
+  sourceTitle   String   // Title of the source
+  sourceExcerpt String   @db.Text // Excerpt from source
+  revelation    String   @db.Text // The revelation extracted
+  outputs       ContentOutput[] // Relationship to outputs
+  status        String   @default("draft") // "draft" | "published" | "scheduled"
+  publishedAt   DateTime? // When published
+  userId        String   // Foreign key to User
+  user          User     @relation("ContentPlans", fields: [userId], references: [id], onDelete: Cascade)
+  updatedAt     DateTime @updatedAt
+
+  @@map("content_plans")
+}
+
+model ContentOutput {
+  id            String   @id @default(cuid())
+  format        String   // "daily-letter" | "social-post" | "micro-insight" | "devotional" | "article" | "short-video" | "long-video" | "podcast-moment" | "email"
+  content       String   @db.Text // The generated content
+  title         String?  // Optional title
+  wordCount     Int?     // Optional word count
+  duration      String?  // For videos/audio
+  publishedUrl  String?  // Where it was published
+  publishedAt   DateTime? // When published
+  contentPlan   ContentPlan @relation(fields: [contentPlanId], references: [id], onDelete: Cascade)
+  contentPlanId String   // Foreign key
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@map("content_outputs")
+}
+
+model ProcessedSource {
+  id            String   @id @default(cuid())
+  sourceType    String   // "wordpress" | "podcast" | "facebook"
+  sourceKey     String   // URL or post ID
+  sourceTitle   String
+  sequence      Int?     // For alphabetical ordering
+  processed     Boolean  @default(false)
+  processedAt   DateTime?
+  identityChoice Int?
+  userId        String   // Foreign key to User
+  user          User     @relation("ProcessedSources", fields: [userId], references: [id], onDelete: Cascade)
+  createdAt     DateTime @default(now())
+
+  @@unique([sourceType, sourceKey, userId])
+  @@map("processed_sources")
 }
 
 // Extend User model to include entry-related relationships
