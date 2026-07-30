@@ -173,12 +173,12 @@ export default function Home() {
 
           <div className="space-y-4 text-base md:text-lg text-white/90 leading-relaxed font-light">
             <p>Everything you have heard is true.</p>
+            <p>You were made for something better.</p>
             <p>I have been there.</p>
-            <p>I have come back by His grace.</p>
+            <p>And returned by grace.</p>
             <p>Through deliverance.</p>
             <p className="pt-3">The trap is real.</p>
-            <p>Jesus Christ is the Deliverer.</p>
-            <p className="pt-3">You were made for something better.</p>
+            <p>But so is the Deliverer, Jesus Christ.</p>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 pt-6">
