@@ -135,7 +135,7 @@ export default function PartnershipPage() {
       <section className="w-full py-24 md:py-40 px-6 sm:px-8 md:px-12 bg-gradient-to-br from-rc-accent to-rc-text">
         <div className="max-w-2xl mx-auto space-y-6 text-center">
           <p className="text-sm font-medium text-white/70 uppercase tracking-wider">Those Who Believe</p>
-          <h1 className="text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight">These Are God's Hands</h1>
+          <h1 className="text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight">These Are Partners</h1>
           <p className="text-lg md:text-xl text-white/90 leading-relaxed">Reaching the unreached. Deliverance is free because they believe in this work.</p>
         </div>
       </section>
@@ -189,17 +189,20 @@ export default function PartnershipPage() {
       </section>
 
       {/* Closing CTA */}
-      <section className="w-full py-20 md:py-24 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
         <div className="max-w-2xl mx-auto text-center space-y-12">
-          <div className="space-y-4">
-            <p className="text-base md:text-lg text-rc-text/80 leading-relaxed">
-              Standing with us? If what you see resonates with your faith, we want to talk.
-            </p>
+          <div className="space-y-6">
+            <div className="space-y-3">
+              <p className="text-base md:text-lg text-rc-text/80 leading-relaxed">You see the problem Jesus is looking at.</p>
+              <p className="text-base md:text-lg text-rc-text/80 leading-relaxed">You see the solution He is offering.</p>
+              <p className="text-base md:text-lg text-rc-text/80 leading-relaxed">You want His work to spread.</p>
+            </div>
+            <p className="text-base text-rc-text/70 pt-2">That's partnership.</p>
             <button
               onClick={() => {
                 const email = 'james@saintandstory.co.uk';
                 const subject = 'I want to explore partnership with Brother Jimi Ministries';
-                const body = 'Hello,\n\nI am interested in exploring how I can partner with the ministry.\n\nPlease reach out to discuss.\n\nThanks';
+                const body = 'Hello,\n\nI see what you see. I believe Jesus delivers. I want His work to spread.\n\nLet\'s talk about partnership.\n\nThanks';
                 window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
               }}
               className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] text-rc-accent font-medium border-2 border-rc-accent rounded-lg hover:bg-rc-accent/5 transition-all duration-200"
