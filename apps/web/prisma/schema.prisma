@@ -531,5 +531,39 @@ model OneTimeSignupToken {
   @@map("onetime_signup_tokens")
 }
 
+// ============================================================================
+// TESTIMONIES SYSTEM
+// ============================================================================
+// Dynamic testimonies with image galleries and proof of transformation
+
+model Testimony {
+  id        String   @id @default(cuid())
+  name      String
+  role      String   // e.g., "Former Scammer", "Student"
+  stage     Int      // 1-7
+  quote     String   // Main quote for card
+  story     String   @db.Text // Full narrative
+  heroImage TestimonyImage? @relation("heroImage")
+  heroImageId String? @unique
+  proofImages TestimonyImage[] @relation("proofImages")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("testimonies")
+}
+
+model TestimonyImage {
+  id         String   @id @default(cuid())
+  url        String   // Cloudinary/Vercel Blob URL
+  alt        String   // Alt text
+  type       String   // "hero" | "proof" | "evidence"
+  heroTestimony  Testimony? @relation("heroImage", fields: [heroImageId], references: [id], onDelete: Cascade)
+  heroImageId String? @unique
+  proofTestimonies Testimony[] @relation("proofImages")
+  createdAt DateTime @default(now())
+
+  @@map("testimony_images")
+}
+
 // Extend User model to include entry-related relationships
 // (User model updated: add relationships below)
