@@ -1,70 +1,131 @@
 'use client';
 
+import { useEffect, useState } from 'react';
+import { TestimonyCard } from '@/components/TestimonyCard';
+import { FormattedTestimony } from '@/lib/testimony-helpers';
+
 export default function TestimoniesPage() {
-  const testimonies = [
-    { id: 1, name: 'Samuel', stage: '6', stageLabel: 'Honest Work', image: '👨', quote: 'Brother Jimi prayed with me. I met Jesus. Everything changed.', story: 'Samuel had money from fraud. Lots of it. A car. Respect. But he was empty inside. His cousin told him about Brother Jimi. Samuel called. During prayer, he felt God. Real. Present. Not like a story. Real. He cried. The next week he left fraud. Now he works a normal job. Makes way less money. But he is free. His mom says she has her son back.' },
-    { id: 2, name: 'Zainab', stage: '7', stageLabel: 'Service', image: '👩', quote: 'Brother Jimi brought me to Jesus. Jesus changed everything.', story: 'Zainab was lonely and broke. She scammed people to make money. For three years. She was good at it. Then she broke. Her friend who knows Brother Jimi reached out: Come pray with him. Zainab went. When Brother Jimi prayed, the Holy Spirit came. She felt forgiven. Really forgiven. Not just words. Forgiveness. Now she helps other people leave fraud. She has walked two people out. She does it because Jesus saved her.' },
-    { id: 3, name: 'James', stage: '6', stageLabel: 'Honest Work', image: '👨', quote: 'I did wrong. Brother Jimi showed me Jesus still loves me.', story: 'James was in prison for fraud. Two years. He got out hard. Angry. A chaplain told him about Brother Jimi. James did not care. But he called. Brother Jimi prayed with him. James felt Jesus love him. Not judgment. Love. Something broke open inside. Now James works. Honest work. His daughter asked him if he was proud of his job. He said: Yes. I am proud because it is honest. He never thought he would say that.' },
-    { id: 4, name: 'Blessing', stage: '6', stageLabel: 'Honest Work', image: '👩', quote: 'I had money but I was scared all the time. Jesus gave me peace.', story: 'Blessing made money from fraud. Lots. Private school for her kids. Nice car. But she could not sleep. She was scared every day. Scared she would get caught. Her sister told her about Brother Jimi Skool. Blessing went. Through the 7 weeks, she met Jesus. She realized: the money is not worth the fear. She left. Now she works teaching. Makes way less money. But she sleeps. Her kids are happy. She is happy. That is worth everything.' }
-  ];
+  const [testimonies, setTestimonies] = useState<FormattedTestimony[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchTestimonies = async () => {
+      try {
+        const response = await fetch('/api/testimonies');
+        if (!response.ok) throw new Error('Failed to fetch');
+        const data = await response.json();
+        setTestimonies(data.testimonies || []);
+      } catch (error) {
+        console.error('[TESTIMONIES] Error fetching page data:', error);
+        setTestimonies([]);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchTestimonies();
+  }, []);
 
   return (
     <div className="bg-white text-rc-text">
-      {/* Hero */}
-      <section className="w-full py-24 md:py-40 px-6 sm:px-8 md:px-12 bg-white">
+      {/* Hero Section */}
+      <section className="w-full py-24 md:py-40 px-6 sm:px-8 md:px-12 bg-gradient-to-br from-rc-accent to-rc-text">
         <div className="max-w-2xl mx-auto text-center space-y-6">
-          <p className="text-sm font-medium text-rc-accent uppercase tracking-wider">Real Stories</p>
-          <h1 className="text-5xl md:text-6xl font-rc-serif font-bold text-rc-text leading-tight">Lives Changed</h1>
-          <p className="text-lg md:text-xl text-rc-text/70 leading-relaxed pt-4">People who met Jesus through Brother Jimi prayer. Their lives are different now.</p>
+          <div className="animate-fade-in-up">
+            <p className="text-sm font-medium text-white/70 uppercase tracking-wider">Transformation Stories</p>
+            <h1 className="text-4xl md:text-6xl font-rc-serif font-bold text-white leading-tight mt-3">
+              Their Lives Are Changing Now
+            </h1>
+            <p className="text-lg md:text-xl text-white/80 leading-relaxed pt-4">
+              Real people who met Jesus and left fraud. Real transformation happening.
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* Testimonials - One per section with breathing room */}
-      <div className="bg-white">
-        {testimonies.map((t) => (
-          <section key={t.id} className="w-full py-32 md:py-40 px-6 sm:px-8 md:px-12 border-t border-rc-border/20">
-            <div className="max-w-3xl mx-auto">
-              <div className="space-y-8 md:space-y-12">
-                {/* Avatar */}
-                <div className="text-6xl">{t.image}</div>
-
-                {/* Quote - Large and bold */}
-                <blockquote className="space-y-6">
-                  <p className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight">
-                    &ldquo;{t.quote}&rdquo;
-                  </p>
-                </blockquote>
-
-                {/* Name and Stage */}
-                <div className="space-y-2">
-                  <p className="text-lg font-medium text-rc-text">{t.name}</p>
-                  <p className="text-sm font-medium text-rc-accent uppercase tracking-wide">Stage {t.stage} — {t.stageLabel}</p>
+      {/* Testimonials Grid */}
+      <section className="w-full py-24 md:py-40 px-6 sm:px-8 md:px-12 bg-rc-bg">
+        <div className="max-w-6xl mx-auto">
+          {loading ? (
+            <div className="text-center py-20">
+              <p className="text-rc-text/60">Loading stories...</p>
+            </div>
+          ) : testimonies.length === 0 ? (
+            <div className="text-center py-20">
+              <p className="text-rc-text/60 text-lg">Stories coming soon. Check back later.</p>
+            </div>
+          ) : (
+            <div className="space-y-32 md:space-y-40">
+              {testimonies.map((testimony, idx) => (
+                <div
+                  key={testimony.id}
+                  className="animate-fade-in-up"
+                  style={{ animationDelay: `${idx * 100}ms` }}
+                >
+                  {idx % 2 === 0 ? (
+                    <TestimonyCard testimony={testimony} variant="featured" />
+                  ) : (
+                    <TestimonyCard testimony={testimony} variant="featured" />
+                  )}
                 </div>
+              ))}
+            </div>
+          )}
+        </div>
+      </section>
 
-                {/* Full Story */}
-                <div className="space-y-6 pt-4">
-                  <p className="text-lg text-rc-text/80 leading-relaxed font-light">
-                    {t.story}
-                  </p>
-                </div>
+      {/* Stats Bar */}
+      {testimonies.length > 0 && (
+        <section className="w-full py-16 md:py-20 px-6 sm:px-8 md:px-12 bg-rc-text border-t border-rc-border/10">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid md:grid-cols-3 gap-12">
+              <div className="text-center">
+                <p className="text-3xl md:text-4xl font-rc-serif font-bold text-white">
+                  {testimonies.length}
+                </p>
+                <p className="text-white/60 text-sm mt-2">Lives Transformed</p>
+              </div>
+              <div className="text-center">
+                <p className="text-3xl md:text-4xl font-rc-serif font-bold text-white">
+                  {Math.max(...testimonies.map((t) => t.stage))}
+                </p>
+                <p className="text-white/60 text-sm mt-2">Stages Represented</p>
+              </div>
+              <div className="text-center">
+                <p className="text-3xl md:text-4xl font-rc-serif font-bold text-white">
+                  {testimonies.length > 3 ? 'Many' : 'Growing'}
+                </p>
+                <p className="text-white/60 text-sm mt-2">Community Supported</p>
               </div>
             </div>
-          </section>
-        ))}
-      </div>
+          </div>
+        </section>
+      )}
 
       {/* CTA Section */}
-      <section className="w-full py-24 md:py-40 px-6 sm:px-8 md:px-12 bg-gradient-to-br from-rc-accent to-rc-text border-t border-rc-border">
+      <section className="w-full py-24 md:py-40 px-6 sm:px-8 md:px-12 bg-white border-t border-rc-border">
         <div className="max-w-2xl mx-auto text-center space-y-8">
-          <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight">
-            Help more people meet Jesus
+          <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight">
+            Be Part of This Movement
           </h2>
-          <p className="text-lg text-white/90 leading-relaxed">
-            Everything you read happened because someone supported this work. Will you help more people find freedom?
+          <p className="text-lg text-rc-text/70 leading-relaxed">
+            These transformations happen through partnership and prayer. Stand with those finding freedom in Christ.
           </p>
-          <div className="pt-4">
-            <a href="mailto:james@saintandstory.co.uk" className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-white text-rc-accent font-medium rounded-lg hover:shadow-lg transition-all duration-200">
-              Support This Work
+          <div className="pt-6 flex flex-col sm:flex-row gap-4 justify-center">
+            <button
+              onClick={() => {
+                const event = new CustomEvent('open-partnership-modal');
+                document.dispatchEvent(event);
+              }}
+              className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-rc-accent text-white font-medium rounded-lg hover:shadow-lg transition-all duration-200"
+            >
+              Partnership Inquiry
+            </button>
+            <a
+              href="/"
+              className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] text-rc-accent font-medium border-2 border-rc-accent rounded-lg hover:bg-rc-accent/5 transition-all duration-200"
+            >
+              Back to Home
             </a>
           </div>
         </div>
@@ -72,7 +133,7 @@ export default function TestimoniesPage() {
 
       {/* Footer */}
       <footer className="w-full py-12 px-6 sm:px-8 md:px-12 bg-rc-text border-t border-rc-border">
-        <div className="max-w-2xl mx-auto text-center space-y-2">
+        <div className="max-w-2xl mx-auto text-center space-y-3">
           <p className="text-white/60 text-sm">Brother Jimi Ministries — An Inspiration from Jesus Christ</p>
           <p className="text-white/30 text-xs">© 2026. All rights reserved.</p>
         </div>
