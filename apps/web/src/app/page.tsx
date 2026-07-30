@@ -167,21 +167,19 @@ export default function Home() {
       </section>
 
       {/* RETURN */}
-      <section className="w-full py-20 md:py-28 px-6 sm:px-8 md:px-12 bg-gradient-to-br from-rc-accent to-rc-text border-t border-rc-border">
-        <div className="max-w-2xl mx-auto space-y-8">
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-gradient-to-br from-rc-accent to-rc-text border-t border-rc-border">
+        <div className="max-w-2xl mx-auto space-y-12">
           <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-white leading-tight">Return</h2>
 
           <div className="space-y-4 text-base md:text-lg text-white/90 leading-relaxed font-light">
-            <p>You feel this trap.</p>
-            <p>You know time is running out.</p>
-            <p>No one can go it alone.</p>
-            <p className="pt-3">I have been there.</p>
+            <p>I have been there.</p>
             <p>I have come back by grace.</p>
-            <p>Now enter into that grace.</p>
-            <p className="pt-3">Take the first step of faith.</p>
+            <p>You can too.</p>
+            <p className="pt-3">This is not a promise I am making.</p>
+            <p>This is a reality I am testifying to.</p>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 pt-8">
+          <div className="flex flex-col sm:flex-row gap-4 pt-6">
             <button
               onClick={() => {
                 const event = new CustomEvent('open-deliverance-modal');
@@ -198,24 +196,21 @@ export default function Home() {
               Return to Your Journey
             </Link>
           </div>
-        </div>
-      </section>
 
-      {/* Explore More */}
-      <section className="w-full py-16 md:py-20 px-6 sm:px-8 md:px-12 bg-rc-bg">
-        <div className="max-w-2xl mx-auto space-y-8">
-          <div>
-            <p className="text-xs font-medium text-rc-text/40 uppercase tracking-widest">Or explore</p>
-          </div>
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-8 sm:gap-12">
-            <Link href="/testimonies" className="text-base text-rc-text/70 hover:text-rc-text transition-colors duration-200 group">
-              Lives Changed
-              <span className="block h-px w-0 group-hover:w-full bg-rc-accent transition-all duration-300 mt-1"></span>
-            </Link>
-            <Link href="/partnership" className="text-base text-rc-text/70 hover:text-rc-text transition-colors duration-200 group">
-              Join As Partner
-              <span className="block h-px w-0 group-hover:w-full bg-rc-accent transition-all duration-300 mt-1"></span>
-            </Link>
+          <div className="pt-12 border-t border-white/20">
+            <div>
+              <p className="text-xs font-medium text-white/60 uppercase tracking-widest mb-6">Or explore</p>
+            </div>
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-8 sm:gap-12">
+              <Link href="/testimonies" className="text-base text-white/80 hover:text-white transition-colors duration-200 group">
+                Lives Changing
+                <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-2"></span>
+              </Link>
+              <Link href="/partnership" className="text-base text-white/80 hover:text-white transition-colors duration-200 group">
+                Join Us
+                <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-2"></span>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
