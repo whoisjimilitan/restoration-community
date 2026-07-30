@@ -195,7 +195,7 @@ export default function TestimoniesPage() {
 
       {/* CTA Section */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-white border-t border-rc-border">
-        <div className="max-w-2xl mx-auto text-center space-y-8">
+        <div className="max-w-2xl mx-auto text-center space-y-12">
           <div className="space-y-4">
             <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight">
               Your Story Could Be Next
@@ -213,6 +213,20 @@ export default function TestimoniesPage() {
           >
             Request Deliverance
           </button>
+
+          <div className="pt-8 border-t border-rc-border/40">
+            <p className="text-xs font-medium text-rc-text/60 uppercase tracking-widest mb-6">Explore</p>
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-8 sm:gap-12">
+              <a href="/" className="text-base text-rc-text/80 hover:text-rc-text transition-colors duration-200 group">
+                Home
+                <span className="block h-px w-0 group-hover:w-full bg-rc-text/80 transition-all duration-300 mt-2"></span>
+              </a>
+              <a href="/partnership" className="text-base text-rc-text/80 hover:text-rc-text transition-colors duration-200 group">
+                Our Partners
+                <span className="block h-px w-0 group-hover:w-full bg-rc-text/80 transition-all duration-300 mt-2"></span>
+              </a>
+            </div>
+          </div>
         </div>
       </section>
 

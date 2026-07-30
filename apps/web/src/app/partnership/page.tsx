@@ -190,7 +190,7 @@ export default function PartnershipPage() {
 
       {/* Closing CTA */}
       <section className="w-full py-20 md:py-24 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
-        <div className="max-w-2xl mx-auto text-center space-y-8">
+        <div className="max-w-2xl mx-auto text-center space-y-12">
           <div className="space-y-4">
             <p className="text-base md:text-lg text-rc-text/80 leading-relaxed">
               Standing with us? If what you see resonates with your faith, we want to talk.
@@ -206,6 +206,20 @@ export default function PartnershipPage() {
             >
               Start a Conversation
             </button>
+          </div>
+
+          <div className="pt-8 border-t border-rc-border/40">
+            <p className="text-xs font-medium text-rc-text/60 uppercase tracking-widest mb-6">Explore</p>
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-8 sm:gap-12">
+              <a href="/" className="text-base text-rc-text/80 hover:text-rc-text transition-colors duration-200 group">
+                Home
+                <span className="block h-px w-0 group-hover:w-full bg-rc-text/80 transition-all duration-300 mt-2"></span>
+              </a>
+              <a href="/testimonies" className="text-base text-rc-text/80 hover:text-rc-text transition-colors duration-200 group">
+                Success Stories
+                <span className="block h-px w-0 group-hover:w-full bg-rc-text/80 transition-all duration-300 mt-2"></span>
+              </a>
+            </div>
           </div>
         </div>
       </section>
