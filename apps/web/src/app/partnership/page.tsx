@@ -141,7 +141,7 @@ export default function PartnershipPage() {
       </section>
 
       {/* Founding Restorers */}
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-white">
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
         <div className="max-w-5xl mx-auto space-y-12">
           <div className="text-center space-y-2">
             <p className="text-xs font-medium text-rc-accent uppercase tracking-wider">Founding Restorers</p>
@@ -157,7 +157,7 @@ export default function PartnershipPage() {
       </section>
 
       {/* Standing Partners */}
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray">
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
         <div className="max-w-5xl mx-auto space-y-12">
           <div className="text-center space-y-2">
             <p className="text-xs font-medium text-rc-accent uppercase tracking-wider">Standing Partners</p>
@@ -173,7 +173,7 @@ export default function PartnershipPage() {
       </section>
 
       {/* Prayer Partners */}
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-white">
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
         <div className="max-w-5xl mx-auto space-y-12">
           <div className="text-center space-y-2">
             <p className="text-xs font-medium text-rc-accent uppercase tracking-wider">Prayer Partners</p>

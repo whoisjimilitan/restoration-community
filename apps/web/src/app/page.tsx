@@ -47,7 +47,7 @@ export default function Home() {
       </section>
 
       {/* THE TRAP */}
-      <section className="w-full py-20 md:py-28 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
         <div className="max-w-2xl mx-auto space-y-8">
           <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight">The Trap</h2>
 
@@ -63,7 +63,7 @@ export default function Home() {
       </section>
 
       {/* THE WITNESS */}
-      <section className="w-full py-20 md:py-28 px-6 sm:px-8 md:px-12 border-t border-rc-border" style={{ backgroundColor: '#FAFAF8' }}>
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
         <div className="max-w-2xl mx-auto space-y-8">
           <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight">The Witness</h2>
 
@@ -81,7 +81,7 @@ export default function Home() {
       </section>
 
       {/* THE ONLY WAY */}
-      <section className="w-full py-20 md:py-28 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
         <div className="max-w-2xl mx-auto space-y-8">
           <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight">The Only Way</h2>
 
@@ -98,7 +98,7 @@ export default function Home() {
       </section>
 
       {/* THE JOURNEY OUT */}
-      <section id="journey" className="w-full py-20 md:py-28 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
+      <section id="journey" className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
         <div className="max-w-2xl mx-auto space-y-10">
           <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight">The Journey Out</h2>
 
@@ -153,7 +153,7 @@ export default function Home() {
       </section>
 
       {/* THE NEW LIFE */}
-      <section className="w-full py-20 md:py-28 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
         <div className="max-w-2xl mx-auto space-y-8">
           <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight">The New Life</h2>
 

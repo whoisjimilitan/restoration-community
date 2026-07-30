@@ -136,7 +136,7 @@ export default function TestimoniesPage() {
       </section>
 
       {/* Stories Grid */}
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-white">
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
         <div className="max-w-5xl mx-auto">
           {loading ? (
             <div className="text-center py-20">
@@ -165,7 +165,7 @@ export default function TestimoniesPage() {
       </section>
 
       {/* Stats Section */}
-      <section className="w-full py-20 md:py-28 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
         <div className="max-w-5xl mx-auto">
           <div className="text-center space-y-4 mb-12">
             <p className="text-xs font-medium text-rc-accent uppercase tracking-wider">Impact</p>
@@ -194,7 +194,7 @@ export default function TestimoniesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-white border-t border-rc-border">
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
         <div className="max-w-2xl mx-auto text-center space-y-12">
           <div className="space-y-4">
             <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight">
