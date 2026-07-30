@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { extractIdentityChoice } from "@/lib/identity-extraction";
 import { extractVoiceTheme } from "@/lib/voice-extraction";
-import { generateAllOutputs } from "@/lib/content-generation";
+import { generateAllOutputsV2 } from "@/lib/content-generation-v2";
 import { prisma } from "@/lib/prisma";
 
 export async function POST(request: Request) {
@@ -9,7 +9,7 @@ export async function POST(request: Request) {
 
   try {
     const body = await request.json();
-    const { text, sourceType, sourceTitle, sourceUrl, userId } = body;
+    const { text, sourceType, sourceTitle, sourceUrl, userId, contentIndex: bodyContentIndex } = body;
 
     // Validate required fields
     if (!text || text.trim().length === 0) {
@@ -60,9 +60,16 @@ export async function POST(request: Request) {
       `[CONTENT-ENGINE] Voice theme extracted with revelation: ${theme.revelation.substring(0, 50)}...`
     );
 
-    // Generate all outputs
-    const outputs = generateAllOutputs(theme);
-    console.log("[CONTENT-ENGINE] All 9 content formats generated");
+    // Determine content index (use provided value or default to 0)
+    const contentIndex = typeof bodyContentIndex === 'number' ? bodyContentIndex : 0;
+
+    // Generate all outputs with v2 pipeline
+    const outputs = generateAllOutputsV2({
+      theme,
+      identityChoice: identity.choice,
+      contentIndex
+    });
+    console.log("[CONTENT-ENGINE] All 9 content formats generated with v2 pipeline");
 
     // Save to database
     const sourceExcerpt = text.substring(0, 500);
@@ -78,6 +85,8 @@ export async function POST(request: Request) {
         revelation: theme.revelation,
         userId,
         status: "draft",
+        frame: outputs.frame,
+        conversationalEntry: outputs.conversationalEntry,
         outputs: {
           create: [
             {
@@ -102,18 +111,18 @@ export async function POST(request: Request) {
             },
             {
               format: "article",
-              content: outputs.articleExcerpt,
+              content: outputs.article,
               title: identity.label
             },
             {
               format: "short-video-script",
-              content: outputs.shortVideoScript,
+              content: outputs.shortVideo,
               title: `Video Script: ${identity.label}`,
               duration: "30-60 seconds"
             },
             {
               format: "long-video-script",
-              content: outputs.longVideoScript,
+              content: outputs.longVideo,
               title: `Long Video: ${identity.label}`,
               duration: "5-10 minutes"
             },
@@ -125,8 +134,8 @@ export async function POST(request: Request) {
             },
             {
               format: "email",
-              content: JSON.stringify(outputs.email),
-              title: outputs.email.subject
+              content: outputs.email,
+              title: `Email: ${identity.label}`
             }
           ]
         }
@@ -139,9 +148,28 @@ export async function POST(request: Request) {
     console.log(
       `[CONTENT-ENGINE] Outputs generated and saved: ${contentPlan.id} with ${contentPlan.outputs.length} formats`
     );
+    console.log(
+      `[CONTENT-ENGINE] Frame: ${outputs.frame}, Voice validation: ${outputs.voiceValidation.isValid ? 'valid' : 'invalid'}`
+    );
 
     return NextResponse.json({
       success: true,
+      data: {
+        frame: outputs.frame,
+        conversationalEntry: outputs.conversationalEntry,
+        voiceValidation: outputs.voiceValidation,
+        outputs: {
+          dailyLetter: outputs.dailyLetter,
+          socialPost: outputs.socialPost,
+          microInsight: outputs.microInsight,
+          devotional: outputs.devotional,
+          article: outputs.article,
+          shortVideo: outputs.shortVideo,
+          longVideo: outputs.longVideo,
+          podcastMoment: outputs.podcastMoment,
+          email: outputs.email
+        }
+      },
       identity,
       theme: {
         revelation: theme.revelation,
@@ -151,7 +179,6 @@ export async function POST(request: Request) {
         scriptural: theme.scriptural,
         coreMessage: theme.coreMessage
       },
-      outputs,
       contentPlan
     });
   } catch (error) {

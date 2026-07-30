@@ -585,6 +585,8 @@ model ContentPlan {
   sourceTitle   String   // Title of the source
   sourceExcerpt String   @db.Text // Excerpt from source
   revelation    String   @db.Text // The revelation extracted
+  frame         String?  // Frame from v2 pipeline: counsel | advise | uplift | enlighten | educate
+  conversationalEntry String? @db.Text // Conversational opening from v2 pipeline
   outputs       ContentOutput[] // Relationship to outputs
   status        String   @default("draft") // "draft" | "published" | "scheduled"
   publishedAt   DateTime? // When published
