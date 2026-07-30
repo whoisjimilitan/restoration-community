@@ -193,13 +193,13 @@ export default function PartnershipPage() {
         <div className="max-w-2xl mx-auto text-center space-y-8">
           <div className="space-y-4">
             <p className="text-base md:text-lg text-rc-text/80 leading-relaxed">
-              Standing with us? If this resonates with your faith, we want to talk.
+              Standing with us? If what you see resonates with your faith, we want to talk.
             </p>
             <button
               onClick={() => {
                 const email = 'james@saintandstory.co.uk';
                 const subject = 'I want to explore partnership with Brother Jimi Ministries';
-                const body = 'Hello,\n\nI am interested in exploring how I can partner with this ministry.\n\nPlease reach out to discuss.\n\nThanks';
+                const body = 'Hello,\n\nI am interested in exploring how I can partner with the ministry.\n\nPlease reach out to discuss.\n\nThanks';
                 window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
               }}
               className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] text-rc-accent font-medium border-2 border-rc-accent rounded-lg hover:bg-rc-accent/5 transition-all duration-200"
