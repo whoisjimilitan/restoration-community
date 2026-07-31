@@ -270,7 +270,7 @@ export default function Home() {
             <div className="space-y-3 text-lg md:text-lg leading-relaxed font-light" style={{ color: '#1A1A18' }}>
               <p>SCOAN Accra, Ghana</p>
               <p>Friday, August 15 at 3:00 PM</p>
-              <p className="text-sm pt-2" style={{ color: '#0D5E57' }}>Meeting 1: Truth Teaching</p>
+              <p className="text-sm pt-2" style={{ color: '#0D5E57' }}>Stage 1: Truth Teaching</p>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6">
