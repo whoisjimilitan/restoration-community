@@ -52,6 +52,9 @@ model User {
   contentPlans           ContentPlan[] @relation("ContentPlans")
   processedSources       ProcessedSource[] @relation("ProcessedSources")
 
+  // Mentor relationships (COHORT-001)
+  mentoringAssignments   MentorAssignment[] @relation("MentorOf")
+
   @@map("users")
 }
 
@@ -166,6 +169,7 @@ model RestorationStage {
   toTransitions       StageTransition[] @relation("ToStage")
   reflections         StageReflection[]
   stageResources      StageResource[]
+  meetings            Meeting[]
 
   @@index([sequence])
   @@map("restoration_stages")
@@ -199,11 +203,17 @@ model UserRestoration {
   currentStageId  Int
   currentStage    RestorationStage @relation("CurrentStage", fields: [currentStageId], references: [id])
 
+  // Cohort participation (COHORT-001)
+  cohortId        String?
+  cohort          Cohort? @relation("CohortParticipants", fields: [cohortId], references: [id])
+
   createdAt       DateTime @default(now())
   updatedAt       DateTime @updatedAt
 
   transitions     StageTransition[]
   reflections     StageReflection[]
+  attendances     Attendance[]
+  mentorAssignments MentorAssignment[]
 
   @@map("user_restorations")
 }
@@ -630,6 +640,128 @@ model ProcessedSource {
   @@unique([sourceType, sourceKey, userId])
   @@map("processed_sources")
 }
+
+// ============================================================================
+// COHORT MANAGEMENT (COHORT-001)
+// ============================================================================
+// Tracks groups of participants progressing through 7-week restoration journey
+
+model Cohort {
+  id              String   @id @default(cuid())
+  name            String   // "Cohort 1", "Cohort 2", etc.
+  description     String?
+  startDate       DateTime // When cohort begins (e.g., Aug 8, 2026)
+  endDate         DateTime // When cohort completes (e.g., Sept 19, 2026)
+  targetSize      Int      // Number of participants (typically 15)
+  status          String   @default("planning") // planning, active, completed
+
+  // Relationships
+  participants    UserRestoration[] @relation("CohortParticipants")
+  meetings        Meeting[]
+
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@map("cohorts")
+}
+
+// ============================================================================
+// MEETINGS (MEETING-001)
+// ============================================================================
+// Weekly Friday 3pm gatherings at SCOAN Accra for each stage
+
+model Meeting {
+  id              String   @id @default(cuid())
+  cohortId        String
+  cohort          Cohort   @relation(fields: [cohortId], references: [id], onDelete: Cascade)
+
+  stageId         Int
+  stage           RestorationStage @relation(fields: [stageId], references: [id])
+
+  weekNumber      Int      // 1-7
+  scheduledDate   DateTime // Friday 3pm SCOAN Accra
+  location        String   @default("SCOAN Accra, Ghana")
+  time            String   @default("3:00 PM")
+
+  recordingUrl    String?  // Video link after meeting
+  recordingNotes  String?  @db.Text
+
+  // Relationships
+  attendances     Attendance[]
+
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@unique([cohortId, stageId, weekNumber])
+  @@index([cohortId])
+  @@index([stageId])
+  @@map("meetings")
+}
+
+// ============================================================================
+// ATTENDANCE TRACKING (ATTENDANCE-001)
+// ============================================================================
+// Tracks who attended which meeting and their engagement
+
+model Attendance {
+  id              String   @id @default(cuid())
+  meetingId       String
+  meeting         Meeting  @relation(fields: [meetingId], references: [id], onDelete: Cascade)
+
+  userRestorationId Int
+  userRestoration UserRestoration @relation(fields: [userRestorationId], references: [id], onDelete: Cascade)
+
+  attended        Boolean  @default(false)
+  arrivedAt       DateTime? // Actual arrival time
+  departedAt      DateTime? // When they left
+
+  notes           String?  @db.Text // Mentor notes on participation
+  status          String   @default("pending") // pending, attended, absent, excused
+
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@unique([meetingId, userRestorationId])
+  @@index([meetingId])
+  @@index([userRestorationId])
+  @@map("attendances")
+}
+
+// ============================================================================
+// MENTOR ASSIGNMENTS (MENTOR-001)
+// ============================================================================
+// Tracks mentor-mentee relationships for accountability & prayer support
+
+model MentorAssignment {
+  id              String   @id @default(cuid())
+  cohortId        String
+  cohort          Cohort   @relation(fields: [cohortId], references: [id], onDelete: Cascade)
+
+  mentorUserId    String
+  mentor          User     @relation("MentorOf", fields: [mentorUserId], references: [id], onDelete: Cascade)
+
+  menteeUserRestorationId Int
+  mentee          UserRestoration @relation(fields: [menteeUserRestorationId], references: [id], onDelete: Cascade)
+
+  assignedAt      DateTime @default(now())
+  status          String   @default("active") // active, paused, completed
+
+  // Prayer & accountability tracking
+  lastCheckIn     DateTime?
+  checkInNotes    String?  @db.Text
+
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@unique([cohortId, mentorUserId, menteeUserRestorationId])
+  @@index([cohortId])
+  @@index([mentorUserId])
+  @@index([menteeUserRestorationId])
+  @@map("mentor_assignments")
+}
+
+// Extend RestorationStage and UserRestoration models with new relationships
+// (already defined above, updated to include cohort relationships)
 
 // Extend User model to include entry-related relationships
 // (User model updated: add relationships below)
