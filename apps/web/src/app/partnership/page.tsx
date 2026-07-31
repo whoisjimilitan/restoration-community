@@ -44,7 +44,7 @@ export default function PartnershipPage() {
           </div>
 
           <div className={`transform transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '240ms' }}>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight tracking-tight">
               They make His work possible.
             </h1>
           </div>
@@ -191,7 +191,7 @@ export default function PartnershipPage() {
                 </div>
                 <div className="flex gap-3 pt-8">
                   <button type="button" onClick={() => { setFormStep('type'); setFormType(null); }} className="px-6 py-3 text-rc-text/70 hover:text-rc-text transition-colors">Back</button>
-                  <button type="submit" className="flex-1 px-6 py-3 bg-rc-accent text-white font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300">Send</button>
+                  <button type="submit" className="flex-1 px-6 py-3 bg-rc-accent text-white font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300">Begin the Conversation</button>
                 </div>
               </form>
             )}

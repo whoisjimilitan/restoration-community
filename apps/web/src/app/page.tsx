@@ -31,7 +31,7 @@ export default function Home() {
           </div>
 
           <div className={`transform transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '240ms' }}>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight tracking-tight">
               You were made for something far better.
             </h1>
           </div>
@@ -56,7 +56,7 @@ export default function Home() {
           viewport={{ once: true, amount: 0.15 }}
           className="max-w-2xl mx-auto space-y-8"
         >
-          <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight">The Trap</h2>
+          <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">The Trap</h2>
 
           <div className="space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
             <p>You tell yourself:</p>
@@ -78,7 +78,7 @@ export default function Home() {
           viewport={{ once: true, amount: 0.15 }}
           className="max-w-2xl mx-auto space-y-8"
         >
-          <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight">The Witness</h2>
+          <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">The Witness</h2>
 
           <div className="border-l-4 border-rc-accent pl-8 space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
             <p>I too was controlled by <em className="not-italic font-medium">that spirit</em>.</p>
@@ -102,7 +102,7 @@ export default function Home() {
           viewport={{ once: true, amount: 0.15 }}
           className="max-w-2xl mx-auto space-y-8"
         >
-          <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight">The Only Way</h2>
+          <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">The Only Way</h2>
 
           <div className="space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
             <p>Deliverance means total freedom.</p>
@@ -125,7 +125,7 @@ export default function Home() {
           viewport={{ once: true, amount: 0.15 }}
           className="max-w-2xl mx-auto space-y-10"
         >
-          <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight">The Journey Out</h2>
+          <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">The Journey Out</h2>
 
           {/* Desktop Timeline */}
           <div className="hidden md:block">
@@ -186,7 +186,7 @@ export default function Home() {
           viewport={{ once: true, amount: 0.15 }}
           className="max-w-2xl mx-auto space-y-8"
         >
-          <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight">The New Life</h2>
+          <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">The New Life</h2>
 
           <div className="space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
             <p>Deliverance is just the start.</p>
@@ -206,7 +206,7 @@ export default function Home() {
           viewport={{ once: true, amount: 0.15 }}
           className="max-w-2xl mx-auto space-y-12"
         >
-          <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-white leading-tight">Return</h2>
+          <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-white leading-tight tracking-tight">Return</h2>
 
           <div className="space-y-4 text-base md:text-lg text-white/90 leading-relaxed font-light">
             <p>Everything you have heard is true.</p>
