@@ -5,9 +5,8 @@ import { motion } from 'framer-motion';
 
 export default function PartnershipPage() {
   const [isLoaded, setIsLoaded] = useState(false);
-  const [formStep, setFormStep] = useState<'type' | 'details' | 'complete'>('type');
-  const [formType, setFormType] = useState<'individual' | 'organization' | null>(null);
-  const [formData, setFormData] = useState({ name: '', email: '', organization: '', message: '', consent: false });
+  const [formStep, setFormStep] = useState<'form' | 'complete'>('form');
+  const [formData, setFormData] = useState({ name: '', email: '', organization: '', consent: false });
 
   useEffect(() => {
     setIsLoaded(true);
@@ -19,18 +18,12 @@ export default function PartnershipPage() {
     prayer: Array.from({ length: 7 }, (_, i) => ({ id: `prayer-${i}` })),
   };
 
-  const handleTypeSelect = (type: 'individual' | 'organization') => {
-    setFormType(type);
-    setFormStep('details');
-  };
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setFormStep('complete');
     setTimeout(() => {
-      setFormStep('type');
-      setFormType(null);
-      setFormData({ name: '', email: '', organization: '', message: '', consent: false });
+      setFormStep('form');
+      setFormData({ name: '', email: '', organization: '', consent: false });
     }, 3000);
   };
 
@@ -49,6 +42,21 @@ export default function PartnershipPage() {
             </h1>
           </div>
         </div>
+      </section>
+
+      {/* BRIDGE - Founder Story Connection */}
+      <section className="w-full py-16 md:py-20 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          viewport={{ once: true, amount: 0.15 }}
+          className="max-w-2xl mx-auto"
+        >
+          <p className="text-base md:text-lg text-rc-text leading-relaxed font-light">
+            Having walked this journey myself, I've learned: <span className="font-medium">this work cannot happen alone.</span>
+          </p>
+        </motion.div>
       </section>
 
       {/* FOUNDING PARTNERS */}
@@ -129,7 +137,7 @@ export default function PartnershipPage() {
           <div className="space-y-12">
             <h2 className="text-xl md:text-2xl font-rc-serif font-bold uppercase tracking-wider">Why This Matters</h2>
             <div className="space-y-6 text-base md:text-lg text-rc-text leading-relaxed font-light">
-              <p>Our program is free because our partners make it possible. Every session, every learning opportunity exists because these believers have chosen to join this mission. <span className="font-medium">Transformation doesn't happen without them.</span></p>
+              <p>Our program is free because partners chose this calling. <span className="font-medium">Transformation doesn't happen without them.</span></p>
             </div>
           </div>
         </motion.div>
@@ -145,61 +153,40 @@ export default function PartnershipPage() {
           className="max-w-2xl mx-auto"
         >
           <div className="text-center space-y-8">
-
-            {/* Step 1 */}
-            {formStep === 'type' && (
-              <div className="space-y-10">
-                <div className="space-y-4">
-                  <h2 className="text-3xl md:text-4xl font-rc-serif font-bold">Join Us</h2>
-                </div>
-                <div className="grid md:grid-cols-2 gap-4">
-                  <button onClick={() => handleTypeSelect('individual')} className="p-8 border-2 border-rc-border/40 hover:border-rc-accent/60 hover:shadow-md hover:bg-rc-accent/5 rounded-lg transition-all duration-300 text-left">
-                    <p className="font-rc-serif font-semibold text-lg">Individual</p>
-                    <p className="text-sm text-rc-text/60 mt-2">I want to partner</p>
-                  </button>
-                  <button onClick={() => handleTypeSelect('organization')} className="p-8 border-2 border-rc-border/40 hover:border-rc-accent/60 hover:shadow-md hover:bg-rc-accent/5 rounded-lg transition-all duration-300 text-left">
-                    <p className="font-rc-serif font-semibold text-lg">Organization</p>
-                    <p className="text-sm text-rc-text/60 mt-2">We want to partner</p>
-                  </button>
-                </div>
-              </div>
-            )}
-
-            {/* Step 2 */}
-            {formStep === 'details' && formType && (
+            {/* Form */}
+            {formStep === 'form' && (
               <form onSubmit={handleSubmit} className="space-y-6 text-left">
+                <div className="space-y-4">
+                  <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-center">Join Us</h2>
+                </div>
+
                 <div className="space-y-2">
                   <label className="block text-sm font-medium text-rc-text/70">Name</label>
                   <input type="text" required value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} className="w-full px-4 py-3 border border-rc-border/40 rounded-lg focus:outline-none focus:border-rc-accent/60 transition-colors" placeholder="Your name" />
                 </div>
+
                 <div className="space-y-2">
                   <label className="block text-sm font-medium text-rc-text/70">Email</label>
                   <input type="email" required value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} className="w-full px-4 py-3 border border-rc-border/40 rounded-lg focus:outline-none focus:border-rc-accent/60 transition-colors" placeholder="your@email.com" />
                 </div>
-                {formType === 'organization' && (
-                  <div className="space-y-2">
-                    <label className="block text-sm font-medium text-rc-text/70">Organization</label>
-                    <input type="text" required value={formData.organization} onChange={(e) => setFormData({ ...formData, organization: e.target.value })} className="w-full px-4 py-3 border border-rc-border/40 rounded-lg focus:outline-none focus:border-rc-accent/60 transition-colors" placeholder="Organization name" />
-                  </div>
-                )}
+
                 <div className="space-y-2">
-                  <label className="block text-sm font-medium text-rc-text/70">Tell us why you want to partner</label>
-                  <textarea value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} className="w-full px-4 py-3 border border-rc-border/40 rounded-lg focus:outline-none focus:border-rc-accent/60 transition-colors resize-none" placeholder="Your thoughts..." rows={4} />
+                  <label className="block text-sm font-medium text-rc-text/70">Organization <span className="text-rc-text/50">(optional)</span></label>
+                  <input type="text" value={formData.organization} onChange={(e) => setFormData({ ...formData, organization: e.target.value })} className="w-full px-4 py-3 border border-rc-border/40 rounded-lg focus:outline-none focus:border-rc-accent/60 transition-colors" placeholder="Your organization name" />
                 </div>
+
                 <div className="space-y-2 pt-4">
                   <label className="flex items-start gap-3 cursor-pointer">
                     <input type="checkbox" required checked={formData.consent} onChange={(e) => setFormData({ ...formData, consent: e.target.checked })} className="mt-1 w-5 h-5 rounded border-rc-border/40" />
                     <span className="text-sm text-rc-text/70">I understand this is about partnership with God's mission, and I'm ready to discuss how I can participate.</span>
                   </label>
                 </div>
-                <div className="flex gap-3 pt-8">
-                  <button type="button" onClick={() => { setFormStep('type'); setFormType(null); }} className="px-6 py-3 text-rc-text/70 hover:text-rc-text transition-colors">Back</button>
-                  <button type="submit" className="flex-1 px-6 py-3 bg-rc-accent text-white font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300">Begin the Conversation</button>
-                </div>
+
+                <button type="submit" className="w-full px-6 py-3 bg-rc-accent text-white font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300">Begin the Conversation</button>
               </form>
             )}
 
-            {/* Step 3 */}
+            {/* Success */}
             {formStep === 'complete' && (
               <div className="py-12 space-y-2">
                 <p className="text-2xl font-rc-serif font-bold">Thank you.</p>
