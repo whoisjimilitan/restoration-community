@@ -89,14 +89,14 @@ export default function TestimoniesPage() {
 
   const StoryCard = ({ story }: { story: StoryCard }) => (
     <div className="w-full space-y-8 py-12 md:py-16">
-      <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+      <div className="group grid md:grid-cols-2 gap-12 md:gap-16 items-center">
         {/* Image */}
         {story.heroImage && (
-          <div className="md:order-2 aspect-square rounded-lg overflow-hidden bg-rc-text/5 border border-rc-border/20">
+          <div className="md:order-2 aspect-square rounded-lg overflow-hidden bg-rc-text/5 border border-rc-border/20 group-hover:shadow-lg transition-all duration-300">
             <img
               src={story.heroImage.url}
               alt={story.heroImage.alt}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-300"
             />
           </div>
         )}

@@ -150,11 +150,11 @@ export default function PartnershipPage() {
                   <h2 className="text-3xl md:text-4xl font-rc-serif font-bold">Are you called to partner with us?</h2>
                 </div>
                 <div className="grid md:grid-cols-2 gap-4">
-                  <button onClick={() => handleTypeSelect('individual')} className="p-8 border-2 border-rc-border/40 hover:border-rc-accent/60 rounded-lg transition-all duration-300 text-left hover:bg-rc-accent/5">
+                  <button onClick={() => handleTypeSelect('individual')} className="p-8 border-2 border-rc-border/40 hover:border-rc-accent/60 hover:shadow-md hover:bg-rc-accent/5 rounded-lg transition-all duration-300 text-left">
                     <p className="font-rc-serif font-semibold text-lg">Individual</p>
                     <p className="text-sm text-rc-text/60 mt-2">I want to partner</p>
                   </button>
-                  <button onClick={() => handleTypeSelect('organization')} className="p-8 border-2 border-rc-border/40 hover:border-rc-accent/60 rounded-lg transition-all duration-300 text-left hover:bg-rc-accent/5">
+                  <button onClick={() => handleTypeSelect('organization')} className="p-8 border-2 border-rc-border/40 hover:border-rc-accent/60 hover:shadow-md hover:bg-rc-accent/5 rounded-lg transition-all duration-300 text-left">
                     <p className="font-rc-serif font-semibold text-lg">Organization</p>
                     <p className="text-sm text-rc-text/60 mt-2">We want to partner</p>
                   </button>
@@ -191,7 +191,7 @@ export default function PartnershipPage() {
                 </div>
                 <div className="flex gap-3 pt-8">
                   <button type="button" onClick={() => { setFormStep('type'); setFormType(null); }} className="px-6 py-3 text-rc-text/70 hover:text-rc-text transition-colors">Back</button>
-                  <button type="submit" className="flex-1 px-6 py-3 bg-rc-accent text-white font-medium rounded-lg hover:bg-rc-accent/90 transition-all duration-300">Send</button>
+                  <button type="submit" className="flex-1 px-6 py-3 bg-rc-accent text-white font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300">Send</button>
                 </div>
               </form>
             )}
