@@ -121,27 +121,27 @@ export default function IntakePage() {
   };
 
   return (
-    <div style={{ minHeight: '100vh', backgroundColor: '#F8F6F2', padding: '2rem' }}>
-      <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+    <div className="min-h-screen bg-rc-bg">
+      <div className="mx-auto max-w-6xl px-6 sm:px-8 md:px-12">
         {/* Header */}
         <motion.div
-          style={{ marginBottom: '2rem' }}
+          className="mb-8"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
           viewport={{ once: true, amount: 0.15 }}
         >
-          <h1 style={{ fontSize: '2rem', fontFamily: 'Georgia, serif', fontWeight: 'bold', marginBottom: '0.5rem', letterSpacing: '-0.02em' }}>
+          <h1 className="text-4xl font-rc-serif font-bold text-rc-text tracking-tight mb-2">
             Intake
           </h1>
-          <p style={{ color: '#666', fontSize: '1rem' }}>
+          <p className="text-rc-text/60">
             Review prayer requests
           </p>
         </motion.div>
 
         {/* Filters */}
         <motion.div
-          style={{ display: 'flex', gap: '1rem', marginBottom: '2rem', flexWrap: 'wrap' }}
+          className="flex flex-wrap gap-4 mb-8"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
@@ -152,25 +152,12 @@ export default function IntakePage() {
             placeholder="Search..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            style={{
-              flex: 1,
-              minWidth: '200px',
-              padding: '0.75rem',
-              border: '1px solid #ddd',
-              borderRadius: '0.375rem',
-              fontSize: '1rem'
-            }}
+            className="flex-1 min-w-[200px] px-4 py-3 border border-rc-border rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-rc-accent"
           />
           <select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value)}
-            style={{
-              padding: '0.75rem',
-              border: '1px solid #ddd',
-              borderRadius: '0.375rem',
-              fontSize: '1rem',
-              backgroundColor: 'white'
-            }}
+            className="px-4 py-3 border border-rc-border rounded-lg text-base bg-white focus:outline-none focus:ring-2 focus:ring-rc-accent"
           >
             <option value="">All Status</option>
             <option value="SUBMITTED">Submitted</option>
@@ -183,7 +170,7 @@ export default function IntakePage() {
         {/* Error */}
         {error && (
           <motion.div
-            style={{ backgroundColor: '#fee', border: '1px solid #fcc', color: '#c33', padding: '1rem', borderRadius: '0.375rem', marginBottom: '1rem' }}
+            className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg mb-4"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
@@ -195,87 +182,59 @@ export default function IntakePage() {
 
         {/* Loading */}
         {loading && (
-          <div style={{ textAlign: 'center', padding: '2rem', color: '#666' }}>
+          <div className="text-center py-12 text-rc-text/60">
             Loading entries...
           </div>
         )}
 
         {/* Entries List */}
         {!loading && entries.length === 0 && (
-          <div style={{ textAlign: 'center', padding: '2rem', color: '#999' }}>
+          <div className="text-center py-12 text-rc-text/40">
             No entries found
           </div>
         )}
 
         {!loading && entries.length > 0 && (
           <motion.div
-            style={{ backgroundColor: 'white', borderRadius: '0.5rem', overflow: 'hidden', boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}
+            className="bg-white rounded-lg overflow-hidden shadow-sm border border-rc-border"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
             viewport={{ once: true, amount: 0.15 }}
           >
-            <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+            <table className="w-full border-collapse">
               <thead>
-                <tr style={{ backgroundColor: '#f5f5f5', borderBottom: '1px solid #ddd' }}>
-                  <th style={{ padding: '1rem', textAlign: 'left', fontWeight: 'bold', fontSize: '0.9rem' }}>Name</th>
-                  <th style={{ padding: '1rem', textAlign: 'left', fontWeight: 'bold', fontSize: '0.9rem' }}>Contact</th>
-                  <th style={{ padding: '1rem', textAlign: 'left', fontWeight: 'bold', fontSize: '0.9rem' }}>Status</th>
-                  <th style={{ padding: '1rem', textAlign: 'left', fontWeight: 'bold', fontSize: '0.9rem' }}>Readiness</th>
-                  <th style={{ padding: '1rem', textAlign: 'left', fontWeight: 'bold', fontSize: '0.9rem' }}>Submitted</th>
-                  <th style={{ padding: '1rem', textAlign: 'center', fontWeight: 'bold', fontSize: '0.9rem' }}>Action</th>
+                <tr className="bg-rc-bg border-b border-rc-border">
+                  <th className="px-4 py-3 text-left font-bold text-sm text-rc-text">Name</th>
+                  <th className="px-4 py-3 text-left font-bold text-sm text-rc-text">Contact</th>
+                  <th className="px-4 py-3 text-left font-bold text-sm text-rc-text">Status</th>
+                  <th className="px-4 py-3 text-left font-bold text-sm text-rc-text">Readiness</th>
+                  <th className="px-4 py-3 text-left font-bold text-sm text-rc-text">Submitted</th>
+                  <th className="px-4 py-3 text-center font-bold text-sm text-rc-text">Action</th>
                 </tr>
               </thead>
               <tbody>
                 {entries.map((entry) => (
-                  <tr key={entry.id} style={{ borderBottom: '1px solid #eee' }}>
-                    <td style={{ padding: '1rem' }}>{entry.name}</td>
-                    <td style={{ padding: '1rem', fontSize: '0.9rem', color: '#666' }}>{entry.contact}</td>
-                    <td style={{ padding: '1rem' }}>
-                      <span style={{
-                        display: 'inline-block',
-                        padding: '0.25rem 0.75rem',
-                        borderRadius: '9999px',
-                        fontSize: '0.85rem',
-                        fontWeight: 'bold',
-                        backgroundColor: entry.status === 'COMPLETED' ? '#d4edda' : entry.status === 'SCHEDULED' ? '#fff3cd' : '#e2e3e5',
-                        color: entry.status === 'COMPLETED' ? '#155724' : entry.status === 'SCHEDULED' ? '#856404' : '#383d41'
-                      }}>
+                  <tr key={entry.id} className="border-b border-rc-border/50 hover:bg-rc-bg/50 transition-colors">
+                    <td className="px-4 py-3 text-rc-text">{entry.name}</td>
+                    <td className="px-4 py-3 text-sm text-rc-text/60">{entry.contact}</td>
+                    <td className="px-4 py-3">
+                      <span className={`inline-block px-3 py-1 rounded-full text-xs font-medium ${
+                        entry.status === 'COMPLETED' ? 'bg-green-100 text-green-700' :
+                        entry.status === 'SCHEDULED' ? 'bg-yellow-100 text-yellow-700' :
+                        'bg-gray-100 text-gray-700'
+                      }`}>
                         {entry.status}
                       </span>
                     </td>
-                    <td style={{ padding: '1rem', fontSize: '0.9rem' }}>{entry.readiness}</td>
-                    <td style={{ padding: '1rem', fontSize: '0.9rem', color: '#999' }}>
+                    <td className="px-4 py-3 text-sm text-rc-text">{entry.readiness}</td>
+                    <td className="px-4 py-3 text-sm text-rc-text/50">
                       {new Date(entry.createdAt).toLocaleDateString()}
                     </td>
-                    <td style={{ padding: '1rem', textAlign: 'center' }}>
+                    <td className="px-4 py-3 text-center">
                       <button
                         onClick={() => setSelectedEntry(entry)}
-                        style={{
-                          padding: '0.5rem 1rem',
-                          backgroundColor: '#0F766E',
-                          color: 'white',
-                          border: 'none',
-                          borderRadius: '0.375rem',
-                          cursor: 'pointer',
-                          fontSize: '0.9rem',
-                          fontWeight: 'bold',
-                          transition: 'all 300ms',
-                          transform: 'translateY(0)'
-                        }}
-                        onMouseEnter={(e) => {
-                          e.currentTarget.style.backgroundColor = '#0a5c59';
-                          e.currentTarget.style.transform = 'translateY(-2px)';
-                          e.currentTarget.style.boxShadow = '0 10px 15px -3px rgba(0,0,0,0.1)';
-                        }}
-                        onMouseLeave={(e) => {
-                          e.currentTarget.style.backgroundColor = '#0F766E';
-                          e.currentTarget.style.transform = 'translateY(0)';
-                          e.currentTarget.style.boxShadow = 'none';
-                        }}
-                        onMouseDown={(e) => {
-                          e.currentTarget.style.transform = 'translateY(0)';
-                        }}
+                        className="px-4 py-2 bg-rc-accent text-white font-medium rounded-lg hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 text-sm"
                       >
                         View
                       </button>
@@ -290,7 +249,7 @@ export default function IntakePage() {
         {/* Pagination */}
         {pagination && pagination.hasMore && (
           <motion.div
-            style={{ textAlign: 'center', marginTop: '2rem' }}
+            className="text-center mt-8"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
@@ -300,31 +259,7 @@ export default function IntakePage() {
               onClick={() => {
                 // Load more - would implement infinite scroll or pagination
               }}
-              style={{
-                padding: '0.75rem 1.5rem',
-                backgroundColor: '#0F766E',
-                color: 'white',
-                border: 'none',
-                borderRadius: '0.375rem',
-                cursor: 'pointer',
-                fontSize: '1rem',
-                fontWeight: 'bold',
-                transition: 'all 300ms',
-                transform: 'translateY(0)'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = '#0a5c59';
-                e.currentTarget.style.transform = 'translateY(-2px)';
-                e.currentTarget.style.boxShadow = '0 10px 15px -3px rgba(0,0,0,0.1)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = '#0F766E';
-                e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = 'none';
-              }}
-              onMouseDown={(e) => {
-                e.currentTarget.style.transform = 'translateY(0)';
-              }}
+              className="px-6 py-3 bg-rc-accent text-white font-bold rounded-lg hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300"
             >
               Load More
             </button>
@@ -334,33 +269,14 @@ export default function IntakePage() {
         {/* Detail Modal */}
         {selectedEntry && (
           <motion.div
-            style={{
-              position: 'fixed',
-              top: 0,
-              left: 0,
-              right: 0,
-              bottom: 0,
-              backgroundColor: 'rgba(0,0,0,0.5)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              zIndex: 1000
-            }}
+            className="fixed inset-0 bg-black/50 flex items-center justify-center z-1000"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
             viewport={{ once: true, amount: 0.15 }}
           >
             <motion.div
-              style={{
-                backgroundColor: 'white',
-                borderRadius: '0.5rem',
-                padding: '2rem',
-                maxWidth: '600px',
-                maxHeight: '90vh',
-                overflowY: 'auto',
-                boxShadow: '0 20px 25px -5px rgba(0,0,0,0.1)'
-              }}
+              className="bg-white rounded-lg p-8 max-w-2xl max-h-[90vh] overflow-y-auto shadow-xl relative"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
@@ -369,83 +285,57 @@ export default function IntakePage() {
               {/* Close button */}
               <button
                 onClick={() => setSelectedEntry(null)}
-                style={{
-                  position: 'absolute',
-                  top: '1rem',
-                  right: '1rem',
-                  backgroundColor: 'transparent',
-                  border: 'none',
-                  fontSize: '1.5rem',
-                  cursor: 'pointer',
-                  color: '#999',
-                  transition: 'all 300ms',
-                  transform: 'scale(1)'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.color = '#333';
-                  e.currentTarget.style.transform = 'scale(1.1)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.color = '#999';
-                  e.currentTarget.style.transform = 'scale(1)';
-                }}
+                className="absolute top-4 right-4 text-rc-text/40 hover:text-rc-text transition-colors text-2xl hover:scale-110"
                 aria-label="Close"
               >
                 &times;
               </button>
 
-              <h2 style={{ fontSize: '1.5rem', fontFamily: 'Georgia, serif', fontWeight: 'bold', marginBottom: '1.5rem', letterSpacing: '-0.02em' }}>
+              <h2 className="text-2xl font-rc-serif font-bold text-rc-text tracking-tight mb-6">
                 {selectedEntry.name}
               </h2>
 
-              <div style={{ marginBottom: '2rem' }}>
-                <div style={{ marginBottom: '1rem' }}>
-                  <label style={{ display: 'block', fontWeight: 'bold', marginBottom: '0.5rem' }}>Contact</label>
-                  <p style={{ color: '#666' }}>{selectedEntry.contact}</p>
+              <div className="mb-8">
+                <div className="mb-4">
+                  <label className="block font-bold text-rc-text mb-1">Contact</label>
+                  <p className="text-rc-text/60">{selectedEntry.contact}</p>
                 </div>
 
-                <div style={{ marginBottom: '1rem' }}>
-                  <label style={{ display: 'block', fontWeight: 'bold', marginBottom: '0.5rem' }}>Country</label>
-                  <p style={{ color: '#666' }}>{selectedEntry.country || 'Not specified'}</p>
+                <div className="mb-4">
+                  <label className="block font-bold text-rc-text mb-1">Country</label>
+                  <p className="text-rc-text/60">{selectedEntry.country || 'Not specified'}</p>
                 </div>
 
-                <div style={{ marginBottom: '1rem' }}>
-                  <label style={{ display: 'block', fontWeight: 'bold', marginBottom: '0.5rem' }}>Situation</label>
-                  <p style={{ color: '#666', textTransform: 'capitalize' }}>{selectedEntry.situation.replace(/_/g, ' ')}</p>
+                <div className="mb-4">
+                  <label className="block font-bold text-rc-text mb-1">Situation</label>
+                  <p className="text-rc-text/60 capitalize">{selectedEntry.situation.replace(/_/g, ' ')}</p>
                 </div>
 
-                <div style={{ marginBottom: '1rem' }}>
-                  <label style={{ display: 'block', fontWeight: 'bold', marginBottom: '0.5rem' }}>Story</label>
-                  <p style={{ color: '#666', lineHeight: '1.6', whiteSpace: 'pre-wrap' }}>{selectedEntry.story || 'Not provided'}</p>
+                <div className="mb-4">
+                  <label className="block font-bold text-rc-text mb-1">Story</label>
+                  <p className="text-rc-text/60 leading-relaxed whitespace-pre-wrap">{selectedEntry.story || 'Not provided'}</p>
                 </div>
 
-                <div style={{ marginBottom: '1rem' }}>
-                  <label style={{ display: 'block', fontWeight: 'bold', marginBottom: '0.5rem' }}>Seeking</label>
-                  <p style={{ color: '#666' }}>
+                <div className="mb-4">
+                  <label className="block font-bold text-rc-text mb-1">Seeking</label>
+                  <p className="text-rc-text/60">
                     {selectedEntry.seeking.length > 0
                       ? selectedEntry.seeking.map(s => s.replace(/_/g, ' ')).join(', ')
                       : 'Not specified'}
                   </p>
                 </div>
 
-                <div style={{ marginBottom: '1rem' }}>
-                  <label style={{ display: 'block', fontWeight: 'bold', marginBottom: '0.5rem' }}>Readiness</label>
-                  <p style={{ color: '#666', textTransform: 'capitalize' }}>{selectedEntry.readiness.replace(/_/g, ' ')}</p>
+                <div className="mb-4">
+                  <label className="block font-bold text-rc-text mb-1">Readiness</label>
+                  <p className="text-rc-text/60 capitalize">{selectedEntry.readiness.replace(/_/g, ' ')}</p>
                 </div>
 
-                <div style={{ marginBottom: '2rem', paddingTop: '1rem', borderTop: '1px solid #eee' }}>
-                  <label style={{ display: 'block', fontWeight: 'bold', marginBottom: '0.5rem' }}>Decision</label>
+                <div className="mb-8 pt-4 border-t border-rc-border">
+                  <label className="block font-bold text-rc-text mb-2">Decision</label>
                   <select
                     value={decision}
                     onChange={(e) => setDecision(e.target.value)}
-                    style={{
-                      width: '100%',
-                      padding: '0.75rem',
-                      border: '1px solid #ddd',
-                      borderRadius: '0.375rem',
-                      fontSize: '1rem',
-                      marginBottom: '1rem'
-                    }}
+                    className="w-full px-4 py-3 border border-rc-border rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-rc-accent mb-4"
                   >
                     <option value="">Select...</option>
                     <option value="yes">Yes - Ready to walk restoration</option>
@@ -453,73 +343,21 @@ export default function IntakePage() {
                     <option value="need_more_time">Need more time</option>
                   </select>
 
-                  <div style={{ display: 'flex', gap: '1rem' }}>
+                  <div className="flex gap-4">
                     <button
                       onClick={() => handleUpdateEntry('SCHEDULED', decision === 'yes')}
                       disabled={!decision || updating}
-                      style={{
-                        flex: 1,
-                        padding: '0.75rem',
-                        backgroundColor: decision ? '#0F766E' : '#ccc',
-                        color: 'white',
-                        border: 'none',
-                        borderRadius: '0.375rem',
-                        cursor: decision ? 'pointer' : 'not-allowed',
-                        fontSize: '1rem',
-                        fontWeight: 'bold',
-                        transition: 'all 300ms',
-                        transform: 'translateY(0)'
-                      }}
-                      onMouseEnter={(e) => {
-                        if (decision) {
-                          e.currentTarget.style.backgroundColor = '#0a5c59';
-                          e.currentTarget.style.transform = 'translateY(-2px)';
-                          e.currentTarget.style.boxShadow = '0 10px 15px -3px rgba(0,0,0,0.1)';
-                        }
-                      }}
-                      onMouseLeave={(e) => {
-                        if (decision) {
-                          e.currentTarget.style.backgroundColor = '#0F766E';
-                          e.currentTarget.style.transform = 'translateY(0)';
-                          e.currentTarget.style.boxShadow = 'none';
-                        }
-                      }}
-                      onMouseDown={(e) => {
-                        if (decision) {
-                          e.currentTarget.style.transform = 'translateY(0)';
-                        }
-                      }}
+                      className={`flex-1 px-4 py-3 font-bold rounded-lg transition-all duration-300 ${
+                        decision
+                          ? 'bg-rc-accent text-white hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0'
+                          : 'bg-gray-200 text-gray-400 cursor-not-allowed'
+                      }`}
                     >
                       {updating ? 'Saving...' : 'Record'}
                     </button>
                     <button
                       onClick={() => setSelectedEntry(null)}
-                      style={{
-                        flex: 1,
-                        padding: '0.75rem',
-                        backgroundColor: '#eee',
-                        color: '#333',
-                        border: 'none',
-                        borderRadius: '0.375rem',
-                        cursor: 'pointer',
-                        fontSize: '1rem',
-                        fontWeight: 'bold',
-                        transition: 'all 300ms',
-                        transform: 'translateY(0)'
-                      }}
-                      onMouseEnter={(e) => {
-                        e.currentTarget.style.backgroundColor = '#ddd';
-                        e.currentTarget.style.transform = 'translateY(-2px)';
-                        e.currentTarget.style.boxShadow = '0 10px 15px -3px rgba(0,0,0,0.1)';
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.backgroundColor = '#eee';
-                        e.currentTarget.style.transform = 'translateY(0)';
-                        e.currentTarget.style.boxShadow = 'none';
-                      }}
-                      onMouseDown={(e) => {
-                        e.currentTarget.style.transform = 'translateY(0)';
-                      }}
+                      className="flex-1 px-4 py-3 bg-rc-bg text-rc-text font-bold rounded-lg hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 border border-rc-border"
                     >
                       Close
                     </button>
