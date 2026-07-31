@@ -44,7 +44,7 @@ export default function PartnershipPage() {
 
           <div className={`transform transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '360ms' }}>
             <p className="text-lg md:text-xl text-white/90 leading-relaxed font-light">
-              They're answering the call from God.
+              They're answering the call of God.
             </p>
           </div>
         </div>
