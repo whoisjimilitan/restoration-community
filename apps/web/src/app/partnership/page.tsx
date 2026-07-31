@@ -147,7 +147,7 @@ export default function PartnershipPage() {
             {formStep === 'type' && (
               <div className="space-y-10">
                 <div className="space-y-4">
-                  <h2 className="text-3xl md:text-4xl font-rc-serif font-bold">Are you called to partner with us?</h2>
+                  <h2 className="text-3xl md:text-4xl font-rc-serif font-bold">Ready to partner?</h2>
                 </div>
                 <div className="grid md:grid-cols-2 gap-4">
                   <button onClick={() => handleTypeSelect('individual')} className="p-8 border-2 border-rc-border/40 hover:border-rc-accent/60 hover:shadow-md hover:bg-rc-accent/5 rounded-lg transition-all duration-300 text-left">
