@@ -38,8 +38,14 @@ export default function PartnershipPage() {
 
           <div className={`transform transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '240ms' }}>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight tracking-tight">
-              Partners don't just fund a mission. They're answering their call from God.
+              Partners don't just fund a mission.
             </h1>
+          </div>
+
+          <div className={`transform transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '360ms' }}>
+            <p className="text-lg md:text-xl text-white/90 leading-relaxed font-light">
+              They're answering their own call from God.
+            </p>
           </div>
         </div>
       </section>
