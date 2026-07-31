@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import { motion } from 'framer-motion';
 
 interface EntryRequest {
   id: string;
@@ -123,17 +124,29 @@ export default function IntakePage() {
     <div style={{ minHeight: '100vh', backgroundColor: '#F8F6F2', padding: '2rem' }}>
       <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
         {/* Header */}
-        <div style={{ marginBottom: '2rem' }}>
+        <motion.div
+          style={{ marginBottom: '2rem' }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          viewport={{ once: true, amount: 0.15 }}
+        >
           <h1 style={{ fontSize: '2rem', fontFamily: 'Georgia, serif', fontWeight: 'bold', marginBottom: '0.5rem' }}>
             Ministry Intake
           </h1>
           <p style={{ color: '#666', fontSize: '1rem' }}>
             Review and respond to prayer requests from seekers
           </p>
-        </div>
+        </motion.div>
 
         {/* Filters */}
-        <div style={{ display: 'flex', gap: '1rem', marginBottom: '2rem', flexWrap: 'wrap' }}>
+        <motion.div
+          style={{ display: 'flex', gap: '1rem', marginBottom: '2rem', flexWrap: 'wrap' }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          viewport={{ once: true, amount: 0.15 }}
+        >
           <input
             type="text"
             placeholder="Search by name or contact..."
@@ -165,13 +178,19 @@ export default function IntakePage() {
             <option value="SCHEDULED">Scheduled</option>
             <option value="COMPLETED">Completed</option>
           </select>
-        </div>
+        </motion.div>
 
         {/* Error */}
         {error && (
-          <div style={{ backgroundColor: '#fee', border: '1px solid #fcc', color: '#c33', padding: '1rem', borderRadius: '0.375rem', marginBottom: '1rem' }}>
+          <motion.div
+            style={{ backgroundColor: '#fee', border: '1px solid #fcc', color: '#c33', padding: '1rem', borderRadius: '0.375rem', marginBottom: '1rem' }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+            viewport={{ once: true, amount: 0.15 }}
+          >
             {error}
-          </div>
+          </motion.div>
         )}
 
         {/* Loading */}
@@ -189,7 +208,13 @@ export default function IntakePage() {
         )}
 
         {!loading && entries.length > 0 && (
-          <div style={{ backgroundColor: 'white', borderRadius: '0.5rem', overflow: 'hidden', boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}>
+          <motion.div
+            style={{ backgroundColor: 'white', borderRadius: '0.5rem', overflow: 'hidden', boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+            viewport={{ once: true, amount: 0.15 }}
+          >
             <table style={{ width: '100%', borderCollapse: 'collapse' }}>
               <thead>
                 <tr style={{ backgroundColor: '#f5f5f5', borderBottom: '1px solid #ddd' }}>
@@ -246,12 +271,18 @@ export default function IntakePage() {
                 ))}
               </tbody>
             </table>
-          </div>
+          </motion.div>
         )}
 
         {/* Pagination */}
         {pagination && pagination.hasMore && (
-          <div style={{ textAlign: 'center', marginTop: '2rem' }}>
+          <motion.div
+            style={{ textAlign: 'center', marginTop: '2rem' }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+            viewport={{ once: true, amount: 0.15 }}
+          >
             <button
               onClick={() => {
                 // Load more - would implement infinite scroll or pagination
@@ -269,32 +300,44 @@ export default function IntakePage() {
             >
               Load More
             </button>
-          </div>
+          </motion.div>
         )}
 
         {/* Detail Modal */}
         {selectedEntry && (
-          <div style={{
-            position: 'fixed',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            backgroundColor: 'rgba(0,0,0,0.5)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            zIndex: 1000
-          }}>
-            <div style={{
-              backgroundColor: 'white',
-              borderRadius: '0.5rem',
-              padding: '2rem',
-              maxWidth: '600px',
-              maxHeight: '90vh',
-              overflowY: 'auto',
-              boxShadow: '0 20px 25px -5px rgba(0,0,0,0.1)'
-            }}>
+          <motion.div
+            style={{
+              position: 'fixed',
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              backgroundColor: 'rgba(0,0,0,0.5)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              zIndex: 1000
+            }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+            viewport={{ once: true, amount: 0.15 }}
+          >
+            <motion.div
+              style={{
+                backgroundColor: 'white',
+                borderRadius: '0.5rem',
+                padding: '2rem',
+                maxWidth: '600px',
+                maxHeight: '90vh',
+                overflowY: 'auto',
+                boxShadow: '0 20px 25px -5px rgba(0,0,0,0.1)'
+              }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+              viewport={{ once: true, amount: 0.15 }}
+            >
               {/* Close button */}
               <button
                 onClick={() => setSelectedEntry(null)}
@@ -415,8 +458,8 @@ export default function IntakePage() {
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         )}
       </div>
     </div>

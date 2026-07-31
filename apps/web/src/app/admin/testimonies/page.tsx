@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
 import { FormattedTestimony } from '@/lib/testimony-helpers';
 
 interface TestimonyFormData {
@@ -117,7 +118,13 @@ export default function AdminTestimoniesPage() {
   return (
     <div className="min-h-screen bg-rc-bg">
       {/* Header */}
-      <div className="bg-white border-b border-rc-border">
+      <motion.div
+        className="bg-white border-b border-rc-border"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+        viewport={{ once: true, amount: 0.15 }}
+      >
         <div className="max-w-6xl mx-auto px-6 sm:px-8 md:px-12 py-8">
           <div className="flex justify-between items-center">
             <div>
@@ -132,11 +139,17 @@ export default function AdminTestimoniesPage() {
             </button>
           </div>
         </div>
-      </div>
+      </motion.div>
 
       {/* Form Section */}
       {showForm && (
-        <div className="bg-white border-b border-rc-border">
+        <motion.div
+          className="bg-white border-b border-rc-border"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          viewport={{ once: true, amount: 0.15 }}
+        >
           <div className="max-w-6xl mx-auto px-6 sm:px-8 md:px-12 py-12">
             <form onSubmit={handleSubmit} className="space-y-6 max-w-2xl">
               <div>
@@ -222,11 +235,17 @@ export default function AdminTestimoniesPage() {
               </div>
             </form>
           </div>
-        </div>
+        </motion.div>
       )}
 
       {/* Testimonies List */}
-      <div className="max-w-6xl mx-auto px-6 sm:px-8 md:px-12 py-12">
+      <motion.div
+        className="max-w-6xl mx-auto px-6 sm:px-8 md:px-12 py-12"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+        viewport={{ once: true, amount: 0.15 }}
+      >
         {loading ? (
           <div className="text-center py-12">
             <p className="text-rc-text/60">Loading testimonies...</p>
@@ -280,7 +299,7 @@ export default function AdminTestimoniesPage() {
             ))}
           </div>
         )}
-      </div>
+      </motion.div>
     </div>
   );
 }
