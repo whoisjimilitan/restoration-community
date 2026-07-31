@@ -27,9 +27,9 @@ export default function Home() {
 
   return (
     <div className="bg-rc-bg text-rc-text relative">
-      {/* LOGO - Fixed top left */}
-      <div className="fixed top-6 left-6 md:top-8 md:left-8 z-40">
-        <img src="/images/logo-jimi.png" alt="Jimi" className="h-10 w-10 md:h-12 md:w-12 opacity-90 hover:opacity-100 transition-opacity" />
+      {/* LOGO - Fixed top left, premium sizing */}
+      <div className="fixed top-8 left-8 md:top-12 md:left-12 z-40">
+        <img src="/images/logo-jimi.png" alt="Jimi" className="h-14 w-14 md:h-16 md:w-16 opacity-95 hover:opacity-100 transition-opacity duration-300" />
       </div>
 
       {/* HERO */}
