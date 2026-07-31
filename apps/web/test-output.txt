@@ -1,0 +1,1228 @@
+
+> web@0.1.0 test
+> jest
+
+   Using tsconfig file: ./tsconfig.json
+PASS tests/lib/testimony-helpers.test.ts
+FAIL tests/api/testimonies-upload.test.ts
+  ● Test suite failed to run
+
+    ReferenceError: Request is not defined
+
+       9 |
+      10 |     if (!file) {
+    > 11 |       return NextResponse.json(
+         |                 ^
+      12 |         { error: 'No file provided' },
+      13 |         { status: 400 }
+      14 |       );
+
+      at Object.Request (../../node_modules/next/src/server/web/spec-extension/request.ts:15:34)
+      at Object.<anonymous> (../../node_modules/next/server.js:2:16)
+      at Object.<anonymous> (src/app/api/testimonies/upload/route.ts:11:17)
+      at Object.<anonymous> (tests/api/testimonies-upload.test.ts:5:16)
+
+FAIL tests/e2e/testimonies-flow.test.ts
+  ● Testimonies System - End-to-End Flow › creates a testimony via API
+
+    PrismaClient is unable to run in this browser environment, or has been bundled for the browser (running in `Node.js`).
+    If this is unexpected, please open an issue: https://pris.ly/prisma-prisma-bug-report
+
+      16 |
+      17 |   it('creates a testimony via API', async () => {
+    > 18 |     const testimony = await prisma.testimony.create({
+         |                                    ^
+      19 |       data: testTestimony,
+      20 |     });
+      21 |
+
+      at Object.get (../../node_modules/.prisma/client/index-browser.js:541:15)
+      at Object.testimony (tests/e2e/testimonies-flow.test.ts:18:36)
+
+  ● Testimonies System - End-to-End Flow › creates a testimony via API
+
+    PrismaClient is unable to run in this browser environment, or has been bundled for the browser (running in `Node.js`).
+    If this is unexpected, please open an issue: https://pris.ly/prisma-prisma-bug-report
+
+      129 |   afterEach(async () => {
+      130 |     // Clean up test data
+    > 131 |     await prisma.testimony.deleteMany({
+          |                  ^
+      132 |       where: {
+      133 |         name: {
+      134 |           contains: 'Test',
+
+      at Object.get (../../node_modules/.prisma/client/index-browser.js:541:15)
+      at Object.testimony (tests/e2e/testimonies-flow.test.ts:131:18)
+
+  ● Testimonies System - End-to-End Flow › fetches all testimonies
+
+    PrismaClient is unable to run in this browser environment, or has been bundled for the browser (running in `Node.js`).
+    If this is unexpected, please open an issue: https://pris.ly/prisma-prisma-bug-report
+
+      26 |
+      27 |   it('fetches all testimonies', async () => {
+    > 28 |     const testimonies = await prisma.testimony.findMany({
+         |                                      ^
+      29 |       include: {
+      30 |         heroImage: true,
+      31 |         proofImages: true,
+
+      at Object.get (../../node_modules/.prisma/client/index-browser.js:541:15)
+      at Object.testimony (tests/e2e/testimonies-flow.test.ts:28:38)
+
+  ● Testimonies System - End-to-End Flow › fetches all testimonies
+
+    PrismaClient is unable to run in this browser environment, or has been bundled for the browser (running in `Node.js`).
+    If this is unexpected, please open an issue: https://pris.ly/prisma-prisma-bug-report
+
+      129 |   afterEach(async () => {
+      130 |     // Clean up test data
+    > 131 |     await prisma.testimony.deleteMany({
+          |                  ^
+      132 |       where: {
+      133 |         name: {
+      134 |           contains: 'Test',
+
+      at Object.get (../../node_modules/.prisma/client/index-browser.js:541:15)
+      at Object.testimony (tests/e2e/testimonies-flow.test.ts:131:18)
+
+  ● Testimonies System - End-to-End Flow › fetches single testimony by ID
+
+    PrismaClient is unable to run in this browser environment, or has been bundled for the browser (running in `Node.js`).
+    If this is unexpected, please open an issue: https://pris.ly/prisma-prisma-bug-report
+
+      38 |
+      39 |   it('fetches single testimony by ID', async () => {
+    > 40 |     const created = await prisma.testimony.create({
+         |                                  ^
+      41 |       data: testTestimony,
+      42 |     });
+      43 |
+
+      at Object.get (../../node_modules/.prisma/client/index-browser.js:541:15)
+      at Object.testimony (tests/e2e/testimonies-flow.test.ts:40:34)
+
+  ● Testimonies System - End-to-End Flow › fetches single testimony by ID
+
+    PrismaClient is unable to run in this browser environment, or has been bundled for the browser (running in `Node.js`).
+    If this is unexpected, please open an issue: https://pris.ly/prisma-prisma-bug-report
+
+      129 |   afterEach(async () => {
+      130 |     // Clean up test data
+    > 131 |     await prisma.testimony.deleteMany({
+          |                  ^
+      132 |       where: {
+      133 |         name: {
+      134 |           contains: 'Test',
+
+      at Object.get (../../node_modules/.prisma/client/index-browser.js:541:15)
+      at Object.testimony (tests/e2e/testimonies-flow.test.ts:131:18)
+
+  ● Testimonies System - End-to-End Flow › updates an existing testimony
+
+    PrismaClient is unable to run in this browser environment, or has been bundled for the browser (running in `Node.js`).
+    If this is unexpected, please open an issue: https://pris.ly/prisma-prisma-bug-report
+
+      55 |
+      56 |   it('updates an existing testimony', async () => {
+    > 57 |     const created = await prisma.testimony.create({
+         |                                  ^
+      58 |       data: testTestimony,
+      59 |     });
+      60 |
+
+      at Object.get (../../node_modules/.prisma/client/index-browser.js:541:15)
+      at Object.testimony (tests/e2e/testimonies-flow.test.ts:57:34)
+
+  ● Testimonies System - End-to-End Flow › updates an existing testimony
+
+    PrismaClient is unable to run in this browser environment, or has been bundled for the browser (running in `Node.js`).
+    If this is unexpected, please open an issue: https://pris.ly/prisma-prisma-bug-report
+
+      129 |   afterEach(async () => {
+      130 |     // Clean up test data
+    > 131 |     await prisma.testimony.deleteMany({
+          |                  ^
+      132 |       where: {
+      133 |         name: {
+      134 |           contains: 'Test',
+
+      at Object.get (../../node_modules/.prisma/client/index-browser.js:541:15)
+      at Object.testimony (tests/e2e/testimonies-flow.test.ts:131:18)
+
+  ● Testimonies System - End-to-End Flow › deletes a testimony
+
+    PrismaClient is unable to run in this browser environment, or has been bundled for the browser (running in `Node.js`).
+    If this is unexpected, please open an issue: https://pris.ly/prisma-prisma-bug-report
+
+      72 |
+      73 |   it('deletes a testimony', async () => {
+    > 74 |     const created = await prisma.testimony.create({
+         |                                  ^
+      75 |       data: testTestimony,
+      76 |     });
+      77 |
+
+      at Object.get (../../node_modules/.prisma/client/index-browser.js:541:15)
+      at Object.testimony (tests/e2e/testimonies-flow.test.ts:74:34)
+
+  ● Testimonies System - End-to-End Flow › deletes a testimony
+
+    PrismaClient is unable to run in this browser environment, or has been bundled for the browser (running in `Node.js`).
+    If this is unexpected, please open an issue: https://pris.ly/prisma-prisma-bug-report
+
+      129 |   afterEach(async () => {
+      130 |     // Clean up test data
+    > 131 |     await prisma.testimony.deleteMany({
+          |                  ^
+      132 |       where: {
+      133 |         name: {
+      134 |           contains: 'Test',
+
+      at Object.get (../../node_modules/.prisma/client/index-browser.js:541:15)
+      at Object.testimony (tests/e2e/testimonies-flow.test.ts:131:18)
+
+  ● Testimonies System - End-to-End Flow › validates stage numbers are in range 1-7
+
+    PrismaClient is unable to run in this browser environment, or has been bundled for the browser (running in `Node.js`).
+    If this is unexpected, please open an issue: https://pris.ly/prisma-prisma-bug-report
+
+      89 |   it('validates stage numbers are in range 1-7', async () => {
+      90 |     for (let stage = 1; stage <= 7; stage++) {
+    > 91 |       const testimony = await prisma.testimony.create({
+         |                                      ^
+      92 |         data: {
+      93 |           ...testTestimony,
+      94 |           name: `Test Stage ${stage}`,
+
+      at Object.get (../../node_modules/.prisma/client/index-browser.js:541:15)
+      at Object.testimony (tests/e2e/testimonies-flow.test.ts:91:38)
+
+  ● Testimonies System - End-to-End Flow › validates stage numbers are in range 1-7
+
+    PrismaClient is unable to run in this browser environment, or has been bundled for the browser (running in `Node.js`).
+    If this is unexpected, please open an issue: https://pris.ly/prisma-prisma-bug-report
+
+      129 |   afterEach(async () => {
+      130 |     // Clean up test data
+    > 131 |     await prisma.testimony.deleteMany({
+          |                  ^
+      132 |       where: {
+      133 |         name: {
+      134 |           contains: 'Test',
+
+      at Object.get (../../node_modules/.prisma/client/index-browser.js:541:15)
+      at Object.testimony (tests/e2e/testimonies-flow.test.ts:131:18)
+
+  ● Testimonies System - End-to-End Flow › maintains relationships with images
+
+    PrismaClient is unable to run in this browser environment, or has been bundled for the browser (running in `Node.js`).
+    If this is unexpected, please open an issue: https://pris.ly/prisma-prisma-bug-report
+
+      102 |
+      103 |   it('maintains relationships with images', async () => {
+    > 104 |     const testimony = await prisma.testimony.create({
+          |                                    ^
+      105 |       data: testTestimony,
+      106 |       include: {
+      107 |         heroImage: true,
+
+      at Object.get (../../node_modules/.prisma/client/index-browser.js:541:15)
+      at Object.testimony (tests/e2e/testimonies-flow.test.ts:104:36)
+
+  ● Testimonies System - End-to-End Flow › maintains relationships with images
+
+    PrismaClient is unable to run in this browser environment, or has been bundled for the browser (running in `Node.js`).
+    If this is unexpected, please open an issue: https://pris.ly/prisma-prisma-bug-report
+
+      129 |   afterEach(async () => {
+      130 |     // Clean up test data
+    > 131 |     await prisma.testimony.deleteMany({
+          |                  ^
+      132 |       where: {
+      133 |         name: {
+      134 |           contains: 'Test',
+
+      at Object.get (../../node_modules/.prisma/client/index-browser.js:541:15)
+      at Object.testimony (tests/e2e/testimonies-flow.test.ts:131:18)
+
+  ● Testimonies System - End-to-End Flow › lists testimonies sorted by creation date
+
+    PrismaClient is unable to run in this browser environment, or has been bundled for the browser (running in `Node.js`).
+    If this is unexpected, please open an issue: https://pris.ly/prisma-prisma-bug-report
+
+      116 |
+      117 |   it('lists testimonies sorted by creation date', async () => {
+    > 118 |     const testimonies = await prisma.testimony.findMany({
+          |                                      ^
+      119 |       orderBy: { createdAt: 'desc' },
+      120 |     });
+      121 |
+
+      at Object.get (../../node_modules/.prisma/client/index-browser.js:541:15)
+      at Object.testimony (tests/e2e/testimonies-flow.test.ts:118:38)
+
+  ● Testimonies System - End-to-End Flow › lists testimonies sorted by creation date
+
+    PrismaClient is unable to run in this browser environment, or has been bundled for the browser (running in `Node.js`).
+    If this is unexpected, please open an issue: https://pris.ly/prisma-prisma-bug-report
+
+      129 |   afterEach(async () => {
+      130 |     // Clean up test data
+    > 131 |     await prisma.testimony.deleteMany({
+          |                  ^
+      132 |       where: {
+      133 |         name: {
+      134 |           contains: 'Test',
+
+      at Object.get (../../node_modules/.prisma/client/index-browser.js:541:15)
+      at Object.testimony (tests/e2e/testimonies-flow.test.ts:131:18)
+
+FAIL tests/api/testimonies.test.ts
+  ● Test suite failed to run
+
+    ReferenceError: Request is not defined
+
+      10 |       },
+      11 |       orderBy: {
+    > 12 |         createdAt: 'desc',
+         |                 ^
+      13 |       },
+      14 |     });
+      15 |
+
+      at Object.Request (../../node_modules/next/src/server/web/spec-extension/request.ts:15:34)
+      at Object.<anonymous> (../../node_modules/next/server.js:2:16)
+      at Object.<anonymous> (src/app/api/testimonies/route.ts:12:17)
+      at Object.<anonymous> (tests/api/testimonies.test.ts:5:16)
+
+FAIL tests/api/testimonies-single.test.ts
+  ● Test suite failed to run
+
+    ReferenceError: Request is not defined
+
+      10 |
+      11 |     console.log(`[TESTIMONIES] Fetching testimony: ${id}`);
+    > 12 |
+         | ^
+      13 |     const testimony = await prisma.testimony.findUnique({
+      14 |       where: { id },
+      15 |       include: {
+
+      at Object.Request (../../node_modules/next/src/server/web/spec-extension/request.ts:15:34)
+      at Object.<anonymous> (../../node_modules/next/server.js:2:16)
+      at Object.<anonymous> (src/app/api/testimonies/[id]/route.ts:12:17)
+      at Object.<anonymous> (tests/api/testimonies-single.test.ts:5:16)
+
+PASS tests/lib/wordpress-connector.test.ts
+  ● Console
+
+    console.log
+      [WORDPRESS] Fetching WordPress post for user test-user (getNext=true)
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Fetching feed from https://watchedtbjoshua.wordpress.com/feed/
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Feed received, parsing XML (466 chars)
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Parsed 1 items from feed
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Looking for next unprocessed post (1 total posts)
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Found 0 processed posts for user
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] No processed posts yet, returning first post
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Selected post: "Test Post Title"
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Fetching WordPress post for user test-user (getNext=true)
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Fetching feed from https://watchedtbjoshua.wordpress.com/feed/
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Error fetching feed: Error: Network error
+          at /Users/jimilitan/Projects/restoration-community/apps/web/tests/lib/wordpress-connector.test.ts:86:51
+          at /Users/jimilitan/Projects/restoration-community/node_modules/jest-mock/build/index.js:397:39
+          at /Users/jimilitan/Projects/restoration-community/node_modules/jest-mock/build/index.js:404:13
+          at mockConstructor (/Users/jimilitan/Projects/restoration-community/node_modules/jest-mock/build/index.js:148:19)
+          at fetch (/Users/jimilitan/Projects/restoration-community/apps/web/src/lib/wordpress-connector.ts:54:28)
+          at fetchAndParseRSSFeed (/Users/jimilitan/Projects/restoration-community/apps/web/src/lib/wordpress-connector.ts:189:23)
+          at Object.<anonymous> (/Users/jimilitan/Projects/restoration-community/apps/web/tests/lib/wordpress-connector.test.ts:88:44)
+          at Promise.then.completed (/Users/jimilitan/Projects/restoration-community/node_modules/jest-circus/build/utils.js:298:28)
+          at new Promise (<anonymous>)
+          at callAsyncCircusFn (/Users/jimilitan/Projects/restoration-community/node_modules/jest-circus/build/utils.js:231:10)
+          at _callCircusTest (/Users/jimilitan/Projects/restoration-community/node_modules/jest-circus/build/run.js:316:40)
+          at _runTest (/Users/jimilitan/Projects/restoration-community/node_modules/jest-circus/build/run.js:252:3)
+          at _runTestsForDescribeBlock (/Users/jimilitan/Projects/restoration-community/node_modules/jest-circus/build/run.js:126:9)
+          at _runTestsForDescribeBlock (/Users/jimilitan/Projects/restoration-community/node_modules/jest-circus/build/run.js:121:9)
+          at _runTestsForDescribeBlock (/Users/jimilitan/Projects/restoration-community/node_modules/jest-circus/build/run.js:121:9)
+          at run (/Users/jimilitan/Projects/restoration-community/node_modules/jest-circus/build/run.js:71:3)
+          at runAndTransformResultsToJestFormat (/Users/jimilitan/Projects/restoration-community/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)
+          at jestAdapter (/Users/jimilitan/Projects/restoration-community/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)
+          at runTestInternal (/Users/jimilitan/Projects/restoration-community/node_modules/jest-runner/build/runTest.js:367:16)
+          at runTest (/Users/jimilitan/Projects/restoration-community/node_modules/jest-runner/build/runTest.js:444:34)
+
+      at log (src/lib/wordpress-connector.ts:38:13)
+
+    console.log
+      [WORDPRESS] No posts available from feed
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Fetching WordPress post for user test-user (getNext=true)
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Fetching feed from https://watchedtbjoshua.wordpress.com/feed/
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Feed fetch failed: 404 Not Found
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] No posts available from feed
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Fetching WordPress post for user test-user (getNext=true)
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Fetching feed from https://watchedtbjoshua.wordpress.com/feed/
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Feed received, parsing XML (765 chars)
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Parsed 2 items from feed
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Looking for next unprocessed post (2 total posts)
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Found 0 processed posts for user
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] No processed posts yet, returning first post
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Selected post: "Post A"
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Fetching WordPress post for user test-user (getNext=true)
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Fetching feed from https://watchedtbjoshua.wordpress.com/feed/
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Feed received, parsing XML (1098 chars)
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Parsed 3 items from feed
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Looking for next unprocessed post (3 total posts)
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Found 0 processed posts for user
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] No processed posts yet, returning first post
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Selected post: "Apple Post"
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Fetching WordPress post for user test-user (getNext=true)
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Fetching feed from https://watchedtbjoshua.wordpress.com/feed/
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Feed received, parsing XML (1087 chars)
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Parsed 3 items from feed
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Looking for next unprocessed post (3 total posts)
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Found 1 processed posts for user
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Found 2 unprocessed posts, returning first
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Selected post: "Post B"
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Fetching WordPress post for user test-user (getNext=true)
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Fetching feed from https://watchedtbjoshua.wordpress.com/feed/
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Feed received, parsing XML (765 chars)
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Parsed 2 items from feed
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Looking for next unprocessed post (2 total posts)
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Found 2 processed posts for user
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] All posts processed, cycling back to first
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Selected post: "Post A"
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Fetching WordPress post for user test-user (getNext=false)
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Fetching feed from https://watchedtbjoshua.wordpress.com/feed/
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Feed received, parsing XML (443 chars)
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Parsed 1 items from feed
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Selected post: "Post A"
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Fetching WordPress post for user test-user (getNext=true)
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Fetching feed from https://watchedtbjoshua.wordpress.com/feed/
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Feed received, parsing XML (710 chars)
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Parsed 1 items from feed
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Looking for next unprocessed post (1 total posts)
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Found 0 processed posts for user
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] No processed posts yet, returning first post
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Selected post: "Test Post"
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Fetching WordPress post for user test-user (getNext=true)
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Fetching feed from https://watchedtbjoshua.wordpress.com/feed/
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Feed received, parsing XML (476 chars)
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Parsed 1 items from feed
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Looking for next unprocessed post (1 total posts)
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Found 0 processed posts for user
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] No processed posts yet, returning first post
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Selected post: "Post with <html> tags"
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Fetching WordPress post for user specific-user-id (getNext=true)
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Fetching feed from https://watchedtbjoshua.wordpress.com/feed/
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Feed received, parsing XML (437 chars)
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Parsed 1 items from feed
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Looking for next unprocessed post (1 total posts)
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Found 0 processed posts for user
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] No processed posts yet, returning first post
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Selected post: "Post"
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Fetching WordPress post for user test-user (getNext=true)
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Fetching feed from https://watchedtbjoshua.wordpress.com/feed/
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Feed received, parsing XML (765 chars)
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Parsed 2 items from feed
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Looking for next unprocessed post (2 total posts)
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Found 1 processed posts for user
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Found 1 unprocessed posts, returning first
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Selected post: "Post 2"
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Fetching WordPress post for user test-user (getNext=true)
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Fetching feed from https://watchedtbjoshua.wordpress.com/feed/
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Feed received, parsing XML (21 chars)
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Parsed 0 items from feed
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] No posts available from feed
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Fetching WordPress post for user test-user (getNext=true)
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Fetching feed from https://watchedtbjoshua.wordpress.com/feed/
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Error fetching feed: Error: fetch failed
+          at /Users/jimilitan/Projects/restoration-community/apps/web/tests/lib/wordpress-connector.test.ts:471:24
+          at /Users/jimilitan/Projects/restoration-community/node_modules/jest-mock/build/index.js:397:39
+          at /Users/jimilitan/Projects/restoration-community/node_modules/jest-mock/build/index.js:404:13
+          at mockConstructor (/Users/jimilitan/Projects/restoration-community/node_modules/jest-mock/build/index.js:148:19)
+          at fetch (/Users/jimilitan/Projects/restoration-community/apps/web/src/lib/wordpress-connector.ts:54:28)
+          at fetchAndParseRSSFeed (/Users/jimilitan/Projects/restoration-community/apps/web/src/lib/wordpress-connector.ts:189:23)
+          at Object.<anonymous> (/Users/jimilitan/Projects/restoration-community/apps/web/tests/lib/wordpress-connector.test.ts:474:44)
+          at Promise.then.completed (/Users/jimilitan/Projects/restoration-community/node_modules/jest-circus/build/utils.js:298:28)
+          at new Promise (<anonymous>)
+          at callAsyncCircusFn (/Users/jimilitan/Projects/restoration-community/node_modules/jest-circus/build/utils.js:231:10)
+          at _callCircusTest (/Users/jimilitan/Projects/restoration-community/node_modules/jest-circus/build/run.js:316:40)
+          at _runTest (/Users/jimilitan/Projects/restoration-community/node_modules/jest-circus/build/run.js:252:3)
+          at _runTestsForDescribeBlock (/Users/jimilitan/Projects/restoration-community/node_modules/jest-circus/build/run.js:126:9)
+          at _runTestsForDescribeBlock (/Users/jimilitan/Projects/restoration-community/node_modules/jest-circus/build/run.js:121:9)
+          at _runTestsForDescribeBlock (/Users/jimilitan/Projects/restoration-community/node_modules/jest-circus/build/run.js:121:9)
+          at run (/Users/jimilitan/Projects/restoration-community/node_modules/jest-circus/build/run.js:71:3)
+          at runAndTransformResultsToJestFormat (/Users/jimilitan/Projects/restoration-community/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)
+          at jestAdapter (/Users/jimilitan/Projects/restoration-community/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)
+          at runTestInternal (/Users/jimilitan/Projects/restoration-community/node_modules/jest-runner/build/runTest.js:367:16)
+          at runTest (/Users/jimilitan/Projects/restoration-community/node_modules/jest-runner/build/runTest.js:444:34)
+
+      at log (src/lib/wordpress-connector.ts:38:13)
+
+    console.log
+      [WORDPRESS] No posts available from feed
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Fetching WordPress post for user test-user (getNext=true)
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Fetching feed from https://watchedtbjoshua.wordpress.com/feed/
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Feed received, parsing XML (437 chars)
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Parsed 1 items from feed
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Looking for next unprocessed post (1 total posts)
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+    console.log
+      [WORDPRESS] Error querying ProcessedSource: Error: DB error
+          at Object.<anonymous> (/Users/jimilitan/Projects/restoration-community/apps/web/tests/lib/wordpress-connector.test.ts:501:9)
+          at Promise.then.completed (/Users/jimilitan/Projects/restoration-community/node_modules/jest-circus/build/utils.js:298:28)
+          at new Promise (<anonymous>)
+          at callAsyncCircusFn (/Users/jimilitan/Projects/restoration-community/node_modules/jest-circus/build/utils.js:231:10)
+          at _callCircusTest (/Users/jimilitan/Projects/restoration-community/node_modules/jest-circus/build/run.js:316:40)
+          at _runTest (/Users/jimilitan/Projects/restoration-community/node_modules/jest-circus/build/run.js:252:3)
+          at _runTestsForDescribeBlock (/Users/jimilitan/Projects/restoration-community/node_modules/jest-circus/build/run.js:126:9)
+          at _runTestsForDescribeBlock (/Users/jimilitan/Projects/restoration-community/node_modules/jest-circus/build/run.js:121:9)
+          at _runTestsForDescribeBlock (/Users/jimilitan/Projects/restoration-community/node_modules/jest-circus/build/run.js:121:9)
+          at run (/Users/jimilitan/Projects/restoration-community/node_modules/jest-circus/build/run.js:71:3)
+          at runAndTransformResultsToJestFormat (/Users/jimilitan/Projects/restoration-community/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:122:21)
+          at jestAdapter (/Users/jimilitan/Projects/restoration-community/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:79:19)
+          at runTestInternal (/Users/jimilitan/Projects/restoration-community/node_modules/jest-runner/build/runTest.js:367:16)
+          at runTest (/Users/jimilitan/Projects/restoration-community/node_modules/jest-runner/build/runTest.js:444:34)
+
+      at log (src/lib/wordpress-connector.ts:38:13)
+
+    console.log
+      [WORDPRESS] Selected post: "Post"
+
+      at log (src/lib/wordpress-connector.ts:40:13)
+
+PASS tests/lib/content-generation.test.ts
+PASS tests/integration/content-engine-v2-e2e.test.ts
+PASS tests/api/content-engine/generate-outputs.test.ts
+  ● Console
+
+    console.log
+      [CONTENT-ENGINE] Generating outputs with database persistence
+
+      at log (src/app/api/content-engine/generate-outputs/route.ts:8:11)
+
+    console.log
+      [CONTENT-ENGINE] Generating outputs for: Test Source (userId: user-123)
+
+      at log (src/app/api/content-engine/generate-outputs/route.ts:47:13)
+
+    console.log
+      [CONTENT-ENGINE] Identity extracted: The Chosen One (Choice 1)
+
+      at log (src/app/api/content-engine/generate-outputs/route.ts:53:13)
+
+    console.log
+      [CONTENT-ENGINE] Voice theme extracted with revelation: Test revelation about identity and choice....
+
+      at log (src/app/api/content-engine/generate-outputs/route.ts:59:13)
+
+    console.log
+      [CONTENT-ENGINE] All 9 content formats generated with v2 pipeline
+
+      at log (src/app/api/content-engine/generate-outputs/route.ts:72:13)
+
+    console.log
+      [CONTENT-ENGINE] Outputs generated and saved: test-id-123 with 9 formats
+
+      at log (src/app/api/content-engine/generate-outputs/route.ts:148:13)
+
+    console.log
+      [CONTENT-ENGINE] Frame: counsel, Voice validation: valid
+
+      at log (src/app/api/content-engine/generate-outputs/route.ts:151:13)
+
+    console.log
+      [CONTENT-ENGINE] Generating outputs with database persistence
+
+      at log (src/app/api/content-engine/generate-outputs/route.ts:8:11)
+
+    console.log
+      [CONTENT-ENGINE] Generating outputs for: Test Source (userId: user-123)
+
+      at log (src/app/api/content-engine/generate-outputs/route.ts:47:13)
+
+    console.log
+      [CONTENT-ENGINE] Identity extracted: The Chosen One (Choice 1)
+
+      at log (src/app/api/content-engine/generate-outputs/route.ts:53:13)
+
+    console.log
+      [CONTENT-ENGINE] Voice theme extracted with revelation: Test revelation about identity and choice....
+
+      at log (src/app/api/content-engine/generate-outputs/route.ts:59:13)
+
+    console.log
+      [CONTENT-ENGINE] All 9 content formats generated with v2 pipeline
+
+      at log (src/app/api/content-engine/generate-outputs/route.ts:72:13)
+
+    console.log
+      [CONTENT-ENGINE] Outputs generated and saved: test-id-123 with 9 formats
+
+      at log (src/app/api/content-engine/generate-outputs/route.ts:148:13)
+
+    console.log
+      [CONTENT-ENGINE] Frame: counsel, Voice validation: valid
+
+      at log (src/app/api/content-engine/generate-outputs/route.ts:151:13)
+
+    console.log
+      [CONTENT-ENGINE] Generating outputs with database persistence
+
+      at log (src/app/api/content-engine/generate-outputs/route.ts:8:11)
+
+    console.log
+      [CONTENT-ENGINE] Generating outputs for: Test Source (userId: user-123)
+
+      at log (src/app/api/content-engine/generate-outputs/route.ts:47:13)
+
+    console.log
+      [CONTENT-ENGINE] Identity extracted: The Chosen One (Choice 1)
+
+      at log (src/app/api/content-engine/generate-outputs/route.ts:53:13)
+
+    console.log
+      [CONTENT-ENGINE] Voice theme extracted with revelation: Test revelation about identity and choice....
+
+      at log (src/app/api/content-engine/generate-outputs/route.ts:59:13)
+
+    console.log
+      [CONTENT-ENGINE] All 9 content formats generated with v2 pipeline
+
+      at log (src/app/api/content-engine/generate-outputs/route.ts:72:13)
+
+    console.log
+      [CONTENT-ENGINE] Outputs generated and saved: test-id-123 with 9 formats
+
+      at log (src/app/api/content-engine/generate-outputs/route.ts:148:13)
+
+    console.log
+      [CONTENT-ENGINE] Frame: counsel, Voice validation: valid
+
+      at log (src/app/api/content-engine/generate-outputs/route.ts:151:13)
+
+    console.log
+      [CONTENT-ENGINE] Generating outputs with database persistence
+
+      at log (src/app/api/content-engine/generate-outputs/route.ts:8:11)
+
+    console.log
+      [CONTENT-ENGINE] Missing or empty text field
+
+      at log (src/app/api/content-engine/generate-outputs/route.ts:16:15)
+
+    console.log
+      [CONTENT-ENGINE] Generating outputs with database persistence
+
+      at log (src/app/api/content-engine/generate-outputs/route.ts:8:11)
+
+    console.log
+      [CONTENT-ENGINE] Missing sourceType field
+
+      at log (src/app/api/content-engine/generate-outputs/route.ts:24:15)
+
+    console.log
+      [CONTENT-ENGINE] Generating outputs with database persistence
+
+      at log (src/app/api/content-engine/generate-outputs/route.ts:8:11)
+
+    console.log
+      [CONTENT-ENGINE] Missing sourceTitle field
+
+      at log (src/app/api/content-engine/generate-outputs/route.ts:32:15)
+
+    console.log
+      [CONTENT-ENGINE] Generating outputs with database persistence
+
+      at log (src/app/api/content-engine/generate-outputs/route.ts:8:11)
+
+    console.log
+      [CONTENT-ENGINE] Missing userId field
+
+      at log (src/app/api/content-engine/generate-outputs/route.ts:40:15)
+
+    console.log
+      [CONTENT-ENGINE] Generating outputs with database persistence
+
+      at log (src/app/api/content-engine/generate-outputs/route.ts:8:11)
+
+    console.log
+      [CONTENT-ENGINE] Generating outputs for: Test Source (userId: user-123)
+
+      at log (src/app/api/content-engine/generate-outputs/route.ts:47:13)
+
+    console.log
+      [CONTENT-ENGINE] Identity extracted: The Chosen One (Choice 1)
+
+      at log (src/app/api/content-engine/generate-outputs/route.ts:53:13)
+
+    console.log
+      [CONTENT-ENGINE] Voice theme extracted with revelation: Test revelation about identity and choice....
+
+      at log (src/app/api/content-engine/generate-outputs/route.ts:59:13)
+
+    console.log
+      [CONTENT-ENGINE] All 9 content formats generated with v2 pipeline
+
+      at log (src/app/api/content-engine/generate-outputs/route.ts:72:13)
+
+    console.log
+      [CONTENT-ENGINE] Outputs generated and saved: test-id-123 with 9 formats
+
+      at log (src/app/api/content-engine/generate-outputs/route.ts:148:13)
+
+    console.log
+      [CONTENT-ENGINE] Frame: counsel, Voice validation: valid
+
+      at log (src/app/api/content-engine/generate-outputs/route.ts:151:13)
+
+    console.log
+      [CONTENT-ENGINE] Generating outputs with database persistence
+
+      at log (src/app/api/content-engine/generate-outputs/route.ts:8:11)
+
+    console.log
+      [CONTENT-ENGINE] Generating outputs for: Test Source (userId: user-123)
+
+      at log (src/app/api/content-engine/generate-outputs/route.ts:47:13)
+
+    console.log
+      [CONTENT-ENGINE] Identity extracted: The Chosen One (Choice 1)
+
+      at log (src/app/api/content-engine/generate-outputs/route.ts:53:13)
+
+    console.log
+      [CONTENT-ENGINE] Voice theme extracted with revelation: Test revelation about identity and choice....
+
+      at log (src/app/api/content-engine/generate-outputs/route.ts:59:13)
+
+    console.log
+      [CONTENT-ENGINE] All 9 content formats generated with v2 pipeline
+
+      at log (src/app/api/content-engine/generate-outputs/route.ts:72:13)
+
+    console.log
+      [CONTENT-ENGINE] Outputs generated and saved: test-id-123 with 9 formats
+
+      at log (src/app/api/content-engine/generate-outputs/route.ts:148:13)
+
+    console.log
+      [CONTENT-ENGINE] Frame: counsel, Voice validation: valid
+
+      at log (src/app/api/content-engine/generate-outputs/route.ts:151:13)
+
+    console.log
+      [CONTENT-ENGINE] Generating outputs with database persistence
+
+      at log (src/app/api/content-engine/generate-outputs/route.ts:8:11)
+
+    console.log
+      [CONTENT-ENGINE] Generating outputs for: Test Source (userId: user-123)
+
+      at log (src/app/api/content-engine/generate-outputs/route.ts:47:13)
+
+    console.log
+      [CONTENT-ENGINE] Identity extracted: The Chosen One (Choice 1)
+
+      at log (src/app/api/content-engine/generate-outputs/route.ts:53:13)
+
+    console.log
+      [CONTENT-ENGINE] Voice theme extracted with revelation: Test revelation about identity and choice....
+
+      at log (src/app/api/content-engine/generate-outputs/route.ts:59:13)
+
+    console.log
+      [CONTENT-ENGINE] All 9 content formats generated with v2 pipeline
+
+      at log (src/app/api/content-engine/generate-outputs/route.ts:72:13)
+
+    console.log
+      [CONTENT-ENGINE] Outputs generated and saved: test-id-123 with 9 formats
+
+      at log (src/app/api/content-engine/generate-outputs/route.ts:148:13)
+
+    console.log
+      [CONTENT-ENGINE] Frame: counsel, Voice validation: valid
+
+      at log (src/app/api/content-engine/generate-outputs/route.ts:151:13)
+
+    console.log
+      [CONTENT-ENGINE] Generating outputs with database persistence
+
+      at log (src/app/api/content-engine/generate-outputs/route.ts:8:11)
+
+    console.log
+      [CONTENT-ENGINE] Generating outputs for: Test Source (userId: user-123)
+
+      at log (src/app/api/content-engine/generate-outputs/route.ts:47:13)
+
+    console.log
+      [CONTENT-ENGINE] Identity extracted: The Chosen One (Choice 1)
+
+      at log (src/app/api/content-engine/generate-outputs/route.ts:53:13)
+
+    console.log
+      [CONTENT-ENGINE] Voice theme extracted with revelation: Test revelation about identity and choice....
+
+      at log (src/app/api/content-engine/generate-outputs/route.ts:59:13)
+
+    console.log
+      [CONTENT-ENGINE] All 9 content formats generated with v2 pipeline
+
+      at log (src/app/api/content-engine/generate-outputs/route.ts:72:13)
+
+    console.log
+      [CONTENT-ENGINE] Outputs generated and saved: test-id-123 with 9 formats
+
+      at log (src/app/api/content-engine/generate-outputs/route.ts:148:13)
+
+    console.log
+      [CONTENT-ENGINE] Frame: counsel, Voice validation: valid
+
+      at log (src/app/api/content-engine/generate-outputs/route.ts:151:13)
+
+    console.log
+      [CONTENT-ENGINE] Generating outputs with database persistence
+
+      at log (src/app/api/content-engine/generate-outputs/route.ts:8:11)
+
+    console.log
+      [CONTENT-ENGINE] Generating outputs for: Test Source (userId: user-123)
+
+      at log (src/app/api/content-engine/generate-outputs/route.ts:47:13)
+
+    console.log
+      [CONTENT-ENGINE] Identity extracted: The Chosen One (Choice 1)
+
+      at log (src/app/api/content-engine/generate-outputs/route.ts:53:13)
+
+    console.log
+      [CONTENT-ENGINE] Voice theme extracted with revelation: Test revelation about identity and choice....
+
+      at log (src/app/api/content-engine/generate-outputs/route.ts:59:13)
+
+    console.log
+      [CONTENT-ENGINE] All 9 content formats generated with v2 pipeline
+
+      at log (src/app/api/content-engine/generate-outputs/route.ts:72:13)
+
+    console.error
+      [CONTENT-ENGINE] Error generating outputs: Database connection failed
+
+      183 |     });
+      184 |   } catch (error) {
+    > 185 |     console.error(
+          |             ^
+      186 |       "[CONTENT-ENGINE] Error generating outputs:",
+      187 |       error instanceof Error ? error.message : error
+      188 |     );
+
+      at error (src/app/api/content-engine/generate-outputs/route.ts:185:13)
+      at Object.<anonymous> (tests/api/content-engine/generate-outputs.test.ts:335:17)
+
+PASS tests/lib/identity-extraction.test.ts
+PASS tests/lib/content-generation-v2.test.ts
+PASS tests/lib/frame-selection.test.ts
+PASS tests/lib/voice-guardrails.test.ts
+PASS tests/lib/conversational-entries.test.ts
+PASS tests/api/content-engine.test.ts
+PASS tests/lib/voice-extraction.test.ts
+
+Test Suites: 4 failed, 12 passed, 16 total
+Tests:       8 failed, 238 passed, 246 total
+Snapshots:   0 total
+Time:        1.611 s
+Ran all test suites.
+npm error Lifecycle script `test` failed with error:
+npm error code 1
+npm error path /Users/jimilitan/Projects/restoration-community/apps/web
+npm error workspace web@0.1.0
+npm error location /Users/jimilitan/Projects/restoration-community/apps/web
+npm error command failed
+npm error command sh -c jest

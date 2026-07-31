@@ -1,0 +1,39 @@
+16c428e style: add subtle hover states to partner cards (text, shadow, border)
+
+ apps/web/src/app/partnership/page.tsx | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
+
+diff --git a/apps/web/src/app/partnership/page.tsx b/apps/web/src/app/partnership/page.tsx
+index 975ca31..e897487 100644
+--- a/apps/web/src/app/partnership/page.tsx
++++ b/apps/web/src/app/partnership/page.tsx
+@@ -50,8 +50,8 @@ export default function PartnershipPage() {
+           <div className="grid md:grid-cols-2 gap-12">
+             {foundingPartners.map((partner) => (
+-              <div key={partner.id} className="flex items-center justify-center p-8 rounded-lg bg-white border border-rc-border/20 min-h-[160px]">
+-                <p className="text-center text-lg font-rc-serif font-semibold text-rc-text/80">{partner.name}</p>
++              <div key={partner.id} className="group flex items-center justify-center p-8 rounded-lg bg-white border border-rc-border/20 hover:shadow-lg hover:border-rc-accent/30 transition-all duration-300 min-h-[160px]">
++                <p className="text-center text-lg font-rc-serif font-semibold text-rc-text/80 group-hover:text-rc-text transition-colors duration-300">{partner.name}</p>
+               </div>
+             ))}
+           </div>
+@@ -67,8 +67,8 @@ export default function PartnershipPage() {
+           <div className="grid md:grid-cols-5 gap-6">
+             {standingPartners.map((partner) => (
+-              <div key={partner.id} className="flex items-center justify-center p-6 rounded-lg bg-white border border-rc-border/20 min-h-[140px]">
+-                <p className="text-center text-sm font-rc-serif font-semibold text-rc-text/80 leading-tight">{partner.name}</p>
++              <div key={partner.id} className="group flex items-center justify-center p-6 rounded-lg bg-white border border-rc-border/20 hover:shadow-lg hover:border-rc-accent/30 transition-all duration-300 min-h-[140px]">
++                <p className="text-center text-sm font-rc-serif font-semibold text-rc-text/80 group-hover:text-rc-text transition-colors duration-300 leading-tight">{partner.name}</p>
+               </div>
+             ))}
+           </div>
+@@ -84,8 +84,8 @@ export default function PartnershipPage() {
+           <div className="grid md:grid-cols-7 gap-4">
+             {prayerPartners.map((partner) => (
+-              <div key={partner.id} className="flex items-center justify-center p-5 rounded-lg bg-white border border-rc-border/20 min-h-[120px]">
+-                <p className="text-center text-xs font-rc-serif font-semibold text-rc-text/80 leading-tight">{partner.name}</p>
++              <div key={partner.id} className="group flex items-center justify-center p-5 rounded-lg bg-white border border-rc-border/20 hover:shadow-lg hover:border-rc-accent/30 transition-all duration-300 min-h-[120px]">
++                <p className="text-center text-xs font-rc-serif font-semibold text-rc-text/80 group-hover:text-rc-text transition-colors duration-300 leading-tight">{partner.name}</p>
+               </div>
+             ))}
+           </div>
