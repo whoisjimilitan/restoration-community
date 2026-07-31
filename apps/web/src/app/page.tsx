@@ -175,8 +175,7 @@ export default function Home() {
           </div>
 
           <div className="space-y-4 pt-10 md:pt-12 border-t border-rc-text/15 text-base md:text-lg text-rc-text leading-relaxed font-light">
-            <p>This journey is walked with those who have traveled it before.</p>
-            <p>Prayer. Encouragement. People who understand.</p>
+            <p>You move through this journey with support and prayer from someone who has traveled it before.</p>
           </div>
         </motion.div>
       </section>
@@ -197,7 +196,39 @@ export default function Home() {
             <p>His grace will teach you to work honestly.</p>
             <p>To live without fear.</p>
             <p>To build something that lasts.</p>
+            <p>To see life as He sees it.</p>
           </div>
+        </motion.div>
+      </section>
+
+      {/* GATHERING */}
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-accent border-t border-rc-border">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          viewport={{ once: true, amount: 0.15 }}
+          className="max-w-2xl mx-auto text-center space-y-8"
+        >
+          <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-white leading-tight tracking-tight">The Journey Starts Friday</h2>
+
+          <div className="space-y-6">
+            <div className="space-y-4 text-lg md:text-xl text-white/95 leading-relaxed font-light">
+              <p className="font-medium">📍 SCOAN Accra, Ghana</p>
+              <p className="font-medium">⏰ Friday, August 15 at 3:00 PM</p>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+              <a href="https://maps.google.com/?q=SCOAN+Accra+Ghana" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-white text-rc-accent font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300">
+                Get Directions
+              </a>
+              <button className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] text-white font-medium border-2 border-white rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300">
+                I'm Attending
+              </button>
+            </div>
+          </div>
+
+          <p className="text-sm text-white/70 pt-4">Stage 1: Truth teaching • Discussion • Prayer</p>
         </motion.div>
       </section>
 
