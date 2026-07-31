@@ -100,10 +100,22 @@ export async function POST(request: NextRequest) {
       { status: 201 }
     );
   } catch (error) {
-    console.error('[ATTENDANCE] Error:', error);
+    const errorMessage = error instanceof Error ? error.message : String(error);
+    const errorCode = error instanceof Error && 'code' in error ? (error as any).code : 'UNKNOWN';
+    console.error('[ATTENDANCE] Error:', {
+      message: errorMessage,
+      code: errorCode,
+      error: JSON.stringify(error, null, 2),
+    });
     return NextResponse.json(
-      { error: 'Registration failed' },
+      {
+        error: 'Registration failed',
+        details: errorMessage,
+        code: errorCode,
+      },
       { status: 500 }
     );
   }
 }
+
+export const maxDuration = 30;
