@@ -45,7 +45,7 @@ export default function PartnershipPage() {
 
           <div className={`transform transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '240ms' }}>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight tracking-tight">
-              Partners don't just fund. Christ mission is their mission.
+              Partners don't just fund our mission. They believe in it.
             </h1>
           </div>
         </div>
