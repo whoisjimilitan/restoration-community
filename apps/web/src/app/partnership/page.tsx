@@ -176,17 +176,22 @@ export default function PartnershipPage() {
         </div>
       </section>
 
-      {/* NAVIGATION */}
-      <nav className="w-full px-6 sm:px-8 md:px-12 py-16 md:py-20 bg-rc-warm-gray border-t border-rc-border text-center">
-        <div className="max-w-2xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-16">
-          <a href="/" className="text-rc-text/80 hover:text-rc-text transition-colors group">Home<span className="block h-px w-0 group-hover:w-full bg-rc-text/80 transition-all duration-300 mt-1"></span></a>
-          <a href="/testimonies" className="text-rc-text/80 hover:text-rc-text transition-colors group">Success Stories<span className="block h-px w-0 group-hover:w-full bg-rc-text/80 transition-all duration-300 mt-1"></span></a>
-        </div>
-      </nav>
-
       {/* FOOTER */}
       <footer className="w-full px-6 sm:px-8 md:px-12 py-8 bg-rc-text border-t border-rc-border text-center">
-        <div className="max-w-2xl mx-auto space-y-2">
+        <div className="max-w-2xl mx-auto space-y-4">
+          {/* Navigation links with underline-grow hover */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-12 mb-4">
+            <a href="/" className="text-white/80 hover:text-white transition-colors group">
+              Home
+              <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
+            </a>
+            <a href="/testimonies" className="text-white/80 hover:text-white transition-colors group">
+              Success Stories
+              <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
+            </a>
+          </div>
+
+          {/* Existing footer content */}
           <p className="text-white/60 text-sm">Brother Jimi Ministries — An Inspiration from Jesus Christ</p>
           <p className="text-white/30 text-xs">© 2026. All rights reserved.</p>
         </div>
