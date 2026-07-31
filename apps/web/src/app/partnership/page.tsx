@@ -126,8 +126,11 @@ export default function PartnershipPage() {
           viewport={{ once: true, amount: 0.15 }}
           className="max-w-2xl mx-auto"
         >
-          <div className="space-y-6 text-base md:text-lg text-rc-text leading-relaxed font-light">
-            <p>Our program is free because our partners make it possible. Every session, every learning opportunity exists because these believers have chosen to join this mission. <span className="font-medium">Transformation doesn't happen without them.</span></p>
+          <div className="space-y-12">
+            <h2 className="text-xl md:text-2xl font-rc-serif font-bold uppercase tracking-wider">Why This Matters</h2>
+            <div className="space-y-6 text-base md:text-lg text-rc-text leading-relaxed font-light">
+              <p>Our program is free because our partners make it possible. Every session, every learning opportunity exists because these believers have chosen to join this mission. <span className="font-medium">Transformation doesn't happen without them.</span></p>
+            </div>
           </div>
         </motion.div>
       </section>
