@@ -1,169 +1,280 @@
 'use client';
 
+import { useState } from 'react';
+
 export default function PartnershipPage() {
-  const foundingPartners = [
-    { name: 'Grace & Truth Foundation', id: 'grace' },
-    { name: 'Restoration House International', id: 'restoration' },
-  ];
+  const [formStep, setFormStep] = useState<'type' | 'details' | 'complete'>('type');
+  const [formType, setFormType] = useState<'individual' | 'organization' | null>(null);
+  const [formData, setFormData] = useState({ name: '', email: '', organization: '', message: '', consent: false });
 
-  const standingPartners = [
-    { name: 'New Life Collective', id: 'newlife' },
-    { name: 'Redemption Alliance', id: 'redemption' },
-    { name: 'Deliverance Spirit Foundation', id: 'spirit' },
-    { name: 'Hope Rising Africa', id: 'hope' },
-    { name: 'Freedom Forward', id: 'freedom' },
-  ];
+  const partners = {
+    founding: [
+      { name: 'Grace & Truth Foundation', id: 'grace' },
+      { name: 'Restoration House International', id: 'restoration' },
+    ],
+    standing: [
+      { name: 'New Life Collective', id: 'newlife' },
+      { name: 'Redemption Alliance', id: 'redemption' },
+      { name: 'Deliverance Spirit Foundation', id: 'spirit' },
+      { name: 'Hope Rising Africa', id: 'hope' },
+      { name: 'Freedom Forward', id: 'freedom' },
+    ],
+    prayer: [
+      { name: 'Humble Hands Ministry', id: 'humble' },
+      { name: 'Believers United', id: 'believers' },
+      { name: 'Called Home Fellowship', id: 'called' },
+      { name: 'Truth Bearers Collective', id: 'truth' },
+      { name: 'Grateful Hearts Foundation', id: 'grateful' },
+      { name: 'Gospel Shared', id: 'gospel' },
+      { name: 'Rising Again Ministries', id: 'rising' },
+    ],
+  };
 
-  const prayerPartners = [
-    { name: 'Humble Hands Ministry', id: 'humble' },
-    { name: 'Believers United', id: 'believers' },
-    { name: 'Called Home Fellowship', id: 'called' },
-    { name: 'Truth Bearers Collective', id: 'truth' },
-    { name: 'Grateful Hearts Foundation', id: 'grateful' },
-    { name: 'Gospel Shared', id: 'gospel' },
-    { name: 'Rising Again Ministries', id: 'rising' },
-  ];
+  const handleTypeSelect = (type: 'individual' | 'organization') => {
+    setFormType(type);
+    setFormStep('details');
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setFormStep('complete');
+    setTimeout(() => {
+      setFormStep('type');
+      setFormType(null);
+      setFormData({ name: '', email: '', organization: '', message: '', consent: false });
+    }, 3000);
+  };
 
   return (
-    <div className="bg-white text-rc-text">
-      {/* Hero with Background Image Area */}
-      <section className="relative w-full h-screen flex items-center justify-center px-6 sm:px-8 md:px-12 bg-gradient-to-br from-rc-accent to-rc-text overflow-hidden">
-        {/* Background image (optional, will be added in future) */}
-        {/* If image URL is added here, it will display above the gradient fallback */}
-
-        {/* Dark overlay for text legibility */}
-        <div className="absolute inset-0 bg-black/50" />
-
-        {/* Hero content */}
-        <div className="relative z-10 max-w-3xl mx-auto text-center space-y-6">
-          <p className="text-sm md:text-base font-medium text-white/80 uppercase tracking-widest">Those Who Believe</p>
-          <h1 className="text-4xl md:text-6xl font-rc-serif font-bold text-white leading-tight">These Are Partners</h1>
-          <p className="text-lg md:text-2xl text-white/90 leading-relaxed font-light">Reaching the unreached. Deliverance is free because they believe in this work.</p>
+    <div className="bg-rc-bg text-rc-text">
+      {/* Hero */}
+      <header className="w-full px-6 sm:px-8 md:px-12 py-20 md:py-28 text-center">
+        <div className="max-w-3xl mx-auto space-y-6">
+          <h1 className="text-5xl md:text-6xl font-rc-serif font-bold leading-tight">
+            These Are Partners
+          </h1>
+          <p className="text-lg md:text-xl text-rc-text/70 leading-relaxed font-light">
+            They make this possible. Every program. Every deliverance. Every life restored.
+          </p>
         </div>
-      </section>
+      </header>
 
-      {/* Founding Partners Section */}
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center space-y-4 mb-16">
-            <p className="text-xs font-medium text-rc-accent uppercase tracking-wider">Founding Partners</p>
-            <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight">Those who saw the problem first.</h2>
-          </div>
-          <div className="grid md:grid-cols-2 gap-12">
-            {foundingPartners.map((partner) => (
-              <div key={partner.id} className="group flex items-center justify-center p-8 rounded-lg bg-white border border-rc-border/20 hover:shadow-lg hover:border-rc-accent/30 transition-all duration-300 min-h-[160px]">
-                <p className="text-center text-lg font-rc-serif font-semibold text-rc-text/80 group-hover:text-rc-text transition-colors duration-300">{partner.name}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Partners Section */}
+      <section className="w-full px-6 sm:px-8 md:px-12 py-20 md:py-28 border-t border-rc-border">
+        <div className="max-w-6xl mx-auto space-y-24 md:space-y-32">
 
-      {/* Standing Partners Section */}
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center space-y-4 mb-16">
-            <p className="text-xs font-medium text-rc-accent uppercase tracking-wider">Standing Partners</p>
-            <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight">Those who fuel this work now.</h2>
-          </div>
-          <div className="grid md:grid-cols-5 gap-6">
-            {standingPartners.map((partner) => (
-              <div key={partner.id} className="group flex items-center justify-center p-6 rounded-lg bg-white border border-rc-border/20 hover:shadow-lg hover:border-rc-accent/30 transition-all duration-300 min-h-[140px]">
-                <p className="text-center text-sm font-rc-serif font-semibold text-rc-text/80 group-hover:text-rc-text transition-colors duration-300 leading-tight">{partner.name}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Prayer Partners Section */}
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center space-y-4 mb-16">
-            <p className="text-xs font-medium text-rc-accent uppercase tracking-wider">Prayer Partners</p>
-            <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight">Those who hold this in prayer.</h2>
-          </div>
-          <div className="grid md:grid-cols-7 gap-4">
-            {prayerPartners.map((partner) => (
-              <div key={partner.id} className="group flex items-center justify-center p-5 rounded-lg bg-white border border-rc-border/20 hover:shadow-lg hover:border-rc-accent/30 transition-all duration-300 min-h-[120px]">
-                <p className="text-center text-xs font-rc-serif font-semibold text-rc-text/80 group-hover:text-rc-text transition-colors duration-300 leading-tight">{partner.name}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Unified Story Section */}
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
-        <div className="max-w-4xl mx-auto">
-          <div className="space-y-8">
-            <div className="space-y-6">
-              <p className="text-lg md:text-xl text-rc-text/80 leading-relaxed">
-                Partnership isn't a donation. It's a declaration.
-              </p>
-              <p className="text-lg md:text-xl text-rc-text/80 leading-relaxed">
-                It says: <span className="font-semibold text-rc-text">I see what Jesus sees.</span> I recognize the spiritual trap of fraud and bondage. I understand the power of deliverance. And I'm willing to fund that freedom for people I'll never meet.
-              </p>
-              <p className="text-lg md:text-xl text-rc-text/80 leading-relaxed">
-                That's not charity. That's conviction translated into action.
-              </p>
+          {/* Founding Partners */}
+          <article className="space-y-12">
+            <div className="space-y-4">
+              <h2 className="text-2xl md:text-3xl font-rc-serif font-bold">FOUNDING PARTNERS</h2>
+              <p className="text-rc-text/70 text-lg">Those who believed with us</p>
+              <p className="text-rc-text/60 text-base max-w-2xl">They saw the need first. They moved. They proved this matters.</p>
             </div>
-
-            <div className="pt-8 space-y-6 border-t border-rc-border/40">
-              <div className="space-y-4">
-                <p className="text-base md:text-lg text-rc-text/70">These partners share one belief:</p>
-                <p className="text-2xl md:text-3xl font-rc-serif font-bold text-rc-text">Deliverance is real. Freedom is possible. And it's worth the investment.</p>
-              </div>
+            <div className="grid md:grid-cols-2 gap-8 md:gap-12 pt-8">
+              {partners.founding.map((p) => (
+                <div key={p.id} className="text-rc-text/80 hover:text-rc-text transition-colors duration-300">
+                  <p className="font-rc-serif font-semibold text-lg">{p.name}</p>
+                </div>
+              ))}
             </div>
+          </article>
 
-            <div className="pt-8 space-y-8 border-t border-rc-border/40">
-              <div className="space-y-4">
-                <p className="text-lg md:text-xl text-rc-text/80">
-                  If you see what we see. If you believe what we believe. If you're ready to fund freedom instead of just wishing for it.
-                </p>
-                <p className="text-xl md:text-2xl font-rc-serif font-semibold text-rc-text">
-                  Let's talk about partnership.
-                </p>
-              </div>
-
-              <button
-                onClick={() => {
-                  const email = 'james@saintandstory.co.uk';
-                  const subject = 'I want to explore partnership with Brother Jimi Ministries';
-                  const body = 'Hello,\n\nI see what you see. I believe Jesus delivers. I want His work to spread.\n\nLet\'s talk about partnership.\n\nThanks';
-                  window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-                }}
-                className="inline-flex items-center justify-center px-10 py-4 min-h-[56px] text-rc-accent font-medium border-2 border-rc-accent rounded-lg hover:bg-rc-accent/5 transition-all duration-200 text-base md:text-lg"
-              >
-                Start a Conversation
-              </button>
+          {/* Standing Partners */}
+          <article className="space-y-12">
+            <div className="space-y-4">
+              <h2 className="text-2xl md:text-3xl font-rc-serif font-bold">STANDING PARTNERS</h2>
+              <p className="text-rc-text/70 text-lg">Those who continue to believe with us</p>
+              <p className="text-rc-text/60 text-base max-w-2xl">Week after week, they sustain the mission. Their consistency makes programs possible.</p>
             </div>
+            <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-8 md:gap-6 pt-8">
+              {partners.standing.map((p) => (
+                <div key={p.id} className="text-rc-text/80 hover:text-rc-text transition-colors duration-300">
+                  <p className="font-rc-serif font-semibold text-base">{p.name}</p>
+                </div>
+              ))}
+            </div>
+          </article>
+
+          {/* Prayer Partners */}
+          <article className="space-y-12">
+            <div className="space-y-4">
+              <h2 className="text-2xl md:text-3xl font-rc-serif font-bold">PRAYER PARTNERS</h2>
+              <p className="text-rc-text/70 text-lg">Those who will not stop believing with us</p>
+              <p className="text-rc-text/60 text-base max-w-2xl">They intercede when others cannot. Prayer is the foundation this work stands on.</p>
+            </div>
+            <div className="grid md:grid-cols-5 lg:grid-cols-6 gap-6 pt-8">
+              {partners.prayer.map((p) => (
+                <div key={p.id} className="text-rc-text/80 hover:text-rc-text transition-colors duration-300">
+                  <p className="font-rc-serif font-semibold text-sm">{p.name}</p>
+                </div>
+              ))}
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      {/* Why Partners Matter */}
+      <section className="w-full px-6 sm:px-8 md:px-12 py-20 md:py-28 bg-rc-warm-gray border-t border-rc-border">
+        <div className="max-w-3xl mx-auto space-y-8">
+          <div className="space-y-4">
+            <h2 className="text-2xl md:text-3xl font-rc-serif font-bold">Why This Matters</h2>
+            <p className="text-rc-text/70 text-lg leading-relaxed">
+              Our programs are free. Deliverance classes. Restoration work. Education for the broken. None of this costs money because partners fund it. No one pays to be free. No one pays to be restored. These believers make that possible.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Explore Section */}
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
-        <div className="max-w-2xl mx-auto text-center">
-          <div className="space-y-8">
-            <p className="text-xs font-medium text-rc-text/60 uppercase tracking-widest">Explore</p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-16">
-              <a href="/" className="text-base text-rc-text/80 hover:text-rc-text transition-colors duration-200 group">
-                Home
-                <span className="block h-px w-0 group-hover:w-full bg-rc-text/80 transition-all duration-300 mt-2"></span>
-              </a>
-              <a href="/testimonies" className="text-base text-rc-text/80 hover:text-rc-text transition-colors duration-200 group">
-                Success Stories
-                <span className="block h-px w-0 group-hover:w-full bg-rc-text/80 transition-all duration-300 mt-2"></span>
-              </a>
-            </div>
+      {/* Invitation to Partner */}
+      <section className="w-full px-6 sm:px-8 md:px-12 py-20 md:py-28 border-t border-rc-border">
+        <div className="max-w-2xl mx-auto">
+          <div className="text-center space-y-8">
+
+            {/* Step 1: Type Selection */}
+            {formStep === 'type' && (
+              <div className="space-y-10">
+                <div className="space-y-4">
+                  <h2 className="text-3xl md:text-4xl font-rc-serif font-bold">Ready to believe with us?</h2>
+                  <p className="text-rc-text/70 text-lg">Let us know who you are.</p>
+                </div>
+                <div className="grid md:grid-cols-2 gap-4">
+                  <button
+                    onClick={() => handleTypeSelect('individual')}
+                    className="p-8 border-2 border-rc-border/40 hover:border-rc-accent/60 rounded-lg transition-all duration-300 text-left hover:bg-rc-accent/5"
+                  >
+                    <p className="font-rc-serif font-semibold text-lg">Individual</p>
+                    <p className="text-sm text-rc-text/60 mt-2">I want to partner</p>
+                  </button>
+                  <button
+                    onClick={() => handleTypeSelect('organization')}
+                    className="p-8 border-2 border-rc-border/40 hover:border-rc-accent/60 rounded-lg transition-all duration-300 text-left hover:bg-rc-accent/5"
+                  >
+                    <p className="font-rc-serif font-semibold text-lg">Organization</p>
+                    <p className="text-sm text-rc-text/60 mt-2">We want to partner</p>
+                  </button>
+                </div>
+              </div>
+            )}
+
+            {/* Step 2: Details */}
+            {formStep === 'details' && formType && (
+              <form onSubmit={handleSubmit} className="space-y-6 text-left">
+                <div className="space-y-2">
+                  <label className="block text-sm font-medium text-rc-text/70">Name</label>
+                  <input
+                    type="text"
+                    required
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    className="w-full px-4 py-3 border border-rc-border/40 rounded-lg focus:outline-none focus:border-rc-accent/60 transition-colors"
+                    placeholder="Your name"
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <label className="block text-sm font-medium text-rc-text/70">Email</label>
+                  <input
+                    type="email"
+                    required
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    className="w-full px-4 py-3 border border-rc-border/40 rounded-lg focus:outline-none focus:border-rc-accent/60 transition-colors"
+                    placeholder="your@email.com"
+                  />
+                </div>
+
+                {formType === 'organization' && (
+                  <div className="space-y-2">
+                    <label className="block text-sm font-medium text-rc-text/70">Organization</label>
+                    <input
+                      type="text"
+                      required
+                      value={formData.organization}
+                      onChange={(e) => setFormData({ ...formData, organization: e.target.value })}
+                      className="w-full px-4 py-3 border border-rc-border/40 rounded-lg focus:outline-none focus:border-rc-accent/60 transition-colors"
+                      placeholder="Organization name"
+                    />
+                  </div>
+                )}
+
+                <div className="space-y-2">
+                  <label className="block text-sm font-medium text-rc-text/70">Tell us why you want to partner</label>
+                  <textarea
+                    value={formData.message}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    className="w-full px-4 py-3 border border-rc-border/40 rounded-lg focus:outline-none focus:border-rc-accent/60 transition-colors resize-none"
+                    placeholder="Your thoughts..."
+                    rows={4}
+                  />
+                </div>
+
+                <div className="space-y-2 pt-4">
+                  <label className="flex items-start gap-3 cursor-pointer">
+                    <input
+                      type="checkbox"
+                      required
+                      checked={formData.consent}
+                      onChange={(e) => setFormData({ ...formData, consent: e.target.checked })}
+                      className="mt-1 w-5 h-5 rounded border-rc-border/40"
+                    />
+                    <span className="text-sm text-rc-text/70">
+                      I understand this is about partnership with God's mission, and I'm ready to discuss how I can participate.
+                    </span>
+                  </label>
+                </div>
+
+                <div className="flex gap-3 pt-8">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setFormStep('type');
+                      setFormType(null);
+                    }}
+                    className="px-6 py-3 text-rc-text/70 hover:text-rc-text transition-colors"
+                  >
+                    Back
+                  </button>
+                  <button
+                    type="submit"
+                    className="flex-1 px-6 py-3 bg-rc-accent text-white font-medium rounded-lg hover:bg-rc-accent/90 transition-all duration-300"
+                  >
+                    Send
+                  </button>
+                </div>
+              </form>
+            )}
+
+            {/* Step 3: Complete */}
+            {formStep === 'complete' && (
+              <div className="py-12 space-y-6">
+                <div className="space-y-2">
+                  <p className="text-2xl font-rc-serif font-bold">Thank you.</p>
+                  <p className="text-rc-text/70">We'll reach out soon to talk about partnership.</p>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </section>
+
+      {/* Navigation */}
+      <nav className="w-full px-6 sm:px-8 md:px-12 py-16 md:py-20 bg-rc-warm-gray border-t border-rc-border text-center">
+        <div className="max-w-2xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-16">
+          <a href="/" className="text-rc-text/80 hover:text-rc-text transition-colors group">
+            Home
+            <span className="block h-px w-0 group-hover:w-full bg-rc-text/80 transition-all duration-300 mt-1"></span>
+          </a>
+          <a href="/testimonies" className="text-rc-text/80 hover:text-rc-text transition-colors group">
+            Success Stories
+            <span className="block h-px w-0 group-hover:w-full bg-rc-text/80 transition-all duration-300 mt-1"></span>
+          </a>
+        </div>
+      </nav>
 
       {/* Footer */}
-      <footer className="w-full py-8 px-6 sm:px-8 md:px-12 bg-rc-text border-t border-rc-border">
-        <div className="max-w-2xl mx-auto text-center space-y-3">
+      <footer className="w-full px-6 sm:px-8 md:px-12 py-8 bg-rc-text border-t border-rc-border text-center">
+        <div className="max-w-2xl mx-auto space-y-2">
           <p className="text-white/60 text-sm">Brother Jimi Ministries — An Inspiration from Jesus Christ</p>
           <p className="text-white/30 text-xs">© 2026. All rights reserved.</p>
         </div>
