@@ -210,7 +210,7 @@ export default function Home() {
           viewport={{ once: true, amount: 0.15 }}
           className="max-w-2xl mx-auto text-center space-y-8"
         >
-          <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-white leading-tight tracking-tight">The Journey Starts Friday</h2>
+          <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-white leading-tight tracking-tight">The Journey Starts</h2>
 
           <div className="space-y-6">
             <div className="space-y-4 text-lg md:text-xl text-white/95 leading-relaxed font-light">
