@@ -266,7 +266,7 @@ export default function PartnershipPage() {
     return logos[id] || null;
   };
 
-  const LogoCard = ({ name, id }: { name: string; id: string }) => (
+  const LogoCard = ({ id }: { id: string }) => (
     <div className="flex justify-center items-center bg-white border border-rc-border/20 rounded-lg p-4 hover:shadow-lg hover:border-rc-accent/30 transition-all duration-300 min-h-[140px] group">
       <div className="w-full group-hover:scale-105 transition-transform duration-300">
         <LogoSvg id={id} />
