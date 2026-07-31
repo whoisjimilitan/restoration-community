@@ -201,37 +201,6 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* GATHERING */}
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-accent border-t border-rc-border">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-          viewport={{ once: true, amount: 0.15 }}
-          className="max-w-2xl mx-auto text-center space-y-8"
-        >
-          <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-white leading-tight tracking-tight">The Journey Starts</h2>
-
-          <div className="space-y-6">
-            <div className="space-y-4 text-lg md:text-xl text-white/95 leading-relaxed font-light">
-              <p className="font-medium">SCOAN Accra, Ghana</p>
-              <p className="font-medium">Friday, August 15 at 3:00 PM</p>
-            </div>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-              <a href="https://maps.google.com/?q=SCOAN+Accra+Ghana" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-white text-rc-accent font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300">
-                Get Directions
-              </a>
-              <button className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] text-white font-medium border-2 border-white rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300">
-                I'm Attending
-              </button>
-            </div>
-          </div>
-
-          <p className="text-sm text-white/70 pt-4">Meeting 1: Truth Teaching</p>
-        </motion.div>
-      </section>
-
       {/* RETURN */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-gradient-to-br from-rc-accent to-rc-text border-t border-rc-border">
         <motion.div
@@ -281,6 +250,36 @@ export default function Home() {
                 Our Partners
                 <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-2"></span>
               </Link>
+            </div>
+          </div>
+        </motion.div>
+      </section>
+
+      {/* EPILOGUE - The pastor's final words */}
+      <section className="w-full py-16 md:py-20 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border/40">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+          viewport={{ once: true, amount: 0.5 }}
+          className="max-w-2xl mx-auto text-center space-y-8"
+        >
+          <div className="space-y-6">
+            <p className="text-sm text-rc-text/60 uppercase tracking-widest font-medium">If you're ready</p>
+
+            <div className="space-y-3 text-lg md:text-lg text-rc-text leading-relaxed font-light">
+              <p>SCOAN Accra, Ghana</p>
+              <p>Friday, August 15 at 3:00 PM</p>
+              <p className="text-sm text-rc-text/70 pt-2">Meeting 1: Truth Teaching</p>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6">
+              <a href="https://maps.google.com/?q=SCOAN+Accra+Ghana" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-rc-text/10 text-rc-text font-medium rounded-lg hover:-translate-y-0.5 hover:bg-rc-text/15 hover:shadow-lg active:translate-y-0 transition-all duration-300">
+                Get Directions
+              </a>
+              <button className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] text-rc-text font-medium border-2 border-rc-text/40 rounded-lg hover:-translate-y-0.5 hover:border-rc-text/60 hover:shadow-lg active:translate-y-0 transition-all duration-300">
+                I'm Attending
+              </button>
             </div>
           </div>
         </motion.div>
