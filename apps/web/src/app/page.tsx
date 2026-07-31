@@ -256,7 +256,7 @@ export default function Home() {
       </section>
 
       {/* EPILOGUE - The pastor's final words */}
-      <section className="w-full py-16 md:py-20 px-6 sm:px-8 md:px-12 border-t border-rc-border/40" style={{ backgroundColor: '#E8F4F3' }}>
+      <section className="w-full py-16 md:py-20 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border/40">
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -265,9 +265,9 @@ export default function Home() {
           className="max-w-2xl mx-auto text-center space-y-8"
         >
           <div className="space-y-6">
-            <p className="text-sm uppercase tracking-widest font-medium" style={{ color: '#0D5E57' }}>If you are ready, Jesus is</p>
+            <p className="text-sm text-rc-text/60 uppercase tracking-widest font-medium">If you are ready, Jesus is</p>
 
-            <div className="space-y-4 text-lg md:text-lg leading-relaxed font-light" style={{ color: '#1A1A18' }}>
+            <div className="space-y-4 text-lg md:text-lg text-rc-text leading-relaxed font-light">
               <div className="flex items-center justify-center gap-3">
                 <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
@@ -282,14 +282,14 @@ export default function Home() {
                 </svg>
                 <p>Friday, August 15 at 3:00 PM</p>
               </div>
-              <p className="text-sm pt-2" style={{ color: '#0D5E57' }}>Topic: Truth</p>
+              <p className="text-sm text-rc-text/70 pt-2">Topic: Truth</p>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6">
-              <a href="https://maps.google.com/?q=SCOAN+Accra+Ghana" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] text-white font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300" style={{ backgroundColor: '#0D5E57' }}>
+              <a href="https://maps.google.com/?q=SCOAN+Accra+Ghana" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-rc-text/10 text-rc-text font-medium rounded-lg hover:-translate-y-0.5 hover:bg-rc-text/15 hover:shadow-lg active:translate-y-0 transition-all duration-300">
                 Get Directions
               </a>
-              <button className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] font-medium border-2 rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300" style={{ color: '#0D5E57', borderColor: '#0D5E57' }}>
+              <button className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] text-rc-text font-medium border-2 border-rc-text/40 rounded-lg hover:-translate-y-0.5 hover:border-rc-text/60 hover:shadow-lg active:translate-y-0 transition-all duration-300">
                 I'm Attending
               </button>
             </div>
