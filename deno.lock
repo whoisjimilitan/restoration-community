@@ -38,7 +38,7 @@
             "npm:jest-environment-jsdom@29",
             "npm:jest@29",
             "npm:next-auth@^4.24.0",
-            "npm:next@14",
+            "npm:next@^14.2.35",
             "npm:postcss@8",
             "npm:prisma@5",
             "npm:react-dom@^18.2.0",
