@@ -69,8 +69,8 @@ export default function VerifyEmailPage() {
       >
         <Section className="w-full max-w-md mb-0">
           <PageHeader
-            title="Check Your Email"
-            description="Verify your account to continue"
+            title="Check Email"
+            description="Verify your account"
           />
 
           <Card>
@@ -95,15 +95,11 @@ export default function VerifyEmailPage() {
 
             <div className="space-y-4">
               <p className="text-sm text-gray-700">
-                We&apos;ve sent a verification link to:
+                Check your inbox for the verification link.
               </p>
 
               <p className="text-base font-medium text-teal-600">
-                {email || 'your email address'}
-              </p>
-
-              <p className="text-sm text-gray-600 leading-relaxed">
-                Once verified, you&apos;ll begin your Restoration Journey.
+                {email || 'your email'}
               </p>
 
               <div className="space-y-3 pt-4">
@@ -126,7 +122,7 @@ export default function VerifyEmailPage() {
                     className="w-full"
                     type="button"
                   >
-                    Back to Sign In
+                    Sign In
                   </Button>
                 </Link>
               </div>

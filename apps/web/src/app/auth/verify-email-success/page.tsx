@@ -16,8 +16,8 @@ export default function VerifyEmailSuccessPage() {
       >
         <Section className="w-full max-w-md mb-0">
           <PageHeader
-            title="Email Verified"
-            description="Your account is now active"
+            title="Verified"
+            description="Ready to begin"
           />
 
           <Card>
@@ -26,13 +26,9 @@ export default function VerifyEmailSuccessPage() {
               <div className="text-center py-4">
                 <div className="text-4xl mb-2">✓</div>
                 <p className="text-gray-700">
-                  Your email has been verified successfully.
+                  Email verified successfully.
                 </p>
               </div>
-
-              <p className="text-sm text-gray-600 leading-relaxed">
-                Your account is now active and you can begin your Restoration Journey.
-              </p>
 
               <Link href="/auth/signin" className="block">
                 <Button className="w-full">

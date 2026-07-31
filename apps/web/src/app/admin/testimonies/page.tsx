@@ -128,14 +128,14 @@ export default function AdminTestimoniesPage() {
         <div className="max-w-6xl mx-auto px-6 sm:px-8 md:px-12 py-8">
           <div className="flex justify-between items-center">
             <div>
-              <h1 className="text-3xl font-rc-serif font-bold text-rc-text">Testimonies Manager</h1>
-              <p className="text-rc-text/60 mt-2">Create and manage restoration testimonies</p>
+              <h1 className="text-3xl font-rc-serif font-bold text-rc-text tracking-tight">Testimonies</h1>
+              <p className="text-rc-text/60 mt-2">Manage testimonies</p>
             </div>
             <button
               onClick={() => (showForm ? handleCancel() : setShowForm(true))}
               className="px-6 py-2 bg-rc-accent text-white font-medium rounded-lg hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300"
             >
-              {showForm ? 'Cancel' : '+ New Testimony'}
+              {showForm ? 'Cancel' : '+ New'}
             </button>
           </div>
         </div>
@@ -160,7 +160,7 @@ export default function AdminTestimoniesPage() {
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   className="w-full px-4 py-2 border border-rc-border rounded-lg focus:outline-none focus:ring-2 focus:ring-rc-accent"
-                  placeholder="Testimony person's name"
+                  placeholder="Name"
                 />
               </div>
 
@@ -172,7 +172,7 @@ export default function AdminTestimoniesPage() {
                   value={formData.role}
                   onChange={(e) => setFormData({ ...formData, role: e.target.value })}
                   className="w-full px-4 py-2 border border-rc-border rounded-lg focus:outline-none focus:ring-2 focus:ring-rc-accent"
-                  placeholder="e.g., Former Scammer, Student"
+                  placeholder="Role"
                 />
               </div>
 
@@ -200,7 +200,7 @@ export default function AdminTestimoniesPage() {
                   value={formData.quote}
                   onChange={(e) => setFormData({ ...formData, quote: e.target.value })}
                   className="w-full px-4 py-2 border border-rc-border rounded-lg focus:outline-none focus:ring-2 focus:ring-rc-accent"
-                  placeholder="Key quote from the testimony"
+                  placeholder="Quote"
                   rows={2}
                 />
               </div>
@@ -212,7 +212,7 @@ export default function AdminTestimoniesPage() {
                   value={formData.story}
                   onChange={(e) => setFormData({ ...formData, story: e.target.value })}
                   className="w-full px-4 py-2 border border-rc-border rounded-lg focus:outline-none focus:ring-2 focus:ring-rc-accent"
-                  placeholder="Full transformation story"
+                  placeholder="Story"
                   rows={6}
                 />
               </div>
@@ -223,7 +223,7 @@ export default function AdminTestimoniesPage() {
                   disabled={submitting}
                   className="px-6 py-2 bg-rc-accent text-white font-medium rounded-lg hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 disabled:opacity-50"
                 >
-                  {submitting ? 'Saving...' : editingId ? 'Update Testimony' : 'Create Testimony'}
+                  {submitting ? 'Saving...' : editingId ? 'Update' : 'Create'}
                 </button>
                 <button
                   type="button"
@@ -252,12 +252,12 @@ export default function AdminTestimoniesPage() {
           </div>
         ) : testimonies.length === 0 ? (
           <div className="text-center py-12">
-            <p className="text-rc-text/60 text-lg mb-4">No testimonies yet</p>
+            <p className="text-rc-text/60 text-lg mb-4">No testimonies</p>
             <button
               onClick={() => setShowForm(true)}
               className="px-6 py-2 bg-rc-accent text-white font-medium rounded-lg hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300"
             >
-              Create First Testimony
+              Create First
             </button>
           </div>
         ) : (

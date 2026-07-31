@@ -131,11 +131,11 @@ export default function IntakePage() {
           transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
           viewport={{ once: true, amount: 0.15 }}
         >
-          <h1 style={{ fontSize: '2rem', fontFamily: 'Georgia, serif', fontWeight: 'bold', marginBottom: '0.5rem' }}>
-            Ministry Intake
+          <h1 style={{ fontSize: '2rem', fontFamily: 'Georgia, serif', fontWeight: 'bold', marginBottom: '0.5rem', letterSpacing: '-0.02em' }}>
+            Intake
           </h1>
           <p style={{ color: '#666', fontSize: '1rem' }}>
-            Review and respond to prayer requests from seekers
+            Review prayer requests
           </p>
         </motion.div>
 
@@ -149,7 +149,7 @@ export default function IntakePage() {
         >
           <input
             type="text"
-            placeholder="Search by name or contact..."
+            placeholder="Search..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             style={{
@@ -172,7 +172,7 @@ export default function IntakePage() {
               backgroundColor: 'white'
             }}
           >
-            <option value="">All Statuses</option>
+            <option value="">All Status</option>
             <option value="SUBMITTED">Submitted</option>
             <option value="RECEIVED">Received</option>
             <option value="SCHEDULED">Scheduled</option>
@@ -394,7 +394,7 @@ export default function IntakePage() {
                 &times;
               </button>
 
-              <h2 style={{ fontSize: '1.5rem', fontFamily: 'Georgia, serif', fontWeight: 'bold', marginBottom: '1.5rem' }}>
+              <h2 style={{ fontSize: '1.5rem', fontFamily: 'Georgia, serif', fontWeight: 'bold', marginBottom: '1.5rem', letterSpacing: '-0.02em' }}>
                 {selectedEntry.name}
               </h2>
 
@@ -415,12 +415,12 @@ export default function IntakePage() {
                 </div>
 
                 <div style={{ marginBottom: '1rem' }}>
-                  <label style={{ display: 'block', fontWeight: 'bold', marginBottom: '0.5rem' }}>Their Story</label>
-                  <p style={{ color: '#666', lineHeight: '1.6', whiteSpace: 'pre-wrap' }}>{selectedEntry.story || 'No story provided'}</p>
+                  <label style={{ display: 'block', fontWeight: 'bold', marginBottom: '0.5rem' }}>Story</label>
+                  <p style={{ color: '#666', lineHeight: '1.6', whiteSpace: 'pre-wrap' }}>{selectedEntry.story || 'Not provided'}</p>
                 </div>
 
                 <div style={{ marginBottom: '1rem' }}>
-                  <label style={{ display: 'block', fontWeight: 'bold', marginBottom: '0.5rem' }}>What They&apos;re Seeking</label>
+                  <label style={{ display: 'block', fontWeight: 'bold', marginBottom: '0.5rem' }}>Seeking</label>
                   <p style={{ color: '#666' }}>
                     {selectedEntry.seeking.length > 0
                       ? selectedEntry.seeking.map(s => s.replace(/_/g, ' ')).join(', ')
@@ -434,7 +434,7 @@ export default function IntakePage() {
                 </div>
 
                 <div style={{ marginBottom: '2rem', paddingTop: '1rem', borderTop: '1px solid #eee' }}>
-                  <label style={{ display: 'block', fontWeight: 'bold', marginBottom: '0.5rem' }}>Decision After Encounter</label>
+                  <label style={{ display: 'block', fontWeight: 'bold', marginBottom: '0.5rem' }}>Decision</label>
                   <select
                     value={decision}
                     onChange={(e) => setDecision(e.target.value)}
@@ -447,7 +447,7 @@ export default function IntakePage() {
                       marginBottom: '1rem'
                     }}
                   >
-                    <option value="">Select decision...</option>
+                    <option value="">Select...</option>
                     <option value="yes">Yes - Ready to walk restoration</option>
                     <option value="no">No - Not ready</option>
                     <option value="need_more_time">Need more time</option>
@@ -490,7 +490,7 @@ export default function IntakePage() {
                         }
                       }}
                     >
-                      {updating ? 'Updating...' : 'Record Encounter'}
+                      {updating ? 'Saving...' : 'Record'}
                     </button>
                     <button
                       onClick={() => setSelectedEntry(null)}

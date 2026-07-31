@@ -110,7 +110,7 @@ export default function RegisterPage() {
         <Section className="w-full max-w-md mb-0">
           <PageHeader
             title="Begin Your Journey"
-            description="Create an account to join the community"
+            description="Create an account"
           />
 
           <Card>
@@ -146,7 +146,7 @@ export default function RegisterPage() {
               />
 
               <Input
-                label="Email Address"
+                label="Email"
                 type="email"
                 placeholder="you@example.com"
                 value={email}
@@ -182,7 +182,7 @@ export default function RegisterPage() {
                 isLoading={loading}
                 className="w-full"
               >
-                Create Account
+                {loading ? 'Creating...' : 'Create'}
               </Button>
 
               <div className="text-center pt-2">
@@ -199,7 +199,7 @@ export default function RegisterPage() {
 
               <div className="pt-4 mt-4 border-t border-gray-200">
                 <p className="text-xs text-gray-600 text-center">
-                  Your information is handled with care and used only to support your participation in the Restoration Community.
+                  Your information is used to support your participation.
                 </p>
               </div>
             </form>

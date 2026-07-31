@@ -48,7 +48,7 @@ export default function VerifyEmailErrorPage() {
         <Section className="w-full max-w-md mb-0">
           <PageHeader
             title={error.title}
-            description="Email verification"
+            description=""
           />
 
           <Card>
@@ -64,13 +64,13 @@ export default function VerifyEmailErrorPage() {
               <div className="space-y-3 pt-4">
                 <Link href="/auth/signin" className="block">
                   <Button className="w-full">
-                    Back to Sign In
+                    Sign In
                   </Button>
                 </Link>
 
                 <Link href="/auth/register" className="block">
                   <Button variant="secondary" className="w-full">
-                    Create New Account
+                    Create Account
                   </Button>
                 </Link>
               </div>

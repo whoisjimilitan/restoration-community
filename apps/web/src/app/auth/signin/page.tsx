@@ -115,7 +115,7 @@ export default function SignInPage() {
             lineHeight: 1.2,
             marginBottom: '0.75rem',
             marginTop: 0,
-            letterSpacing: '-0.02em'
+            letterSpacing: '-0.05em'
           }}>
             W<span style={{ fontStyle: 'italic' }}>e</span>lcom<span style={{ fontStyle: 'italic' }}>e</span> Back
           </h1>
@@ -126,7 +126,7 @@ export default function SignInPage() {
             lineHeight: 1.7,
             marginTop: 0
           }}>
-            Sign in to continue your restoration journey.
+            Continue your journey.
           </p>
         </motion.div>
 
@@ -178,7 +178,7 @@ export default function SignInPage() {
                 textTransform: 'uppercase',
                 letterSpacing: '0.5px'
               }}>
-                Email Address
+                Email
               </label>
               <input
                 type="email"
