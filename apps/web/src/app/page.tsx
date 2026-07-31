@@ -171,7 +171,7 @@ export default function Home() {
           </div>
 
           <div className="space-y-4 pt-10 md:pt-12 border-t border-rc-text/15 text-base md:text-lg text-rc-text leading-relaxed font-light">
-            <p>You move through this divine journey with support.</p>
+            <p>This journey is walked with those who have traveled it before.</p>
             <p>Prayer. Encouragement. People who understand.</p>
           </div>
         </motion.div>
