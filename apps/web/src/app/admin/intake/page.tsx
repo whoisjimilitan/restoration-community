@@ -259,10 +259,23 @@ export default function IntakePage() {
                           borderRadius: '0.375rem',
                           cursor: 'pointer',
                           fontSize: '0.9rem',
-                          fontWeight: 'bold'
+                          fontWeight: 'bold',
+                          transition: 'all 300ms',
+                          transform: 'translateY(0)'
                         }}
-                        onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = '#0a5c59')}
-                        onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = '#0F766E')}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.backgroundColor = '#0a5c59';
+                          e.currentTarget.style.transform = 'translateY(-2px)';
+                          e.currentTarget.style.boxShadow = '0 10px 15px -3px rgba(0,0,0,0.1)';
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.backgroundColor = '#0F766E';
+                          e.currentTarget.style.transform = 'translateY(0)';
+                          e.currentTarget.style.boxShadow = 'none';
+                        }}
+                        onMouseDown={(e) => {
+                          e.currentTarget.style.transform = 'translateY(0)';
+                        }}
                       >
                         View
                       </button>
@@ -295,7 +308,22 @@ export default function IntakePage() {
                 borderRadius: '0.375rem',
                 cursor: 'pointer',
                 fontSize: '1rem',
-                fontWeight: 'bold'
+                fontWeight: 'bold',
+                transition: 'all 300ms',
+                transform: 'translateY(0)'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = '#0a5c59';
+                e.currentTarget.style.transform = 'translateY(-2px)';
+                e.currentTarget.style.boxShadow = '0 10px 15px -3px rgba(0,0,0,0.1)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = '#0F766E';
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = 'none';
+              }}
+              onMouseDown={(e) => {
+                e.currentTarget.style.transform = 'translateY(0)';
               }}
             >
               Load More
@@ -349,7 +377,17 @@ export default function IntakePage() {
                   border: 'none',
                   fontSize: '1.5rem',
                   cursor: 'pointer',
-                  color: '#999'
+                  color: '#999',
+                  transition: 'all 300ms',
+                  transform: 'scale(1)'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.color = '#333';
+                  e.currentTarget.style.transform = 'scale(1.1)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.color = '#999';
+                  e.currentTarget.style.transform = 'scale(1)';
                 }}
                 aria-label="Close"
               >
@@ -428,13 +466,28 @@ export default function IntakePage() {
                         borderRadius: '0.375rem',
                         cursor: decision ? 'pointer' : 'not-allowed',
                         fontSize: '1rem',
-                        fontWeight: 'bold'
+                        fontWeight: 'bold',
+                        transition: 'all 300ms',
+                        transform: 'translateY(0)'
                       }}
                       onMouseEnter={(e) => {
-                        if (decision) (e.currentTarget.style.backgroundColor = '#0a5c59');
+                        if (decision) {
+                          e.currentTarget.style.backgroundColor = '#0a5c59';
+                          e.currentTarget.style.transform = 'translateY(-2px)';
+                          e.currentTarget.style.boxShadow = '0 10px 15px -3px rgba(0,0,0,0.1)';
+                        }
                       }}
                       onMouseLeave={(e) => {
-                        if (decision) (e.currentTarget.style.backgroundColor = '#0F766E');
+                        if (decision) {
+                          e.currentTarget.style.backgroundColor = '#0F766E';
+                          e.currentTarget.style.transform = 'translateY(0)';
+                          e.currentTarget.style.boxShadow = 'none';
+                        }
+                      }}
+                      onMouseDown={(e) => {
+                        if (decision) {
+                          e.currentTarget.style.transform = 'translateY(0)';
+                        }
                       }}
                     >
                       {updating ? 'Updating...' : 'Record Encounter'}
@@ -450,7 +503,22 @@ export default function IntakePage() {
                         borderRadius: '0.375rem',
                         cursor: 'pointer',
                         fontSize: '1rem',
-                        fontWeight: 'bold'
+                        fontWeight: 'bold',
+                        transition: 'all 300ms',
+                        transform: 'translateY(0)'
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.backgroundColor = '#ddd';
+                        e.currentTarget.style.transform = 'translateY(-2px)';
+                        e.currentTarget.style.boxShadow = '0 10px 15px -3px rgba(0,0,0,0.1)';
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.backgroundColor = '#eee';
+                        e.currentTarget.style.transform = 'translateY(0)';
+                        e.currentTarget.style.boxShadow = 'none';
+                      }}
+                      onMouseDown={(e) => {
+                        e.currentTarget.style.transform = 'translateY(0)';
                       }}
                     >
                       Close

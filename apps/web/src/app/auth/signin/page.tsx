@@ -282,19 +282,29 @@ export default function SignInPage() {
                 borderRadius: '6px',
                 border: 'none',
                 cursor: !isFormValid || loading ? 'not-allowed' : 'pointer',
-                transition: 'all 200ms',
+                transition: 'all 300ms',
                 fontFamily: 'system-ui, -apple-system, sans-serif',
                 opacity: loading ? 0.8 : 1,
-                marginTop: '0.5rem'
+                marginTop: '0.5rem',
+                transform: 'translateY(0)'
               }}
               onMouseEnter={(e) => {
                 if (isFormValid && !loading) {
                   e.currentTarget.style.backgroundColor = '#0a4a47';
+                  e.currentTarget.style.transform = 'translateY(-2px)';
+                  e.currentTarget.style.boxShadow = '0 10px 15px -3px rgba(0,0,0,0.1)';
                 }
               }}
               onMouseLeave={(e) => {
                 if (isFormValid && !loading) {
                   e.currentTarget.style.backgroundColor = '#0D5E57';
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = 'none';
+                }
+              }}
+              onMouseDown={(e) => {
+                if (isFormValid && !loading) {
+                  e.currentTarget.style.transform = 'translateY(0)';
                 }
               }}
             >

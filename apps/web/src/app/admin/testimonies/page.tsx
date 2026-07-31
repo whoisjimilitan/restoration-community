@@ -133,7 +133,7 @@ export default function AdminTestimoniesPage() {
             </div>
             <button
               onClick={() => (showForm ? handleCancel() : setShowForm(true))}
-              className="px-6 py-2 bg-rc-accent text-white font-medium rounded-lg hover:shadow-lg transition-all"
+              className="px-6 py-2 bg-rc-accent text-white font-medium rounded-lg hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300"
             >
               {showForm ? 'Cancel' : '+ New Testimony'}
             </button>
@@ -221,14 +221,14 @@ export default function AdminTestimoniesPage() {
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="px-6 py-2 bg-rc-accent text-white font-medium rounded-lg hover:shadow-lg transition-all disabled:opacity-50"
+                  className="px-6 py-2 bg-rc-accent text-white font-medium rounded-lg hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 disabled:opacity-50"
                 >
                   {submitting ? 'Saving...' : editingId ? 'Update Testimony' : 'Create Testimony'}
                 </button>
                 <button
                   type="button"
                   onClick={handleCancel}
-                  className="px-6 py-2 border border-rc-border text-rc-text font-medium rounded-lg hover:bg-rc-bg transition-all"
+                  className="px-6 py-2 border border-rc-border text-rc-text font-medium rounded-lg hover:bg-rc-bg hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300"
                 >
                   Cancel
                 </button>
@@ -255,7 +255,7 @@ export default function AdminTestimoniesPage() {
             <p className="text-rc-text/60 text-lg mb-4">No testimonies yet</p>
             <button
               onClick={() => setShowForm(true)}
-              className="px-6 py-2 bg-rc-accent text-white font-medium rounded-lg hover:shadow-lg transition-all"
+              className="px-6 py-2 bg-rc-accent text-white font-medium rounded-lg hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300"
             >
               Create First Testimony
             </button>
@@ -283,13 +283,13 @@ export default function AdminTestimoniesPage() {
                   <div className="flex gap-2 flex-shrink-0">
                     <button
                       onClick={() => handleEdit(testimony)}
-                      className="px-4 py-2 border border-rc-border text-rc-text font-medium rounded-lg hover:bg-rc-bg transition-all text-sm"
+                      className="px-4 py-2 border border-rc-border text-rc-text font-medium rounded-lg hover:bg-rc-bg hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 text-sm"
                     >
                       Edit
                     </button>
                     <button
                       onClick={() => handleDelete(testimony.id)}
-                      className="px-4 py-2 border border-red-200 text-red-600 font-medium rounded-lg hover:bg-red-50 transition-all text-sm"
+                      className="px-4 py-2 border border-red-200 text-red-600 font-medium rounded-lg hover:bg-red-50 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 text-sm"
                     >
                       Delete
                     </button>
