@@ -127,7 +127,7 @@ export default function PartnershipPage() {
           className="max-w-2xl mx-auto"
         >
           <div className="space-y-6 text-base md:text-lg text-rc-text leading-relaxed font-light">
-            <p>Our programs are free. Our goal is see lives changed for the glory of God. Counselling work. Education for the broken. None of this costs money because partners support our cause. No one pays to Jesus to be set free. No one pays to Him to be restored. These believers make that possible. <span className="font-medium">Great shall be their divine reward.</span></p>
+            <p>Our programs are free. No one pays Jesus to be set free—partners make that possible. Every counseling session, every educational opportunity exists because these believers have chosen to fund freedom. <span className="font-medium">Great shall be their reward.</span></p>
           </div>
         </motion.div>
       </section>
