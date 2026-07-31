@@ -27,9 +27,52 @@ export default function Home() {
 
   return (
     <div className="bg-rc-bg text-rc-text relative">
-      {/* LOGO - Fixed top left, premium sizing */}
+      {/* LOGO - Fixed top left, premium SVG */}
       <div className="fixed top-8 left-8 md:top-12 md:left-12 z-40">
-        <img src="/images/logo-jimi.png" alt="Jimi" className="h-14 w-14 md:h-16 md:w-16 opacity-95 hover:opacity-100 transition-opacity duration-300" />
+        <svg viewBox="0 0 200 200" className="h-14 w-14 md:h-16 md:w-16 opacity-95 hover:opacity-100 transition-opacity duration-300" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <filter id="shadow">
+              <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.15"/>
+            </filter>
+          </defs>
+          <circle cx="100" cy="100" r="95" fill="none" stroke="white" strokeWidth="0.5" opacity="0.1"/>
+          <rect x="20" y="20" width="20" height="20" fill="white" opacity="0.95" filter="url(#shadow)"/>
+          <rect x="45" y="20" width="20" height="20" fill="white" opacity="0.95" filter="url(#shadow)"/>
+          <path d="M 70 20 Q 85 20 85 35 L 70 35 Z" fill="white" opacity="0.95" filter="url(#shadow)"/>
+          <path d="M 95 20 Q 110 20 110 35 L 95 35 Z" fill="white" opacity="0.95" filter="url(#shadow)"/>
+          <rect x="120" y="20" width="20" height="20" fill="white" opacity="0.95" filter="url(#shadow)"/>
+          <rect x="145" y="20" width="20" height="20" fill="white" opacity="0.95" filter="url(#shadow)"/>
+          <path d="M 20 45 L 35 45 Q 35 60 20 60 Z" fill="white" opacity="0.95" filter="url(#shadow)"/>
+          <path d="M 45 45 L 60 45 Q 60 60 45 60 Z" fill="white" opacity="0.95" filter="url(#shadow)"/>
+          <path d="M 70 45 Q 85 45 85 60 Q 70 60 70 45 Z" fill="white" opacity="0.95" filter="url(#shadow)"/>
+          <path d="M 95 45 Q 110 45 110 60 Q 95 60 95 45 Z" fill="white" opacity="0.95" filter="url(#shadow)"/>
+          <rect x="120" y="45" width="20" height="20" fill="white" opacity="0.95" filter="url(#shadow)"/>
+          <path d="M 145 45 L 160 45 Q 160 60 145 60 Z" fill="white" opacity="0.95" filter="url(#shadow)"/>
+          <path d="M 20 70 L 35 70 Q 35 85 20 85 Z" fill="white" opacity="0.95" filter="url(#shadow)"/>
+          <rect x="45" y="70" width="20" height="20" fill="white" opacity="0.95" filter="url(#shadow)"/>
+          <rect x="70" y="70" width="20" height="20" fill="white" opacity="0.95" filter="url(#shadow)"/>
+          <rect x="95" y="70" width="20" height="20" fill="white" opacity="0.95" filter="url(#shadow)"/>
+          <rect x="120" y="70" width="20" height="20" fill="white" opacity="0.95" filter="url(#shadow)"/>
+          <rect x="145" y="70" width="20" height="20" fill="white" opacity="0.95" filter="url(#shadow)"/>
+          <rect x="20" y="95" width="20" height="20" fill="white" opacity="0.95" filter="url(#shadow)"/>
+          <rect x="45" y="95" width="20" height="20" fill="white" opacity="0.95" filter="url(#shadow)"/>
+          <path d="M 70 95 Q 85 95 85 110 L 70 110 Z" fill="white" opacity="0.95" filter="url(#shadow)"/>
+          <path d="M 95 95 Q 110 95 110 110 L 95 110 Z" fill="white" opacity="0.95" filter="url(#shadow)"/>
+          <rect x="120" y="95" width="20" height="20" fill="white" opacity="0.95" filter="url(#shadow)"/>
+          <rect x="145" y="95" width="20" height="20" fill="white" opacity="0.95" filter="url(#shadow)"/>
+          <rect x="20" y="120" width="20" height="20" fill="white" opacity="0.95" filter="url(#shadow)"/>
+          <path d="M 45 120 L 60 120 Q 60 135 45 135 Z" fill="white" opacity="0.95" filter="url(#shadow)"/>
+          <rect x="70" y="120" width="20" height="20" fill="white" opacity="0.95" filter="url(#shadow)"/>
+          <rect x="95" y="120" width="20" height="20" fill="white" opacity="0.95" filter="url(#shadow)"/>
+          <rect x="120" y="120" width="20" height="20" fill="white" opacity="0.95" filter="url(#shadow)"/>
+          <rect x="145" y="120" width="20" height="20" fill="white" opacity="0.95" filter="url(#shadow)"/>
+          <rect x="20" y="145" width="20" height="20" fill="white" opacity="0.95" filter="url(#shadow)"/>
+          <rect x="45" y="145" width="20" height="20" fill="white" opacity="0.95" filter="url(#shadow)"/>
+          <rect x="70" y="145" width="20" height="20" fill="white" opacity="0.95" filter="url(#shadow)"/>
+          <rect x="95" y="145" width="20" height="20" fill="white" opacity="0.95" filter="url(#shadow)"/>
+          <rect x="120" y="145" width="20" height="20" fill="white" opacity="0.95" filter="url(#shadow)"/>
+          <rect x="145" y="145" width="20" height="20" fill="white" opacity="0.95" filter="url(#shadow)"/>
+        </svg>
       </div>
 
       {/* HERO */}
