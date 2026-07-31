@@ -301,7 +301,7 @@ export default function PartnershipPage() {
           </div>
           <div className="grid md:grid-cols-2 gap-8">
             {foundingPartners.map((partner) => (
-              <LogoCard key={partner.id} name={partner.name} id={partner.id} />
+              <LogoCard key={partner.id} id={partner.id} />
             ))}
           </div>
         </div>
@@ -316,7 +316,7 @@ export default function PartnershipPage() {
           </div>
           <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-6">
             {standingPartners.map((partner) => (
-              <LogoCard key={partner.id} name={partner.name} id={partner.id} />
+              <LogoCard key={partner.id} id={partner.id} />
             ))}
           </div>
         </div>
@@ -331,7 +331,7 @@ export default function PartnershipPage() {
           </div>
           <div className="grid md:grid-cols-4 lg:grid-cols-7 gap-4">
             {prayerPartners.map((partner) => (
-              <LogoCard key={partner.id} name={partner.name} id={partner.id} />
+              <LogoCard key={partner.id} id={partner.id} />
             ))}
           </div>
         </div>
