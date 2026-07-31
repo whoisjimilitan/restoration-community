@@ -40,12 +40,12 @@ export default function PartnershipPage() {
       <section className="w-full min-h-screen flex flex-col justify-center bg-gradient-to-br from-rc-accent to-rc-text px-6 sm:px-8 md:px-12 py-24 md:py-32">
         <div className="max-w-2xl mx-auto w-full space-y-6">
           <div className={`transform transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '120ms' }}>
-            <p className="text-xs font-medium text-white/70 uppercase tracking-wider">These Are Partners</p>
+            <p className="text-xs font-medium text-white/70 uppercase tracking-wider">Our Partners</p>
           </div>
 
           <div className={`transform transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '240ms' }}>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight tracking-tight">
-              Godly people making this mission possible.
+              Godly individuals and organisations making this mission possible.
             </h1>
           </div>
         </div>
@@ -127,7 +127,7 @@ export default function PartnershipPage() {
           className="max-w-2xl mx-auto"
         >
           <div className="space-y-6 text-base md:text-lg text-rc-text leading-relaxed font-light">
-            <p>Our programs are free. No one pays Jesus to be set free—partners make that possible. Every counseling session, every educational opportunity exists because these believers have chosen to fund freedom. <span className="font-medium">Great shall be their reward.</span></p>
+            <p>Our program is free because our partners make it possible. Every session, every learning opportunity exists because these believers have chosen to join this mission. <span className="font-medium">Transformation doesn't happen without them.</span></p>
           </div>
         </motion.div>
       </section>
@@ -147,7 +147,7 @@ export default function PartnershipPage() {
             {formStep === 'type' && (
               <div className="space-y-10">
                 <div className="space-y-4">
-                  <h2 className="text-3xl md:text-4xl font-rc-serif font-bold">Ready to partner?</h2>
+                  <h2 className="text-3xl md:text-4xl font-rc-serif font-bold">Join Us</h2>
                 </div>
                 <div className="grid md:grid-cols-2 gap-4">
                   <button onClick={() => handleTypeSelect('individual')} className="p-8 border-2 border-rc-border/40 hover:border-rc-accent/60 hover:shadow-md hover:bg-rc-accent/5 rounded-lg transition-all duration-300 text-left">
