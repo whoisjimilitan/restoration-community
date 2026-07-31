@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 
 export default function PartnershipPage() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -52,7 +53,13 @@ export default function PartnershipPage() {
 
       {/* FOUNDING PARTNERS */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
-        <div className="max-w-6xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          viewport={{ once: true, amount: 0.15 }}
+          className="max-w-6xl mx-auto"
+        >
           <div className="space-y-12">
             <h2 className="text-xl md:text-2xl font-rc-serif font-bold uppercase tracking-wider">Founding Partners</h2>
             <div className="grid md:grid-cols-2 gap-12">
@@ -63,12 +70,18 @@ export default function PartnershipPage() {
               ))}
             </div>
           </div>
-        </div>
+        </motion.div>
       </section>
 
       {/* STANDING PARTNERS */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
-        <div className="max-w-6xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          viewport={{ once: true, amount: 0.15 }}
+          className="max-w-6xl mx-auto"
+        >
           <div className="space-y-12">
             <h2 className="text-xl md:text-2xl font-rc-serif font-bold uppercase tracking-wider">Standing Partners</h2>
             <div className="grid md:grid-cols-5 gap-6">
@@ -79,12 +92,18 @@ export default function PartnershipPage() {
               ))}
             </div>
           </div>
-        </div>
+        </motion.div>
       </section>
 
       {/* PRAYER PARTNERS */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
-        <div className="max-w-6xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          viewport={{ once: true, amount: 0.15 }}
+          className="max-w-6xl mx-auto"
+        >
           <div className="space-y-12">
             <h2 className="text-xl md:text-2xl font-rc-serif font-bold uppercase tracking-wider">Prayer Partners</h2>
             <div className="grid md:grid-cols-7 gap-4">
@@ -95,21 +114,33 @@ export default function PartnershipPage() {
               ))}
             </div>
           </div>
-        </div>
+        </motion.div>
       </section>
 
       {/* WHY THIS MATTERS */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
-        <div className="max-w-2xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          viewport={{ once: true, amount: 0.15 }}
+          className="max-w-2xl mx-auto"
+        >
           <div className="space-y-6 text-base md:text-lg text-rc-text leading-relaxed font-light">
             <p>Our programs are free. Our goal is see lives changed for the glory of God. Counselling work. Education for the broken. None of this costs money because partners support our cause. No one pays to Jesus to be set free. No one pays to Him to be restored. These believers make that possible. <span className="font-medium">Great shall be their divine reward.</span></p>
           </div>
-        </div>
+        </motion.div>
       </section>
 
       {/* INVITATION */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
-        <div className="max-w-2xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          viewport={{ once: true, amount: 0.15 }}
+          className="max-w-2xl mx-auto"
+        >
           <div className="text-center space-y-8">
 
             {/* Step 1 */}
@@ -173,7 +204,7 @@ export default function PartnershipPage() {
               </div>
             )}
           </div>
-        </div>
+        </motion.div>
       </section>
 
       {/* FOOTER */}

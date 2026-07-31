@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 
 const stages = [
   { number: 1, name: 'Truth', color: '#E8F4F3', textColor: 'text-rc-text' },
@@ -48,7 +49,13 @@ export default function Home() {
 
       {/* THE TRAP */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
-        <div className="max-w-2xl mx-auto space-y-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          viewport={{ once: true, amount: 0.15 }}
+          className="max-w-2xl mx-auto space-y-8"
+        >
           <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight">The Trap</h2>
 
           <div className="space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
@@ -59,12 +66,18 @@ export default function Home() {
             <p className="pt-3 font-medium">That is the voice of deception.</p>
             <p className="font-medium">The spirit recruiting our youths across nations.</p>
           </div>
-        </div>
+        </motion.div>
       </section>
 
       {/* THE WITNESS */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
-        <div className="max-w-2xl mx-auto space-y-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          viewport={{ once: true, amount: 0.15 }}
+          className="max-w-2xl mx-auto space-y-8"
+        >
           <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight">The Witness</h2>
 
           <div className="border-l-4 border-rc-accent pl-8 space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
@@ -77,12 +90,18 @@ export default function Home() {
             <p className="pt-3"><em className="not-italic font-medium">My God.</em> <em className="not-italic font-medium">My Deliverer.</em></p>
             <p className="font-medium">His name is Jesus Christ.</p>
           </div>
-        </div>
+        </motion.div>
       </section>
 
       {/* THE ONLY WAY */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
-        <div className="max-w-2xl mx-auto space-y-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          viewport={{ once: true, amount: 0.15 }}
+          className="max-w-2xl mx-auto space-y-8"
+        >
           <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight">The Only Way</h2>
 
           <div className="space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
@@ -94,12 +113,18 @@ export default function Home() {
             <p className="pt-2 font-medium">Fraud is a spiritual issue.</p>
             <p className="font-medium">Jesus Christ is the only way.</p>
           </div>
-        </div>
+        </motion.div>
       </section>
 
       {/* THE JOURNEY OUT */}
       <section id="journey" className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
-        <div className="max-w-2xl mx-auto space-y-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          viewport={{ once: true, amount: 0.15 }}
+          className="max-w-2xl mx-auto space-y-10"
+        >
           <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight">The Journey Out</h2>
 
           {/* Desktop Timeline */}
@@ -149,12 +174,18 @@ export default function Home() {
             <p>You move through this divine journey with support.</p>
             <p>Prayer. Encouragement. People who understand.</p>
           </div>
-        </div>
+        </motion.div>
       </section>
 
       {/* THE NEW LIFE */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
-        <div className="max-w-2xl mx-auto space-y-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          viewport={{ once: true, amount: 0.15 }}
+          className="max-w-2xl mx-auto space-y-8"
+        >
           <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight">The New Life</h2>
 
           <div className="space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
@@ -163,12 +194,18 @@ export default function Home() {
             <p>To live without fear.</p>
             <p>To build something that lasts.</p>
           </div>
-        </div>
+        </motion.div>
       </section>
 
       {/* RETURN */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-gradient-to-br from-rc-accent to-rc-text border-t border-rc-border">
-        <div className="max-w-2xl mx-auto space-y-12">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          viewport={{ once: true, amount: 0.15 }}
+          className="max-w-2xl mx-auto space-y-12"
+        >
           <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-white leading-tight">Return</h2>
 
           <div className="space-y-4 text-base md:text-lg text-white/90 leading-relaxed font-light">
@@ -214,7 +251,7 @@ export default function Home() {
               </Link>
             </div>
           </div>
-        </div>
+        </motion.div>
       </section>
 
       {/* Footer */}
