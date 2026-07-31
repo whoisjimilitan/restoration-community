@@ -196,7 +196,7 @@ export default function Home() {
             <p>His grace will teach you to work honestly.</p>
             <p>To live without fear.</p>
             <p>To build something that lasts.</p>
-            <p>To see life as He sees it.</p>
+            <p>To live the life you were always meant to live.</p>
           </div>
         </motion.div>
       </section>
