@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '@/lib/auth';
 import { prisma } from '@/lib/prisma';
+import { sendEmail } from '@/lib/email';
 
 export async function POST(_request: NextRequest) {
   console.log('[RESTORATION] POST /api/restoration/advance');
@@ -109,6 +110,69 @@ export async function POST(_request: NextRequest) {
     console.log(
       `[RESTORATION] Progression recorded: Stage ${currentSequence} → ${nextStage.sequence} (user: ${user.id}, transitionId: ${transition.id})`
     );
+
+    // Trigger progression email
+    console.log(`[RESTORATION] Sending stage progression email to ${user.email}`);
+    const firstName = user.firstName || user.name || 'Friend';
+
+    const emailHtml = `
+      <!DOCTYPE html>
+      <html>
+        <head>
+          <meta charset="utf-8">
+          <title>Welcome to Stage ${nextStage.sequence}: ${nextStage.name}</title>
+          <style>
+            body { font-family: system-ui, -apple-system, sans-serif; line-height: 1.5; color: #333; }
+            .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+            .header { color: #0d9488; font-size: 24px; font-weight: bold; margin-bottom: 20px; }
+            .content { margin: 20px 0; color: #555; }
+            .stage-badge { display: inline-block; background-color: #0d9488; color: white; padding: 8px 12px; border-radius: 4px; font-weight: bold; margin: 10px 0; }
+            .button { display: inline-block; background-color: #0d9488; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: 500; margin: 20px 0; }
+            .footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid #e5e7eb; font-size: 12px; color: #999; }
+          </style>
+        </head>
+        <body>
+          <div class="container">
+            <div class="header">Welcome to Stage ${nextStage.sequence}</div>
+
+            <div class="content">
+              <p>Hello ${firstName},</p>
+              <p>Congratulations on completing Stage ${currentSequence}!</p>
+              <p>You have advanced to the next stage of your restoration journey:</p>
+            </div>
+
+            <div class="stage-badge">Stage ${nextStage.sequence}: ${nextStage.name}</div>
+
+            <div class="content">
+              <p>Your journey continues at SCOAN Accra, Fridays at 3:00 PM.</p>
+              <p>Visit your dashboard to see this week's reflection prompt and gather with your community.</p>
+            </div>
+
+            <a href="${process.env.NEXT_PUBLIC_APP_URL}/dashboard" class="button">View Your Dashboard</a>
+
+            <div class="content">
+              <p>Thank you for your dedication to restoration. Jesus is with you.</p>
+            </div>
+
+            <div class="footer">
+              <p>© 2026 Restoration Community. All rights reserved.</p>
+            </div>
+          </div>
+        </body>
+      </html>
+    `;
+
+    try {
+      await sendEmail({
+        to: user.email,
+        subject: `Welcome to Stage ${nextStage.sequence}: ${nextStage.name} — Restoration Community`,
+        html: emailHtml,
+      });
+      console.log(`[RESTORATION] Stage progression email sent to ${user.email}`);
+    } catch (emailError) {
+      console.error('[RESTORATION] Failed to send progression email:', emailError);
+      // Don't fail the entire request if email fails
+    }
 
     return NextResponse.json(
       {
