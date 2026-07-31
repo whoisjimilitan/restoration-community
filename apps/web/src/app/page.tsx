@@ -20,6 +20,10 @@ export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [formStep, setFormStep] = useState<'form' | 'complete'>('form');
   const [formData, setFormData] = useState({ name: '', email: '', story: '' });
+  const [isAttendanceModalOpen, setIsAttendanceModalOpen] = useState(false);
+  const [attendanceStep, setAttendanceStep] = useState<'form' | 'complete'>('form');
+  const [attendanceData, setAttendanceData] = useState({ name: '', email: '', phone: '' });
+  const [isSubmittingAttendance, setIsSubmittingAttendance] = useState(false);
 
   useEffect(() => {
     setIsLoaded(true);
@@ -256,7 +260,7 @@ export default function Home() {
       </section>
 
       {/* EPILOGUE - The pastor's final words */}
-      <section className="w-full py-16 md:py-20 px-6 sm:px-8 md:px-12 border-t border-rc-border/40" style={{ backgroundColor: '#E8F4F3' }}>
+      <section className="w-full py-16 md:py-20 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border/40">
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -265,19 +269,19 @@ export default function Home() {
           className="max-w-2xl mx-auto text-center space-y-8"
         >
           <div className="space-y-6">
-            <p className="text-sm uppercase tracking-widest font-medium" style={{ color: '#0D5E57' }}>If you are ready, Jesus is</p>
+            <p className="text-sm text-rc-text/60 uppercase tracking-widest font-medium">If you are ready, Jesus is</p>
 
-            <div className="space-y-3 text-lg md:text-lg leading-relaxed font-light" style={{ color: '#1A1A18' }}>
+            <div className="space-y-3 text-lg md:text-lg text-rc-text leading-relaxed font-light">
               <p>SCOAN Accra, Ghana</p>
               <p>Friday, August 15 at 3:00 PM</p>
-              <p className="text-sm pt-2" style={{ color: '#0D5E57' }}>Stage 1: Truth Teaching</p>
+              <p className="text-sm text-rc-text/70 pt-2">Stage 1: Truth Teaching</p>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6">
-              <a href="https://maps.google.com/?q=SCOAN+Accra+Ghana" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] text-white font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300" style={{ backgroundColor: '#0D5E57' }}>
+              <a href="https://maps.google.com/?q=SCOAN+Accra+Ghana" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-rc-text/10 text-rc-text font-medium rounded-lg hover:-translate-y-0.5 hover:bg-rc-text/15 hover:shadow-lg active:translate-y-0 transition-all duration-300">
                 Get Directions
               </a>
-              <button className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] font-medium border-2 rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300" style={{ color: '#0D5E57', borderColor: '#0D5E57' }}>
+              <button onClick={() => setIsAttendanceModalOpen(true)} className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] text-rc-text font-medium border-2 border-rc-text/40 rounded-lg hover:-translate-y-0.5 hover:border-rc-text/60 hover:shadow-lg active:translate-y-0 transition-all duration-300">
                 I'm Attending
               </button>
             </div>
@@ -402,6 +406,144 @@ export default function Home() {
                       setIsModalOpen(false);
                       setFormStep('form');
                       setFormData({ name: '', email: '', story: '' });
+                    }}
+                    className="mt-6 px-6 py-3 bg-rc-accent text-white font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300"
+                  >
+                    Back to Page
+                  </button>
+                </div>
+              )}
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
+
+      {/* Attendance Modal */}
+      <AnimatePresence>
+        {isAttendanceModalOpen && (
+          <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 px-4">
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.95, opacity: 0 }}
+              className="bg-white rounded-lg shadow-2xl max-w-md w-full"
+            >
+              {/* Form Step */}
+              {attendanceStep === 'form' && (
+                <div className="p-8 md:p-12">
+                  <h2 className="text-2xl font-rc-serif font-bold text-rc-text mb-6">
+                    I'm Ready
+                  </h2>
+                  <p className="text-rc-text/70 text-sm mb-6">
+                    Join us August 15 at 3pm SCOAN Accra for Truth Teaching.
+                  </p>
+                  <form
+                    onSubmit={async (e) => {
+                      e.preventDefault();
+                      setIsSubmittingAttendance(true);
+                      try {
+                        const res = await fetch('/api/attendance-register', {
+                          method: 'POST',
+                          headers: { 'Content-Type': 'application/json' },
+                          body: JSON.stringify(attendanceData),
+                        });
+                        if (res.ok) {
+                          setAttendanceStep('complete');
+                        } else {
+                          console.error('Submission failed');
+                        }
+                      } catch (error) {
+                        console.error('Error:', error);
+                      } finally {
+                        setIsSubmittingAttendance(false);
+                      }
+                    }}
+                    className="space-y-4"
+                  >
+                    {/* Name */}
+                    <div className="space-y-2">
+                      <label className="block text-sm font-medium text-rc-text/70">
+                        Full Name
+                      </label>
+                      <input
+                        type="text"
+                        required
+                        value={attendanceData.name}
+                        onChange={(e) => setAttendanceData({ ...attendanceData, name: e.target.value })}
+                        className="w-full px-4 py-3 border border-rc-border rounded-lg focus:outline-none focus:border-rc-accent/60 transition-colors bg-white text-rc-text"
+                        placeholder="Your name"
+                      />
+                    </div>
+
+                    {/* Email */}
+                    <div className="space-y-2">
+                      <label className="block text-sm font-medium text-rc-text/70">
+                        Email Address
+                      </label>
+                      <input
+                        type="email"
+                        required
+                        value={attendanceData.email}
+                        onChange={(e) => setAttendanceData({ ...attendanceData, email: e.target.value })}
+                        className="w-full px-4 py-3 border border-rc-border rounded-lg focus:outline-none focus:border-rc-accent/60 transition-colors bg-white text-rc-text"
+                        placeholder="your@email.com"
+                      />
+                    </div>
+
+                    {/* Phone */}
+                    <div className="space-y-2">
+                      <label className="block text-sm font-medium text-rc-text/70">
+                        Phone Number
+                      </label>
+                      <input
+                        type="tel"
+                        required
+                        value={attendanceData.phone}
+                        onChange={(e) => setAttendanceData({ ...attendanceData, phone: e.target.value })}
+                        className="w-full px-4 py-3 border border-rc-border rounded-lg focus:outline-none focus:border-rc-accent/60 transition-colors bg-white text-rc-text"
+                        placeholder="+233..."
+                      />
+                    </div>
+
+                    {/* Action Buttons */}
+                    <div className="flex gap-3 pt-4">
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setIsAttendanceModalOpen(false);
+                          setAttendanceData({ name: '', email: '', phone: '' });
+                        }}
+                        className="px-6 py-3 text-rc-text/70 hover:text-rc-text transition-colors"
+                      >
+                        Close
+                      </button>
+                      <button
+                        type="submit"
+                        disabled={isSubmittingAttendance}
+                        className="flex-1 px-6 py-3 bg-rc-accent text-white font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300 disabled:opacity-50"
+                      >
+                        {isSubmittingAttendance ? 'Registering...' : 'I\'m Attending'}
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              )}
+
+              {/* Success Step */}
+              {attendanceStep === 'complete' && (
+                <div className="p-8 md:p-12 text-center space-y-4">
+                  <div className="text-4xl mb-4">✓</div>
+                  <h3 className="text-2xl font-rc-serif font-bold text-rc-text">
+                    You're In
+                  </h3>
+                  <p className="text-rc-text/70">
+                    August 15, 3:00 PM · SCOAN Accra, Ghana
+                  </p>
+                  <button
+                    onClick={() => {
+                      setIsAttendanceModalOpen(false);
+                      setAttendanceStep('form');
+                      setAttendanceData({ name: '', email: '', phone: '' });
                     }}
                     className="mt-6 px-6 py-3 bg-rc-accent text-white font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300"
                   >
