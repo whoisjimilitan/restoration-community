@@ -1,6 +1,8 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
+import { useScrollReveal } from '@/lib/hooks/useScrollReveal';
 
 interface StoryCard {
   id: string;
@@ -58,6 +60,11 @@ const mockStories: StoryCard[] = [
 export default function TestimoniesPage() {
   const [testimonies, setTestimonies] = useState<StoryCard[]>([]);
   const [loading, setLoading] = useState(true);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []);
 
   useEffect(() => {
     const fetchTestimonies = async () => {
@@ -100,7 +107,7 @@ export default function TestimoniesPage() {
             <p className="text-sm font-medium text-rc-accent uppercase tracking-wide">
               Stage {story.stage} — {story.stageName}
             </p>
-            <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight">
+            <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">
               {story.name}
             </h2>
             <p className="text-base text-rc-text/70">{story.role}</p>
@@ -120,18 +127,39 @@ export default function TestimoniesPage() {
     </div>
   );
 
+  const StoryItem = ({ story, idx }: { story: StoryCard; idx: number }) => {
+    const { ref, controls, initial } = useScrollReveal(0.2);
+
+    return (
+      <motion.div
+        key={story.id}
+        ref={ref}
+        initial={initial}
+        animate={controls}
+        className="pt-12 md:pt-16"
+      >
+        <StoryCard story={story} />
+        {idx < testimonies.length - 1 && (
+          <div className="mt-12 md:mt-16 border-t border-rc-border/20" />
+        )}
+      </motion.div>
+    );
+  };
+
   return (
-    <div className="bg-white text-rc-text">
+    <div className="bg-rc-bg text-rc-text">
       {/* Hero Section */}
-      <section className="w-full py-24 md:py-40 px-6 sm:px-8 md:px-12 bg-gradient-to-br from-rc-accent to-rc-text">
-        <div className="max-w-2xl mx-auto text-center space-y-6">
-          <p className="text-sm font-medium text-white/70 uppercase tracking-wider">Real Stories</p>
-          <h1 className="text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight">
-            Freedom Happening Now
-          </h1>
-          <p className="text-lg md:text-xl text-white/90 leading-relaxed">
-            Real people. Real transformation. Real freedom from fraud and deception.
-          </p>
+      <section className="w-full min-h-screen flex flex-col justify-center bg-gradient-to-br from-rc-accent to-rc-text px-6 sm:px-8 md:px-12 py-24 md:py-32">
+        <div className="max-w-2xl mx-auto w-full space-y-6">
+          <div className={`transform transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '120ms' }}>
+            <p className="text-xs font-medium text-white/70 uppercase tracking-wider">Real Stories</p>
+          </div>
+
+          <div className={`transform transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '240ms' }}>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight tracking-tight">
+              How Lives Have Changed
+            </h1>
+          </div>
         </div>
       </section>
 
@@ -149,15 +177,7 @@ export default function TestimoniesPage() {
           ) : (
             <div className="space-y-24 md:space-y-32 border-t border-rc-border/20">
               {testimonies.map((story, idx) => (
-                <div
-                  key={story.id}
-                  className="pt-12 md:pt-16"
-                >
-                  <StoryCard story={story} />
-                  {idx < testimonies.length - 1 && (
-                    <div className="mt-12 md:mt-16 border-t border-rc-border/20" />
-                  )}
-                </div>
+                <StoryItem key={story.id} story={story} idx={idx} />
               ))}
             </div>
           )}
@@ -197,7 +217,7 @@ export default function TestimoniesPage() {
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
         <div className="max-w-2xl mx-auto text-center space-y-12">
           <div className="space-y-4">
-            <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight">
+            <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">
               Your Story Could Be Next
             </h2>
             <p className="text-lg text-rc-text/70 leading-relaxed">
@@ -209,7 +229,7 @@ export default function TestimoniesPage() {
               const event = new CustomEvent('open-deliverance-modal');
               document.dispatchEvent(event);
             }}
-            className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-rc-accent text-white font-medium rounded-lg hover:shadow-lg transition-all duration-200"
+            className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-rc-accent text-white font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300"
           >
             Request Deliverance
           </button>
