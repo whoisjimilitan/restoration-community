@@ -84,374 +84,138 @@ export default function SignInPage() {
   }
 
   return (
-    <div style={{
-      minHeight: '100vh',
-      display: 'flex',
-      flexDirection: 'column',
-      backgroundColor: '#FAFAF8'
-    }}>
-      <div style={{
-        flex: 1,
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        paddingLeft: '2rem',
-        paddingRight: '2rem',
-      }}>
-        <div style={{ maxWidth: '480px', margin: '0 auto', width: '100%' }}>
-        {/* Header */}
-        <motion.div
-          style={{ marginBottom: '3.5rem' }}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-          viewport={{ once: true, amount: 0.15 }}
-        >
-          <h1 style={{
-            fontSize: '2.75rem',
-            fontFamily: 'Georgia, Garamond, serif',
-            fontWeight: 700,
-            color: '#1a1a1a',
-            lineHeight: 1.2,
-            marginBottom: '0.75rem',
-            marginTop: 0,
-            letterSpacing: '-0.05em'
-          }}>
-            W<span style={{ fontStyle: 'italic' }}>e</span>lcom<span style={{ fontStyle: 'italic' }}>e</span> Back
-          </h1>
-          <p style={{
-            fontSize: '1.0625rem',
-            fontFamily: 'system-ui, -apple-system, sans-serif',
-            color: '#666666',
-            lineHeight: 1.7,
-            marginTop: 0
-          }}>
-            Continue your journey toward freedom in Jesus.
-          </p>
-        </motion.div>
-
-        {/* Form Container */}
-        <motion.div
-          style={{
-            backgroundColor: '#FFFFFF',
-            padding: '2.5rem',
-            borderRadius: '8px',
-            marginBottom: '2rem',
-            boxShadow: '0 1px 3px rgba(0,0,0,0.05)',
-            border: '1px solid #f0f0f0'
-          }}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-          viewport={{ once: true, amount: 0.15 }}
-        >
-          {/* Error Banner */}
-          {error && (
-            <div style={{
-              backgroundColor: '#FEE2E2',
-              border: '1px solid #FCA5A5',
-              color: '#991B1B',
-              padding: '1rem',
-              borderRadius: '6px',
-              marginBottom: '1.5rem'
-            }}>
-              <p style={{ margin: 0, fontSize: '0.9375rem', fontWeight: 600 }}>
-                Sign In Failed
-              </p>
-              <p style={{ margin: '0.5rem 0 0 0', fontSize: '0.9375rem', lineHeight: 1.5 }}>
-                {error}
-              </p>
-            </div>
-          )}
-
-          {/* Form */}
-          <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-            {/* Email Field */}
-            <div>
-              <label style={{
-                display: 'block',
-                fontSize: '0.875rem',
-                fontFamily: 'system-ui, -apple-system, sans-serif',
-                fontWeight: 600,
-                color: '#1a1a1a',
-                marginBottom: '0.5rem',
-                textTransform: 'uppercase',
-                letterSpacing: '0.5px'
-              }}>
-                Email
-              </label>
-              <input
-                type="email"
-                placeholder="you@example.com"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                autoFocus
-                style={{
-                  width: '100%',
-                  padding: '0.875rem',
-                  fontSize: '1rem',
-                  fontFamily: 'system-ui, -apple-system, sans-serif',
-                  color: '#1a1a1a',
-                  border: formErrors.email ? '1px solid #DC2626' : '1px solid #D1D5DB',
-                  borderRadius: '6px',
-                  backgroundColor: '#FFFFFF',
-                  boxSizing: 'border-box',
-                  transition: 'all 200ms',
-                  outline: 'none'
-                }}
-                onFocus={(e) => {
-                  if (!formErrors.email) {
-                    e.currentTarget.style.borderColor = '#0D5E57';
-                    e.currentTarget.style.boxShadow = '0 0 0 3px rgba(13,94,87,0.1)';
-                  }
-                }}
-                onBlur={(e) => {
-                  e.currentTarget.style.borderColor = formErrors.email ? '#DC2626' : '#D1D5DB';
-                  e.currentTarget.style.boxShadow = 'none';
-                }}
-              />
-              {formErrors.email && (
-                <p style={{ color: '#DC2626', fontSize: '0.8125rem', marginTop: '0.375rem', margin: '0.375rem 0 0 0', fontFamily: 'system-ui, -apple-system, sans-serif', fontWeight: 500 }}>
-                  {formErrors.email}
-                </p>
-              )}
-            </div>
-
-            {/* Password Field */}
-            <div>
-              <label style={{
-                display: 'block',
-                fontSize: '0.875rem',
-                fontFamily: 'system-ui, -apple-system, sans-serif',
-                fontWeight: 600,
-                color: '#1a1a1a',
-                marginBottom: '0.5rem',
-                textTransform: 'uppercase',
-                letterSpacing: '0.5px'
-              }}>
-                Password
-              </label>
-              <input
-                type="password"
-                placeholder="••••••••"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-                style={{
-                  width: '100%',
-                  padding: '0.875rem',
-                  fontSize: '1rem',
-                  fontFamily: 'system-ui, -apple-system, sans-serif',
-                  color: '#1a1a1a',
-                  border: formErrors.password ? '1px solid #DC2626' : '1px solid #D1D5DB',
-                  borderRadius: '6px',
-                  backgroundColor: '#FFFFFF',
-                  boxSizing: 'border-box',
-                  transition: 'all 200ms',
-                  outline: 'none'
-                }}
-                onFocus={(e) => {
-                  if (!formErrors.password) {
-                    e.currentTarget.style.borderColor = '#0D5E57';
-                    e.currentTarget.style.boxShadow = '0 0 0 3px rgba(13,94,87,0.1)';
-                  }
-                }}
-                onBlur={(e) => {
-                  e.currentTarget.style.borderColor = formErrors.password ? '#DC2626' : '#D1D5DB';
-                  e.currentTarget.style.boxShadow = 'none';
-                }}
-              />
-              {formErrors.password && (
-                <p style={{ color: '#DC2626', fontSize: '0.8125rem', marginTop: '0.375rem', margin: '0.375rem 0 0 0', fontFamily: 'system-ui, -apple-system, sans-serif', fontWeight: 500 }}>
-                  {formErrors.password}
-                </p>
-              )}
-            </div>
-
-            {/* Sign In Button */}
-            <button
-              type="submit"
-              disabled={!isFormValid || loading}
-              style={{
-                padding: '0.875rem 1.5rem',
-                backgroundColor: !isFormValid || loading ? '#E5E7EB' : '#0D5E57',
-                color: 'white',
-                fontSize: '1rem',
-                fontWeight: 600,
-                borderRadius: '6px',
-                border: 'none',
-                cursor: !isFormValid || loading ? 'not-allowed' : 'pointer',
-                transition: 'all 300ms',
-                fontFamily: 'system-ui, -apple-system, sans-serif',
-                opacity: loading ? 0.8 : 1,
-                marginTop: '0.5rem',
-                transform: 'translateY(0)'
-              }}
-              onMouseEnter={(e) => {
-                if (isFormValid && !loading) {
-                  e.currentTarget.style.backgroundColor = '#0a4a47';
-                  e.currentTarget.style.transform = 'translateY(-2px)';
-                  e.currentTarget.style.boxShadow = '0 10px 15px -3px rgba(0,0,0,0.1)';
-                }
-              }}
-              onMouseLeave={(e) => {
-                if (isFormValid && !loading) {
-                  e.currentTarget.style.backgroundColor = '#0D5E57';
-                  e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.boxShadow = 'none';
-                }
-              }}
-              onMouseDown={(e) => {
-                if (isFormValid && !loading) {
-                  e.currentTarget.style.transform = 'translateY(0)';
-                }
-              }}
-            >
-              {loading ? 'Signing in...' : 'Sign In'}
-            </button>
-          </form>
-
-          {/* Links */}
-          <div style={{ paddingTop: '1.5rem', borderTop: '1px solid #F0F0F0' }}>
-            <p style={{
-              fontSize: '0.9375rem',
-              fontFamily: 'system-ui, -apple-system, sans-serif',
-              color: '#666666',
-              textAlign: 'center',
-              margin: '1rem 0 0 0'
-            }}>
-              <Link
-                href="/auth/password-reset"
-                style={{
-                  color: '#0D5E57',
-                  textDecoration: 'none',
-                  fontWeight: 500,
-                  cursor: 'pointer'
-                }}
-                onMouseEnter={(e) => {
-                  (e.target as HTMLElement).style.textDecoration = 'underline';
-                }}
-                onMouseLeave={(e) => {
-                  (e.target as HTMLElement).style.textDecoration = 'none';
-                }}
-              >
-                Forgot password?
-              </Link>
+    <div className="min-h-screen bg-rc-bg flex flex-col">
+      <div className="flex-1 flex flex-col justify-center px-6 sm:px-8 md:px-12 py-12">
+        <div className="max-w-md mx-auto w-full">
+          {/* Header */}
+          <motion.div
+            className="mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          >
+            <h1 className="text-4xl font-rc-serif font-bold text-rc-text leading-tight mb-3">
+              W<span className="italic">e</span>lcom<span className="italic">e</span> Back
+            </h1>
+            <p className="text-lg text-rc-text/60 leading-relaxed">
+              Continue your journey toward freedom in Jesus.
             </p>
-            <p style={{
-              fontSize: '0.9375rem',
-              fontFamily: 'system-ui, -apple-system, sans-serif',
-              color: '#666666',
-              textAlign: 'center',
-              margin: '1rem 0 0 0'
-            }}>
-              Don&apos;t have an account?{' '}
-              <Link
-                href="/deliverance"
-                style={{
-                  fontWeight: 600,
-                  color: '#0D5E57',
-                  textDecoration: 'none',
-                  cursor: 'pointer'
-                }}
-                onMouseEnter={(e) => {
-                  (e.target as HTMLElement).style.textDecoration = 'underline';
-                }}
-                onMouseLeave={(e) => {
-                  (e.target as HTMLElement).style.textDecoration = 'none';
-                }}
+          </motion.div>
+
+          {/* Form Container */}
+          <motion.div
+            className="bg-white rounded-lg border border-rc-border/40 p-8 mb-8 shadow-sm"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.1 }}
+          >
+            {/* Error Banner */}
+            {error && (
+              <div className="bg-red-50 border border-red-200 text-red-900 px-4 py-3 rounded-lg mb-6">
+                <p className="font-medium text-sm">Sign In Failed</p>
+                <p className="text-sm mt-1 leading-relaxed">{error}</p>
+              </div>
+            )}
+
+            {/* Form */}
+            <form onSubmit={handleSubmit} className="space-y-5">
+              {/* Email Field */}
+              <div>
+                <label className="block text-xs font-semibold text-rc-text/70 uppercase tracking-wide mb-2">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  placeholder="you@example.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  autoFocus
+                  className={`w-full px-4 py-2.5 text-sm border rounded-lg transition-all duration-200 bg-white focus:outline-none ${
+                    formErrors.email
+                      ? 'border-red-500 focus:ring-red-200'
+                      : 'border-rc-border/40 focus:border-rc-accent/60 focus:ring-2 focus:ring-rc-accent/10'
+                  }`}
+                />
+                {formErrors.email && (
+                  <p className="text-red-600 text-xs font-medium mt-1.5">{formErrors.email}</p>
+                )}
+              </div>
+
+              {/* Password Field */}
+              <div>
+                <label className="block text-xs font-semibold text-rc-text/70 uppercase tracking-wide mb-2">
+                  Password
+                </label>
+                <input
+                  type="password"
+                  placeholder="••••••••"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                  className={`w-full px-4 py-2.5 text-sm border rounded-lg transition-all duration-200 bg-white focus:outline-none ${
+                    formErrors.password
+                      ? 'border-red-500 focus:ring-red-200'
+                      : 'border-rc-border/40 focus:border-rc-accent/60 focus:ring-2 focus:ring-rc-accent/10'
+                  }`}
+                />
+                {formErrors.password && (
+                  <p className="text-red-600 text-xs font-medium mt-1.5">{formErrors.password}</p>
+                )}
+              </div>
+
+              {/* Sign In Button */}
+              <button
+                type="submit"
+                disabled={!isFormValid || loading}
+                className="w-full mt-2 px-6 py-2.5 bg-rc-accent text-white font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:transform-none text-sm"
               >
-                Start your journey
-              </Link>
-            </p>
-          </div>
-        </motion.div>
-      </div>
+                {loading ? 'Signing in...' : 'Sign In'}
+              </button>
+            </form>
+
+            {/* Links */}
+            <div className="pt-6 border-t border-rc-border/20 space-y-3">
+              <p className="text-center text-sm text-rc-text/60">
+                <Link
+                  href="/auth/password-reset"
+                  className="text-rc-accent hover:underline font-medium transition-colors"
+                >
+                  Forgot password?
+                </Link>
+              </p>
+              <p className="text-center text-sm text-rc-text/60">
+                Don&apos;t have an account?{' '}
+                <Link
+                  href="/deliverance"
+                  className="text-rc-accent hover:underline font-semibold transition-colors"
+                >
+                  Start your journey
+                </Link>
+              </p>
+            </div>
+          </motion.div>
+        </div>
       </div>
 
-      {/* FOOTER - Matches Partnership/Landing Pages */}
-      <footer style={{
-        width: '100%',
-        paddingLeft: '1.5rem',
-        paddingRight: '1.5rem',
-        paddingTop: '3rem',
-        paddingBottom: '3rem',
-        backgroundColor: '#1a1a1a',
-        borderTop: '1px solid #333333',
-        textAlign: 'center'
-      }}>
-        <div style={{ maxWidth: '40rem', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-          {/* Navigation Links */}
-          <div style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            gap: '1.5rem'
-          }}>
-            <a
-              href="/"
-              style={{
-                color: 'rgba(255, 255, 255, 0.8)',
-                textDecoration: 'none',
-                transition: 'color 0.3s ease',
-                position: 'relative'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.color = 'rgba(255, 255, 255, 1)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.color = 'rgba(255, 255, 255, 0.8)';
-              }}
-            >
+      {/* FOOTER */}
+      <footer className="w-full px-6 sm:px-8 md:px-12 py-12 bg-rc-text border-t border-rc-border text-center">
+        <div className="max-w-2xl mx-auto space-y-6">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-12">
+            <a href="/" className="text-white/80 hover:text-white transition-colors group text-sm">
               Home
+              <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
             </a>
-            <a
-              href="/partnership"
-              style={{
-                color: 'rgba(255, 255, 255, 0.8)',
-                textDecoration: 'none',
-                transition: 'color 0.3s ease',
-                position: 'relative'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.color = 'rgba(255, 255, 255, 1)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.color = 'rgba(255, 255, 255, 0.8)';
-              }}
-            >
+            <a href="/partnership" className="text-white/80 hover:text-white transition-colors group text-sm">
               Partnership
+              <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
             </a>
-            <a
-              href="/testimonies"
-              style={{
-                color: 'rgba(255, 255, 255, 0.8)',
-                textDecoration: 'none',
-                transition: 'color 0.3s ease',
-                position: 'relative'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.color = 'rgba(255, 255, 255, 1)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.color = 'rgba(255, 255, 255, 0.8)';
-              }}
-            >
+            <a href="/testimonies" className="text-white/80 hover:text-white transition-colors group text-sm">
               Success Stories
+              <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
             </a>
           </div>
-
-          {/* Copyright Only */}
-          <p style={{
-            color: 'rgba(255, 255, 255, 0.25)',
-            fontSize: '0.75rem',
-            margin: 0,
-            fontFamily: 'system-ui, -apple-system, sans-serif'
-          }}>
-            © 2026. All rights reserved.
-          </p>
+          <p className="text-white/25 text-xs">© 2026. All rights reserved.</p>
         </div>
       </footer>
     </div>
