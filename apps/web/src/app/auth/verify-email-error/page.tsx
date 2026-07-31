@@ -2,6 +2,7 @@
 
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 import { PageLayout, PageHeader, Section, Card, CardContent, Button } from '@/components/ui';
 
 export default function VerifyEmailErrorPage() {
@@ -37,14 +38,21 @@ export default function VerifyEmailErrorPage() {
 
   return (
     <PageLayout className="flex items-center justify-center min-h-screen">
-      <Section className="w-full max-w-md mb-0">
-        <PageHeader
-          title={error.title}
-          description="Email verification"
-        />
+      <motion.div
+        className="w-full max-w-md"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+        viewport={{ once: true, amount: 0.15 }}
+      >
+        <Section className="w-full max-w-md mb-0">
+          <PageHeader
+            title={error.title}
+            description="Email verification"
+          />
 
-        <Card>
-          <CardContent>
+          <Card>
+            <CardContent>
             <div className="space-y-4">
               <div className="text-center py-4">
                 <div className="text-4xl mb-2">✗</div>
@@ -69,7 +77,8 @@ export default function VerifyEmailErrorPage() {
             </div>
           </CardContent>
         </Card>
-      </Section>
+        </Section>
+      </motion.div>
     </PageLayout>
   );
 }

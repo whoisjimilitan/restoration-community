@@ -3,6 +3,7 @@
 import { useSearchParams } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 import { PageLayout, PageHeader, Section, Card, CardContent, Button, Alert } from '@/components/ui';
 
 export default function VerifyEmailPage() {
@@ -59,14 +60,21 @@ export default function VerifyEmailPage() {
 
   return (
     <PageLayout className="flex items-center justify-center min-h-screen">
-      <Section className="w-full max-w-md mb-0">
-        <PageHeader
-          title="Check Your Email"
-          description="Verify your account to continue"
-        />
+      <motion.div
+        className="w-full max-w-md"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+        viewport={{ once: true, amount: 0.15 }}
+      >
+        <Section className="w-full max-w-md mb-0">
+          <PageHeader
+            title="Check Your Email"
+            description="Verify your account to continue"
+          />
 
-        <Card>
-          <CardContent>
+          <Card>
+            <CardContent>
             {error && (
               <Alert
                 type="error"
@@ -125,7 +133,8 @@ export default function VerifyEmailPage() {
             </div>
           </CardContent>
         </Card>
-      </Section>
+        </Section>
+      </motion.div>
     </PageLayout>
   );
 }

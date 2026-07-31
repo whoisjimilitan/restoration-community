@@ -4,6 +4,7 @@ import { FormEvent, useState } from 'react';
 import { signIn } from 'next-auth/react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 export default function SignInPage() {
   const router = useRouter();
@@ -99,7 +100,13 @@ export default function SignInPage() {
       }}>
         <div style={{ maxWidth: '480px', margin: '0 auto', width: '100%' }}>
         {/* Header */}
-        <div style={{ marginBottom: '3.5rem' }}>
+        <motion.div
+          style={{ marginBottom: '3.5rem' }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          viewport={{ once: true, amount: 0.15 }}
+        >
           <h1 style={{
             fontSize: '2.75rem',
             fontFamily: 'Georgia, Garamond, serif',
@@ -121,17 +128,23 @@ export default function SignInPage() {
           }}>
             Sign in to continue your restoration journey.
           </p>
-        </div>
+        </motion.div>
 
         {/* Form Container */}
-        <div style={{
-          backgroundColor: '#FFFFFF',
-          padding: '2.5rem',
-          borderRadius: '8px',
-          marginBottom: '2rem',
-          boxShadow: '0 1px 3px rgba(0,0,0,0.05)',
-          border: '1px solid #f0f0f0'
-        }}>
+        <motion.div
+          style={{
+            backgroundColor: '#FFFFFF',
+            padding: '2.5rem',
+            borderRadius: '8px',
+            marginBottom: '2rem',
+            boxShadow: '0 1px 3px rgba(0,0,0,0.05)',
+            border: '1px solid #f0f0f0'
+          }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          viewport={{ once: true, amount: 0.15 }}
+        >
           {/* Error Banner */}
           {error && (
             <div style={{
@@ -343,7 +356,7 @@ export default function SignInPage() {
               </Link>
             </p>
           </div>
-        </div>
+        </motion.div>
       </div>
       </div>
 
