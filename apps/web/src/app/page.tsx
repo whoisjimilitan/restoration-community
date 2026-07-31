@@ -27,11 +27,6 @@ export default function Home() {
 
   return (
     <div className="bg-rc-bg text-rc-text relative">
-      {/* LOGO - Fixed top left, new premium version */}
-      <div className="fixed top-8 left-8 md:top-12 md:left-12 z-40">
-        <img src="/images/logo-jimi-new.png" alt="Jimi" className="h-14 w-14 md:h-16 md:w-16 opacity-95 hover:opacity-100 transition-opacity duration-300 object-contain" />
-      </div>
-
       {/* HERO */}
       <section className="w-full min-h-screen flex flex-col justify-center bg-gradient-to-br from-rc-accent to-rc-text px-6 sm:px-8 md:px-12 py-24 md:py-32">
         <div className="max-w-2xl mx-auto w-full space-y-6">
