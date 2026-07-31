@@ -39,65 +39,61 @@ export default function PartnershipPage() {
         </div>
       </section>
 
-      {/* Founding Partners */}
+      {/* Founding Partners Section */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
         <div className="max-w-6xl mx-auto">
           <div className="text-center space-y-4 mb-16">
             <p className="text-xs font-medium text-rc-accent uppercase tracking-wider">Founding Partners</p>
             <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight">Those who saw the problem first.</h2>
-            <p className="text-base md:text-lg text-rc-text/70 leading-relaxed">Before anyone else moved, they believed deliverance was possible and stood to make it real.</p>
           </div>
           <div className="grid md:grid-cols-2 gap-12">
             {foundingPartners.map((partner) => (
-              <div key={partner.id} className="group flex items-center justify-center p-8 rounded-lg bg-white border border-rc-border/20 hover:shadow-lg hover:border-rc-accent/30 transition-all duration-300 min-h-[160px]">
-                <p className="text-center text-lg font-rc-serif font-semibold text-rc-text/80 group-hover:text-rc-text transition-colors">{partner.name}</p>
+              <div key={partner.id} className="flex items-center justify-center p-8 rounded-lg bg-white border border-rc-border/20 min-h-[160px]">
+                <p className="text-center text-lg font-rc-serif font-semibold text-rc-text/80">{partner.name}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Standing Partners */}
+      {/* Standing Partners Section */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
         <div className="max-w-6xl mx-auto">
           <div className="text-center space-y-4 mb-16">
             <p className="text-xs font-medium text-rc-accent uppercase tracking-wider">Standing Partners</p>
             <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight">Those who fuel this work now.</h2>
-            <p className="text-base md:text-lg text-rc-text/70 leading-relaxed">They understand the solution. They're investing in the infrastructure that makes transformation possible every single day.</p>
           </div>
           <div className="grid md:grid-cols-5 gap-6">
             {standingPartners.map((partner) => (
-              <div key={partner.id} className="group flex items-center justify-center p-6 rounded-lg bg-white border border-rc-border/20 hover:shadow-lg hover:border-rc-accent/30 transition-all duration-300 min-h-[140px]">
-                <p className="text-center text-sm font-rc-serif font-semibold text-rc-text/80 group-hover:text-rc-text transition-colors leading-tight">{partner.name}</p>
+              <div key={partner.id} className="flex items-center justify-center p-6 rounded-lg bg-white border border-rc-border/20 min-h-[140px]">
+                <p className="text-center text-sm font-rc-serif font-semibold text-rc-text/80 leading-tight">{partner.name}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Prayer Partners */}
+      {/* Prayer Partners Section */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
         <div className="max-w-6xl mx-auto">
           <div className="text-center space-y-4 mb-16">
             <p className="text-xs font-medium text-rc-accent uppercase tracking-wider">Prayer Partners</p>
             <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight">Those who hold this in prayer.</h2>
-            <p className="text-base md:text-lg text-rc-text/70 leading-relaxed">They believe prayer changes everything. Their intercession is the foundation upon which all transformation rests.</p>
           </div>
           <div className="grid md:grid-cols-7 gap-4">
             {prayerPartners.map((partner) => (
-              <div key={partner.id} className="group flex items-center justify-center p-5 rounded-lg bg-white border border-rc-border/20 hover:shadow-lg hover:border-rc-accent/30 transition-all duration-300 min-h-[120px]">
-                <p className="text-center text-xs font-rc-serif font-semibold text-rc-text/80 group-hover:text-rc-text transition-colors leading-tight">{partner.name}</p>
+              <div key={partner.id} className="flex items-center justify-center p-5 rounded-lg bg-white border border-rc-border/20 min-h-[120px]">
+                <p className="text-center text-xs font-rc-serif font-semibold text-rc-text/80 leading-tight">{partner.name}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* The Unified Story */}
+      {/* Unified Story Section */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
         <div className="max-w-4xl mx-auto">
           <div className="space-y-8">
-            {/* The Journey */}
             <div className="space-y-6">
               <p className="text-lg md:text-xl text-rc-text/80 leading-relaxed">
                 Partnership isn't a donation. It's a declaration.
@@ -110,7 +106,6 @@ export default function PartnershipPage() {
               </p>
             </div>
 
-            {/* The Shared Belief */}
             <div className="pt-8 space-y-6 border-t border-rc-border/40">
               <div className="space-y-4">
                 <p className="text-base md:text-lg text-rc-text/70">These partners share one belief:</p>
@@ -118,7 +113,6 @@ export default function PartnershipPage() {
               </div>
             </div>
 
-            {/* The Call */}
             <div className="pt-8 space-y-8 border-t border-rc-border/40">
               <div className="space-y-4">
                 <p className="text-lg md:text-xl text-rc-text/80">
@@ -145,7 +139,7 @@ export default function PartnershipPage() {
         </div>
       </section>
 
-      {/* Explore */}
+      {/* Explore Section */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
         <div className="max-w-2xl mx-auto text-center">
           <div className="space-y-8">
