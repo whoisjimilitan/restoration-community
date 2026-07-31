@@ -270,7 +270,7 @@ export default function Home() {
             <div className="space-y-3 text-lg md:text-lg text-rc-text leading-relaxed font-light">
               <p>SCOAN Accra, Ghana</p>
               <p>Friday, August 15 at 3:00 PM</p>
-              <p className="text-sm text-rc-text/70 pt-2">Meeting 1: Truth Teaching</p>
+              <p className="text-sm text-rc-text/70 pt-2">Topic: Truth</p>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6">
