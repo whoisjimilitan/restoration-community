@@ -138,10 +138,10 @@ function SignupPageContent() {
       <div style={{ maxWidth: '500px', marginLeft: 'auto', marginRight: 'auto' }}>
         <div style={{ marginBottom: '2rem' }}>
           <h1 style={{ fontSize: '2rem', fontFamily: 'Georgia, serif', fontWeight: 'bold', marginBottom: '0.5rem', textAlign: 'center' }}>
-            Welcome to Restoration
+            Begin Your Journey
           </h1>
           <p style={{ fontSize: '1rem', color: '#666', textAlign: 'center' }}>
-            Create your account to begin your journey of truth
+            Start your journey toward freedom in Jesus Christ
           </p>
         </div>
 

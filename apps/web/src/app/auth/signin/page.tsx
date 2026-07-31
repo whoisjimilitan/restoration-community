@@ -126,7 +126,7 @@ export default function SignInPage() {
             lineHeight: 1.7,
             marginTop: 0
           }}>
-            Continue your journey.
+            Continue your journey toward freedom in Jesus.
           </p>
         </motion.div>
 
