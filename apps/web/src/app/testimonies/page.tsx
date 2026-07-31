@@ -23,7 +23,7 @@ const mockStories: StoryCard[] = [
     stage: 6,
     stageName: 'Honest Work',
     quote: 'From schemes to solid ground. Now I build businesses that last.',
-    story: 'Samuel spent seven years caught in fraud networks across West Africa. The money came fast, but the spiritual weight was crushing. When he encountered the gospel, everything shifted. He abandoned the schemes overnight. Today, he runs a legitimate logistics business that employs fifteen people. He mentors younger entrepreneurs on sustainable growth.',
+    story: 'Seven years in fraud networks. The gospel changed everything. Now he builds legitimate businesses and mentors others.',
     heroImage: {
       url: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"%3E%3Crect fill="%234DB5A6" width="400" height="400"/%3E%3Ccircle cx="200" cy="120" r="60" fill="%23ffffff" opacity="0.3"/%3E%3Crect x="80" y="200" width="240" height="160" fill="%23ffffff" opacity="0.2"/%3E%3Ctext x="200" y="310" font-size="24" fill="%23ffffff" text-anchor="middle" opacity="0.5"%3ESamuel Okafor%3C/text%3E%3C/svg%3E',
       alt: 'Samuel Okafor'
@@ -36,7 +36,7 @@ const mockStories: StoryCard[] = [
     stage: 7,
     stageName: 'Service',
     quote: 'My past became my platform. Now I help others find their way out.',
-    story: 'Chioma was trafficked into fraud operations at nineteen. The shame kept her silent for five years. When she found freedom through deliverance prayer, she didn\'t just heal—she mobilized. She now runs a nonprofit supporting women exiting trafficking. She speaks at churches and universities. Her story has changed how twenty communities think about restoration.',
+    story: 'Trafficked at nineteen, shame kept her silent for years. Freedom through deliverance transformed everything. Now she runs a nonprofit supporting women and mobilizes communities around restoration.',
     heroImage: {
       url: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"%3E%3Crect fill="%231B7A6F" width="400" height="400"/%3E%3Ccircle cx="200" cy="120" r="60" fill="%23ffffff" opacity="0.3"/%3E%3Crect x="80" y="200" width="240" height="160" fill="%23ffffff" opacity="0.2"/%3E%3Ctext x="200" y="310" font-size="24" fill="%23ffffff" text-anchor="middle" opacity="0.5"%3EChioma Adeyemi%3C/text%3E%3C/svg%3E',
       alt: 'Chioma Adeyemi'
@@ -49,7 +49,7 @@ const mockStories: StoryCard[] = [
     stage: 4,
     stageName: 'Forgiveness',
     quote: 'I forgave the people who pulled me in. That freed me more than leaving ever could.',
-    story: 'Tunde started small—a university student looking for quick money. Within months, he was coordinating elaborate scams targeting elderly people abroad. The guilt became unbearable. He tried to quit but felt trapped by his crew. In a moment of desperation, he reached out to a pastor. The forgiveness message broke something open in him. He turned state\'s evidence, completed Stage 4 work on releasing bitterness, and is now studying accounting to build legitimate skills.',
+    story: 'University student caught in elaborate scams. Desperation led him to a pastor; forgiveness broke open years of shame. Now he\'s studying accounting and walking the restoration path.',
     heroImage: {
       url: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"%3E%3Crect fill="%2395DDD7" width="400" height="400"/%3E%3Ccircle cx="200" cy="120" r="60" fill="%23ffffff" opacity="0.3"/%3E%3Crect x="80" y="200" width="240" height="160" fill="%23ffffff" opacity="0.2"/%3E%3Ctext x="200" y="310" font-size="24" fill="%23ffffff" text-anchor="middle" opacity="0.5"%3ETunde Bankole%3C/text%3E%3C/svg%3E',
       alt: 'Tunde Bankole'
