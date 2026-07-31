@@ -214,8 +214,8 @@ export default function Home() {
 
           <div className="space-y-6">
             <div className="space-y-4 text-lg md:text-xl text-white/95 leading-relaxed font-light">
-              <p className="font-medium">📍 SCOAN Accra, Ghana</p>
-              <p className="font-medium">⏰ Friday, August 15 at 3:00 PM</p>
+              <p className="font-medium">SCOAN Accra, Ghana</p>
+              <p className="font-medium">Friday, August 15 at 3:00 PM</p>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
@@ -228,7 +228,7 @@ export default function Home() {
             </div>
           </div>
 
-          <p className="text-sm text-white/70 pt-4">Stage 1: Truth teaching • Discussion • Prayer</p>
+          <p className="text-sm text-white/70 pt-4">Meeting 1: Truth Teaching</p>
         </motion.div>
       </section>
 
