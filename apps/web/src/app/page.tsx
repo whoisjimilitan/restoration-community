@@ -265,7 +265,7 @@ export default function Home() {
           className="max-w-2xl mx-auto text-center space-y-8"
         >
           <div className="space-y-6">
-            <p className="text-sm uppercase tracking-widest font-medium" style={{ color: '#0D5E57' }}>If you are ready to walk with Jesus</p>
+            <p className="text-sm uppercase tracking-widest font-medium" style={{ color: '#0D5E57' }}>If you are ready, Jesus is</p>
 
             <div className="space-y-4 text-lg md:text-lg leading-relaxed font-light" style={{ color: '#1A1A18' }}>
               <div className="flex items-center justify-center gap-3">
