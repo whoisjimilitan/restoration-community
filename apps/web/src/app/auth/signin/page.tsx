@@ -87,12 +87,17 @@ export default function SignInPage() {
       minHeight: '100vh',
       display: 'flex',
       flexDirection: 'column',
-      justifyContent: 'center',
-      paddingLeft: '2rem',
-      paddingRight: '2rem',
       backgroundColor: '#FAFAF8'
     }}>
-      <div style={{ maxWidth: '480px', margin: '0 auto', width: '100%' }}>
+      <div style={{
+        flex: 1,
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        paddingLeft: '2rem',
+        paddingRight: '2rem',
+      }}>
+        <div style={{ maxWidth: '480px', margin: '0 auto', width: '100%' }}>
         {/* Header */}
         <div style={{ marginBottom: '3.5rem' }}>
           <h1 style={{
@@ -340,6 +345,92 @@ export default function SignInPage() {
           </div>
         </div>
       </div>
+      </div>
+
+      {/* FOOTER - Matches Partnership/Landing Pages */}
+      <footer style={{
+        width: '100%',
+        paddingLeft: '1.5rem',
+        paddingRight: '1.5rem',
+        paddingTop: '3rem',
+        paddingBottom: '3rem',
+        backgroundColor: '#1a1a1a',
+        borderTop: '1px solid #333333',
+        textAlign: 'center'
+      }}>
+        <div style={{ maxWidth: '40rem', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+          {/* Navigation Links */}
+          <div style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '1.5rem'
+          }}>
+            <a
+              href="/"
+              style={{
+                color: 'rgba(255, 255, 255, 0.8)',
+                textDecoration: 'none',
+                transition: 'color 0.3s ease',
+                position: 'relative'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.color = 'rgba(255, 255, 255, 1)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.color = 'rgba(255, 255, 255, 0.8)';
+              }}
+            >
+              Home
+            </a>
+            <a
+              href="/partnership"
+              style={{
+                color: 'rgba(255, 255, 255, 0.8)',
+                textDecoration: 'none',
+                transition: 'color 0.3s ease',
+                position: 'relative'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.color = 'rgba(255, 255, 255, 1)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.color = 'rgba(255, 255, 255, 0.8)';
+              }}
+            >
+              Partnership
+            </a>
+            <a
+              href="/testimonies"
+              style={{
+                color: 'rgba(255, 255, 255, 0.8)',
+                textDecoration: 'none',
+                transition: 'color 0.3s ease',
+                position: 'relative'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.color = 'rgba(255, 255, 255, 1)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.color = 'rgba(255, 255, 255, 0.8)';
+              }}
+            >
+              Success Stories
+            </a>
+          </div>
+
+          {/* Copyright Only */}
+          <p style={{
+            color: 'rgba(255, 255, 255, 0.25)',
+            fontSize: '0.75rem',
+            margin: 0,
+            fontFamily: 'system-ui, -apple-system, sans-serif'
+          }}>
+            © 2026. All rights reserved.
+          </p>
+        </div>
+      </footer>
     </div>
   );
 }
