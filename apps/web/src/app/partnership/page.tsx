@@ -48,8 +48,8 @@ export default function PartnershipPage() {
           </div>
           <div className="grid md:grid-cols-2 gap-12">
             {foundingPartners.map((partner) => (
-              <div key={partner.id} className="flex items-center justify-center p-8 rounded-lg bg-white border border-rc-border/20 min-h-[160px]">
-                <p className="text-center text-lg font-rc-serif font-semibold text-rc-text/80">{partner.name}</p>
+              <div key={partner.id} className="group flex items-center justify-center p-8 rounded-lg bg-white border border-rc-border/20 hover:shadow-lg hover:border-rc-accent/30 transition-all duration-300 min-h-[160px]">
+                <p className="text-center text-lg font-rc-serif font-semibold text-rc-text/80 group-hover:text-rc-text transition-colors duration-300">{partner.name}</p>
               </div>
             ))}
           </div>
@@ -65,8 +65,8 @@ export default function PartnershipPage() {
           </div>
           <div className="grid md:grid-cols-5 gap-6">
             {standingPartners.map((partner) => (
-              <div key={partner.id} className="flex items-center justify-center p-6 rounded-lg bg-white border border-rc-border/20 min-h-[140px]">
-                <p className="text-center text-sm font-rc-serif font-semibold text-rc-text/80 leading-tight">{partner.name}</p>
+              <div key={partner.id} className="group flex items-center justify-center p-6 rounded-lg bg-white border border-rc-border/20 hover:shadow-lg hover:border-rc-accent/30 transition-all duration-300 min-h-[140px]">
+                <p className="text-center text-sm font-rc-serif font-semibold text-rc-text/80 group-hover:text-rc-text transition-colors duration-300 leading-tight">{partner.name}</p>
               </div>
             ))}
           </div>
@@ -82,8 +82,8 @@ export default function PartnershipPage() {
           </div>
           <div className="grid md:grid-cols-7 gap-4">
             {prayerPartners.map((partner) => (
-              <div key={partner.id} className="flex items-center justify-center p-5 rounded-lg bg-white border border-rc-border/20 min-h-[120px]">
-                <p className="text-center text-xs font-rc-serif font-semibold text-rc-text/80 leading-tight">{partner.name}</p>
+              <div key={partner.id} className="group flex items-center justify-center p-5 rounded-lg bg-white border border-rc-border/20 hover:shadow-lg hover:border-rc-accent/30 transition-all duration-300 min-h-[120px]">
+                <p className="text-center text-xs font-rc-serif font-semibold text-rc-text/80 group-hover:text-rc-text transition-colors duration-300 leading-tight">{partner.name}</p>
               </div>
             ))}
           </div>
