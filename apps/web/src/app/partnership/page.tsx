@@ -28,10 +28,13 @@ export default function PartnershipPage() {
     <div className="bg-white text-rc-text">
       {/* Hero with Background Image Area */}
       <section className="relative w-full h-screen flex items-center justify-center px-6 sm:px-8 md:px-12 bg-gradient-to-br from-rc-accent to-rc-text overflow-hidden">
-        {/* Background Image Placeholder */}
-        <div className="absolute inset-0 bg-black/40" />
+        {/* Background image (optional, will be added in future) */}
+        {/* If image URL is added here, it will display above the gradient fallback */}
 
-        {/* Content */}
+        {/* Dark overlay for text legibility */}
+        <div className="absolute inset-0 bg-black/50" />
+
+        {/* Hero content */}
         <div className="relative z-10 max-w-3xl mx-auto text-center space-y-6">
           <p className="text-sm md:text-base font-medium text-white/80 uppercase tracking-widest">Those Who Believe</p>
           <h1 className="text-4xl md:text-6xl font-rc-serif font-bold text-white leading-tight">These Are Partners</h1>
