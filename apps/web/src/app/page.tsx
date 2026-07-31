@@ -27,6 +27,13 @@ export default function Home() {
 
   return (
     <div className="bg-rc-bg text-rc-text">
+      {/* HEADER */}
+      <header className="w-full px-6 sm:px-8 md:px-12 py-6 bg-rc-bg border-b border-rc-border">
+        <div className="max-w-7xl mx-auto flex items-center">
+          <img src="/images/logo-jimi.png" alt="Jimi" className="h-12 w-12 md:h-14 md:w-14" />
+        </div>
+      </header>
+
       {/* HERO */}
       <section className="w-full min-h-screen flex flex-col justify-center bg-gradient-to-br from-rc-accent to-rc-text px-6 sm:px-8 md:px-12 py-24 md:py-32">
         <div className="max-w-2xl mx-auto w-full space-y-6">
