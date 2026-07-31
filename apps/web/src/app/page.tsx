@@ -385,10 +385,35 @@ export default function Home() {
       </AnimatePresence>
 
       {/* Footer */}
-      <footer className="w-full py-8 px-6 sm:px-8 md:px-12 bg-rc-text border-t border-rc-border">
-        <div className="max-w-2xl mx-auto text-center space-y-3">
-          <p className="text-white/60 text-sm">Brother Jimi Ministries — An Inspiration from Jesus Christ</p>
-          <p className="text-white/30 text-xs">© 2026. All rights reserved.</p>
+      <footer className="w-full px-6 sm:px-8 md:px-12 py-12 bg-rc-text border-t border-rc-border text-center">
+        <div className="max-w-2xl mx-auto space-y-6">
+          {/* Navigation Links */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-12">
+            <a
+              href="/"
+              className="text-white/80 hover:text-white transition-colors group"
+            >
+              Home
+              <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
+            </a>
+            <a
+              href="/partnership"
+              className="text-white/80 hover:text-white transition-colors group"
+            >
+              Partnership
+              <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
+            </a>
+            <a
+              href="/testimonies"
+              className="text-white/80 hover:text-white transition-colors group"
+            >
+              Success Stories
+              <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
+            </a>
+          </div>
+
+          {/* Copyright Only */}
+          <p className="text-white/40 text-xs">© 2026. All rights reserved.</p>
         </div>
       </footer>
     </div>
