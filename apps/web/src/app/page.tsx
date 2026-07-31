@@ -26,13 +26,11 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="bg-rc-bg text-rc-text">
-      {/* HEADER */}
-      <header className="w-full px-6 sm:px-8 md:px-12 py-6 bg-rc-bg border-b border-rc-border">
-        <div className="max-w-7xl mx-auto flex items-center">
-          <img src="/images/logo-jimi.png" alt="Jimi" className="h-12 w-12 md:h-14 md:w-14" />
-        </div>
-      </header>
+    <div className="bg-rc-bg text-rc-text relative">
+      {/* LOGO - Fixed top left */}
+      <div className="fixed top-6 left-6 md:top-8 md:left-8 z-40">
+        <img src="/images/logo-jimi.png" alt="Jimi" className="h-10 w-10 md:h-12 md:w-12 opacity-90 hover:opacity-100 transition-opacity" />
+      </div>
 
       {/* HERO */}
       <section className="w-full min-h-screen flex flex-col justify-center bg-gradient-to-br from-rc-accent to-rc-text px-6 sm:px-8 md:px-12 py-24 md:py-32">
