@@ -5,7 +5,6 @@ import { redirect } from 'next/navigation';
 import { PageLayout, PageHeader, Section } from '@/components/ui';
 import { MentorCard } from './components/MentorCard';
 import { GatheringCard } from './components/GatheringCard';
-import { StageProgressionCard } from './components/StageProgressionCard';
 import { ReflectionForm } from './components/ReflectionForm';
 
 export default async function ParticipantDashboard() {
@@ -86,11 +85,6 @@ export default async function ParticipantDashboard() {
         title={`Welcome, ${displayName}`}
         description="Your restoration journey, mentor support, and gathering schedule."
       />
-
-      {/* Stage Progression */}
-      <Section>
-        <StageProgressionCard userRestoration={user.userRestoration} />
-      </Section>
 
       {/* Mentor and Gathering Cards */}
       <Section>
