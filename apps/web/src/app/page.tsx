@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 
 const stages = [
   { number: 1, name: 'Truth', color: '#E8F4F3', textColor: 'text-rc-text' },
@@ -16,6 +17,9 @@ const stages = [
 
 export default function Home() {
   const [isLoaded, setIsLoaded] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [formStep, setFormStep] = useState<'form' | 'complete'>('form');
+  const [formData, setFormData] = useState({ name: '', email: '', story: '' });
 
   useEffect(() => {
     setIsLoaded(true);
@@ -220,10 +224,7 @@ export default function Home() {
 
           <div className="flex flex-col sm:flex-row gap-4 pt-6">
             <button
-              onClick={() => {
-                const event = new CustomEvent('open-deliverance-modal');
-                document.dispatchEvent(event);
-              }}
+              onClick={() => setIsModalOpen(true)}
               className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-white text-rc-accent font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300 cursor-pointer"
             >
               Request Deliverance
@@ -253,6 +254,135 @@ export default function Home() {
           </div>
         </motion.div>
       </section>
+
+      {/* Modal Overlay */}
+      <AnimatePresence>
+        {isModalOpen && (
+          <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 px-4">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              transition={{ duration: 0.3 }}
+              className="bg-rc-bg rounded-lg shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto"
+            >
+              {/* Form Step */}
+              {formStep === 'form' && (
+                <div className="p-8 md:p-12 space-y-6">
+                  {/* Header */}
+                  <div className="space-y-2">
+                    <h2 className="text-2xl md:text-3xl font-rc-serif font-bold text-rc-text tracking-tight">
+                      Tell Us Your Story
+                    </h2>
+                    <p className="text-rc-text/70">
+                      Your testimony matters. Share your journey with us, and we'll connect you with support.
+                    </p>
+                  </div>
+
+                  {/* Form */}
+                  <form
+                    onSubmit={(e) => {
+                      e.preventDefault();
+                      if (formData.name && formData.email && formData.story) {
+                        setFormStep('complete');
+                      }
+                    }}
+                    className="space-y-6"
+                  >
+                    {/* Name */}
+                    <div className="space-y-2">
+                      <label className="block text-sm font-medium text-rc-text/70">
+                        Your Name
+                      </label>
+                      <input
+                        type="text"
+                        required
+                        value={formData.name}
+                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                        className="w-full px-4 py-3 border border-rc-border rounded-lg focus:outline-none focus:border-rc-accent/60 transition-colors bg-white text-rc-text"
+                        placeholder="Your name"
+                      />
+                    </div>
+
+                    {/* Email */}
+                    <div className="space-y-2">
+                      <label className="block text-sm font-medium text-rc-text/70">
+                        Email Address
+                      </label>
+                      <input
+                        type="email"
+                        required
+                        value={formData.email}
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        className="w-full px-4 py-3 border border-rc-border rounded-lg focus:outline-none focus:border-rc-accent/60 transition-colors bg-white text-rc-text"
+                        placeholder="your@email.com"
+                      />
+                    </div>
+
+                    {/* Story Textarea */}
+                    <div className="space-y-2">
+                      <label className="block text-sm font-medium text-rc-text/70">
+                        Your Story
+                      </label>
+                      <textarea
+                        required
+                        value={formData.story}
+                        onChange={(e) => setFormData({ ...formData, story: e.target.value })}
+                        className="w-full px-4 py-3 border border-rc-border rounded-lg focus:outline-none focus:border-rc-accent/60 transition-colors bg-white text-rc-text resize-none"
+                        placeholder="Share your journey. What brought you here? What are you hoping for?"
+                        rows={6}
+                      />
+                    </div>
+
+                    {/* Action Buttons */}
+                    <div className="flex gap-3 pt-4">
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setIsModalOpen(false);
+                          setFormData({ name: '', email: '', story: '' });
+                        }}
+                        className="px-6 py-3 text-rc-text/70 hover:text-rc-text transition-colors"
+                      >
+                        Close
+                      </button>
+                      <button
+                        type="submit"
+                        className="flex-1 px-6 py-3 bg-rc-accent text-white font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300"
+                      >
+                        Send My Story
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              )}
+
+              {/* Success Step */}
+              {formStep === 'complete' && (
+                <div className="p-8 md:p-12 text-center space-y-4">
+                  <div className="text-4xl mb-4">✓</div>
+                  <h3 className="text-2xl font-rc-serif font-bold text-rc-text">
+                    Thank You
+                  </h3>
+                  <p className="text-rc-text/70">
+                    Your story has been received. Someone from our team will reach out soon to walk with you through this journey.
+                  </p>
+                  <button
+                    onClick={() => {
+                      setIsModalOpen(false);
+                      setFormStep('form');
+                      setFormData({ name: '', email: '', story: '' });
+                    }}
+                    className="mt-6 px-6 py-3 bg-rc-accent text-white font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300"
+                  >
+                    Back to Page
+                  </button>
+                </div>
+              )}
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
 
       {/* Footer */}
       <footer className="w-full py-8 px-6 sm:px-8 md:px-12 bg-rc-text border-t border-rc-border">
