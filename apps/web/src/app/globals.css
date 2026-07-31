@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Georgia:wght@400;700&family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -13,6 +13,7 @@
 
   html {
     scroll-behavior: smooth;
+    --font-fraunces: 'Fraunces', Georgia, Garamond, serif;
   }
 
   body {
@@ -23,7 +24,7 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Georgia', serif;
+    font-family: var(--font-fraunces);
     color: #202124;
   }
 }

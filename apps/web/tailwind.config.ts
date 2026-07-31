@@ -1,5 +1,17 @@
 import type { Config } from 'tailwindcss';
 
+// Note: In production with internet access, use:
+// import { Fraunces } from 'next/font/google';
+// const fraunces = Fraunces({
+//   subsets: ['latin'],
+//   weight: ['400', '600', '700'],
+//   variable: '--font-fraunces',
+//   display: 'swap',
+// });
+
+// Fallback for offline environments: using Garamond (premium serif alternative)
+const frauncesFontClass = 'fraunces-fallback';
+
 const config: Config = {
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -22,7 +34,12 @@ const config: Config = {
         'rc-border': '#E0D9D0', // Premium border color
       },
       fontFamily: {
-        'rc-serif': ['Georgia', 'Garamond', 'serif'],
+        'rc-serif': [
+          'var(--font-fraunces)',
+          'Georgia',
+          'Garamond',
+          'serif',
+        ],
         'rc-sans': ['system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'sans-serif'],
       },
       animation: {
@@ -55,3 +72,4 @@ const config: Config = {
 };
 
 export default config;
+export { frauncesFontClass };
