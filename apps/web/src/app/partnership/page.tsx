@@ -61,7 +61,7 @@ export default function PartnershipPage() {
           className="max-w-6xl mx-auto"
         >
           <div className="space-y-12">
-            <h2 className="text-xl md:text-2xl font-bold uppercase tracking-wider">Founding Partners</h2>
+            <h2 className="text-xl md:text-2xl font-rc-serif font-bold uppercase tracking-wider">Founding Partners</h2>
             <div className="grid md:grid-cols-2 gap-12">
               {partners.founding.map((p) => (
                 <div key={p.id} className="w-24 h-24 md:w-32 md:h-32 rounded-lg bg-rc-border/20 flex items-center justify-center">
@@ -83,7 +83,7 @@ export default function PartnershipPage() {
           className="max-w-6xl mx-auto"
         >
           <div className="space-y-12">
-            <h2 className="text-xl md:text-2xl font-bold uppercase tracking-wider">Standing Partners</h2>
+            <h2 className="text-xl md:text-2xl font-rc-serif font-bold uppercase tracking-wider">Standing Partners</h2>
             <div className="grid md:grid-cols-5 gap-6">
               {partners.standing.map((p) => (
                 <div key={p.id} className="w-20 h-20 md:w-24 md:h-24 rounded-lg bg-rc-border/20 flex items-center justify-center">
@@ -105,7 +105,7 @@ export default function PartnershipPage() {
           className="max-w-6xl mx-auto"
         >
           <div className="space-y-12">
-            <h2 className="text-xl md:text-2xl font-bold uppercase tracking-wider">Prayer Partners</h2>
+            <h2 className="text-xl md:text-2xl font-rc-serif font-bold uppercase tracking-wider">Prayer Partners</h2>
             <div className="grid md:grid-cols-7 gap-4">
               {partners.prayer.map((p) => (
                 <div key={p.id} className="w-16 h-16 md:w-20 md:h-20 rounded-lg bg-rc-border/20 flex items-center justify-center">
