@@ -185,10 +185,10 @@ export default function Home() {
             <p>The journey out starts with truth.</p>
             <p>It is the only way to confession.</p>
             <p>To repentance. Forgiveness. And beyond.</p>
-            <p>Do not pretend.</p>
-            <p>Pretence only binds you tighter.</p>
+            <p>Do not deceive yourself.</p>
+            <p>Only deliverance frees you from the spirit of fraud.</p>
             <p className="pt-3">You walk with those who chose truth before you.</p>
-            <p>And by grace, become one who leads others into that way.</p>
+            <p>And through grace, become one who leads others there.</p>
           </div>
         </motion.div>
       </section>
