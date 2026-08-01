@@ -72,7 +72,7 @@ export default function Home() {
             <p className="text-rc-text/80">I have no opportunities.</p>
             <p className="text-rc-text/80">I am just recovering what was stolen.</p>
             <p className="pt-2">That is the voice of deception.</p>
-            <p className="font-medium">The spirit employing our youths to destroy them.</p>
+            <p className="font-medium">The spirit controlling our youths across nations.</p>
           </div>
         </motion.div>
       </section>
@@ -91,12 +91,13 @@ export default function Home() {
           <div className="border-l-4 border-rc-accent pl-8 space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
             <p>I too was controlled by <em className="not-italic font-medium">that spirit</em>.</p>
             <p>I justified my actions.</p>
+            <p>I blamed my country's economy.</p>
             <p>I convinced myself I had no choice.</p>
-            <p className="pt-3">Until my encounter with God.</p>
+            <p className="pt-3">Until my encounter with One Man only.</p>
             <p className="font-medium">He delivered me from <em className="not-italic">that spirit</em>.</p>
             <p className="font-medium">He gave me a new beginning.</p>
-            <p className="pt-3"><em className="not-italic font-medium">My God.</em> <em className="not-italic font-medium">My Deliverer.</em></p>
-            <p className="font-medium">His name is Jesus Christ.</p>
+            <p className="pt-3">He is my God. My Deliverer.</p>
+            <p className="font-medium">Jesus Christ.</p>
           </div>
         </motion.div>
       </section>
