@@ -182,9 +182,10 @@ export default function Home() {
           </div>
 
           <div className="space-y-4 pt-10 md:pt-12 border-t border-rc-text/15 text-base md:text-lg text-rc-text leading-relaxed font-light">
-            <p>Truth is your only way forward.</p>
+            <p>The journey out starts with truth.</p>
+            <p>It is the only way forward.</p>
             <p>Whatever is not true will crumble.</p>
-            <p>Pretence will keep you trapped.</p>
+            <p>Pretence will only keep you trapped.</p>
             <p className="pt-3">Starting with truth means choosing maturity over comfort.</p>
             <p>You move through this journey with those who have chosen truth before you.</p>
             <p>And you become one who leads others to truth.</p>
