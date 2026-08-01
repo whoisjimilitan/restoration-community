@@ -72,7 +72,7 @@ export default function Home() {
             <p className="text-rc-text/80">I have no opportunities.</p>
             <p className="text-rc-text/80">I am just recovering what was stolen.</p>
             <p className="pt-2">That is the voice of deceit.</p>
-            <p className="font-medium">The spirit controlling so many young people.</p>
+            <p className="font-medium">The spirit controlling so many young people today.</p>
           </div>
         </motion.div>
       </section>
