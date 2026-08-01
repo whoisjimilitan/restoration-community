@@ -73,9 +73,6 @@ export default function Home() {
             <p className="text-rc-text/80">I am just recovering what was stolen.</p>
             <p className="pt-2">That is the voice of deception.</p>
             <p className="font-medium">The evil spirit recruiting our youths today.</p>
-            <p className="text-rc-text/80">I am just recovering what was stolen.</p>
-            <p className="pt-3 font-medium">That is the voice of deception.</p>
-            <p className="font-medium">The spirit recruiting our youths across nations.</p>
           </div>
         </motion.div>
       </section>
