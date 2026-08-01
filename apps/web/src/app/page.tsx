@@ -183,12 +183,12 @@ export default function Home() {
 
           <div className="space-y-4 pt-10 md:pt-12 border-t border-rc-text/15 text-base md:text-lg text-rc-text leading-relaxed font-light">
             <p>The journey out starts with truth.</p>
-            <p>It is the only way forward.</p>
-            <p>Whatever is not true will crumble.</p>
-            <p>And pretence only binds you tighter.</p>
-            <p className="pt-3">Choose maturity over comfort.</p>
+            <p>It is the only way to confession.</p>
+            <p>To repentance, forgiveness, and beyond.</p>
+            <p>Pretence only binds you tighter.</p>
+            <p className="pt-3">Choose this way today.</p>
             <p>You walk with those who chose truth before you.</p>
-            <p>You become one who leads them.</p>
+            <p>And become one who leads others into that way.</p>
           </div>
         </motion.div>
       </section>
