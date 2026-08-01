@@ -93,7 +93,7 @@ export default function Home() {
             <p>I justified my actions.</p>
             <p>I blamed my country's economy.</p>
             <p>I convinced myself I had no choice.</p>
-            <p className="pt-3">Until my encounter with One Man only.</p>
+            <p className="pt-3">Until my encounter with One Man.</p>
             <p className="font-medium">He delivered me from <em className="not-italic">that spirit</em>.</p>
             <p className="font-medium">He gave me a new beginning.</p>
             <p className="pt-3">My God. My Deliverer.</p>
