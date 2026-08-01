@@ -185,10 +185,10 @@ export default function Home() {
             <p>The journey out starts with truth.</p>
             <p>It is the only way forward.</p>
             <p>Whatever is not true will crumble.</p>
-            <p>Pretence will only keep you trapped.</p>
-            <p className="pt-3">Starting with truth means choosing maturity over comfort.</p>
-            <p>You move through this journey with those who have chosen truth before you.</p>
-            <p>And you become one who leads others to truth.</p>
+            <p>And pretence only binds you tighter.</p>
+            <p className="pt-3">Choose maturity over comfort.</p>
+            <p>You walk with those who chose truth before you.</p>
+            <p>You become one who leads them.</p>
           </div>
         </motion.div>
       </section>
