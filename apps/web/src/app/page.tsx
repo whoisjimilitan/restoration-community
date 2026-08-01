@@ -118,7 +118,7 @@ export default function Home() {
             <p>From sin and its penalties.</p>
             <p>It is the only way out of fraud.</p>
             <p className="pt-3">For young people trapped in it.</p>
-            <p>And nations plagued by it.</p>
+            <p>For nations plagued by it.</p>
             <p className="pt-3">More money will not free you from it.</p>
             <p>More laws will not free our nations from it.</p>
             <p className="pt-3 font-medium">Fraud is a spiritual issue.</p>
