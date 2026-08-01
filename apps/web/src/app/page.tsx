@@ -182,7 +182,7 @@ export default function Home() {
           </div>
 
           <div className="space-y-4 pt-10 md:pt-12 border-t border-rc-text/15 text-base md:text-lg text-rc-text leading-relaxed font-light">
-            <p>You move through this journey with support and prayer from someone who has traveled it before.</p>
+            <p>You move through this journey with support of those who have traveled it before.</p>
           </div>
         </motion.div>
       </section>
@@ -198,35 +198,16 @@ export default function Home() {
         >
           <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">Deliverance Prayer</h2>
 
-          <div className="space-y-6 text-base md:text-lg text-rc-text leading-relaxed font-light">
-            <div className="space-y-3">
-              <p>Look at the stages in the journey ahead.</p>
-              <p>Prayer is essential to each stage.</p>
-            </div>
-
-            <div className="space-y-3 pt-2">
-              <p>But not just any kind of prayer will bring us to truth.</p>
-              <p>Deliverance prayer only does.</p>
-            </div>
-
-            <div className="space-y-3 pt-4 md:pt-6">
-              <p>In 2013, God used His servant Prophet TB Joshua to pray for me.</p>
-              <p>Before I walked out completely out of my own trap.</p>
-            </div>
-
-            <div className="space-y-3 pt-4 md:pt-6">
-              <p className="font-medium">One deliverance prayer.</p>
-              <p className="font-medium">Freedom from fraud.</p>
-            </div>
-
-            <div className="space-y-3 pt-4 md:pt-6">
-              <p>This is what I offer those with a similar challenge.</p>
-              <p>Right now. Wherever you are.</p>
-            </div>
-
-            <div className="pt-4 md:pt-6">
-              <p className="font-medium">If you are ready, the Living Word is ready in me.</p>
-            </div>
+          <div className="space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
+            <p>Do you see the stages in this divine journey?</p>
+            <p>Prayer is essential to each stage.</p>
+            <p>But not just any kind of prayer will bring us to truth.</p>
+            <p>Deliverance prayer only does.</p>
+            <p className="pt-3">In 2013, God used His servant Prophet TB Joshua to pray for me.</p>
+            <p>I walked out completely.</p>
+            <p className="pt-3">One deliverance prayer.</p>
+            <p>Freedom from fraud.</p>
+            <p className="pt-3 font-medium">If you are ready, the Living Word is ready in me.</p>
           </div>
         </motion.div>
       </section>
