@@ -72,7 +72,7 @@ export default function Home() {
             <p className="text-rc-text/80">I have no opportunities.</p>
             <p className="text-rc-text/80">I am just recovering what was stolen.</p>
             <p className="pt-2">That is the voice of deception.</p>
-            <p className="font-medium">The evil spirit recruiting our youths today.</p>
+            <p className="font-medium">The spirit recruiting our youths across nations.</p>
           </div>
         </motion.div>
       </section>
@@ -224,7 +224,6 @@ export default function Home() {
             <p>Through deliverance.</p>
             <p className="pt-3">The trap is real.</p>
             <p>But so is the Deliverer, Jesus Christ.</p>
-            <p className="pt-3">If this message is for you—if you feel the Spirit calling you out—encounter His deliverance now.</p>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 pt-6">
