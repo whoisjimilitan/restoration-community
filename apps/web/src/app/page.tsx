@@ -186,7 +186,7 @@ export default function Home() {
             <p>It is the only way to confession.</p>
             <p>To repentance. Forgiveness. And beyond.</p>
             <p>Do not deceive yourself.</p>
-            <p>Only deliverance frees you from the spirit of fraud.</p>
+            <p>Truth paves the way to leave fraud behind.</p>
             <p className="pt-3">You walk with those who chose truth before you.</p>
             <p>And through grace, become one who leads others there.</p>
           </div>
