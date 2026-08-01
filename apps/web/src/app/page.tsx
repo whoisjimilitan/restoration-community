@@ -127,33 +127,6 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* DELIVERANCE PRAYER CTA */}
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-          viewport={{ once: true, amount: 0.15 }}
-          className="max-w-2xl mx-auto space-y-12"
-        >
-          <div className="space-y-6 text-base md:text-lg text-rc-text leading-relaxed font-light">
-            <p>If this message is for you.</p>
-            <p>If the Spirit calling you out.</p>
-            <p className="pt-3">Now encounter God's deliverance.</p>
-            <p className="pt-2 font-medium">Request a deliverance encounter with me.</p>
-          </div>
-
-          <div>
-            <Link
-              href="/request-prayer"
-              className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-rc-accent text-white font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300"
-            >
-              DELIVERANCE PRAYER
-            </Link>
-          </div>
-        </motion.div>
-      </section>
-
       {/* THE JOURNEY OUT */}
       <section id="journey" className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
         <motion.div
@@ -254,15 +227,16 @@ export default function Home() {
             <p>Through deliverance.</p>
             <p className="pt-3">The trap is real.</p>
             <p>But so is the Deliverer, Jesus Christ.</p>
+            <p className="pt-3">If this message is for you—if you feel the Spirit calling you out—encounter His deliverance now.</p>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 pt-6">
-            <button
-              onClick={() => setIsModalOpen(true)}
-              className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-white text-rc-accent font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300 cursor-pointer"
+            <Link
+              href="/request-prayer"
+              className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-white text-rc-accent font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300"
             >
               Request Deliverance
-            </button>
+            </Link>
             <Link
               href="/auth/signin"
               className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] text-white font-medium border-2 border-white rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300"

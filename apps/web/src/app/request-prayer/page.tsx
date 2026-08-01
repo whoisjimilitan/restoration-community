@@ -51,8 +51,8 @@ export default function RequestPrayerPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-rc-bg to-rc-cream flex items-center justify-center py-12 px-4">
-      <div className="w-full max-w-2xl">
+    <div className="min-h-screen bg-rc-bg flex flex-col justify-center py-12 px-4">
+      <div className="w-full max-w-2xl mx-auto">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -64,7 +64,7 @@ export default function RequestPrayerPage() {
             Schedule Your Prayer Encounter
           </h1>
           <p className="text-lg text-rc-warm-gray max-w-md mx-auto">
-            Request a live prayer call with Brother Jimi. Share your situation, receive deliverance, begin your transformation.
+            Brother Jimi is available for live prayer calls midnight–5am Ghana time. Select a time that works for you.
           </p>
         </motion.div>
 
@@ -74,7 +74,7 @@ export default function RequestPrayerPage() {
             <motion.div
               key={s}
               className={`h-2 rounded-full transition ${
-                step === s ? 'bg-rc-accent w-8' : s === 'confirmation' && step === 'confirmation' ? 'bg-rc-accent w-8' : 'bg-rc-border w-2'
+                step === s ? 'bg-rc-accent w-8' : 'bg-rc-border w-2'
               }`}
               animate={{ width: step === s ? 32 : 8 }}
             />
@@ -117,7 +117,7 @@ export default function RequestPrayerPage() {
             className="mt-12 text-center text-sm text-rc-warm-gray"
           >
             <p>
-              This is a free encounter. After your prayer call, you'll be invited to join our 7-day restoration intensive (completely free).
+              This is a free encounter. You'll receive email confirmation with the prayer room link and instructions for joining.
             </p>
           </motion.div>
         )}

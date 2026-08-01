@@ -24,24 +24,31 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
     const { name, email, phone, message, bookedSlot, consentRecording } = body;
 
+    console.log('[PRAYER-BOOKINGS] Request body:', { name, email, phone, bookedSlot, consentRecording });
+
     // Validation
     if (!name || !name.trim()) {
+      console.log('[PRAYER-BOOKINGS] Validation failed: name required');
       return NextResponse.json({ error: 'Name is required' }, { status: 400 });
     }
 
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      console.log('[PRAYER-BOOKINGS] Validation failed: invalid email', email);
       return NextResponse.json({ error: 'Valid email is required' }, { status: 400 });
     }
 
     if (!phone || phone.replace(/\D/g, '').length < 10) {
+      console.log('[PRAYER-BOOKINGS] Validation failed: invalid phone', phone);
       return NextResponse.json({ error: 'Phone number must be at least 10 digits' }, { status: 400 });
     }
 
     if (!bookedSlot) {
+      console.log('[PRAYER-BOOKINGS] Validation failed: bookedSlot required');
       return NextResponse.json({ error: 'Booking time is required' }, { status: 400 });
     }
 
     if (!isValidBookingSlot(bookedSlot)) {
+      console.log('[PRAYER-BOOKINGS] Validation failed: slot not in midnight-5am range', bookedSlot);
       return NextResponse.json(
         { error: 'Slot must be between midnight and 5am Ghana time' },
         { status: 400 }
@@ -49,6 +56,7 @@ export async function POST(request: NextRequest) {
     }
 
     if (!consentRecording) {
+      console.log('[PRAYER-BOOKINGS] Validation failed: consent not given');
       return NextResponse.json(
         { error: 'Recording consent is required' },
         { status: 400 }
@@ -166,9 +174,11 @@ export async function POST(request: NextRequest) {
       { status: 201 }
     );
   } catch (error) {
-    console.error('[PRAYER-BOOKINGS] Error:', error);
+    const errorMessage = error instanceof Error ? error.message : String(error);
+    console.error('[PRAYER-BOOKINGS] Error:', errorMessage);
+    console.error('[PRAYER-BOOKINGS] Full error:', error);
     return NextResponse.json(
-      { error: 'Failed to create booking' },
+      { error: 'Failed to create booking: ' + errorMessage },
       { status: 500 }
     );
   }

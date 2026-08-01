@@ -86,8 +86,8 @@ export default function PrayerBookingForm({ bookedSlot, onBookingSuccess }: Pray
     <motion.div
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
-      className="bg-white rounded-lg border border-rc-border p-6 max-w-md w-full"
+      transition={{ duration: 0.5 }}
+      className="bg-white rounded-lg border border-rc-border p-6 max-w-md w-full shadow-lg"
     >
       <h2 className="text-xl font-semibold text-rc-text mb-6">Your Information</h2>
 
