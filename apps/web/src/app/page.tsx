@@ -181,8 +181,43 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="space-y-4 pt-10 md:pt-12 border-t border-rc-text/15 text-base md:text-lg text-rc-text leading-relaxed font-light">
-            <p>You move through this journey with support and prayer from someone who has traveled it before.</p>
+          <div className="space-y-10 pt-10 md:pt-12 border-t border-rc-text/15">
+            <div className="space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
+              <p>Look at the stages in the journey.</p>
+              <p>Prayer is essential to each one.</p>
+            </div>
+
+            <div className="space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
+              <p>In 2013, I was at the starting point of truth.</p>
+              <p>God used His servant Prophet TB Joshua to pray for me.</p>
+              <p>I walked out of my trap completely.</p>
+            </div>
+
+            <div className="space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
+              <p>One deliverance prayer.</p>
+              <p>Freedom from fraud.</p>
+            </div>
+
+            <div className="space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
+              <p>This is what I offer you.</p>
+              <p>Right now. Wherever you are.</p>
+            </div>
+
+            <div className="space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
+              <p>Not for the future.</p>
+              <p>Not for another place.</p>
+              <p>Prayer for your deliverance today.</p>
+            </div>
+
+            <div className="space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
+              <p>From someone who has walked this.</p>
+              <p>From someone who knows it works.</p>
+            </div>
+
+            <div className="space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
+              <p>Because the God who freed me is still freeing His children.</p>
+              <p>If you are ready, I am here.</p>
+            </div>
           </div>
         </motion.div>
       </section>
