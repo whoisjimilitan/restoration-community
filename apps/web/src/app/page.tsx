@@ -181,42 +181,51 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="space-y-10 pt-10 md:pt-12 border-t border-rc-text/15">
-            <div className="space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
-              <p>Look at the stages in the journey.</p>
-              <p>Prayer is essential to each one.</p>
+          <div className="space-y-4 pt-10 md:pt-12 border-t border-rc-text/15 text-base md:text-lg text-rc-text leading-relaxed font-light">
+            <p>You move through this journey with support and prayer from someone who has traveled it before.</p>
+          </div>
+        </motion.div>
+      </section>
+
+      {/* DELIVERANCE PRAYER */}
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          viewport={{ once: true, amount: 0.15 }}
+          className="max-w-2xl mx-auto space-y-8"
+        >
+          <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">Deliverance Prayer</h2>
+
+          <div className="space-y-6 text-base md:text-lg text-rc-text leading-relaxed font-light">
+            <div className="space-y-3">
+              <p>Look at the stages in the journey ahead.</p>
+              <p>Prayer is essential to each stage.</p>
             </div>
 
-            <div className="space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
-              <p>In 2013, I was at the starting point of truth.</p>
-              <p>God used His servant Prophet TB Joshua to pray for me.</p>
-              <p>I walked out of my trap completely.</p>
+            <div className="space-y-3 pt-2">
+              <p>But not just any kind of prayer will bring us to truth.</p>
+              <p>Deliverance prayer only does.</p>
             </div>
 
-            <div className="space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
-              <p>One deliverance prayer.</p>
-              <p>Freedom from fraud.</p>
+            <div className="space-y-3 pt-4 md:pt-6">
+              <p>In 2013, God used His servant Prophet TB Joshua to pray for me.</p>
+              <p>Before I walked out completely out of my own trap.</p>
             </div>
 
-            <div className="space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
-              <p>This is what I offer you.</p>
+            <div className="space-y-3 pt-4 md:pt-6">
+              <p className="font-medium">One deliverance prayer.</p>
+              <p className="font-medium">Freedom from fraud.</p>
+            </div>
+
+            <div className="space-y-3 pt-4 md:pt-6">
+              <p>This is what I offer those with a similar challenge.</p>
               <p>Right now. Wherever you are.</p>
             </div>
 
-            <div className="space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
-              <p>Not for the future.</p>
-              <p>Not for another place.</p>
-              <p>Prayer for your deliverance today.</p>
-            </div>
-
-            <div className="space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
-              <p>From someone who has walked this.</p>
-              <p>From someone who knows it works.</p>
-            </div>
-
-            <div className="space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
-              <p>Because the God who freed me is still freeing His children.</p>
-              <p>If you are ready, I am here.</p>
+            <div className="pt-4 md:pt-6">
+              <p className="font-medium">If you are ready, the Living Word is ready in me.</p>
             </div>
           </div>
         </motion.div>
