@@ -56,6 +56,21 @@ model User {
   // Mentor relationships (COHORT-001)
   mentoringAssignments   MentorAssignment[] @relation("MentorOf")
 
+  // Prayer call relationships (PRAYER-CALL-001)
+  prayerCallsWithBrotherJimi PrayerCall[] @relation("PrayerCallsWithBrotherJimi")
+  prayerCallsAsUser      PrayerCall[] @relation("PrayerCallsAsUser")
+
+  // Program relationships (PROGRAM-001)
+  programsFacilitated    Program[] @relation("ProgramsFacilitated")
+  programParticipations  ProgramParticipant[] @relation("ProgramParticipants")
+  programMentorships     ProgramParticipant[] @relation("ProgramMentors")
+
+  // Facilitator profile (FACILITATOR-001)
+  facilitatorProfile     Facilitator? @relation("UserAsFacilitator")
+
+  // Testimony videos (TESTIMONY-001)
+  testimonyVideos        TestimonyVideo[] @relation("TestimoniesAsParticipant")
+
   @@map("users")
 }
 
@@ -207,6 +222,15 @@ model UserRestoration {
   // Cohort participation (COHORT-001)
   cohortId        String?
   cohort          Cohort? @relation("CohortParticipants", fields: [cohortId], references: [id])
+
+  // Program participation (PROGRAM-001)
+  programId       String?
+
+  // Sponsorship reference (SPONSOR-001)
+  sponsorId       String?
+
+  // Mentor reference (MENTOR-001)
+  mentorId        String?
 
   createdAt       DateTime @default(now())
   updatedAt       DateTime @updatedAt
@@ -762,8 +786,200 @@ model MentorAssignment {
   @@map("mentor_assignments")
 }
 
+// ============================================================================
+// PRAYER CALLS (PRAYER-CALL-001)
+// ============================================================================
+// One-on-one prayer calls with Brother Jimi for personalized prayer ministry
+
+model PrayerCall {
+  id              String   @id @default(cuid())
+
+  // Participants
+  brotherJimiId   String
+  brotherJimi     User     @relation("PrayerCallsWithBrotherJimi", fields: [brotherJimiId], references: [id], onDelete: Cascade)
+
+  userId          String
+  user            User     @relation("PrayerCallsAsUser", fields: [userId], references: [id], onDelete: Cascade)
+
+  // Call details
+  status          String   @default("scheduled") // scheduled, completed, no-show, cancelled
+  scheduledTime   DateTime
+
+  // Recording & consent
+  wherebyRoomUrl  String?  // Whereby video conference room URL
+  recordingUrl    String?  // Supabase Storage URL for recording
+  consentGiven    Boolean  @default(false) // User consented to recording
+
+  // Follow-up
+  notes           String?  @db.Text // Brother Jimi's notes after call
+
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@index([status])
+  @@index([scheduledTime])
+  @@index([brotherJimiId])
+  @@index([userId])
+  @@map("prayer_calls")
+}
+
+// ============================================================================
+// PROGRAMS (PROGRAM-001)
+// ============================================================================
+// School, church, workplace, and retreat programs for restoration workshops
+
+model Program {
+  id              String   @id @default(cuid())
+
+  // Program details
+  name            String
+  format          String   // school, church, retreat, workplace
+  location        String
+  description     String?  @db.Text
+
+  // Timeline
+  startDate       DateTime
+  endDate         DateTime
+
+  // Capacity & status
+  targetSize      Int      // Expected number of participants
+  status          String   @default("planning") // planning, active, completed
+
+  // Facilitator
+  facilitatorId   String
+  facilitator     User     @relation("ProgramsFacilitated", fields: [facilitatorId], references: [id], onDelete: Cascade)
+
+  // Relationships
+  participants    ProgramParticipant[]
+
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@index([status])
+  @@index([facilitatorId])
+  @@index([startDate])
+  @@map("programs")
+}
+
+// ============================================================================
+// PROGRAM PARTICIPANTS (PROGRAM-PARTICIPANT-001)
+// ============================================================================
+// Tracks individuals participating in programs, including sponsors and mentors
+
+model ProgramParticipant {
+  id              String   @id @default(cuid())
+
+  programId       String
+  program         Program  @relation(fields: [programId], references: [id], onDelete: Cascade)
+
+  userId          String
+  user            User     @relation("ProgramParticipants", fields: [userId], references: [id], onDelete: Cascade)
+
+  // Optional sponsor
+  sponsorId       String?
+  sponsor         Sponsor? @relation(fields: [sponsorId], references: [id], onDelete: SetNull)
+
+  // Optional mentor
+  mentorId        String?
+  mentor          User?    @relation("ProgramMentors", fields: [mentorId], references: [id], onDelete: SetNull)
+
+  // Participation tracking
+  attendanceStatus String  @default("registered") // registered, attended, completed
+
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@unique([programId, userId])
+  @@index([programId])
+  @@index([userId])
+  @@index([attendanceStatus])
+  @@map("program_participants")
+}
+
+// ============================================================================
+// SPONSORS (SPONSOR-001)
+// ============================================================================
+// Tracks financial sponsors for program participants
+
+model Sponsor {
+  id              String   @id @default(cuid())
+
+  // Sponsor information
+  name            String
+  email           String   @unique
+  phone           String?
+
+  // Sponsorship details
+  amount          Int      // Amount in GHS (Ghana Cedis)
+  paymentStatus   String   @default("pending") // pending, paid
+  paidAt          DateTime?
+
+  // Relationships
+  programParticipants ProgramParticipant[]
+
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@index([paymentStatus])
+  @@index([email])
+  @@map("sponsors")
+}
+
+// ============================================================================
+// FACILITATORS (FACILITATOR-001)
+// ============================================================================
+// Tracks co-facilitators and their mentoring capacity
+
+model Facilitator {
+  id              String   @id @default(cuid())
+
+  userId          String   @unique
+  user            User     @relation("UserAsFacilitator", fields: [userId], references: [id], onDelete: Cascade)
+
+  // Co-facilitation readiness
+  readyToCoFacilitate Boolean @default(false)
+  coFacilitationsCount Int   @default(0)
+
+  // Mentoring capacity
+  mentorCount     Int      @default(0)
+
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@index([readyToCoFacilitate])
+  @@map("facilitators")
+}
+
+// ============================================================================
+// TESTIMONIES WITH VIDEOS (TESTIMONY-001)
+// ============================================================================
+// Extended testimony model with before/after videos
+
+model TestimonyVideo {
+  id              String   @id @default(cuid())
+
+  participantId   String
+  participant     User     @relation("TestimoniesAsParticipant", fields: [participantId], references: [id], onDelete: Cascade)
+
+  // Video URLs (Supabase Storage)
+  beforeVideoUrl  String   // Video showing situation before program
+  afterVideoUrl   String   // Video showing transformation after program
+  youtubeUrl      String?  // Optional YouTube published URL
+
+  // Publishing
+  status          String   @default("draft") // draft, published
+  publishedAt     DateTime?
+
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@index([status])
+  @@index([participantId])
+  @@map("testimony_videos")
+}
+
 // Extend RestorationStage and UserRestoration models with new relationships
 // (already defined above, updated to include cohort relationships)
 
-// Extend User model to include entry-related relationships
-// (User model updated: add relationships below)
+// Extend User model with new relationships
+// Add to User model relationships: PrayerCalls, Programs, ProgramParticipants, Facilitator, TestimoniesAsParticipant
