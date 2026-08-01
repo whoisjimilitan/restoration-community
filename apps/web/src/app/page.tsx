@@ -182,11 +182,12 @@ export default function Home() {
           </div>
 
           <div className="space-y-4 pt-10 md:pt-12 border-t border-rc-text/15 text-base md:text-lg text-rc-text leading-relaxed font-light">
-            <p>Deliverance starts with truth.</p>
-            <p>Truth is what builds real transformation.</p>
-            <p>Truth is what forms you to walk others through this.</p>
-            <p className="pt-3">You move through this journey with support of those who have traveled it before.</p>
-            <p>And you become one of those walking others through.</p>
+            <p>Truth is your only way forward.</p>
+            <p>Whatever is not true will crumble.</p>
+            <p>Pretence will keep you trapped.</p>
+            <p className="pt-3">Starting with truth means choosing maturity over comfort.</p>
+            <p>You move through this journey with those who have chosen truth before you.</p>
+            <p>And you become one who leads others to truth.</p>
           </div>
         </motion.div>
       </section>
