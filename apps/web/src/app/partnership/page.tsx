@@ -155,6 +155,74 @@ export default function PartnershipPage() {
         </motion.div>
       </section>
 
+      {/* IMPACT METRICS */}
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          viewport={{ once: true, amount: 0.15 }}
+          className="max-w-6xl mx-auto"
+        >
+          <div className="space-y-12">
+            <div>
+              <h3 className="text-xl md:text-2xl font-rc-serif font-bold uppercase tracking-wider text-rc-text mb-8">This Is What Partners Have Made Possible</h3>
+              <p className="text-base md:text-lg text-rc-text/80 leading-relaxed font-light">Young people are being freed from the spiritual chains of fraud. Every number is a person. Every person is a spirit set free.</p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0, ease: [0.25, 0.46, 0.45, 0.94] }}
+                viewport={{ once: true, amount: 0.5 }}
+                className="bg-white rounded-lg p-8 border border-rc-border/30 hover:border-rc-border/60 transition-colors duration-300"
+              >
+                <p className="text-xs font-medium text-rc-text/70 uppercase tracking-wider mb-4">People Prayed With</p>
+                <p className="text-4xl font-rc-serif font-bold text-rc-accent mb-4">15</p>
+                <p className="text-base text-rc-text/80 leading-relaxed font-light">15 encounters with Jesus Christ</p>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
+                viewport={{ once: true, amount: 0.5 }}
+                className="bg-white rounded-lg p-8 border border-rc-border/30 hover:border-rc-border/60 transition-colors duration-300"
+              >
+                <p className="text-xs font-medium text-rc-text/70 uppercase tracking-wider mb-4">In Restoration</p>
+                <p className="text-4xl font-rc-serif font-bold text-rc-accent mb-4">15</p>
+                <p className="text-base text-rc-text/80 leading-relaxed font-light">15 walking the journey from slavery to freedom</p>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+                viewport={{ once: true, amount: 0.5 }}
+                className="bg-white rounded-lg p-8 border border-rc-border/30 hover:border-rc-border/60 transition-colors duration-300"
+              >
+                <p className="text-xs font-medium text-rc-text/70 uppercase tracking-wider mb-4">In Honest Work</p>
+                <p className="text-4xl font-rc-serif font-bold text-rc-accent mb-4">0</p>
+                <p className="text-base text-rc-text/80 leading-relaxed font-light">The next stage begins. Watch this number grow.</p>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
+                viewport={{ once: true, amount: 0.5 }}
+                className="bg-white rounded-lg p-8 border border-rc-border/30 hover:border-rc-border/60 transition-colors duration-300"
+              >
+                <p className="text-xs font-medium text-rc-text/70 uppercase tracking-wider mb-4">Serving Others</p>
+                <p className="text-4xl font-rc-serif font-bold text-rc-accent mb-4">0</p>
+                <p className="text-base text-rc-text/80 leading-relaxed font-light">Freedom leads to service. The cycle continues.</p>
+              </motion.div>
+            </div>
+          </div>
+        </motion.div>
+      </section>
+
       {/* WHY THESE THREE MATTER - Unified Explanation */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
         <motion.div
@@ -355,13 +423,6 @@ export default function PartnershipPage() {
               className="text-white/80 hover:text-white transition-colors group"
             >
               Mission Partners
-              <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
-            </a>
-            <a
-              href="/impact"
-              className="text-white/80 hover:text-white transition-colors group"
-            >
-              Our Impact
               <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
             </a>
           </div>

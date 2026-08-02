@@ -23,7 +23,7 @@ const mockStories: StoryCard[] = [
     stage: 6,
     stageName: 'Honest Work',
     quote: 'From schemes to solid ground. Now I build businesses that last.',
-    story: 'Seven years trapped in schemes. Each one promised more. The money came. The status came. The chains came too.\n\nUntil one encounter. One prayer.\n\nThe spirit controlling him was cast out. His mind freed. His hands freed.\n\nNow he builds businesses that last. He mentors others. The cycle reverses.',
+    story: 'Seven years of schemes. Money. Status. Chains.\n\nOne prayer. One encounter with Jesus.\n\nThe spirit was cast out. His mind freed. His hands freed.\n\nNow he builds that lasts. He mentors others. The cycle breaks.',
     heroImage: {
       url: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"%3E%3Crect fill="%234DB5A6" width="400" height="400"/%3E%3Ccircle cx="200" cy="120" r="60" fill="%23ffffff" opacity="0.3"/%3E%3Crect x="80" y="200" width="240" height="160" fill="%23ffffff" opacity="0.2"/%3E%3Ctext x="200" y="310" font-size="24" fill="%23ffffff" text-anchor="middle" opacity="0.5"%3ESamuel Okafor%3C/text%3E%3C/svg%3E',
       alt: 'Samuel Okafor'
@@ -36,7 +36,7 @@ const mockStories: StoryCard[] = [
     stage: 7,
     stageName: 'Service',
     quote: 'My past became my platform. Now I help others find their way out.',
-    story: 'Trafficked at nineteen. Shame buried her voice. Years of silence. Years of believing lies she deserved this.\n\nUntil Jesus spoke louder than shame.\n\nDeliverance freed her. He didn\'t fix her trauma. He set her free from what caused it.\n\nNow she stands where she once hid. Now she calls others to freedom. Her story became her platform.',
+    story: 'Trafficked at nineteen. Shame kept her silent. Years of chains.\n\nJesus spoke louder than shame.\n\nHe didn\'t fix the trauma. He freed her from what caused it.\n\nNow she stands where she once hid. She calls others to freedom. Her deliverance became her calling.',
     heroImage: {
       url: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"%3E%3Crect fill="%231B7A6F" width="400" height="400"/%3E%3Ccircle cx="200" cy="120" r="60" fill="%23ffffff" opacity="0.3"/%3E%3Crect x="80" y="200" width="240" height="160" fill="%23ffffff" opacity="0.2"/%3E%3Ctext x="200" y="310" font-size="24" fill="%23ffffff" text-anchor="middle" opacity="0.5"%3EChioma Adeyemi%3C/text%3E%3C/svg%3E',
       alt: 'Chioma Adeyemi'
@@ -49,7 +49,7 @@ const mockStories: StoryCard[] = [
     stage: 4,
     stageName: 'Forgiveness',
     quote: 'I forgave the people who pulled me in. That freed me more than leaving ever could.',
-    story: 'University student. Desperate for money. Trapped in scams. He thought leaving the network would be freedom. It wasn\'t. The shame and the voices remained.\n\nUntil he encountered forgiveness. Not of himself, but of others.\n\nThe people who pulled him in. The friends who betrayed him. The network that promised family but delivered chains.\n\nHe forgave them. And in that moment, the final chain broke.\n\nHe learned: Holding bitterness keeps you enslaved. Forgiveness breaks the last chain.',
+    story: 'University. Desperate for money. Trapped in scams. Leaving the network didn\'t bring freedom. Shame remained. Voices remained.\n\nUntil forgiveness.\n\nHe forgave the people who pulled him in. He forgave the friends who betrayed him. And in that moment, the final chain broke.\n\nHe learned: Forgiveness breaks what leaving cannot.',
     heroImage: {
       url: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"%3E%3Crect fill="%2395DDD7" width="400" height="400"/%3E%3Ccircle cx="200" cy="120" r="60" fill="%23ffffff" opacity="0.3"/%3E%3Crect x="80" y="200" width="240" height="160" fill="%23ffffff" opacity="0.2"/%3E%3Ctext x="200" y="310" font-size="24" fill="%23ffffff" text-anchor="middle" opacity="0.5"%3ETunde Bankole%3C/text%3E%3C/svg%3E',
       alt: 'Tunde Bankole'
@@ -256,13 +256,6 @@ export default function TestimoniesPage() {
               className="text-white/80 hover:text-white transition-colors group"
             >
               Mission Partners
-              <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
-            </a>
-            <a
-              href="/impact"
-              className="text-white/80 hover:text-white transition-colors group"
-            >
-              Our Impact
               <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
             </a>
           </div>
