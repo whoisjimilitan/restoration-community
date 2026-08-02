@@ -239,11 +239,13 @@ export default function TestimoniesPage() {
         >
           <div className="space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
             <p>You see their journey. You recognize the stages.</p>
-            <p>Could this be you?</p>
+            <p>You ask: Could this be me?</p>
             <p className="pt-2">Yes. And the journey starts with one encounter.</p>
             <p>One prayer. One decision to be honest with God.</p>
             <p>That's what happened to them.</p>
             <p>That's what can happen to you.</p>
+            <p className="pt-2">The question isn't whether you're worthy.</p>
+            <p className="font-medium">The question is: Are you ready?</p>
           </div>
         </motion.div>
       </section>

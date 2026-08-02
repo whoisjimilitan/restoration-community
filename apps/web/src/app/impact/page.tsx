@@ -118,7 +118,7 @@ export default function ImpactPage() {
             <p>More money doesn't free young people from fraud.</p>
             <p>More laws don't break the spirit controlling them.</p>
             <p className="text-rc-accent font-semibold">Only Jesus delivers.</p>
-            <p>Jesus works through people who answer the call.</p>
+            <p>And Jesus works through people who answer the call.</p>
           </div>
 
           <div className="space-y-6 pt-4">
