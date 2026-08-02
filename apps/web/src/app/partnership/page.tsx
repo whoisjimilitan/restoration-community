@@ -43,9 +43,14 @@ export default function PartnershipPage() {
           </div>
 
           <div className={`transform transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '360ms' }}>
-            <p className="text-lg md:text-xl text-white/90 leading-relaxed font-light">
-              They're answering the call of God.
-            </p>
+            <div className="space-y-4">
+              <p className="text-lg md:text-xl text-white/90 leading-relaxed font-light">
+                They're answering the call of God.
+              </p>
+              <p className="text-lg md:text-xl text-white/90 leading-relaxed font-light">
+                Are you one of them?
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -59,29 +64,70 @@ export default function PartnershipPage() {
           viewport={{ once: true, amount: 0.15 }}
           className="max-w-2xl mx-auto text-center"
         >
-          <div className="space-y-4">
+          <div className="space-y-6">
             <p className="text-base md:text-lg text-rc-text leading-relaxed font-light">
-              Our work cannot happen without partners.
+              Some people see a problem and think: "Not my responsibility."
             </p>
             <p className="text-base md:text-lg text-rc-text leading-relaxed font-light">
-              Three kinds of people are answering this call.
+              Others see a calling and think: "This is mine."
             </p>
+            <div className="pt-2 space-y-4">
+              <p className="text-base md:text-lg text-rc-text leading-relaxed font-light">
+                Three kinds of people are answering this call.
+              </p>
+              <p className="text-base md:text-lg text-rc-text leading-relaxed font-light">
+                All three are essential.
+              </p>
+              <p className="text-base md:text-lg text-rc-text leading-relaxed font-light">
+                One of these is you.
+              </p>
+            </div>
           </div>
         </motion.div>
       </section>
 
       {/* FOUNDING PARTNERS CONTEXT */}
-      <section className="w-full py-12 md:py-16 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
           viewport={{ once: true, amount: 0.15 }}
-          className="max-w-2xl mx-auto text-center"
+          className="max-w-2xl mx-auto"
         >
-          <p className="text-base md:text-lg text-rc-text leading-relaxed font-light">
-            These partners believed first. They stand with us from the beginning.
-          </p>
+          <div className="space-y-8 text-center">
+            <h3 className="text-xl md:text-2xl font-rc-serif font-bold uppercase tracking-wider text-rc-text">Why Belief Comes First</h3>
+            <div className="space-y-6 text-base md:text-lg text-rc-text leading-relaxed font-light">
+              <p>
+                These partners believed first.
+              </p>
+              <div className="space-y-4 pt-2">
+                <p>
+                  Not when there was proof.
+                </p>
+                <p>
+                  Not when there was momentum.
+                </p>
+                <p>
+                  Not when success was obvious.
+                </p>
+              </div>
+              <div className="space-y-4 pt-4">
+                <p>
+                  They believed when it was just a vision.
+                </p>
+                <p>
+                  When the cost was highest.
+                </p>
+                <p>
+                  When the outcome was unknown.
+                </p>
+              </div>
+              <p className="pt-4">
+                This requires a different kind of faith.
+              </p>
+            </div>
+          </div>
         </motion.div>
       </section>
 
@@ -107,6 +153,51 @@ export default function PartnershipPage() {
         </motion.div>
       </section>
 
+      {/* STANDING PARTNERS CONTEXT */}
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          viewport={{ once: true, amount: 0.15 }}
+          className="max-w-2xl mx-auto"
+        >
+          <div className="space-y-8 text-center">
+            <h3 className="text-xl md:text-2xl font-rc-serif font-bold uppercase tracking-wider text-rc-text">Why Verification Builds Commitment</h3>
+            <div className="space-y-6 text-base md:text-lg text-rc-text leading-relaxed font-light">
+              <p>
+                These partners saw the transformation and chose to fuel it.
+              </p>
+              <div className="space-y-4 pt-2">
+                <p>
+                  They waited for proof.
+                </p>
+                <p>
+                  Not because they doubted God.
+                </p>
+                <p>
+                  But because they knew: Verification builds commitment.
+                </p>
+              </div>
+              <div className="space-y-4 pt-4">
+                <p>
+                  They see young people walking free.
+                </p>
+                <p>
+                  They see families restored.
+                </p>
+                <p>
+                  They see what Jesus does.
+                </p>
+              </div>
+              <p className="pt-4">
+                And they say: "I'm in."
+              </p>
+            </div>
+          </div>
+        </motion.div>
+      </section>
+
       {/* STANDING PARTNERS */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
         <motion.div
@@ -124,6 +215,48 @@ export default function PartnershipPage() {
                   <span className="text-rc-text/30 text-xs">Logo</span>
                 </div>
               ))}
+            </div>
+          </div>
+        </motion.div>
+      </section>
+
+      {/* PRAYER PARTNERS CONTEXT */}
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          viewport={{ once: true, amount: 0.15 }}
+          className="max-w-2xl mx-auto"
+        >
+          <div className="space-y-8 text-center">
+            <h3 className="text-xl md:text-2xl font-rc-serif font-bold uppercase tracking-wider text-rc-text">Why Intercession is Warfare</h3>
+            <div className="space-y-6 text-base md:text-lg text-rc-text leading-relaxed font-light">
+              <p>
+                These partners pray.
+              </p>
+              <div className="space-y-4 pt-2">
+                <p>
+                  Not casual prayer. Not "bless the work" prayer.
+                </p>
+                <p>
+                  Intercession. Spiritual warfare. Breaking spiritual strongholds.
+                </p>
+              </div>
+              <div className="space-y-4 pt-4">
+                <p>
+                  They understand: The battle is spiritual.
+                </p>
+                <p>
+                  The victory is spiritual.
+                </p>
+                <p>
+                  Prayer is the armor that protects the work.
+                </p>
+              </div>
+              <p className="pt-4">
+                Without them, the work collapses.
+              </p>
             </div>
           </div>
         </motion.div>
@@ -164,16 +297,42 @@ export default function PartnershipPage() {
             <h2 className="text-xl md:text-2xl font-rc-serif font-bold uppercase tracking-wider">Why This Matters</h2>
             <div className="space-y-6 text-base md:text-lg text-rc-text leading-relaxed font-light">
               <p>Our program is free because partners chose this calling.</p>
-              <p>Without them, young people couldn't access deliverance. Without them, the journey to freedom would have a price.</p>
-              <p><span className="font-medium">Transformation doesn't happen without them.</span></p>
-              <p>And it doesn't happen without you.</p>
+              <p className="pt-2">This is important. Listen closely.</p>
+              <div className="space-y-4 pt-4">
+                <p>
+                  More money doesn't free young people from fraud.
+                </p>
+                <p>
+                  More laws don't break the spirit controlling them.
+                </p>
+                <p>
+                  More programs don't deliver them.
+                </p>
+              </div>
+              <p className="pt-4">Only Jesus delivers.</p>
+              <div className="space-y-4 pt-4">
+                <p>
+                  And Jesus works through people who answer the call.
+                </p>
+                <p>
+                  You are looking at that call right now.
+                </p>
+              </div>
+              <div className="space-y-4 pt-6 border-t border-rc-border/30">
+                <p className="pt-4">
+                  The question isn't: "Can I afford this?"
+                </p>
+                <p>
+                  <span className="font-medium">The question is: "Am I called to this?"</span>
+                </p>
+              </div>
             </div>
           </div>
         </motion.div>
       </section>
 
       {/* TRANSITION TO FORM */}
-      <section className="w-full py-12 md:py-16 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -181,9 +340,49 @@ export default function PartnershipPage() {
           viewport={{ once: true, amount: 0.15 }}
           className="max-w-2xl mx-auto text-center"
         >
-          <p className="text-base md:text-lg text-rc-text leading-relaxed font-light">
-            If you feel called to this work, we'd like to talk about it.
-          </p>
+          <div className="space-y-8">
+            <p className="text-base md:text-lg text-rc-text leading-relaxed font-light">
+              If you feel called to this work, we'd like to talk about it.
+            </p>
+            <div className="space-y-6 text-base md:text-lg text-rc-text leading-relaxed font-light pt-4 border-t border-rc-border/30">
+              <p className="pt-4">
+                Not as a donor.
+              </p>
+              <p>
+                As a partner.
+              </p>
+              <p>
+                As someone answering God's call.
+              </p>
+              <div className="space-y-4 pt-6">
+                <p className="font-medium">
+                  Which kind of partner are you?
+                </p>
+                <div className="space-y-2 text-base pt-2">
+                  <p>
+                    Do you believe before the proof exists?
+                  </p>
+                  <p>
+                    Do you fuel what you see working?
+                  </p>
+                  <p>
+                    Do you intercede spiritually?
+                  </p>
+                </div>
+              </div>
+              <div className="space-y-4 pt-6 border-t border-rc-border/30">
+                <p className="pt-4">
+                  The answer matters.
+                </p>
+                <p>
+                  Because the call is real.
+                </p>
+                <p className="font-medium">
+                  And God uses people who say yes.
+                </p>
+              </div>
+            </div>
+          </div>
         </motion.div>
       </section>
 
@@ -201,7 +400,7 @@ export default function PartnershipPage() {
             {formStep === 'form' && (
               <form onSubmit={handleSubmit} className="space-y-6 text-left">
                 <div className="space-y-4">
-                  <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-center">Join Us</h2>
+                  <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-center">Answer the Call</h2>
                 </div>
 
                 <div className="space-y-2">
@@ -222,7 +421,7 @@ export default function PartnershipPage() {
                 <div className="space-y-2 pt-4">
                   <label className="flex items-start gap-3 cursor-pointer">
                     <input type="checkbox" required checked={formData.consent} onChange={(e) => setFormData({ ...formData, consent: e.target.checked })} className="mt-1 w-5 h-5 rounded border-rc-border/40" />
-                    <span className="text-sm text-rc-text/70">I understand this is about partnership with God's mission, and I'm ready to discuss how I can participate.</span>
+                    <span className="text-sm text-rc-text/70">I understand this is a call to partnership in God's mission. I'm ready to discuss how I can answer.</span>
                   </label>
                 </div>
 
