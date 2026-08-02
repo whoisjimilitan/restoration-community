@@ -309,7 +309,7 @@ export default function PartnershipPage() {
                   More programs don't deliver them.
                 </p>
               </div>
-              <p className="pt-4">Only Jesus delivers.</p>
+              <p className="pt-4"><span className="font-medium text-rc-accent">Only Jesus delivers.</span></p>
               <div className="space-y-4 pt-4">
                 <p>
                   And Jesus works through people who answer the call.
