@@ -210,21 +210,6 @@ export default function TestimoniesPage() {
       {/* Stories Grid */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
         <div className="max-w-5xl mx-auto space-y-16 md:space-y-20">
-          {/* Section Context */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-            viewport={{ once: true, amount: 0.15 }}
-            className="max-w-2xl mx-auto space-y-3"
-          >
-            <p className="text-xs font-medium text-rc-accent uppercase tracking-wider">Their Journey</p>
-            <div className="space-y-3 text-base text-rc-text/70 leading-relaxed">
-              <p>Every stage matters. Watch for yours.</p>
-              <p>Not all stages feel like progress. Some feel like falling apart.</p>
-              <p>But that's where Jesus works the deepest.</p>
-            </div>
-          </motion.div>
 
           {/* Stories */}
           {loading ? (
@@ -255,18 +240,9 @@ export default function TestimoniesPage() {
           className="max-w-2xl mx-auto space-y-8"
         >
           <div className="space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
-            <p>You see their journey.</p>
-            <p>You recognize the stages.</p>
-
-            <p className="pt-3">You ask: Could this be me?</p>
-
-            <p className="pt-3 font-medium">Yes.</p>
-            <p>The journey starts with one encounter.</p>
-            <p>One prayer.</p>
-            <p className="font-medium">One decision to be honest with God.</p>
-
-            <p className="pt-3">That's what happened to them.</p>
-            <p>That's what can happen to you.</p>
+            <p>You see their journey. You recognize yourself in it.</p>
+            <p className="pt-3">The journey starts with one encounter. One prayer. One honest decision before God.</p>
+            <p className="pt-3">That's what happened to them. That's what can happen to you.</p>
           </div>
         </motion.div>
       </section>
@@ -334,10 +310,35 @@ export default function TestimoniesPage() {
       </section>
 
       {/* Footer */}
-      <footer className="w-full py-12 px-6 sm:px-8 md:px-12 bg-rc-text border-t border-rc-border">
-        <div className="max-w-2xl mx-auto text-center space-y-3">
-          <p className="text-white/60 text-sm">Brother Jimi Ministries — An Inspiration from Jesus Christ</p>
-          <p className="text-white/30 text-xs">© 2026. All rights reserved.</p>
+      <footer className="w-full px-6 sm:px-8 md:px-12 py-12 bg-rc-text border-t border-rc-border text-center">
+        <div className="max-w-2xl mx-auto space-y-6">
+          {/* Navigation Links */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-12">
+            <a
+              href="/"
+              className="text-white/80 hover:text-white transition-colors group"
+            >
+              Home
+              <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
+            </a>
+            <a
+              href="/partnership"
+              className="text-white/80 hover:text-white transition-colors group"
+            >
+              Mission Partners
+              <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
+            </a>
+            <a
+              href="/impact"
+              className="text-white/80 hover:text-white transition-colors group"
+            >
+              Our Impact
+              <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
+            </a>
+          </div>
+
+          {/* Copyright Only */}
+          <p className="text-white/40 text-xs">© 2026. All rights reserved.</p>
         </div>
       </footer>
     </div>

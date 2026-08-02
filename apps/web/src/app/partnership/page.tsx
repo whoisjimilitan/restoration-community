@@ -89,50 +89,6 @@ export default function PartnershipPage() {
         </motion.div>
       </section>
 
-      {/* FOUNDING PARTNERS CONTEXT */}
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-          viewport={{ once: true, amount: 0.15 }}
-          className="max-w-2xl mx-auto"
-        >
-          <div className="space-y-8">
-            <h3 className="text-xl md:text-2xl font-rc-serif font-bold uppercase tracking-wider text-rc-text">Why Belief Comes First</h3>
-            <div className="space-y-6 text-base md:text-lg text-rc-text leading-relaxed font-light">
-              <p>
-                These partners believed first.
-              </p>
-
-              <p className="pt-2">
-                Not when there was proof.
-              </p>
-              <p>
-                Not when there was momentum.
-              </p>
-              <p>
-                Not when success was obvious.
-              </p>
-
-              <p className="pt-3">
-                They believed when it was just a vision.
-              </p>
-              <p>
-                When the cost was highest.
-              </p>
-              <p className="font-medium">
-                When the outcome was unknown.
-              </p>
-
-              <p className="pt-3 font-medium">
-                This requires a different kind of faith.
-              </p>
-            </div>
-          </div>
-        </motion.div>
-      </section>
-
       {/* FOUNDING PARTNERS */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
         <motion.div
@@ -150,50 +106,6 @@ export default function PartnershipPage() {
                   <span className="text-rc-text/30 text-xs">Logo</span>
                 </div>
               ))}
-            </div>
-          </div>
-        </motion.div>
-      </section>
-
-      {/* STANDING PARTNERS CONTEXT */}
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-          viewport={{ once: true, amount: 0.15 }}
-          className="max-w-2xl mx-auto"
-        >
-          <div className="space-y-8">
-            <h3 className="text-xl md:text-2xl font-rc-serif font-bold uppercase tracking-wider text-rc-text">Why Verification Builds Commitment</h3>
-            <div className="space-y-6 text-base md:text-lg text-rc-text leading-relaxed font-light">
-              <p>
-                These partners saw the transformation and chose to fuel it.
-              </p>
-
-              <p className="pt-2">
-                They waited for proof.
-              </p>
-              <p>
-                Not because they doubted God.
-              </p>
-              <p className="font-medium">
-                But because they knew: Verification builds commitment.
-              </p>
-
-              <p className="pt-3">
-                They see young people walking free.
-              </p>
-              <p>
-                They see families restored.
-              </p>
-              <p>
-                They see what Jesus does.
-              </p>
-
-              <p className="pt-3 font-medium">
-                And they say: "I'm in."
-              </p>
             </div>
           </div>
         </motion.div>
@@ -221,47 +133,6 @@ export default function PartnershipPage() {
         </motion.div>
       </section>
 
-      {/* PRAYER PARTNERS CONTEXT */}
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-          viewport={{ once: true, amount: 0.15 }}
-          className="max-w-2xl mx-auto"
-        >
-          <div className="space-y-8">
-            <h3 className="text-xl md:text-2xl font-rc-serif font-bold uppercase tracking-wider text-rc-text">Why Intercession is Warfare</h3>
-            <div className="space-y-6 text-base md:text-lg text-rc-text leading-relaxed font-light">
-              <p>
-                These partners pray.
-              </p>
-
-              <p className="pt-2">
-                Not casual prayer. Not "bless the work" prayer.
-              </p>
-              <p className="font-medium">
-                Intercession. Spiritual warfare. Breaking spiritual strongholds.
-              </p>
-
-              <p className="pt-3">
-                They understand: The battle is spiritual.
-              </p>
-              <p>
-                The victory is spiritual.
-              </p>
-              <p>
-                Prayer is the armor that protects the work.
-              </p>
-
-              <p className="pt-3 font-medium">
-                Without them, the work collapses.
-              </p>
-            </div>
-          </div>
-        </motion.div>
-      </section>
-
       {/* PRAYER PARTNERS */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
         <motion.div
@@ -279,6 +150,38 @@ export default function PartnershipPage() {
                   <span className="text-rc-text/30 text-xs">Logo</span>
                 </div>
               ))}
+            </div>
+          </div>
+        </motion.div>
+      </section>
+
+      {/* WHY THESE THREE MATTER - Unified Explanation */}
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          viewport={{ once: true, amount: 0.15 }}
+          className="max-w-2xl mx-auto"
+        >
+          <div className="space-y-8">
+            <h3 className="text-xl md:text-2xl font-rc-serif font-bold uppercase tracking-wider text-rc-text">Why These Three Matter</h3>
+            <div className="space-y-6 text-base md:text-lg text-rc-text leading-relaxed font-light">
+              <p>
+                <span className="font-medium">Founding partners</span> believed when there was only vision. When the cost was highest. When the outcome was unknown. This requires different faith.
+              </p>
+
+              <p className="pt-2">
+                <span className="font-medium">Standing partners</span> waited for proof—not because they doubted God, but because they knew verification builds commitment. They saw young people walking free. They saw families restored. And they said: "I'm in."
+              </p>
+
+              <p className="pt-2">
+                <span className="font-medium">Prayer partners</span> understand spiritual warfare. The battle is spiritual. The victory is spiritual. Prayer is the armor that protects the work. Without them, the work collapses.
+              </p>
+
+              <p className="pt-4 font-medium">
+                Three kinds of faith. All essential.
+              </p>
             </div>
           </div>
         </motion.div>
@@ -441,17 +344,17 @@ export default function PartnershipPage() {
               <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
             </a>
             <a
-              href="/partnership"
-              className="text-white/80 hover:text-white transition-colors group"
-            >
-              Partnership
-              <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
-            </a>
-            <a
               href="/testimonies"
               className="text-white/80 hover:text-white transition-colors group"
             >
-              Success Stories
+              Stories of Deliverance
+              <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
+            </a>
+            <a
+              href="/impact"
+              className="text-white/80 hover:text-white transition-colors group"
+            >
+              Our Impact
               <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
             </a>
           </div>

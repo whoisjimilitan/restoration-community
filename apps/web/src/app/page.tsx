@@ -300,7 +300,7 @@ export default function Home() {
                 <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-2"></span>
               </Link>
               <Link href="/partnership" className="text-base text-white/80 hover:text-white transition-colors duration-200 group">
-                Our Partners
+                Mission Partners
                 <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-2"></span>
               </Link>
             </div>
@@ -621,14 +621,14 @@ export default function Home() {
               href="/partnership"
               className="text-white/80 hover:text-white transition-colors group"
             >
-              Partnership
+              Mission Partners
               <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
             </a>
             <a
               href="/testimonies"
               className="text-white/80 hover:text-white transition-colors group"
             >
-              Success Stories
+              Stories of Deliverance
               <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
             </a>
           </div>
