@@ -45,7 +45,7 @@ export default function PartnershipPage() {
           <div className={`transform transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '360ms' }}>
             <div className="space-y-4">
               <p className="text-lg md:text-xl text-white/90 leading-relaxed font-light">
-                They're stakeholders in His work. Partners in the vision. Answering the call.
+                They're individuals and organizations. Stakeholders in His work. Partners in the vision. Answering the call.
               </p>
               <p className="text-lg md:text-xl text-white/90 leading-relaxed font-light">
                 Are you one of them?
@@ -66,20 +66,23 @@ export default function PartnershipPage() {
         >
           <div className="space-y-6">
             <p className="text-base md:text-lg text-rc-text leading-relaxed font-light">
-              Some people see a problem and think: "Not my responsibility."
+              Some see a problem and think: "Not my responsibility."
             </p>
             <p className="text-base md:text-lg text-rc-text leading-relaxed font-light">
-              Others see a calling and think: "This is mine."
+              Others see a calling and think: "This is ours."
             </p>
             <div className="pt-2 space-y-4">
               <p className="text-base md:text-lg text-rc-text leading-relaxed font-light">
-                Three kinds of people are answering this call.
+                Three kinds of partners are answering this call.
               </p>
               <p className="text-base md:text-lg text-rc-text leading-relaxed font-light">
-                All three are essential.
+                Individuals. Organizations. All answering together.
               </p>
               <p className="text-base md:text-lg text-rc-text leading-relaxed font-light">
-                One of these is you.
+                All three kinds are essential.
+              </p>
+              <p className="text-base md:text-lg text-rc-text leading-relaxed font-light">
+                One of these is you. Or yours.
               </p>
             </div>
           </div>
@@ -330,11 +333,11 @@ export default function PartnershipPage() {
         >
           <div className="space-y-8">
             <p className="text-base md:text-lg text-rc-text leading-relaxed font-light">
-              If you feel called to this work, we'd like to talk about it.
+              If your heart or your organization feels called to this work, we'd like to talk about it.
             </p>
             <div className="space-y-6 text-base md:text-lg text-rc-text leading-relaxed font-light pt-4 border-t border-rc-border/30">
               <p className="pt-4">
-                Not as a donor.
+                Not as a donor or sponsor.
               </p>
               <p>
                 As a partner in the work.

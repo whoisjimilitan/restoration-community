@@ -120,7 +120,8 @@ export default function ImpactPage() {
 
             <p className="pt-2 font-medium text-rc-accent">Only Jesus delivers.</p>
 
-            <p className="pt-3">And Jesus works through people who answer the call.</p>
+            <p className="pt-3">And Jesus works through partners who answer the call.</p>
+            <p>Individuals. Organizations. All fueling what He's doing.</p>
           </div>
         </motion.div>
       </section>
