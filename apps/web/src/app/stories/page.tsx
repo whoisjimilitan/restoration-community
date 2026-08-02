@@ -22,8 +22,8 @@ const mockStories: StoryCard[] = [
     role: 'Entrepreneur',
     stage: 6,
     stageName: 'Honest Work',
-    quote: 'From schemes to solid ground. Now I build businesses that last.',
-    story: 'Seven years of schemes. Money. Status. Chains.\n\nOne prayer. One encounter with Jesus.\n\nThe spirit was cast out. His mind freed. His hands freed.\n\nNow he builds that lasts. He mentors others. The cycle breaks.',
+    quote: 'Seven years trapped. I thought money was freedom. Then Jesus set me free.',
+    story: 'I was in schemes. All of them. The money came fast. I had status. People knew my name.\n\nBut I was bound. I knew it. Every deal felt like I was getting deeper.\n\nOne day, I called out to Jesus. One prayer. That\'s it.\n\nHe broke something inside me that day. My mind cleared. I could think straight again.\n\nNow I build real things. Things that last. And I tell other young men: Don\'t do what I did. Jesus is better than the money.',
     heroImage: {
       url: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"%3E%3Crect fill="%234DB5A6" width="400" height="400"/%3E%3Ccircle cx="200" cy="120" r="60" fill="%23ffffff" opacity="0.3"/%3E%3Crect x="80" y="200" width="240" height="160" fill="%23ffffff" opacity="0.2"/%3E%3Ctext x="200" y="310" font-size="24" fill="%23ffffff" text-anchor="middle" opacity="0.5"%3ESamuel Okafor%3C/text%3E%3C/svg%3E',
       alt: 'Samuel Okafor'
@@ -35,8 +35,8 @@ const mockStories: StoryCard[] = [
     role: 'Social Worker',
     stage: 7,
     stageName: 'Service',
-    quote: 'My past became my platform. Now I help others find their way out.',
-    story: 'Trafficked at nineteen. Shame kept her silent. Years of chains.\n\nJesus spoke louder than shame.\n\nHe didn\'t fix the trauma. He freed her from what caused it.\n\nNow she stands where she once hid. She calls others to freedom. Her deliverance became her calling.',
+    quote: 'Jesus healed what the trafficking broke.',
+    story: 'They took me when I was nineteen. I won\'t say all the details. But I was broken.\n\nI couldn\'t look at myself. Couldn\'t look at other people. The shame was so heavy I could barely breathe.\n\nThen I heard Jesus. Not in words. In my spirit. He said: This is not who you are.\n\nI started praying. I started meeting with other women who understood. Jesus didn\'t erase what happened. But He healed what it broke inside me.\n\nNow I sit with girls who are exactly where I was. I tell them: Jesus came for you too. He\'ll heal you like He healed me.',
     heroImage: {
       url: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"%3E%3Crect fill="%231B7A6F" width="400" height="400"/%3E%3Ccircle cx="200" cy="120" r="60" fill="%23ffffff" opacity="0.3"/%3E%3Crect x="80" y="200" width="240" height="160" fill="%23ffffff" opacity="0.2"/%3E%3Ctext x="200" y="310" font-size="24" fill="%23ffffff" text-anchor="middle" opacity="0.5"%3EChioma Adeyemi%3C/text%3E%3C/svg%3E',
       alt: 'Chioma Adeyemi'
@@ -48,8 +48,8 @@ const mockStories: StoryCard[] = [
     role: 'Student',
     stage: 4,
     stageName: 'Forgiveness',
-    quote: 'I forgave the people who pulled me in. That freed me more than leaving ever could.',
-    story: 'University. Desperate for money. Trapped in scams. Leaving the network didn\'t bring freedom. Shame remained. Voices remained.\n\nUntil forgiveness.\n\nHe forgave the people who pulled him in. He forgave the friends who betrayed him. And in that moment, the final chain broke.\n\nHe learned: Forgiveness breaks what leaving cannot.',
+    quote: 'Leaving the network didn\'t free me. Forgiveness did.',
+    story: 'I was desperate at university. No money. My friends were making cash in ways that felt easy.\n\nI got in. Deep.\n\nEventually, I left. But the shame stayed. The voices stayed. I heard their words in my head every day.\n\nI thought: I escaped. Why don\'t I feel free?\n\nThen I understood. I had to forgive them. The ones who pulled me in. The ones who lied to me.\n\nWhen I forgave them, something broke open in me. Literally. The weight lifted. I could breathe again.\n\nI realize now: You can leave a place, but you\'re not free until you forgive.',
     heroImage: {
       url: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"%3E%3Crect fill="%2395DDD7" width="400" height="400"/%3E%3Ccircle cx="200" cy="120" r="60" fill="%23ffffff" opacity="0.3"/%3E%3Crect x="80" y="200" width="240" height="160" fill="%23ffffff" opacity="0.2"/%3E%3Ctext x="200" y="310" font-size="24" fill="%23ffffff" text-anchor="middle" opacity="0.5"%3ETunde Bankole%3C/text%3E%3C/svg%3E',
       alt: 'Tunde Bankole'
@@ -200,10 +200,10 @@ export default function TestimoniesPage() {
         >
           <div className="space-y-6">
             <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-white leading-tight tracking-tight">
-              If your heart is drawn to this journey.
+              You are not stuck.
             </h2>
             <p className="text-base md:text-lg text-white/90 leading-relaxed font-light">
-              Real deliverance is possible. One encounter. One prayer. That's how it starts.
+              These three are free today because Jesus set them free. The same Jesus can set you free. One prayer. That's all it takes to start.
             </p>
           </div>
 
@@ -216,19 +216,6 @@ export default function TestimoniesPage() {
           >
             Request Prayer Encounter
           </button>
-
-          <div className="pt-8 border-t border-white/20">
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-8 sm:gap-12">
-              <a href="/" className="text-base text-white/80 hover:text-white transition-colors duration-200 group">
-                Home
-                <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-2"></span>
-              </a>
-              <a href="/partnership" className="text-base text-white/80 hover:text-white transition-colors duration-200 group">
-                Mission Partners
-                <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-2"></span>
-              </a>
-            </div>
-          </div>
         </motion.div>
       </section>
 
