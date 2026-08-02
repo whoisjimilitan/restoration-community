@@ -176,7 +176,7 @@ export default function TestimoniesPage() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
           viewport={{ once: true, amount: 0.15 }}
-          className="max-w-2xl mx-auto space-y-8 text-center"
+          className="max-w-2xl mx-auto space-y-8"
         >
           <div className="space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
             <p>You think transformation takes years.</p>
@@ -199,7 +199,7 @@ export default function TestimoniesPage() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
             viewport={{ once: true, amount: 0.15 }}
-            className="max-w-2xl mx-auto text-center space-y-3"
+            className="max-w-2xl mx-auto space-y-3"
           >
             <p className="text-xs font-medium text-rc-accent uppercase tracking-wider">Their Journey</p>
             <div className="space-y-3 text-base text-rc-text/70 leading-relaxed">
@@ -235,7 +235,7 @@ export default function TestimoniesPage() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
           viewport={{ once: true, amount: 0.15 }}
-          className="max-w-2xl mx-auto space-y-8 text-center"
+          className="max-w-2xl mx-auto space-y-8"
         >
           <div className="space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
             <p>You see their journey.</p>
@@ -261,7 +261,7 @@ export default function TestimoniesPage() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
           viewport={{ once: true, amount: 0.15 }}
-          className="max-w-2xl mx-auto text-center space-y-12"
+          className="max-w-2xl mx-auto space-y-12"
         >
           <div className="space-y-6">
             <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-white leading-tight tracking-tight">

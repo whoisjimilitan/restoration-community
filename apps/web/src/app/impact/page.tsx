@@ -45,7 +45,7 @@ export default function ImpactPage() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
           viewport={{ once: true, amount: 0.15 }}
-          className="max-w-2xl mx-auto text-center space-y-6"
+          className="max-w-2xl mx-auto space-y-6"
         >
           <div className="space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
             <p>Every metric is a person.</p>
@@ -91,7 +91,7 @@ export default function ImpactPage() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
           viewport={{ once: true, amount: 0.15 }}
-          className="max-w-2xl mx-auto text-center space-y-6"
+          className="max-w-2xl mx-auto space-y-6"
         >
           <div className="space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
             <p>These numbers move because spirits move.</p>
@@ -109,7 +109,7 @@ export default function ImpactPage() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
           viewport={{ once: true, amount: 0.15 }}
-          className="max-w-2xl mx-auto text-center space-y-6"
+          className="max-w-2xl mx-auto space-y-6"
         >
           <div className="space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
             <p className="font-medium">All transformation is completely free.</p>
@@ -134,7 +134,7 @@ export default function ImpactPage() {
           viewport={{ once: true, amount: 0.15 }}
           className="max-w-2xl mx-auto space-y-8"
         >
-          <div className="text-center space-y-4">
+          <div className="space-y-4">
             <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">Three Kinds of Partners</h2>
             <p className="text-base md:text-lg text-rc-text/80 leading-relaxed font-light">Make this work possible.</p>
           </div>

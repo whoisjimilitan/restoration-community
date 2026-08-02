@@ -62,7 +62,7 @@ export default function PartnershipPage() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
           viewport={{ once: true, amount: 0.15 }}
-          className="max-w-2xl mx-auto text-center"
+          className="max-w-2xl mx-auto"
         >
           <div className="space-y-6">
             <p className="text-base md:text-lg text-rc-text leading-relaxed font-light">
@@ -95,7 +95,7 @@ export default function PartnershipPage() {
           viewport={{ once: true, amount: 0.15 }}
           className="max-w-2xl mx-auto"
         >
-          <div className="space-y-8 text-center">
+          <div className="space-y-8">
             <h3 className="text-xl md:text-2xl font-rc-serif font-bold uppercase tracking-wider text-rc-text">Why Belief Comes First</h3>
             <div className="space-y-6 text-base md:text-lg text-rc-text leading-relaxed font-light">
               <p>
@@ -161,7 +161,7 @@ export default function PartnershipPage() {
           viewport={{ once: true, amount: 0.15 }}
           className="max-w-2xl mx-auto"
         >
-          <div className="space-y-8 text-center">
+          <div className="space-y-8">
             <h3 className="text-xl md:text-2xl font-rc-serif font-bold uppercase tracking-wider text-rc-text">Why Verification Builds Commitment</h3>
             <div className="space-y-6 text-base md:text-lg text-rc-text leading-relaxed font-light">
               <p>
@@ -227,7 +227,7 @@ export default function PartnershipPage() {
           viewport={{ once: true, amount: 0.15 }}
           className="max-w-2xl mx-auto"
         >
-          <div className="space-y-8 text-center">
+          <div className="space-y-8">
             <h3 className="text-xl md:text-2xl font-rc-serif font-bold uppercase tracking-wider text-rc-text">Why Intercession is Warfare</h3>
             <div className="space-y-6 text-base md:text-lg text-rc-text leading-relaxed font-light">
               <p>
@@ -326,7 +326,7 @@ export default function PartnershipPage() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
           viewport={{ once: true, amount: 0.15 }}
-          className="max-w-2xl mx-auto text-center"
+          className="max-w-2xl mx-auto"
         >
           <div className="space-y-8">
             <p className="text-base md:text-lg text-rc-text leading-relaxed font-light">
