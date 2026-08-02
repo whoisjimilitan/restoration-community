@@ -50,17 +50,37 @@ export default function PartnershipPage() {
         </div>
       </section>
 
-      {/* BRIDGE - Founder Story Connection */}
-      <section className="w-full py-16 md:py-20 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
+      {/* BRIDGE - Three Kinds of Partners */}
+      <section className="w-full py-16 md:py-20 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
           viewport={{ once: true, amount: 0.15 }}
-          className="max-w-2xl mx-auto"
+          className="max-w-2xl mx-auto text-center"
+        >
+          <div className="space-y-4">
+            <p className="text-base md:text-lg text-rc-text leading-relaxed font-light">
+              Our work cannot happen without partners.
+            </p>
+            <p className="text-base md:text-lg text-rc-text leading-relaxed font-light">
+              Three kinds of people are answering this call.
+            </p>
+          </div>
+        </motion.div>
+      </section>
+
+      {/* FOUNDING PARTNERS CONTEXT */}
+      <section className="w-full py-12 md:py-16 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          viewport={{ once: true, amount: 0.15 }}
+          className="max-w-2xl mx-auto text-center"
         >
           <p className="text-base md:text-lg text-rc-text leading-relaxed font-light">
-            Having walked this journey myself, I've learned: <span className="font-medium">this work cannot happen alone.</span>
+            These partners believed first. They stand with us from the beginning.
           </p>
         </motion.div>
       </section>
@@ -143,9 +163,27 @@ export default function PartnershipPage() {
           <div className="space-y-12">
             <h2 className="text-xl md:text-2xl font-rc-serif font-bold uppercase tracking-wider">Why This Matters</h2>
             <div className="space-y-6 text-base md:text-lg text-rc-text leading-relaxed font-light">
-              <p>Our program is free because partners chose this calling. <span className="font-medium">Transformation doesn't happen without them.</span></p>
+              <p>Our program is free because partners chose this calling.</p>
+              <p>Without them, young people couldn't access deliverance. Without them, the journey to freedom would have a price.</p>
+              <p><span className="font-medium">Transformation doesn't happen without them.</span></p>
+              <p>And it doesn't happen without you.</p>
             </div>
           </div>
+        </motion.div>
+      </section>
+
+      {/* TRANSITION TO FORM */}
+      <section className="w-full py-12 md:py-16 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          viewport={{ once: true, amount: 0.15 }}
+          className="max-w-2xl mx-auto text-center"
+        >
+          <p className="text-base md:text-lg text-rc-text leading-relaxed font-light">
+            If you feel called to this work, we'd like to talk about it.
+          </p>
         </motion.div>
       </section>
 

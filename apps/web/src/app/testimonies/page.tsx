@@ -152,20 +152,59 @@ export default function TestimoniesPage() {
       <section className="w-full min-h-screen flex flex-col justify-center bg-gradient-to-br from-rc-accent to-rc-text px-6 sm:px-8 md:px-12 py-24 md:py-32">
         <div className="max-w-2xl mx-auto w-full space-y-6">
           <div className={`transform transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '120ms' }}>
-            <p className="text-xs font-medium text-white/70 uppercase tracking-wider">Real Stories</p>
+            <p className="text-xs font-medium text-white/70 uppercase tracking-wider">Stories of Freedom</p>
           </div>
 
           <div className={`transform transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '240ms' }}>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight tracking-tight">
-              How Lives Have Changed
+              These are not stories of shame.<br />They are stories of freedom.
             </h1>
+          </div>
+
+          <div className={`transform transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '360ms' }}>
+            <p className="text-base md:text-lg text-white/90 leading-relaxed font-light">
+              Real people. Real transformation. Real Jesus.
+            </p>
           </div>
         </div>
       </section>
 
+      {/* Bridge Section */}
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          viewport={{ once: true, amount: 0.15 }}
+          className="max-w-2xl mx-auto space-y-8 text-center"
+        >
+          <div className="space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
+            <p>You move through a journey.</p>
+            <p>These are people walking it.</p>
+            <p className="pt-2">At different stages. With different struggles.</p>
+            <p className="font-medium">All finding freedom through Jesus.</p>
+          </div>
+        </motion.div>
+      </section>
+
       {/* Stories Grid */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-5xl mx-auto space-y-16 md:space-y-20">
+          {/* Section Context */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+            viewport={{ once: true, amount: 0.15 }}
+            className="max-w-2xl mx-auto text-center space-y-3"
+          >
+            <p className="text-xs font-medium text-rc-accent uppercase tracking-wider">Their Journey</p>
+            <p className="text-base text-rc-text/70 leading-relaxed">
+              Each story is tagged with its stage in the journey. Freedom doesn't happen overnight—it happens one decision at a time.
+            </p>
+          </motion.div>
+
+          {/* Stories */}
           {loading ? (
             <div className="text-center py-20">
               <p className="text-rc-text/60">Loading stories...</p>
@@ -184,70 +223,64 @@ export default function TestimoniesPage() {
         </div>
       </section>
 
-      {/* Stats Section */}
+      {/* Bridge to Action Section */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center space-y-4 mb-12">
-            <p className="text-xs font-medium text-rc-accent uppercase tracking-wider">Impact</p>
-            <h2 className="text-2xl md:text-3xl font-rc-serif font-bold text-rc-text">
-              Transformation in Progress
-            </h2>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          viewport={{ once: true, amount: 0.15 }}
+          className="max-w-2xl mx-auto space-y-8 text-center"
+        >
+          <div className="space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
+            <p>This journey is possible for you, too.</p>
+            <p className="font-medium">Your story starts with one encounter.</p>
           </div>
-
-          <div className="grid md:grid-cols-3 gap-12">
-            <div className="text-center space-y-3">
-              <p className="text-3xl md:text-4xl font-bold text-rc-accent">{testimonies.length}</p>
-              <p className="text-sm text-rc-text/70">Stories Shared</p>
-            </div>
-            <div className="text-center space-y-3">
-              <p className="text-3xl md:text-4xl font-bold text-rc-accent">
-                {testimonies.length > 0 ? Math.max(...testimonies.map((t) => t.stage)) : 7}
-              </p>
-              <p className="text-sm text-rc-text/70">Stages Represented</p>
-            </div>
-            <div className="text-center space-y-3">
-              <p className="text-3xl md:text-4xl font-bold text-rc-accent">∞</p>
-              <p className="text-sm text-rc-text/70">Potential Ahead</p>
-            </div>
-          </div>
-        </div>
+        </motion.div>
       </section>
 
       {/* CTA Section */}
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
-        <div className="max-w-2xl mx-auto text-center space-y-12">
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-gradient-to-br from-rc-accent to-rc-text border-t border-rc-border">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          viewport={{ once: true, amount: 0.15 }}
+          className="max-w-2xl mx-auto text-center space-y-12"
+        >
           <div className="space-y-4">
-            <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">
-              Your Story Could Be Next
+            <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-white leading-tight tracking-tight">
+              Your Deliverance Awaits
             </h2>
-            <p className="text-lg text-rc-text/70 leading-relaxed">
-              Freedom is not a dream. It is a real outcome for real people.
+            <p className="text-base md:text-lg text-white/90 leading-relaxed font-light">
+              Freedom is not a dream. It is a real outcome. For real people. Through Jesus.
             </p>
           </div>
+
           <button
             onClick={() => {
               const event = new CustomEvent('open-deliverance-modal');
               document.dispatchEvent(event);
             }}
-            className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-rc-accent text-white font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300"
+            className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-white text-rc-accent font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300"
           >
             Request Deliverance
           </button>
 
-          <div className="pt-8 border-t border-rc-border/40">
-            <p className="text-xs font-medium text-rc-text/60 uppercase tracking-widest mb-6">Explore</p>
+          <div className="pt-8 border-t border-white/20">
+            <p className="text-xs font-medium text-white/60 uppercase tracking-widest mb-6">Or explore</p>
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-8 sm:gap-12">
-              <a href="/" className="text-base text-rc-text/80 hover:text-rc-text transition-colors duration-200 group">
+              <a href="/" className="text-base text-white/80 hover:text-white transition-colors duration-200 group">
                 Home
-                <span className="block h-px w-0 group-hover:w-full bg-rc-text/80 transition-all duration-300 mt-2"></span>
+                <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-2"></span>
               </a>
-              <a href="/partnership" className="text-base text-rc-text/80 hover:text-rc-text transition-colors duration-200 group">
+              <a href="/partnership" className="text-base text-white/80 hover:text-white transition-colors duration-200 group">
                 Our Partners
-                <span className="block h-px w-0 group-hover:w-full bg-rc-text/80 transition-all duration-300 mt-2"></span>
+                <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-2"></span>
               </a>
             </div>
           </div>
-        </div>
+        </motion.div>
       </section>
 
       {/* Footer */}
