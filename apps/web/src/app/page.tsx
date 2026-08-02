@@ -183,30 +183,31 @@ export default function Home() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
           viewport={{ once: true, amount: 0.15 }}
-          className="max-w-2xl mx-auto space-y-8"
+          className="max-w-2xl mx-auto space-y-12"
         >
-          <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">The Gathering</h2>
+          <div className="space-y-8">
+            <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">The Gathering</h2>
 
-          <div className="space-y-6 text-base md:text-lg text-rc-text leading-relaxed font-light">
-            <p>Come and see.</p>
-            <p>Witness those now enjoying freedom.</p>
-            <p>Hear their stories.</p>
-            <p>See God's love in action.</p>
-            <p className="pt-4 font-medium">Experience it yourself:</p>
+            <div className="space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
+              <p className="font-medium">Experience it yourself:</p>
+              <p>Witness those now enjoying freedom.</p>
+              <p>Hear their stories.</p>
+              <p>See God's love in action.</p>
+            </div>
           </div>
 
-          <div className="space-y-4 pt-4">
-            <p className="text-base md:text-lg text-rc-text/80">
-              <span className="font-medium">Next 7-day Gathering</span>
-            </p>
-            <p className="text-base text-rc-text/70">SCOAN Accra, Ghana</p>
-            <p className="text-base text-rc-text/70">Friday, August 15 at 3:00 PM</p>
+          <div className="space-y-8">
+            <div className="space-y-3">
+              <p className="text-base md:text-lg font-medium text-rc-text">Next Gathering</p>
+              <p className="text-base text-rc-text/70">SCOAN Accra, Ghana</p>
+              <p className="text-base text-rc-text/70">Friday, August 15 at 3:00 PM</p>
+            </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 pt-6">
-              <a href="https://maps.google.com/?q=SCOAN+Accra+Ghana" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-rc-accent text-white font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300">
+            <div className="flex flex-col sm:flex-row gap-3 pt-2">
+              <a href="https://maps.google.com/?q=SCOAN+Accra+Ghana" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-rc-text/10 text-rc-text font-medium rounded-lg hover:bg-rc-text/15 hover:-translate-y-0.5 transition-all duration-300 border border-rc-border/30">
                 Get Directions
               </a>
-              <button onClick={() => setIsAttendanceModalOpen(true)} className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-rc-accent text-white font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300">
+              <button onClick={() => setIsAttendanceModalOpen(true)} className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-rc-text text-white font-medium rounded-lg hover:bg-rc-text/90 hover:-translate-y-0.5 transition-all duration-300">
                 I'm Attending
               </button>
             </div>
