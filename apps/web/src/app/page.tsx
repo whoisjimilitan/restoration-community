@@ -192,7 +192,6 @@ export default function Home() {
             <div className="space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
               <p>Witness those now enjoying freedom.</p>
               <p>Hear their stories.</p>
-              <p>Receive truth together.</p>
             </div>
           </div>
 
