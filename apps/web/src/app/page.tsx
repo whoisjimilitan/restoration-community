@@ -90,15 +90,15 @@ export default function Home() {
           <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">The Witness</h2>
 
           <div className="border-l-4 border-rc-accent pl-8 space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
-            <p>I too was controlled by <em className="not-italic font-medium">that spirit</em>.</p>
+            <p>I too was once controlled by that spirit.</p>
             <p>I justified my actions.</p>
             <p>I blamed my country's economy.</p>
             <p>I convinced myself I had no choice.</p>
-            <p className="pt-3">Until my encounter with One Man.</p>
-            <p className="font-medium">He delivered me from <em className="not-italic">that spirit</em>.</p>
+            <p className="pt-3">Until my encounter with That Man.</p>
+            <p className="font-medium">He delivered me from that spirit.</p>
             <p className="font-medium">He gave me a new beginning.</p>
-            <p className="pt-3">God. My Deliverer.</p>
-            <p className="font-medium">His name is Jesus Christ.</p>
+            <p className="pt-3">He is God. My Deliverer.</p>
+            <p className="font-medium">Jesus Christ.</p>
           </div>
         </motion.div>
       </section>
@@ -128,87 +128,6 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* THE JOURNEY OUT */}
-      <section id="journey" className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-          viewport={{ once: true, amount: 0.15 }}
-          className="max-w-2xl mx-auto space-y-10"
-        >
-          <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">The Journey Out</h2>
-
-          {/* Desktop Timeline */}
-          <div className="hidden md:block">
-            <div className="flex items-center justify-between relative">
-              <div className="absolute top-6 left-0 right-0 h-px bg-rc-text/10" />
-              <div className="relative flex justify-between w-full gap-4">
-                {stages.map((stage, index) => (
-                  <div key={index} className="flex flex-col items-center group flex-1">
-                    <div
-                      className="w-12 h-12 rounded-full flex items-center justify-center font-medium text-sm transition-all duration-300 group-hover:shadow-lg group-hover:scale-110 relative z-10"
-                      style={{
-                        backgroundColor: stage.color,
-                        color: stage.textColor === 'text-white' ? 'white' : '#1A1A18'
-                      }}
-                    >
-                      {stage.number}
-                    </div>
-                    <div className="mt-4 text-center">
-                      <p className="text-sm font-medium text-rc-text">{stage.name}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Mobile Timeline */}
-          <div className="md:hidden space-y-0">
-            {stages.map((stage, index) => (
-              <div key={index} className="flex items-center gap-4 py-3 pl-4 border-l-4" style={{ borderColor: stage.color }}>
-                <div
-                  className="w-10 h-10 rounded-full flex items-center justify-center font-medium text-sm flex-shrink-0 transition-all duration-200"
-                  style={{
-                    backgroundColor: stage.color,
-                    color: stage.textColor === 'text-white' ? 'white' : '#1A1A18'
-                  }}
-                >
-                  {stage.number}
-                </div>
-                <p className="font-medium text-rc-text">{stage.name}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="space-y-4 pt-10 md:pt-12 border-t border-rc-text/15 text-base md:text-lg text-rc-text leading-relaxed font-light">
-            <p>You move through this journey.</p>
-            <p>With support and prayer from those who traveled it before.</p>
-            <p className="pt-3">Do not deceive yourself.</p>
-            <p>Truth is the only path out.</p>
-          </div>
-        </motion.div>
-      </section>
-
-      {/* PRAYER */}
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-          viewport={{ once: true, amount: 0.15 }}
-          className="max-w-2xl mx-auto space-y-8"
-        >
-          <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">Prayer</h2>
-
-          <div className="space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
-            <p>Prayer sustains the journey.</p>
-            <p>But not every prayer brings freedom.</p>
-            <p>Only deliverance prayer does.</p>
-          </div>
-        </motion.div>
-      </section>
 
       {/* THE ENCOUNTER */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
@@ -225,36 +144,16 @@ export default function Home() {
             <p>In 2013.</p>
             <p>God used His servant Prophet TB Joshua.</p>
             <p>To pray for me.</p>
-            <p className="pt-3">One prayer.</p>
+            <p className="pt-3">One deliverance prayer.</p>
             <p>Freedom from fraud.</p>
-            <p className="pt-3 font-medium">What Jesus did for me through him.</p>
-            <p className="font-medium">He will do for you through me.</p>
+            <p>And the curses of its lifestyle.</p>
+            <p className="pt-3 font-medium">What Jesus Christ did for me through him.</p>
+            <p className="font-medium">He will also do for you through me.</p>
           </div>
         </motion.div>
       </section>
 
-      {/* THE NEW LIFE */}
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-          viewport={{ once: true, amount: 0.15 }}
-          className="max-w-2xl mx-auto space-y-8"
-        >
-          <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">The New Life</h2>
-
-          <div className="space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
-            <p>Deliverance is just the start.</p>
-            <p>His grace will teach you to work honestly.</p>
-            <p>To live without fear.</p>
-            <p>To build something that lasts.</p>
-            <p>To live the life you were always meant to live.</p>
-          </div>
-        </motion.div>
-      </section>
-
-      {/* RETURN */}
+      {/* THE CALL */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-gradient-to-br from-rc-accent to-rc-text border-t border-rc-border">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -263,74 +162,62 @@ export default function Home() {
           viewport={{ once: true, amount: 0.15 }}
           className="max-w-2xl mx-auto space-y-12"
         >
-          <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-white leading-tight tracking-tight">Return</h2>
-
-          <div className="space-y-4 text-base md:text-lg text-white/90 leading-relaxed font-light">
-            <p>Everything you have heard is true.</p>
-            <p>You were made for something better.</p>
-            <p>I have been there.</p>
-            <p>And returned by grace.</p>
-            <p>Through deliverance.</p>
-            <p className="pt-3">The trap is real.</p>
-            <p>But so is the Deliverer, Jesus Christ.</p>
-          </div>
-
-          <div className="flex flex-col sm:flex-row gap-4 pt-6">
-            <Link
-              href="/request-prayer"
-              className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-white text-rc-accent font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300"
-            >
-              Request Deliverance
-            </Link>
-            <Link
-              href="/auth/signin"
-              className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] text-white font-medium border-2 border-white rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300"
-            >
-              Return to Your Journey
-            </Link>
-          </div>
-
-          <div className="pt-12 border-t border-white/20">
-            <div>
-              <p className="text-xs font-medium text-white/60 uppercase tracking-widest mb-6">Or explore</p>
-            </div>
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-8 sm:gap-12">
-              <Link href="/stories" className="text-base text-white/80 hover:text-white transition-colors duration-200 group">
-                Stories of Deliverance
-                <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-2"></span>
-              </Link>
-              <Link href="/partnership" className="text-base text-white/80 hover:text-white transition-colors duration-200 group">
-                Mission Partners
-                <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-2"></span>
-              </Link>
+          <div className="space-y-6">
+            <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-white leading-tight tracking-tight">
+              If you are trapped in fraud.
+            </h2>
+            <div className="space-y-4 text-base md:text-lg text-white/90 leading-relaxed font-light">
+              <p>If you are controlled by this spirit.</p>
+              <p>If you want to be free.</p>
+              <p className="pt-3 font-medium">Jesus can deliver you.</p>
+              <p className="pt-2">One prayer.</p>
+              <p>That's how it starts.</p>
             </div>
           </div>
+
+          <button
+            onClick={() => {
+              const event = new CustomEvent('open-deliverance-modal');
+              document.dispatchEvent(event);
+            }}
+            className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-white text-rc-accent font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300"
+          >
+            Request Deliverance Prayer
+          </button>
         </motion.div>
       </section>
 
-      {/* EPILOGUE - The pastor's final words */}
-      <section className="w-full py-16 md:py-20 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border/40">
+      {/* THE GATHERING */}
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }}
-          viewport={{ once: true, amount: 0.5 }}
-          className="max-w-2xl mx-auto text-center space-y-8"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          viewport={{ once: true, amount: 0.15 }}
+          className="max-w-2xl mx-auto space-y-8"
         >
-          <div className="space-y-6">
-            <p className="text-sm text-rc-text/60 uppercase tracking-widest font-medium">If you are ready, Jesus is</p>
+          <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">The Gathering</h2>
 
-            <div className="space-y-3 text-lg md:text-lg text-rc-text leading-relaxed font-light">
-              <p>SCOAN Accra, Ghana</p>
-              <p>Friday, August 15 at 3:00 PM</p>
-              <p className="text-sm text-rc-text/70 pt-2">Stage 1: Truth Teaching</p>
-            </div>
+          <div className="space-y-6 text-base md:text-lg text-rc-text leading-relaxed font-light">
+            <p>Come and see.</p>
+            <p>Witness those now enjoying freedom.</p>
+            <p>Hear their stories.</p>
+            <p>See God's love in action.</p>
+            <p className="pt-4 font-medium">Experience it yourself:</p>
+          </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6">
-              <a href="https://maps.google.com/?q=SCOAN+Accra+Ghana" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-rc-text/10 text-rc-text font-medium rounded-lg hover:-translate-y-0.5 hover:bg-rc-text/15 hover:shadow-lg active:translate-y-0 transition-all duration-300">
+          <div className="space-y-4 pt-4">
+            <p className="text-base md:text-lg text-rc-text/80">
+              <span className="font-medium">Next 7-day Gathering</span>
+            </p>
+            <p className="text-base text-rc-text/70">SCOAN Accra, Ghana</p>
+            <p className="text-base text-rc-text/70">Friday, August 15 at 3:00 PM</p>
+
+            <div className="flex flex-col sm:flex-row gap-4 pt-6">
+              <a href="https://maps.google.com/?q=SCOAN+Accra+Ghana" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-rc-accent text-white font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300">
                 Get Directions
               </a>
-              <button onClick={() => setIsAttendanceModalOpen(true)} className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] text-rc-text font-medium border-2 border-rc-text/40 rounded-lg hover:-translate-y-0.5 hover:border-rc-text/60 hover:shadow-lg active:translate-y-0 transition-all duration-300">
+              <button onClick={() => setIsAttendanceModalOpen(true)} className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-rc-accent text-white font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300">
                 I'm Attending
               </button>
             </div>
