@@ -233,26 +233,25 @@ export default function PartnershipPage() {
               <p>
                 These partners pray.
               </p>
-              <div className="space-y-4 pt-2">
-                <p>
-                  Not casual prayer. Not "bless the work" prayer.
-                </p>
-                <p>
-                  Intercession. Spiritual warfare. Breaking spiritual strongholds.
-                </p>
-              </div>
-              <div className="space-y-4 pt-4">
-                <p>
-                  They understand: The battle is spiritual.
-                </p>
-                <p>
-                  The victory is spiritual.
-                </p>
-                <p>
-                  Prayer is the armor that protects the work.
-                </p>
-              </div>
-              <p className="pt-4">
+
+              <p className="pt-2">
+                Not casual prayer. Not "bless the work" prayer.
+              </p>
+              <p className="font-medium">
+                Intercession. Spiritual warfare. Breaking spiritual strongholds.
+              </p>
+
+              <p className="pt-3">
+                They understand: The battle is spiritual.
+              </p>
+              <p>
+                The victory is spiritual.
+              </p>
+              <p>
+                Prayer is the armor that protects the work.
+              </p>
+
+              <p className="pt-3 font-medium">
                 Without them, the work collapses.
               </p>
             </div>
@@ -294,34 +293,25 @@ export default function PartnershipPage() {
           <div className="space-y-12">
             <h2 className="text-xl md:text-2xl font-rc-serif font-bold uppercase tracking-wider">Why This Matters</h2>
             <div className="space-y-6 text-base md:text-lg text-rc-text leading-relaxed font-light">
-              <p>Our program is free because partners chose this calling.</p>
-              <p className="pt-2">This is important. Listen closely.</p>
-              <div className="space-y-4 pt-4">
-                <p>
-                  More money doesn't free young people from fraud.
-                </p>
-                <p>
-                  More laws don't break the spirit controlling them.
-                </p>
-                <p>
-                  More programs don't deliver them.
-                </p>
-              </div>
-              <p className="pt-4"><span className="font-medium text-rc-accent">Only Jesus delivers.</span></p>
-              <div className="space-y-4 pt-4">
-                <p>
-                  And Jesus works through people who answer the call.
-                </p>
-                <p>
-                  You are looking at that call right now.
-                </p>
-              </div>
+              <p className="font-medium">Our program is free because partners chose this calling.</p>
+
+              <p className="pt-3">This is important.</p>
+              <p>Listen closely.</p>
+
+              <p className="pt-3">More money doesn't free young people from fraud.</p>
+              <p>More laws don't break the spirit controlling them.</p>
+              <p>More programs don't deliver them.</p>
+
+              <p className="pt-3 font-medium text-rc-accent">Only Jesus delivers.</p>
+
+              <p className="pt-2">And Jesus works through people who answer the call.</p>
+
               <div className="space-y-4 pt-6 border-t border-rc-border/30">
                 <p className="pt-4">
                   The question isn't: "Can I afford this?"
                 </p>
-                <p>
-                  <span className="font-medium">The question is: "Am I called to this?"</span>
+                <p className="font-medium">
+                  The question is: "Am I called to this?"
                 </p>
               </div>
             </div>
