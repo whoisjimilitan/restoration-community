@@ -72,7 +72,8 @@ export default function Home() {
             <p className="text-rc-text/80">I have no opportunities.</p>
             <p className="text-rc-text/80">I am just recovering what was stolen.</p>
             <p className="pt-2">That is the voice of deceit.</p>
-            <p className="font-medium">The spirit controlling so many young people today.</p>
+            <p className="font-medium">The spirit controlling our young people.</p>
+            <p>Across nations.</p>
           </div>
         </motion.div>
       </section>
@@ -118,9 +119,9 @@ export default function Home() {
             <p>From sin and its penalties.</p>
             <p>It is the only way out of fraud.</p>
             <p className="pt-3">For young people trapped in it.</p>
-            <p>For nations plagued by it.</p>
-            <p className="pt-3">More money will not free you from it.</p>
-            <p>More laws will not free our nations from it.</p>
+            <p>And nations plagued by it.</p>
+            <p className="pt-3">More money will not free you.</p>
+            <p>More laws will not free our nations.</p>
             <p className="pt-3 font-medium">Fraud is a spiritual issue.</p>
             <p className="font-medium">Jesus Christ is the only way.</p>
           </div>
@@ -182,18 +183,15 @@ export default function Home() {
           </div>
 
           <div className="space-y-4 pt-10 md:pt-12 border-t border-rc-text/15 text-base md:text-lg text-rc-text leading-relaxed font-light">
-            <p>The journey out starts with truth.</p>
-            <p>It is the only way to confession.</p>
-            <p>To repentance. Forgiveness. And beyond.</p>
-            <p>Do not deceive yourself.</p>
-            <p>Truth paves the way to leave fraud behind.</p>
-            <p className="pt-3">You walk with those who chose truth before you.</p>
-            <p>And through grace, become one who leads others there.</p>
+            <p>You move through this journey.</p>
+            <p>With support and prayer from those who traveled it before.</p>
+            <p className="pt-3">Do not deceive yourself.</p>
+            <p>Truth is the only path out.</p>
           </div>
         </motion.div>
       </section>
 
-      {/* DELIVERANCE PRAYER */}
+      {/* PRAYER */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -202,18 +200,35 @@ export default function Home() {
           viewport={{ once: true, amount: 0.15 }}
           className="max-w-2xl mx-auto space-y-8"
         >
-          <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">Deliverance Prayer</h2>
+          <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">Prayer</h2>
 
           <div className="space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
-            <p>Do you see the stages in this divine journey?</p>
-            <p>Prayer is essential to each stage.</p>
-            <p>But not just any kind of prayer will bring us to truth.</p>
-            <p>Deliverance prayer only does.</p>
-            <p className="pt-3">In 2013, God used His servant Prophet TB Joshua to pray for me.</p>
-            <p>I walked out completely.</p>
-            <p className="pt-3">One deliverance prayer.</p>
+            <p>Prayer sustains the journey.</p>
+            <p>But not every prayer brings freedom.</p>
+            <p>Only deliverance prayer does.</p>
+          </div>
+        </motion.div>
+      </section>
+
+      {/* THE ENCOUNTER */}
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          viewport={{ once: true, amount: 0.15 }}
+          className="max-w-2xl mx-auto space-y-8"
+        >
+          <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">The Encounter</h2>
+
+          <div className="space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
+            <p>In 2013.</p>
+            <p>God used His servant Prophet TB Joshua.</p>
+            <p>To pray for me.</p>
+            <p className="pt-3">One prayer.</p>
             <p>Freedom from fraud.</p>
-            <p className="pt-3 font-medium">If you are ready, the Living Word is ready in me.</p>
+            <p className="pt-3 font-medium">What Jesus did for me through him.</p>
+            <p className="font-medium">He will do for you through me.</p>
           </div>
         </motion.div>
       </section>
