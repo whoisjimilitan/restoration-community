@@ -23,7 +23,7 @@ const mockStories: StoryCard[] = [
     stage: 6,
     stageName: 'Honest Work',
     quote: 'Seven years of my life in reverse. I thought money was everything. But it does not solve everything.',
-    story: 'I was into all types of schemes. Dating, employment, trading. The money came fast. I had status. People knew my name. But I was always afraid. Always unsure who I was.\n\nEvery time I received money, it felt like I was getting deeper. Into something I couldn\'t name. Something that had me.\n\nOne day, I prayed to Jesus asking him to help me. I didn\'t even know why I did. That night, I had a dream. A man came and broke a chain from my hands. When I woke up, I felt light.\n\nThat was the day my mind cleared. For the first time, I could think straight.\n\nNow I build real businesses. Things that last. And I tell other young men: Don\'t do what I did. Jesus is better than the money.',
+    story: 'I was into all types of schemes. Dating, employment, trading. The money came fast. I had status. But I was always afraid.\n\nOne day, I prayed to Jesus. That night, I had a dream. A man came and broke a chain from my hands. When I woke up, I felt light. My mind cleared for the first time.\n\nNow I build real businesses. And I tell other young men: Don\'t do what I did. Jesus is better than the money.',
     heroImage: {
       url: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"%3E%3Crect fill="%234DB5A6" width="400" height="400"/%3E%3Ccircle cx="200" cy="120" r="60" fill="%23ffffff" opacity="0.3"/%3E%3Crect x="80" y="200" width="240" height="160" fill="%23ffffff" opacity="0.2"/%3E%3Ctext x="200" y="310" font-size="24" fill="%23ffffff" text-anchor="middle" opacity="0.5"%3ESamuel Okafor%3C/text%3E%3C/svg%3E',
       alt: 'Samuel Okafor'
@@ -36,7 +36,7 @@ const mockStories: StoryCard[] = [
     stage: 7,
     stageName: 'Service',
     quote: 'I stopped believing I deserved to live. Jesus convinced me otherwise.',
-    story: 'I was nineteen when they trafficked me. I was broken in ways I didn\'t know were possible.\n\nFor years, I couldn\'t look at myself. I couldn\'t look at other people. The shame was so heavy I could barely breathe. I believed I was ruined.\n\nOne day, alone, I just cried and prayed. Jesus, if you\'re real, help me. That night, something shifted inside me. Not a voice. Not a vision. But something that said: This is not who you are.\n\nI started going to a church where other survivors met. We prayed together. Jesus didn\'t erase what happened. But He healed what it broke inside me. He gave me back my worth.\n\nNow I work with girls exactly where I was. I tell them: I know the shame you feel. But Jesus doesn\'t see you that way. He healed me. He can heal you too.',
+    story: 'I was nineteen when they trafficked me. Broken in ways I didn\'t know possible.\n\nFor years, I couldn\'t look at myself or others. The shame was so heavy. I believed I was ruined.\n\nOne day, alone, I cried and prayed. Jesus, if you\'re real, help me. That night, something shifted. This is not who you are.\n\nI started going to a church with other survivors. Jesus didn\'t erase what happened. But He healed what it broke inside me.\n\nNow I work with girls where I was. He healed me. He can heal you too.',
     heroImage: {
       url: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"%3E%3Crect fill="%231B7A6F" width="400" height="400"/%3E%3Ccircle cx="200" cy="120" r="60" fill="%23ffffff" opacity="0.3"/%3E%3Crect x="80" y="200" width="240" height="160" fill="%23ffffff" opacity="0.2"/%3E%3Ctext x="200" y="310" font-size="24" fill="%23ffffff" text-anchor="middle" opacity="0.5"%3EChioma Adeyemi%3C/text%3E%3C/svg%3E',
       alt: 'Chioma Adeyemi'
@@ -49,7 +49,7 @@ const mockStories: StoryCard[] = [
     stage: 4,
     stageName: 'Forgiveness',
     quote: 'I thought leaving would free me. But forgiveness was what actually broke the chains.',
-    story: 'I was at university with no money. My friends were making cash in ways that looked easy. I got in. Deep. Dating scams, advance fee fraud, whatever came. The money was real.\n\nEventually, I left the network. But leaving didn\'t free me. The shame followed me. The voices followed me. I heard them every day.\n\nI thought: I escaped. Why don\'t I feel free?\n\nSomeone told me: You have to forgive them. The ones who pulled you in.\n\nI didn\'t want to. But one day, I just let it out. I said their names out loud and said: I forgive you.\n\nAnd something broke open in me. The weight lifted. For the first time, I could breathe again.\n\nYou can leave a place, but you\'re not free until you forgive the people who had you there.',
+    story: 'I was at university with no money. My friends were making cash in easy ways. I got in deep. Dating scams, advance fraud. The money was real.\n\nI eventually left. But leaving didn\'t free me. The shame followed. The voices followed.\n\nSomeone told me: Forgive them. I didn\'t want to. But one day, I said their names and said: I forgive you.\n\nSomething broke open in me. The weight lifted. For the first time, I could breathe.\n\nYou can leave a place. But you\'re not free until you forgive the people who had you there.',
     heroImage: {
       url: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"%3E%3Crect fill="%2395DDD7" width="400" height="400"/%3E%3Ccircle cx="200" cy="120" r="60" fill="%23ffffff" opacity="0.3"/%3E%3Crect x="80" y="200" width="240" height="160" fill="%23ffffff" opacity="0.2"/%3E%3Ctext x="200" y="310" font-size="24" fill="%23ffffff" text-anchor="middle" opacity="0.5"%3ETunde Bankole%3C/text%3E%3C/svg%3E',
       alt: 'Tunde Bankole'
@@ -207,9 +207,6 @@ export default function TestimoniesPage() {
             <p>Because Jesus set them free.</p>
 
             <p className="pt-4">The same Jesus can set you free.</p>
-            <p>Just believe.</p>
-
-            <p className="pt-3 font-medium">That's all it takes to start.</p>
           </div>
 
           <button
@@ -219,7 +216,7 @@ export default function TestimoniesPage() {
             }}
             className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-white text-rc-accent font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300"
           >
-            Request Prayer Encounter
+            Request Deliverance
           </button>
         </motion.div>
       </section>
