@@ -102,17 +102,15 @@ export default function ImpactPage() {
         </motion.div>
       </section>
 
-      {/* PARTNERSHIP SECTION */}
+      {/* WHY TRANSFORMATION IS FREE SECTION */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
           viewport={{ once: true, amount: 0.15 }}
-          className="max-w-2xl mx-auto text-center space-y-8"
+          className="max-w-2xl mx-auto text-center space-y-6"
         >
-          <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">Partner With Us</h2>
-
           <div className="space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
             <p>All transformation is completely free. This is important.</p>
             <p>More money doesn't free young people from fraud.</p>
@@ -120,26 +118,42 @@ export default function ImpactPage() {
             <p className="text-rc-accent font-semibold">Only Jesus delivers.</p>
             <p>And Jesus works through people who answer the call.</p>
           </div>
+        </motion.div>
+      </section>
 
-          <div className="space-y-6 pt-4">
-            <div className="bg-white/50 rounded-lg p-8 space-y-4">
-              <p className="text-base font-semibold text-rc-text">Three kinds of partners make this possible:</p>
-              <div className="space-y-4 text-sm md:text-base text-rc-text leading-relaxed font-light">
-                <div>
-                  <p className="font-semibold text-rc-accent">Founding Partners</p>
-                  <p className="text-rc-text/80">Believed when there was no proof</p>
-                </div>
-                <div>
-                  <p className="font-semibold text-rc-accent">Standing Partners</p>
-                  <p className="text-rc-text/80">Saw transformation and chose to fuel it</p>
-                </div>
-                <div>
-                  <p className="font-semibold text-rc-accent">Prayer Partners</p>
-                  <p className="text-rc-text/80">Their intercession protects the work</p>
-                </div>
-              </div>
-              <p className="text-base font-semibold text-rc-text pt-2">Which kind are you called to be?</p>
+      {/* PARTNER TYPES SECTION */}
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          viewport={{ once: true, amount: 0.15 }}
+          className="max-w-2xl mx-auto space-y-8"
+        >
+          <div className="text-center space-y-4">
+            <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">Three Kinds of Partners</h2>
+            <p className="text-base md:text-lg text-rc-text/80 leading-relaxed font-light">Make this work possible.</p>
+          </div>
+
+          <div className="space-y-6">
+            <div className="bg-white rounded-lg p-8 border border-rc-border/30 hover:border-rc-border/60 transition-colors duration-300">
+              <p className="text-base font-semibold text-rc-accent mb-3 tracking-tight">Founding Partners</p>
+              <p className="text-base text-rc-text/80 leading-relaxed font-light">Believed when there was no proof.</p>
             </div>
+
+            <div className="bg-white rounded-lg p-8 border border-rc-border/30 hover:border-rc-border/60 transition-colors duration-300">
+              <p className="text-base font-semibold text-rc-accent mb-3 tracking-tight">Standing Partners</p>
+              <p className="text-base text-rc-text/80 leading-relaxed font-light">Saw transformation and chose to fuel it.</p>
+            </div>
+
+            <div className="bg-white rounded-lg p-8 border border-rc-border/30 hover:border-rc-border/60 transition-colors duration-300">
+              <p className="text-base font-semibold text-rc-accent mb-3 tracking-tight">Prayer Partners</p>
+              <p className="text-base text-rc-text/80 leading-relaxed font-light">Their intercession protects the work.</p>
+            </div>
+          </div>
+
+          <div className="text-center space-y-6 pt-8 border-t border-rc-border">
+            <p className="text-base md:text-lg text-rc-text leading-relaxed font-light">Which kind are you called to be?</p>
 
             <a
               href="mailto:james@saintandstory.co.uk"
