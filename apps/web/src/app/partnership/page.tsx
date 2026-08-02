@@ -377,9 +377,6 @@ export default function PartnershipPage() {
                 <p>
                   Because the call is real.
                 </p>
-                <p className="font-medium">
-                  And God uses people who say yes.
-                </p>
               </div>
             </div>
           </div>
