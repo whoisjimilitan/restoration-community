@@ -214,9 +214,9 @@ export default function TestimoniesPage() {
               const event = new CustomEvent('open-deliverance-modal');
               document.dispatchEvent(event);
             }}
-            className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-white text-rc-accent font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300"
+            className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-white text-rc-text/70 font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300 tracking-wide"
           >
-            Request Deliverance
+            REQUEST DELIVERANCE
           </button>
         </motion.div>
       </section>

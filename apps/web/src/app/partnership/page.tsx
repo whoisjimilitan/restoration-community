@@ -384,7 +384,7 @@ export default function PartnershipPage() {
                   </label>
                 </div>
 
-                <button type="submit" className="w-full px-6 py-3 bg-rc-accent text-white font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300">Begin the Conversation</button>
+                <button type="submit" className="w-full px-6 py-3 bg-rc-text text-white font-medium rounded-lg hover:bg-rc-text/90 hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300">Begin the Conversation</button>
               </form>
             )}
 
