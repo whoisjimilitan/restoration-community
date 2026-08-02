@@ -190,6 +190,23 @@ export default function TestimoniesPage() {
         </motion.div>
       </section>
 
+      {/* Made Possible By Partners */}
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          viewport={{ once: true, amount: 0.15 }}
+          className="max-w-2xl mx-auto space-y-6"
+        >
+          <div className="space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
+            <p>These stories exist because partners answered the call.</p>
+            <p>Individuals who believed. Organizations fueling the work.</p>
+            <p className="text-rc-accent font-semibold">All making deliverance possible.</p>
+          </div>
+        </motion.div>
+      </section>
+
       {/* Stories Grid */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
         <div className="max-w-5xl mx-auto space-y-16 md:space-y-20">
