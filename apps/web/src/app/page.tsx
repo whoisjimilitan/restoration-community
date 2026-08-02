@@ -4,16 +4,6 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { AnimatePresence } from 'framer-motion';
 
-const stages = [
-  { number: 1, name: 'Truth', color: '#E8F4F3', textColor: 'text-rc-text' },
-  { number: 2, name: 'Confession', color: '#D1EEEA', textColor: 'text-rc-text' },
-  { number: 3, name: 'Repentance', color: '#B3E5E0', textColor: 'text-rc-text' },
-  { number: 4, name: 'Forgiveness', color: '#95DDD7', textColor: 'text-rc-text' },
-  { number: 5, name: 'Reconciliation', color: '#4DB5A6', textColor: 'text-rc-text' },
-  { number: 6, name: 'Honest Work', color: '#1B7A6F', textColor: 'text-white' },
-  { number: 7, name: 'Service', color: '#0D5E57', textColor: 'text-white' },
-];
-
 export default function Home() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
