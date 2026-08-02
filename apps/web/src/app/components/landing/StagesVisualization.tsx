@@ -12,7 +12,7 @@ const stages = [
   { name: 'Serving', color: '#0D5E57' },
 ];
 
-const getTextColor = (index: number) => {
+const getCircleTextColor = (index: number) => {
   return index >= 5 ? 'text-white' : 'text-rc-text';
 };
 
@@ -41,14 +41,14 @@ export default function StagesVisualization() {
                 className="flex flex-col items-center group"
               >
                 <div
-                  className="w-12 h-12 rounded-full flex items-center justify-center font-medium text-sm transition-all duration-300 group-hover:shadow-lg group-hover:scale-110"
+                  className={`w-12 h-12 rounded-full flex items-center justify-center font-medium text-sm transition-all duration-300 group-hover:shadow-lg group-hover:scale-110 ${getCircleTextColor(index)}`}
                   style={{
                     backgroundColor: stage.color,
                   }}
                 >
                   {index + 1}
                 </div>
-                <p className={`mt-3 text-xs font-medium ${getTextColor(index)}`}>
+                <p className="mt-3 text-xs font-medium text-rc-text">
                   {stage.name}
                 </p>
               </motion.div>
@@ -74,14 +74,14 @@ export default function StagesVisualization() {
               className="flex items-center gap-3"
             >
               <div
-                className="w-10 h-10 rounded-full flex items-center justify-center font-medium text-sm flex-shrink-0"
+                className={`w-10 h-10 rounded-full flex items-center justify-center font-medium text-sm flex-shrink-0 ${getCircleTextColor(index)}`}
                 style={{
                   backgroundColor: stage.color,
                 }}
               >
                 {index + 1}
               </div>
-              <p className={`text-sm font-medium ${getTextColor(index)}`}>
+              <p className="text-sm font-medium text-rc-text">
                 {stage.name}
               </p>
             </motion.div>
