@@ -244,8 +244,6 @@ export default function TestimoniesPage() {
             <p>One prayer. One decision to be honest with God.</p>
             <p>That's what happened to them.</p>
             <p>That's what can happen to you.</p>
-            <p className="pt-2">The question isn't whether you're worthy.</p>
-            <p className="font-medium">The question is: Are you ready?</p>
           </div>
         </motion.div>
       </section>
