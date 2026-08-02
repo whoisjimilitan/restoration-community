@@ -23,7 +23,7 @@ const mockStories: StoryCard[] = [
     stage: 6,
     stageName: 'Honest Work',
     quote: 'From schemes to solid ground. Now I build businesses that last.',
-    story: 'Seven years in fraud networks consumed him. An encounter with Jesus changed everything. Now he builds legitimate businesses and mentors others.',
+    story: 'Seven years. Schemes upon schemes. Each one promised more. The money came. The status came. The chains came too.\n\nUntil one encounter with Jesus.\n\nNot reformation. Deliverance. The spirit that controlled him was cast out. His mind was freed to think differently. His hands were freed to build differently.\n\nNow he mentors others. The cycle reverses.\n\nThis is Stage 6: Honest Work.',
     heroImage: {
       url: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"%3E%3Crect fill="%234DB5A6" width="400" height="400"/%3E%3Ccircle cx="200" cy="120" r="60" fill="%23ffffff" opacity="0.3"/%3E%3Crect x="80" y="200" width="240" height="160" fill="%23ffffff" opacity="0.2"/%3E%3Ctext x="200" y="310" font-size="24" fill="%23ffffff" text-anchor="middle" opacity="0.5"%3ESamuel Okafor%3C/text%3E%3C/svg%3E',
       alt: 'Samuel Okafor'
@@ -36,7 +36,7 @@ const mockStories: StoryCard[] = [
     stage: 7,
     stageName: 'Service',
     quote: 'My past became my platform. Now I help others find their way out.',
-    story: 'Trafficked at nineteen, shame kept her silent for years. Jesus set her free. Now she helps other women find their way to His freedom.',
+    story: 'Trafficked at nineteen. Shame buried her voice. Years of silence. Years of believing lies. She thought she was the only one. She thought she deserved it.\n\nUntil Jesus spoke louder than shame.\n\nNot counseling healed her. Deliverance freed her. He didn\'t fix her trauma. He set her free from what caused it.\n\nNow she stands where she once hid. Now she calls others to freedom. Her story became her calling.\n\nThis is Stage 7: Service.',
     heroImage: {
       url: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"%3E%3Crect fill="%231B7A6F" width="400" height="400"/%3E%3Ccircle cx="200" cy="120" r="60" fill="%23ffffff" opacity="0.3"/%3E%3Crect x="80" y="200" width="240" height="160" fill="%23ffffff" opacity="0.2"/%3E%3Ctext x="200" y="310" font-size="24" fill="%23ffffff" text-anchor="middle" opacity="0.5"%3EChioma Adeyemi%3C/text%3E%3C/svg%3E',
       alt: 'Chioma Adeyemi'
@@ -49,7 +49,7 @@ const mockStories: StoryCard[] = [
     stage: 4,
     stageName: 'Forgiveness',
     quote: 'I forgave the people who pulled me in. That freed me more than leaving ever could.',
-    story: 'University student trapped in elaborate scams. Desperation led him to a pastor; Jesus forgave him and broke open years of shame. Now he walks a new path.',
+    story: 'University student. Desperate for money. Trapped in scams. He thought leaving the network would be freedom. It wasn\'t. The shame remained. The voices remained.\n\nUntil he encountered forgiveness—not of himself, but of others.\n\nThe people who pulled him in. The friends who betrayed him. The network that promised family but delivered chains.\n\nHe forgave them. And in that moment, the final chain broke.\n\nHe learned: Holding bitterness keeps you enslaved. Forgiveness breaks the last chain.\n\nThis is Stage 4: Forgiveness. Most people get stuck here. This is where Jesus moves the deepest.',
     heroImage: {
       url: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"%3E%3Crect fill="%2395DDD7" width="400" height="400"/%3E%3Ccircle cx="200" cy="120" r="60" fill="%23ffffff" opacity="0.3"/%3E%3Crect x="80" y="200" width="240" height="160" fill="%23ffffff" opacity="0.2"/%3E%3Ctext x="200" y="310" font-size="24" fill="%23ffffff" text-anchor="middle" opacity="0.5"%3ETunde Bankole%3C/text%3E%3C/svg%3E',
       alt: 'Tunde Bankole'
@@ -179,9 +179,12 @@ export default function TestimoniesPage() {
           className="max-w-2xl mx-auto space-y-8 text-center"
         >
           <div className="space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
-            <p>You move through a journey.</p>
-            <p>These are people walking it.</p>
-            <p className="pt-2">At different stages. With different struggles.</p>
+            <p>You think transformation takes years.</p>
+            <p>Some of these people walked the entire journey in months.</p>
+            <p>Why? Because Jesus doesn't work on our timeline.</p>
+            <p className="pt-2">You move through seven stages.</p>
+            <p>These are real people, walking it right now.</p>
+            <p>At different stages. With different struggles.</p>
             <p className="font-medium">All finding freedom through Jesus.</p>
           </div>
         </motion.div>
@@ -199,9 +202,11 @@ export default function TestimoniesPage() {
             className="max-w-2xl mx-auto text-center space-y-3"
           >
             <p className="text-xs font-medium text-rc-accent uppercase tracking-wider">Their Journey</p>
-            <p className="text-base text-rc-text/70 leading-relaxed">
-              Each story is tagged with its stage in the journey. Freedom doesn't happen overnight—it happens one decision at a time.
-            </p>
+            <div className="space-y-3 text-base text-rc-text/70 leading-relaxed">
+              <p>Every stage matters. Watch for yours.</p>
+              <p>Not all stages feel like progress. Some feel like falling apart.</p>
+              <p>But that's where Jesus works the deepest.</p>
+            </div>
           </motion.div>
 
           {/* Stories */}
@@ -233,8 +238,14 @@ export default function TestimoniesPage() {
           className="max-w-2xl mx-auto space-y-8 text-center"
         >
           <div className="space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
-            <p>This journey is possible for you, too.</p>
-            <p className="font-medium">Your story starts with one encounter.</p>
+            <p>You see their journey. You recognize the stages.</p>
+            <p>You ask: Could this be me?</p>
+            <p className="pt-2">Yes. And the journey starts with one encounter.</p>
+            <p>One prayer. One decision to be honest with God.</p>
+            <p>That's what happened to them.</p>
+            <p>That's what can happen to you.</p>
+            <p className="pt-2">The question isn't whether you're worthy.</p>
+            <p className="font-medium">The question is: Are you ready?</p>
           </div>
         </motion.div>
       </section>
@@ -248,13 +259,20 @@ export default function TestimoniesPage() {
           viewport={{ once: true, amount: 0.15 }}
           className="max-w-2xl mx-auto text-center space-y-12"
         >
-          <div className="space-y-4">
+          <div className="space-y-6">
             <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-white leading-tight tracking-tight">
               Your Deliverance Awaits
             </h2>
-            <p className="text-base md:text-lg text-white/90 leading-relaxed font-light">
-              Freedom is not a dream. It is a real outcome. For real people. Through Jesus.
-            </p>
+            <div className="space-y-4 text-base md:text-lg text-white/90 leading-relaxed font-light">
+              <p>Not salvation (that's free).</p>
+              <p>Not counseling (that helps behavior).</p>
+              <p className="pt-2">Deliverance. Where the spirit controlling you is cast out.</p>
+              <p>And freedom becomes real.</p>
+              <p className="pt-2">This is what happened to Samuel. Chioma. Tunde.</p>
+              <p>This is what can happen to you.</p>
+              <p className="pt-2">Schedule your prayer encounter.</p>
+              <p className="font-medium">One prayer. That's how it starts.</p>
+            </div>
           </div>
 
           <button
