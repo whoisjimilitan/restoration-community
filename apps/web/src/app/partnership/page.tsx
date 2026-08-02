@@ -101,29 +101,28 @@ export default function PartnershipPage() {
               <p>
                 These partners believed first.
               </p>
-              <div className="space-y-4 pt-2">
-                <p>
-                  Not when there was proof.
-                </p>
-                <p>
-                  Not when there was momentum.
-                </p>
-                <p>
-                  Not when success was obvious.
-                </p>
-              </div>
-              <div className="space-y-4 pt-4">
-                <p>
-                  They believed when it was just a vision.
-                </p>
-                <p>
-                  When the cost was highest.
-                </p>
-                <p>
-                  When the outcome was unknown.
-                </p>
-              </div>
-              <p className="pt-4">
+
+              <p className="pt-2">
+                Not when there was proof.
+              </p>
+              <p>
+                Not when there was momentum.
+              </p>
+              <p>
+                Not when success was obvious.
+              </p>
+
+              <p className="pt-3">
+                They believed when it was just a vision.
+              </p>
+              <p>
+                When the cost was highest.
+              </p>
+              <p className="font-medium">
+                When the outcome was unknown.
+              </p>
+
+              <p className="pt-3 font-medium">
                 This requires a different kind of faith.
               </p>
             </div>
@@ -168,29 +167,28 @@ export default function PartnershipPage() {
               <p>
                 These partners saw the transformation and chose to fuel it.
               </p>
-              <div className="space-y-4 pt-2">
-                <p>
-                  They waited for proof.
-                </p>
-                <p>
-                  Not because they doubted God.
-                </p>
-                <p>
-                  But because they knew: Verification builds commitment.
-                </p>
-              </div>
-              <div className="space-y-4 pt-4">
-                <p>
-                  They see young people walking free.
-                </p>
-                <p>
-                  They see families restored.
-                </p>
-                <p>
-                  They see what Jesus does.
-                </p>
-              </div>
-              <p className="pt-4">
+
+              <p className="pt-2">
+                They waited for proof.
+              </p>
+              <p>
+                Not because they doubted God.
+              </p>
+              <p className="font-medium">
+                But because they knew: Verification builds commitment.
+              </p>
+
+              <p className="pt-3">
+                They see young people walking free.
+              </p>
+              <p>
+                They see families restored.
+              </p>
+              <p>
+                They see what Jesus does.
+              </p>
+
+              <p className="pt-3 font-medium">
                 And they say: "I'm in."
               </p>
             </div>

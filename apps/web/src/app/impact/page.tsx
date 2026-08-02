@@ -112,11 +112,15 @@ export default function ImpactPage() {
           className="max-w-2xl mx-auto text-center space-y-6"
         >
           <div className="space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
-            <p>All transformation is completely free. This is important.</p>
-            <p>More money doesn't free young people from fraud.</p>
+            <p className="font-medium">All transformation is completely free.</p>
+            <p>This is important.</p>
+
+            <p className="pt-3">More money doesn't free young people from fraud.</p>
             <p>More laws don't break the spirit controlling them.</p>
-            <p className="text-rc-accent font-semibold">Only Jesus delivers.</p>
-            <p>And Jesus works through people who answer the call.</p>
+
+            <p className="pt-2 font-medium text-rc-accent">Only Jesus delivers.</p>
+
+            <p className="pt-3">And Jesus works through people who answer the call.</p>
           </div>
         </motion.div>
       </section>

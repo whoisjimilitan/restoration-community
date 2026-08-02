@@ -238,11 +238,17 @@ export default function TestimoniesPage() {
           className="max-w-2xl mx-auto space-y-8 text-center"
         >
           <div className="space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
-            <p>You see their journey. You recognize the stages.</p>
-            <p>You ask: Could this be me?</p>
-            <p className="pt-2">Yes. And the journey starts with one encounter.</p>
-            <p>One prayer. One decision to be honest with God.</p>
-            <p>That's what happened to them.</p>
+            <p>You see their journey.</p>
+            <p>You recognize the stages.</p>
+
+            <p className="pt-3">You ask: Could this be me?</p>
+
+            <p className="pt-3 font-medium">Yes.</p>
+            <p>The journey starts with one encounter.</p>
+            <p>One prayer.</p>
+            <p className="font-medium">One decision to be honest with God.</p>
+
+            <p className="pt-3">That's what happened to them.</p>
             <p>That's what can happen to you.</p>
           </div>
         </motion.div>
@@ -262,14 +268,25 @@ export default function TestimoniesPage() {
               Your Deliverance Awaits
             </h2>
             <div className="space-y-4 text-base md:text-lg text-white/90 leading-relaxed font-light">
-              <p>Not salvation (that's free).</p>
-              <p>Not counseling (that helps behavior).</p>
-              <p className="pt-2">Deliverance. Where the spirit controlling you is cast out.</p>
-              <p>And freedom becomes real.</p>
-              <p className="pt-2">This is what happened to Samuel. Chioma. Tunde.</p>
-              <p>This is what can happen to you.</p>
-              <p className="pt-2">Schedule your prayer encounter.</p>
-              <p className="font-medium">One prayer. That's how it starts.</p>
+              <p>Not salvation.</p>
+              <p className="text-white/80 text-sm">(That's free.)</p>
+
+              <p className="pt-2">Not counseling.</p>
+              <p className="text-white/80 text-sm">(That helps behavior.)</p>
+
+              <p className="pt-3 font-medium">Deliverance.</p>
+              <p>Where the spirit controlling you is cast out.</p>
+              <p className="font-medium">And freedom becomes real.</p>
+
+              <p className="pt-3">This is what happened to Samuel.</p>
+              <p>To Chioma.</p>
+              <p>To Tunde.</p>
+
+              <p className="pt-2">This is what can happen to you.</p>
+
+              <p className="pt-4">Schedule your prayer encounter.</p>
+              <p className="font-medium">One prayer.</p>
+              <p>That's how it starts.</p>
             </div>
           </div>
 
