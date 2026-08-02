@@ -179,13 +179,9 @@ export default function TestimoniesPage() {
           className="max-w-2xl mx-auto space-y-8 text-center"
         >
           <div className="space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
-            <p>You think transformation takes years.</p>
-            <p>Some of these people walked the entire journey in months.</p>
-            <p>Why? Because Jesus doesn't work on our timeline.</p>
-            <p className="pt-2">You move through seven stages.</p>
-            <p>These are real people, walking it right now.</p>
-            <p>At different stages. With different struggles.</p>
-            <p className="font-medium">All finding freedom through Jesus.</p>
+            <p>These are people on the 7-stage journey.</p>
+            <p>Not all at the same stage.</p>
+            <p className="font-medium">But all finding freedom through Jesus.</p>
           </div>
         </motion.div>
       </section>
@@ -203,9 +199,8 @@ export default function TestimoniesPage() {
           >
             <p className="text-xs font-medium text-rc-accent uppercase tracking-wider">Their Journey</p>
             <div className="space-y-3 text-base text-rc-text/70 leading-relaxed">
-              <p>Every stage matters. Watch for yours.</p>
-              <p>Not all stages feel like progress. Some feel like falling apart.</p>
-              <p>But that's where Jesus works the deepest.</p>
+              <p>Each story shows what a stage looks like.</p>
+              <p>Watch for your own story in theirs.</p>
             </div>
           </motion.div>
 
@@ -238,14 +233,9 @@ export default function TestimoniesPage() {
           className="max-w-2xl mx-auto space-y-8 text-center"
         >
           <div className="space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
-            <p>You see their journey. You recognize the stages.</p>
-            <p>You ask: Could this be me?</p>
-            <p className="pt-2">Yes. And the journey starts with one encounter.</p>
-            <p>One prayer. One decision to be honest with God.</p>
-            <p>That's what happened to them.</p>
-            <p>That's what can happen to you.</p>
-            <p className="pt-2">The question isn't whether you're worthy.</p>
-            <p className="font-medium">The question is: Are you ready?</p>
+            <p>The journey is possible.</p>
+            <p>It starts with one encounter.</p>
+            <p className="font-medium">One prayer.</p>
           </div>
         </motion.div>
       </section>
@@ -261,17 +251,12 @@ export default function TestimoniesPage() {
         >
           <div className="space-y-6">
             <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-white leading-tight tracking-tight">
-              Your Deliverance Awaits
+              Schedule Your Prayer Encounter
             </h2>
             <div className="space-y-4 text-base md:text-lg text-white/90 leading-relaxed font-light">
-              <p>Not salvation (that's free).</p>
-              <p>Not counseling (that helps behavior).</p>
-              <p className="pt-2">Deliverance. Where the spirit controlling you is cast out.</p>
-              <p>And freedom becomes real.</p>
-              <p className="pt-2">This is what happened to Samuel. Chioma. Tunde.</p>
-              <p>This is what can happen to you.</p>
-              <p className="pt-2">Schedule your prayer encounter.</p>
-              <p className="font-medium">One prayer. That's how it starts.</p>
+              <p>Freedom is real.</p>
+              <p>For real people.</p>
+              <p className="font-medium">Through Jesus.</p>
             </div>
           </div>
 
@@ -282,7 +267,7 @@ export default function TestimoniesPage() {
             }}
             className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-white text-rc-accent font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300"
           >
-            Request Deliverance
+            Book a Time
           </button>
 
           <div className="pt-8 border-t border-white/20">
