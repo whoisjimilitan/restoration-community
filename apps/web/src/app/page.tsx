@@ -156,10 +156,10 @@ export default function Home() {
               If you are trapped in fraud.
             </h2>
             <div className="space-y-4 text-base md:text-lg text-white/90 leading-relaxed font-light">
-              <p>If you are controlled by this spirit.</p>
+              <p>If you sense you are controlled by this spirit.</p>
               <p>If you want to be free.</p>
               <p className="pt-3 font-medium">Jesus can deliver you.</p>
-              <p className="pt-2">One prayer.</p>
+              <p className="pt-2">One prayer of faith.</p>
               <p>That's how it starts.</p>
             </div>
           </div>
@@ -171,7 +171,7 @@ export default function Home() {
             }}
             className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-white text-rc-accent font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300"
           >
-            Request Deliverance Prayer
+            Request Deliverance
           </button>
         </motion.div>
       </section>
