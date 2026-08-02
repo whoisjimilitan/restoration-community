@@ -23,7 +23,7 @@ const mockStories: StoryCard[] = [
     stage: 6,
     stageName: 'Honest Work',
     quote: 'From schemes to solid ground. Now I build businesses that last.',
-    story: 'Seven years. Schemes upon schemes. Each one promised more. The money came. The status came. The chains came too.\n\nUntil one encounter with Jesus.\n\nNot reformation. Deliverance. The spirit that controlled him was cast out. His mind was freed to think differently. His hands were freed to build differently.\n\nNow he mentors others. The cycle reverses.\n\nThis is Stage 6: Honest Work.',
+    story: 'Seven years trapped in schemes. Each one promised more. The money came. The status came. The chains came too.\n\nUntil one encounter. One prayer.\n\nThe spirit controlling him was cast out. His mind freed. His hands freed.\n\nNow he builds businesses that last. He mentors others. The cycle reverses.',
     heroImage: {
       url: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"%3E%3Crect fill="%234DB5A6" width="400" height="400"/%3E%3Ccircle cx="200" cy="120" r="60" fill="%23ffffff" opacity="0.3"/%3E%3Crect x="80" y="200" width="240" height="160" fill="%23ffffff" opacity="0.2"/%3E%3Ctext x="200" y="310" font-size="24" fill="%23ffffff" text-anchor="middle" opacity="0.5"%3ESamuel Okafor%3C/text%3E%3C/svg%3E',
       alt: 'Samuel Okafor'
@@ -36,7 +36,7 @@ const mockStories: StoryCard[] = [
     stage: 7,
     stageName: 'Service',
     quote: 'My past became my platform. Now I help others find their way out.',
-    story: 'Trafficked at nineteen. Shame buried her voice. Years of silence. Years of believing lies. She thought she was the only one. She thought she deserved it.\n\nUntil Jesus spoke louder than shame.\n\nNot counseling healed her. Deliverance freed her. He didn\'t fix her trauma. He set her free from what caused it.\n\nNow she stands where she once hid. Now she calls others to freedom. Her story became her calling.\n\nThis is Stage 7: Service.',
+    story: 'Trafficked at nineteen. Shame buried her voice. Years of silence. Years of believing lies she deserved this.\n\nUntil Jesus spoke louder than shame.\n\nDeliverance freed her. He didn\'t fix her trauma. He set her free from what caused it.\n\nNow she stands where she once hid. Now she calls others to freedom. Her story became her platform.',
     heroImage: {
       url: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"%3E%3Crect fill="%231B7A6F" width="400" height="400"/%3E%3Ccircle cx="200" cy="120" r="60" fill="%23ffffff" opacity="0.3"/%3E%3Crect x="80" y="200" width="240" height="160" fill="%23ffffff" opacity="0.2"/%3E%3Ctext x="200" y="310" font-size="24" fill="%23ffffff" text-anchor="middle" opacity="0.5"%3EChioma Adeyemi%3C/text%3E%3C/svg%3E',
       alt: 'Chioma Adeyemi'
@@ -49,7 +49,7 @@ const mockStories: StoryCard[] = [
     stage: 4,
     stageName: 'Forgiveness',
     quote: 'I forgave the people who pulled me in. That freed me more than leaving ever could.',
-    story: 'University student. Desperate for money. Trapped in scams. He thought leaving the network would be freedom. It wasn\'t. The shame remained. The voices remained.\n\nUntil he encountered forgiveness—not of himself, but of others.\n\nThe people who pulled him in. The friends who betrayed him. The network that promised family but delivered chains.\n\nHe forgave them. And in that moment, the final chain broke.\n\nHe learned: Holding bitterness keeps you enslaved. Forgiveness breaks the last chain.\n\nThis is Stage 4: Forgiveness. Most people get stuck here. This is where Jesus moves the deepest.',
+    story: 'University student. Desperate for money. Trapped in scams. He thought leaving the network would be freedom. It wasn\'t. The shame and the voices remained.\n\nUntil he encountered forgiveness. Not of himself, but of others.\n\nThe people who pulled him in. The friends who betrayed him. The network that promised family but delivered chains.\n\nHe forgave them. And in that moment, the final chain broke.\n\nHe learned: Holding bitterness keeps you enslaved. Forgiveness breaks the last chain.',
     heroImage: {
       url: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"%3E%3Crect fill="%2395DDD7" width="400" height="400"/%3E%3Ccircle cx="200" cy="120" r="60" fill="%23ffffff" opacity="0.3"/%3E%3Crect x="80" y="200" width="240" height="160" fill="%23ffffff" opacity="0.2"/%3E%3Ctext x="200" y="310" font-size="24" fill="%23ffffff" text-anchor="middle" opacity="0.5"%3ETunde Bankole%3C/text%3E%3C/svg%3E',
       alt: 'Tunde Bankole'
@@ -151,66 +151,25 @@ export default function TestimoniesPage() {
       {/* Hero Section */}
       <section className="w-full min-h-screen flex flex-col justify-center bg-gradient-to-br from-rc-accent to-rc-text px-6 sm:px-8 md:px-12 py-24 md:py-32">
         <div className="max-w-2xl mx-auto w-full space-y-6">
-          <div className={`transform transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '120ms' }}>
-            <p className="text-xs font-medium text-white/70 uppercase tracking-wider">Stories of Freedom</p>
-          </div>
-
           <div className={`transform transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '240ms' }}>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight tracking-tight">
-              These are not stories of shame.<br />They are stories of freedom.
+              Not stories of shame.
+              <br />
+              Stories of freedom.
             </h1>
           </div>
 
           <div className={`transform transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '360ms' }}>
             <p className="text-base md:text-lg text-white/90 leading-relaxed font-light">
-              Deliverance is real. Watch what it looks like.
+              Real people. Real deliverance.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Bridge Section */}
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-          viewport={{ once: true, amount: 0.15 }}
-          className="max-w-2xl mx-auto space-y-8"
-        >
-          <div className="space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
-            <p>You think transformation takes years.</p>
-            <p>Some of these people walked the entire journey in months.</p>
-            <p>Why? Because Jesus doesn't work on our timeline.</p>
-            <p className="pt-2">You move through seven stages.</p>
-            <p>These are real people, walking it right now.</p>
-            <p>At different stages. With different struggles.</p>
-            <p className="font-medium">All finding freedom through Jesus.</p>
-          </div>
-        </motion.div>
-      </section>
-
-      {/* Made Possible By Partners */}
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-          viewport={{ once: true, amount: 0.15 }}
-          className="max-w-2xl mx-auto space-y-6"
-        >
-          <div className="space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
-            <p>These stories exist because partners answered the call.</p>
-            <p>Individuals who believed. Organizations fueling the work.</p>
-            <p className="text-rc-accent font-semibold">All making deliverance possible.</p>
-          </div>
-        </motion.div>
-      </section>
-
       {/* Stories Grid */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
         <div className="max-w-5xl mx-auto space-y-16 md:space-y-20">
-
           {/* Stories */}
           {loading ? (
             <div className="text-center py-20">
@@ -230,8 +189,8 @@ export default function TestimoniesPage() {
         </div>
       </section>
 
-      {/* Bridge to Action Section */}
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
+      {/* Closing Section */}
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-gradient-to-br from-rc-accent to-rc-text border-t border-rc-border">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -239,48 +198,13 @@ export default function TestimoniesPage() {
           viewport={{ once: true, amount: 0.15 }}
           className="max-w-2xl mx-auto space-y-8"
         >
-          <div className="space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
-            <p>You see their journey. You recognize yourself in it.</p>
-            <p className="pt-3">The journey starts with one encounter. One prayer. One honest decision before God.</p>
-            <p className="pt-3">That's what happened to them. That's what can happen to you.</p>
-          </div>
-        </motion.div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-gradient-to-br from-rc-accent to-rc-text border-t border-rc-border">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-          viewport={{ once: true, amount: 0.15 }}
-          className="max-w-2xl mx-auto space-y-12"
-        >
           <div className="space-y-6">
             <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-white leading-tight tracking-tight">
-              Your Deliverance Awaits
+              If your heart is drawn to this journey.
             </h2>
-            <div className="space-y-4 text-base md:text-lg text-white/90 leading-relaxed font-light">
-              <p>Not salvation.</p>
-              <p className="text-white/80 text-sm">(That's free.)</p>
-
-              <p className="pt-2">Not counseling.</p>
-              <p className="text-white/80 text-sm">(That helps behavior.)</p>
-
-              <p className="pt-3 font-medium">Deliverance.</p>
-              <p>Where the spirit controlling you is cast out.</p>
-              <p className="font-medium">And freedom becomes real.</p>
-
-              <p className="pt-3">This is what happened to Samuel.</p>
-              <p>To Chioma.</p>
-              <p>To Tunde.</p>
-
-              <p className="pt-2">This is what can happen to you.</p>
-
-              <p className="pt-4">Schedule your prayer encounter.</p>
-              <p className="font-medium">One prayer.</p>
-              <p>That's how it starts.</p>
-            </div>
+            <p className="text-base md:text-lg text-white/90 leading-relaxed font-light">
+              Real deliverance is possible. One encounter. One prayer. That's how it starts.
+            </p>
           </div>
 
           <button
@@ -290,18 +214,17 @@ export default function TestimoniesPage() {
             }}
             className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-white text-rc-accent font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300"
           >
-            Request Deliverance
+            Request Prayer Encounter
           </button>
 
           <div className="pt-8 border-t border-white/20">
-            <p className="text-xs font-medium text-white/60 uppercase tracking-widest mb-6">Or explore</p>
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-8 sm:gap-12">
               <a href="/" className="text-base text-white/80 hover:text-white transition-colors duration-200 group">
                 Home
                 <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-2"></span>
               </a>
               <a href="/partnership" className="text-base text-white/80 hover:text-white transition-colors duration-200 group">
-                Our Partners
+                Mission Partners
                 <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-2"></span>
               </a>
             </div>

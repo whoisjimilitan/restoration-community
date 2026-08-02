@@ -22,37 +22,28 @@ export default function ImpactPage() {
       {/* HERO */}
       <section className="w-full min-h-screen flex flex-col justify-center bg-gradient-to-br from-rc-accent to-rc-text px-6 sm:px-8 md:px-12 py-24 md:py-32">
         <div className="max-w-2xl mx-auto w-full space-y-6">
-          <div className={`transform transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '120ms' }}>
-            <p className="text-xs font-medium text-white/70 uppercase tracking-wider">What We are Building</p>
-          </div>
-
           <div className={`transform transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '240ms' }}>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight tracking-tight">
-              Our Impact
+              The Work Is Real
             </h1>
           </div>
 
           <div className={`transform transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '360ms' }}>
-            <p className="text-base md:text-lg text-white/90 leading-relaxed font-light">Deliverance is happening now. These numbers prove it.</p>
+            <p className="text-base md:text-lg text-white/90 leading-relaxed font-light">Young people are being freed from the spiritual chains of fraud. Believers are answering this calling.</p>
           </div>
         </div>
       </section>
 
-      {/* CONTEXT BRIDGE SECTION */}
+      {/* CONTEXT SECTION */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
           viewport={{ once: true, amount: 0.15 }}
-          className="max-w-2xl mx-auto space-y-6"
+          className="max-w-2xl mx-auto space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light"
         >
-          <div className="space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
-            <p>Every metric is a person.</p>
-            <p>Every person is a spirit set free.</p>
-            <p>This is what transformation looks like.</p>
-            <p className="text-rc-accent font-semibold">Not statistics. Not results. Freedom.</p>
-          </div>
+          <p>Every number is a person. Every person is a spirit set free.</p>
         </motion.div>
       </section>
 
@@ -84,45 +75,33 @@ export default function ImpactPage() {
         </motion.div>
       </section>
 
-      {/* IMPACT CONTEXT SECTION */}
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
+      {/* THE REALITY SECTION */}
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
           viewport={{ once: true, amount: 0.15 }}
-          className="max-w-2xl mx-auto space-y-6"
+          className="max-w-2xl mx-auto space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light"
         >
-          <div className="space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
-            <p>These numbers move because spirits move.</p>
-            <p>Not by law.</p>
-            <p>Not by willpower.</p>
-            <p className="text-rc-accent font-semibold">By Jesus Christ.</p>
-          </div>
+          <p className="font-medium">This happens through believers who answer a call.</p>
+          <p>Founding partners. Standing partners. Prayer partners.</p>
+          <p>All essential.</p>
         </motion.div>
       </section>
 
-      {/* WHY TRANSFORMATION IS FREE SECTION */}
+      {/* CALL SECTION */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
           viewport={{ once: true, amount: 0.15 }}
-          className="max-w-2xl mx-auto space-y-6"
+          className="max-w-2xl mx-auto space-y-6 text-base md:text-lg text-rc-text leading-relaxed font-light"
         >
-          <div className="space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
-            <p className="font-medium">All transformation is completely free.</p>
-            <p>This is important.</p>
-
-            <p className="pt-3">More money doesn't free young people from fraud.</p>
-            <p>More laws don't break the spirit controlling them.</p>
-
-            <p className="pt-2 font-medium text-rc-accent">Only Jesus delivers.</p>
-
-            <p className="pt-3">And Jesus works through partners who answer the call.</p>
-            <p>Individuals. Organizations. All fueling what He's doing.</p>
-          </div>
+          <p className="font-medium">If you believe this is what God is calling you to...</p>
+          <p>Let's talk about partnership.</p>
+          <p className="text-rc-accent">Founding. Standing. Prayer.</p>
         </motion.div>
       </section>
 

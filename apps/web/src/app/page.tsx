@@ -295,7 +295,7 @@ export default function Home() {
               <p className="text-xs font-medium text-white/60 uppercase tracking-widest mb-6">Or explore</p>
             </div>
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-8 sm:gap-12">
-              <Link href="/testimonies" className="text-base text-white/80 hover:text-white transition-colors duration-200 group">
+              <Link href="/stories" className="text-base text-white/80 hover:text-white transition-colors duration-200 group">
                 Stories of Deliverance
                 <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-2"></span>
               </Link>
