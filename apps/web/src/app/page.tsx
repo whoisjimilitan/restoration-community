@@ -189,10 +189,9 @@ export default function Home() {
             <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">The Gathering</h2>
 
             <div className="space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
-              <p className="font-medium">Experience it yourself:</p>
               <p>Witness those now enjoying freedom.</p>
               <p>Hear their stories.</p>
-              <p>See God's love in action.</p>
+              <p>Receive truth together.</p>
             </div>
           </div>
 
