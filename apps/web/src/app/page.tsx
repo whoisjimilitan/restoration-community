@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { AnimatePresence } from 'framer-motion';
+import StagesVisualization from '@/app/components/landing/StagesVisualization';
 
 export default function Home() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -194,6 +195,8 @@ export default function Home() {
               <p>Receive truth together.</p>
             </div>
           </div>
+
+          <StagesVisualization />
 
           <div className="space-y-8">
             <div className="space-y-3">
