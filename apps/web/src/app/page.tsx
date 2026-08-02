@@ -187,7 +187,7 @@ export default function Home() {
           className="max-w-2xl mx-auto space-y-12"
         >
           <div className="space-y-8">
-            <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">The Gathering</h2>
+            <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">Next Gathering</h2>
 
             <div className="space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
               <p>Witness those now enjoying freedom.</p>
@@ -200,7 +200,7 @@ export default function Home() {
 
           <div className="space-y-8">
             <div className="space-y-3">
-              <p className="text-base md:text-lg font-medium text-rc-text">Next Gathering</p>
+              <p className="text-base md:text-lg font-medium text-rc-text">Stage 1 - Truth</p>
               <p className="text-base text-rc-text/70">SCOAN Accra, Ghana</p>
               <p className="text-base text-rc-text/70">Friday, August 15 at 3:00 PM</p>
             </div>
