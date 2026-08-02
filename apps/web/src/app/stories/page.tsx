@@ -23,7 +23,7 @@ const mockStories: StoryCard[] = [
     stage: 6,
     stageName: 'Honest Work',
     quote: 'Seven years of my life in reverse. I thought money was everything. But it does not solve everything.',
-    story: 'I was into all types of schemes. Dating, employment, trading. Everything promised fast money. The money came fast. I had status. People knew my name. But I was always afraid. Always unsure who I was or what I was meant to do besides this kind of work.\n\nEvery time I received money, it felt like I was getting deeper. Deeper into something I couldn\'t name. Something that had me.\n\nOne day, I prayed to Jesus asking him to help me. I didn\'t even know why I did it. That night, I had a dream. A man came and broke a chain from my hands. When I woke up, I felt light. That was the day my mind cleared for the first time. I could think straight again.\n\nNow I build and do good business. Things that last. And I tell other young men: Don\'t do what I did. Jesus is better than the money.',
+    story: 'I was into all types of schemes. Dating, employment, trading. The money came fast. I had status. People knew my name. But I was always afraid. Always unsure who I was.\n\nEvery time I received money, it felt like I was getting deeper. Into something I couldn\'t name. Something that had me.\n\nOne day, I prayed to Jesus asking him to help me. I didn\'t even know why I did. That night, I had a dream. A man came and broke a chain from my hands. When I woke up, I felt light.\n\nThat was the day my mind cleared. For the first time, I could think straight.\n\nNow I build real businesses. Things that last. And I tell other young men: Don\'t do what I did. Jesus is better than the money.',
     heroImage: {
       url: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"%3E%3Crect fill="%234DB5A6" width="400" height="400"/%3E%3Ccircle cx="200" cy="120" r="60" fill="%23ffffff" opacity="0.3"/%3E%3Crect x="80" y="200" width="240" height="160" fill="%23ffffff" opacity="0.2"/%3E%3Ctext x="200" y="310" font-size="24" fill="%23ffffff" text-anchor="middle" opacity="0.5"%3ESamuel Okafor%3C/text%3E%3C/svg%3E',
       alt: 'Samuel Okafor'
@@ -36,7 +36,7 @@ const mockStories: StoryCard[] = [
     stage: 7,
     stageName: 'Service',
     quote: 'I stopped believing I deserved to live. Jesus convinced me otherwise.',
-    story: 'I was nineteen when they trafficked me. I won\'t go into all the details. But I was broken in ways I didn\'t know were possible.\n\nFor years after, I couldn\'t look at myself in the mirror. I couldn\'t look at other people\'s eyes. The shame was so heavy I could barely breathe. I believed I deserved what happened. I believed no one would want me. I believed I was ruined.\n\nOne day, I was alone and I just started crying and praying. I said, Jesus, if you\'re real, help me. That night, I felt something shift. Not voices. Not a vision. But something real inside me said: This is not who you are. You are not what they did to you.\n\nI started going to a church where other survivors met. We prayed together. We cried together. Jesus didn\'t erase what happened to me. But He healed what it broke inside me. He gave me back my worth.\n\nNow I work with girls who are exactly where I was. I sit with them and say: I know the shame you feel. I know you think you\'re ruined. But Jesus doesn\'t see you that way. He healed me. He can heal you too.',
+    story: 'I was nineteen when they trafficked me. I was broken in ways I didn\'t know were possible.\n\nFor years, I couldn\'t look at myself. I couldn\'t look at other people. The shame was so heavy I could barely breathe. I believed I was ruined.\n\nOne day, alone, I just cried and prayed. Jesus, if you\'re real, help me. That night, something shifted inside me. Not a voice. Not a vision. But something that said: This is not who you are.\n\nI started going to a church where other survivors met. We prayed together. Jesus didn\'t erase what happened. But He healed what it broke inside me. He gave me back my worth.\n\nNow I work with girls exactly where I was. I tell them: I know the shame you feel. But Jesus doesn\'t see you that way. He healed me. He can heal you too.',
     heroImage: {
       url: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"%3E%3Crect fill="%231B7A6F" width="400" height="400"/%3E%3Ccircle cx="200" cy="120" r="60" fill="%23ffffff" opacity="0.3"/%3E%3Crect x="80" y="200" width="240" height="160" fill="%23ffffff" opacity="0.2"/%3E%3Ctext x="200" y="310" font-size="24" fill="%23ffffff" text-anchor="middle" opacity="0.5"%3EChioma Adeyemi%3C/text%3E%3C/svg%3E',
       alt: 'Chioma Adeyemi'
@@ -49,7 +49,7 @@ const mockStories: StoryCard[] = [
     stage: 4,
     stageName: 'Forgiveness',
     quote: 'I thought leaving would free me. But forgiveness was what actually broke the chains.',
-    story: 'I was at university with no money. My friends were making cash in ways that looked easy. No work. Just talk and payment. They explained it to me like it was normal.\n\nI got in. Deep. Dating scams, advance fee fraud, whatever came. The money was real. The shame wasn\'t real yet. That came later.\n\nEventually, I left the network. But leaving didn\'t free me. The shame followed me. The voices followed me. I heard the things they said to me in my head every single day. I heard the conversations. The laughs. The lies they told me about how the money worked.\n\nI thought: I escaped. I\'m out. Why don\'t I feel free?\n\nThen someone told me: You have to forgive them. The ones who pulled you in. The ones who lied to you. The ones who made you part of something evil.\n\nI didn\'t want to. It felt wrong. But one day, I just let it out. I forgave them. I said their names out loud and said: I forgive you. And something broke open in me. Literally. The weight lifted. For the first time since I left, I could breathe again.\n\nI realized then: You can leave a place, but you\'re not free until you forgive the people who had you there.',
+    story: 'I was at university with no money. My friends were making cash in ways that looked easy. I got in. Deep. Dating scams, advance fee fraud, whatever came. The money was real.\n\nEventually, I left the network. But leaving didn\'t free me. The shame followed me. The voices followed me. I heard them every day.\n\nI thought: I escaped. Why don\'t I feel free?\n\nSomeone told me: You have to forgive them. The ones who pulled you in.\n\nI didn\'t want to. But one day, I just let it out. I said their names out loud and said: I forgive you.\n\nAnd something broke open in me. The weight lifted. For the first time, I could breathe again.\n\nYou can leave a place, but you\'re not free until you forgive the people who had you there.',
     heroImage: {
       url: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"%3E%3Crect fill="%2395DDD7" width="400" height="400"/%3E%3Ccircle cx="200" cy="120" r="60" fill="%23ffffff" opacity="0.3"/%3E%3Crect x="80" y="200" width="240" height="160" fill="%23ffffff" opacity="0.2"/%3E%3Ctext x="200" y="310" font-size="24" fill="%23ffffff" text-anchor="middle" opacity="0.5"%3ETunde Bankole%3C/text%3E%3C/svg%3E',
       alt: 'Tunde Bankole'
@@ -198,13 +198,18 @@ export default function TestimoniesPage() {
           viewport={{ once: true, amount: 0.15 }}
           className="max-w-2xl mx-auto space-y-8"
         >
-          <div className="space-y-6">
-            <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-white leading-tight tracking-tight">
-              You are not stuck.
-            </h2>
-            <p className="text-base md:text-lg text-white/90 leading-relaxed font-light">
-              These three are free today because Jesus set them free. The same Jesus can set you free. One prayer. That's all it takes to start.
-            </p>
+          <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-white leading-tight tracking-tight">
+            You are not stuck.
+          </h2>
+
+          <div className="space-y-4 text-base md:text-lg text-white/90 leading-relaxed font-light">
+            <p>These three are free today.</p>
+            <p>Because Jesus set them free.</p>
+
+            <p className="pt-4">The same Jesus can set you free.</p>
+            <p>Just believe.</p>
+
+            <p className="pt-3 font-medium">That's all it takes to start.</p>
           </div>
 
           <button
