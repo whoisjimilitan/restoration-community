@@ -351,6 +351,13 @@ export default function PartnershipPage() {
               <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
             </a>
             <a
+              href="/partnership"
+              className="text-white/80 hover:text-white transition-colors group"
+            >
+              Mission Partners
+              <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
+            </a>
+            <a
               href="/impact"
               className="text-white/80 hover:text-white transition-colors group"
             >
