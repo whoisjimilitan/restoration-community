@@ -131,12 +131,12 @@ export default function Home() {
 
           <div className="space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
             <p>In 2013.</p>
-            <p>God used His servant Prophet TB Joshua.</p>
+            <p>God used Prophet TB Joshua.</p>
             <p>To pray for me.</p>
-            <p className="pt-3">One deliverance prayer.</p>
+            <p className="pt-3">One prayer.</p>
             <p>Freedom from fraud.</p>
-            <p>And the curses of its lifestyle.</p>
-            <p className="pt-3 font-medium">What Jesus Christ did for me through him.</p>
+            <p>And the curses that come with it.</p>
+            <p className="pt-3 font-medium">What Jesus did for me through him.</p>
             <p className="font-medium">He will also do for you through me.</p>
           </div>
         </motion.div>
