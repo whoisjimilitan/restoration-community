@@ -33,7 +33,7 @@ export default function ImpactPage() {
           </div>
 
           <div className={`transform transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '360ms' }}>
-            <p className="text-base md:text-lg text-white/90 leading-relaxed font-light">These numbers represent spiritual reality.</p>
+            <p className="text-base md:text-lg text-white/90 leading-relaxed font-light">Deliverance is happening now. These numbers prove it.</p>
           </div>
         </div>
       </section>

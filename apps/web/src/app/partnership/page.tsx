@@ -38,14 +38,14 @@ export default function PartnershipPage() {
 
           <div className={`transform transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '240ms' }}>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight tracking-tight">
-              Partners don't just fund a mission.
+              Partners fuel what Jesus is doing.
             </h1>
           </div>
 
           <div className={`transform transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '360ms' }}>
             <div className="space-y-4">
               <p className="text-lg md:text-xl text-white/90 leading-relaxed font-light">
-                They're answering the call of God.
+                They're stakeholders in His work. Partners in the vision. Answering the call.
               </p>
               <p className="text-lg md:text-xl text-white/90 leading-relaxed font-light">
                 Are you one of them?
@@ -337,10 +337,10 @@ export default function PartnershipPage() {
                 Not as a donor.
               </p>
               <p>
-                As a partner.
+                As a partner in the work.
               </p>
               <p>
-                As someone answering God's call.
+                As a stakeholder in what Jesus is doing.
               </p>
               <div className="space-y-4 pt-6">
                 <p className="font-medium">
