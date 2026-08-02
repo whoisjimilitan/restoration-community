@@ -209,7 +209,7 @@ export default function Home() {
               <a href="https://maps.google.com/?q=SCOAN+Accra+Ghana" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-rc-text/10 text-rc-text font-medium rounded-lg hover:bg-rc-text/15 hover:-translate-y-0.5 transition-all duration-300 border border-rc-border/30">
                 Get Directions
               </a>
-              <button onClick={() => setIsAttendanceModalOpen(true)} className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-rc-text/80 text-white font-medium rounded-lg hover:bg-rc-text/70 hover:-translate-y-0.5 transition-all duration-300">
+              <button onClick={() => setIsAttendanceModalOpen(true)} className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-rc-text text-white font-medium rounded-lg hover:bg-rc-text/90 hover:-translate-y-0.5 transition-all duration-300">
                 I'm Attending
               </button>
             </div>
