@@ -11,10 +11,10 @@ export default function ImpactPage() {
   }, []);
 
   const metrics = [
-    { label: 'People Prayed With', value: '15', description: 'Encountering Jesus through prayer' },
-    { label: 'In Restoration', value: '15', description: 'Walking the 7-stage journey' },
-    { label: 'In Honest Work', value: '0', description: 'Stage 6 - Building with integrity' },
-    { label: 'Serving Others', value: '0', description: 'Stage 7 - Helping others find freedom' },
+    { label: 'People Prayed With', value: '15', description: '15 encounters with Jesus Christ' },
+    { label: 'In Restoration', value: '15', description: '15 walking the journey from slavery to freedom' },
+    { label: 'In Honest Work', value: '0', description: 'The next stage begins. Watch this number grow.' },
+    { label: 'Serving Others', value: '0', description: 'Freedom leads to service. The cycle continues.' },
   ];
 
   return (
@@ -33,9 +33,27 @@ export default function ImpactPage() {
           </div>
 
           <div className={`transform transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '360ms' }}>
-            <p className="text-base md:text-lg text-white/90 leading-relaxed font-light">Real numbers. Real people. Real transformation through Jesus Christ.</p>
+            <p className="text-base md:text-lg text-white/90 leading-relaxed font-light">These numbers represent spiritual reality.</p>
           </div>
         </div>
+      </section>
+
+      {/* CONTEXT BRIDGE SECTION */}
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          viewport={{ once: true, amount: 0.15 }}
+          className="max-w-2xl mx-auto text-center space-y-6"
+        >
+          <div className="space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
+            <p>Every metric is a person.</p>
+            <p>Every person is a spirit set free.</p>
+            <p>This is what transformation looks like.</p>
+            <p className="text-rc-accent font-semibold">Not statistics. Not results. Freedom.</p>
+          </div>
+        </motion.div>
       </section>
 
       {/* METRICS SECTION */}
@@ -66,6 +84,24 @@ export default function ImpactPage() {
         </motion.div>
       </section>
 
+      {/* IMPACT CONTEXT SECTION */}
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          viewport={{ once: true, amount: 0.15 }}
+          className="max-w-2xl mx-auto text-center space-y-6"
+        >
+          <div className="space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
+            <p>These numbers move because spirits move.</p>
+            <p>Not by law.</p>
+            <p>Not by willpower.</p>
+            <p className="text-rc-accent font-semibold">By Jesus Christ.</p>
+          </div>
+        </motion.div>
+      </section>
+
       {/* PARTNERSHIP SECTION */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
         <motion.div
@@ -76,18 +112,42 @@ export default function ImpactPage() {
           className="max-w-2xl mx-auto text-center space-y-8"
         >
           <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">Partner With Us</h2>
+          <p className="text-sm md:text-base text-rc-text/70 font-light italic">Do you see what's happening here?</p>
 
           <div className="space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
-            <p>All transformation is completely free.</p>
-            <p>We are funded by partners who believe in this work.</p>
+            <p>All transformation is completely free. This is important.</p>
+            <p>More money doesn't free young people from fraud.</p>
+            <p>More laws don't break the spirit controlling them.</p>
+            <p className="text-rc-accent font-semibold">Only Jesus delivers.</p>
+            <p>And Jesus works through people who answer the call.</p>
+            <p>You're looking at that call right now.</p>
           </div>
 
-          <div className="pt-4">
+          <div className="space-y-6 pt-4">
+            <div className="bg-white/50 rounded-lg p-8 space-y-4">
+              <p className="text-base font-semibold text-rc-text">Three kinds of partners make this possible:</p>
+              <div className="space-y-4 text-sm md:text-base text-rc-text leading-relaxed font-light">
+                <div>
+                  <p className="font-semibold text-rc-accent">Founding Partners</p>
+                  <p className="text-rc-text/80">Believed when there was no proof</p>
+                </div>
+                <div>
+                  <p className="font-semibold text-rc-accent">Standing Partners</p>
+                  <p className="text-rc-text/80">Saw transformation and chose to fuel it</p>
+                </div>
+                <div>
+                  <p className="font-semibold text-rc-accent">Prayer Partners</p>
+                  <p className="text-rc-text/80">Their intercession protects the work</p>
+                </div>
+              </div>
+              <p className="text-base font-semibold text-rc-text pt-2">Which kind are you called to be?</p>
+            </div>
+
             <a
               href="mailto:james@saintandstory.co.uk"
               className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-rc-accent text-white font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300"
             >
-              Become a Sponsor
+              Become a Partner
             </a>
           </div>
         </motion.div>
