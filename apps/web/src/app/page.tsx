@@ -253,7 +253,7 @@ export default function Home() {
 
           <div className="space-y-6">
             <div className="space-y-3">
-              <p className="text-base md:text-lg font-medium text-rc-text">Stage 1 - Truth</p>
+              <p className="text-base md:text-lg font-medium text-rc-text">Upcoming: Stage 1 - Truth Teaching</p>
               <p className="text-base text-rc-text/70">SCOAN Accra, Ghana</p>
               <p className="text-base text-rc-text/70">Friday, August 15 at 3:00 PM</p>
             </div>
