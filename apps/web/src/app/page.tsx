@@ -149,7 +149,7 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* THE GRACE */}
+      {/* THE DIVINE CALL */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-gradient-to-br from-rc-accent to-rc-text border-t border-rc-border">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -178,7 +178,6 @@ export default function Home() {
                 document.dispatchEvent(event);
               }}
               className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-white text-rc-text/70 font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300"
-              style={{ fontVariant: 'small-caps' }}
             >
               Request Deliverance
             </button>
@@ -216,7 +215,7 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* FINALLY */}
+      {/* THE WAY OUT */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -225,7 +224,7 @@ export default function Home() {
           viewport={{ once: true, amount: 0.15 }}
           className="max-w-2xl mx-auto space-y-12"
         >
-          <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">Finally</h2>
+          <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">The Way Out</h2>
 
           <div className="space-y-6 text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
             <p>The journey out starts with truth.</p>
@@ -250,15 +249,26 @@ export default function Home() {
               <p>Become one who leads others there.</p>
             </div>
           </div>
+        </motion.div>
+      </section>
 
+      {/* EVENT REVEAL EPILOGUE */}
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          viewport={{ once: true, amount: 0.15 }}
+          className="max-w-2xl mx-auto space-y-8"
+        >
           <div className="space-y-6">
-            <div className="space-y-3">
+            <div className="space-y-4">
               <p className="text-base md:text-lg font-medium text-rc-text">Upcoming: Stage 1 - Truth Teaching</p>
               <p className="text-base text-rc-text/70">SCOAN Accra, Ghana</p>
               <p className="text-base text-rc-text/70">Friday, August 15 at 3:00 PM</p>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 pt-3">
+            <div className="flex flex-col sm:flex-row gap-4 pt-2">
               <a href="https://maps.google.com/?q=SCOAN+Accra+Ghana" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-rc-text/10 text-rc-text font-medium rounded-lg hover:bg-rc-text/15 hover:-translate-y-0.5 transition-all duration-300 border border-rc-border/30">
                 Get Directions
               </a>
