@@ -178,6 +178,27 @@ export default function Home() {
         </motion.div>
       </section>
 
+      {/* THE NEW LIFE */}
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          viewport={{ once: true, amount: 0.15 }}
+          className="max-w-2xl mx-auto space-y-8"
+        >
+          <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">The New Life</h2>
+
+          <div className="space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
+            <p>Deliverance is just the start.</p>
+            <p>His grace will teach you to work honestly.</p>
+            <p>To live without fear.</p>
+            <p>To build something that lasts.</p>
+            <p>To see life as He sees it.</p>
+          </div>
+        </motion.div>
+      </section>
+
       {/* THE GATHERING */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
         <motion.div
@@ -193,6 +214,18 @@ export default function Home() {
             <div className="space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
               <p>Witness those now enjoying freedom.</p>
               <p>Hear their stories.</p>
+            </div>
+          </div>
+
+          <div className="space-y-8 pt-4">
+            <div className="space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light border-t border-rc-border/20 pt-8">
+              <p>The journey out starts with truth.</p>
+              <p>It is the only way to confession.</p>
+              <p>To repentance. Forgiveness. And beyond.</p>
+              <p className="pt-2">Do not deceive yourself.</p>
+              <p>Truth paves the way to leave fraud behind.</p>
+              <p className="pt-3">You walk with those who chose truth before you.</p>
+              <p>And through grace, become one who leads others there.</p>
             </div>
           </div>
 
