@@ -19,6 +19,12 @@ export default function Home() {
     setIsLoaded(true);
   }, []);
 
+  useEffect(() => {
+    const handleOpenAttendance = () => setIsAttendanceModalOpen(true);
+    document.addEventListener('open-attendance-modal', handleOpenAttendance);
+    return () => document.removeEventListener('open-attendance-modal', handleOpenAttendance);
+  }, []);
+
   return (
     <div className="bg-rc-bg text-rc-text relative">
       {/* HERO */}
@@ -143,7 +149,7 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* THE CALL */}
+      {/* THE GRACE */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-gradient-to-br from-rc-accent to-rc-text border-t border-rc-border">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -165,16 +171,27 @@ export default function Home() {
             </div>
           </div>
 
-          <button
-            onClick={() => {
-              const event = new CustomEvent('open-deliverance-modal');
-              document.dispatchEvent(event);
-            }}
-            className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-white text-rc-text/70 font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300"
-            style={{ fontVariant: 'small-caps' }}
-          >
-            Request Deliverance
-          </button>
+          <div className="flex flex-col sm:flex-row gap-4 pt-4">
+            <button
+              onClick={() => {
+                const event = new CustomEvent('open-deliverance-modal');
+                document.dispatchEvent(event);
+              }}
+              className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-white text-rc-text/70 font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300"
+              style={{ fontVariant: 'small-caps' }}
+            >
+              Request Deliverance
+            </button>
+            <button
+              onClick={() => {
+                const event = new CustomEvent('open-attendance-modal');
+                document.dispatchEvent(event);
+              }}
+              className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] text-white font-medium border-2 border-white rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300"
+            >
+              Return to Your Journey
+            </button>
+          </div>
         </motion.div>
       </section>
 
@@ -189,7 +206,7 @@ export default function Home() {
         >
           <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">The New Life</h2>
 
-          <div className="space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
+          <div className="space-y-6 text-base md:text-lg text-rc-text leading-relaxed font-light">
             <p>Deliverance is just the start.</p>
             <p>His grace will teach you to work honestly.</p>
             <p>To live without fear.</p>
@@ -199,7 +216,7 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* THE GATHERING */}
+      {/* FINALLY */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -208,37 +225,40 @@ export default function Home() {
           viewport={{ once: true, amount: 0.15 }}
           className="max-w-2xl mx-auto space-y-12"
         >
-          <div className="space-y-8">
-            <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">Next Gathering</h2>
+          <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">Finally</h2>
 
-            <div className="space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
-              <p>Witness those now enjoying freedom.</p>
-              <p>Hear their stories.</p>
-            </div>
-          </div>
-
-          <div className="space-y-8 pt-4">
-            <div className="space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light border-t border-rc-border/20 pt-8">
-              <p>The journey out starts with truth.</p>
-              <p>It is the only way to confession.</p>
-              <p>To repentance. Forgiveness. And beyond.</p>
-              <p className="pt-2">Do not deceive yourself.</p>
-              <p>Truth paves the way to leave fraud behind.</p>
-              <p className="pt-3">You walk with those who chose truth before you.</p>
-              <p>And through grace, become one who leads others there.</p>
-            </div>
+          <div className="space-y-6 text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
+            <p>The journey out starts with truth.</p>
+            <p>It is the only way to confession.</p>
+            <p>To repentance. Forgiveness. And beyond.</p>
+            <p className="pt-2">Do not deceive yourself.</p>
+            <p>Truth paves the way to leave fraud behind.</p>
+            <p className="pt-3">You walk with those who chose truth before you.</p>
+            <p>And through grace, become one who leads others there.</p>
           </div>
 
           <StagesVisualization />
 
-          <div className="space-y-8">
+          <div className="space-y-8 pt-4">
+            <h3 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">The Gathering</h3>
+
+            <div className="space-y-6 text-base md:text-lg text-rc-text leading-relaxed font-light">
+              <p>Come and meet those who chose truth.</p>
+              <p>Hear their stories.</p>
+              <p>Walk with them on your journey out.</p>
+              <p className="pt-2">And through grace.</p>
+              <p>Become one who leads others there.</p>
+            </div>
+          </div>
+
+          <div className="space-y-6">
             <div className="space-y-3">
               <p className="text-base md:text-lg font-medium text-rc-text">Stage 1 - Truth</p>
               <p className="text-base text-rc-text/70">SCOAN Accra, Ghana</p>
               <p className="text-base text-rc-text/70">Friday, August 15 at 3:00 PM</p>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-3 pt-2">
+            <div className="flex flex-col sm:flex-row gap-4 pt-3">
               <a href="https://maps.google.com/?q=SCOAN+Accra+Ghana" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-rc-text/10 text-rc-text font-medium rounded-lg hover:bg-rc-text/15 hover:-translate-y-0.5 transition-all duration-300 border border-rc-border/30">
                 Get Directions
               </a>
