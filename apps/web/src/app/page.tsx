@@ -163,7 +163,10 @@ export default function Home() {
           <div className="space-y-6 text-base md:text-lg text-rc-text/80 leading-relaxed font-light pt-8">
             <p>Start with truth.</p>
             <p className="text-rc-text">Pretence is the disease that pulls us down.</p>
-            <p>Truth leads us in the right direction.</p>
+            <p className="pt-4">His grace will teach you to see life clearly.</p>
+            <p>To live without fear.</p>
+            <p>To work honestly.</p>
+            <p>To build something that lasts.</p>
           </div>
         </motion.div>
       </section>
