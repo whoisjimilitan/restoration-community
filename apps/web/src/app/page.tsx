@@ -216,7 +216,7 @@ export default function Home() {
               <p>Walk with a man who's walked this road.</p>
               <p>Meet others on this journey.</p>
               <p className="pt-4 text-rc-text font-medium">Because your testimony is next.</p>
-              <p className="text-rc-text font-medium">For Jesus is still the same.</p>
+              <p className="text-rc-text font-medium">Jesus is still the same.</p>
             </div>
           </div>
 
