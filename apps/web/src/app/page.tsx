@@ -59,29 +59,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* THE TRAP */}
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-          viewport={{ once: true, amount: 0.15 }}
-          className="max-w-2xl mx-auto space-y-8"
-        >
-          <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">The Trap</h2>
-
-          <div className="space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
-            <p>You tell yourself:</p>
-            <p className="text-rc-text/80">The country is hard.</p>
-            <p className="text-rc-text/80">I have no opportunities.</p>
-            <p className="text-rc-text/80">I am just recovering what was stolen.</p>
-            <p className="pt-2">That is the voice of deception.</p>
-            <p className="font-medium">The spirit controlling many young people.</p>
-            <p>Across nations.</p>
-          </div>
-        </motion.div>
-      </section>
-
       {/* MY STORY */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
         <motion.div
@@ -129,31 +106,6 @@ export default function Home() {
           </div>
         </motion.div>
       </section>
-
-      {/* THE ONLY WAY */}
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-          viewport={{ once: true, amount: 0.15 }}
-          className="max-w-2xl mx-auto space-y-8"
-        >
-          <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">The Only Way</h2>
-
-          <div className="space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
-            <p>Deliverance means total freedom.</p>
-            <p>From sin and its penalties.</p>
-            <p>It is the only way out of fraud.</p>
-            <p className="pt-3">More money will not free you.</p>
-            <p>More prisons will not free the nation.</p>
-            <p className="pt-3 font-medium">Fraud is a spiritual issue.</p>
-            <p className="font-medium">Demands a spiritual solution.</p>
-            <p className="font-medium">The only way is through the name Jesus Christ.</p>
-          </div>
-        </motion.div>
-      </section>
-
 
       {/* THE DIVINE CALL */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-gradient-to-br from-rc-accent to-rc-text border-t border-rc-border">
