@@ -113,13 +113,13 @@ export default function Home() {
           <div className="space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
             <p>In 2013.</p>
             <p>God used Prophet TB Joshua.</p>
-            <p>To pray for me in Jesus' name.</p>
+            <p>To pray for me in His Mighty name.</p>
             <p className="pt-3">One utterance: "All that is over."</p>
-            <p className="pt-2">Years of dreaming, now freedom.</p>
-            <p>The spirit of waste expelled.</p>
+            <p>What followed was my miracle</p>
+            <p className="pt-2">The spirit of waste expelled.</p>
             <p>The spirit of fantasy gone.</p>
             <p>Delusion shattered.</p>
-            <p>The curses undone.</p>
+            <p>My curses undone.</p>
           </div>
         </motion.div>
       </section>
