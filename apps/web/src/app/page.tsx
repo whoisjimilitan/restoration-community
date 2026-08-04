@@ -182,15 +182,20 @@ export default function Home() {
         >
           <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">The Path</h2>
 
-          <div className="text-base md:text-lg text-rc-text/80 leading-relaxed font-light pt-8">
-            <p>Begin your journey out.</p>
-          </div>
-
           <div className="py-8">
             <StagesVisualization />
           </div>
 
-          <div className="space-y-6 text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
+          <div className="space-y-6 text-base md:text-lg text-rc-text/80 leading-relaxed font-light pt-8">
+            <p>Begin your journey out.</p>
+            <p>Through these 7 stages, His grace will teach you:</p>
+            <p className="text-rc-text">To see life clearly.</p>
+            <p>To live without fear.</p>
+            <p>To work honestly.</p>
+            <p>To build something that lasts.</p>
+          </div>
+
+          <div className="space-y-6 text-base md:text-lg text-rc-text/80 leading-relaxed font-light pt-8">
             <p>You will not walk it alone.</p>
             <p>Walk with someone who's walked this road.</p>
             <p>By grace, become one who leads others on it.</p>
