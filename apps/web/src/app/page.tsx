@@ -135,12 +135,13 @@ export default function Home() {
 
           <div className="space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
             <p>Deliverance means total freedom.</p>
-            <p>From sin and its penalties.</p>
+            <p>From sin and all its penalties.</p>
             <p>It is the only way out of fraud.</p>
             <p className="pt-3">More money will not free you.</p>
-            <p>More sentencing will not free our nations.</p>
+            <p>More sentencing will not free the nation.</p>
             <p className="pt-3 font-medium">Fraud is a spiritual issue.</p>
-            <p className="font-medium">The only way is the name Jesus Christ.</p>
+            <p className="font-medium">It demands a spiritual solution.</p>
+            <p className="font-medium">The only way is through the name Jesus Christ.</p>
           </div>
         </motion.div>
       </section>
