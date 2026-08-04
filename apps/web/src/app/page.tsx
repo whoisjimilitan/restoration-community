@@ -207,10 +207,7 @@ export default function Home() {
           <div className="space-y-12">
             <div>
               <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">The Gathering</h2>
-              <div className="space-y-1 pt-3">
-                <p className="text-base text-rc-text font-medium">We Begin With Truth</p>
-                <p className="text-sm text-rc-accent font-medium uppercase tracking-wide">Stage 1 — The Foundation</p>
-              </div>
+              <p className="text-base text-rc-accent font-medium uppercase tracking-wide pt-3">TRUTH</p>
             </div>
 
             <div className="space-y-6 text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
