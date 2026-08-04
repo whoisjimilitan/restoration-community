@@ -76,13 +76,10 @@ export default function PartnershipPage() {
                 Three kinds of partners are answering this call.
               </p>
               <p className="text-base md:text-lg text-rc-text leading-relaxed font-light">
-                Individuals. Organizations. All answering together.
+                Individuals. Organizations. All essential.
               </p>
               <p className="text-base md:text-lg text-rc-text leading-relaxed font-light">
-                All three kinds are essential.
-              </p>
-              <p className="text-base md:text-lg text-rc-text leading-relaxed font-light">
-                One of these is you. Or yours.
+                One of these is you.
               </p>
             </div>
           </div>
@@ -99,7 +96,7 @@ export default function PartnershipPage() {
           className="max-w-6xl mx-auto"
         >
           <div className="space-y-12">
-            <h2 className="text-xl md:text-2xl font-rc-serif font-bold uppercase tracking-wider">Founding Partners</h2>
+            <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">Founding Partners</h2>
             <div className="grid md:grid-cols-2 gap-12">
               {partners.founding.map((p) => (
                 <div key={p.id} className="w-24 h-24 md:w-32 md:h-32 rounded-lg bg-rc-border/20 flex items-center justify-center">
@@ -121,7 +118,7 @@ export default function PartnershipPage() {
           className="max-w-6xl mx-auto"
         >
           <div className="space-y-12">
-            <h2 className="text-xl md:text-2xl font-rc-serif font-bold uppercase tracking-wider">Standing Partners</h2>
+            <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">Standing Partners</h2>
             <div className="grid md:grid-cols-5 gap-6">
               {partners.standing.map((p) => (
                 <div key={p.id} className="w-20 h-20 md:w-24 md:h-24 rounded-lg bg-rc-border/20 flex items-center justify-center">
@@ -143,7 +140,7 @@ export default function PartnershipPage() {
           className="max-w-6xl mx-auto"
         >
           <div className="space-y-12">
-            <h2 className="text-xl md:text-2xl font-rc-serif font-bold uppercase tracking-wider">Prayer Partners</h2>
+            <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">Prayer Partners</h2>
             <div className="grid md:grid-cols-7 gap-4">
               {partners.prayer.map((p) => (
                 <div key={p.id} className="w-16 h-16 md:w-20 md:h-20 rounded-lg bg-rc-border/20 flex items-center justify-center">
@@ -166,7 +163,7 @@ export default function PartnershipPage() {
         >
           <div className="space-y-12">
             <div>
-              <h3 className="text-xl md:text-2xl font-rc-serif font-bold uppercase tracking-wider text-rc-text mb-8">This Is What Partners Have Made Possible</h3>
+              <h3 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight mb-8">This Is What Partners Have Made Possible</h3>
               <p className="text-base md:text-lg text-rc-text/80 leading-relaxed font-light">Young people are being freed from the spiritual chains of fraud. Every number is a person. Every person is a spirit set free.</p>
             </div>
 
@@ -233,7 +230,7 @@ export default function PartnershipPage() {
           className="max-w-2xl mx-auto"
         >
           <div className="space-y-8">
-            <h3 className="text-xl md:text-2xl font-rc-serif font-bold uppercase tracking-wider text-rc-text">Why These Three Matter</h3>
+            <h3 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">Why These Three Matter</h3>
             <div className="space-y-6 text-base md:text-lg text-rc-text leading-relaxed font-light">
               <p>
                 <span className="font-medium">Founding partners</span> believed when there was only vision. When the cost was highest. When the outcome was unknown. This requires different faith.
