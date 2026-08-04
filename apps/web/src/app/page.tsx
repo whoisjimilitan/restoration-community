@@ -158,16 +158,14 @@ export default function Home() {
           viewport={{ once: true, amount: 0.15 }}
           className="max-w-2xl mx-auto space-y-8"
         >
-          <div className="border-l-4 border-rc-accent/60 pl-8 space-y-8">
-            <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">The New Life</h2>
+          <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight mb-8">The New Life</h2>
 
-            <div className="space-y-6 text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
-              <p>Deliverance is just the start.</p>
-              <p className="text-rc-text">His grace will teach you to see life clearly.</p>
-              <p>To live without fear.</p>
-              <p>To work honestly.</p>
-              <p>To build something that lasts.</p>
-            </div>
+          <div className="border-l-4 border-rc-accent/60 pl-8 space-y-6 text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
+            <p>Deliverance is just the start.</p>
+            <p className="text-rc-text">His grace will teach you to see life clearly.</p>
+            <p>To live without fear.</p>
+            <p>To work honestly.</p>
+            <p>To build something that lasts.</p>
           </div>
         </motion.div>
       </section>
@@ -181,11 +179,9 @@ export default function Home() {
           viewport={{ once: true, amount: 0.15 }}
           className="max-w-2xl mx-auto space-y-12"
         >
-          <div className="border-l-4 border-rc-accent/60 pl-8">
-            <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">My Advice</h2>
-          </div>
+          <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight mb-8">My Advice</h2>
 
-          <div className="text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
+          <div className="border-l-4 border-rc-accent/60 pl-8 space-y-6 text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
             <p>Begin your journey out.</p>
           </div>
 
@@ -210,17 +206,15 @@ export default function Home() {
           viewport={{ once: true, amount: 0.15 }}
           className="max-w-2xl mx-auto space-y-12"
         >
-          <div className="border-l-4 border-rc-accent pl-8 space-y-8">
-            <div className="space-y-4">
-              <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">The Gathering</h2>
-              <p className="text-base md:text-lg text-rc-text/70 font-light">Stage 1 — Truth Teaching</p>
-            </div>
+          <div className="space-y-4 mb-8">
+            <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">The Gathering</h2>
+            <p className="text-base md:text-lg text-rc-text/70 font-light">Stage 1 — Truth Teaching</p>
+          </div>
 
-            <div className="space-y-6 text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
-              <p>Join us for live teaching. Hear directly from the Word.</p>
-              <p>Meet others on this journey. You'll recognise them—they carry the same hunger for freedom you do.</p>
-              <p>Walk together. Be accountable. Become who you're meant to be.</p>
-            </div>
+          <div className="border-l-4 border-rc-accent pl-8 space-y-6 text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
+            <p>Join us for live teaching. Hear directly from the Word.</p>
+            <p>Meet others on this journey. You'll recognise them—they carry the same hunger for freedom you do.</p>
+            <p>Walk together. Be accountable. Become who you're meant to be.</p>
           </div>
 
           <div className="space-y-6 pt-4">
