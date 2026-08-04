@@ -161,7 +161,6 @@ export default function Home() {
 
           <div className="space-y-6 text-base md:text-lg text-rc-text leading-relaxed font-light">
             <p>Deliverance is just the start.</p>
-            <p>After your deliverance</p>
             <p>His grace will teach you to see life clearly.</p>
             <p>To live without fear.</p>
             <p>To work honestly.</p>
