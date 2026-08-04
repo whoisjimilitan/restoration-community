@@ -188,15 +188,12 @@ export default function Home() {
 
           <div className="space-y-6 text-base md:text-lg text-rc-text/80 leading-relaxed font-light pt-8">
             <p>Begin your journey out.</p>
-            <p>Through these seven stages, His grace will teach you:</p>
+            <p>Through seven stages, His grace will teach you:</p>
             <p className="text-rc-text">To see life clearly.</p>
             <p>To live without fear.</p>
             <p>To work honestly.</p>
             <p>To build something that lasts.</p>
-          </div>
-
-          <div className="space-y-6 text-base md:text-lg text-rc-text/80 leading-relaxed font-light pt-8">
-            <p>You will not walk it alone.</p>
+            <p className="pt-4">You will not walk it alone.</p>
             <p>Walk with someone who's walked this road.</p>
             <p>By grace, become one who leads others on it.</p>
           </div>
