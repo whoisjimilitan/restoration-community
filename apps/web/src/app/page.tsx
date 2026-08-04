@@ -205,15 +205,21 @@ export default function Home() {
           className="max-w-2xl mx-auto space-y-16"
         >
           <div className="space-y-12">
-            <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">The Gathering</h2>
+            <div className="space-y-4">
+              <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">The Gathering</h2>
+              <div className="space-y-2">
+                <p className="text-lg text-rc-text font-medium">We Begin With Truth</p>
+                <p className="text-base text-rc-accent font-medium uppercase tracking-wide">Stage 1 — The Foundation</p>
+              </div>
+            </div>
 
             <div className="space-y-6 text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
-              <p>Join me for live teaching.</p>
-              <p>Hear the truth of God's Word.</p>
+              <p>Join me for live teaching each week.</p>
+              <p>Experience the Journey as sermons.</p>
               <p>Walk with a man who's walked this road.</p>
               <p>Meet others on this journey.</p>
-              <p>Become one who leads others there.</p>
-              <p className="pt-6 text-rc-text font-medium text-lg">Truth is where freedom begins.</p>
+              <p className="pt-4 text-rc-text font-medium">Because your testimony is next.</p>
+              <p className="text-rc-text font-medium">For Jesus is still the same.</p>
             </div>
           </div>
 
