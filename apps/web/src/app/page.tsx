@@ -163,7 +163,7 @@ export default function Home() {
               <p>How desperately do you want to be free?</p>
               <p className="pt-2 font-medium">My God can deliver you.</p>
               <p>What He did for me through Prophet TB Joshua.</p>
-              <p>He will also do for you through me by grace.</p>
+              <p>He will also do for you through me by His grace.</p>
             </div>
           </div>
 
