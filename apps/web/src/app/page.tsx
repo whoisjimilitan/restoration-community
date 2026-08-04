@@ -97,7 +97,7 @@ export default function Home() {
           <div className="border-l-4 border-rc-accent pl-8 space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
             <p>In 2013.</p>
             <p>God used Prophet TB Joshua.</p>
-            <p>To pray for me in His Mighty name.</p>
+            <p>To pray for me in Jesus' name.</p>
             <p className="pt-3">One utterance: "All that is over."</p>
             <p className="pt-2">The spirit of waste expelled.</p>
             <p>The spirit of fantasy gone.</p>
