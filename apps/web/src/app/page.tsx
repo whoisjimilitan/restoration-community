@@ -193,9 +193,6 @@ export default function Home() {
             <p>To live without fear.</p>
             <p>To work honestly.</p>
             <p>To build something that lasts.</p>
-            <p className="pt-4">You will not walk it alone.</p>
-            <p>Walk with someone who's walked this road.</p>
-            <p>By grace, become one who leads others on it.</p>
           </div>
         </motion.div>
       </section>
@@ -217,8 +214,10 @@ export default function Home() {
 
             <div className="space-y-6 text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
               <p>Join us for live teaching. Hear directly from the Word.</p>
+              <p>You will not walk it alone.</p>
+              <p>Walk with someone who's walked this road.</p>
               <p>Meet others on this journey. You'll recognise them—they carry the same hunger for freedom you do.</p>
-              <p>Walk together. Be accountable. Become who you're meant to be.</p>
+              <p>By grace, become one who leads others on it.</p>
             </div>
           </div>
 
