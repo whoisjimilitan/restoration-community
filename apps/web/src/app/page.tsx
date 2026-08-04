@@ -99,6 +99,30 @@ export default function Home() {
         </motion.div>
       </section>
 
+      {/* MY ENCOUNTER */}
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          viewport={{ once: true, amount: 0.15 }}
+          className="max-w-2xl mx-auto space-y-8"
+        >
+          <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">My Encounter</h2>
+
+          <div className="space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
+            <p>In 2013.</p>
+            <p>God used Prophet TB Joshua.</p>
+            <p>To pray for me.</p>
+            <p className="pt-3">One prayer.</p>
+            <p>Freedom from fraud.</p>
+            <p>And the curses that come with it.</p>
+            <p className="pt-3 font-medium">What Jesus did for me through him.</p>
+            <p className="font-medium">He will also do for you through me.</p>
+          </div>
+        </motion.div>
+      </section>
+
       {/* THE ONLY WAY */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
         <motion.div
@@ -124,30 +148,6 @@ export default function Home() {
         </motion.div>
       </section>
 
-
-      {/* MY ENCOUNTER */}
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-          viewport={{ once: true, amount: 0.15 }}
-          className="max-w-2xl mx-auto space-y-8"
-        >
-          <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">My Encounter</h2>
-
-          <div className="space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
-            <p>In 2013.</p>
-            <p>God used Prophet TB Joshua.</p>
-            <p>To pray for me.</p>
-            <p className="pt-3">One prayer.</p>
-            <p>Freedom from fraud.</p>
-            <p>And the curses that come with it.</p>
-            <p className="pt-3 font-medium">What Jesus did for me through him.</p>
-            <p className="font-medium">He will also do for you through me.</p>
-          </div>
-        </motion.div>
-      </section>
 
       {/* THE DIVINE CALL */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-gradient-to-br from-rc-accent to-rc-text border-t border-rc-border">
@@ -215,7 +215,7 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* THE WAY OUT */}
+      {/* MY ADVICE */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -224,16 +224,18 @@ export default function Home() {
           viewport={{ once: true, amount: 0.15 }}
           className="max-w-2xl mx-auto space-y-12"
         >
-          <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">The Way Out</h2>
+          <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">My Advice</h2>
 
           <div className="space-y-6 text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
-            <p>The journey out starts with truth.</p>
-            <p>It is the only way to confession.</p>
+            <p>Take the journey out.</p>
+            <p>It starts with truth.</p>
+            <p>Truth is the only way to confession.</p>
             <p>To repentance. Forgiveness. And beyond.</p>
             <p className="pt-2">Do not deceive yourself.</p>
-            <p>Truth paves the way to leave fraud behind.</p>
-            <p className="pt-3">You walk with those who chose truth before you.</p>
-            <p>And through grace, become one who leads others there.</p>
+            <p>This is the path I walked.</p>
+            <p className="pt-3">You will not walk it alone.</p>
+            <p>Those of us who chose truth are here for you.</p>
+            <p>And through grace, you will become one who leads others there too.</p>
           </div>
 
           <StagesVisualization />
