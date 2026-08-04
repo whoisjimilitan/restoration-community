@@ -42,8 +42,8 @@ export default function Home() {
 
           <div className={`transform transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '360ms' }}>
             <div className="space-y-3 text-base md:text-lg text-white/90 leading-relaxed font-light">
-              <p>Scamming and fraud promise freedom.</p>
-              <p>They only bind you tighter.</p>
+              <p>Fraud promises freedom.</p>
+              <p>But it only binds you tighter.</p>
               <p className="pt-2">This is a spiritual trap.</p>
               <p>Only One Man can set you free.</p>
             </div>
