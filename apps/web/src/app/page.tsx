@@ -218,7 +218,7 @@ export default function Home() {
           </div>
 
           <div className="space-y-8 pt-6 border-t border-rc-border">
-            <div className="space-y-4 pt-6">
+            <div className="space-y-4 pt-6 pb-6 px-6 bg-rc-warm-gray rounded-lg">
               <p className="text-sm font-medium text-rc-accent uppercase tracking-wide">When & Where</p>
               <div className="space-y-3">
                 <p className="text-base md:text-lg text-rc-text font-medium">Friday, August 15 at 7:00 PM</p>
