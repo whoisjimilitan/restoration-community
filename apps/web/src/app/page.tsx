@@ -190,8 +190,8 @@ export default function Home() {
 
           <div className="space-y-6 text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
             <p>You will not walk it alone.</p>
-            <p>Walk with someone who has walked this same road before.</p>
-            <p>And through grace, become one who leads others on that road.</p>
+            <p>Walk with someone who's walked this road.</p>
+            <p>Through grace, become one who leads others on it.</p>
           </div>
 
           <div className="space-y-8 pt-4">
