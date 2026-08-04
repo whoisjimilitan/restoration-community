@@ -229,18 +229,23 @@ export default function Home() {
           <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">My Advice</h2>
 
           <div className="space-y-6 text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
-            <p>Take the journey out.</p>
-            <p>It starts with truth.</p>
-            <p>Truth is the only way to confession.</p>
-            <p>To repentance. Forgiveness. And beyond.</p>
-            <p className="pt-2">Do not deceive yourself.</p>
-            <p>This is the path I walked.</p>
-            <p className="pt-3">You will not walk it alone.</p>
-            <p>Those of us who chose truth are here for you.</p>
-            <p>And through grace, you will become one who leads others there too.</p>
+            <p>Begin your journey out.</p>
+            <p>It starts with receiving the truth.</p>
+            <p>Truth leads to confession.</p>
+            <p>To repentance.</p>
+            <p>Forgiveness.</p>
+            <p>And beyond.</p>
           </div>
 
-          <StagesVisualization />
+          <div className="py-8">
+            <StagesVisualization />
+          </div>
+
+          <div className="space-y-6 text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
+            <p>You will not walk it alone.</p>
+            <p>Those of us who chose truth are here for you.</p>
+            <p>And through His grace, you'll become one who leads others there.</p>
+          </div>
 
           <div className="space-y-8 pt-4">
             <h3 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">The Gathering</h3>
