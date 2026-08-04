@@ -117,7 +117,7 @@ export default function Home() {
           className="max-w-2xl mx-auto space-y-16"
         >
           <div className="space-y-10">
-            <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight tracking-tight">Jesus is calling you out.</h2>
+            <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight tracking-tight">Jesus is calling you.</h2>
 
             <div className="space-y-4 text-base md:text-lg text-white/90 leading-relaxed font-light">
               <p>If you sense you are controlled by this spirit.</p>
@@ -149,7 +149,7 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* THE NEW LIFE */}
+      {/* YOUR NEW LIFE */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -158,7 +158,7 @@ export default function Home() {
           viewport={{ once: true, amount: 0.15 }}
           className="max-w-2xl mx-auto space-y-12"
         >
-          <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">The New Life</h2>
+          <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">Your New Life</h2>
 
           <div className="space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
             <p className="text-rc-text font-medium">Start with truth.</p>
@@ -185,7 +185,7 @@ export default function Home() {
           <StagesVisualization />
 
           <div className="space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
-            <p className="text-rc-text font-medium">Begin your journey out.</p>
+            <p className="text-rc-text font-medium">Sanctification is gradual.</p>
             <p>Through stages, His grace will teach you:</p>
             <p className="text-rc-text font-medium">To see life clearly.</p>
             <p>To live without fear.</p>
@@ -195,7 +195,7 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* THE GATHERING SECTION */}
+      {/* OUR GATHERING SECTION */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
         <motion.div
           initial="hidden"
@@ -221,7 +221,7 @@ export default function Home() {
             }}
             className="space-y-12"
           >
-            <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">The Gathering</h2>
+            <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">Our Gathering</h2>
 
             <div className="space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
               <p>Experience the Journey as sermons.</p>
