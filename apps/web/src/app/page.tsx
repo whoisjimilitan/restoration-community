@@ -110,7 +110,7 @@ export default function Home() {
         >
           <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">My Encounter</h2>
 
-          <div className="space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
+          <div className="border-l-4 border-rc-accent pl-8 space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
             <p>In 2013.</p>
             <p>God used Prophet TB Joshua.</p>
             <p>To pray for me in His Mighty name.</p>
