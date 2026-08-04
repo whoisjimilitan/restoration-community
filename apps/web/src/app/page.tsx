@@ -162,7 +162,6 @@ export default function Home() {
           <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">Do Not Pretend</h2>
 
           <div className="space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
-            <p className="text-rc-text font-medium">Pretence.</p>
             <p>Pretence is the disease that pulls us down.</p>
             <p className="pt-4 text-rc-text font-medium">Do not pretend.</p>
             <p className="pt-4">His grace will teach you to see life clearly.</p>
@@ -188,7 +187,8 @@ export default function Home() {
           <StagesVisualization />
 
           <div className="space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
-            <p className="text-rc-text font-medium">Sanctification is gradual.</p>
+            <p className="text-rc-text font-medium">Your journey is personal.</p>
+            <p className="pt-4 text-rc-text font-medium">Sanctification is gradual.</p>
             <p>Through stages, His grace will teach you:</p>
             <p className="text-rc-text font-medium">To see life clearly.</p>
             <p>To live without fear.</p>
