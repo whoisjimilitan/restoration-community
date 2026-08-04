@@ -221,13 +221,13 @@ export default function Home() {
             <div className="space-y-4 pt-6">
               <p className="text-sm font-medium text-rc-accent uppercase tracking-wide">When & Where</p>
               <div className="space-y-3">
-                <p className="text-base md:text-lg text-rc-text font-medium">Friday, August 15 at 3:00 PM</p>
-                <p className="text-base md:text-lg text-rc-text font-light">SCOAN Accra, Ghana</p>
+                <p className="text-base md:text-lg text-rc-text font-medium">Friday, August 15 at 7:00 PM</p>
+                <p className="text-base md:text-lg text-rc-text font-light">Mango Farm, Abokobi</p>
               </div>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <a href="https://maps.google.com/?q=SCOAN+Accra+Ghana" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-white text-rc-text font-medium rounded-lg hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 border border-rc-border/30">
+              <a href="https://maps.google.com/?q=Mango+Farm+Abokobi" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-white text-rc-text font-medium rounded-lg hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 border border-rc-border/30">
                 Get Directions
               </a>
               <button onClick={() => setIsAttendanceModalOpen(true)} className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-rc-accent text-white font-medium rounded-lg hover:bg-rc-accent/90 hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300">
