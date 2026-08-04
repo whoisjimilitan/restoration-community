@@ -118,7 +118,8 @@ export default function Home() {
             <p>"All that is over."</p>
             <p className="pt-2">Years of dreaming, now freedom.</p>
             <p>The spirit of waste expelled.</p>
-            <p>The spirit of fantasy and delusion gone.</p>
+            <p>The spirit of fantasy gone.</p>
+            <p>Delusion shattered.</p>
             <p>The curses undone.</p>
           </div>
         </motion.div>
