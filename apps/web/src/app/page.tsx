@@ -211,11 +211,12 @@ export default function Home() {
             </div>
 
             <div className="space-y-6 text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
-              <p>Join us for live teaching. Hear directly from the Word.</p>
+              <p>Join me for live teaching.</p>
+              <p>Hear the truth of God's Word.</p>
               <p>You will not walk it alone.</p>
-              <p>Walk with someone who's walked this road.</p>
-              <p>Meet others on this journey. You'll recognise them—they carry the same hunger for freedom you do.</p>
-              <p>By grace, become one who leads others on it.</p>
+              <p>Walk with a man who's walked this road.</p>
+              <p>Meet others on this journey.</p>
+              <p>Become one who leads others there.</p>
             </div>
           </div>
 
