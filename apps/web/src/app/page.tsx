@@ -70,7 +70,7 @@ export default function Home() {
         >
           <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">My Story</h2>
 
-          <div className="border-l-4 border-rc-accent/60 pl-8 space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
+          <div className="space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
             <p>I too was once controlled by that spirit.</p>
             <p>I justified my actions.</p>
             <p>I blamed my country's economy.</p>
@@ -94,7 +94,7 @@ export default function Home() {
         >
           <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">My Encounter</h2>
 
-          <div className="border-l-4 border-rc-accent/60 pl-8 space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
+          <div className="space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
             <p>In 2013.</p>
             <p>God used Prophet TB Joshua.</p>
             <p>To pray for me in Jesus' name.</p>
@@ -182,11 +182,9 @@ export default function Home() {
         >
           <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">The Journey</h2>
 
-          <div className="py-8">
-            <StagesVisualization />
-          </div>
+          <StagesVisualization />
 
-          <div className="space-y-6 text-base md:text-lg text-rc-text/80 leading-relaxed font-light pt-8">
+          <div className="space-y-6 text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
             <p>Begin your journey out.</p>
             <p>Through seven stages, His grace will teach you:</p>
             <p className="text-rc-text">To see life clearly.</p>
