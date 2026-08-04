@@ -160,7 +160,7 @@ export default function Home() {
         >
           <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">The New Life</h2>
 
-          <div className="space-y-6 text-base md:text-lg text-rc-text/80 leading-relaxed font-light pt-8">
+          <div className="space-y-6 text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
             <p>Start with truth.</p>
             <p className="text-rc-text">Pretence is the disease that pulls us down.</p>
             <p className="pt-4">His grace will teach you to see life clearly.</p>
