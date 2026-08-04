@@ -115,8 +115,8 @@ export default function Home() {
             <p>God used Prophet TB Joshua.</p>
             <p>To pray for me in Jesus' name.</p>
             <p className="pt-3">One utterance.</p>
-            <p>"It is over."</p>
-            <p>My dream became a reality.</p>
+            <p>"All that is over."</p>
+            <p>Years of dreaming became a reality.</p>
             <p className="pt-2">Freedom from fraud.</p>
             <p>And the curses that come with doing it.</p>
             <p className="pt-3 font-medium">What Jesus did for me through him.</p>
