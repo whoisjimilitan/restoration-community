@@ -60,46 +60,46 @@ export default function Home() {
       </section>
 
       {/* MY STORY */}
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border/40">
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
           viewport={{ once: true, amount: 0.15 }}
-          className="max-w-2xl mx-auto space-y-8"
+          className="max-w-2xl mx-auto space-y-12"
         >
-          <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">My Story</h2>
+          <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">My Story</h2>
 
-          <div className="space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
+          <div className="space-y-5 text-base md:text-lg text-rc-text/80 leading-relaxed font-light border-l-4 border-rc-accent pl-8">
             <p>I too was once controlled by that spirit.</p>
             <p>I justified my actions.</p>
             <p>I blamed my country's economy.</p>
             <p>I convinced myself I had no choice.</p>
-            <p className="pt-3">Until my encounter with that One Man.</p>
-            <p className="pt-3 text-rc-text font-light">He delivered me from that spirit.</p>
-            <p className="pt-3">My God. My Deliverer.</p>
-            <p className="text-rc-text font-light">Jesus Christ.</p>
+            <p className="pt-2">Until my encounter with that One Man.</p>
+            <p className="pt-4 text-rc-text font-medium">He delivered me from that spirit.</p>
+            <p className="pt-4">My God. My Deliverer.</p>
+            <p className="text-rc-text font-medium">Jesus Christ.</p>
           </div>
         </motion.div>
       </section>
 
       {/* MY ENCOUNTER */}
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border/40">
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
           viewport={{ once: true, amount: 0.15 }}
-          className="max-w-2xl mx-auto space-y-8"
+          className="max-w-2xl mx-auto space-y-12"
         >
-          <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">My Encounter</h2>
+          <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">My Encounter</h2>
 
-          <div className="space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
+          <div className="space-y-5 text-base md:text-lg text-rc-text/80 leading-relaxed font-light border-l-4 border-rc-accent pl-8">
             <p>In 2015.</p>
             <p>God used Prophet TB Joshua.</p>
             <p>To pray for me in Jesus' name.</p>
-            <p className="pt-3 text-rc-text font-light">One utterance: "All that is over."</p>
-            <p className="pt-3">The spirit of waste expelled.</p>
+            <p className="pt-2 text-rc-text font-medium">One utterance: "All that is over."</p>
+            <p className="pt-4">The spirit of waste expelled.</p>
             <p>The spirit of fantasy gone.</p>
             <p>Delusion shattered.</p>
             <p>My curses undone.</p>
@@ -114,22 +114,22 @@ export default function Home() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
           viewport={{ once: true, amount: 0.15 }}
-          className="max-w-2xl mx-auto space-y-12"
+          className="max-w-2xl mx-auto space-y-16"
         >
-          <div className="space-y-8">
-            <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-white leading-tight tracking-tight">Jesus is calling you out.</h2>
+          <div className="space-y-10">
+            <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight tracking-tight">Jesus is calling you out.</h2>
 
-            <div className="space-y-4 text-base md:text-lg text-white/90 leading-relaxed font-light">
+            <div className="space-y-5 text-base md:text-lg text-white/90 leading-relaxed font-light">
               <p>If you sense you are controlled by this spirit.</p>
               <p>How desperately do you want to be free?</p>
-              <p className="pt-4 text-white font-light">My God can deliver you.</p>
-              <p className="text-white font-light">He can set you free completely.</p>
+              <p className="pt-4 text-white font-medium">My God can deliver you.</p>
+              <p className="text-white font-medium">He can set you free completely.</p>
               <p className="pt-4">What He did for me through Prophet TB Joshua.</p>
               <p>He will do for you through me by His grace.</p>
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 pt-2">
+          <div className="flex flex-col sm:flex-row gap-4 pt-8">
             <button
               onClick={() => {
                 const event = new CustomEvent('open-deliverance-modal');
@@ -150,19 +150,19 @@ export default function Home() {
       </section>
 
       {/* THE NEW LIFE */}
-      <section className="w-full py-20 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-text/1 border-t border-rc-border/60 md:border-rc-border/40">
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
           viewport={{ once: true, amount: 0.15 }}
-          className="max-w-2xl mx-auto space-y-8"
+          className="max-w-2xl mx-auto space-y-12"
         >
-          <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">The New Life</h2>
+          <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">The New Life</h2>
 
           <div className="space-y-6 text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
-            <p>Start with truth.</p>
-            <p className="text-rc-text">Pretence is the disease that pulls us down.</p>
+            <p className="text-rc-text font-medium">Start with truth.</p>
+            <p>Pretence is the disease that pulls us down.</p>
             <p className="pt-4">His grace will teach you to see life clearly.</p>
             <p>To live without fear.</p>
             <p>To work honestly.</p>
@@ -171,23 +171,23 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* MY ADVICE */}
-      <section className="w-full py-20 md:py-32 px-6 sm:px-8 md:px-12 bg-white border-t border-rc-border/60 md:border-rc-border/40">
+      {/* THE JOURNEY */}
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-white border-t border-rc-border">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
           viewport={{ once: true, amount: 0.15 }}
-          className="max-w-2xl mx-auto space-y-12"
+          className="max-w-2xl mx-auto space-y-16"
         >
-          <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">The Journey</h2>
+          <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">The Journey</h2>
 
           <StagesVisualization />
 
           <div className="space-y-6 text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
-            <p>Begin your journey out.</p>
+            <p className="text-rc-text font-medium">Begin your journey out.</p>
             <p>Through stages, His grace will teach you:</p>
-            <p className="text-rc-text">To see life clearly.</p>
+            <p className="text-rc-text font-medium">To see life clearly.</p>
             <p>To live without fear.</p>
             <p>To work honestly.</p>
             <p>To build something that lasts.</p>
@@ -196,44 +196,41 @@ export default function Home() {
       </section>
 
       {/* THE GATHERING SECTION */}
-      <section className="w-full py-20 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-accent/2 border-t border-rc-border/60 md:border-rc-border/40">
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
           viewport={{ once: true, amount: 0.15 }}
-          className="max-w-2xl mx-auto space-y-12"
+          className="max-w-2xl mx-auto space-y-16"
         >
-          <div className="space-y-8">
-            <div className="space-y-4">
-              <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">The Gathering</h2>
-              <p className="text-base md:text-lg text-rc-text/70 font-light">Stage 1 — Truth Teaching</p>
-            </div>
+          <div className="space-y-12">
+            <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">The Gathering</h2>
 
             <div className="space-y-6 text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
               <p>Join me for live teaching.</p>
               <p>Hear the truth of God's Word.</p>
-              <p>You will not walk it alone.</p>
               <p>Walk with a man who's walked this road.</p>
               <p>Meet others on this journey.</p>
               <p>Become one who leads others there.</p>
+              <p className="pt-6 text-rc-text font-medium text-lg">Truth is where freedom begins.</p>
             </div>
           </div>
 
-          <div className="space-y-6 pt-4">
-            <div className="space-y-3">
+          <div className="space-y-8 pt-6 border-t border-rc-border">
+            <div className="space-y-4 pt-6">
               <p className="text-sm font-medium text-rc-accent uppercase tracking-wide">When & Where</p>
-              <div className="space-y-2">
-                <p className="text-base md:text-lg text-rc-text font-light">Friday, August 15 at 3:00 PM</p>
+              <div className="space-y-3">
+                <p className="text-base md:text-lg text-rc-text font-medium">Friday, August 15 at 3:00 PM</p>
                 <p className="text-base md:text-lg text-rc-text font-light">SCOAN Accra, Ghana</p>
               </div>
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <a href="https://maps.google.com/?q=SCOAN+Accra+Ghana" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-rc-text/5 text-rc-text font-medium rounded-lg hover:bg-rc-text/10 hover:-translate-y-0.5 transition-all duration-300 border border-rc-border/40">
+              <a href="https://maps.google.com/?q=SCOAN+Accra+Ghana" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-white text-rc-text font-medium rounded-lg hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 border border-rc-border/30">
                 Get Directions
               </a>
-              <button onClick={() => setIsAttendanceModalOpen(true)} className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-rc-text text-white font-medium rounded-lg hover:bg-rc-text/90 hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300">
+              <button onClick={() => setIsAttendanceModalOpen(true)} className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-rc-accent text-white font-medium rounded-lg hover:bg-rc-accent/90 hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300">
                 I'm Attending
               </button>
             </div>
