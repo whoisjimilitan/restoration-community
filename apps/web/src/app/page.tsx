@@ -157,14 +157,12 @@ export default function Home() {
           className="max-w-2xl mx-auto space-y-12"
         >
           <div className="space-y-6">
-            <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-white leading-tight tracking-tight">
-              If you are trapped in fraud.
-            </h2>
             <div className="space-y-4 text-base md:text-lg text-white/90 leading-relaxed font-light">
+              <p className="text-3xl md:text-4xl font-rc-serif font-bold text-white leading-tight tracking-tight">If you are trapped by fraud.</p>
               <p>If you sense you are controlled by this spirit.</p>
-              <p>If you want to be free.</p>
-              <p className="pt-3 font-medium">My God can deliver you.</p>
-              <p className="pt-2">What He did for me through His anointed servant.</p>
+              <p>How desperately do you want to be free.</p>
+              <p className="pt-2 font-medium">My God can deliver you.</p>
+              <p>What He did for me through His anointed servant.</p>
               <p>He will also do for you through me by grace.</p>
             </div>
           </div>
