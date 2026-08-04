@@ -193,42 +193,45 @@ export default function Home() {
             <p>Walk with someone who's walked this road.</p>
             <p>By grace, become one who leads others on it.</p>
           </div>
-
-          <div className="space-y-8 pt-4">
-            <h3 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">The Gathering</h3>
-
-            <div className="space-y-6 text-base md:text-lg text-rc-text leading-relaxed font-light">
-              <p>Come and meet those who chose truth.</p>
-              <p>Hear their stories.</p>
-              <p>Walk with them on your journey out.</p>
-              <p className="pt-2">And through grace.</p>
-              <p>Become one who leads others there.</p>
-            </div>
-          </div>
         </motion.div>
       </section>
 
-      {/* EVENT REVEAL EPILOGUE */}
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
+      {/* THE GATHERING SECTION */}
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border/40">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
           viewport={{ once: true, amount: 0.15 }}
-          className="max-w-2xl mx-auto space-y-8"
+          className="max-w-2xl mx-auto space-y-12"
         >
-          <div className="space-y-6">
+          <div className="space-y-8">
             <div className="space-y-4">
-              <p className="text-base md:text-lg font-medium text-rc-text">Upcoming: Stage 1 - Truth Teaching</p>
-              <p className="text-base text-rc-text/70">SCOAN Accra, Ghana</p>
-              <p className="text-base text-rc-text/70">Friday, August 15 at 3:00 PM</p>
+              <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">The Gathering</h2>
+              <p className="text-base md:text-lg text-rc-text/70 font-light">Stage 1 — Truth Teaching</p>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 pt-2">
-              <a href="https://maps.google.com/?q=SCOAN+Accra+Ghana" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-rc-text/10 text-rc-text font-medium rounded-lg hover:bg-rc-text/15 hover:-translate-y-0.5 transition-all duration-300 border border-rc-border/30">
+            <div className="space-y-6 text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
+              <p>Join us for live teaching. Hear directly from the Word.</p>
+              <p>Meet others on this journey. You'll recognise them—they carry the same hunger for freedom you do.</p>
+              <p>Walk together. Be accountable. Become who you're meant to be.</p>
+            </div>
+          </div>
+
+          <div className="space-y-6 pt-4">
+            <div className="space-y-3">
+              <p className="text-sm font-medium text-rc-accent uppercase tracking-wide">When & Where</p>
+              <div className="space-y-2">
+                <p className="text-base md:text-lg text-rc-text font-light">Friday, August 15 at 3:00 PM</p>
+                <p className="text-base md:text-lg text-rc-text font-light">SCOAN Accra, Ghana</p>
+              </div>
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+              <a href="https://maps.google.com/?q=SCOAN+Accra+Ghana" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-rc-text/5 text-rc-text font-medium rounded-lg hover:bg-rc-text/10 hover:-translate-y-0.5 transition-all duration-300 border border-rc-border/40">
                 Get Directions
               </a>
-              <button onClick={() => setIsAttendanceModalOpen(true)} className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-rc-text text-white font-medium rounded-lg hover:bg-rc-text/90 hover:-translate-y-0.5 transition-all duration-300">
+              <button onClick={() => setIsAttendanceModalOpen(true)} className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-rc-text text-white font-medium rounded-lg hover:bg-rc-text/90 hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300">
                 I'm Attending
               </button>
             </div>
