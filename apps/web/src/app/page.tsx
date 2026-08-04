@@ -180,13 +180,8 @@ export default function Home() {
         >
           <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">My Advice</h2>
 
-          <div className="space-y-6 text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
+          <div className="text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
             <p>Begin your journey out.</p>
-            <p>It starts with receiving the truth.</p>
-            <p>Truth leads to confession.</p>
-            <p>To repentance.</p>
-            <p>Forgiveness.</p>
-            <p>And beyond.</p>
           </div>
 
           <div className="py-8">
