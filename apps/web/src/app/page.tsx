@@ -70,7 +70,7 @@ export default function Home() {
         >
           <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">My Story</h2>
 
-          <div className="space-y-5 text-base md:text-lg text-rc-text/80 leading-relaxed font-light border-l-4 border-rc-accent pl-8">
+          <div className="space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light border-l-4 border-rc-accent pl-8">
             <p>I too was once controlled by that spirit.</p>
             <p>I justified my actions.</p>
             <p>I blamed my country's economy.</p>
@@ -84,7 +84,7 @@ export default function Home() {
       </section>
 
       {/* MY ENCOUNTER */}
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -94,7 +94,7 @@ export default function Home() {
         >
           <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">My Encounter</h2>
 
-          <div className="space-y-5 text-base md:text-lg text-rc-text/80 leading-relaxed font-light border-l-4 border-rc-accent pl-8">
+          <div className="space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light border-l-4 border-rc-accent pl-8">
             <p>In 2015.</p>
             <p>God used Prophet TB Joshua.</p>
             <p>To pray for me in Jesus' name.</p>
@@ -119,7 +119,7 @@ export default function Home() {
           <div className="space-y-10">
             <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight tracking-tight">Jesus is calling you out.</h2>
 
-            <div className="space-y-5 text-base md:text-lg text-white/90 leading-relaxed font-light">
+            <div className="space-y-4 text-base md:text-lg text-white/90 leading-relaxed font-light">
               <p>If you sense you are controlled by this spirit.</p>
               <p>How desperately do you want to be free?</p>
               <p className="pt-4 text-white font-medium">My God can deliver you.</p>
@@ -160,7 +160,7 @@ export default function Home() {
         >
           <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">The New Life</h2>
 
-          <div className="space-y-6 text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
+          <div className="space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
             <p className="text-rc-text font-medium">Start with truth.</p>
             <p>Pretence is the disease that pulls us down.</p>
             <p className="pt-4">His grace will teach you to see life clearly.</p>
@@ -172,7 +172,7 @@ export default function Home() {
       </section>
 
       {/* THE JOURNEY */}
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-white border-t border-rc-border">
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -184,7 +184,7 @@ export default function Home() {
 
           <StagesVisualization />
 
-          <div className="space-y-6 text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
+          <div className="space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
             <p className="text-rc-text font-medium">Begin your journey out.</p>
             <p>Through stages, His grace will teach you:</p>
             <p className="text-rc-text font-medium">To see life clearly.</p>
@@ -196,7 +196,7 @@ export default function Home() {
       </section>
 
       {/* THE GATHERING SECTION */}
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -207,7 +207,7 @@ export default function Home() {
           <div className="space-y-12">
             <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">The Gathering</h2>
 
-            <div className="space-y-6 text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
+            <div className="space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
               <p>Experience the Journey as sermons.</p>
               <p>Join my upcoming live teaching.</p>
               <p>Walk with a man who's walked this road.</p>
@@ -227,7 +227,7 @@ export default function Home() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <a href="https://maps.google.com/?q=Mango+Farm+Abokobi" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-white text-rc-text font-medium rounded-lg hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 border border-rc-border/30">
+              <a href="https://maps.google.com/?q=Mango+Farm+Abokobi" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-white text-rc-text font-medium rounded-lg hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 border border-rc-border/30">
                 Get Directions
               </a>
               <button onClick={() => setIsAttendanceModalOpen(true)} className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-rc-accent text-white font-medium rounded-lg hover:bg-rc-accent/90 hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300">
