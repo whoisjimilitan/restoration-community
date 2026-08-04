@@ -150,7 +150,7 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* YOUR NEW LIFE */}
+      {/* ONE OBSTACLE */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -159,20 +159,22 @@ export default function Home() {
           viewport={{ once: true, amount: 0.15 }}
           className="max-w-2xl mx-auto space-y-12"
         >
-          <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">Your New Life</h2>
+          <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">One Obstacle</h2>
 
           <div className="space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
-            <p className="text-rc-text font-medium">Start with truth.</p>
+            <p className="text-rc-text font-medium">Pretence.</p>
             <p>Pretence is the disease that pulls us down.</p>
+            <p className="pt-4 text-rc-text font-medium">Do not pretend.</p>
             <p className="pt-4">His grace will teach you to see life clearly.</p>
             <p>To live without fear.</p>
             <p>To work honestly.</p>
             <p>To build something that lasts.</p>
+            <p className="pt-4 text-rc-text font-medium">If you do not pretend.</p>
           </div>
         </motion.div>
       </section>
 
-      {/* THE JOURNEY */}
+      {/* THE ROADMAP */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -181,7 +183,7 @@ export default function Home() {
           viewport={{ once: true, amount: 0.15 }}
           className="max-w-2xl mx-auto space-y-16"
         >
-          <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">The Journey</h2>
+          <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">The Roadmap</h2>
 
           <StagesVisualization />
 
