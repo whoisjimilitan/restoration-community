@@ -116,11 +116,10 @@ export default function Home() {
             <p>To pray for me in Jesus' name.</p>
             <p className="pt-3">One utterance.</p>
             <p>"All that is over."</p>
-            <p>Years of dreaming becomes reality.</p>
-            <p className="pt-2">Freedom from fraud.</p>
-            <p>And the curses that come with doing it.</p>
-            <p className="pt-3 font-medium">What Jesus did for me through him.</p>
-            <p className="font-medium">He will also do for you through me.</p>
+            <p className="pt-2">Years of dreaming, now freedom.</p>
+            <p>The spirit of waste expelled.</p>
+            <p>The spirit of fantasy and delusion gone.</p>
+            <p>The curses undone.</p>
           </div>
         </motion.div>
       </section>
