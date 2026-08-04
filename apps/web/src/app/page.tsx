@@ -162,7 +162,7 @@ export default function Home() {
               <p>If you sense you are controlled by this spirit.</p>
               <p>How desperately do you want to be free?</p>
               <p className="pt-2 font-medium">My God can deliver you.</p>
-              <p className="font-medium">Completely.</p>
+              <p className="font-medium">He can set you free completely.</p>
               <p>What He did for me through Prophet TB Joshua.</p>
               <p>He will also do for you through me by His grace.</p>
             </div>
