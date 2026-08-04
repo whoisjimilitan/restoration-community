@@ -214,7 +214,7 @@ export default function Home() {
             </div>
 
             <div className="space-y-6 text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
-              <p>Join me for live teaching each week.</p>
+              <p>Join my upcoming live teaching.</p>
               <p>Experience the Journey as sermons.</p>
               <p>Walk with a man who's walked this road.</p>
               <p>Meet others on this journey.</p>
