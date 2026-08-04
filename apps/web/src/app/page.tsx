@@ -114,7 +114,6 @@ export default function Home() {
             <p>God used Prophet TB Joshua.</p>
             <p>To pray for me in His Mighty name.</p>
             <p className="pt-3">One utterance: "All that is over."</p>
-            <p>What followed was my miracle</p>
             <p className="pt-2">The spirit of waste expelled.</p>
             <p>The spirit of fantasy gone.</p>
             <p>Delusion shattered.</p>
