@@ -150,7 +150,7 @@ export default function Home() {
       </section>
 
       {/* THE NEW LIFE */}
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border/40">
+      <section className="w-full py-20 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg/50 border-t border-rc-border/60 md:border-rc-border/40">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -171,7 +171,7 @@ export default function Home() {
       </section>
 
       {/* MY ADVICE */}
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border/40">
+      <section className="w-full py-20 md:py-32 px-6 sm:px-8 md:px-12 bg-white border-t border-rc-border/60 md:border-rc-border/40">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -198,7 +198,7 @@ export default function Home() {
       </section>
 
       {/* THE GATHERING SECTION */}
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border/40">
+      <section className="w-full py-20 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg/50 border-t border-rc-border/60 md:border-rc-border/40">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
