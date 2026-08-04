@@ -85,44 +85,44 @@ export default function SignInPage() {
 
   return (
     <div className="min-h-screen bg-rc-bg flex flex-col">
-      <div className="flex-1 flex flex-col justify-center px-6 sm:px-8 md:px-12 py-12">
-        <div className="max-w-md mx-auto w-full">
+      <div className="flex-1 flex flex-col justify-center px-6 sm:px-8 md:px-12 py-24 md:py-32">
+        <div className="max-w-2xl mx-auto w-full">
           {/* Header */}
           <motion.div
-            className="mb-12"
+            className="mb-16 md:mb-20"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
-            <h1 className="text-4xl font-rc-serif font-bold text-rc-text leading-tight mb-3">
-              W<span className="italic">e</span>lcom<span className="italic">e</span> Back
+            <h1 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight mb-4">
+              Welcome Back
             </h1>
-            <p className="text-lg text-rc-text/60 leading-relaxed">
+            <p className="text-base md:text-lg text-rc-text/70 leading-relaxed font-light">
               Continue your journey toward freedom in Jesus.
             </p>
           </motion.div>
 
           {/* Form Container */}
           <motion.div
-            className="bg-white rounded-lg border border-rc-border/40 p-8 mb-8 shadow-sm"
+            className="space-y-8"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.1 }}
           >
             {/* Error Banner */}
             {error && (
-              <div className="bg-red-50 border border-red-200 text-red-900 px-4 py-3 rounded-lg mb-6">
+              <div className="bg-red-50 border border-red-200 text-red-900 px-6 py-4 rounded-lg">
                 <p className="font-medium text-sm">Sign In Failed</p>
-                <p className="text-sm mt-1 leading-relaxed">{error}</p>
+                <p className="text-sm mt-2 leading-relaxed">{error}</p>
               </div>
             )}
 
             {/* Form */}
-            <form onSubmit={handleSubmit} className="space-y-5">
+            <form onSubmit={handleSubmit} className="space-y-6">
               {/* Email Field */}
-              <div>
-                <label className="block text-xs font-semibold text-rc-text/70 uppercase tracking-wide mb-2">
-                  Email
+              <div className="space-y-3">
+                <label className="block text-sm font-medium text-rc-text/70">
+                  Email Address
                 </label>
                 <input
                   type="email"
@@ -131,20 +131,20 @@ export default function SignInPage() {
                   onChange={(e) => setEmail(e.target.value)}
                   required
                   autoFocus
-                  className={`w-full px-4 py-2.5 text-sm border rounded-lg transition-all duration-200 bg-white focus:outline-none ${
+                  className={`w-full px-4 py-3 text-base border rounded-lg transition-all duration-200 bg-white focus:outline-none ${
                     formErrors.email
-                      ? 'border-red-500 focus:ring-red-200'
-                      : 'border-rc-border/40 focus:border-rc-accent/60 focus:ring-2 focus:ring-rc-accent/10'
+                      ? 'border-red-300 focus:border-red-400 focus:ring-2 focus:ring-red-200'
+                      : 'border-rc-border/30 focus:border-rc-accent/60 focus:ring-2 focus:ring-rc-accent/10'
                   }`}
                 />
                 {formErrors.email && (
-                  <p className="text-red-600 text-xs font-medium mt-1.5">{formErrors.email}</p>
+                  <p className="text-red-600 text-sm font-medium">{formErrors.email}</p>
                 )}
               </div>
 
               {/* Password Field */}
-              <div>
-                <label className="block text-xs font-semibold text-rc-text/70 uppercase tracking-wide mb-2">
+              <div className="space-y-3">
+                <label className="block text-sm font-medium text-rc-text/70">
                   Password
                 </label>
                 <input
@@ -153,14 +153,14 @@ export default function SignInPage() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   required
-                  className={`w-full px-4 py-2.5 text-sm border rounded-lg transition-all duration-200 bg-white focus:outline-none ${
+                  className={`w-full px-4 py-3 text-base border rounded-lg transition-all duration-200 bg-white focus:outline-none ${
                     formErrors.password
-                      ? 'border-red-500 focus:ring-red-200'
-                      : 'border-rc-border/40 focus:border-rc-accent/60 focus:ring-2 focus:ring-rc-accent/10'
+                      ? 'border-red-300 focus:border-red-400 focus:ring-2 focus:ring-red-200'
+                      : 'border-rc-border/30 focus:border-rc-accent/60 focus:ring-2 focus:ring-rc-accent/10'
                   }`}
                 />
                 {formErrors.password && (
-                  <p className="text-red-600 text-xs font-medium mt-1.5">{formErrors.password}</p>
+                  <p className="text-red-600 text-sm font-medium">{formErrors.password}</p>
                 )}
               </div>
 
@@ -168,27 +168,27 @@ export default function SignInPage() {
               <button
                 type="submit"
                 disabled={!isFormValid || loading}
-                className="w-full mt-2 px-6 py-2.5 bg-rc-accent text-white font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:transform-none text-sm"
+                className="w-full mt-4 px-6 py-3 min-h-[48px] bg-rc-text text-white font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:transform-none text-base"
               >
                 {loading ? 'Signing in...' : 'Sign In'}
               </button>
             </form>
 
             {/* Links */}
-            <div className="pt-6 border-t border-rc-border/20 space-y-3">
-              <p className="text-center text-sm text-rc-text/60">
+            <div className="pt-8 border-t border-rc-border/20 space-y-4">
+              <p className="text-center text-base text-rc-text/70">
                 <Link
                   href="/auth/password-reset"
-                  className="text-rc-accent hover:underline font-medium transition-colors"
+                  className="text-rc-accent hover:text-rc-accent/80 font-medium transition-colors"
                 >
                   Forgot password?
                 </Link>
               </p>
-              <p className="text-center text-sm text-rc-text/60">
+              <p className="text-center text-base text-rc-text/70">
                 Don&apos;t have an account?{' '}
                 <Link
                   href="/deliverance"
-                  className="text-rc-accent hover:underline font-semibold transition-colors"
+                  className="text-rc-accent hover:text-rc-accent/80 font-semibold transition-colors"
                 >
                   Start your journey
                 </Link>
