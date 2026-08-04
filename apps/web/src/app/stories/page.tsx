@@ -223,7 +223,7 @@ export default function TestimoniesPage() {
       </section>
 
       {/* Footer */}
-      <footer className="w-full px-6 sm:px-8 md:px-12 py-12 bg-rc-text border-t border-rc-border text-center">
+      <footer className="w-full px-6 sm:px-8 md:px-12 py-8 bg-rc-text border-t border-rc-border text-center">
         <div className="max-w-2xl mx-auto space-y-6">
           {/* Navigation Links */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-12">
