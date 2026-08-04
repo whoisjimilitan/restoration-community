@@ -50,8 +50,8 @@ export default function Home() {
 
           <div className={`transform transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '360ms' }}>
             <div className="space-y-3 text-base md:text-lg text-white/90 leading-relaxed font-light">
-              <p>Fraud promises freedom.</p>
-              <p>But gives a version without peace.</p>
+              <p>Fraud promised you freedom.</p>
+              <p>But gave you a version without peace.</p>
               <p className="pt-2">Fraud is a spiritual trap.</p>
               <p>Only One Man can set you free.</p>
             </div>
@@ -174,7 +174,7 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* THE ROADMAP */}
+      {/* YOUR ROADMAP */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -183,7 +183,7 @@ export default function Home() {
           viewport={{ once: true, amount: 0.15 }}
           className="max-w-2xl mx-auto space-y-16"
         >
-          <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">The Roadmap</h2>
+          <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">Your Roadmap</h2>
 
           <StagesVisualization />
 
