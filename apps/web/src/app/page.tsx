@@ -188,7 +188,7 @@ export default function Home() {
 
           <div className="space-y-6 text-base md:text-lg text-rc-text/80 leading-relaxed font-light pt-8">
             <p>Begin your journey out.</p>
-            <p>Through these 7 stages, His grace will teach you:</p>
+            <p>Through these seven stages, His grace will teach you:</p>
             <p className="text-rc-text">To see life clearly.</p>
             <p>To live without fear.</p>
             <p>To work honestly.</p>
