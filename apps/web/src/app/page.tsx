@@ -118,7 +118,7 @@ export default function Home() {
         >
           <div className="space-y-6">
             <div className="space-y-4 text-base md:text-lg text-white/90 leading-relaxed font-light">
-              <p className="text-3xl md:text-4xl font-rc-serif font-bold text-white leading-tight tracking-tight">If you are trapped by fraud.</p>
+              <p className="text-3xl md:text-4xl font-rc-serif font-bold text-white leading-tight tracking-tight">Jesus is calling you out.</p>
               <p>If you sense you are controlled by this spirit.</p>
               <p>How desperately do you want to be free?</p>
               <p className="pt-2 font-medium">My God can deliver you.</p>
