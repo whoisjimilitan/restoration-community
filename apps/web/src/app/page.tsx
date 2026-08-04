@@ -120,8 +120,9 @@ export default function Home() {
             <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight tracking-tight">Jesus is calling you.</h2>
 
             <div className="space-y-4 text-base md:text-lg text-white/90 leading-relaxed font-light">
-              <p>If you sense you are controlled by this spirit.</p>
-              <p>How desperately do you want to be free?</p>
+              <p>If you are reading my message now.</p>
+              <p>And you know you're controlled by this spirit.</p>
+              <p className="pt-4">How desperately do you want to be free?</p>
               <p className="pt-4 text-white font-medium">My God can deliver you.</p>
               <p className="text-white font-medium">He can set you free completely.</p>
               <p className="pt-4">What He did for me through Prophet TB Joshua.</p>
