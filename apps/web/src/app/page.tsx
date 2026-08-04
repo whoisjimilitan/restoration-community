@@ -135,7 +135,7 @@ export default function Home() {
 
           <div className="space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
             <p>Deliverance means total freedom.</p>
-            <p>From sin and all its penalties.</p>
+            <p>From sin and its penalties.</p>
             <p>It is the only way out of fraud.</p>
             <p className="pt-3">More money will not free you.</p>
             <p>More prisons will not free the nation.</p>
