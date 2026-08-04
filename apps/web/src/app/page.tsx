@@ -92,8 +92,7 @@ export default function Home() {
             <p>I convinced myself I had no choice.</p>
             <p className="pt-3">Until my encounter with that One Man.</p>
             <p className="font-medium">He delivered me from that spirit.</p>
-            <p className="font-medium">He gave me a new life.</p>
-            <p className="pt-3">My Deliverer. My God.</p>
+            <p className="pt-3">My God. My Deliverer.</p>
             <p className="font-medium">Jesus Christ.</p>
           </div>
         </motion.div>
