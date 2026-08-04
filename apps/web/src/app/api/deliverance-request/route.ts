@@ -1,61 +1,33 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { prisma } from '@/lib/prisma';
 
 export async function POST(request: NextRequest) {
-  console.log('[ENTRY] Prayer request received');
-
   try {
-    const data = await request.json();
+    const body = await request.json();
+    const { need, duration, name, email, phone } = body;
 
-    // Validate required fields
-    if (!data.name?.trim() || !data.contact?.trim() || !data.situation || !data.readiness) {
-      console.log('[ENTRY] Missing required fields');
-      return NextResponse.json(
-        { success: false, message: 'Missing required information.' },
-        { status: 400 }
-      );
-    }
-
-    console.log('[ENTRY] Validated request data:', {
-      name: data.name,
-      contact: data.contact,
-      country: data.country,
-      situation: data.situation,
-      readiness: data.readiness
+    console.log('[DELIVERANCE] Request received', {
+      name,
+      email,
+      phone,
+      need: need.substring(0, 50) + '...',
+      duration,
+      timestamp: new Date().toISOString(),
     });
 
-    // Save to database
-    const entryPrayerRequest = await prisma.entryPrayerRequest.create({
-      data: {
-        name: data.name.trim(),
-        contact: data.contact.trim(),
-        country: data.country?.trim() || null,
-        situation: data.situation,
-        seeking: data.seeking || [],
-        story: data.story?.trim() || '',
-        readiness: data.readiness,
-        status: 'SUBMITTED'
-      }
-    });
-
-    console.log(`[ENTRY] Prayer request created: ${entryPrayerRequest.id} (name: ${data.name})`);
+    // TODO: Save to database or send to WhatsApp queue
+    // For now, just log and return success
 
     return NextResponse.json(
       {
         success: true,
-        message: 'Your request has been received.',
-        requestId: entryPrayerRequest.id
+        message: 'Deliverance request received. We will reach out via WhatsApp.',
       },
       { status: 201 }
     );
   } catch (error) {
-    console.error('[ENTRY] Error processing request:', error);
-
+    console.error('[DELIVERANCE] Error processing request:', error);
     return NextResponse.json(
-      {
-        success: false,
-        message: 'An error occurred. Please try again.'
-      },
+      { error: 'Failed to process request' },
       { status: 500 }
     );
   }
