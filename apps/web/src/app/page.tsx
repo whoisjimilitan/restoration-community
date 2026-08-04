@@ -161,7 +161,7 @@ export default function Home() {
               <p className="text-3xl md:text-4xl font-rc-serif font-bold text-white leading-tight tracking-tight">If you are trapped by fraud.</p>
               <p>If you sense you are controlled by this spirit.</p>
               <p>How desperately do you want to be free?</p>
-              <p className="pt-2 font-medium">My God can deliver you.</p>
+              <p className="pt-2 font-medium">My God can deliver you completely.</p>
               <p>What He did for me through Prophet TB Joshua.</p>
               <p>He will also do for you through me by His grace.</p>
             </div>
