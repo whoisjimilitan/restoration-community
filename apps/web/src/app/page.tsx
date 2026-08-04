@@ -116,7 +116,7 @@ export default function Home() {
             <p>To pray for me in Jesus' name.</p>
             <p className="pt-3">One utterance.</p>
             <p>"All that is over."</p>
-            <p>Years of dreaming became a reality.</p>
+            <p>Years of dreaming becomes reality.</p>
             <p className="pt-2">Freedom from fraud.</p>
             <p>And the curses that come with doing it.</p>
             <p className="pt-3 font-medium">What Jesus did for me through him.</p>
@@ -167,9 +167,9 @@ export default function Home() {
             <div className="space-y-4 text-base md:text-lg text-white/90 leading-relaxed font-light">
               <p>If you sense you are controlled by this spirit.</p>
               <p>If you want to be free.</p>
-              <p className="pt-3 font-medium">Jesus can deliver you.</p>
-              <p className="pt-2">One prayer of faith.</p>
-              <p>That's how it starts.</p>
+              <p className="pt-3 font-medium">My God can deliver you.</p>
+              <p className="pt-2">What He did for me through His anointed servant.</p>
+              <p>He will also do for you through me by grace.</p>
             </div>
           </div>
 
