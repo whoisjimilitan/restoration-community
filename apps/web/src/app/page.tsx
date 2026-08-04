@@ -257,7 +257,7 @@ export default function Home() {
               <a href="https://maps.google.com/?q=Mango+Farm+Abokobi" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-rc-warm-gray text-rc-text font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg transition-all duration-300">
                 Get Directions
               </a>
-              <button onClick={() => setIsAttendanceModalOpen(true)} className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-white text-rc-text font-medium border border-rc-border/30 rounded-lg hover:-translate-y-0.5 hover:shadow-lg transition-all duration-300">
+              <button onClick={() => setIsAttendanceModalOpen(true)} className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-white text-rc-text font-medium border-2 border-rc-accent/40 rounded-lg hover:-translate-y-0.5 hover:shadow-lg hover:border-rc-accent/60 transition-all duration-300" style={{ boxShadow: '0 0 12px rgba(77, 181, 166, 0.2)' }}>
                 I'm Attending
               </button>
             </div>
