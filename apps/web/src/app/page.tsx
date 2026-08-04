@@ -95,7 +95,7 @@ export default function Home() {
           <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">My Encounter</h2>
 
           <div className="space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
-            <p>In 2013.</p>
+            <p>In 2015.</p>
             <p>God used Prophet TB Joshua.</p>
             <p>To pray for me in Jesus' name.</p>
             <p className="pt-3 text-rc-text font-light">One utterance: "All that is over."</p>
@@ -186,7 +186,7 @@ export default function Home() {
 
           <div className="space-y-6 text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
             <p>Begin your journey out.</p>
-            <p>Through seven stages, His grace will teach you:</p>
+            <p>Through stages, His grace will teach you:</p>
             <p className="text-rc-text">To see life clearly.</p>
             <p>To live without fear.</p>
             <p>To work honestly.</p>
