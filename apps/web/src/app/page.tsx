@@ -161,10 +161,11 @@ export default function Home() {
 
           <div className="space-y-6 text-base md:text-lg text-rc-text leading-relaxed font-light">
             <p>Deliverance is just the start.</p>
-            <p>His grace will teach you to work honestly.</p>
+            <p>After your deliverance</p>
+            <p>His grace will teach you to see life as God wants you to see it.</p>
             <p>To live without fear.</p>
+            <p>To work honestly.</p>
             <p>To build something that lasts.</p>
-            <p>To see life as He sees it.</p>
           </div>
         </motion.div>
       </section>
