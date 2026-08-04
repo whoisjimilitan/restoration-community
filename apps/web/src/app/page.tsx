@@ -138,7 +138,7 @@ export default function Home() {
             <p>From sin and all its penalties.</p>
             <p>It is the only way out of fraud.</p>
             <p className="pt-3">More money will not free you.</p>
-            <p>More sentencing will not free the nation.</p>
+            <p>More prisons will not free the nation.</p>
             <p className="pt-3 font-medium">Fraud is a spiritual issue.</p>
             <p className="font-medium">Demands a spiritual solution.</p>
             <p className="font-medium">The only way is through the name Jesus Christ.</p>
