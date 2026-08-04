@@ -205,11 +205,11 @@ export default function Home() {
           className="max-w-2xl mx-auto space-y-16"
         >
           <div className="space-y-12">
-            <div className="space-y-4">
+            <div>
               <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">The Gathering</h2>
-              <div className="space-y-2">
-                <p className="text-lg text-rc-text font-medium">We Begin With Truth</p>
-                <p className="text-base text-rc-accent font-medium uppercase tracking-wide">Stage 1 — The Foundation</p>
+              <div className="space-y-1 pt-3">
+                <p className="text-base text-rc-text font-medium">We Begin With Truth</p>
+                <p className="text-sm text-rc-accent font-medium uppercase tracking-wide">Stage 1 — The Foundation</p>
               </div>
             </div>
 
