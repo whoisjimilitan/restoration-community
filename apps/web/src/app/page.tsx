@@ -198,13 +198,29 @@ export default function Home() {
       {/* THE GATHERING SECTION */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: true, amount: 0.15 }}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: {
+                staggerChildren: 0.12,
+                delayChildren: 0.1,
+              },
+            },
+          }}
           className="max-w-2xl mx-auto space-y-16"
         >
-          <div className="space-y-12">
+          {/* Heading group */}
+          <motion.div
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] } },
+            }}
+            className="space-y-12"
+          >
             <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">The Gathering</h2>
 
             <div className="space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
@@ -215,9 +231,16 @@ export default function Home() {
               <p className="pt-4 text-rc-text font-medium">Because your testimony is next.</p>
               <p className="text-rc-text font-medium">Jesus is still the same.</p>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="space-y-8 pt-6 border-t border-rc-border">
+          {/* WHEN & WHERE section with staggered reveal */}
+          <motion.div
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] } },
+            }}
+            className="space-y-8 pt-6 border-t border-rc-border"
+          >
             <div className="space-y-4 pt-6">
               <p className="text-sm font-medium text-rc-accent uppercase tracking-wide">When & Where</p>
               <div className="space-y-3">
@@ -226,15 +249,16 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <a href="https://maps.google.com/?q=Mango+Farm+Abokobi" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-white text-rc-text font-medium rounded-lg hover:shadow-md transition-all duration-200 border border-rc-border/30">
+            {/* Buttons with breathing room, calm colors, and premium interactions */}
+            <div className="flex flex-col sm:flex-row gap-4 pt-8">
+              <a href="https://maps.google.com/?q=Mango+Farm+Abokobi" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-rc-warm-gray text-rc-text font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg transition-all duration-300">
                 Get Directions
               </a>
-              <button onClick={() => setIsAttendanceModalOpen(true)} className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-rc-accent text-white font-medium rounded-lg hover:shadow-md transition-all duration-200">
+              <button onClick={() => setIsAttendanceModalOpen(true)} className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-white text-rc-text font-medium border border-rc-border/30 rounded-lg hover:-translate-y-0.5 hover:shadow-lg transition-all duration-300">
                 I'm Attending
               </button>
             </div>
-          </div>
+          </motion.div>
         </motion.div>
       </section>
 
