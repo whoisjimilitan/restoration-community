@@ -60,7 +60,7 @@ export default function Home() {
       </section>
 
       {/* MY STORY */}
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border/40">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -70,21 +70,21 @@ export default function Home() {
         >
           <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">My Story</h2>
 
-          <div className="border-l-4 border-rc-accent pl-8 space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
+          <div className="border-l-4 border-rc-accent/60 pl-8 space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
             <p>I too was once controlled by that spirit.</p>
             <p>I justified my actions.</p>
             <p>I blamed my country's economy.</p>
             <p>I convinced myself I had no choice.</p>
             <p className="pt-3">Until my encounter with that One Man.</p>
-            <p className="font-medium">He delivered me from that spirit.</p>
+            <p className="pt-3 text-rc-text font-light">He delivered me from that spirit.</p>
             <p className="pt-3">My God. My Deliverer.</p>
-            <p className="font-medium">Jesus Christ.</p>
+            <p className="text-rc-text font-light">Jesus Christ.</p>
           </div>
         </motion.div>
       </section>
 
       {/* MY ENCOUNTER */}
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border/40">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -94,12 +94,12 @@ export default function Home() {
         >
           <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">My Encounter</h2>
 
-          <div className="border-l-4 border-rc-accent pl-8 space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
+          <div className="border-l-4 border-rc-accent/60 pl-8 space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
             <p>In 2013.</p>
             <p>God used Prophet TB Joshua.</p>
             <p>To pray for me in Jesus' name.</p>
-            <p className="pt-3">One utterance: "All that is over."</p>
-            <p className="pt-2">The spirit of waste expelled.</p>
+            <p className="pt-3 text-rc-text font-light">One utterance: "All that is over."</p>
+            <p className="pt-3">The spirit of waste expelled.</p>
             <p>The spirit of fantasy gone.</p>
             <p>Delusion shattered.</p>
             <p>My curses undone.</p>
@@ -116,31 +116,32 @@ export default function Home() {
           viewport={{ once: true, amount: 0.15 }}
           className="max-w-2xl mx-auto space-y-12"
         >
-          <div className="space-y-6">
+          <div className="space-y-8">
+            <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-white leading-tight tracking-tight">Jesus is calling you out.</h2>
+
             <div className="space-y-4 text-base md:text-lg text-white/90 leading-relaxed font-light">
-              <p className="text-3xl md:text-4xl font-rc-serif font-bold text-white leading-tight tracking-tight">Jesus is calling you out.</p>
               <p>If you sense you are controlled by this spirit.</p>
               <p>How desperately do you want to be free?</p>
-              <p className="pt-2 font-medium">My God can deliver you.</p>
-              <p className="font-medium">He can set you free completely.</p>
-              <p>What He did for me through Prophet TB Joshua.</p>
-              <p>He will also do for you through me by His grace.</p>
+              <p className="pt-4 text-white font-light">My God can deliver you.</p>
+              <p className="text-white font-light">He can set you free completely.</p>
+              <p className="pt-4">What He did for me through Prophet TB Joshua.</p>
+              <p>He will do for you through me by His grace.</p>
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 pt-4">
+          <div className="flex flex-col sm:flex-row gap-4 pt-2">
             <button
               onClick={() => {
                 const event = new CustomEvent('open-deliverance-modal');
                 document.dispatchEvent(event);
               }}
-              className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-white text-rc-text/70 font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300"
+              className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-white text-rc-text font-medium rounded-lg hover:bg-white/95 hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300"
             >
               Request Deliverance
             </button>
             <a
               href="/auth/signin"
-              className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] text-white font-medium border-2 border-white rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300"
+              className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] text-white font-medium border border-white/60 rounded-lg hover:border-white hover:bg-white/10 hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300"
             >
               Return to Your Journey
             </a>
@@ -149,7 +150,7 @@ export default function Home() {
       </section>
 
       {/* THE NEW LIFE */}
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border/40">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -159,9 +160,9 @@ export default function Home() {
         >
           <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">The New Life</h2>
 
-          <div className="space-y-6 text-base md:text-lg text-rc-text leading-relaxed font-light">
+          <div className="space-y-6 text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
             <p>Deliverance is just the start.</p>
-            <p>His grace will teach you to see life clearly.</p>
+            <p className="text-rc-text">His grace will teach you to see life clearly.</p>
             <p>To live without fear.</p>
             <p>To work honestly.</p>
             <p>To build something that lasts.</p>
@@ -170,7 +171,7 @@ export default function Home() {
       </section>
 
       {/* MY ADVICE */}
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border/40">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
