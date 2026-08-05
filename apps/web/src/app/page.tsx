@@ -220,7 +220,7 @@ export default function Home() {
 
             <div className="space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
               <p>Experience The Roadmap as sermons.</p>
-              <p>Join my upcoming live teaching.</p>
+              <p>Attend my live teaching.</p>
               <p>Walk with a man who's walked this road.</p>
               <p>Meet others walking in this journey.</p>
               <p className="pt-4 text-rc-text font-medium">Perhaps your testimony is next.</p>
