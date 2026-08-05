@@ -163,25 +163,24 @@ export default function TestimoniesPage() {
 
   return (
     <div className="bg-rc-bg text-rc-text">
-      {/* Hero Section - Canonical Statement */}
+      {/* Hero Section - Brother Jimi Focus */}
       <section className="w-full min-h-screen flex flex-col justify-center bg-gradient-to-br from-rc-accent to-rc-text px-6 sm:px-8 md:px-12 py-24 md:py-32">
-        <div className="max-w-2xl mx-auto w-full space-y-8">
+        <div className="max-w-2xl mx-auto w-full space-y-6">
           <div className={`transform transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '120ms' }}>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-rc-serif font-bold text-white leading-tight tracking-tight">
-              Jesus Christ is the same.
-            </h1>
+            <p className="text-xs font-medium text-white/70 uppercase tracking-wider">Stories of Deliverance</p>
           </div>
 
           <div className={`transform transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '240ms' }}>
-            <div className="space-y-4 text-base md:text-lg text-white/90 leading-relaxed font-light">
-              <p>He is the God of Prophet TB Joshua.</p>
-              <p>He rescued Brother Jimi. He rescued Samuel Johnson.</p>
-            </div>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight tracking-tight">
+              Not stories of shame.
+              <br />
+              Stories of freedom.
+            </h1>
           </div>
 
           <div className={`transform transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '360ms' }}>
-            <p className="text-lg md:text-xl text-white font-medium">
-              Here's proof.
+            <p className="text-base md:text-lg text-white/90 leading-relaxed font-light">
+              Real people. Real deliverance. Real transformation.
             </p>
           </div>
         </div>
