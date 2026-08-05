@@ -7,17 +7,17 @@ import { FormattedTestimony } from '@/lib/testimony-helpers';
 interface TestimonyFormData {
   name: string;
   role: string;
-  stage: number;
   quote: string;
   story: string;
+  proofUrls?: string;
 }
 
 const initialFormData: TestimonyFormData = {
   name: '',
   role: '',
-  stage: 6,
   quote: '',
   story: '',
+  proofUrls: '',
 };
 
 export default function AdminTestimoniesPage() {
@@ -50,9 +50,21 @@ export default function AdminTestimoniesPage() {
     setSubmitting(true);
 
     try {
+      // Parse proof URLs (comma-separated)
+      const proofArray = formData.proofUrls
+        ?.split('\n')
+        .filter(url => url.trim())
+        .map(url => ({
+          url: url.trim(),
+          type: url.includes('.mp4') || url.includes('youtube') || url.includes('vimeo') ? 'video' : 'image'
+        })) || [];
+
       const payload = {
-        ...formData,
-        stage: parseInt(formData.stage.toString()),
+        name: formData.name,
+        role: formData.role,
+        quote: formData.quote,
+        story: formData.story,
+        proof: proofArray,
       };
 
       const response = await fetch(
@@ -98,12 +110,16 @@ export default function AdminTestimoniesPage() {
   };
 
   const handleEdit = (testimony: FormattedTestimony) => {
+    const proofUrls = (testimony as any).proof
+      ?.map((p: any) => p.url)
+      .join('\n') || '';
+
     setFormData({
       name: testimony.name,
       role: testimony.role,
-      stage: testimony.stage,
       quote: testimony.quote,
       story: testimony.story,
+      proofUrls,
     });
     setEditingId(testimony.id);
     setShowForm(true);
@@ -177,20 +193,17 @@ export default function AdminTestimoniesPage() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-rc-text mb-2">Stage (1-7)</label>
-                <select
-                  value={formData.stage}
-                  onChange={(e) => setFormData({ ...formData, stage: parseInt(e.target.value) })}
+                <label className="block text-sm font-medium text-rc-text mb-2">Proof URLs (one per line)</label>
+                <textarea
+                  value={formData.proofUrls}
+                  onChange={(e) => setFormData({ ...formData, proofUrls: e.target.value })}
                   className="w-full px-4 py-2 border border-rc-border rounded-lg focus:outline-none focus:ring-2 focus:ring-rc-accent"
-                >
-                  <option value={1}>1 - Truth</option>
-                  <option value={2}>2 - Confession</option>
-                  <option value={3}>3 - Repentance</option>
-                  <option value={4}>4 - Forgiveness</option>
-                  <option value={5}>5 - Reconciliation</option>
-                  <option value={6}>6 - Honest Work</option>
-                  <option value={7}>7 - Service</option>
-                </select>
+                  placeholder="https://example.com/scam-email.jpg
+https://youtube.com/watch?v=...
+Paste image URLs or video URLs (one per line)"
+                  rows={3}
+                />
+                <p className="text-xs text-rc-text/60 mt-1">Evidence: scam emails, bank statements, gadget photos, court documents, etc.</p>
               </div>
 
               <div>
@@ -269,12 +282,7 @@ export default function AdminTestimoniesPage() {
               >
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                   <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-3 mb-2">
-                      <h3 className="text-lg font-rc-serif font-bold text-rc-text">{testimony.name}</h3>
-                      <span className="px-2 py-1 bg-rc-accent/10 text-rc-accent text-xs font-medium rounded">
-                        Stage {testimony.stage}
-                      </span>
-                    </div>
+                    <h3 className="text-lg font-rc-serif font-bold text-rc-text mb-1">{testimony.name}</h3>
                     <p className="text-sm text-rc-text/60 mb-3">{testimony.role}</p>
                     <p className="text-sm text-rc-text/70 line-clamp-2">
                       &ldquo;{testimony.quote}&rdquo;

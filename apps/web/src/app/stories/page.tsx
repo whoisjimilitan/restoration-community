@@ -5,17 +5,22 @@ import { motion } from 'framer-motion';
 import { AnimatePresence } from 'framer-motion';
 import { useScrollReveal } from '@/lib/hooks/useScrollReveal';
 
+interface ProofItem {
+  url: string;
+  type: 'image' | 'video';
+  caption?: string;
+}
+
 interface StoryCard {
   id: string;
   name: string;
   role: string;
-  stage: number;
-  stageName: string;
   quote: string;
   story: string;
   heroImage?: { url: string; alt: string };
   videoUrl?: string;
   isFeatured?: boolean;
+  proof?: ProofItem[];
 }
 
 const mockStories: StoryCard[] = [
@@ -23,8 +28,6 @@ const mockStories: StoryCard[] = [
     id: '0',
     name: 'Samuel Johnson',
     role: 'Delivered from Internet Fraud',
-    stage: 6,
-    stageName: 'Honest Work',
     quote: 'The power of Jesus is real. Complete deliverance is possible.',
     story: 'Samuel Johnson was a professional internet fraudster. Known in Nigeria as Yahoo and in Ghana as Sakawa. Demonically inspired to deceive, defraud, and destroy through the most advanced online tactics and methods.\n\nHe was not just a local king of internet scamming. He taught hundreds of youngsters his satanic tricks.\n\nThen he encountered Jesus Christ through prayer at The SCOAN.\n\nHis deliverance is complete. There are many valuable lessons in his testimony—not just for those in fraud, but for anyone bound by spiritual deception.\n\nWatch his full 41-minute confession to see what Jesus does.',
     heroImage: {
@@ -34,45 +37,6 @@ const mockStories: StoryCard[] = [
     videoUrl: 'https://www.youtube.com/embed/bKJCcWQVuq8',
     isFeatured: true
   },
-  {
-    id: '1',
-    name: 'Samuel Okafor',
-    role: 'Entrepreneur',
-    stage: 6,
-    stageName: 'Honest Work',
-    quote: 'Seven years of my life in reverse. I thought money was everything. But it does not solve everything.',
-    story: 'I was into all types of schemes. Dating, employment, trading. The money came fast. I had status. But I was always afraid.\n\nOne day, I prayed to Jesus. That night, I had a dream. A man came and broke a chain from my hands. When I woke up, I felt light. My mind cleared for the first time.\n\nNow I build real businesses. And I tell other young men: Don\'t do what I did. Jesus is better than the money.',
-    heroImage: {
-      url: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"%3E%3Crect fill="%234DB5A6" width="400" height="400"/%3E%3Ccircle cx="200" cy="120" r="60" fill="%23ffffff" opacity="0.3"/%3E%3Crect x="80" y="200" width="240" height="160" fill="%23ffffff" opacity="0.2"/%3E%3Ctext x="200" y="310" font-size="24" fill="%23ffffff" text-anchor="middle" opacity="0.5"%3ESamuel Okafor%3C/text%3E%3C/svg%3E',
-      alt: 'Samuel Okafor'
-    }
-  },
-  {
-    id: '2',
-    name: 'Chioma Adeyemi',
-    role: 'Social Worker',
-    stage: 7,
-    stageName: 'Service',
-    quote: 'I stopped believing I deserved to live. Jesus convinced me otherwise.',
-    story: 'I was nineteen when they trafficked me. Broken in ways I didn\'t know possible.\n\nFor years, I couldn\'t look at myself or others. The shame was so heavy. I believed I was ruined.\n\nOne day, alone, I cried and prayed. Jesus, if you\'re real, help me. That night, something shifted. This is not who you are.\n\nI started going to a church with other survivors. Jesus didn\'t erase what happened. But He healed what it broke inside me.\n\nNow I work with girls where I was. He healed me. He can heal you too.',
-    heroImage: {
-      url: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"%3E%3Crect fill="%231B7A6F" width="400" height="400"/%3E%3Ccircle cx="200" cy="120" r="60" fill="%23ffffff" opacity="0.3"/%3E%3Crect x="80" y="200" width="240" height="160" fill="%23ffffff" opacity="0.2"/%3E%3Ctext x="200" y="310" font-size="24" fill="%23ffffff" text-anchor="middle" opacity="0.5"%3EChioma Adeyemi%3C/text%3E%3C/svg%3E',
-      alt: 'Chioma Adeyemi'
-    }
-  },
-  {
-    id: '3',
-    name: 'Tunde Bankole',
-    role: 'Student',
-    stage: 4,
-    stageName: 'Forgiveness',
-    quote: 'I thought leaving would free me. But forgiveness was what actually broke the chains.',
-    story: 'I was at university with no money. My friends were making cash in easy ways. I got in deep. Dating scams, advance fraud. The money was real.\n\nI eventually left. But leaving didn\'t free me. The shame followed. The voices followed.\n\nSomeone told me: Forgive them. I didn\'t want to. But one day, I said their names and said: I forgive you.\n\nSomething broke open in me. The weight lifted. For the first time, I could breathe.\n\nYou can leave a place. But you\'re not free until you forgive the people who had you there.',
-    heroImage: {
-      url: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"%3E%3Crect fill="%2395DDD7" width="400" height="400"/%3E%3Ccircle cx="200" cy="120" r="60" fill="%23ffffff" opacity="0.3"/%3E%3Crect x="80" y="200" width="240" height="160" fill="%23ffffff" opacity="0.2"/%3E%3Ctext x="200" y="310" font-size="24" fill="%23ffffff" text-anchor="middle" opacity="0.5"%3ETunde Bankole%3C/text%3E%3C/svg%3E',
-      alt: 'Tunde Bankole'
-    }
-  }
 ];
 
 export default function TestimoniesPage() {
@@ -107,41 +71,15 @@ export default function TestimoniesPage() {
   }, []);
 
   const StoryCard = ({ story, onPlayVideo }: { story: StoryCard; onPlayVideo: (url: string) => void }) => (
-    <div className="w-full space-y-8 py-12 md:py-16">
-      <div className="group grid md:grid-cols-2 gap-12 md:gap-16 items-center">
-        {/* Image */}
-        {story.heroImage && (
-          <div className="md:order-2 aspect-square rounded-lg overflow-hidden bg-rc-text/5 border border-rc-border/20 group-hover:shadow-lg transition-all duration-300 relative">
-            <img
-              src={story.heroImage.url}
-              alt={story.heroImage.alt}
-              className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-300"
-            />
-            {story.videoUrl && (
-              <button
-                onClick={() => onPlayVideo(story.videoUrl!)}
-                className="absolute inset-0 flex items-center justify-center bg-black/0 hover:bg-black/30 transition-all duration-300 group-hover:bg-black/40"
-              >
-                <div className="w-16 h-16 rounded-full bg-white/90 flex items-center justify-center hover:bg-white transition-all duration-300 shadow-lg">
-                  <svg className="w-6 h-6 text-rc-text ml-0.5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
-                </div>
-              </button>
-            )}
-          </div>
-        )}
-
-        {/* Content */}
-        <div className="space-y-6 md:order-1">
+    <div className="w-full space-y-12 py-12 md:py-16">
+      <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-start">
+        {/* Content - Left */}
+        <div className="space-y-6">
           <div className="space-y-3">
-            <p className="text-sm font-medium text-rc-accent uppercase tracking-wide">
-              Stage {story.stage} — {story.stageName}
-            </p>
             <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">
               {story.name}
             </h2>
-            <p className="text-base text-rc-text/70">{story.role}</p>
+            <p className="text-base text-rc-text/70 font-medium">{story.role}</p>
           </div>
 
           <blockquote className="border-l-4 border-rc-accent pl-6">
@@ -151,9 +89,55 @@ export default function TestimoniesPage() {
           </blockquote>
 
           <div className="text-base text-rc-text/80 leading-relaxed font-light space-y-4">
-            <p>{story.story}</p>
+            {story.story.split('\n\n').map((paragraph, idx) => (
+              <p key={idx}>{paragraph}</p>
+            ))}
           </div>
         </div>
+
+        {/* Proof Gallery - Right */}
+        {story.proof && story.proof.length > 0 && (
+          <div className="space-y-4">
+            <p className="text-sm font-medium text-rc-text uppercase tracking-wide">Proof & Evidence</p>
+            <div className="grid grid-cols-2 gap-3">
+              {story.proof.map((item, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => item.type === 'video' && onPlayVideo(item.url)}
+                  className="group relative aspect-square rounded-lg overflow-hidden bg-rc-text/5 border border-rc-border/20 hover:shadow-lg transition-all duration-300"
+                >
+                  {item.type === 'image' ? (
+                    <img
+                      src={item.url}
+                      alt={item.caption || 'Proof'}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  ) : (
+                    <>
+                      <div className="w-full h-full bg-gradient-to-br from-rc-text/20 to-rc-text/5 flex items-center justify-center">
+                        <svg className="w-8 h-8 text-rc-text/50" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M8 5v14l11-7z" />
+                        </svg>
+                      </div>
+                      <div className="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/30 transition-all duration-300">
+                        <div className="w-12 h-12 rounded-full bg-white/90 flex items-center justify-center">
+                          <svg className="w-5 h-5 text-rc-text ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M8 5v14l11-7z" />
+                          </svg>
+                        </div>
+                      </div>
+                    </>
+                  )}
+                  {item.caption && (
+                    <div className="absolute bottom-0 left-0 right-0 bg-black/60 px-2 py-1">
+                      <p className="text-xs text-white truncate">{item.caption}</p>
+                    </div>
+                  )}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
