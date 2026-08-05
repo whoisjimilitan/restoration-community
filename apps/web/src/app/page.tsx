@@ -97,7 +97,7 @@ export default function Home() {
             <p>In 2015.</p>
             <p>Jesus used Prophet TB Joshua.</p>
             <p>To pray for me in His name.</p>
-            <p className="pt-2 text-rc-text font-medium">One utterance: "All that is over."</p>
+            <p className="pt-2 text-rc-text font-medium">Just one utterance: "All that is over."</p>
             <p className="pt-4">The spirit of waste expelled.</p>
             <p>The spirit of fantasy gone.</p>
             <p>Delusion shattered.</p>
