@@ -164,6 +164,7 @@ export default function Home() {
           <div className="space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
             <p>Pretence is the disease that pulls us down.</p>
             <p className="pt-4 text-rc-text font-medium">Do not pretend.</p>
+            <p className="pt-4">Start with truth.</p>
           </div>
         </motion.div>
       </section>
