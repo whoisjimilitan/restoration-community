@@ -4,8 +4,8 @@ import { frauncesFontClass } from '../../tailwind.config';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Brother Jimi - Deliverance Through Jesus Christ',
-  description: 'Jesus Christ still delivers people from deception. A ministry of restoration through the Gospel.',
+  title: 'Brother Jimi',
+  description: 'A Servant of Jesus Christ.',
 };
 
 export default function RootLayout({
