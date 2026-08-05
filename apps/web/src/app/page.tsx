@@ -244,7 +244,7 @@ export default function Home() {
             className="space-y-8 pt-6 border-t border-rc-border"
           >
             <div className="space-y-4 pt-6">
-              <p className="text-sm font-medium text-rc-accent uppercase tracking-wide">When & Where</p>
+              <p className="text-sm font-medium text-rc-text uppercase tracking-wide">When & Where</p>
               <div className="space-y-3">
                 <p className="text-base md:text-lg text-rc-text font-medium">Friday, August 15 at 7:00 PM</p>
                 <p className="text-base md:text-lg text-rc-text font-light">Mango Farm, Abokobi</p>
@@ -256,7 +256,7 @@ export default function Home() {
               <a href="https://maps.google.com/?q=Mango+Farm+Abokobi" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-rc-warm-gray text-rc-text font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg transition-all duration-300">
                 Get Directions
               </a>
-              <button onClick={() => setIsAttendanceModalOpen(true)} className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-white text-rc-text font-medium border-2 border-rc-accent/40 rounded-lg hover:-translate-y-0.5 hover:shadow-lg hover:border-rc-accent/60 transition-all duration-300" style={{ boxShadow: '0 0 12px rgba(77, 181, 166, 0.2)' }}>
+              <button onClick={() => setIsAttendanceModalOpen(true)} className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-white text-rc-text font-medium border-2 border-rc-text/25 rounded-lg hover:-translate-y-0.5 hover:shadow-lg hover:border-rc-text/40 transition-all duration-300" style={{ boxShadow: '0 0 12px rgba(26, 26, 24, 0.15)' }}>
                 I'm Attending
               </button>
             </div>
