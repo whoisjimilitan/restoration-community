@@ -646,32 +646,17 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-12">
             <a
               href="/"
-              className="text-white/80 hover:text-white transition-colors group"
+              className="text-white/80 hover:text-white transition-colors group text-sm"
             >
               Home
               <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
             </a>
-            <a
-              href="/stories"
-              className="text-white/80 hover:text-white transition-colors group"
-            >
+            <span className="text-white/40 text-sm cursor-default">
               Stories of Deliverance
-              <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
-            </a>
-            <a
-              href="/partnership"
-              className="text-white/80 hover:text-white transition-colors group"
-            >
+            </span>
+            <span className="text-white/40 text-sm cursor-default">
               Mission Partners
-              <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
-            </a>
-            <a
-              href="/impact"
-              className="text-white/80 hover:text-white transition-colors group"
-            >
-              Our Impact
-              <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
-            </a>
+            </span>
           </div>
 
           {/* Copyright Only */}

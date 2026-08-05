@@ -187,7 +187,7 @@ export default function SignInPage() {
               <p className="text-center text-base text-rc-text/70">
                 Don&apos;t have an account?{' '}
                 <Link
-                  href="/deliverance"
+                  href="/"
                   className="text-rc-accent hover:text-rc-accent/80 font-semibold transition-colors"
                 >
                   Start your journey
