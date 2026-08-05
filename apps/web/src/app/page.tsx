@@ -119,10 +119,9 @@ export default function Home() {
             <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight tracking-tight">Jesus is calling you.</h2>
 
             <div className="space-y-4 text-base md:text-lg text-white/90 leading-relaxed font-light">
-              <p>You know you're controlled by this spirit.</p>
-              <p className="pt-4">How desperately do you want to be free?</p>
-              <p className="pt-6 text-white font-medium">My God can deliver you.</p>
-              <p className="text-white font-medium">He can set you free completely.</p>
+              <p>His sheep know His voice and follow Him.</p>
+              <p className="pt-6 text-white font-medium">Follow this voice.</p>
+              <p className="text-white font-medium">Jesus can set you free completely.</p>
               <p className="pt-6">What He did for me through Prophet TB Joshua.</p>
               <p>He will do for you through me by His grace.</p>
             </div>
@@ -142,7 +141,7 @@ export default function Home() {
               href="/stories"
               className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] text-white font-medium border border-white/60 rounded-lg hover:border-white hover:bg-white/10 hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300"
             >
-              Deliverance Stories
+              Brother Samuel's Deliverance
             </a>
           </div>
         </motion.div>
