@@ -116,13 +116,15 @@ export default function Home() {
           className="max-w-2xl mx-auto space-y-16"
         >
           <div className="space-y-10">
-            <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight tracking-tight">Jesus is calling you now.</h2>
+            <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight tracking-tight">Jesus is calling you.</h2>
 
             <div className="space-y-3 text-base md:text-lg text-white/90 leading-relaxed font-light">
-              <p>Listen to the voice of God.</p>
-              <p>Act upon it by faith.</p>
+              <p>Brothers and sisters, I urge you</p>
+              <p>to listen to the voice of God.</p>
+              <p className="pt-2">To act upon it by faith.</p>
               <p className="pt-4">What the Lord did for me,</p>
-              <p className="text-white font-medium">He will do for you through me.</p>
+              <p className="text-white font-medium">He will do for you too.</p>
+              <p className="pt-2">Only believe.</p>
             </div>
           </div>
 
@@ -140,7 +142,7 @@ export default function Home() {
               href="/stories"
               className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] text-white font-medium border border-white/60 rounded-lg hover:border-white hover:bg-white/10 hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300"
             >
-              Brother Samuel's Deliverance
+              Samuel's Deliverance
             </a>
           </div>
         </motion.div>
