@@ -28,7 +28,7 @@ const mockStories: StoryCard[] = [
     id: '0',
     name: 'Samuel Johnson',
     role: 'Delivered from Internet Fraud',
-    quote: 'The power of Jesus is real. Complete deliverance is possible.',
+    quote: 'When the man of God touched me, I immediately saw myself facing a judge.',
     story: 'Samuel Johnson was a professional internet fraudster. Known in Nigeria as Yahoo and in Ghana as Sakawa. Demonically inspired to deceive, defraud, and destroy through the most advanced online tactics and methods.\n\nHe was not just a local king of internet scamming. He taught hundreds of youngsters his satanic tricks.\n\nThen he encountered Jesus Christ through prayer at The SCOAN.\n\nHis deliverance is complete. There are many valuable lessons in his testimony—not just for those in fraud, but for anyone bound by spiritual deception.\n\nWatch his full 41-minute confession to see what Jesus does.',
     heroImage: {
       url: '/images/testimony.png',
@@ -251,12 +251,9 @@ export default function TestimoniesPage() {
                 {/* Story Content - Left */}
                 <div className="space-y-8">
                   <div className="space-y-4">
-                    <div className="space-y-2">
-                      <p className="text-sm font-medium text-rc-text/60 uppercase tracking-wide">The Story</p>
-                      <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">
-                        {testimonies[0].name}
-                      </h2>
-                    </div>
+                    <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">
+                      {testimonies[0].name}
+                    </h2>
                     <p className="text-base md:text-lg text-rc-text/70 font-medium">
                       {testimonies[0].role}
                     </p>
