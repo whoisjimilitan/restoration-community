@@ -219,10 +219,10 @@ export default function Home() {
             <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">Our Gathering</h2>
 
             <div className="space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
-              <p>Experience The Roadmap as sermons.</p>
+              <p>Experience <span style={{ fontVariant: 'small-caps' }}>the roadmap</span> as sermons.</p>
               <p>Attend my live teaching.</p>
               <p>Walk with a man who's walked this road.</p>
-              <p>Meet others walking in this journey.</p>
+              <p>Others walking to be like Jesus.</p>
               <p className="pt-4 text-rc-text font-medium">Perhaps your testimony is next.</p>
             </div>
           </motion.div>
