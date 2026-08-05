@@ -211,11 +211,14 @@ export default function TestimoniesPage() {
               {/* Text Overlay - The Proof Statement */}
               <div className="relative z-10 flex flex-col items-center justify-center text-center space-y-4 px-6 max-w-2xl mx-auto">
                 <div className="space-y-3">
-                  <h2 className="text-3xl sm:text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight">
-                    Jesus delivered me from fraud
-                    <br />
-                    through Prophet TB Joshua
-                  </h2>
+                  <div className="space-y-1">
+                    <p className="text-base md:text-lg text-white/90 font-light">
+                      Jesus delivered me from fraud through
+                    </p>
+                    <h2 className="text-4xl sm:text-5xl md:text-6xl font-rc-serif font-bold text-white leading-tight">
+                      Prophet TB Joshua
+                    </h2>
+                  </div>
                   <p className="text-sm md:text-base text-white/80 font-light pt-2">
                     41 minutes • Full confession • Real transformation
                   </p>
