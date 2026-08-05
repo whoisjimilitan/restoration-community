@@ -163,27 +163,44 @@ export default function TestimoniesPage() {
 
   return (
     <div className="bg-rc-bg text-rc-text">
-      {/* Hero Section - Brother Jimi Focus */}
+      {/* Hero Section - Premium, Spacious */}
       <section className="w-full min-h-screen flex flex-col justify-center bg-gradient-to-br from-rc-accent to-rc-text px-6 sm:px-8 md:px-12 py-24 md:py-32">
-        <div className="max-w-2xl mx-auto w-full space-y-6">
-          <div className={`transform transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '120ms' }}>
-            <p className="text-xs font-medium text-white/70 uppercase tracking-wider">Stories of Deliverance</p>
+        <div className="max-w-3xl mx-auto w-full space-y-8">
+          <div className={`transform transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`} style={{ transitionDelay: '100ms', transitionTimingFunction: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)' }}>
+            <p className="text-xs font-medium text-white/60 uppercase tracking-wider letter-spacing">Stories of Deliverance</p>
           </div>
 
-          <div className={`transform transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '240ms' }}>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight tracking-tight">
+          <div className={`transform transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`} style={{ transitionDelay: '200ms', transitionTimingFunction: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)' }}>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-rc-serif font-bold text-white leading-tight tracking-tight">
               Not stories of shame.
               <br />
               Stories of freedom.
             </h1>
           </div>
 
-          <div className={`transform transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '360ms' }}>
-            <p className="text-base md:text-lg text-white/90 leading-relaxed font-light">
+          <div className={`transform transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`} style={{ transitionDelay: '300ms', transitionTimingFunction: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)' }}>
+            <p className="text-lg md:text-xl text-white/80 leading-relaxed font-light">
               Real prophet. Real people. Real deliverance.
             </p>
           </div>
         </div>
+      </section>
+
+      {/* Context Section - Elegant Framing */}
+      <section className="w-full py-16 md:py-24 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border/30">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          viewport={{ once: true, amount: 0.3 }}
+          className="max-w-3xl mx-auto"
+        >
+          <div className="space-y-4 text-center">
+            <h2 className="text-2xl md:text-3xl font-rc-serif font-bold text-rc-text">Samuel's Deliverance</h2>
+            <p className="text-base text-rc-text/60 font-light">2015 • The Synagogue Church of All Nations</p>
+            <p className="text-lg text-rc-text/70 font-light pt-4">Jesus set him free.</p>
+          </div>
+        </motion.div>
       </section>
 
       {/* Featured Story - Proof Moment */}
@@ -378,24 +395,104 @@ export default function TestimoniesPage() {
         </section>
       )}
 
-      {/* Closing Section - Call to Action */}
+      {/* Pattern Confirmation - Subtle Transition */}
+      <section className="w-full py-20 md:py-28 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border/30">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          viewport={{ once: true, amount: 0.25 }}
+          className="max-w-2xl mx-auto space-y-6"
+        >
+          <p className="text-base md:text-lg text-rc-text/70 leading-relaxed font-light">
+            Jesus is delivering others the same way.
+          </p>
+          <p className="text-rc-text font-medium">The pattern is repeating. Here's proof.</p>
+        </motion.div>
+      </section>
+
+      {/* Our Gathering - Community Bridge */}
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border/30">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          viewport={{ once: true, amount: 0.2 }}
+          className="max-w-3xl mx-auto"
+        >
+          <div className="space-y-12">
+            <div className="space-y-4">
+              <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">
+                Our Gathering
+              </h2>
+              <p className="text-base md:text-lg text-rc-text/70 font-light">
+                Experience the roadmap as sermons.
+              </p>
+            </div>
+
+            <div className="space-y-6 text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
+              <p>Attend my live teaching.</p>
+              <p>Walk with a man who's walked this road.</p>
+              <p>Others walking to be like Jesus.</p>
+              <p className="pt-4 text-rc-text font-medium">Perhaps your testimony is next.</p>
+            </div>
+
+            <div className="space-y-6 pt-8 border-t border-rc-border">
+              <div className="space-y-3 pt-6">
+                <p className="text-sm font-medium text-rc-text uppercase tracking-wide">When & Where</p>
+                <div className="space-y-2">
+                  <p className="text-base md:text-lg text-rc-text font-medium">Friday, August 15 at 7:00 PM</p>
+                  <p className="text-base md:text-lg text-rc-text/70 font-light">Mango Farm, Abokobi</p>
+                </div>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                <a
+                  href="https://maps.google.com/?q=Mango+Farm+Abokobi"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-rc-bg text-rc-text font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg transition-all duration-300 group"
+                >
+                  Get Directions
+                  <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </a>
+                <button
+                  onClick={() => {
+                    const event = new CustomEvent('open-attendance-modal');
+                    document.dispatchEvent(event);
+                  }}
+                  className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-white text-rc-text font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300"
+                >
+                  I'm Attending
+                </button>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      </section>
+
+      {/* Closing Section - Premium CTA */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-gradient-to-br from-rc-accent to-rc-text border-t border-rc-border">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-          viewport={{ once: true, amount: 0.15 }}
-          className="max-w-2xl mx-auto space-y-8"
+          viewport={{ once: true, amount: 0.2 }}
+          className="max-w-2xl mx-auto space-y-10"
         >
-          <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-white leading-tight tracking-tight">
-            You are not stuck.
-          </h2>
+          <div className="space-y-6">
+            <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight tracking-tight">
+              You are not stuck.
+            </h2>
 
-          <div className="space-y-4 text-base md:text-lg text-white/90 leading-relaxed font-light">
-            <p>You've seen the proof.</p>
-            <p>Jesus delivered them through Prophet TB Joshua.</p>
-
-            <p className="pt-4">The same Jesus is ready to deliver you.</p>
+            <div className="space-y-4 text-base md:text-lg text-white/90 leading-relaxed font-light">
+              <p>You've seen the proof.</p>
+              <p>Jesus delivered Samuel through Prophet TB Joshua.</p>
+              <p>Jesus delivered me the same way.</p>
+              <p className="pt-4 text-white font-medium">The same Jesus is ready to deliver you.</p>
+            </div>
           </div>
 
           <button
@@ -403,9 +500,12 @@ export default function TestimoniesPage() {
               const event = new CustomEvent('open-deliverance-modal');
               document.dispatchEvent(event);
             }}
-            className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-white text-rc-text font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300"
+            className="inline-flex items-center justify-center px-8 py-4 min-h-[48px] bg-white text-rc-text font-medium rounded-lg hover:-translate-y-1 hover:shadow-2xl active:translate-y-0 transition-all duration-300 group"
           >
             Book Deliverance
+            <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
           </button>
         </motion.div>
       </section>
