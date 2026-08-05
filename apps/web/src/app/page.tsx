@@ -183,9 +183,9 @@ export default function Home() {
           <StagesVisualization />
 
           <div className="space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
-            <p>Through stages, His grace will teach you</p>
+            <p className="text-rc-text font-medium">Through stages, His grace will teach you</p>
             <p>To see life clearly.</p>
-            <p className="pt-4">Just as Jesus sees it.</p>
+            <p className="pt-8 text-rc-text font-medium">Just as Jesus sees it.</p>
           </div>
         </motion.div>
       </section>
