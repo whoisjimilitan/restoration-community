@@ -118,17 +118,11 @@ export default function Home() {
           <div className="space-y-10">
             <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight tracking-tight">Jesus is calling you now.</h2>
 
-            <div className="space-y-6 text-base md:text-lg text-white/90 leading-relaxed font-light">
-              <div className="space-y-3">
-                <p>Listen to His voice.</p>
-                <p>Act on it by faith.</p>
-                <p className="text-white font-medium">Your freedom is waiting.</p>
-              </div>
-
-              <div className="pt-6 space-y-3">
-                <p>What He did for me,</p>
-                <p className="text-white font-medium">He will do for you.</p>
-              </div>
+            <div className="space-y-3 text-base md:text-lg text-white/90 leading-relaxed font-light">
+              <p>Listen to the voice of God.</p>
+              <p>Act upon it by faith.</p>
+              <p className="pt-4">What He did for me,</p>
+              <p className="text-white font-medium">He will do for you.</p>
             </div>
           </div>
 
