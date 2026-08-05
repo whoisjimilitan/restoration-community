@@ -186,51 +186,50 @@ export default function TestimoniesPage() {
         </div>
       </section>
 
-      {/* Pattern Introduction - Jesus + TB Joshua Framing */}
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-          viewport={{ once: true, amount: 0.15 }}
-          className="max-w-2xl mx-auto space-y-8"
-        >
-          <div className="space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
-            <p>Jesus delivered me from fraud through TB Joshua's intercession.</p>
-            <p>Jesus delivered Samuel the same way.</p>
-            <p className="pt-4 text-rc-text font-medium">Here's his story.</p>
-          </div>
-        </motion.div>
-      </section>
-
-      {/* Featured Story - Samuel's Deliverance (Video Hero + Premium Story Layout) */}
+      {/* Featured Story - Proof Moment */}
       {testimonies.length > 0 && testimonies[0].isFeatured && (
         <>
-          {/* Video Hero - Full Width Dark Cinematic */}
+          {/* Video Hero - Proof Moment with Text Overlay */}
           <section className="w-screen -mx-[calc(50vw-50%)] bg-gradient-to-br from-[#0F0F0F] to-[#1a1a1a]">
             <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
               viewport={{ once: true, amount: 0.15 }}
-              className="w-full relative aspect-video md:aspect-auto md:min-h-screen flex items-center justify-center overflow-hidden"
+              className="w-full relative aspect-video md:aspect-auto md:min-h-[90vh] flex flex-col items-center justify-center overflow-hidden"
             >
+              {/* Background Image */}
               <img
                 src={testimonies[0].heroImage?.url}
                 alt={testimonies[0].heroImage?.alt}
                 className="absolute inset-0 w-full h-full object-cover"
               />
 
-              {/* Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+              {/* Gradient Overlay - Stronger for text legibility */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/20"></div>
 
-              {/* Play Button */}
+              {/* Text Overlay - The Proof Statement */}
+              <div className="relative z-10 flex flex-col items-center justify-center text-center space-y-4 px-6 max-w-2xl mx-auto">
+                <div className="space-y-3">
+                  <p className="text-base md:text-lg text-white/90 font-light tracking-wide">
+                    Jesus delivered me from fraud
+                  </p>
+                  <h2 className="text-3xl sm:text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight">
+                    through TB Joshua's prayer
+                  </h2>
+                  <p className="text-sm md:text-base text-white/80 font-light pt-2">
+                    41 minutes • Full confession • Real transformation
+                  </p>
+                </div>
+              </div>
+
+              {/* Play Button - Centered */}
               {testimonies[0].videoUrl && (
                 <button
                   onClick={() => setSelectedVideo(testimonies[0].videoUrl!)}
-                  className="relative z-10 group flex items-center justify-center hover:scale-110 transition-transform duration-300"
+                  className="relative z-20 group flex items-center justify-center mt-8 hover:scale-110 transition-transform duration-300"
                 >
-                  <div className="w-24 h-24 rounded-full bg-white/95 flex items-center justify-center shadow-2xl group-hover:bg-white">
+                  <div className="w-24 h-24 rounded-full bg-white flex items-center justify-center shadow-2xl group-hover:shadow-xl hover:bg-white/95">
                     <svg className="w-10 h-10 text-[#0F0F0F] ml-1" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M8 5v14l11-7z" />
                     </svg>
@@ -241,7 +240,7 @@ export default function TestimoniesPage() {
           </section>
 
           {/* Story Content - Premium Layout on Warm Gray */}
-          <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
+          <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -253,9 +252,12 @@ export default function TestimoniesPage() {
                 {/* Story Content - Left */}
                 <div className="space-y-8">
                   <div className="space-y-4">
-                    <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">
-                      {testimonies[0].name}
-                    </h2>
+                    <div className="space-y-2">
+                      <p className="text-sm font-medium text-rc-text/60 uppercase tracking-wide">The Story</p>
+                      <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">
+                        {testimonies[0].name}
+                      </h2>
+                    </div>
                     <p className="text-base md:text-lg text-rc-text/70 font-medium">
                       {testimonies[0].role}
                     </p>
@@ -332,6 +334,22 @@ export default function TestimoniesPage() {
         </>
       )}
 
+      {/* Pattern Confirmation Section */}
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          viewport={{ once: true, amount: 0.15 }}
+          className="max-w-2xl mx-auto space-y-8"
+        >
+          <div className="space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light border-l-4 border-rc-accent pl-8">
+            <p>Jesus is delivering others the same way.</p>
+            <p className="pt-4 text-rc-text font-medium">The pattern is repeating. Here are more stories.</p>
+          </div>
+        </motion.div>
+      </section>
+
       {/* Other Stories */}
       {testimonies.length > 1 && (
         <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
@@ -342,8 +360,8 @@ export default function TestimoniesPage() {
               transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
               viewport={{ once: true, amount: 0.15 }}
             >
-              <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text tracking-tight mb-2">More Stories</h2>
-              <p className="text-base text-rc-text/70">Other journeys of deliverance and freedom</p>
+              <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text tracking-tight mb-2">More Deliverances</h2>
+              <p className="text-base text-rc-text/70">Continue reading real stories of transformation</p>
             </motion.div>
 
             {loading ? (
@@ -361,7 +379,7 @@ export default function TestimoniesPage() {
         </section>
       )}
 
-      {/* Closing Section */}
+      {/* Closing Section - Call to Action */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-gradient-to-br from-rc-accent to-rc-text border-t border-rc-border">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -375,10 +393,10 @@ export default function TestimoniesPage() {
           </h2>
 
           <div className="space-y-4 text-base md:text-lg text-white/90 leading-relaxed font-light">
-            <p>These three are free today.</p>
-            <p>Because Jesus set them free.</p>
+            <p>You've seen the proof.</p>
+            <p>Jesus delivered them through TB Joshua's prayer.</p>
 
-            <p className="pt-4">The same Jesus can set you free.</p>
+            <p className="pt-4">The same Jesus is ready to deliver you.</p>
           </div>
 
           <button
@@ -386,10 +404,9 @@ export default function TestimoniesPage() {
               const event = new CustomEvent('open-deliverance-modal');
               document.dispatchEvent(event);
             }}
-            className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-white text-rc-text/70 font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300"
-            style={{ fontVariant: 'small-caps' }}
+            className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-white text-rc-text font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300"
           >
-            Request Deliverance
+            Book Deliverance
           </button>
         </motion.div>
       </section>
