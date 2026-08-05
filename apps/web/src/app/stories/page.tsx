@@ -186,6 +186,24 @@ export default function TestimoniesPage() {
         </div>
       </section>
 
+      {/* Theological Context - Why Brother Jimi */}
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          viewport={{ once: true, amount: 0.15 }}
+          className="max-w-2xl mx-auto space-y-8"
+        >
+          <div className="space-y-6 text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
+            <p className="text-rc-text font-medium">Jesus Christ is the same.</p>
+            <p>He is the God of Prophet TB Joshua, the God of Brother Jimi.</p>
+            <p className="pt-4 text-rc-text font-medium">The same Deliverer. Just different instruments.</p>
+            <p className="text-rc-text font-medium">Here's proof.</p>
+          </div>
+        </motion.div>
+      </section>
+
       {/* Featured Story - Proof Moment */}
       {testimonies.length > 0 && testimonies[0].isFeatured && (
         <>

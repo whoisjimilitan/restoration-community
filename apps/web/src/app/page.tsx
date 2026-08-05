@@ -127,6 +127,7 @@ export default function Home() {
               <p className="text-white font-medium">He can set you free completely.</p>
               <p className="pt-4">What He did for me through Prophet TB Joshua.</p>
               <p>He will do for you through me by His grace.</p>
+              <p className="pt-6 text-white font-medium">Jesus Christ is the same.</p>
             </div>
           </div>
 
