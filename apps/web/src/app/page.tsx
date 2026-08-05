@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { AnimatePresence } from 'framer-motion';
-import StagesVisualization from '@/app/components/landing/StagesVisualization';
 
 export default function Home() {
   const [isLoaded, setIsLoaded] = useState(false);
