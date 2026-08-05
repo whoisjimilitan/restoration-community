@@ -186,6 +186,23 @@ export default function TestimoniesPage() {
         </div>
       </section>
 
+      {/* Pattern Introduction - Jesus + TB Joshua Framing */}
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          viewport={{ once: true, amount: 0.15 }}
+          className="max-w-2xl mx-auto space-y-8"
+        >
+          <div className="space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
+            <p>Jesus delivered me from fraud through TB Joshua's intercession.</p>
+            <p>Jesus delivered Samuel the same way.</p>
+            <p className="pt-4 text-rc-text font-medium">Here's his story.</p>
+          </div>
+        </motion.div>
+      </section>
+
       {/* Featured Story - Samuel's Deliverance (Video Hero + Premium Story Layout) */}
       {testimonies.length > 0 && testimonies[0].isFeatured && (
         <>

@@ -96,8 +96,8 @@ export default function Home() {
 
           <div className="space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light border-l-4 border-rc-accent pl-8">
             <p>In 2015.</p>
-            <p>God used Prophet TB Joshua.</p>
-            <p>To pray for me in Jesus' name.</p>
+            <p>Jesus used Prophet TB Joshua.</p>
+            <p>To pray for me in His name.</p>
             <p className="pt-2 text-rc-text font-medium">One utterance: "All that is over."</p>
             <p className="pt-4">The spirit of waste expelled.</p>
             <p>The spirit of fantasy gone.</p>
@@ -138,7 +138,7 @@ export default function Home() {
               }}
               className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-white text-rc-text font-medium rounded-lg hover:bg-white/95 hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300"
             >
-              Request Deliverance
+              Book Deliverance
             </button>
             <a
               href="/stories"
@@ -324,7 +324,7 @@ export default function Home() {
                 <div className="p-8 md:p-12 space-y-6">
                   <div className="space-y-2">
                     <h2 className="text-2xl md:text-3xl font-rc-serif font-bold text-rc-text tracking-tight">
-                      Request Deliverance
+                      Book Deliverance
                     </h2>
                     <p className="text-rc-text/70 text-sm">Step 2 of 3</p>
                   </div>
