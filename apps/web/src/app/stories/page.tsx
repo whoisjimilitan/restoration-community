@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 import { useScrollReveal } from '@/lib/hooks/useScrollReveal';
 
 interface StoryCard {
@@ -13,9 +14,26 @@ interface StoryCard {
   quote: string;
   story: string;
   heroImage?: { url: string; alt: string };
+  videoUrl?: string;
+  isFeatured?: boolean;
 }
 
 const mockStories: StoryCard[] = [
+  {
+    id: '0',
+    name: 'Samuel Johnson',
+    role: 'Delivered from Internet Fraud',
+    stage: 6,
+    stageName: 'Honest Work',
+    quote: 'The power of Jesus is real. Complete deliverance is possible.',
+    story: 'Samuel Johnson was a professional internet fraudster. Known in Nigeria as Yahoo and in Ghana as Sakawa. Demonically inspired to deceive, defraud, and destroy through the most advanced online tactics and methods.\n\nHe was not just a local king of internet scamming. He taught hundreds of youngsters his satanic tricks.\n\nThen he encountered Jesus Christ through prayer at The SCOAN.\n\nHis deliverance is complete. There are many valuable lessons in his testimony—not just for those in fraud, but for anyone bound by spiritual deception.\n\nWatch his full 41-minute confession to see what Jesus does.',
+    heroImage: {
+      url: '/images/testimony.png',
+      alt: 'Samuel Johnson - The King of Internet Scamming'
+    },
+    videoUrl: 'https://www.youtube.com/embed/bKJCcWQVuq8',
+    isFeatured: true
+  },
   {
     id: '1',
     name: 'Samuel Okafor',
@@ -61,6 +79,7 @@ export default function TestimoniesPage() {
   const [testimonies, setTestimonies] = useState<StoryCard[]>([]);
   const [loading, setLoading] = useState(true);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
 
   useEffect(() => {
     setIsLoaded(true);
@@ -87,17 +106,29 @@ export default function TestimoniesPage() {
     fetchTestimonies();
   }, []);
 
-  const StoryCard = ({ story }: { story: StoryCard }) => (
+  const StoryCard = ({ story, onPlayVideo }: { story: StoryCard; onPlayVideo: (url: string) => void }) => (
     <div className="w-full space-y-8 py-12 md:py-16">
       <div className="group grid md:grid-cols-2 gap-12 md:gap-16 items-center">
         {/* Image */}
         {story.heroImage && (
-          <div className="md:order-2 aspect-square rounded-lg overflow-hidden bg-rc-text/5 border border-rc-border/20 group-hover:shadow-lg transition-all duration-300">
+          <div className="md:order-2 aspect-square rounded-lg overflow-hidden bg-rc-text/5 border border-rc-border/20 group-hover:shadow-lg transition-all duration-300 relative">
             <img
               src={story.heroImage.url}
               alt={story.heroImage.alt}
               className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-300"
             />
+            {story.videoUrl && (
+              <button
+                onClick={() => onPlayVideo(story.videoUrl!)}
+                className="absolute inset-0 flex items-center justify-center bg-black/0 hover:bg-black/30 transition-all duration-300 group-hover:bg-black/40"
+              >
+                <div className="w-16 h-16 rounded-full bg-white/90 flex items-center justify-center hover:bg-white transition-all duration-300 shadow-lg">
+                  <svg className="w-6 h-6 text-rc-text ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </div>
+              </button>
+            )}
           </div>
         )}
 
@@ -127,7 +158,7 @@ export default function TestimoniesPage() {
     </div>
   );
 
-  const StoryItem = ({ story, idx }: { story: StoryCard; idx: number }) => {
+  const StoryItem = ({ story, idx, onPlayVideo }: { story: StoryCard; idx: number; onPlayVideo: (url: string) => void }) => {
     const { ref, controls, initial } = useScrollReveal(0.2);
 
     return (
@@ -138,7 +169,7 @@ export default function TestimoniesPage() {
         animate={controls}
         className="pt-12 md:pt-16"
       >
-        <StoryCard story={story} />
+        <StoryCard story={story} onPlayVideo={onPlayVideo} />
         {idx < testimonies.length - 1 && (
           <div className="mt-12 md:mt-16 border-t border-rc-border/20" />
         )}
@@ -148,7 +179,7 @@ export default function TestimoniesPage() {
 
   return (
     <div className="bg-rc-bg text-rc-text">
-      {/* Hero Section */}
+      {/* Hero Section - Echo of Landing Page */}
       <section className="w-full min-h-screen flex flex-col justify-center bg-gradient-to-br from-rc-accent to-rc-text px-6 sm:px-8 md:px-12 py-24 md:py-32">
         <div className="max-w-2xl mx-auto w-full space-y-6">
           <div className={`transform transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '120ms' }}>
@@ -165,33 +196,107 @@ export default function TestimoniesPage() {
 
           <div className={`transform transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '360ms' }}>
             <p className="text-base md:text-lg text-white/90 leading-relaxed font-light">
-              Real people. Real deliverance.
+              Real people. Real deliverance. Real transformation.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Stories Grid */}
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
-        <div className="max-w-5xl mx-auto space-y-16 md:space-y-20">
-          {/* Stories */}
-          {loading ? (
-            <div className="text-center py-20">
-              <p className="text-rc-text/60">Loading stories...</p>
+      {/* Featured Story - Samuel's Deliverance */}
+      {testimonies.length > 0 && testimonies[0].isFeatured && (
+        <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+            viewport={{ once: true, amount: 0.15 }}
+            className="max-w-5xl mx-auto"
+          >
+            <div className="group relative rounded-lg overflow-hidden bg-rc-text/5 border border-rc-border/20">
+              {/* Featured Image */}
+              <div className="aspect-video rounded-lg overflow-hidden bg-gradient-to-br from-rc-text/20 to-rc-text/5 relative">
+                <img
+                  src={testimonies[0].heroImage?.url}
+                  alt={testimonies[0].heroImage?.alt}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+
+                {/* Play Button */}
+                {testimonies[0].videoUrl && (
+                  <button
+                    onClick={() => setSelectedVideo(testimonies[0].videoUrl!)}
+                    className="absolute inset-0 flex items-center justify-center group/play hover:bg-black/40 transition-all duration-300"
+                  >
+                    <div className="w-20 h-20 rounded-full bg-white/90 flex items-center justify-center group-hover/play:bg-white group-hover/play:scale-110 transition-all duration-300 shadow-2xl">
+                      <svg className="w-8 h-8 text-rc-text ml-1" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                    </div>
+                  </button>
+                )}
+
+                {/* Content Overlay */}
+                <div className="absolute bottom-0 left-0 right-0 p-8 md:p-12 space-y-4">
+                  <div>
+                    <p className="text-xs font-medium text-white/80 uppercase tracking-wider mb-3">Featured Story</p>
+                    <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-white leading-tight tracking-tight">
+                      {testimonies[0].name}
+                    </h2>
+                    <p className="text-base md:text-lg text-white/90 mt-3">{testimonies[0].role}</p>
+                  </div>
+
+                  <blockquote className="text-lg md:text-xl font-rc-serif italic text-white/95 leading-relaxed">
+                    &ldquo;{testimonies[0].quote}&rdquo;
+                  </blockquote>
+
+                  <p className="text-sm text-white/70">41 minutes • Watch the full confession</p>
+                </div>
+              </div>
             </div>
-          ) : testimonies.length === 0 ? (
-            <div className="text-center py-20">
-              <p className="text-rc-text/60 text-lg">Stories coming soon. Check back later.</p>
+
+            {/* Synopsis */}
+            <div className="mt-12 max-w-3xl space-y-6">
+              <div className="space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
+                <p className="text-rc-text font-medium">The story:</p>
+                <p>{testimonies[0].story.split('\n')[0]}</p>
+                <p>{testimonies[0].story.split('\n')[1]}</p>
+              </div>
             </div>
-          ) : (
-            <div className="space-y-24 md:space-y-32 border-t border-rc-border/20">
-              {testimonies.map((story, idx) => (
-                <StoryItem key={story.id} story={story} idx={idx} />
-              ))}
-            </div>
-          )}
-        </div>
-      </section>
+          </motion.div>
+        </section>
+      )}
+
+      {/* Other Stories */}
+      {testimonies.length > 1 && (
+        <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
+          <div className="max-w-5xl mx-auto space-y-16 md:space-y-20">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+              viewport={{ once: true, amount: 0.15 }}
+            >
+              <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text tracking-tight mb-2">More Stories</h2>
+              <p className="text-base text-rc-text/70">Other journeys of deliverance and freedom</p>
+            </motion.div>
+
+            {loading ? (
+              <div className="text-center py-20">
+                <p className="text-rc-text/60">Loading stories...</p>
+              </div>
+            ) : (
+              <div className="space-y-24 md:space-y-32 border-t border-rc-border/20 pt-16">
+                {testimonies.slice(1).map((story, idx) => (
+                  <StoryItem key={story.id} story={story} idx={idx + 1} onPlayVideo={setSelectedVideo} />
+                ))}
+              </div>
+            )}
+          </div>
+        </section>
+      )}
 
       {/* Closing Section */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-gradient-to-br from-rc-accent to-rc-text border-t border-rc-border">
@@ -258,6 +363,41 @@ export default function TestimoniesPage() {
           <p className="text-white/40 text-xs">© 2026. All rights reserved.</p>
         </div>
       </footer>
+
+      {/* Video Modal */}
+      <AnimatePresence>
+        {selectedVideo && (
+          <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center px-4">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              transition={{ duration: 0.3 }}
+              className="relative w-full max-w-4xl"
+            >
+              <button
+                onClick={() => setSelectedVideo(null)}
+                className="absolute -top-12 right-0 text-white hover:text-white/70 transition-colors"
+              >
+                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+              <div className="w-full aspect-video rounded-lg overflow-hidden shadow-2xl">
+                <iframe
+                  width="100%"
+                  height="100%"
+                  src={`${selectedVideo}?autoplay=1`}
+                  frameBorder="0"
+                  allow="autoplay; fullscreen; picture-in-picture"
+                  allowFullScreen
+                  style={{ border: 'none' }}
+                ></iframe>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
