@@ -163,45 +163,45 @@ export default function TestimoniesPage() {
 
   return (
     <div className="bg-rc-bg text-rc-text">
-      {/* Hero Section - Cinematic Setup */}
+      {/* Hero Section - Premium, Spacious */}
       <section className="w-full min-h-screen flex flex-col justify-center bg-gradient-to-br from-rc-accent to-rc-text px-6 sm:px-8 md:px-12 py-24 md:py-32">
         <div className="max-w-3xl mx-auto w-full space-y-8">
           <div className={`transform transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`} style={{ transitionDelay: '100ms', transitionTimingFunction: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)' }}>
-            <p className="text-xs font-medium text-white/60 uppercase tracking-wider">The Story of Brother Samuel</p>
+            <p className="text-xs font-medium text-white/60 uppercase tracking-wider">Stories of Deliverance</p>
           </div>
 
           <div className={`transform transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`} style={{ transitionDelay: '200ms', transitionTimingFunction: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)' }}>
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-rc-serif font-bold text-white leading-tight tracking-tight">
-              Not a story of shame.
+              Not stories of shame.
               <br />
-              A story of freedom.
+              Stories of freedom.
             </h1>
           </div>
 
           <div className={`transform transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`} style={{ transitionDelay: '300ms', transitionTimingFunction: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)' }}>
-            <p className="text-base md:text-lg text-white/70 leading-relaxed font-light">
-              2015 • The Synagogue Church of All Nations
+            <p className="text-lg md:text-xl text-white/80 leading-relaxed font-light">
+              Real people. Real deliverance. Real transformation.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Story Context - Synopsis */}
+      {/* Samuel's Story - Premium Spacing */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border/30">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.2 }}
           className="max-w-3xl mx-auto"
         >
-          <div className="space-y-8">
+          <div className="space-y-12">
             <div className="space-y-4">
-              <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">
+              <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">
                 Samuel Johnson
               </h2>
-              <p className="text-base md:text-lg text-rc-text/70 font-medium">
-                Delivered from Internet Fraud
+              <p className="text-base md:text-lg text-rc-text/70 font-light">
+                Delivered from Internet Fraud • 2015 • The Synagogue Church of All Nations
               </p>
             </div>
 
@@ -211,21 +211,13 @@ export default function TestimoniesPage() {
               </p>
             </blockquote>
 
-            <div className="space-y-6">
-              <div>
-                <p className="text-xs font-medium text-rc-text/60 uppercase tracking-wide mb-4">The Story</p>
-                <div className="space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
-                  <p>Samuel Johnson was a professional internet fraudster. Known in Nigeria as Yahoo and in Ghana as Sakawa. Demonically inspired to deceive, defraud, and destroy through the most advanced online tactics and methods.</p>
-                  <p>He was not just a local king of internet scamming. He taught hundreds of youngsters his satanic tricks.</p>
-                  <p>Then he encountered Jesus Christ through prayer at The SCOAN.</p>
-                  <p>His deliverance is complete. There are many valuable lessons in his testimony—not just for those in fraud, but for anyone bound by spiritual deception.</p>
-                  <p>Watch his full 41-minute confession to see what Jesus does.</p>
-                </div>
-              </div>
-
-              <div className="pt-4 border-t border-rc-border">
-                <p className="text-sm text-rc-text/60">41 minutes • Full confession at The SCOAN</p>
-              </div>
+            <div className="space-y-6 text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
+              <p>Samuel Johnson was a professional internet fraudster. Known in Nigeria as Yahoo and in Ghana as Sakawa. Demonically inspired to deceive, defraud, and destroy through the most advanced online tactics and methods.</p>
+              <p>He was not just a local king of internet scamming. He taught hundreds of youngsters his satanic tricks.</p>
+              <p>Then he encountered Jesus Christ through prayer at The SCOAN.</p>
+              <p>His deliverance is complete. There are many valuable lessons in his testimony—not just for those in fraud, but for anyone bound by spiritual deception.</p>
+              <p>Watch his full 41-minute confession to see what Jesus does.</p>
+              <p className="pt-4 text-sm text-rc-text/60">41 minutes • Full confession at The SCOAN</p>
             </div>
           </div>
         </motion.div>
