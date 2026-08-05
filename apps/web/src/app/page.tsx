@@ -314,7 +314,7 @@ export default function Home() {
                 <div className="p-8 md:p-12 space-y-6">
                   <div className="space-y-2">
                     <h2 className="text-2xl md:text-3xl font-rc-serif font-bold text-rc-text tracking-tight">
-                      Your Prayer Request
+                      What do you need deliverance from?
                     </h2>
                     <p className="text-rc-text/70 text-sm">Step 1 of 3</p>
                   </div>
@@ -329,15 +329,12 @@ export default function Home() {
                     className="space-y-6"
                   >
                     <div className="space-y-2">
-                      <label className="block text-sm font-medium text-rc-text/70">
-                        What do you need deliverance from?
-                      </label>
                       <textarea
                         required
                         value={deliverance.need}
                         onChange={(e) => setDeliverance({ ...deliverance, need: e.target.value })}
                         className="w-full px-4 py-3 border border-rc-border rounded-lg focus:outline-none focus:border-rc-accent/60 transition-colors bg-white text-rc-text resize-none"
-                        placeholder="Be honest. What spiritual bondage do you need Jesus to break?"
+                        placeholder="Be honest about what's binding you."
                         rows={4}
                       />
                     </div>
@@ -421,9 +418,9 @@ export default function Home() {
                 <div className="p-8 md:p-12 space-y-6">
                   <div className="space-y-2">
                     <h2 className="text-2xl md:text-3xl font-rc-serif font-bold text-rc-text tracking-tight">
-                      How to Reach You
+                      How we reach you
                     </h2>
-                    <p className="text-rc-text/70 text-sm">Step 3 of 3 - We'll pray for you and reach out via WhatsApp</p>
+                    <p className="text-rc-text/70 text-sm">Step 3 of 3</p>
                   </div>
 
                   <form
@@ -522,10 +519,10 @@ export default function Home() {
                 <div className="p-8 md:p-12 text-center space-y-4">
                   <div className="text-4xl mb-4">✓</div>
                   <h3 className="text-2xl font-rc-serif font-bold text-rc-text">
-                    Request Received
+                    Your request is received
                   </h3>
                   <p className="text-rc-text/70">
-                    We will pray for your deliverance. Expect contact via WhatsApp to walk this journey with you.
+                    We will pray for you. Expect contact via WhatsApp.
                   </p>
                   <button
                     onClick={() => {
