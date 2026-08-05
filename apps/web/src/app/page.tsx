@@ -9,7 +9,7 @@ export default function Home() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [deliverance, setDeliverance] = useState({
-    step: 1 as number,
+    step: 'video' as string | number,
     need: '',
     duration: '',
     name: '',
@@ -267,6 +267,51 @@ export default function Home() {
               transition={{ duration: 0.3 }}
               className="bg-rc-bg rounded-lg shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto"
             >
+              {/* Video Step */}
+              {deliverance.step === 'video' && (
+                <div className="p-8 md:p-12 space-y-6">
+                  <div className="space-y-2">
+                    <h2 className="text-2xl md:text-3xl font-rc-serif font-bold text-rc-text tracking-tight">
+                      See What's Possible
+                    </h2>
+                    <p className="text-rc-text/70 text-sm">Watch someone's deliverance story</p>
+                  </div>
+
+                  <div className="w-full aspect-video bg-rc-bg rounded-lg overflow-hidden">
+                    <iframe
+                      width="100%"
+                      height="100%"
+                      src="https://stream.emmanuel.tv/title/en/63b57e4373f6b110b4916284?type=vod&autoplay=1&muted=1"
+                      frameBorder="0"
+                      allow="autoplay; fullscreen"
+                      allowFullScreen
+                      style={{ border: 'none' }}
+                    ></iframe>
+                  </div>
+
+                  <div className="flex gap-3">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setIsModalOpen(false);
+                        setDeliverance({ step: 'video', need: '', duration: '', name: '', email: '', phone: '', submitted: false });
+                      }}
+                      className="px-6 py-3 text-rc-text/70 hover:text-rc-text transition-colors"
+                    >
+                      Not Now
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setDeliverance({ ...deliverance, step: 1 })}
+                      className="flex-1 px-6 py-3 bg-white text-rc-text font-medium border-2 border-rc-text/25 rounded-lg hover:-translate-y-0.5 hover:border-rc-text/40 hover:shadow-lg transition-all duration-300"
+                      style={{ boxShadow: '0 0 12px rgba(26, 26, 24, 0.15)' }}
+                    >
+                      Ready to Share Your Story
+                    </button>
+                  </div>
+                </div>
+              )}
+
               {/* Step 1: Need */}
               {deliverance.step === 1 && (
                 <div className="p-8 md:p-12 space-y-6">
