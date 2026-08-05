@@ -214,7 +214,7 @@ export default function TestimoniesPage() {
                   <h2 className="text-3xl sm:text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight">
                     Jesus delivered me from fraud
                     <br />
-                    through TB Joshua
+                    through Prophet TB Joshua
                   </h2>
                   <p className="text-sm md:text-base text-white/80 font-light pt-2">
                     41 minutes • Full confession • Real transformation
@@ -390,7 +390,7 @@ export default function TestimoniesPage() {
 
           <div className="space-y-4 text-base md:text-lg text-white/90 leading-relaxed font-light">
             <p>You've seen the proof.</p>
-            <p>Jesus delivered them through TB Joshua's prayer.</p>
+            <p>Jesus delivered them through Prophet TB Joshua's prayer.</p>
 
             <p className="pt-4">The same Jesus is ready to deliver you.</p>
           </div>
