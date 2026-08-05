@@ -180,7 +180,7 @@ export default function TestimoniesPage() {
 
           <div className={`transform transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`} style={{ transitionDelay: '300ms', transitionTimingFunction: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)' }}>
             <p className="text-lg md:text-xl text-white/80 leading-relaxed font-light">
-              Real prophet. Real people. Real deliverance.
+              Real people. Real deliverance. Real transformation.
             </p>
           </div>
         </div>
