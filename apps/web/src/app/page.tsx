@@ -281,7 +281,7 @@ export default function Home() {
                     <iframe
                       width="100%"
                       height="100%"
-                      src="https://stream.emmanuel.tv/title/en/63b57e4373f6b110b4916284?type=vod&autoplay=1&muted=1"
+                      src="https://www.youtube.com/embed/bKJCcWQVuq8?autoplay=1&mute=1"
                       frameBorder="0"
                       allow="autoplay; fullscreen"
                       allowFullScreen
