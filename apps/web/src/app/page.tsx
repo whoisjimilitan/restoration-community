@@ -59,48 +59,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SAMUEL'S DELIVERANCE - Before My Story */}
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-testimony-dark border-t border-testimony-gold/30">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-          viewport={{ once: true, amount: 0.15 }}
-          className="max-w-2xl mx-auto space-y-12"
-        >
-          <div className="space-y-4">
-            <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-testimony-accent leading-tight tracking-tight">
-              Before I share my story...
-            </h2>
-            <p className="text-base md:text-lg text-white/80 leading-relaxed font-light">
-              Watch this. Samuel Johnson was a 'professional' internet fraudster—known in Nigeria as Yahoo and in Ghana as Sakawa. He was demonically inspired to deceive, defraud and destroy through the latest, most advanced online tactics and methods.
-            </p>
-            <p className="text-base md:text-lg text-white/80 leading-relaxed font-light pt-2">
-              He wasn't just a local 'king' of internet scamming. He taught hundreds of youngsters his satanic tricks.
-            </p>
-            <p className="text-base md:text-lg text-white/80 leading-relaxed font-light pt-2">
-              This is his remarkable deliverance at The SCOAN. After TB Joshua's prayer. Watch what Jesus did.
-            </p>
-          </div>
-
-          {/* Samuel's Testimony Video/Image */}
-          <div className="w-full aspect-square md:aspect-video bg-gradient-to-br from-testimony-dark to-testimony-dark/80 rounded-lg overflow-hidden border border-testimony-gold/20 shadow-2xl">
-            <img
-              src="/images/testimony.png"
-              alt="Samuel's deliverance confession - The King of Internet Scamming"
-              className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-            />
-          </div>
-
-          <div className="space-y-3 pt-4 border-t border-testimony-gold/20">
-            <p className="text-testimony-accent font-medium text-sm uppercase tracking-wider">41 minutes | Watch the Full Confession</p>
-            <p className="text-base md:text-lg text-white/90 leading-relaxed font-light">
-              This is not theory. This is what happens when someone demonically inspired encounters the power of Jesus through prayer. Samuel's deliverance is complete. There are many valuable lessons here. Not just for those in fraud. For anyone bound.
-            </p>
-          </div>
-        </motion.div>
-      </section>
-
       {/* MY STORY */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
         <motion.div
@@ -178,15 +136,15 @@ export default function Home() {
                 setIsModalOpen(true);
                 setDeliverance({ step: 1, need: '', duration: '', name: '', email: '', phone: '', submitted: false });
               }}
-              className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-testimony-accent text-rc-text font-medium rounded-lg hover:bg-testimony-accent/90 hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300"
+              className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-white text-rc-text font-medium rounded-lg hover:bg-white/95 hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300"
             >
               Request Deliverance
             </button>
             <a
-              href="/auth/signin"
+              href="/stories"
               className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] text-white font-medium border border-white/60 rounded-lg hover:border-white hover:bg-white/10 hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300"
             >
-              Return to Your Journey
+              Deliverance Stories
             </a>
           </div>
         </motion.div>
@@ -692,12 +650,27 @@ export default function Home() {
               Home
               <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
             </a>
-            <span className="text-white/40 text-sm cursor-default">
-              Stories of Deliverance
-            </span>
-            <span className="text-white/40 text-sm cursor-default">
-              Mission Partners
-            </span>
+            <a
+              href="/stories"
+              className="text-white/80 hover:text-white transition-colors group text-sm"
+            >
+              Deliverance Stories
+              <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
+            </a>
+            <a
+              href="/partnership"
+              className="text-white/80 hover:text-white transition-colors group text-sm"
+            >
+              Partnership
+              <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
+            </a>
+            <a
+              href="/auth/signin"
+              className="text-white/80 hover:text-white transition-colors group text-sm"
+            >
+              Your Journey
+              <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
+            </a>
           </div>
 
           {/* Copyright Only */}
