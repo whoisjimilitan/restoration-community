@@ -514,8 +514,8 @@ export default function Home() {
               {/* Form Step */}
               {attendanceStep === 'form' && (
                 <div className="p-8 md:p-12">
-                  <h2 className="text-2xl font-rc-serif font-bold text-rc-text mb-6">
-                    Live Teaching With Brother Jimi
+                  <h2 className="text-xl font-rc-serif font-bold text-rc-text mb-6">
+                    Live Teaching and Meeting With Brother Jimi
                   </h2>
                   <p className="text-rc-text/70 text-sm mb-6">
                     Friday, August 15 at 7:00 PM · Mango Farm, Abokobi
