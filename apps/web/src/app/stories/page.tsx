@@ -393,7 +393,7 @@ export default function TestimoniesPage() {
 
           <div className="space-y-4 text-base md:text-lg text-white/90 leading-relaxed font-light">
             <p>You've seen the proof.</p>
-            <p>Jesus delivered them through Prophet TB Joshua's prayer.</p>
+            <p>Jesus delivered them through Prophet TB Joshua.</p>
 
             <p className="pt-4">The same Jesus is ready to deliver you.</p>
           </div>
