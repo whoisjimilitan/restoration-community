@@ -116,14 +116,19 @@ export default function Home() {
           className="max-w-2xl mx-auto space-y-16"
         >
           <div className="space-y-10">
-            <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight tracking-tight">Jesus is calling you.</h2>
+            <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight tracking-tight">Jesus is calling you now.</h2>
 
-            <div className="space-y-4 text-base md:text-lg text-white/90 leading-relaxed font-light">
-              <p>His sheep know His voice and follow Him.</p>
-              <p className="pt-6 text-white font-medium">Follow this voice.</p>
-              <p className="text-white font-medium">Jesus can set you free completely.</p>
-              <p className="pt-6">What He did for me through Prophet TB Joshua.</p>
-              <p>He will do for you through me by His grace.</p>
+            <div className="space-y-6 text-base md:text-lg text-white/90 leading-relaxed font-light">
+              <div className="space-y-3">
+                <p>Listen to His voice.</p>
+                <p>Act on it by faith.</p>
+                <p className="text-white font-medium">Your freedom is waiting.</p>
+              </div>
+
+              <div className="pt-6 space-y-3">
+                <p>What He did for me,</p>
+                <p className="text-white font-medium">He will do for you.</p>
+              </div>
             </div>
           </div>
 
