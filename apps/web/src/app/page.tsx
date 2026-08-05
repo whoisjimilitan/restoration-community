@@ -59,6 +59,42 @@ export default function Home() {
         </div>
       </section>
 
+      {/* TRANSFORMATION PROOF */}
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-testimony-dark border-t border-testimony-gold/30">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          viewport={{ once: true, amount: 0.15 }}
+          className="max-w-2xl mx-auto space-y-12"
+        >
+          <div className="space-y-4">
+            <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-testimony-cyan leading-tight tracking-tight">
+              See what's possible
+            </h2>
+            <p className="text-base md:text-lg text-white/80 leading-relaxed font-light">
+              Here's what deliverance looks like. A life transformed. A spirit freed. This is the reality waiting for you.
+            </p>
+          </div>
+
+          {/* Testimony Image */}
+          <div className="w-full aspect-square md:aspect-video bg-gradient-to-br from-testimony-dark to-testimony-dark/80 rounded-lg overflow-hidden border border-testimony-gold/20 shadow-2xl">
+            <img
+              src="/images/testimony.png"
+              alt="Testimony of transformation and deliverance"
+              className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+            />
+          </div>
+
+          <div className="space-y-3 pt-4 border-t border-testimony-gold/20">
+            <p className="text-testimony-gold font-medium text-sm uppercase tracking-wider">Your Journey Begins Here</p>
+            <p className="text-base md:text-lg text-white/90 leading-relaxed font-light">
+              This is not just inspiration. It's proof that what Jesus did for this believer, He will do for you. The same power that delivered this life is available to you right now.
+            </p>
+          </div>
+        </motion.div>
+      </section>
+
       {/* MY STORY */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
         <motion.div
@@ -136,7 +172,7 @@ export default function Home() {
                 setIsModalOpen(true);
                 setDeliverance({ step: 'video', need: '', duration: '', name: '', email: '', phone: '', submitted: false });
               }}
-              className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-white text-rc-text font-medium rounded-lg hover:bg-white/95 hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300"
+              className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-testimony-cyan text-testimony-dark font-medium rounded-lg hover:bg-testimony-cyan/90 hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300"
             >
               Request Deliverance
             </button>
@@ -248,7 +284,7 @@ export default function Home() {
               <a href="https://maps.google.com/?q=Mango+Farm+Abokobi" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-rc-warm-gray text-rc-text font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg transition-all duration-300">
                 Get Directions
               </a>
-              <button onClick={() => setIsAttendanceModalOpen(true)} className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-white text-rc-text font-medium border-2 border-rc-text/25 rounded-lg hover:-translate-y-0.5 hover:shadow-lg hover:border-rc-text/40 transition-all duration-300" style={{ boxShadow: '0 0 12px rgba(26, 26, 24, 0.15)' }}>
+              <button onClick={() => setIsAttendanceModalOpen(true)} className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-white text-testimony-dark font-medium border-2 border-testimony-gold/30 rounded-lg hover:-translate-y-0.5 hover:shadow-lg hover:border-testimony-gold/60 transition-all duration-300" style={{ boxShadow: '0 0 12px rgba(212, 165, 116, 0.2)' }}>
                 I'm Attending
               </button>
             </div>
@@ -303,8 +339,8 @@ export default function Home() {
                     <button
                       type="button"
                       onClick={() => setDeliverance({ ...deliverance, step: 1 })}
-                      className="flex-1 px-6 py-3 bg-white text-rc-text font-medium border-2 border-rc-text/25 rounded-lg hover:-translate-y-0.5 hover:border-rc-text/40 hover:shadow-lg transition-all duration-300"
-                      style={{ boxShadow: '0 0 12px rgba(26, 26, 24, 0.15)' }}
+                      className="flex-1 px-6 py-3 bg-testimony-cyan text-testimony-dark font-medium border-2 border-testimony-cyan/40 rounded-lg hover:-translate-y-0.5 hover:border-testimony-cyan/60 hover:shadow-lg transition-all duration-300"
+                      style={{ boxShadow: '0 0 12px rgba(0, 217, 255, 0.2)' }}
                     >
                       Ready to Share Your Story
                     </button>
