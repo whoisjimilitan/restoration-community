@@ -232,7 +232,6 @@ export default function Home() {
               <p>Walk with a man who's walked this road.</p>
               <p>Meet others walking in this journey.</p>
               <p className="pt-4 text-rc-text font-medium">Perhaps your testimony is next.</p>
-              <p className="text-rc-text font-medium">Jesus still delivers.</p>
             </div>
           </motion.div>
 
