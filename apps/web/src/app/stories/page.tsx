@@ -186,67 +186,90 @@ export default function TestimoniesPage() {
         </div>
       </section>
 
-      {/* Featured Story - Samuel's Deliverance */}
+      {/* Featured Story - Samuel's Deliverance (Full-Width Dark Cinematic) */}
       {testimonies.length > 0 && testimonies[0].isFeatured && (
-        <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
+        <section className="w-screen -mx-[calc(50vw-50%)] bg-gradient-to-br from-[#0F0F0F] to-[#1a1a1a]">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
             viewport={{ once: true, amount: 0.15 }}
-            className="max-w-5xl mx-auto"
+            className="w-full"
           >
-            <div className="group relative rounded-lg overflow-hidden bg-rc-text/5 border border-rc-border/20">
-              {/* Featured Image */}
-              <div className="aspect-video rounded-lg overflow-hidden bg-gradient-to-br from-rc-text/20 to-rc-text/5 relative">
-                <img
-                  src={testimonies[0].heroImage?.url}
-                  alt={testimonies[0].heroImage?.alt}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                />
+            {/* Video Hero */}
+            <div className="relative w-full aspect-video md:aspect-auto md:min-h-screen flex items-center justify-center overflow-hidden">
+              <img
+                src={testimonies[0].heroImage?.url}
+                alt={testimonies[0].heroImage?.alt}
+                className="absolute inset-0 w-full h-full object-cover"
+              />
 
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+              {/* Gradient Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
 
-                {/* Play Button */}
-                {testimonies[0].videoUrl && (
-                  <button
-                    onClick={() => setSelectedVideo(testimonies[0].videoUrl!)}
-                    className="absolute inset-0 flex items-center justify-center group/play hover:bg-black/40 transition-all duration-300"
-                  >
-                    <div className="w-20 h-20 rounded-full bg-white/90 flex items-center justify-center group-hover/play:bg-white group-hover/play:scale-110 transition-all duration-300 shadow-2xl">
-                      <svg className="w-8 h-8 text-rc-text ml-1" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M8 5v14l11-7z" />
-                      </svg>
-                    </div>
-                  </button>
-                )}
-
-                {/* Content Overlay */}
-                <div className="absolute bottom-0 left-0 right-0 p-8 md:p-12 space-y-4">
-                  <div>
-                    <p className="text-xs font-medium text-white/80 uppercase tracking-wider mb-3">Featured Story</p>
-                    <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-white leading-tight tracking-tight">
-                      {testimonies[0].name}
-                    </h2>
-                    <p className="text-base md:text-lg text-white/90 mt-3">{testimonies[0].role}</p>
+              {/* Play Button */}
+              {testimonies[0].videoUrl && (
+                <button
+                  onClick={() => setSelectedVideo(testimonies[0].videoUrl!)}
+                  className="relative z-10 group flex items-center justify-center hover:scale-110 transition-transform duration-300"
+                >
+                  <div className="w-24 h-24 rounded-full bg-white/95 flex items-center justify-center shadow-2xl group-hover:bg-white">
+                    <svg className="w-10 h-10 text-[#0F0F0F] ml-1" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
                   </div>
-
-                  <blockquote className="text-lg md:text-xl font-rc-serif italic text-white/95 leading-relaxed">
-                    &ldquo;{testimonies[0].quote}&rdquo;
-                  </blockquote>
-
-                  <p className="text-sm text-white/70">41 minutes • Watch the full confession</p>
-                </div>
-              </div>
+                </button>
+              )}
             </div>
 
-            {/* Synopsis */}
-            <div className="mt-12 max-w-3xl space-y-6">
-              <div className="space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
-                <p className="text-rc-text font-medium">The story:</p>
-                <p>{testimonies[0].story.split('\n')[0]}</p>
-                <p>{testimonies[0].story.split('\n')[1]}</p>
+            {/* Premium Content Section */}
+            <div className="relative px-6 sm:px-8 md:px-12 py-24 md:py-32">
+              <div className="max-w-2xl mx-auto space-y-16">
+                {/* Name & Role */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+                  viewport={{ once: true, amount: 0.15 }}
+                  className="space-y-6"
+                >
+                  <div className="space-y-4">
+                    <h2 className="text-4xl sm:text-5xl md:text-6xl font-rc-serif font-bold text-white leading-tight tracking-tight">
+                      {testimonies[0].name}
+                    </h2>
+                    <p className="text-lg md:text-xl text-white/80 font-light">
+                      {testimonies[0].role}
+                    </p>
+                  </div>
+
+                  <blockquote className="border-l-4 border-[#D4A574] pl-8 pt-2">
+                    <p className="text-xl md:text-2xl font-rc-serif italic text-white/95 leading-relaxed">
+                      &ldquo;{testimonies[0].quote}&rdquo;
+                    </p>
+                  </blockquote>
+                </motion.div>
+
+                {/* The Story */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.1 }}
+                  viewport={{ once: true, amount: 0.15 }}
+                  className="space-y-8"
+                >
+                  <div>
+                    <p className="text-xs font-medium text-white/60 uppercase tracking-widest mb-6">The Story</p>
+                    <div className="space-y-6 text-base md:text-lg text-white/85 leading-relaxed font-light">
+                      {testimonies[0].story.split('\n\n').map((paragraph, idx) => (
+                        <p key={idx}>{paragraph}</p>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="pt-8 border-t border-white/10">
+                    <p className="text-sm text-white/50">41 minutes • Full confession at The SCOAN</p>
+                  </div>
+                </motion.div>
               </div>
             </div>
           </motion.div>
