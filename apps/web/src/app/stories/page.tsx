@@ -213,7 +213,7 @@ export default function TestimoniesPage() {
                 <div className="space-y-3">
                   <div className="space-y-1">
                     <p className="text-base md:text-lg text-white/90 font-light">
-                      Jesus delivered Samuel from fraud
+                      Jesus also delivered Samuel from fraud
                     </p>
                     <h2 className="text-4xl sm:text-5xl md:text-6xl font-rc-serif font-bold text-white leading-tight">
                       through Prophet TB Joshua
