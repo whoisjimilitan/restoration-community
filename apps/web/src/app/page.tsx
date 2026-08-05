@@ -515,10 +515,10 @@ export default function Home() {
               {attendanceStep === 'form' && (
                 <div className="p-8 md:p-12">
                   <h2 className="text-2xl font-rc-serif font-bold text-rc-text mb-6">
-                    I'm Ready
+                    I'm attending live teaching with Brother Jimi
                   </h2>
                   <p className="text-rc-text/70 text-sm mb-6">
-                    Join us August 15 at 3pm SCOAN Accra for Truth Teaching.
+                    Friday, August 15 at 7:00 PM · Mango Farm, Abokobi
                   </p>
                   <form
                     onSubmit={async (e) => {
@@ -603,7 +603,8 @@ export default function Home() {
                       <button
                         type="submit"
                         disabled={isSubmittingAttendance}
-                        className="flex-1 px-6 py-3 bg-rc-accent text-white font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300 disabled:opacity-50"
+                        className="flex-1 px-6 py-3 bg-white text-rc-text font-medium border-2 border-rc-text/25 rounded-lg hover:-translate-y-0.5 hover:border-rc-text/40 hover:shadow-lg active:translate-y-0 transition-all duration-300 disabled:opacity-50"
+                        style={{ boxShadow: '0 0 12px rgba(26, 26, 24, 0.15)' }}
                       >
                         {isSubmittingAttendance ? 'Registering...' : 'I\'m Attending'}
                       </button>
@@ -628,7 +629,8 @@ export default function Home() {
                       setAttendanceStep('form');
                       setAttendanceData({ name: '', email: '', phone: '' });
                     }}
-                    className="mt-6 px-6 py-3 bg-rc-accent text-white font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300"
+                    className="mt-6 px-6 py-3 bg-white text-rc-text font-medium border-2 border-rc-text/30 rounded-lg hover:-translate-y-0.5 hover:border-rc-text/50 hover:shadow-lg active:translate-y-0 transition-all duration-300"
+                    style={{ boxShadow: '0 0 12px rgba(26, 26, 24, 0.15)' }}
                   >
                     Back to Page
                   </button>
