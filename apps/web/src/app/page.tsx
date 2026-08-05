@@ -183,12 +183,8 @@ export default function Home() {
           <StagesVisualization />
 
           <div className="space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
-            <p className="text-rc-text font-medium">Every journey is personal.</p>
-            <p>Through stages, His grace will teach you:</p>
-            <p className="text-rc-text font-medium">To see life clearly.</p>
-            <p>To live without fear.</p>
-            <p>To work honestly.</p>
-            <p>To build something that lasts.</p>
+            <p>Through stages, His grace will teach you to see life clearly.</p>
+            <p className="pt-4">Just as Jesus sees it.</p>
           </div>
         </motion.div>
       </section>
