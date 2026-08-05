@@ -121,8 +121,8 @@ export default function Home() {
             <div className="space-y-3 text-base md:text-lg text-white/90 leading-relaxed font-light">
               <p>Listen to the voice of God.</p>
               <p>Act upon it by faith.</p>
-              <p className="pt-4">What He did for me,</p>
-              <p className="text-white font-medium">He will do for you.</p>
+              <p className="pt-4">What the Lord did for me,</p>
+              <p className="text-white font-medium">He will do for you through me.</p>
             </div>
           </div>
 
@@ -134,7 +134,7 @@ export default function Home() {
               }}
               className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-white text-rc-text font-medium rounded-lg hover:bg-white/95 hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300"
             >
-              Book Deliverance
+              Request Deliverance
             </button>
             <a
               href="/stories"
