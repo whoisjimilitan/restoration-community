@@ -119,7 +119,7 @@ export default function Home() {
             <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight tracking-tight">Jesus is calling you.</h2>
 
             <div className="space-y-3 text-base md:text-lg text-white/90 leading-relaxed font-light">
-              <p>My brother and sister.</p>
+              <p>My brother. My sister.</p>
               <p>I urge you to listen intently.</p>
               <p className="pt-2">Act upon it by faith.</p>
               <p className="pt-4">What the Lord did for me,</p>
