@@ -212,19 +212,15 @@ export default function TestimoniesPage() {
             </blockquote>
 
             <div className="space-y-6 text-base md:text-lg text-rc-text/75 leading-relaxed font-light">
-              <p>He was trapped in internet fraud.</p>
-              <p>Known as Yahoo in Nigeria, Sakawa in Ghana.</p>
-              <p>He taught hundreds of young men his satanic tricks.</p>
+              <p>Samuel Johnson was a professional internet fraudster. Known in Nigeria as Yahoo and in Ghana as Sakawa. Demonically inspired to deceive, defraud, and destroy through the most advanced online tactics and methods.</p>
 
-              <p className="pt-4">Then Jesus found him at The SCOAN.</p>
-              <p>One prayer. One utterance.</p>
-              <p>Everything changed.</p>
+              <p>He was not just a local king of internet scamming. He taught hundreds of youngsters his satanic tricks.</p>
 
-              <p className="pt-4">His deliverance is complete.</p>
-              <p>The lessons run deep—not just for those in fraud,<br />but for anyone bound by spiritual deception.</p>
+              <p>Then he encountered Jesus Christ through prayer at The SCOAN.</p>
 
-              <p className="pt-4">Watch his full 41-minute confession.</p>
-              <p>See what Jesus does.</p>
+              <p>His deliverance is complete. There are many valuable lessons in his testimony - not just for those in fraud, but for anyone bound by spiritual deception.</p>
+
+              <p>Watch his full 41-minute confession to see what Jesus does.</p>
 
               <div className="pt-8 border-t border-rc-border/30">
                 <p className="text-sm text-rc-text/60">41 minutes • Full confession at The SCOAN</p>
