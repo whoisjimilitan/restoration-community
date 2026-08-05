@@ -32,9 +32,9 @@ const config: Config = {
         'rc-gold-light': '#E5D5C0', // Soft gold for accents
         'rc-warm-gray': '#EBE7E0', // Refined warm gray
         'rc-border': '#E0D9D0', // Premium border color
-        // Testimony aesthetic palette (transformation proof)
+        // Testimony aesthetic palette (Samuel's deliverance)
         'testimony-dark': '#0F0F0F', // Deep cinematic black
-        'testimony-cyan': '#00D9FF', // Bright transformation cyan
+        'testimony-accent': '#daedfc', // Soft reverent light blue
         'testimony-gold': '#D4A574', // Warm gold-rust accent
       },
       fontFamily: {

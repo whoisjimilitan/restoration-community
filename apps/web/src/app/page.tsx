@@ -59,7 +59,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* TRANSFORMATION PROOF */}
+      {/* SAMUEL'S DELIVERANCE - Before My Story */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-testimony-dark border-t border-testimony-gold/30">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -69,27 +69,33 @@ export default function Home() {
           className="max-w-2xl mx-auto space-y-12"
         >
           <div className="space-y-4">
-            <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-testimony-cyan leading-tight tracking-tight">
-              See what's possible
+            <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-testimony-accent leading-tight tracking-tight">
+              Before I share my story...
             </h2>
             <p className="text-base md:text-lg text-white/80 leading-relaxed font-light">
-              Here's what deliverance looks like. A life transformed. A spirit freed. This is the reality waiting for you.
+              Watch this. Samuel Johnson was a 'professional' internet fraudster—known in Nigeria as Yahoo and in Ghana as Sakawa. He was demonically inspired to deceive, defraud and destroy through the latest, most advanced online tactics and methods.
+            </p>
+            <p className="text-base md:text-lg text-white/80 leading-relaxed font-light pt-2">
+              He wasn't just a local 'king' of internet scamming. He taught hundreds of youngsters his satanic tricks.
+            </p>
+            <p className="text-base md:text-lg text-white/80 leading-relaxed font-light pt-2">
+              This is his remarkable deliverance at The SCOAN. After TB Joshua's prayer. Watch what Jesus did.
             </p>
           </div>
 
-          {/* Testimony Image */}
+          {/* Samuel's Testimony Video/Image */}
           <div className="w-full aspect-square md:aspect-video bg-gradient-to-br from-testimony-dark to-testimony-dark/80 rounded-lg overflow-hidden border border-testimony-gold/20 shadow-2xl">
             <img
               src="/images/testimony.png"
-              alt="Testimony of transformation and deliverance"
+              alt="Samuel's deliverance confession - The King of Internet Scamming"
               className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
             />
           </div>
 
           <div className="space-y-3 pt-4 border-t border-testimony-gold/20">
-            <p className="text-testimony-gold font-medium text-sm uppercase tracking-wider">Your Journey Begins Here</p>
+            <p className="text-testimony-accent font-medium text-sm uppercase tracking-wider">41 minutes | Watch the Full Confession</p>
             <p className="text-base md:text-lg text-white/90 leading-relaxed font-light">
-              This is not just inspiration. It's proof that what Jesus did for this believer, He will do for you. The same power that delivered this life is available to you right now.
+              This is not theory. This is what happens when someone demonically inspired encounters the power of Jesus through prayer. Samuel's deliverance is complete. There are many valuable lessons here. Not just for those in fraud. For anyone bound.
             </p>
           </div>
         </motion.div>
@@ -170,9 +176,9 @@ export default function Home() {
             <button
               onClick={() => {
                 setIsModalOpen(true);
-                setDeliverance({ step: 'video', need: '', duration: '', name: '', email: '', phone: '', submitted: false });
+                setDeliverance({ step: 1, need: '', duration: '', name: '', email: '', phone: '', submitted: false });
               }}
-              className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-testimony-cyan text-testimony-dark font-medium rounded-lg hover:bg-testimony-cyan/90 hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300"
+              className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-testimony-accent text-rc-text font-medium rounded-lg hover:bg-testimony-accent/90 hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300"
             >
               Request Deliverance
             </button>
@@ -303,57 +309,12 @@ export default function Home() {
               transition={{ duration: 0.3 }}
               className="bg-rc-bg rounded-lg shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto"
             >
-              {/* Video Step */}
-              {deliverance.step === 'video' && (
-                <div className="p-8 md:p-12 space-y-6">
-                  <div className="space-y-2">
-                    <h2 className="text-2xl md:text-3xl font-rc-serif font-bold text-rc-text tracking-tight">
-                      See What's Possible
-                    </h2>
-                    <p className="text-rc-text/70 text-sm">Watch someone's deliverance story</p>
-                  </div>
-
-                  <div className="w-full aspect-video bg-rc-bg rounded-lg overflow-hidden">
-                    <iframe
-                      width="100%"
-                      height="100%"
-                      src="https://www.youtube.com/embed/bKJCcWQVuq8?autoplay=1&mute=1"
-                      frameBorder="0"
-                      allow="autoplay; fullscreen"
-                      allowFullScreen
-                      style={{ border: 'none' }}
-                    ></iframe>
-                  </div>
-
-                  <div className="flex gap-3">
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setIsModalOpen(false);
-                        setDeliverance({ step: 'video', need: '', duration: '', name: '', email: '', phone: '', submitted: false });
-                      }}
-                      className="px-6 py-3 text-rc-text/70 hover:text-rc-text transition-colors"
-                    >
-                      Not Now
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => setDeliverance({ ...deliverance, step: 1 })}
-                      className="flex-1 px-6 py-3 bg-testimony-cyan text-testimony-dark font-medium border-2 border-testimony-cyan/40 rounded-lg hover:-translate-y-0.5 hover:border-testimony-cyan/60 hover:shadow-lg transition-all duration-300"
-                      style={{ boxShadow: '0 0 12px rgba(0, 217, 255, 0.2)' }}
-                    >
-                      Ready to Share Your Story
-                    </button>
-                  </div>
-                </div>
-              )}
-
               {/* Step 1: Need */}
               {deliverance.step === 1 && (
                 <div className="p-8 md:p-12 space-y-6">
                   <div className="space-y-2">
                     <h2 className="text-2xl md:text-3xl font-rc-serif font-bold text-rc-text tracking-tight">
-                      Request Deliverance
+                      Your Prayer Request
                     </h2>
                     <p className="text-rc-text/70 text-sm">Step 1 of 3</p>
                   </div>
@@ -369,14 +330,14 @@ export default function Home() {
                   >
                     <div className="space-y-2">
                       <label className="block text-sm font-medium text-rc-text/70">
-                        What do you need from Jesus Christ?
+                        What do you need deliverance from?
                       </label>
                       <textarea
                         required
                         value={deliverance.need}
                         onChange={(e) => setDeliverance({ ...deliverance, need: e.target.value })}
                         className="w-full px-4 py-3 border border-rc-border rounded-lg focus:outline-none focus:border-rc-accent/60 transition-colors bg-white text-rc-text resize-none"
-                        placeholder="Be honest about what you need..."
+                        placeholder="Be honest. What spiritual bondage do you need Jesus to break?"
                         rows={4}
                       />
                     </div>
@@ -460,9 +421,9 @@ export default function Home() {
                 <div className="p-8 md:p-12 space-y-6">
                   <div className="space-y-2">
                     <h2 className="text-2xl md:text-3xl font-rc-serif font-bold text-rc-text tracking-tight">
-                      Let's Connect
+                      How to Reach You
                     </h2>
-                    <p className="text-rc-text/70 text-sm">Step 3 of 3 - We'll reach out via WhatsApp</p>
+                    <p className="text-rc-text/70 text-sm">Step 3 of 3 - We'll pray for you and reach out via WhatsApp</p>
                   </div>
 
                   <form
@@ -564,7 +525,7 @@ export default function Home() {
                     Request Received
                   </h3>
                   <p className="text-rc-text/70">
-                    We'll reach out via WhatsApp soon to walk with you through this journey.
+                    We will pray for your deliverance. Expect contact via WhatsApp to walk this journey with you.
                   </p>
                   <button
                     onClick={() => {
