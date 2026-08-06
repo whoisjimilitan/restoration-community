@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { AnimatePresence } from 'framer-motion';
 
@@ -161,12 +160,12 @@ export default function Home() {
             >
               Request Deliverance
             </button>
-            <Link
+            <a
               href="/stories"
               className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] text-white font-medium border border-white/60 rounded-lg hover:border-white hover:bg-white/10 hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300"
             >
               Watch Samuel's Encounter
-            </Link>
+            </a>
           </div>
         </motion.div>
       </section>
@@ -559,34 +558,34 @@ export default function Home() {
         <div className="max-w-2xl mx-auto space-y-6">
           {/* Navigation Links */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 flex-wrap">
-            <Link
+            <a
               href="/"
               className="text-white/80 hover:text-white transition-colors group text-sm"
             >
               Home
               <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
-            </Link>
-            <Link
+            </a>
+            <a
               href="/stories"
               className="text-white/80 hover:text-white transition-colors group text-sm"
             >
               Stories
               <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
-            </Link>
-            <Link
+            </a>
+            <a
               href="/gathering"
               className="text-white/80 hover:text-white transition-colors group text-sm"
             >
               Gathering
               <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
-            </Link>
-            <Link
+            </a>
+            <a
               href="/journey"
               className="text-white/80 hover:text-white transition-colors group text-sm"
             >
               Journey
               <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
-            </Link>
+            </a>
           </div>
 
           {/* Copyright Only */}
