@@ -202,12 +202,12 @@ export default function StoriesPage() {
           className="max-w-2xl mx-auto space-y-8"
         >
           <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-white leading-tight tracking-tight">
-            You read my story.
+            You read my own story.
           </h2>
 
           <div className="space-y-2 text-base md:text-lg text-white/90 leading-relaxed font-light">
-            <p>You watched Samuel's story.</p>
-            <p className="pt-6">Now watch yours begin.</p>
+            <p>You watched Samuel's own.</p>
+            <p className="pt-6">Now see yours begin.</p>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 pt-8">
