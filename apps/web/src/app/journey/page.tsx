@@ -32,8 +32,14 @@ export default function JourneyPage() {
 
   if (status === 'loading') {
     return (
-      <div className="w-full min-h-screen bg-rc-bg flex items-center justify-center">
-        <div className="text-rc-text/60">Loading your journey...</div>
+      <div className="bg-rc-bg text-rc-text min-h-screen">
+        <section className="w-full min-h-screen flex flex-col justify-center bg-gradient-to-br from-rc-accent to-rc-text px-6 sm:px-8 md:px-12 py-24 md:py-32">
+          <div className="max-w-2xl mx-auto w-full space-y-6">
+            <div className="h-4 bg-white/20 rounded w-32 animate-pulse"></div>
+            <div className="h-12 bg-white/20 rounded w-64 animate-pulse"></div>
+            <div className="h-6 bg-white/20 rounded w-48 animate-pulse"></div>
+          </div>
+        </section>
       </div>
     );
   }
@@ -82,60 +88,6 @@ export default function JourneyPage() {
         </div>
       </section>
 
-      {/* STAGE PROGRESSION */}
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border/30">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
-          viewport={{ once: true, amount: 0.15 }}
-          className="max-w-4xl mx-auto space-y-12"
-        >
-          <div className="space-y-4">
-            <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">
-              Your Path
-            </h2>
-            <p className="text-base text-rc-text/70 font-light">
-              Seven stages. One week each. A complete restoration.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {stages.map((stage) => (
-              <motion.div
-                key={stage.number}
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: stage.number * 0.05, ease: [0.25, 0.46, 0.45, 0.94] }}
-                viewport={{ once: true }}
-                className={`p-6 rounded-lg border transition-all duration-300 ${
-                  stage.number === currentStage
-                    ? 'bg-rc-accent/10 border-rc-accent'
-                    : stage.number < currentStage
-                    ? 'bg-rc-warm-gray border-rc-border/30'
-                    : 'bg-rc-bg border-rc-border/20'
-                }`}
-              >
-                <div className="space-y-2">
-                  <div className="flex items-center gap-3">
-                    <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium ${
-                      stage.number === currentStage
-                        ? 'bg-rc-accent text-white'
-                        : stage.number < currentStage
-                        ? 'bg-rc-accent/70 text-white'
-                        : 'bg-rc-border/30 text-rc-text/60'
-                    }`}>
-                      {stage.number < currentStage ? '✓' : stage.number}
-                    </div>
-                    <h3 className="text-lg font-rc-serif font-bold text-rc-text">{stage.name}</h3>
-                  </div>
-                  <p className="text-sm text-rc-text/70 font-light">{stage.description}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-      </section>
 
       {/* CURRENT STAGE REFLECTION */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border/30">
