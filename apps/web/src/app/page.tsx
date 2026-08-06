@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { AnimatePresence } from 'framer-motion';
 
@@ -37,17 +38,17 @@ export default function Home() {
       {/* HERO */}
       <section className="w-full min-h-screen flex flex-col justify-center bg-gradient-to-br from-rc-accent to-rc-text px-6 sm:px-8 md:px-12 py-24 md:py-32">
         <div className="max-w-2xl mx-auto w-full space-y-6">
-          <div className={`transform transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '120ms' }}>
+          <div className={`transform transition-all duration-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '0ms' }}>
             <p className="text-xs font-medium text-white/70 uppercase tracking-wider">For Young People In A Hurry</p>
           </div>
 
-          <div className={`transform transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '240ms' }}>
+          <div className={`transform transition-all duration-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '80ms' }}>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight tracking-tight">
               You were made for something far better.
             </h1>
           </div>
 
-          <div className={`transform transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '360ms' }}>
+          <div className={`transform transition-all duration-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '160ms' }}>
             <div className="space-y-3 text-base md:text-lg text-white/90 leading-relaxed font-light">
               <p>Fraud promised you freedom.</p>
               <p>But gave you a version without peace.</p>
@@ -63,7 +64,7 @@ export default function Home() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
           viewport={{ once: true, amount: 0.15 }}
           className="max-w-2xl mx-auto space-y-12"
         >
@@ -87,7 +88,7 @@ export default function Home() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
           viewport={{ once: true, amount: 0.15 }}
           className="max-w-2xl mx-auto space-y-12"
         >
@@ -111,7 +112,7 @@ export default function Home() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
           viewport={{ once: true, amount: 0.15 }}
           className="max-w-2xl mx-auto space-y-12"
         >
@@ -135,7 +136,7 @@ export default function Home() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
           viewport={{ once: true, amount: 0.15 }}
           className="max-w-2xl mx-auto space-y-12"
         >
@@ -160,12 +161,12 @@ export default function Home() {
             >
               Request Deliverance
             </button>
-            <a
+            <Link
               href="/stories"
               className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] text-white font-medium border border-white/60 rounded-lg hover:border-white hover:bg-white/10 hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300"
             >
               Watch Samuel's Encounter
-            </a>
+            </Link>
           </div>
         </motion.div>
       </section>
@@ -238,7 +239,7 @@ export default function Home() {
                 <div className="p-8 md:p-12 space-y-6">
                   <div className="space-y-2">
                     <h2 className="text-2xl md:text-3xl font-rc-serif font-bold text-rc-text tracking-tight">
-                      Book Deliverance
+                      Tell us more
                     </h2>
                     <p className="text-rc-text/70 text-sm">Step 2 of 3</p>
                   </div>
@@ -558,48 +559,34 @@ export default function Home() {
         <div className="max-w-2xl mx-auto space-y-6">
           {/* Navigation Links */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 flex-wrap">
-            <a
+            <Link
               href="/"
               className="text-white/80 hover:text-white transition-colors group text-sm"
             >
               Home
               <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
-            </a>
-            <a
+            </Link>
+            <Link
               href="/stories"
               className="text-white/80 hover:text-white transition-colors group text-sm"
             >
               Stories
               <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
-            </a>
-            <a
+            </Link>
+            <Link
               href="/gathering"
               className="text-white/80 hover:text-white transition-colors group text-sm"
             >
-              The Gathering
+              Gathering
               <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
-            </a>
-            <a
-              href="/what-is-deliverance"
+            </Link>
+            <Link
+              href="/journey"
               className="text-white/80 hover:text-white transition-colors group text-sm"
             >
-              What is Deliverance
+              Journey
               <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
-            </a>
-            <a
-              href="/partnership"
-              className="text-white/80 hover:text-white transition-colors group text-sm"
-            >
-              Partnership
-              <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
-            </a>
-            <a
-              href="/auth/signin"
-              className="text-white/80 hover:text-white transition-colors group text-sm"
-            >
-              Your Journey
-              <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
-            </a>
+            </Link>
           </div>
 
           {/* Copyright Only */}

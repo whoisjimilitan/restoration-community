@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 
 interface StoryCard {
@@ -211,19 +212,19 @@ export default function StoriesPage() {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 pt-8">
-            <a
+            <Link
               href="/gathering"
               className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-white text-rc-text font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-200"
             >
               Attend the Gathering
-            </a>
+            </Link>
 
-            <a
+            <Link
               href="/journey"
               className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] text-white font-medium border border-white/60 rounded-lg hover:border-white hover:bg-white/10 hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-200"
             >
               Learn The Journey
-            </a>
+            </Link>
           </div>
         </motion.div>
       </section>
@@ -231,21 +232,35 @@ export default function StoriesPage() {
       {/* Footer */}
       <footer className="w-full px-6 sm:px-8 md:px-12 py-8 bg-rc-text border-t border-rc-border text-center">
         <div className="max-w-2xl mx-auto space-y-6">
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-12">
-            <a
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 flex-wrap">
+            <Link
               href="/"
               className="text-white/80 hover:text-white transition-colors group text-sm"
             >
               Home
               <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
-            </a>
-            <a
+            </Link>
+            <Link
               href="/stories"
               className="text-white/80 hover:text-white transition-colors group text-sm"
             >
               Stories
               <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
-            </a>
+            </Link>
+            <Link
+              href="/gathering"
+              className="text-white/80 hover:text-white transition-colors group text-sm"
+            >
+              Gathering
+              <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
+            </Link>
+            <Link
+              href="/journey"
+              className="text-white/80 hover:text-white transition-colors group text-sm"
+            >
+              Journey
+              <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
+            </Link>
           </div>
 
           <p className="text-white/40 text-xs">© 2026. All rights reserved.</p>
@@ -257,10 +272,10 @@ export default function StoriesPage() {
         {selectedVideo && (
           <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center px-4">
             <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.95 }}
-              transition={{ duration: 0.3 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.15 }}
               className="relative w-full max-w-4xl"
             >
               <button
