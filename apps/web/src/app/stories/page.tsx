@@ -66,11 +66,10 @@ export default function StoriesPage() {
           </div>
 
           <div className={`transform transition-all duration-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '80ms' }}>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight tracking-tight">
-              Not stories of shame.
-              <br />
-              Stories of freedom.
-            </h1>
+            <div className="space-y-3">
+              <p className="text-3xl sm:text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight tracking-tight">Not stories of shame.</p>
+              <p className="text-3xl sm:text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight tracking-tight">Stories of Jesus Christ.</p>
+            </div>
           </div>
 
           <div className={`transform transition-all duration-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '160ms' }}>
@@ -246,20 +245,14 @@ export default function StoriesPage() {
               Stories
               <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
             </a>
-            <a
-              href="/gathering"
-              className="text-white/80 hover:text-white transition-colors group text-sm"
-            >
+            <div className="text-white/40 group text-sm cursor-not-allowed">
               Gathering
-              <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
-            </a>
-            <a
-              href="/journey"
-              className="text-white/80 hover:text-white transition-colors group text-sm"
-            >
+              <span className="block h-px w-0 bg-white transition-all duration-300 mt-1"></span>
+            </div>
+            <div className="text-white/40 group text-sm cursor-not-allowed">
               Journey
-              <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
-            </a>
+              <span className="block h-px w-0 bg-white transition-all duration-300 mt-1"></span>
+            </div>
           </div>
 
           <p className="text-white/40 text-xs">© 2026. All rights reserved.</p>

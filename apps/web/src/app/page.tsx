@@ -531,20 +531,14 @@ export default function Home() {
               Stories
               <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
             </a>
-            <a
-              href="/gathering"
-              className="text-white/80 hover:text-white transition-colors group text-sm"
-            >
+            <div className="text-white/40 group text-sm cursor-not-allowed">
               Gathering
-              <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
-            </a>
-            <a
-              href="/journey"
-              className="text-white/80 hover:text-white transition-colors group text-sm"
-            >
+              <span className="block h-px w-0 bg-white transition-all duration-300 mt-1"></span>
+            </div>
+            <div className="text-white/40 group text-sm cursor-not-allowed">
               Journey
-              <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
-            </a>
+              <span className="block h-px w-0 bg-white transition-all duration-300 mt-1"></span>
+            </div>
           </div>
 
           {/* Copyright Only */}

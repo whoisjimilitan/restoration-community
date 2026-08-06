@@ -25,14 +25,17 @@ export default function GatheringPage() {
 
           <div className={`transform transition-all duration-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '80ms' }}>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight tracking-tight">
-              Experience the journey together.
+              Experience the journey together in Christ.
             </h1>
           </div>
 
           <div className={`transform transition-all duration-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '160ms' }}>
-            <p className="text-base md:text-lg text-white/90 leading-relaxed font-light">
-              Live teaching. Prayer. Community. The roadmap becomes real.
-            </p>
+            <div className="space-y-2 text-base md:text-lg text-white/90 leading-relaxed font-light">
+              <p>Prayer.</p>
+              <p>Discipleship.</p>
+              <p>Counselling.</p>
+              <p className="pt-2">The roadmap becomes real.</p>
+            </div>
           </div>
         </div>
       </section>
@@ -53,7 +56,7 @@ export default function GatheringPage() {
             <p className="text-base text-rc-text/70 font-light">
               Friday, August 15, 2025 · 7:00 PM
               <br />
-              Mango Farm, Abokobi · SCOAN Accra, Ghana
+              Mango Farm, Abokobi
             </p>
           </div>
 
@@ -85,28 +88,28 @@ export default function GatheringPage() {
             <div className="space-y-3 border-l-4 border-rc-accent pl-8">
               <p className="text-sm font-medium text-rc-text uppercase tracking-wide">Teaching</p>
               <p className="text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
-                Brother Jimi teaches the roadmap live. Real instruction. Real encounter.
+                Brother Jimi teaches the seven-stage roadmap for restoration in Christ.
               </p>
             </div>
 
             <div className="space-y-3 border-l-4 border-rc-accent pl-8">
               <p className="text-sm font-medium text-rc-text uppercase tracking-wide">Prayer</p>
               <p className="text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
-                Corporate prayer. This is where deliverance happens. Not words. Experience.
+                Corporate prayer where Jesus Christ ministers deliverance.
               </p>
             </div>
 
             <div className="space-y-3 border-l-4 border-rc-accent pl-8">
-              <p className="text-sm font-medium text-rc-text uppercase tracking-wide">Community</p>
+              <p className="text-sm font-medium text-rc-text uppercase tracking-wide">Discipleship</p>
               <p className="text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
-                Walk with people who understand your journey. Real support. Real family.
+                Walk with others who are following Christ through restoration.
               </p>
             </div>
 
             <div className="space-y-3 border-l-4 border-rc-accent pl-8">
-              <p className="text-sm font-medium text-rc-text uppercase tracking-wide">Witness</p>
+              <p className="text-sm font-medium text-rc-text uppercase tracking-wide">Counselling</p>
               <p className="text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
-                See what Jesus does. Hear from people who've been delivered. Know it's possible.
+                Hear from those who have encountered Jesus Christ and been transformed.
               </p>
             </div>
           </div>
@@ -127,7 +130,7 @@ export default function GatheringPage() {
           </h2>
 
           <p className="text-base md:text-lg text-white/90 leading-relaxed font-light">
-            You won't be alone. You'll be with people who understand.
+            Jesus Christ is waiting for you.
           </p>
 
           <button
@@ -154,14 +157,14 @@ export default function GatheringPage() {
               Stories
               <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
             </a>
-            <a href="/gathering" className="text-white/80 hover:text-white transition-colors group text-sm">
+            <div className="text-white/40 group text-sm cursor-not-allowed">
               Gathering
-              <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
-            </a>
-            <a href="/journey" className="text-white/80 hover:text-white transition-colors group text-sm">
+              <span className="block h-px w-0 bg-white transition-all duration-300 mt-1"></span>
+            </div>
+            <div className="text-white/40 group text-sm cursor-not-allowed">
               Journey
-              <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
-            </a>
+              <span className="block h-px w-0 bg-white transition-all duration-300 mt-1"></span>
+            </div>
           </div>
           <p className="text-white/40 text-xs">© 2026. All rights reserved.</p>
         </div>
