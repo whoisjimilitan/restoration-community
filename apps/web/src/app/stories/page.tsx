@@ -206,7 +206,7 @@ export default function StoriesPage() {
           </h2>
 
           <div className="space-y-2 text-base md:text-lg text-white/90 leading-relaxed font-light">
-            <p>You watched Samuel's own.</p>
+            <p>You watched Samuel's story.</p>
             <p className="pt-6">Now see yours begin.</p>
           </div>
 
