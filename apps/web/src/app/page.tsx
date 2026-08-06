@@ -97,37 +97,59 @@ export default function Home() {
             <p>In 2015.</p>
             <p>Jesus used Prophet TB Joshua.</p>
             <p>To pray for me in His name.</p>
-            <p className="pt-2 text-rc-text font-medium">Just one utterance: "All that is over."</p>
-            <p className="pt-4">The spirit of waste expelled.</p>
-            <p>The spirit of fantasy gone.</p>
-            <p>Delusion shattered.</p>
+            <p className="pt-2 text-rc-text font-medium">One utterance: "All that is over."</p>
+            <p className="pt-4">The pull for wastefulness left.</p>
+            <p>The grip of fantasy broken.</p>
+            <p>My delusion disappeared.</p>
             <p>My curses undone.</p>
           </div>
         </motion.div>
       </section>
 
-      {/* THE DIVINE CALL */}
+      {/* SAMUEL JOHNSON'S ENCOUNTER */}
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          viewport={{ once: true, amount: 0.15 }}
+          className="max-w-2xl mx-auto space-y-12"
+        >
+          <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">Samuel Johnson's Encounter</h2>
+
+          <div className="space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light border-l-4 border-rc-accent pl-8">
+            <p>In 2015.</p>
+            <p>Samuel was a professional fraudster.</p>
+            <p>He taught hundreds his tricks.</p>
+            <p className="pt-2">One encounter with Jesus Christ.</p>
+            <p>Things left him.</p>
+            <p className="pt-4">His identity restored.</p>
+            <p>His purpose clear.</p>
+          </div>
+        </motion.div>
+      </section>
+
+      {/* THE CALL */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-gradient-to-br from-rc-accent to-rc-text border-t border-rc-border">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
           viewport={{ once: true, amount: 0.15 }}
-          className="max-w-2xl mx-auto space-y-16"
+          className="max-w-2xl mx-auto space-y-12"
         >
-          <div className="space-y-10">
-            <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight tracking-tight">Jesus is calling you.</h2>
+          <div className="space-y-8">
+            <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight tracking-tight">Trapped doesn't mean hopeless.</h2>
 
-            <div className="space-y-3 text-base md:text-lg text-white/90 leading-relaxed font-light">
-              <p>My brother and sister.</p>
-              <p>I urge you to listen intently.</p>
-              <p className="pt-2">Act upon it by faith.</p>
-              <p className="pt-4">What the Lord did for me,</p>
-              <p className="text-white font-medium">He will do for you.</p>
+            <div className="space-y-4 text-base md:text-lg text-white/90 leading-relaxed font-light">
+              <p>He delivered me.</p>
+              <p>He delivered Samuel.</p>
+              <p>He is ready to deliver you.</p>
+              <p className="pt-2">All you have to do is ask.</p>
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 pt-8">
+          <div className="flex flex-col sm:flex-row gap-4 pt-4">
             <button
               onClick={() => {
                 setIsModalOpen(true);
@@ -141,9 +163,22 @@ export default function Home() {
               href="/stories"
               className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] text-white font-medium border border-white/60 rounded-lg hover:border-white hover:bg-white/10 hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300"
             >
-              Brother Samuel's Deliverance
+              Watch Samuel's Deliverance
             </a>
           </div>
+        </motion.div>
+      </section>
+
+      {/* YOU ARE NOT STUCK */}
+      <section className="w-full py-16 md:py-24 px-6 sm:px-8 md:px-12 bg-gradient-to-br from-rc-accent to-rc-text border-t border-rc-border">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          viewport={{ once: true, amount: 0.15 }}
+          className="max-w-2xl mx-auto text-center"
+        >
+          <p className="text-2xl md:text-3xl font-rc-serif font-bold text-white">You are not stuck.</p>
         </motion.div>
       </section>
 
