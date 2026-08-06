@@ -86,74 +86,53 @@ export default function JourneyPage() {
               Welcome back, {session?.user?.name || 'friend'}. You're on stage {currentStage} of 7.
             </p>
           </div>
-        </div>
-      </section>
 
-      {/* YOUR PROGRESS */}
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border/30">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
-          viewport={{ once: true, amount: 0.15 }}
-          className="max-w-2xl mx-auto space-y-8"
-        >
-          <div className="space-y-4">
-            <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">
-              Your Progress
-            </h2>
-            <p className="text-base text-rc-text/70 font-light">
-              You're currently in <span className="font-semibold text-rc-accent">{stages[currentStage - 1].name}</span>. Keep walking toward freedom.
-            </p>
-          </div>
-
-          <div className="space-y-6">
-            {/* Progress Bar */}
-            <div className="space-y-2">
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-sm font-medium text-rc-text">Progress</span>
-                <span className="text-sm font-medium text-rc-text">{Math.round((currentStage / 7) * 100)}%</span>
+          {/* Progress Visualization - Bottom of Hero */}
+          <div className={`transform transition-all duration-600 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '240ms' }}>
+            <div className="pt-12 space-y-4 border-t border-white/20">
+              {/* Progress Bar */}
+              <div className="space-y-2">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-xs font-medium text-white/70">Progress</span>
+                  <span className="text-xs font-medium text-white/70">{Math.round((currentStage / 7) * 100)}%</span>
+                </div>
+                <div className="w-full h-2 bg-white/20 rounded-full overflow-hidden">
+                  <motion.div
+                    className="h-full bg-white rounded-full"
+                    initial={{ width: 0 }}
+                    animate={{ width: isLoaded ? `${(currentStage / 7) * 100}%` : 0 }}
+                    transition={{ duration: 0.8, type: 'spring', damping: 30, stiffness: 120 }}
+                  />
+                </div>
               </div>
-              <div className="w-full h-3 bg-rc-warm-gray rounded-full overflow-hidden">
-                <motion.div
-                  className="h-full bg-rc-accent rounded-full"
-                  initial={{ width: 0 }}
-                  animate={{ width: `${(currentStage / 7) * 100}%` }}
-                  transition={{ duration: 0.8, type: 'spring', damping: 30, stiffness: 120 }}
-                />
-              </div>
-            </div>
 
-            {/* Stage Grid */}
-            <div className="grid grid-cols-7 gap-2">
-              {stages.map((stage, index) => (
-                <motion.div
-                  key={stage.number}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.4, delay: index * 0.05 }}
-                  className="flex flex-col items-center"
-                >
-                  <div
+              {/* Stage Grid */}
+              <div className="grid grid-cols-7 gap-2">
+                {stages.map((stage, index) => (
+                  <motion.div
+                    key={stage.number}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: isLoaded ? 1 : 0, scale: isLoaded ? 1 : 0.8 }}
+                    transition={{ duration: 0.4, delay: index * 0.05 }}
                     className={`
-                      w-10 h-10 rounded-lg flex items-center justify-center
-                      text-sm font-semibold transition-all duration-200
+                      w-8 h-8 md:w-10 md:h-10 rounded-lg flex items-center justify-center
+                      text-xs md:text-sm font-semibold transition-all duration-200
                       ${
                         stage.number < currentStage
-                          ? 'bg-rc-accent text-white'
+                          ? 'bg-white text-rc-accent'
                           : stage.number === currentStage
-                            ? 'bg-rc-accent text-white ring-2 ring-rc-accent ring-offset-2'
-                            : 'bg-rc-warm-gray text-rc-text'
+                            ? 'bg-white text-rc-accent ring-2 ring-white ring-offset-2 ring-offset-rc-accent'
+                            : 'bg-white/20 text-white'
                       }
                     `}
                   >
                     {stage.number < currentStage ? '✓' : stage.number}
-                  </div>
-                </motion.div>
-              ))}
+                  </motion.div>
+                ))}
+              </div>
             </div>
           </div>
-        </motion.div>
+        </div>
       </section>
 
       {/* CURRENT STAGE REFLECTION */}
