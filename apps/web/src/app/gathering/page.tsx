@@ -1,213 +1,165 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 export default function GatheringPage() {
+  const [isLoaded, setIsLoaded] = useState(false);
   const [isAttendanceModalOpen, setIsAttendanceModalOpen] = useState(false);
-  const [attendanceStep, setAttendanceStep] = useState<'form' | 'complete'>('form');
   const [attendanceData, setAttendanceData] = useState({ name: '', email: '', phone: '' });
   const [isSubmittingAttendance, setIsSubmittingAttendance] = useState(false);
+  const [attendanceStep, setAttendanceStep] = useState<'form' | 'complete'>('form');
+
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []);
 
   return (
     <div className="bg-rc-bg text-rc-text">
-      {/* HERO SECTION */}
+      {/* HERO */}
       <section className="w-full min-h-screen flex flex-col justify-center bg-gradient-to-br from-rc-accent to-rc-text px-6 sm:px-8 md:px-12 py-24 md:py-32">
-        <div className="max-w-3xl mx-auto w-full space-y-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
-          >
-            <p className="text-xs font-medium text-white/60 uppercase tracking-wider">Our Gathering</p>
-          </motion.div>
+        <div className="max-w-2xl mx-auto w-full space-y-6">
+          <div className={`transform transition-all duration-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '0ms' }}>
+            <p className="text-xs font-medium text-white/70 uppercase tracking-wider">Our Gathering</p>
+          </div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="text-4xl sm:text-5xl md:text-6xl font-rc-serif font-bold text-white leading-tight tracking-tight"
-          >
-            Experience The Roadmap as Teaching
-          </motion.h1>
+          <div className={`transform transition-all duration-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '80ms' }}>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight tracking-tight">
+              Experience the journey together.
+            </h1>
+          </div>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="text-lg md:text-xl text-white/80 leading-relaxed font-light"
-          >
-            Attend live instruction. Walk with others who understand. Experience real community.
-          </motion.p>
+          <div className={`transform transition-all duration-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '160ms' }}>
+            <p className="text-base md:text-lg text-white/90 leading-relaxed font-light">
+              Live teaching. Prayer. Community. The roadmap becomes real.
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* WHAT YOU'LL EXPERIENCE */}
+      {/* WHEN & WHERE */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border/30">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
           viewport={{ once: true, amount: 0.15 }}
-          className="max-w-2xl mx-auto space-y-12"
+          className="max-w-2xl mx-auto space-y-16"
         >
-          <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">
-            What You'll Experience
-          </h2>
-
-          <div className="space-y-8">
-            <div className="space-y-3">
-              <h3 className="text-xl font-rc-serif font-bold text-rc-text">Teaching</h3>
-              <p className="text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
-                Brother Jimi teaches live from The Roadmap. Real instruction. Real truth. Real transformation.
-              </p>
-            </div>
-
-            <div className="space-y-3">
-              <h3 className="text-xl font-rc-serif font-bold text-rc-text">Prayer</h3>
-              <p className="text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
-                Corporate prayer. Encounter with the Holy Spirit. This is where deliverance happens.
-              </p>
-            </div>
-
-            <div className="space-y-3">
-              <h3 className="text-xl font-rc-serif font-bold text-rc-text">Community</h3>
-              <p className="text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
-                Walk with people who are on the same journey. Real support. Real understanding. Real family.
-              </p>
-            </div>
-
-            <div className="space-y-3">
-              <h3 className="text-xl font-rc-serif font-bold text-rc-text">Testimony</h3>
-              <p className="text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
-                Hear from people who've been delivered. See what Jesus does. Know it's possible for you.
-              </p>
-            </div>
+          <div className="space-y-4">
+            <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">
+              When & Where
+            </h2>
+            <p className="text-base text-rc-text/70 font-light">
+              Friday, August 15, 2025 · 7:00 PM
+              <br />
+              Mango Farm, Abokobi · SCOAN Accra, Ghana
+            </p>
           </div>
+
+          <a
+            href="https://maps.google.com/?q=Mango+Farm+Abokobi"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-rc-accent text-white font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-200"
+          >
+            Get Directions
+          </a>
         </motion.div>
       </section>
 
-      {/* WHEN & WHERE */}
+      {/* WHAT YOU'LL EXPERIENCE */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border/30">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
           viewport={{ once: true, amount: 0.15 }}
           className="max-w-2xl mx-auto space-y-12"
         >
-          <div className="space-y-4">
-            <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">
-              When & Where
-            </h2>
-          </div>
+          <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">
+            What Happens Here
+          </h2>
 
           <div className="space-y-8">
-            <div className="space-y-3">
-              <p className="text-sm font-medium text-rc-text uppercase tracking-wide">Date & Time</p>
-              <p className="text-2xl md:text-3xl font-rc-serif font-bold text-rc-text">
-                Friday, August 15
-              </p>
-              <p className="text-lg md:text-xl text-rc-text/70 font-light">
-                7:00 PM
+            <div className="space-y-3 border-l-4 border-rc-accent pl-8">
+              <p className="text-sm font-medium text-rc-text uppercase tracking-wide">Teaching</p>
+              <p className="text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
+                Brother Jimi teaches the roadmap live. Real instruction. Real encounter.
               </p>
             </div>
 
-            <div className="space-y-3">
-              <p className="text-sm font-medium text-rc-text uppercase tracking-wide">Location</p>
-              <p className="text-lg md:text-xl text-rc-text font-medium">
-                Mango Farm, Abokobi
-              </p>
-              <p className="text-base text-rc-text/70 font-light">
-                SCOAN Accra, Ghana
+            <div className="space-y-3 border-l-4 border-rc-accent pl-8">
+              <p className="text-sm font-medium text-rc-text uppercase tracking-wide">Prayer</p>
+              <p className="text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
+                Corporate prayer. This is where deliverance happens. Not words. Experience.
               </p>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 pt-8">
-              <a
-                href="https://maps.google.com/?q=Mango+Farm+Abokobi"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-rc-bg text-rc-text font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg transition-all duration-300 group"
-              >
-                Get Directions
-                <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </a>
+            <div className="space-y-3 border-l-4 border-rc-accent pl-8">
+              <p className="text-sm font-medium text-rc-text uppercase tracking-wide">Community</p>
+              <p className="text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
+                Walk with people who understand your journey. Real support. Real family.
+              </p>
+            </div>
 
-              <button
-                onClick={() => {
-                  setAttendanceStep('form');
-                  setIsAttendanceModalOpen(true);
-                }}
-                className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-white text-rc-text font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300"
-              >
-                I'm Attending
-              </button>
+            <div className="space-y-3 border-l-4 border-rc-accent pl-8">
+              <p className="text-sm font-medium text-rc-text uppercase tracking-wide">Witness</p>
+              <p className="text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
+                See what Jesus does. Hear from people who've been delivered. Know it's possible.
+              </p>
             </div>
           </div>
         </motion.div>
       </section>
 
-      {/* WHO'S THERE */}
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border/30">
+      {/* CTA */}
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-gradient-to-br from-rc-accent to-rc-text border-t border-rc-border">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
           viewport={{ once: true, amount: 0.15 }}
-          className="max-w-2xl mx-auto space-y-12"
+          className="max-w-2xl mx-auto space-y-8"
         >
-          <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">
-            Who's There
+          <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-white leading-tight tracking-tight">
+            Ready to come?
           </h2>
 
-          <div className="space-y-8">
-            <div className="space-y-3">
-              <p className="text-lg font-rc-serif font-bold text-rc-text">People in Restoration</p>
-              <p className="text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
-                Walking the 7-stage journey. Real stories. Real transformation. Real hope.
-              </p>
-            </div>
+          <p className="text-base md:text-lg text-white/90 leading-relaxed font-light">
+            You won't be alone. You'll be with people who understand.
+          </p>
 
-            <div className="space-y-3">
-              <p className="text-lg font-rc-serif font-bold text-rc-text">People Seeking Deliverance</p>
-              <p className="text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
-                Ready to encounter Jesus. Honest about their bondage. Open to freedom.
-              </p>
-            </div>
-
-            <div className="space-y-3">
-              <p className="text-lg font-rc-serif font-bold text-rc-text">People Who've Been Delivered</p>
-              <p className="text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
-                Mentors. Teachers. Walking proof that Jesus delivers. Living witnesses.
-              </p>
-            </div>
-
-            <div className="pt-8 border-t border-rc-border/30">
-              <p className="text-base md:text-lg text-rc-text/80 leading-relaxed font-light italic">
-                This isn't a church service. This is family.
-              </p>
-            </div>
-          </div>
+          <button
+            onClick={() => {
+              setAttendanceStep('form');
+              setIsAttendanceModalOpen(true);
+            }}
+            className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-white text-rc-text font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-200"
+          >
+            I'm Attending
+          </button>
         </motion.div>
       </section>
 
       {/* FOOTER */}
       <footer className="w-full px-6 sm:px-8 md:px-12 py-8 bg-rc-text border-t border-rc-border text-center">
         <div className="max-w-2xl mx-auto space-y-6">
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-12">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 flex-wrap">
             <a href="/" className="text-white/80 hover:text-white transition-colors group text-sm">
               Home
               <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
             </a>
             <a href="/stories" className="text-white/80 hover:text-white transition-colors group text-sm">
-              Stories of Deliverance
+              Stories
               <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
             </a>
-            <a href="/partnership" className="text-white/80 hover:text-white transition-colors group text-sm">
-              Partnership
+            <a href="/gathering" className="text-white/80 hover:text-white transition-colors group text-sm">
+              Gathering
+              <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
+            </a>
+            <a href="/journey" className="text-white/80 hover:text-white transition-colors group text-sm">
+              Journey
               <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
             </a>
           </div>
@@ -219,18 +171,19 @@ export default function GatheringPage() {
       {isAttendanceModalOpen && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 px-4">
           <motion.div
-            initial={{ scale: 0.95, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0.95, opacity: 0 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.15 }}
             className="bg-white rounded-lg shadow-2xl max-w-md w-full"
           >
             {attendanceStep === 'form' && (
               <div className="p-8 md:p-12">
-                <h2 className="text-xl font-rc-serif font-bold text-rc-text mb-6">
-                  Register to Attend
+                <h2 className="text-2xl font-rc-serif font-bold text-rc-text mb-2">
+                  Attending the Gathering
                 </h2>
-                <p className="text-rc-text/70 text-sm mb-6">
-                  Friday, August 15 at 7:00 PM · Mango Farm, Abokobi
+                <p className="text-rc-text/70 text-sm mb-8">
+                  Friday, August 15 · 7:00 PM
                 </p>
                 <form
                   onSubmit={async (e) => {
@@ -244,8 +197,6 @@ export default function GatheringPage() {
                       });
                       if (res.ok) {
                         setAttendanceStep('complete');
-                      } else {
-                        console.error('Submission failed');
                       }
                     } catch (error) {
                       console.error('Error:', error);
@@ -256,9 +207,7 @@ export default function GatheringPage() {
                   className="space-y-4"
                 >
                   <div className="space-y-2">
-                    <label className="block text-sm font-medium text-rc-text/70">
-                      Full Name
-                    </label>
+                    <label className="block text-sm font-medium text-rc-text/70">Full Name</label>
                     <input
                       type="text"
                       required
@@ -270,9 +219,7 @@ export default function GatheringPage() {
                   </div>
 
                   <div className="space-y-2">
-                    <label className="block text-sm font-medium text-rc-text/70">
-                      Email Address
-                    </label>
+                    <label className="block text-sm font-medium text-rc-text/70">Email Address</label>
                     <input
                       type="email"
                       required
@@ -284,9 +231,7 @@ export default function GatheringPage() {
                   </div>
 
                   <div className="space-y-2">
-                    <label className="block text-sm font-medium text-rc-text/70">
-                      Phone Number
-                    </label>
+                    <label className="block text-sm font-medium text-rc-text/70">Phone Number</label>
                     <input
                       type="tel"
                       required
@@ -308,10 +253,9 @@ export default function GatheringPage() {
                     <button
                       type="submit"
                       disabled={isSubmittingAttendance}
-                      className="flex-1 px-6 py-3 bg-white text-rc-text font-medium border-2 border-rc-text/25 rounded-lg hover:-translate-y-0.5 hover:border-rc-text/40 hover:shadow-lg active:translate-y-0 transition-all duration-300 disabled:opacity-50"
-                      style={{ boxShadow: '0 0 12px rgba(26, 26, 24, 0.15)' }}
+                      className="flex-1 px-6 py-3 bg-rc-accent text-white font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-200 disabled:opacity-50"
                     >
-                      {isSubmittingAttendance ? 'Registering...' : 'I\'m Attending'}
+                      {isSubmittingAttendance ? 'Registering...' : "I'm Attending"}
                     </button>
                   </div>
                 </form>
@@ -321,16 +265,15 @@ export default function GatheringPage() {
             {attendanceStep === 'complete' && (
               <div className="p-8 md:p-12 text-center space-y-4">
                 <div className="text-4xl mb-4">✓</div>
-                <h3 className="text-2xl font-rc-serif font-bold text-rc-text">
-                  You're In
-                </h3>
-                <p className="text-rc-text/70">
-                  August 15, 7:00 PM · Mango Farm, Abokobi
-                </p>
+                <h3 className="text-2xl font-rc-serif font-bold text-rc-text">You're in</h3>
+                <p className="text-rc-text/70">August 15, 7:00 PM · Mango Farm, Abokobi</p>
                 <button
-                  onClick={() => setIsAttendanceModalOpen(false)}
-                  className="mt-6 px-6 py-3 bg-white text-rc-text font-medium border-2 border-rc-text/30 rounded-lg hover:-translate-y-0.5 hover:border-rc-text/50 hover:shadow-lg active:translate-y-0 transition-all duration-300"
-                  style={{ boxShadow: '0 0 12px rgba(26, 26, 24, 0.15)' }}
+                  onClick={() => {
+                    setIsAttendanceModalOpen(false);
+                    setAttendanceStep('form');
+                    setAttendanceData({ name: '', email: '', phone: '' });
+                  }}
+                  className="mt-6 px-6 py-3 bg-rc-accent text-white font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-200"
                 >
                   Back to Page
                 </button>

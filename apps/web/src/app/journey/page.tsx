@@ -3,419 +3,233 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useSession } from 'next-auth/react';
-import { PageLayout, PageHeader, Section, Card, CardHeader, CardTitle, CardDescription, CardContent, Badge, Button, Textarea, Alert, Progress } from '@/components/ui';
+import { motion } from 'framer-motion';
 
-interface Stage {
-  id: number;
-  key: string;
-  name: string;
-  sequence: number;
-  content?: {
-    description: string;
-    scripture?: string;
-    guidance?: string;
-  };
-}
-
-interface Transition {
-  id: number;
-  fromStage: Stage;
-  toStage: Stage;
-  createdAt: string;
-}
-
-interface Reflection {
-  id: number;
-  reflection: string;
-  createdAt: string;
-}
-
-interface Journey {
-  currentStage: Stage;
-  currentStageNumber: number;
-  progressPercent: number;
-  recentTransitions: Transition[];
-  recentReflections: Reflection[];
-}
+const stages = [
+  { number: 1, name: 'Truth', description: 'See what is real' },
+  { number: 2, name: 'Confession', description: 'Speak it aloud' },
+  { number: 3, name: 'Repentance', description: 'Turn away' },
+  { number: 4, name: 'Forgiveness', description: 'Receive grace' },
+  { number: 5, name: 'Reconciliation', description: 'Restore connections' },
+  { number: 6, name: 'Honest Work', description: 'Build something real' },
+  { number: 7, name: 'Serving', description: 'Give back' },
+];
 
 export default function JourneyPage() {
   const router = useRouter();
   const { data: session, status } = useSession();
-  const [journey, setJourney] = useState<Journey | null>(null);
-  const [allStages, setAllStages] = useState<Stage[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [advancing, setAdvancing] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const currentStage = 1;
   const [reflection, setReflection] = useState('');
-  const [submittingReflection, setSubmittingReflection] = useState(false);
-  const [error, setError] = useState('');
-  const [success, setSuccess] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
-    if (status === 'loading') return;
-
-    if (status === 'unauthenticated' || !session) {
+    setIsLoaded(true);
+    if (status === 'unauthenticated') {
       router.push('/auth/signin');
-      return;
     }
+  }, [status, router]);
 
-    loadData();
-  }, [status, session, router]);
-
-  async function loadData() {
-    try {
-      const [journeyRes, stagesRes] = await Promise.all([
-        fetch('/api/restoration/journey'),
-        fetch('/api/restoration/stages'),
-      ]);
-
-      if (!journeyRes.ok || !stagesRes.ok) {
-        throw new Error('Failed to load data');
-      }
-
-      const journeyData = await journeyRes.json();
-      const stagesData = await stagesRes.json();
-
-      setJourney(journeyData);
-      setAllStages(stagesData);
-    } catch (err) {
-      console.error('[JOURNEY] Error loading data:', err);
-      setError('Could not load your journey');
-    } finally {
-      setLoading(false);
-    }
+  if (status === 'loading') {
+    return (
+      <div className="w-full min-h-screen bg-rc-bg flex items-center justify-center">
+        <div className="text-rc-text/60">Loading your journey...</div>
+      </div>
+    );
   }
 
-  async function handleAdvance() {
-    if (!journey || journey.currentStageNumber >= 7) return;
-
-    setAdvancing(true);
-    setError('');
-    setSuccess('');
-
-    try {
-      const response = await fetch('/api/restoration/advance', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          reason: 'Ready to move forward',
-        }),
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to advance');
-      }
-
-      const data = await response.json();
-      setSuccess(
-        `You've progressed to ${data.toStage.name}. Keep going!`
-      );
-
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-      await loadData();
-    } catch (err) {
-      console.error('[JOURNEY] Error advancing:', err);
-      setError('Could not advance to next stage');
-    } finally {
-      setAdvancing(false);
-    }
+  if (status === 'unauthenticated') {
+    return null;
   }
 
-  async function handleAddReflection(e: React.FormEvent<HTMLFormElement>) {
+  const handleReflectionSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!reflection.trim()) {
-      setError('Please share your thoughts');
-      return;
-    }
-
-    setSubmittingReflection(true);
-    setError('');
-    setSuccess('');
-
+    setIsSubmitting(true);
     try {
-      const response = await fetch('/api/restoration/reflect', {
+      await fetch('/api/journey/reflection', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ reflection }),
+        body: JSON.stringify({ stage: currentStage, reflection }),
       });
-
-      if (!response.ok) {
-        throw new Error('Failed to save reflection');
-      }
-
-      setSuccess('Reflection saved');
       setReflection('');
-
-      await new Promise((resolve) => setTimeout(resolve, 1000));
-      await loadData();
-    } catch (err) {
-      console.error('[JOURNEY] Error saving reflection:', err);
-      setError('Could not save reflection');
+    } catch (error) {
+      console.error('Error saving reflection:', error);
     } finally {
-      setSubmittingReflection(false);
+      setIsSubmitting(false);
     }
-  }
-
-  if (status === 'loading' || loading) {
-    return (
-      <PageLayout>
-        <PageHeader title="Your Restoration Journey" />
-        <p className="text-gray-600">Loading...</p>
-      </PageLayout>
-    );
-  }
-
-  if (!journey) {
-    return (
-      <PageLayout>
-        <PageHeader title="Your Restoration Journey" />
-        <Alert type="error" message="Could not load your journey" />
-      </PageLayout>
-    );
-  }
+  };
 
   return (
-    <PageLayout>
-      <PageHeader
-        title="Your Restoration Journey"
-        description={`You're on stage ${journey.currentStageNumber} of 7`}
-      />
+    <div className="bg-rc-bg text-rc-text">
+      {/* HERO */}
+      <section className="w-full min-h-screen flex flex-col justify-center bg-gradient-to-br from-rc-accent to-rc-text px-6 sm:px-8 md:px-12 py-24 md:py-32">
+        <div className="max-w-2xl mx-auto w-full space-y-6">
+          <div className={`transform transition-all duration-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '0ms' }}>
+            <p className="text-xs font-medium text-white/70 uppercase tracking-wider">Your Restoration</p>
+          </div>
 
-      {error && (
-        <Section>
-          <Alert
-            type="error"
-            message={error}
-            onClose={() => setError('')}
-          />
-        </Section>
-      )}
+          <div className={`transform transition-all duration-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '80ms' }}>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight tracking-tight">
+              The 7-Stage Journey
+            </h1>
+          </div>
 
-      {success && (
-        <Section>
-          <Alert
-            type="success"
-            message={success}
-            onClose={() => setSuccess('')}
-          />
-        </Section>
-      )}
-
-      {/* Current Stage */}
-      <Section>
-        <Card>
-          <CardHeader>
-            <div className="flex items-start justify-between">
-              <div className="flex-1">
-                <CardTitle>{journey.currentStage.name}</CardTitle>
-                <CardDescription>
-                  Stage {journey.currentStageNumber} of 7
-                </CardDescription>
-              </div>
-              <Badge variant="primary">Current</Badge>
-            </div>
-          </CardHeader>
-          <CardContent>
-            <div className="space-y-6">
-              {/* Progress */}
-              <Progress
-                value={journey.progressPercent}
-                label="Overall Progress"
-                showPercent
-              />
-
-              {/* Content */}
-              {journey.currentStage.content && (
-                <div className="space-y-4">
-                  <p className="text-gray-700 leading-relaxed">
-                    {journey.currentStage.content.description}
-                  </p>
-
-                  {journey.currentStage.content.scripture && (
-                    <div className="p-4 bg-teal-50 rounded-lg border-l-4 border-teal-600">
-                      <p className="text-sm font-medium text-teal-900 mb-1">
-                        Scripture
-                      </p>
-                      <p className="text-sm text-teal-800 italic">
-                        {journey.currentStage.content.scripture}
-                      </p>
-                    </div>
-                  )}
-
-                  {journey.currentStage.content.guidance && (
-                    <div className="p-4 bg-gray-50 rounded-lg">
-                      <p className="text-sm font-medium text-gray-900 mb-2">
-                        Guidance for This Stage
-                      </p>
-                      <p className="text-sm text-gray-700">
-                        {journey.currentStage.content.guidance}
-                      </p>
-                    </div>
-                  )}
-                </div>
-              )}
-
-              {/* Progression CTA */}
-              {journey.currentStageNumber < 7 && (
-                <div className="pt-4 space-y-3">
-                  {journey.recentReflections && journey.recentReflections.length > 0 ? (
-                    <div className="space-y-3">
-                      <p className="text-sm text-gray-600">
-                        You&apos;ve reflected on this stage. Ready to continue the journey?
-                      </p>
-                      <Button
-                        onClick={handleAdvance}
-                        disabled={advancing}
-                        isLoading={advancing}
-                      >
-                        Continue Journey
-                      </Button>
-                    </div>
-                  ) : (
-                    <div className="p-4 bg-blue-50 rounded-lg border border-blue-200">
-                      <p className="text-sm font-medium text-blue-900">
-                        Complete your reflection to continue
-                      </p>
-                      <p className="text-xs text-blue-800 mt-1">
-                        Take time to reflect on this stage before moving forward.
-                      </p>
-                    </div>
-                  )}
-                </div>
-              )}
-
-              {journey.currentStageNumber === 7 && (
-                <div className="p-4 bg-green-50 rounded-lg border border-green-200">
-                  <p className="text-sm font-medium text-green-900">
-                    ✓ You have engaged with all seven stages
-                  </p>
-                  <p className="text-xs text-green-800 mt-1">
-                    The Restoration Journey continues as a way of life.
-                  </p>
-                </div>
-              )}
-            </div>
-          </CardContent>
-        </Card>
-      </Section>
-
-      {/* Reflections */}
-      <Section>
-        <Card>
-          <CardHeader>
-            <CardTitle>Your Reflections</CardTitle>
-            <CardDescription>
-              Capture your thoughts and growth at this stage
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <div className="space-y-6">
-              {/* Add Reflection */}
-              <form onSubmit={handleAddReflection} className="space-y-3">
-                <Textarea
-                  placeholder="What are you learning? What's changing in you?"
-                  rows={3}
-                  value={reflection}
-                  onChange={(e) => setReflection(e.target.value)}
-                />
-                <Button
-                  type="submit"
-                  disabled={submittingReflection}
-                  isLoading={submittingReflection}
-                  variant="secondary"
-                >
-                  Save Reflection
-                </Button>
-              </form>
-
-              {/* Recent Reflections */}
-              {journey.recentReflections.length > 0 ? (
-                <div className="space-y-3 pt-4">
-                  {journey.recentReflections.map((ref) => (
-                    <div
-                      key={ref.id}
-                      className="p-3 bg-gray-50 rounded-lg text-sm"
-                    >
-                      <p className="text-xs text-gray-500 mb-1.5">
-                        {new Date(ref.createdAt).toLocaleDateString(
-                          'en-US',
-                          {
-                            year: 'numeric',
-                            month: 'short',
-                            day: 'numeric',
-                          }
-                        )}
-                      </p>
-                      <p className="text-gray-800">{ref.reflection}</p>
-                    </div>
-                  ))}
-                </div>
-              ) : (
-                <p className="text-sm text-gray-500 text-center py-4">
-                  No reflections yet. Start writing to capture your journey.
-                </p>
-              )}
-            </div>
-          </CardContent>
-        </Card>
-      </Section>
-
-      {/* All Stages Overview */}
-      <Section>
-        <div>
-          <h2 className="text-2xl font-semibold text-gray-900 mb-4">
-            All Stages
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {allStages.map((stage) => (
-              <div
-                key={stage.id}
-                className={`p-4 rounded-lg border-2 ${
-                  stage.sequence <= journey.currentStageNumber
-                    ? 'border-teal-600 bg-teal-50'
-                    : 'border-gray-200 bg-white'
-                }`}
-              >
-                <div className="flex items-start gap-3">
-                  <div
-                    className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center font-semibold text-sm ${
-                      stage.sequence <= journey.currentStageNumber
-                        ? 'bg-teal-600 text-white'
-                        : 'bg-gray-200 text-gray-700'
-                    }`}
-                  >
-                    {stage.sequence}
-                  </div>
-                  <div>
-                    <h3 className="font-medium text-gray-900">
-                      {stage.name}
-                    </h3>
-                    {stage.sequence === journey.currentStageNumber && (
-                      <p className="text-xs text-teal-600 font-medium mt-1">
-                        You are here
-                      </p>
-                    )}
-                    {stage.sequence < journey.currentStageNumber && (
-                      <p className="text-xs text-teal-600 font-medium mt-1">
-                        Completed
-                      </p>
-                    )}
-                  </div>
-                </div>
-              </div>
-            ))}
+          <div className={`transform transition-all duration-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '160ms' }}>
+            <p className="text-base md:text-lg text-white/90 leading-relaxed font-light">
+              Welcome back, {session?.user?.name}. You're on stage {currentStage} of 7.
+            </p>
           </div>
         </div>
-      </Section>
+      </section>
 
-      {/* Back Link */}
-      <Section>
-        <a
-          href="/dashboard"
-          className="inline-flex text-base font-medium text-teal-600 hover:text-teal-700 transition-colors duration-200"
+      {/* STAGE PROGRESSION */}
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border/30">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+          viewport={{ once: true, amount: 0.15 }}
+          className="max-w-4xl mx-auto space-y-12"
         >
-          ← Back to Dashboard
-        </a>
-      </Section>
-    </PageLayout>
+          <div className="space-y-4">
+            <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">
+              Your Path
+            </h2>
+            <p className="text-base text-rc-text/70 font-light">
+              Seven stages. One week each. A complete restoration.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {stages.map((stage) => (
+              <motion.div
+                key={stage.number}
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: stage.number * 0.05, ease: [0.25, 0.46, 0.45, 0.94] }}
+                viewport={{ once: true }}
+                className={`p-6 rounded-lg border transition-all duration-300 ${
+                  stage.number === currentStage
+                    ? 'bg-rc-accent/10 border-rc-accent'
+                    : stage.number < currentStage
+                    ? 'bg-rc-warm-gray border-rc-border/30'
+                    : 'bg-rc-bg border-rc-border/20'
+                }`}
+              >
+                <div className="space-y-2">
+                  <div className="flex items-center gap-3">
+                    <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium ${
+                      stage.number === currentStage
+                        ? 'bg-rc-accent text-white'
+                        : stage.number < currentStage
+                        ? 'bg-rc-accent/70 text-white'
+                        : 'bg-rc-border/30 text-rc-text/60'
+                    }`}>
+                      {stage.number < currentStage ? '✓' : stage.number}
+                    </div>
+                    <h3 className="text-lg font-rc-serif font-bold text-rc-text">{stage.name}</h3>
+                  </div>
+                  <p className="text-sm text-rc-text/70 font-light">{stage.description}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+      </section>
+
+      {/* CURRENT STAGE REFLECTION */}
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border/30">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+          viewport={{ once: true, amount: 0.15 }}
+          className="max-w-2xl mx-auto space-y-8"
+        >
+          <div className="space-y-4">
+            <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">
+              This Week: {stages[currentStage - 1].name}
+            </h2>
+            <p className="text-base text-rc-text/70 font-light">
+              {stages[currentStage - 1].description}
+            </p>
+          </div>
+
+          <form onSubmit={handleReflectionSubmit} className="space-y-6">
+            <div className="space-y-3">
+              <label className="block text-sm font-medium text-rc-text/70">
+                Your Reflection
+              </label>
+              <textarea
+                value={reflection}
+                onChange={(e) => setReflection(e.target.value)}
+                placeholder="What's coming up for you this week?"
+                className="w-full px-4 py-4 border border-rc-border rounded-lg focus:outline-none focus:border-rc-accent/60 transition-colors bg-white text-rc-text resize-none"
+                rows={4}
+              />
+            </div>
+
+            <button
+              type="submit"
+              disabled={isSubmitting || !reflection.trim()}
+              className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-rc-accent text-white font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {isSubmitting ? 'Saving...' : 'Save Reflection'}
+            </button>
+          </form>
+        </motion.div>
+      </section>
+
+      {/* MENTOR CONNECTION */}
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border/30">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+          viewport={{ once: true, amount: 0.15 }}
+          className="max-w-2xl mx-auto space-y-8"
+        >
+          <div className="space-y-4">
+            <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">
+              Your Mentor
+            </h2>
+            <p className="text-base text-rc-text/70 font-light">
+              Someone who's walked this path before you. Here to support, not judge.
+            </p>
+          </div>
+
+          <div className="p-8 rounded-lg border border-rc-border/30 bg-rc-warm-gray">
+            <p className="text-rc-text/60 font-light">
+              Your mentor assignment is coming. You're not alone in this journey.
+            </p>
+          </div>
+        </motion.div>
+      </section>
+
+      {/* FOOTER */}
+      <footer className="w-full px-6 sm:px-8 md:px-12 py-8 bg-rc-text border-t border-rc-border text-center">
+        <div className="max-w-2xl mx-auto space-y-6">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 flex-wrap">
+            <a href="/" className="text-white/80 hover:text-white transition-colors group text-sm">
+              Home
+              <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
+            </a>
+            <a href="/stories" className="text-white/80 hover:text-white transition-colors group text-sm">
+              Stories
+              <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
+            </a>
+            <a href="/gathering" className="text-white/80 hover:text-white transition-colors group text-sm">
+              Gathering
+              <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
+            </a>
+            <a href="/journey" className="text-white/80 hover:text-white transition-colors group text-sm">
+              Journey
+              <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
+            </a>
+          </div>
+          <p className="text-white/40 text-xs">© 2026. All rights reserved.</p>
+        </div>
+      </footer>
+    </div>
   );
 }
