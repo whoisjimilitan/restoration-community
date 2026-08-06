@@ -121,8 +121,8 @@ export default function Home() {
             <p>In 2015.</p>
             <p>Samuel was a professional fraudster.</p>
             <p>He taught hundreds his trade.</p>
-            <p className="pt-2">Death came close. Then came Jesus Christ.</p>
-            <p className="pt-4">One touch from His servant.</p>
+            <p className="pt-2">Then he encountered Jesus Christ.</p>
+            <p className="pt-4">One touch from Prophet TB Joshua.</p>
             <p>The mysterious urge for more left him.</p>
             <p>The fiery anger inside him, gone.</p>
             <p>His identity restored.</p>
