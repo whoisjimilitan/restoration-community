@@ -158,7 +158,7 @@ export default function Home() {
               }}
               className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-white text-rc-text font-medium rounded-lg hover:bg-white/95 hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300"
             >
-              Request Prayer and Deliverance
+              Request Prayer
             </button>
             <a
               href="/stories"
@@ -186,9 +186,9 @@ export default function Home() {
                 <div className="p-8 md:p-12 space-y-6">
                   <div className="space-y-2">
                     <h2 className="text-2xl md:text-3xl font-rc-serif font-bold text-rc-text tracking-tight">
-                      What do you need Jesus to deliver you from?
+                      Submit your prayer request.
                     </h2>
-                    <p className="text-rc-text/70 text-sm">Step 1 of 3</p>
+                    <p className="text-rc-text/70 text-sm">Briefly tell us what you want Jesus to do for you</p>
                   </div>
 
                   <form
