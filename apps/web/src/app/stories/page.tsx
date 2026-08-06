@@ -20,7 +20,7 @@ const mockStories: StoryCard[] = [
     name: 'Samuel Johnson',
     role: 'Delivered from Internet Fraud',
     quote: 'When the man of God touched me, I immediately saw myself facing a judge.',
-    story: 'Samuel Johnson was a professional internet fraudster. Known in Nigeria as "Yahoo". Demonically inspired to deceive, defraud, and destroy through the most advanced online tactics and methods.\n\nHe was not just a local king of internet scamming. He taught hundreds of youngsters his satanic tricks. Then one prayer at The SCOAN changed everything.\n\nThere are many valuable lessons in his testimony. Not just for those in fraud, but for anyone bound by spiritual deception.',
+    story: 'Samuel Johnson was a professional internet fraudster. Demonically inspired to deceive, defraud, and destroy through the most advanced online tactics and methods.\n\nHe was not just a local king of internet scamming. He taught hundreds of youngsters his satanic tricks. Then one encounter changed everything.\n\nThere is much to learn from his journey.',
     heroImage: {
       url: '/images/testimony.png',
       alt: 'Samuel Johnson - The King of Internet Scamming'
