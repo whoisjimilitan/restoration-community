@@ -158,7 +158,7 @@ export default function Home() {
               }}
               className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-white text-rc-text font-medium rounded-lg hover:bg-white/95 hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300"
             >
-              Request Deliverance
+              Request Prayer and Deliverance
             </button>
             <a
               href="/stories"
@@ -186,7 +186,7 @@ export default function Home() {
                 <div className="p-8 md:p-12 space-y-6">
                   <div className="space-y-2">
                     <h2 className="text-2xl md:text-3xl font-rc-serif font-bold text-rc-text tracking-tight">
-                      What do you need deliverance from?
+                      What do you need Jesus to deliver you from?
                     </h2>
                     <p className="text-rc-text/70 text-sm">Step 1 of 3</p>
                   </div>
@@ -206,7 +206,7 @@ export default function Home() {
                         value={deliverance.need}
                         onChange={(e) => setDeliverance({ ...deliverance, need: e.target.value })}
                         className="w-full px-4 py-3 border border-rc-border rounded-lg focus:outline-none focus:border-rc-accent/60 transition-colors bg-white text-rc-text resize-none"
-                        placeholder="Describe what you need deliverance from."
+                        placeholder="What binds you?"
                         rows={4}
                       />
                     </div>
@@ -391,7 +391,7 @@ export default function Home() {
                     Your request is received
                   </h3>
                   <p className="text-rc-text/70">
-                    We will pray for you. Expect contact via WhatsApp.
+                    We will pray, and point you to Jesus Christ, the Deliverer. Expect contact via WhatsApp.
                   </p>
                   <button
                     onClick={() => {
