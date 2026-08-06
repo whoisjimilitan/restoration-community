@@ -175,10 +175,10 @@ export default function Home() {
         {isModalOpen && (
           <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 px-4">
             <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.95 }}
-              transition={{ duration: 0.3 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.15 }}
               className="bg-rc-bg rounded-lg shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto"
             >
               {/* Step 1: Need */}
@@ -417,9 +417,10 @@ export default function Home() {
         {isAttendanceModalOpen && (
           <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 px-4">
             <motion.div
-              initial={{ scale: 0.95, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.95, opacity: 0 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.15 }}
               className="bg-white rounded-lg shadow-2xl max-w-md w-full"
             >
               {/* Form Step */}
