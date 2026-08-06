@@ -123,8 +123,8 @@ export default function Home() {
             <p>He taught hundreds his trade.</p>
             <p className="pt-2">Then came Jesus Christ.</p>
             <p className="pt-4">One touch from His anointed servant.</p>
-            <p>The mysterious urge for more left him.</p>
-            <p>The fiery anger inside him, gone.</p>
+            <p>The mysterious urge for more, gone.</p>
+            <p>The fiery anger, gone.</p>
             <p>His identity restored.</p>
           </div>
         </motion.div>
