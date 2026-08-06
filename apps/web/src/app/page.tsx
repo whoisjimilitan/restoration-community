@@ -181,7 +181,7 @@ export default function Home() {
               transition={{ duration: 0.15 }}
               className="bg-rc-bg rounded-lg shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto"
             >
-              {/* Step 1: Need */}
+              {/* Step 1: Need + Duration */}
               {deliverance.step === 1 && (
                 <div className="p-8 md:p-12 space-y-6">
                   <div className="space-y-2">
@@ -194,7 +194,7 @@ export default function Home() {
                   <form
                     onSubmit={(e) => {
                       e.preventDefault();
-                      if (deliverance.need.trim()) {
+                      if (deliverance.need.trim() && deliverance.duration.trim()) {
                         setDeliverance({ ...deliverance, step: 2 });
                       }
                     }}
@@ -207,7 +207,18 @@ export default function Home() {
                         onChange={(e) => setDeliverance({ ...deliverance, need: e.target.value })}
                         className="w-full px-4 py-3 border border-rc-border rounded-lg focus:outline-none focus:border-rc-accent/60 transition-colors bg-white text-rc-text resize-none"
                         placeholder="What binds you?"
-                        rows={4}
+                        rows={3}
+                      />
+                    </div>
+
+                    <div className="space-y-2">
+                      <input
+                        type="text"
+                        required
+                        value={deliverance.duration}
+                        onChange={(e) => setDeliverance({ ...deliverance, duration: e.target.value })}
+                        className="w-full px-4 py-3 border border-rc-border rounded-lg focus:outline-none focus:border-rc-accent/60 transition-colors bg-white text-rc-text"
+                        placeholder="Tell us how long the problem has been"
                       />
                     </div>
 
@@ -233,63 +244,14 @@ export default function Home() {
                 </div>
               )}
 
-              {/* Step 2: Duration */}
+              {/* Step 2: Contact */}
               {deliverance.step === 2 && (
-                <div className="p-8 md:p-12 space-y-6">
-                  <div className="space-y-2">
-                    <h2 className="text-2xl md:text-3xl font-rc-serif font-bold text-rc-text tracking-tight">
-                      How long has this been?
-                    </h2>
-                    <p className="text-rc-text/70 text-sm">Step 2 of 3</p>
-                  </div>
-
-                  <form
-                    onSubmit={(e) => {
-                      e.preventDefault();
-                      if (deliverance.duration.trim()) {
-                        setDeliverance({ ...deliverance, step: 3 });
-                      }
-                    }}
-                    className="space-y-6"
-                  >
-                    <div className="space-y-2">
-                      <input
-                        type="text"
-                        required
-                        value={deliverance.duration}
-                        onChange={(e) => setDeliverance({ ...deliverance, duration: e.target.value })}
-                        className="w-full px-4 py-3 border border-rc-border rounded-lg focus:outline-none focus:border-rc-accent/60 transition-colors bg-white text-rc-text"
-                        placeholder="e.g., 2 years, since 2022"
-                      />
-                    </div>
-
-                    <div className="flex gap-3 pt-4">
-                      <button
-                        type="button"
-                        onClick={() => setDeliverance({ ...deliverance, step: 1 })}
-                        className="px-6 py-3 text-rc-text/70 hover:text-rc-text transition-colors"
-                      >
-                        Back
-                      </button>
-                      <button
-                        type="submit"
-                        className="flex-1 px-6 py-3 bg-rc-accent text-white font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300"
-                      >
-                        Next
-                      </button>
-                    </div>
-                  </form>
-                </div>
-              )}
-
-              {/* Step 3: Contact */}
-              {deliverance.step === 3 && (
                 <div className="p-8 md:p-12 space-y-6">
                   <div className="space-y-2">
                     <h2 className="text-2xl md:text-3xl font-rc-serif font-bold text-rc-text tracking-tight">
                       How we reach you
                     </h2>
-                    <p className="text-rc-text/70 text-sm">Step 3 of 3</p>
+                    <p className="text-rc-text/70 text-sm">Step 2 of 2</p>
                   </div>
 
                   <form
@@ -310,7 +272,7 @@ export default function Home() {
                             }),
                           });
                           if (res.ok) {
-                            setDeliverance({ ...deliverance, submitted: true, step: 4 });
+                            setDeliverance({ ...deliverance, submitted: true, step: 3 });
                           }
                         } catch (error) {
                           console.error('Error:', error);
@@ -366,7 +328,7 @@ export default function Home() {
                     <div className="flex gap-3 pt-4">
                       <button
                         type="button"
-                        onClick={() => setDeliverance({ ...deliverance, step: 2 })}
+                        onClick={() => setDeliverance({ ...deliverance, step: 1 })}
                         className="px-6 py-3 text-rc-text/70 hover:text-rc-text transition-colors"
                       >
                         Back
@@ -383,8 +345,8 @@ export default function Home() {
                 </div>
               )}
 
-              {/* Step 4: Success */}
-              {deliverance.step === 4 && deliverance.submitted && (
+              {/* Step 3: Success */}
+              {deliverance.step === 3 && deliverance.submitted && (
                 <div className="p-8 md:p-12 text-center space-y-4">
                   <div className="text-4xl mb-4">✓</div>
                   <h3 className="text-2xl font-rc-serif font-bold text-rc-text">
