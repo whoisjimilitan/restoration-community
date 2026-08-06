@@ -25,17 +25,14 @@ export default function GatheringPage() {
 
           <div className={`transform transition-all duration-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '80ms' }}>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight tracking-tight">
-              Experience the journey together in Christ.
+              Enjoy the journey with us in Christ.
             </h1>
           </div>
 
           <div className={`transform transition-all duration-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '160ms' }}>
-            <div className="space-y-2 text-base md:text-lg text-white/90 leading-relaxed font-light">
-              <p>Prayer.</p>
-              <p>Discipleship.</p>
-              <p>Counselling.</p>
-              <p className="pt-2">The roadmap becomes real.</p>
-            </div>
+            <p className="text-base md:text-lg text-white/90 leading-relaxed font-light">
+              Prayer. Discipleship. Counselling.
+            </p>
           </div>
         </div>
       </section>
@@ -88,28 +85,28 @@ export default function GatheringPage() {
             <div className="space-y-3 border-l-4 border-rc-accent pl-8">
               <p className="text-sm font-medium text-rc-text uppercase tracking-wide">Teaching</p>
               <p className="text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
-                Brother Jimi teaches the seven-stage roadmap for restoration in Christ.
+                Live teaching of the seven-stage journey for restoration.
               </p>
             </div>
 
             <div className="space-y-3 border-l-4 border-rc-accent pl-8">
               <p className="text-sm font-medium text-rc-text uppercase tracking-wide">Prayer</p>
               <p className="text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
-                Corporate prayer where Jesus Christ ministers deliverance.
+                Spirit prayer where God ministers all His blessings.
               </p>
             </div>
 
             <div className="space-y-3 border-l-4 border-rc-accent pl-8">
               <p className="text-sm font-medium text-rc-text uppercase tracking-wide">Discipleship</p>
               <p className="text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
-                Walk with others who are following Christ through restoration.
+                Walk with others who are waking with the Holy Spirit.
               </p>
             </div>
 
             <div className="space-y-3 border-l-4 border-rc-accent pl-8">
               <p className="text-sm font-medium text-rc-text uppercase tracking-wide">Counselling</p>
               <p className="text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
-                Hear from those who have encountered Jesus Christ and been transformed.
+                Hear what God has to say about your situation.
               </p>
             </div>
           </div>
@@ -157,14 +154,14 @@ export default function GatheringPage() {
               Stories
               <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
             </a>
-            <div className="text-white/40 group text-sm cursor-not-allowed">
+            <a href="/gathering" className="text-white/80 hover:text-white transition-colors group text-sm">
               Gathering
-              <span className="block h-px w-0 bg-white transition-all duration-300 mt-1"></span>
-            </div>
-            <div className="text-white/40 group text-sm cursor-not-allowed">
+              <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
+            </a>
+            <a href="/journey" className="text-white/80 hover:text-white transition-colors group text-sm">
               Journey
-              <span className="block h-px w-0 bg-white transition-all duration-300 mt-1"></span>
-            </div>
+              <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
+            </a>
           </div>
           <p className="text-white/40 text-xs">© 2026. All rights reserved.</p>
         </div>

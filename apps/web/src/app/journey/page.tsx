@@ -6,7 +6,7 @@ import { useSession, signOut } from 'next-auth/react';
 import { motion } from 'framer-motion';
 
 const stages = [
-  { number: 1, name: 'Truth', description: 'See what is real' },
+  { number: 1, name: 'Truth', description: 'Face what is true' },
   { number: 2, name: 'Confession', description: 'Speak it aloud' },
   { number: 3, name: 'Repentance', description: 'Turn away' },
   { number: 4, name: 'Forgiveness', description: 'Receive grace' },
@@ -202,7 +202,7 @@ export default function JourneyPage() {
               Your Mentor
             </h2>
             <p className="text-base text-rc-text/70 font-light">
-              Someone who's walked this path before you. Here to support, not judge.
+              Someone who's walked this path. Here to support, not judge.
             </p>
           </div>
 
@@ -226,14 +226,14 @@ export default function JourneyPage() {
               Stories
               <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
             </a>
-            <div className="text-white/40 group text-sm cursor-not-allowed">
+            <a href="/gathering" className="text-white/80 hover:text-white transition-colors group text-sm">
               Gathering
-              <span className="block h-px w-0 bg-white transition-all duration-300 mt-1"></span>
-            </div>
-            <div className="text-white/40 group text-sm cursor-not-allowed">
+              <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
+            </a>
+            <a href="/journey" className="text-white/80 hover:text-white transition-colors group text-sm">
               Journey
-              <span className="block h-px w-0 bg-white transition-all duration-300 mt-1"></span>
-            </div>
+              <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
+            </a>
             <button
               onClick={() => signOut({ callbackUrl: '/' })}
               className="text-white/80 hover:text-white transition-colors group text-sm cursor-pointer"

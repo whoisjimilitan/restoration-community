@@ -68,7 +68,7 @@ export default function StoriesPage() {
           <div className={`transform transition-all duration-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '80ms' }}>
             <div className="space-y-3">
               <p className="text-3xl sm:text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight tracking-tight">Not stories of shame.</p>
-              <p className="text-3xl sm:text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight tracking-tight">Stories of Jesus Christ.</p>
+              <p className="text-3xl sm:text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight tracking-tight">Stories of freedom.</p>
             </div>
           </div>
 
@@ -221,7 +221,7 @@ export default function StoriesPage() {
               href="/journey"
               className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] text-white font-medium border border-white/60 rounded-lg hover:border-white hover:bg-white/10 hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-200"
             >
-              Learn The Journey
+              Start the Journey
             </a>
           </div>
         </motion.div>
@@ -245,14 +245,20 @@ export default function StoriesPage() {
               Stories
               <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
             </a>
-            <div className="text-white/40 group text-sm cursor-not-allowed">
+            <a
+              href="/gathering"
+              className="text-white/80 hover:text-white transition-colors group text-sm"
+            >
               Gathering
-              <span className="block h-px w-0 bg-white transition-all duration-300 mt-1"></span>
-            </div>
-            <div className="text-white/40 group text-sm cursor-not-allowed">
+              <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
+            </a>
+            <a
+              href="/journey"
+              className="text-white/80 hover:text-white transition-colors group text-sm"
+            >
               Journey
-              <span className="block h-px w-0 bg-white transition-all duration-300 mt-1"></span>
-            </div>
+              <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
+            </a>
           </div>
 
           <p className="text-white/40 text-xs">© 2026. All rights reserved.</p>
