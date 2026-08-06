@@ -556,7 +556,7 @@ export default function Home() {
       <footer className="w-full px-6 sm:px-8 md:px-12 py-12 bg-rc-text border-t border-rc-border text-center">
         <div className="max-w-2xl mx-auto space-y-6">
           {/* Navigation Links */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-12">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 flex-wrap">
             <a
               href="/"
               className="text-white/80 hover:text-white transition-colors group text-sm"
@@ -568,7 +568,21 @@ export default function Home() {
               href="/stories"
               className="text-white/80 hover:text-white transition-colors group text-sm"
             >
-              Deliverance Stories
+              Stories
+              <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
+            </a>
+            <a
+              href="/gathering"
+              className="text-white/80 hover:text-white transition-colors group text-sm"
+            >
+              The Gathering
+              <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
+            </a>
+            <a
+              href="/what-is-deliverance"
+              className="text-white/80 hover:text-white transition-colors group text-sm"
+            >
+              What is Deliverance
               <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
             </a>
             <a
