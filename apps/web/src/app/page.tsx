@@ -182,33 +182,97 @@ export default function Home() {
               transition={{ duration: 0.15 }}
               className="bg-rc-bg rounded-lg shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto"
             >
-              {/* Step 1: Need */}
+              {/* Step 1: Contact Info & Need */}
               {deliverance.step === 1 && (
                 <div className="p-8 md:p-12 space-y-6">
-                  <div className="space-y-2">
-                    <h2 className="text-2xl md:text-3xl font-rc-serif font-bold text-rc-text tracking-tight">
-                      What do you need deliverance from?
+                  <div className="space-y-3">
+                    <h2 className="text-3xl font-rc-serif font-bold text-rc-text">
+                      Request Prayer
                     </h2>
-                    <p className="text-rc-text/70 text-sm">Step 1 of 3</p>
+                    <p className="text-base text-rc-text/70 font-light">
+                      We understand. You're not alone. Tell us how to reach you and what you need help with.
+                    </p>
                   </div>
 
                   <form
                     onSubmit={(e) => {
                       e.preventDefault();
-                      if (deliverance.need.trim()) {
-                        setDeliverance({ ...deliverance, step: 2 });
+                      if (deliverance.name && deliverance.email && deliverance.phone && deliverance.need) {
+                        setIsSubmittingDeliverance(true);
+                        try {
+                          fetch('/api/deliverance-request', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({
+                              need: deliverance.need,
+                              duration: '',
+                              name: deliverance.name,
+                              email: deliverance.email,
+                              phone: deliverance.phone,
+                            }),
+                          }).then((res) => {
+                            if (res.ok) {
+                              setDeliverance({ ...deliverance, submitted: true, step: 2 });
+                            }
+                            setIsSubmittingDeliverance(false);
+                          });
+                        } catch (error) {
+                          console.error('Error:', error);
+                          setIsSubmittingDeliverance(false);
+                        }
                       }
                     }}
-                    className="space-y-6"
+                    className="space-y-5"
                   >
+                    {/* Name */}
                     <div className="space-y-2">
-                      <textarea
+                      <label className="block text-sm font-medium text-rc-text/70">Your Name</label>
+                      <input
+                        type="text"
+                        required
+                        value={deliverance.name}
+                        onChange={(e) => setDeliverance({ ...deliverance, name: e.target.value })}
+                        className="w-full px-4 py-3 border border-rc-border rounded-lg focus:outline-none focus:border-rc-accent/60 transition-colors bg-white text-rc-text"
+                        placeholder="Your name"
+                      />
+                    </div>
+
+                    {/* Email */}
+                    <div className="space-y-2">
+                      <label className="block text-sm font-medium text-rc-text/70">Email</label>
+                      <input
+                        type="email"
+                        required
+                        value={deliverance.email}
+                        onChange={(e) => setDeliverance({ ...deliverance, email: e.target.value })}
+                        className="w-full px-4 py-3 border border-rc-border rounded-lg focus:outline-none focus:border-rc-accent/60 transition-colors bg-white text-rc-text"
+                        placeholder="your@email.com"
+                      />
+                    </div>
+
+                    {/* Phone */}
+                    <div className="space-y-2">
+                      <label className="block text-sm font-medium text-rc-text/70">Phone (WhatsApp)</label>
+                      <input
+                        type="tel"
+                        required
+                        value={deliverance.phone}
+                        onChange={(e) => setDeliverance({ ...deliverance, phone: e.target.value })}
+                        className="w-full px-4 py-3 border border-rc-border rounded-lg focus:outline-none focus:border-rc-accent/60 transition-colors bg-white text-rc-text"
+                        placeholder="+233..."
+                      />
+                    </div>
+
+                    {/* Area of Need */}
+                    <div className="space-y-2">
+                      <label className="block text-sm font-medium text-rc-text/70">What do you need help with?</label>
+                      <input
+                        type="text"
                         required
                         value={deliverance.need}
                         onChange={(e) => setDeliverance({ ...deliverance, need: e.target.value })}
-                        className="w-full px-4 py-3 border border-rc-border rounded-lg focus:outline-none focus:border-rc-accent/60 transition-colors bg-white text-rc-text resize-none"
-                        placeholder="Be honest about what's binding you."
-                        rows={4}
+                        className="w-full px-4 py-3 border border-rc-border rounded-lg focus:outline-none focus:border-rc-accent/60 transition-colors bg-white text-rc-text"
+                        placeholder="e.g., fraud, anger, addiction, deception"
                       />
                     </div>
 
@@ -225,184 +289,34 @@ export default function Home() {
                       </button>
                       <button
                         type="submit"
-                        className="flex-1 px-6 py-3 bg-rc-accent text-white font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300"
-                      >
-                        Next
-                      </button>
-                    </div>
-                  </form>
-                </div>
-              )}
-
-              {/* Step 2: Duration */}
-              {deliverance.step === 2 && (
-                <div className="p-8 md:p-12 space-y-6">
-                  <div className="space-y-2">
-                    <h2 className="text-2xl md:text-3xl font-rc-serif font-bold text-rc-text tracking-tight">
-                      Tell us more
-                    </h2>
-                    <p className="text-rc-text/70 text-sm">Step 2 of 3</p>
-                  </div>
-
-                  <form
-                    onSubmit={(e) => {
-                      e.preventDefault();
-                      if (deliverance.duration.trim()) {
-                        setDeliverance({ ...deliverance, step: 3 });
-                      }
-                    }}
-                    className="space-y-6"
-                  >
-                    <div className="space-y-2">
-                      <label className="block text-sm font-medium text-rc-text/70">
-                        How long has this been?
-                      </label>
-                      <input
-                        type="text"
-                        required
-                        value={deliverance.duration}
-                        onChange={(e) => setDeliverance({ ...deliverance, duration: e.target.value })}
-                        className="w-full px-4 py-3 border border-rc-border rounded-lg focus:outline-none focus:border-rc-accent/60 transition-colors bg-white text-rc-text"
-                        placeholder="e.g., 2 years, since 2022"
-                      />
-                    </div>
-
-                    <div className="flex gap-3 pt-4">
-                      <button
-                        type="button"
-                        onClick={() => setDeliverance({ ...deliverance, step: 1 })}
-                        className="px-6 py-3 text-rc-text/70 hover:text-rc-text transition-colors"
-                      >
-                        Back
-                      </button>
-                      <button
-                        type="submit"
-                        className="flex-1 px-6 py-3 bg-rc-accent text-white font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300"
-                      >
-                        Next
-                      </button>
-                    </div>
-                  </form>
-                </div>
-              )}
-
-              {/* Step 3: Contact */}
-              {deliverance.step === 3 && (
-                <div className="p-8 md:p-12 space-y-6">
-                  <div className="space-y-2">
-                    <h2 className="text-2xl md:text-3xl font-rc-serif font-bold text-rc-text tracking-tight">
-                      How we reach you
-                    </h2>
-                    <p className="text-rc-text/70 text-sm">Step 3 of 3</p>
-                  </div>
-
-                  <form
-                    onSubmit={async (e) => {
-                      e.preventDefault();
-                      if (deliverance.name && deliverance.email && deliverance.phone) {
-                        setIsSubmittingDeliverance(true);
-                        try {
-                          const res = await fetch('/api/deliverance-request', {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify({
-                              need: deliverance.need,
-                              duration: deliverance.duration,
-                              name: deliverance.name,
-                              email: deliverance.email,
-                              phone: deliverance.phone,
-                            }),
-                          });
-                          if (res.ok) {
-                            setDeliverance({ ...deliverance, submitted: true, step: 4 });
-                          }
-                        } catch (error) {
-                          console.error('Error:', error);
-                        } finally {
-                          setIsSubmittingDeliverance(false);
-                        }
-                      }
-                    }}
-                    className="space-y-4"
-                  >
-                    <div className="space-y-2">
-                      <label className="block text-sm font-medium text-rc-text/70">
-                        Your Name
-                      </label>
-                      <input
-                        type="text"
-                        required
-                        value={deliverance.name}
-                        onChange={(e) => setDeliverance({ ...deliverance, name: e.target.value })}
-                        className="w-full px-4 py-3 border border-rc-border rounded-lg focus:outline-none focus:border-rc-accent/60 transition-colors bg-white text-rc-text"
-                        placeholder="Your name"
-                      />
-                    </div>
-
-                    <div className="space-y-2">
-                      <label className="block text-sm font-medium text-rc-text/70">
-                        Email Address
-                      </label>
-                      <input
-                        type="email"
-                        required
-                        value={deliverance.email}
-                        onChange={(e) => setDeliverance({ ...deliverance, email: e.target.value })}
-                        className="w-full px-4 py-3 border border-rc-border rounded-lg focus:outline-none focus:border-rc-accent/60 transition-colors bg-white text-rc-text"
-                        placeholder="your@email.com"
-                      />
-                    </div>
-
-                    <div className="space-y-2">
-                      <label className="block text-sm font-medium text-rc-text/70">
-                        Phone Number (WhatsApp)
-                      </label>
-                      <input
-                        type="tel"
-                        required
-                        value={deliverance.phone}
-                        onChange={(e) => setDeliverance({ ...deliverance, phone: e.target.value })}
-                        className="w-full px-4 py-3 border border-rc-border rounded-lg focus:outline-none focus:border-rc-accent/60 transition-colors bg-white text-rc-text"
-                        placeholder="+233..."
-                      />
-                    </div>
-
-                    <div className="flex gap-3 pt-4">
-                      <button
-                        type="button"
-                        onClick={() => setDeliverance({ ...deliverance, step: 2 })}
-                        className="px-6 py-3 text-rc-text/70 hover:text-rc-text transition-colors"
-                      >
-                        Back
-                      </button>
-                      <button
-                        type="submit"
                         disabled={isSubmittingDeliverance}
-                        className="flex-1 px-6 py-3 bg-rc-accent text-white font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300 disabled:opacity-50"
+                        className="flex-1 px-6 py-3 bg-rc-accent text-white font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-200 disabled:opacity-50"
                       >
-                        {isSubmittingDeliverance ? 'Sending...' : 'Send Request'}
+                        {isSubmittingDeliverance ? 'Sending...' : 'Request Prayer'}
                       </button>
                     </div>
                   </form>
                 </div>
               )}
 
-              {/* Step 4: Success */}
-              {deliverance.step === 4 && deliverance.submitted && (
-                <div className="p-8 md:p-12 text-center space-y-4">
-                  <div className="text-4xl mb-4">✓</div>
-                  <h3 className="text-2xl font-rc-serif font-bold text-rc-text">
-                    Your request is received
-                  </h3>
-                  <p className="text-rc-text/70">
-                    We will pray for you. Expect contact via WhatsApp.
-                  </p>
+              {/* Step 2: Success */}
+              {deliverance.step === 2 && deliverance.submitted && (
+                <div className="p-8 md:p-12 text-center space-y-6">
+                  <div className="text-5xl">✓</div>
+                  <div className="space-y-3">
+                    <h3 className="text-3xl font-rc-serif font-bold text-rc-text">
+                      Your prayer request is received
+                    </h3>
+                    <p className="text-base text-rc-text/70 leading-relaxed font-light">
+                      We will pray for you. You'll hear from us via WhatsApp within 24 hours.
+                    </p>
+                  </div>
                   <button
                     onClick={() => {
                       setIsModalOpen(false);
                       setDeliverance({ step: 1, need: '', duration: '', name: '', email: '', phone: '', submitted: false });
                     }}
-                    className="mt-6 px-6 py-3 bg-rc-accent text-white font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300"
+                    className="inline-flex items-center justify-center px-8 py-3 bg-rc-accent text-white font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-200"
                   >
                     Back to Page
                   </button>
