@@ -20,7 +20,7 @@ const mockStories: StoryCard[] = [
     name: 'Samuel Johnson',
     role: 'Delivered from Internet Fraud',
     quote: 'When the man of God touched me, I immediately saw myself facing a judge.',
-    story: 'Samuel Johnson was a professional internet fraudster. Known in Nigeria as "Yahoo". Demonically inspired to deceive, defraud, and destroy through the most advanced online tactics and methods.\n\nHe was not just a local king of internet scamming. He taught hundreds of youngsters his satanic tricks. Then he encountered Jesus Christ through prayer at The SCOAN.\n\nThere are many valuable lessons in his testimony. Not just for those in fraud, but for anyone bound by spiritual deception.',
+    story: 'Samuel Johnson was a professional internet fraudster. Known in Nigeria as "Yahoo". Demonically inspired to deceive, defraud, and destroy through the most advanced online tactics and methods.\n\nHe was not just a local king of internet scamming. He taught hundreds of youngsters his satanic tricks. Then one prayer at The SCOAN changed everything.\n\nThere are many valuable lessons in his testimony. Not just for those in fraud, but for anyone bound by spiritual deception.',
     heroImage: {
       url: '/images/testimony.png',
       alt: 'Samuel Johnson - The King of Internet Scamming'
@@ -61,11 +61,11 @@ export default function StoriesPage() {
       {/* Hero Section - Echo of Landing Page */}
       <section className="w-full min-h-screen flex flex-col justify-center bg-gradient-to-br from-rc-accent to-rc-text px-6 sm:px-8 md:px-12 py-24 md:py-32">
         <div className="max-w-2xl mx-auto w-full space-y-6">
-          <div className={`transform transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '120ms' }}>
+          <div className={`transform transition-all duration-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '0ms' }}>
             <p className="text-xs font-medium text-white/70 uppercase tracking-wider">Stories of Deliverance</p>
           </div>
 
-          <div className={`transform transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '240ms' }}>
+          <div className={`transform transition-all duration-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '80ms' }}>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight tracking-tight">
               Not stories of shame.
               <br />
@@ -73,7 +73,7 @@ export default function StoriesPage() {
             </h1>
           </div>
 
-          <div className={`transform transition-all duration-700 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '360ms' }}>
+          <div className={`transform transition-all duration-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '160ms' }}>
             <p className="text-base md:text-lg text-white/90 leading-relaxed font-light">
               Real people. Real deliverance. Real transformation.
             </p>
@@ -87,7 +87,7 @@ export default function StoriesPage() {
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+            transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
             viewport={{ once: true, amount: 0.15 }}
             className="w-full"
           >
@@ -99,7 +99,10 @@ export default function StoriesPage() {
                 className="absolute inset-0 w-full h-full object-cover"
               />
 
-              {/* Gradient Overlay */}
+              {/* Movie Overlay - Left to Right Gradient */}
+              <div className="absolute inset-0 bg-gradient-to-r from-black via-black/40 to-transparent"></div>
+
+              {/* Bottom Overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
 
               {/* Play Button */}
@@ -124,7 +127,7 @@ export default function StoriesPage() {
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+                  transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
                   viewport={{ once: true, amount: 0.15 }}
                   className="space-y-6"
                 >
@@ -149,30 +152,37 @@ export default function StoriesPage() {
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.1 }}
+                  transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
                   viewport={{ once: true, amount: 0.15 }}
-                  className="space-y-8"
+                  className="space-y-10"
                 >
-                  <div className="space-y-12">
-                    <p className="text-xs font-medium text-white/60 uppercase tracking-widest">The Story</p>
+                  <p className="text-xs font-medium text-white/60 uppercase tracking-widest">The Story</p>
 
-                    {/* Story Block 1 */}
-                    <div className="text-base md:text-lg text-white/85 leading-relaxed font-light">
-                      <p>{testimonies[0].story.split('\n\n')[0]}</p>
-                    </div>
-
-                    {/* Story Block 2 */}
-                    <div className="text-base md:text-lg text-white/85 leading-relaxed font-light">
-                      <p>{testimonies[0].story.split('\n\n')[1]}</p>
-                    </div>
-
-                    {/* Story Block 3 */}
-                    <div className="text-base md:text-lg text-white/85 leading-relaxed font-light">
-                      <p>{testimonies[0].story.split('\n\n')[2]}</p>
-                    </div>
+                  {/* Timeline: Before */}
+                  <div className="space-y-3">
+                    <p className="text-xs font-medium text-white/50 uppercase tracking-wide">Before</p>
+                    <p className="text-base md:text-lg text-white/85 leading-relaxed font-light">
+                      {testimonies[0].story.split('\n\n')[0]}
+                    </p>
                   </div>
 
-                  <div className="pt-8 border-t border-white/10">
+                  {/* Timeline: Encounter */}
+                  <div className="space-y-3">
+                    <p className="text-xs font-medium text-white/50 uppercase tracking-wide">The Encounter</p>
+                    <p className="text-base md:text-lg text-white/85 leading-relaxed font-light">
+                      {testimonies[0].story.split('\n\n')[1]}
+                    </p>
+                  </div>
+
+                  {/* Timeline: Lesson */}
+                  <div className="space-y-3">
+                    <p className="text-xs font-medium text-white/50 uppercase tracking-wide">The Lesson</p>
+                    <p className="text-base md:text-lg text-white/85 leading-relaxed font-light">
+                      {testimonies[0].story.split('\n\n')[2]}
+                    </p>
+                  </div>
+
+                  <div className="pt-4 border-t border-white/10">
                     <p className="text-sm text-white/50">41 minutes • Full confession at The SCOAN</p>
                   </div>
                 </motion.div>
@@ -187,32 +197,30 @@ export default function StoriesPage() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
           viewport={{ once: true, amount: 0.15 }}
           className="max-w-2xl mx-auto space-y-8"
         >
           <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-white leading-tight tracking-tight">
-            You are not stuck.
+            You read my story.
           </h2>
 
-          <div className="space-y-4 text-base md:text-lg text-white/90 leading-relaxed font-light">
-            <p>Samuel is free today.</p>
-            <p>Because Jesus set him free.</p>
-
-            <p className="pt-4">The same Jesus can set you free.</p>
+          <div className="space-y-2 text-base md:text-lg text-white/90 leading-relaxed font-light">
+            <p>You watched Samuel's story.</p>
+            <p className="pt-6">Now watch yours begin.</p>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 pt-8">
             <a
               href="/gathering"
-              className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-white text-rc-text font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300"
+              className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-white text-rc-text font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-200"
             >
               Attend the Gathering
             </a>
 
             <a
               href="/journey"
-              className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] text-white font-medium border border-white/60 rounded-lg hover:border-white hover:bg-white/10 hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300"
+              className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] text-white font-medium border border-white/60 rounded-lg hover:border-white hover:bg-white/10 hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-200"
             >
               Learn The Journey
             </a>
