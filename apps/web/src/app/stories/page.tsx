@@ -20,7 +20,7 @@ const mockStories: StoryCard[] = [
     name: 'Samuel Johnson',
     role: 'Delivered from Internet Fraud',
     quote: 'When the man of God touched me, I immediately saw myself facing a judge.',
-    story: 'Samuel Johnson was a professional internet fraudster. Known in Nigeria as Yahoo and in Ghana as Sakawa. Demonically inspired to deceive, defraud, and destroy through the most advanced online tactics and methods.\n\nHe was not just a local king of internet scamming. He taught hundreds of youngsters his satanic tricks.\n\nThen he encountered Jesus Christ through prayer at The SCOAN.\n\nHis deliverance is complete. There are many valuable lessons in his testimony. Not just for those in fraud, but for anyone bound by spiritual deception.\n\nWatch his full 41-minute confession to see what Jesus does.',
+    story: 'Samuel Johnson was a professional internet fraudster. Known in Nigeria as "Yahoo". Demonically inspired to deceive, defraud, and destroy through the most advanced online tactics and methods.\n\nHe was not just a local king of internet scamming. He taught hundreds of youngsters his satanic tricks. Then he encountered Jesus Christ through prayer at The SCOAN.\n\nThere are many valuable lessons in his testimony. Not just for those in fraud, but for anyone bound by spiritual deception.',
     heroImage: {
       url: '/images/testimony.png',
       alt: 'Samuel Johnson - The King of Internet Scamming'
@@ -128,7 +128,8 @@ export default function StoriesPage() {
                   viewport={{ once: true, amount: 0.15 }}
                   className="space-y-6"
                 >
-                  <div className="space-y-4">
+                  <div className="space-y-2">
+                    <p className="text-sm text-white/60 font-light tracking-wide">2015</p>
                     <h2 className="text-4xl sm:text-5xl md:text-6xl font-rc-serif font-bold text-white leading-tight tracking-tight">
                       {testimonies[0].name}
                     </h2>
@@ -152,12 +153,22 @@ export default function StoriesPage() {
                   viewport={{ once: true, amount: 0.15 }}
                   className="space-y-8"
                 >
-                  <div>
-                    <p className="text-xs font-medium text-white/60 uppercase tracking-widest mb-6">The Story</p>
-                    <div className="space-y-6 text-base md:text-lg text-white/85 leading-relaxed font-light">
-                      {testimonies[0].story.split('\n\n').map((paragraph, idx) => (
-                        <p key={idx}>{paragraph}</p>
-                      ))}
+                  <div className="space-y-12">
+                    <p className="text-xs font-medium text-white/60 uppercase tracking-widest">The Story</p>
+
+                    {/* Story Block 1 */}
+                    <div className="text-base md:text-lg text-white/85 leading-relaxed font-light">
+                      <p>{testimonies[0].story.split('\n\n')[0]}</p>
+                    </div>
+
+                    {/* Story Block 2 */}
+                    <div className="text-base md:text-lg text-white/85 leading-relaxed font-light">
+                      <p>{testimonies[0].story.split('\n\n')[1]}</p>
+                    </div>
+
+                    {/* Story Block 3 */}
+                    <div className="text-base md:text-lg text-white/85 leading-relaxed font-light">
+                      <p>{testimonies[0].story.split('\n\n')[2]}</p>
                     </div>
                   </div>
 
@@ -215,23 +226,16 @@ export default function StoriesPage() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-12">
             <a
               href="/"
-              className="text-white/80 hover:text-white transition-colors group"
+              className="text-white/80 hover:text-white transition-colors group text-sm"
             >
               Home
               <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
             </a>
             <a
               href="/stories"
-              className="text-white/80 hover:text-white transition-colors group"
+              className="text-white/80 hover:text-white transition-colors group text-sm"
             >
-              Stories of Deliverance
-              <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
-            </a>
-            <a
-              href="/partnership"
-              className="text-white/80 hover:text-white transition-colors group"
-            >
-              Mission Partners
+              Stories
               <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
             </a>
           </div>
