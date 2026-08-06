@@ -161,7 +161,7 @@ export default function Home() {
               Request Deliverance
             </button>
             <a
-              href="/samuel-video"
+              href="/stories"
               className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] text-white font-medium border border-white/60 rounded-lg hover:border-white hover:bg-white/10 hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300"
             >
               Watch Samuel's Encounter
