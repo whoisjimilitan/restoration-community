@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useSession } from 'next-auth/react';
 import { motion } from 'framer-motion';
-import Logo from '@/components/Logo';
 
 const stages = [
   { number: 1, name: 'Truth', description: 'See what is real' },
@@ -208,12 +207,8 @@ export default function JourneyPage() {
       </section>
 
       {/* FOOTER */}
-      <footer className="w-full px-6 sm:px-8 md:px-12 py-12 bg-rc-text border-t border-rc-border text-center">
-        <div className="max-w-2xl mx-auto space-y-8">
-          <div className="flex justify-center">
-            <Logo size="md" />
-          </div>
-
+      <footer className="w-full px-6 sm:px-8 md:px-12 py-8 bg-rc-text border-t border-rc-border text-center">
+        <div className="max-w-2xl mx-auto space-y-6">
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 flex-wrap">
             <a href="/" className="text-white/80 hover:text-white transition-colors group text-sm">
               Home
