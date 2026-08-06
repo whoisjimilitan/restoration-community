@@ -6,6 +6,11 @@ import './globals.css';
 export const metadata: Metadata = {
   title: 'Brother Jimi',
   description: 'A Servant of Jesus Christ.',
+  icons: {
+    icon: '/icon.svg',
+    shortcut: '/icon.svg',
+    apple: '/icon.svg',
+  },
 };
 
 export default function RootLayout({
