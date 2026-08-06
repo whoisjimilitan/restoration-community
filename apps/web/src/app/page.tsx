@@ -121,8 +121,7 @@ export default function Home() {
             <p>In 2015.</p>
             <p>Samuel was a professional fraudster.</p>
             <p>He taught hundreds his tricks.</p>
-            <p className="pt-2">One encounter with Jesus Christ.</p>
-            <p>Things left him.</p>
+            <p className="pt-2">One touch from His anointed one.</p>
             <p className="pt-4">His identity restored.</p>
             <p>His purpose clear.</p>
           </div>
