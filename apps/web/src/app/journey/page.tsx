@@ -17,7 +17,7 @@ const stages = [
 
 export default function JourneyPage() {
   const router = useRouter();
-  const { data: session, status } = useSession();
+  const { status } = useSession();
   const [isLoaded, setIsLoaded] = useState(false);
   const currentStage = 1;
   const [reflection, setReflection] = useState('');
@@ -67,23 +67,55 @@ export default function JourneyPage() {
 
   return (
     <div className="bg-rc-bg text-rc-text">
-      {/* HERO */}
-      <section className="w-full min-h-screen flex flex-col justify-center bg-gradient-to-br from-rc-accent to-rc-text px-6 sm:px-8 md:px-12 py-24 md:py-32">
-        <div className="max-w-2xl mx-auto w-full space-y-6">
+      {/* HERO - Journey Timeline Visual */}
+      <section className="w-full min-h-screen flex flex-col justify-center bg-rc-bg px-6 sm:px-8 md:px-12 py-24 md:py-32">
+        <div className="max-w-6xl mx-auto w-full">
           <div className={`transform transition-all duration-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '0ms' }}>
-            <p className="text-xs font-medium text-white/70 uppercase tracking-wider">Your Restoration</p>
+            <h1 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text mb-16">The Journey Out</h1>
           </div>
 
-          <div className={`transform transition-all duration-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '80ms' }}>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight tracking-tight">
-              The 7-Stage Journey
-            </h1>
+          {/* Horizontal Timeline */}
+          <div className={`transform transition-all duration-600 ${isLoaded ? 'opacity-100' : 'opacity-0'}`} style={{ transitionDelay: '80ms' }}>
+            <div className="relative w-full pb-12">
+              {/* Horizontal line */}
+              <div className="absolute top-4 left-0 right-0 h-1 bg-gradient-to-r from-rc-accent to-rc-text"></div>
+
+              {/* Stage circles */}
+              <div className="relative flex justify-between items-start">
+                {stages.map((stage, index) => (
+                  <motion.div
+                    key={stage.number}
+                    initial={{ opacity: 0, y: -10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: index * 0.08 }}
+                    viewport={{ once: true }}
+                    className="flex flex-col items-center flex-1"
+                  >
+                    {/* Circle */}
+                    <div className="relative z-10 w-10 h-10 rounded-full flex items-center justify-center text-white font-medium text-sm mb-4" style={{
+                      backgroundColor: `hsl(${168 + (index * 3)}, ${70 - (index * 3)}%, ${50 + (index * 2)}%)`,
+                    }}>
+                      {stage.number}
+                    </div>
+
+                    {/* Label */}
+                    <p className="text-sm md:text-base font-medium text-rc-text text-center">{stage.name}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
           </div>
 
-          <div className={`transform transition-all duration-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '160ms' }}>
-            <p className="text-base md:text-lg text-white/90 leading-relaxed font-light">
-              Welcome back, {session?.user?.name}. You're on stage {currentStage} of 7.
-            </p>
+          {/* Support text */}
+          <div className={`transform transition-all duration-600 mt-20 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '160ms' }}>
+            <div className="space-y-4 border-t border-rc-border/30 pt-8 max-w-2xl">
+              <p className="text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
+                You move through this divine journey with support.
+              </p>
+              <p className="text-base text-rc-text/70 font-light">
+                Prayer. Encouragement. People who understand.
+              </p>
+            </div>
           </div>
         </div>
       </section>
