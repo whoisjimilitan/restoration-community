@@ -91,16 +91,16 @@ export default function Home() {
           viewport={{ once: true, amount: 0.15 }}
           className="max-w-2xl mx-auto space-y-12"
         >
-          <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">My Deliverance</h2>
+          <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">My Encounter</h2>
 
           <div className="space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light border-l-4 border-rc-accent pl-8">
             <p>In 2015.</p>
             <p>Jesus used Prophet TB Joshua.</p>
             <p>To pray for me in His name.</p>
             <p className="pt-2 text-rc-text font-medium">One utterance: "All that is over."</p>
-            <p className="pt-4">The pull for wastefulness left.</p>
-            <p>The grip of fantasy broken.</p>
-            <p>My delusion disappeared.</p>
+            <p className="pt-4">The urge for wastefulness left.</p>
+            <p>The desire for fantasy left.</p>
+            <p>My confusion disappeared.</p>
             <p>My curses undone.</p>
           </div>
         </motion.div>
@@ -115,15 +115,17 @@ export default function Home() {
           viewport={{ once: true, amount: 0.15 }}
           className="max-w-2xl mx-auto space-y-12"
         >
-          <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">Samuel's Deliverance</h2>
+          <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">Samuel's Encounter</h2>
 
           <div className="space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light border-l-4 border-rc-accent pl-8">
             <p>In 2015.</p>
             <p>Samuel was a professional fraudster.</p>
-            <p>He taught hundreds his tricks.</p>
-            <p className="pt-2">One touch from His anointed one.</p>
-            <p className="pt-4">His identity restored.</p>
-            <p>His purpose clear.</p>
+            <p>He taught hundreds his trade.</p>
+            <p className="pt-2">Death came close. Then came Jesus Christ.</p>
+            <p className="pt-4">One touch from His servant.</p>
+            <p>The mysterious urge for more left him.</p>
+            <p>The fiery anger inside him, gone.</p>
+            <p>His identity restored.</p>
           </div>
         </motion.div>
       </section>
@@ -162,7 +164,7 @@ export default function Home() {
               href="/stories"
               className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] text-white font-medium border border-white/60 rounded-lg hover:border-white hover:bg-white/10 hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300"
             >
-              Watch Samuel's Deliverance
+              Watch Samuel's Encounter
             </a>
           </div>
         </motion.div>
