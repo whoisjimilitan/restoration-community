@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { useSession } from 'next-auth/react';
+import { useSession, signOut } from 'next-auth/react';
 import { motion } from 'framer-motion';
 
 const stages = [
@@ -68,6 +68,16 @@ export default function JourneyPage() {
 
   return (
     <div className="bg-rc-bg text-rc-text">
+      {/* HEADER */}
+      <header className="w-full px-6 sm:px-8 md:px-12 py-6 border-b border-rc-border/30 flex items-center justify-end">
+        <button
+          onClick={() => signOut({ callbackUrl: '/' })}
+          className="text-sm font-medium text-rc-text hover:text-rc-accent transition-colors"
+        >
+          Logout
+        </button>
+      </header>
+
       {/* HERO */}
       <section className="w-full min-h-screen flex flex-col justify-center bg-gradient-to-br from-rc-accent to-rc-text px-6 sm:px-8 md:px-12 py-24 md:py-32">
         <div className="max-w-2xl mx-auto w-full space-y-6">
@@ -83,7 +93,7 @@ export default function JourneyPage() {
 
           <div className={`transform transition-all duration-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '160ms' }}>
             <p className="text-base md:text-lg text-white/90 leading-relaxed font-light">
-              Welcome back, {session?.user?.name || 'friend'}. You're on stage {currentStage} of 7.
+              Welcome back, {session?.user?.name || 'friend'}.
             </p>
           </div>
 
@@ -224,6 +234,13 @@ export default function JourneyPage() {
               Journey
               <span className="block h-px w-0 bg-white transition-all duration-300 mt-1"></span>
             </div>
+            <button
+              onClick={() => signOut({ callbackUrl: '/' })}
+              className="text-white/80 hover:text-white transition-colors group text-sm cursor-pointer"
+            >
+              Logout
+              <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
+            </button>
           </div>
           <p className="text-white/40 text-xs">© 2026. All rights reserved.</p>
         </div>
