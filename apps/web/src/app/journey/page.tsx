@@ -67,18 +67,27 @@ export default function JourneyPage() {
 
   return (
     <div className="bg-rc-bg text-rc-text">
-      {/* HERO - Journey Timeline Visual */}
+      {/* HERO */}
       <section className="w-full min-h-screen flex flex-col justify-center bg-rc-bg px-6 sm:px-8 md:px-12 py-24 md:py-32">
-        <div className="max-w-6xl mx-auto w-full">
-          <div className={`transform transition-all duration-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '0ms' }}>
-            <h1 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text mb-16">The Journey Out</h1>
+        <div className="max-w-6xl mx-auto w-full space-y-16">
+          {/* Header */}
+          <div className="space-y-6">
+            <div className={`transform transition-all duration-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '0ms' }}>
+              <p className="text-xs font-medium text-rc-text/70 uppercase tracking-wider">Your Restoration</p>
+            </div>
+
+            <div className={`transform transition-all duration-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '80ms' }}>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">
+                The 7-Stage Journey
+              </h1>
+            </div>
           </div>
 
           {/* Horizontal Timeline */}
-          <div className={`transform transition-all duration-600 ${isLoaded ? 'opacity-100' : 'opacity-0'}`} style={{ transitionDelay: '80ms' }}>
-            <div className="relative w-full pb-12">
+          <div className={`transform transition-all duration-600 ${isLoaded ? 'opacity-100' : 'opacity-0'}`} style={{ transitionDelay: '120ms' }}>
+            <div className="relative w-full py-8">
               {/* Horizontal line */}
-              <div className="absolute top-4 left-0 right-0 h-1 bg-gradient-to-r from-rc-accent to-rc-text"></div>
+              <div className="absolute top-8 left-0 right-0 h-1 bg-gradient-to-r from-rc-accent to-rc-text"></div>
 
               {/* Stage circles */}
               <div className="relative flex justify-between items-start">
@@ -87,7 +96,7 @@ export default function JourneyPage() {
                     key={stage.number}
                     initial={{ opacity: 0, y: -10 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4, delay: index * 0.08 }}
+                    transition={{ duration: 0.4, delay: index * 0.06 }}
                     viewport={{ once: true }}
                     className="flex flex-col items-center flex-1"
                   >
@@ -99,21 +108,18 @@ export default function JourneyPage() {
                     </div>
 
                     {/* Label */}
-                    <p className="text-sm md:text-base font-medium text-rc-text text-center">{stage.name}</p>
+                    <p className="text-xs md:text-sm font-medium text-rc-text text-center">{stage.name}</p>
                   </motion.div>
                 ))}
               </div>
             </div>
           </div>
 
-          {/* Support text */}
-          <div className={`transform transition-all duration-600 mt-20 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '160ms' }}>
-            <div className="space-y-4 border-t border-rc-border/30 pt-8 max-w-2xl">
+          {/* Message */}
+          <div className={`transform transition-all duration-600 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '160ms' }}>
+            <div className="pt-8 max-w-2xl border-t border-rc-border/20">
               <p className="text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
-                You move through this divine journey with support.
-              </p>
-              <p className="text-base text-rc-text/70 font-light">
-                Prayer. Encouragement. People who understand.
+                Jesus Christ walks with you through each stage.
               </p>
             </div>
           </div>
