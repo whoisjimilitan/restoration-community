@@ -1,11 +1,11 @@
-import { PrismaClient } from '@prisma/client';
+import { PrismaClient, ResourceType } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
 const resources: Array<{
   title: string;
   slug: string;
-  type: string;
+  type: ResourceType;
   scriptureReference?: string;
   content: string;
   categoryId: null;
