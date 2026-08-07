@@ -46,7 +46,8 @@ export async function GET(
     }
 
     // Transform the response to flatten the resource data
-    const resources = stage.stageResources.map((sr) => ({
+    const resources = stage.stageResources.map((sr: any) => ({
+
       id: sr.resource.id,
       title: sr.resource.title,
       slug: sr.resource.slug,
