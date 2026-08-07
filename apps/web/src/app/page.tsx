@@ -140,13 +140,10 @@ export default function Home() {
           className="max-w-2xl mx-auto space-y-12"
         >
           <div className="space-y-8">
-            <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight tracking-tight">There is a way.</h2>
-
             <div className="space-y-4 text-base md:text-lg text-white/90 leading-relaxed font-light">
               <p>He delivered me.</p>
               <p>He delivered Samuel.</p>
-              <p>He is ready to deliver you.</p>
-              <p className="pt-2">All you have to do is ask.</p>
+              <p className="pt-2">He's waiting. Call out.</p>
             </div>
           </div>
 
