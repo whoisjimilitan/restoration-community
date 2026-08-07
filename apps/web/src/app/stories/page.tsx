@@ -207,7 +207,7 @@ export default function StoriesPage() {
           <div className="space-y-4 text-base md:text-lg text-white/90 leading-relaxed font-light">
             <p>You watched Samuel's story.</p>
             <p className="pt-2">Now see yours begin.</p>
-            <p className="pt-4">What comes next is the gathering—where transformation becomes real through community prayer and presence. Then begins your private 7-stage journey of restoration.</p>
+            <p className="pt-4">What comes next is the gathering. Transformation becomes real through community prayer and presence. Then begins your private 7-stage journey of restoration.</p>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 pt-8">
