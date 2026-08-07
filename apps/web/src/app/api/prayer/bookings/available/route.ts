@@ -18,7 +18,7 @@ export async function GET() {
     });
 
     // Convert to ISO strings
-    const bookedSlots = bookedCalls.map(call => call.scheduledTime.toISOString());
+    const bookedSlots = bookedCalls.map((call: { scheduledTime: Date }) => call.scheduledTime.toISOString());
 
     console.log('[PRAYER-BOOKINGS-AVAILABLE] Returning', bookedSlots.length, 'booked slots');
 
