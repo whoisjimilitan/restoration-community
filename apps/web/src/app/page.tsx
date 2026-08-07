@@ -97,7 +97,7 @@ export default function Home() {
             <p>In 2015.</p>
             <p>Jesus used Prophet TB Joshua.</p>
             <p>To pray for me in His name.</p>
-            <p className="pt-2"><span className="text-rc-text font-bold">One Utterance:</span> <span className="text-rc-text font-medium">"All that is over."</span></p>
+            <p className="pt-2">One utterance: "All that is over."</p>
             <p className="pt-4">The urge for wastefulness left me.</p>
             <p>That desire for fantasy gone.</p>
             <p>My confusion disappeared.</p>
@@ -115,7 +115,7 @@ export default function Home() {
           viewport={{ once: true, amount: 0.15 }}
           className="max-w-2xl mx-auto space-y-12"
         >
-          <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">Samuel's Encounter</h2>
+          <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">Samuel's Story</h2>
 
           <div className="space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light border-l-4 border-rc-accent pl-8">
             <p>In 2015.</p>
