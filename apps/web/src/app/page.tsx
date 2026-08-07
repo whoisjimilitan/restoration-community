@@ -98,8 +98,8 @@ export default function Home() {
             <p>Jesus used Prophet TB Joshua.</p>
             <p>To pray for me in His name.</p>
             <p className="pt-2 text-rc-text font-medium">One utterance: "All that is over."</p>
-            <p className="pt-4">The unexplained urge for wastefulness left me.</p>
-            <p>That strong desire for fantasy gone.</p>
+            <p className="pt-4">The urge for wastefulness left me.</p>
+            <p>That desire for fantasy gone.</p>
             <p>My confusion disappeared.</p>
             <p>The curses undone.</p>
           </div>
@@ -119,12 +119,12 @@ export default function Home() {
 
           <div className="space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light border-l-4 border-rc-accent pl-8">
             <p>In 2015.</p>
-            <p>Samuel was a professional fraudster.</p>
+            <p>Samuel was a fraudster.</p>
             <p>He taught hundreds his trade.</p>
             <p className="pt-2">Then came Jesus Christ.</p>
-            <p className="pt-4">One touch from His anointed servant.</p>
-            <p>The mysterious urge for more, gone.</p>
-            <p>The fiery anger, gone.</p>
+            <p className="pt-4">One touch from His servant.</p>
+            <p>The urge for more, gone.</p>
+            <p>The anger, gone.</p>
             <p>His identity restored.</p>
           </div>
         </motion.div>
@@ -531,14 +531,20 @@ export default function Home() {
               Stories
               <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
             </a>
-            <div className="text-white/40 group text-sm cursor-not-allowed">
+            <a
+              href="/gathering"
+              className="text-white/80 hover:text-white transition-colors group text-sm"
+            >
               Gathering
-              <span className="block h-px w-0 bg-white transition-all duration-300 mt-1"></span>
-            </div>
-            <div className="text-white/40 group text-sm cursor-not-allowed">
+              <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
+            </a>
+            <a
+              href="/journey"
+              className="text-white/80 hover:text-white transition-colors group text-sm"
+            >
               Journey
-              <span className="block h-px w-0 bg-white transition-all duration-300 mt-1"></span>
-            </div>
+              <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
+            </a>
           </div>
 
           {/* Copyright Only */}
