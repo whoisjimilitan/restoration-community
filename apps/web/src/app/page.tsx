@@ -154,24 +154,26 @@ export default function Home() {
               <p className="pt-2">Now it's your turn.</p>
               <p>He's waiting for you.</p>
             </div>
+
+            <p className="text-sm text-white/70 font-light">First, see his full story. Then, take the next step.</p>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 pt-4">
+            <a
+              href="/stories"
+              className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-white text-rc-text font-medium rounded-lg hover:bg-white/95 hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300"
+            >
+              Watch Samuel's Full Story
+            </a>
             <button
               onClick={() => {
                 setIsModalOpen(true);
                 setDeliverance({ step: 1, need: '', duration: '', name: '', email: '', phone: '', submitted: false });
               }}
-              className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-white text-rc-text font-medium rounded-lg hover:bg-white/95 hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300"
+              className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] text-white font-medium border border-white/60 rounded-lg hover:border-white hover:bg-white/10 hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300"
             >
               Request Deliverance
             </button>
-            <a
-              href="/stories"
-              className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] text-white font-medium border border-white/60 rounded-lg hover:border-white hover:bg-white/10 hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300"
-            >
-              Watch Samuel's Encounter
-            </a>
           </div>
         </motion.div>
       </section>

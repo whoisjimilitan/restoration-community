@@ -6,13 +6,13 @@ import { useSession, signOut } from 'next-auth/react';
 import { motion } from 'framer-motion';
 
 const stages = [
-  { number: 1, name: 'Truth', description: 'Face what is true' },
-  { number: 2, name: 'Confession', description: 'Speak it aloud' },
-  { number: 3, name: 'Repentance', description: 'Turn away' },
-  { number: 4, name: 'Forgiveness', description: 'Receive grace' },
-  { number: 5, name: 'Reconciliation', description: 'Restore connections' },
-  { number: 6, name: 'Honest Work', description: 'Build something real' },
-  { number: 7, name: 'Serving', description: 'Give back' },
+  { number: 1, name: 'Truth', description: 'See yourself clearly and Jesus clearly' },
+  { number: 2, name: 'Confession', description: 'Speak it aloud to God' },
+  { number: 3, name: 'Repentance', description: 'Turn away from what harmed you' },
+  { number: 4, name: 'Forgiveness', description: 'Release what held you captive' },
+  { number: 5, name: 'Reconciliation', description: 'Restore what was broken' },
+  { number: 6, name: 'Honest Work', description: 'Build a life that reflects who you are' },
+  { number: 7, name: 'Serving', description: 'Give to others what you received' },
 ];
 
 export default function JourneyPage() {
@@ -92,9 +92,10 @@ export default function JourneyPage() {
           </div>
 
           <div className={`transform transition-all duration-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '160ms' }}>
-            <p className="text-base md:text-lg text-white/90 leading-relaxed font-light">
-              Welcome back, {session?.user?.name || 'friend'}.
-            </p>
+            <div className="space-y-4 text-base md:text-lg text-white/90 leading-relaxed font-light">
+              <p>Welcome back, {session?.user?.name || 'friend'}.</p>
+              <p className="pt-2">You are six weeks into your restoration. Here is where Jesus Christ continues the work that began at the gathering.</p>
+            </div>
           </div>
 
           {/* Progress Visualization - Bottom of Hero */}
@@ -166,12 +167,12 @@ export default function JourneyPage() {
           <form onSubmit={handleReflectionSubmit} className="space-y-6">
             <div className="space-y-3">
               <label className="block text-sm font-medium text-rc-text/70">
-                Your Reflection
+                This Week's Work
               </label>
               <textarea
                 value={reflection}
                 onChange={(e) => setReflection(e.target.value)}
-                placeholder="What's coming up for you this week?"
+                placeholder="How is Jesus working in your life this week? What are you learning?"
                 className="w-full px-4 py-4 border border-rc-border rounded-lg focus:outline-none focus:border-rc-accent/60 transition-colors bg-white text-rc-text resize-none"
                 rows={4}
               />

@@ -25,14 +25,14 @@ export default function GatheringPage() {
 
           <div className={`transform transition-all duration-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '80ms' }}>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight tracking-tight">
-              Experience the journey together in Christ.
+              Prayer. Deliverance. Discipleship.
             </h1>
           </div>
 
           <div className={`transform transition-all duration-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '160ms' }}>
             <div className="space-y-3 text-base md:text-lg text-white/90 leading-relaxed font-light">
-              <p>Prayer. Discipleship. Counselling.</p>
-              <p className="pt-2">Transformation becomes real.</p>
+              <p>Where transformation becomes real through presence and community.</p>
+              <p className="pt-2">This is where your 7-stage journey begins.</p>
             </div>
           </div>
         </div>
@@ -66,6 +66,27 @@ export default function GatheringPage() {
           >
             Get Directions
           </a>
+        </motion.div>
+      </section>
+
+      {/* WHY TOGETHER */}
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border/30">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+          viewport={{ once: true, amount: 0.15 }}
+          className="max-w-2xl mx-auto space-y-8"
+        >
+          <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">
+            Why Together?
+          </h2>
+
+          <div className="space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
+            <p>Jesus healed in presence, not remotely.</p>
+            <p>Deliverance happens together—in prayer, in witness, in the acknowledgment that you are not alone.</p>
+            <p>The gathering is where community becomes the condition for transformation. This is the first week of your 7-stage journey.</p>
+          </div>
         </motion.div>
       </section>
 
@@ -110,6 +131,12 @@ export default function GatheringPage() {
                 Hear what God has to say about your situation.
               </p>
             </div>
+          </div>
+
+          <div className="pt-8 border-t border-rc-border/30 space-y-4">
+            <p className="text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
+              After the gathering ends, your private 7-stage journey begins. You move through the next six weeks of restoration with a mentor and the tools you need.
+            </p>
           </div>
         </motion.div>
       </section>
