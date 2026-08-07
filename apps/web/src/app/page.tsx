@@ -119,12 +119,18 @@ export default function Home() {
 
           <div className="space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light border-l-4 border-rc-accent pl-8">
             <p>In 2015.</p>
-            <p>Samuel was a fraudster.</p>
-            <p>He taught hundreds his trade.</p>
+            <p>His friend died at 23.</p>
+            <p>Samuel knew he was next.</p>
+            <p>Samuel had wealth.</p>
+            <p>But there was no peace.</p>
+            <p>A spirit lived inside him.</p>
+            <p>Two people in one body.</p>
+            <p>Fear.</p>
+            <p>Isolation.</p>
+            <p>Everything troubling him.</p>
             <p className="pt-2">Then came Jesus Christ.</p>
             <p className="pt-4">One touch from His servant.</p>
-            <p>The urge for more, gone.</p>
-            <p>The anger, gone.</p>
+            <p>The spirit left him.</p>
             <p>His identity restored.</p>
           </div>
         </motion.div>
@@ -158,7 +164,7 @@ export default function Home() {
               }}
               className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-white text-rc-text font-medium rounded-lg hover:bg-white/95 hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300"
             >
-              Request Prayer
+              Request Deliverance
             </button>
             <a
               href="/stories"
