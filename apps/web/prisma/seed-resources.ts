@@ -1,6 +1,8 @@
-import { PrismaClient, ResourceType } from '@prisma/client';
+import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
+
+type ResourceType = 'SCRIPTURE' | 'TEACHING' | 'VIDEO' | 'PDF' | 'REFLECTION_QUESTION' | 'PRAYER' | 'ASSIGNMENT' | 'EXTERNAL_LINK';
 
 const resources: Array<{
   title: string;
