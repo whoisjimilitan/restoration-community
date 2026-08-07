@@ -2,13 +2,12 @@ import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { hash } from 'bcryptjs';
 
-let resend: any = null;
-if (process.env.RESEND_API_KEY) {
-  const { Resend } = require('resend');
-  resend = new Resend(process.env.RESEND_API_KEY);
-}
-
 export async function POST(request: NextRequest) {
+  let resend: any = null;
+  if (process.env.RESEND_API_KEY) {
+    const { Resend } = require('resend');
+    resend = new Resend(process.env.RESEND_API_KEY);
+  }
   console.log('[DELIVERANCE-REGISTER] Starting registration process');
 
   try {

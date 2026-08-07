@@ -6,11 +6,10 @@ import { isValidBookingSlot, convertUTCToLocalTime } from '@/lib/prayer-utils';
 import { getConfirmationEmailHTML, getSubjectLine } from '@/lib/email-templates';
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY || process.env.EMAIL_PROVIDER_KEY);
-
 export const maxDuration = 30;
 
 export async function POST(request: NextRequest) {
+  const resend = new Resend(process.env.RESEND_API_KEY || process.env.EMAIL_PROVIDER_KEY);
   console.log('[PRAYER-BOOKINGS] POST /api/prayer/bookings initiated');
 
   try {

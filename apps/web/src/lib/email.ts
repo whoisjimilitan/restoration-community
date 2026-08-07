@@ -1,11 +1,5 @@
 import { Resend } from 'resend';
 
-// Initialize Resend only if API key is provided
-// In development without API key, emails are logged to console
-const resend = process.env.RESEND_API_KEY
-  ? new Resend(process.env.RESEND_API_KEY)
-  : null;
-
 const FROM_EMAIL = process.env.EMAIL_FROM_ADDRESS || 'noreply@saintandstory.com';
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
 
@@ -20,6 +14,10 @@ export interface EmailOptions {
  * Development-safe: logs to console if RESEND_API_KEY not configured
  */
 export async function sendEmail({ to, subject, html }: EmailOptions) {
+  const resend = process.env.RESEND_API_KEY
+    ? new Resend(process.env.RESEND_API_KEY)
+    : null;
+
   console.log('[EMAIL] Sending email:', { to, subject });
 
   // Development fallback: log instead of sending if API key missing
