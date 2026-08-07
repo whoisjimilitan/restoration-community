@@ -97,7 +97,7 @@ export default function Home() {
             <p>In 2015.</p>
             <p>Jesus used Prophet TB Joshua.</p>
             <p>To pray for me in His name.</p>
-            <p className="pt-2 text-rc-text font-medium">One utterance: "All that is over."</p>
+            <p className="pt-2"><span className="text-rc-text font-bold">One Utterance:</span> <span className="text-rc-text font-medium">"All that is over."</span></p>
             <p className="pt-4">The urge for wastefulness left me.</p>
             <p>That desire for fantasy gone.</p>
             <p>My confusion disappeared.</p>
@@ -130,7 +130,7 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* THE CALL */}
+      {/* YOUR TURN */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-gradient-to-br from-rc-accent to-rc-text border-t border-rc-border">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -139,11 +139,14 @@ export default function Home() {
           viewport={{ once: true, amount: 0.15 }}
           className="max-w-2xl mx-auto space-y-12"
         >
+          <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight tracking-tight">Your Turn</h2>
+
           <div className="space-y-8">
             <div className="space-y-4 text-base md:text-lg text-white/90 leading-relaxed font-light">
               <p>He delivered me.</p>
               <p>He delivered Samuel.</p>
-              <p className="pt-2">He's waiting. Call out.</p>
+              <p className="pt-2">Now it's your turn.</p>
+              <p>He's waiting.</p>
             </div>
           </div>
 
