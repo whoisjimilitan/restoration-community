@@ -145,14 +145,14 @@ export default function Home() {
           viewport={{ once: true, amount: 0.15 }}
           className="max-w-2xl mx-auto space-y-12"
         >
-          <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight tracking-tight">Your Turn</h2>
+          <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight tracking-tight">Your Story</h2>
 
           <div className="space-y-8">
             <div className="space-y-4 text-base md:text-lg text-white/90 leading-relaxed font-light">
               <p>Jesus Christ delivered me.</p>
               <p>He delivered Samuel.</p>
               <p className="pt-2">Now it's your turn.</p>
-              <p>He's waiting.</p>
+              <p>He's waiting for you.</p>
             </div>
           </div>
 
