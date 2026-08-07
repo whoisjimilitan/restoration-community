@@ -146,7 +146,7 @@ export default function Home() {
               <p>Jesus Christ delivered me.</p>
               <p>He delivered Samuel.</p>
               <p className="pt-2">Now it's your turn.</p>
-              <p>Ask Him in faith.</p>
+              <p>He's waiting.</p>
             </div>
           </div>
 
