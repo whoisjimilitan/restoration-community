@@ -143,10 +143,10 @@ export default function Home() {
 
           <div className="space-y-8">
             <div className="space-y-4 text-base md:text-lg text-white/90 leading-relaxed font-light">
-              <p>He delivered me.</p>
+              <p>Jesus Christ delivered me.</p>
               <p>He delivered Samuel.</p>
               <p className="pt-2">Now it's your turn.</p>
-              <p>He's waiting.</p>
+              <p>Ask Him in faith.</p>
             </div>
           </div>
 
