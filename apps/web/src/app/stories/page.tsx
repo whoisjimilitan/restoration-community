@@ -198,19 +198,28 @@ export default function StoriesPage() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
           viewport={{ once: true, amount: 0.15 }}
-          className="max-w-2xl mx-auto space-y-8"
+          className="max-w-2xl mx-auto space-y-12"
         >
-          <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-white leading-tight tracking-tight">
-            You read my own story.
-          </h2>
+          <div className="space-y-8">
+            <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-white leading-tight tracking-tight">
+              You read my own story.
+            </h2>
 
-          <div className="space-y-4 text-base md:text-lg text-white/90 leading-relaxed font-light">
-            <p>You watched Samuel's story.</p>
-            <p className="pt-2">Now see yours begin.</p>
-            <p className="pt-4">What comes next is the gathering. Transformation becomes real through community prayer and presence. Then begins your private 7-stage journey of restoration.</p>
+            <div className="space-y-6 text-base md:text-lg text-white/90 leading-relaxed font-light border-l-2 border-white/30 pl-6">
+              <p>You watched Samuel's story.</p>
+              <p>Now see yours begin.</p>
+            </div>
+
+            <div className="border-t border-white/20 pt-8">
+              <div className="space-y-4 text-base md:text-lg text-white/90 leading-relaxed font-light">
+                <p>What comes next is the gathering.</p>
+                <p className="pt-2">Transformation becomes real through community prayer and presence.</p>
+                <p className="pt-2">Then begins your private 7-stage journey of restoration.</p>
+              </div>
+            </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 pt-8">
+          <div className="flex flex-col sm:flex-row gap-4 pt-4">
             <a
               href="/gathering"
               className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-white text-rc-text font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-200"

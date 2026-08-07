@@ -68,18 +68,15 @@ export default function JourneyPage() {
 
   return (
     <div className="bg-rc-bg text-rc-text">
-      {/* HEADER */}
-      <header className="w-full px-6 sm:px-8 md:px-12 py-6 border-b border-rc-border/30 flex items-center justify-end">
+      {/* HERO */}
+      <section className="relative w-full min-h-screen flex flex-col justify-center bg-gradient-to-br from-rc-accent to-rc-text px-6 sm:px-8 md:px-12 py-24 md:py-32">
+        {/* Logout Button - Top Right */}
         <button
           onClick={() => signOut({ callbackUrl: '/' })}
-          className="text-sm font-medium text-rc-text hover:text-rc-accent transition-colors"
+          className="absolute top-6 right-6 sm:top-8 sm:right-8 md:top-12 md:right-12 text-sm font-medium text-white/80 hover:text-white transition-colors"
         >
           Logout
         </button>
-      </header>
-
-      {/* HERO */}
-      <section className="w-full min-h-screen flex flex-col justify-center bg-gradient-to-br from-rc-accent to-rc-text px-6 sm:px-8 md:px-12 py-24 md:py-32">
         <div className="max-w-2xl mx-auto w-full space-y-6">
           <div className={`transform transition-all duration-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '0ms' }}>
             <p className="text-xs font-medium text-white/70 uppercase tracking-wider">Your Restoration</p>

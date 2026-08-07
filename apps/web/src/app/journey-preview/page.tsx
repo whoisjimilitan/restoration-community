@@ -42,9 +42,26 @@ export default function JourneyPreviewPage() {
             </div>
           </div>
 
-          {/* Stage Grid */}
+          {/* Progress Visualization - Bottom of Hero */}
           <div className={`transform transition-all duration-600 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '240ms' }}>
-            <div className="pt-12 space-y-8 border-t border-white/20">
+            <div className="pt-12 space-y-4 border-t border-white/20">
+              {/* Progress Bar */}
+              <div className="space-y-2">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-xs font-medium text-white/70">Progress</span>
+                  <span className="text-xs font-medium text-white/70">0%</span>
+                </div>
+                <div className="w-full h-2 bg-white/20 rounded-full overflow-hidden">
+                  <motion.div
+                    className="h-full bg-white rounded-full"
+                    initial={{ width: 0 }}
+                    animate={{ width: isLoaded ? '0%' : 0 }}
+                    transition={{ duration: 0.8, type: 'spring', damping: 30, stiffness: 120 }}
+                  />
+                </div>
+              </div>
+
+              {/* Stage Grid */}
               <div className="grid grid-cols-7 gap-2">
                 {stages.map((stage, index) => (
                   <motion.div
@@ -52,28 +69,9 @@ export default function JourneyPreviewPage() {
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: isLoaded ? 1 : 0, scale: isLoaded ? 1 : 0.8 }}
                     transition={{ duration: 0.4, delay: index * 0.05 }}
-                    className="w-8 h-8 md:w-10 md:h-10 rounded-lg flex items-center justify-center text-xs md:text-sm font-semibold bg-white text-rc-accent"
+                    className="w-8 h-8 md:w-10 md:h-10 rounded-lg flex items-center justify-center text-xs md:text-sm font-semibold bg-white/20 text-white"
                   >
                     {stage.number}
-                  </motion.div>
-                ))}
-              </div>
-
-              <div className="space-y-6">
-                {stages.map((stage, index) => (
-                  <motion.div
-                    key={stage.number}
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4, delay: index * 0.05 }}
-                    viewport={{ once: true }}
-                    className="space-y-2"
-                  >
-                    <div className="flex items-center gap-4">
-                      <div className="text-sm font-medium text-white/70">Stage {stage.number}</div>
-                      <h3 className="text-lg font-medium text-white">{stage.name}</h3>
-                    </div>
-                    <p className="text-base text-white/80 font-light">{stage.description}</p>
                   </motion.div>
                 ))}
               </div>
@@ -82,7 +80,7 @@ export default function JourneyPreviewPage() {
         </div>
       </section>
 
-      {/* CTA SECTION */}
+      {/* STAGE DESCRIPTIONS */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border/30">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -93,21 +91,134 @@ export default function JourneyPreviewPage() {
         >
           <div className="space-y-4">
             <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">
-              Begin Your Journey
+              Your Seven Steps to Restoration
             </h2>
-            <p className="text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
-              Attend the gathering to begin this seven-stage restoration. Work with a mentor. Move through each stage at your own pace. Experience Jesus Christ's transformative work in your life.
+            <p className="text-base text-rc-text/70 font-light">
+              Each stage is a step closer to your true identity in Jesus Christ.
             </p>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-4">
-            <a
-              href="/gathering"
-              className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-rc-accent text-white font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-200"
-            >
-              Attend the Gathering
-            </a>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {stages.map((stage, index) => (
+              <motion.div
+                key={stage.number}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94], delay: index * 0.05 }}
+                viewport={{ once: true, amount: 0.15 }}
+                className="space-y-3"
+              >
+                <div className="flex items-baseline gap-3">
+                  <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-rc-accent text-white font-semibold text-sm flex-shrink-0">
+                    {stage.number}
+                  </div>
+                  <h3 className="text-lg md:text-xl font-rc-serif font-bold text-rc-text leading-tight">
+                    {stage.name}
+                  </h3>
+                </div>
+                <p className="text-base text-rc-text/80 leading-relaxed font-light">
+                  {stage.description}
+                </p>
+              </motion.div>
+            ))}
           </div>
+        </motion.div>
+      </section>
+
+      {/* HOW IT WORKS */}
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border/30">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+          viewport={{ once: true, amount: 0.15 }}
+          className="max-w-2xl mx-auto space-y-12"
+        >
+          <div className="space-y-4">
+            <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">
+              How the Journey Works
+            </h2>
+            <p className="text-base text-rc-text/70 font-light">
+              From the gathering to transformation, this is your path forward.
+            </p>
+          </div>
+
+          <div className="space-y-8">
+            {[
+              {
+                step: '1',
+                title: 'Begin at the Gathering',
+                description: 'Connect with the community. Encounter the prophetic voice of the restoration gospel. Meet your mentor.'
+              },
+              {
+                step: '2',
+                title: 'Move Through Each Stage',
+                description: 'Work privately through each of the seven stages at your own pace. No rushing. Your mentor walks with you.'
+              },
+              {
+                step: '3',
+                title: 'Experience Transformation',
+                description: 'From Truth to Serving. As each stage completes, you move closer to your true identity in Jesus Christ.'
+              },
+              {
+                step: '4',
+                title: 'Serve Others',
+                description: 'The final stage is giving to others what you received. Your story becomes someone else\'s hope.'
+              }
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94], delay: index * 0.08 }}
+                viewport={{ once: true, amount: 0.15 }}
+                className="flex gap-6"
+              >
+                <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-rc-accent/10 border border-rc-accent/30 flex-shrink-0">
+                  <span className="text-base font-semibold text-rc-accent">{item.step}</span>
+                </div>
+                <div className="space-y-2">
+                  <h3 className="text-lg font-bold text-rc-text leading-tight">
+                    {item.title}
+                  </h3>
+                  <p className="text-base text-rc-text/70 leading-relaxed font-light">
+                    {item.description}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+      </section>
+
+      {/* CLOSING CTA */}
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-gradient-to-br from-rc-accent to-rc-text border-t border-rc-border">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+          viewport={{ once: true, amount: 0.15 }}
+          className="max-w-2xl mx-auto space-y-8"
+        >
+          <div className="space-y-6">
+            <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-white leading-tight tracking-tight">
+              Ready to Begin
+            </h2>
+
+            <div className="space-y-4 text-base md:text-lg text-white/90 leading-relaxed font-light">
+              <p>This journey is not theoretical.</p>
+              <p>It is not a course to complete from your bedroom.</p>
+              <p className="pt-4">It is an encounter with Jesus Christ that transforms you from the inside out.</p>
+              <p className="pt-4">The gathering is your first step.</p>
+            </div>
+          </div>
+
+          <a
+            href="/gathering"
+            className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-white text-rc-accent font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-200"
+          >
+            Attend the Gathering
+          </a>
         </motion.div>
       </section>
 

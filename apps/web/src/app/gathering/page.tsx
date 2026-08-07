@@ -79,13 +79,13 @@ export default function GatheringPage() {
           className="max-w-2xl mx-auto space-y-8"
         >
           <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">
-            Why Together?
+            Why You Need to Be Here
           </h2>
 
           <div className="space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
-            <p>Jesus healed in presence, not remotely.</p>
-            <p>Deliverance happens together—in prayer, in witness, in the acknowledgment that you are not alone.</p>
-            <p>The gathering is where community becomes the condition for transformation. This is the first week of your 7-stage journey.</p>
+            <p>Jesus didn't heal people from a distance. He showed up. He was present.</p>
+            <p>Deliverance is real when you're with others. In prayer. In witness. When you know you're not alone.</p>
+            <p>This gathering is where you meet Jesus and your community. It's where everything begins.</p>
           </div>
         </motion.div>
       </section>
@@ -107,35 +107,35 @@ export default function GatheringPage() {
             <div className="space-y-3 border-l-4 border-rc-accent pl-8">
               <p className="text-sm font-medium text-rc-text uppercase tracking-wide">Teaching</p>
               <p className="text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
-                Live teaching of the seven-stage journey for restoration.
+                Brother Jimi walks you through your 7-stage journey. Why each stage matters. What you'll face. How Jesus leads you forward.
               </p>
             </div>
 
             <div className="space-y-3 border-l-4 border-rc-accent pl-8">
               <p className="text-sm font-medium text-rc-text uppercase tracking-wide">Prayer</p>
               <p className="text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
-                Spirit prayer where God ministers all His blessings.
+                We pray together. The Holy Spirit meets you where you are. God begins to show you things about yourself and your situation.
               </p>
             </div>
 
             <div className="space-y-3 border-l-4 border-rc-accent pl-8">
-              <p className="text-sm font-medium text-rc-text uppercase tracking-wide">Discipleship</p>
+              <p className="text-sm font-medium text-rc-text uppercase tracking-wide">Community</p>
               <p className="text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
-                Walk with others who are waking with the Holy Spirit.
+                You're not alone. You meet others on this same journey. You find your mentor. You begin.
               </p>
             </div>
 
             <div className="space-y-3 border-l-4 border-rc-accent pl-8">
-              <p className="text-sm font-medium text-rc-text uppercase tracking-wide">Counselling</p>
+              <p className="text-sm font-medium text-rc-text uppercase tracking-wide">Counsel</p>
               <p className="text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
-                Hear what God has to say about your situation.
+                One-on-one conversations where someone listens. Where God speaks through the wisdom of those who've been delivered.
               </p>
             </div>
           </div>
 
           <div className="pt-8 border-t border-rc-border/30 space-y-4">
             <p className="text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
-              After the gathering ends, your private 7-stage journey begins. You move through the next six weeks of restoration with a mentor and the tools you need.
+              When the gathering ends, your private journey starts. For six weeks you work through the seven stages with your mentor. You pray. You confess. You experience Jesus in a way you never have before.
             </p>
           </div>
         </motion.div>
