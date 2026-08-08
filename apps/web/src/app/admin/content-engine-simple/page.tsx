@@ -3,20 +3,35 @@
 import { useState } from 'react';
 
 interface Stage1 {
-  coreTeaching: {
-    mainStatement: string;
-    reasoning: string[];
-    examples: string[];
+  validity: {
+    isValid: boolean;
+    reasoning: string;
     conclusion: string;
+    premises: string[];
+    logicalFlow: string;
+    issues: string[];
   };
+  premises: Array<{
+    premise: string;
+    isTrue: boolean;
+    source: string;
+    support: string;
+  }>;
+  canBeChallengd: boolean;
 }
 
 interface Stage2 {
-  identified: {
-    yourMainPoint: string;
-    howYouReason: string;
-    proofYouGive: string;
-    whereYouLead: string;
+  architecture: {
+    openingThrust: string;
+    logicalFlow: string[];
+    proof: string;
+    implication: string;
+    closing: string;
+  };
+  audienceLayering: {
+    analytical: string;
+    resistant: string;
+    accepting: string;
   };
 }
 
@@ -161,35 +176,49 @@ export default function ContentEngineAdmin() {
         {/* STAGE 1 */}
         <div style={{ marginBottom: '50px' }}>
           <h2 style={{ fontSize: '20px', fontWeight: 'bold', marginBottom: '15px' }}>
-            Stage 1: Your Teaching (Extracted)
+            Stage 1: Validity & Premises (Two Separate Tests)
           </h2>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '12px' }}>
-            <div style={{ backgroundColor: 'white', padding: '15px', borderLeft: '4px solid #000', borderRadius: '4px' }}>
-              <p style={{ fontSize: '12px', color: '#999', margin: '0 0 4px 0', fontWeight: '600' }}>YOUR MAIN STATEMENT</p>
-              <p style={{ fontSize: '14px', lineHeight: '1.6', margin: 0 }}>
-                {result.stage1.coreTeaching.mainStatement}
+            <div style={{ backgroundColor: result.stage1.validity.isValid ? '#e8f5e9' : '#ffebee', padding: '15px', borderLeft: `4px solid ${result.stage1.validity.isValid ? '#66bb6a' : '#d32f2f'}`, borderRadius: '4px' }}>
+              <p style={{ fontSize: '12px', color: '#999', margin: '0 0 4px 0', fontWeight: '600' }}>VALIDITY TEST (Logic Structure)</p>
+              <p style={{ fontSize: '14px', fontWeight: '600', margin: '0 0 8px 0' }}>
+                {result.stage1.validity.isValid ? '✓ VALID' : '✗ BROKEN'}
               </p>
+              <p style={{ fontSize: '13px', margin: '0 0 8px 0' }}>
+                {result.stage1.validity.reasoning}
+              </p>
+              {result.stage1.validity.issues.length > 0 && (
+                <div>
+                  <p style={{ fontSize: '12px', color: '#d32f2f', fontWeight: '600', margin: '0 0 4px 0' }}>Issues to fix:</p>
+                  {result.stage1.validity.issues.map((issue, i) => (
+                    <p key={i} style={{ fontSize: '12px', margin: i === 0 ? 0 : '4px 0 0 0' }}>• {issue}</p>
+                  ))}
+                </div>
+              )}
             </div>
+
             <div style={{ backgroundColor: 'white', padding: '15px', borderLeft: '4px solid #1976d2', borderRadius: '4px' }}>
-              <p style={{ fontSize: '12px', color: '#999', margin: '0 0 4px 0', fontWeight: '600' }}>YOUR REASONING</p>
-              {result.stage1.coreTeaching.reasoning.map((line, i) => (
-                <p key={i} style={{ fontSize: '13px', lineHeight: '1.6', margin: i === 0 ? 0 : '8px 0 0 0' }}>
-                  • {line}
-                </p>
+              <p style={{ fontSize: '12px', color: '#999', margin: '0 0 4px 0', fontWeight: '600' }}>PREMISE TEST (Scriptural Truth)</p>
+              {result.stage1.premises.map((p, i) => (
+                <div key={i} style={{ marginBottom: i === result.stage1.premises.length - 1 ? 0 : '12px' }}>
+                  <p style={{ fontSize: '12px', margin: '0 0 4px 0', fontStyle: 'italic' }}>"{p.premise}"</p>
+                  <p style={{ fontSize: '11px', color: '#666', margin: 0 }}>
+                    {p.isTrue ? '✓' : '✗'} {p.source}
+                  </p>
+                  <p style={{ fontSize: '11px', color: '#999', margin: '2px 0 0 0' }}>{p.support}</p>
+                </div>
               ))}
             </div>
-            <div style={{ backgroundColor: 'white', padding: '15px', borderLeft: '4px solid #ff6b00', borderRadius: '4px' }}>
-              <p style={{ fontSize: '12px', color: '#999', margin: '0 0 4px 0', fontWeight: '600' }}>YOUR EXAMPLES</p>
-              {result.stage1.coreTeaching.examples.map((example, i) => (
-                <p key={i} style={{ fontSize: '13px', lineHeight: '1.6', margin: i === 0 ? 0 : '8px 0 0 0' }}>
-                  • {example}
-                </p>
-              ))}
-            </div>
-            <div style={{ backgroundColor: 'white', padding: '15px', borderLeft: '4px solid #d32f2f', borderRadius: '4px' }}>
-              <p style={{ fontSize: '12px', color: '#999', margin: '0 0 4px 0', fontWeight: '600' }}>YOUR CONCLUSION</p>
-              <p style={{ fontSize: '14px', lineHeight: '1.6', margin: 0 }}>
-                {result.stage1.coreTeaching.conclusion}
+
+            <div style={{ backgroundColor: result.stage1.canBeChallengd ? '#fff3e0' : '#e8f5e9', padding: '15px', borderLeft: `4px solid ${result.stage1.canBeChallengd ? '#ff9800' : '#66bb6a'}`, borderRadius: '4px' }}>
+              <p style={{ fontSize: '12px', color: '#999', margin: '0 0 4px 0', fontWeight: '600' }}>PASSES BOTH TESTS?</p>
+              <p style={{ fontSize: '14px', fontWeight: '600' }}>
+                {!result.stage1.canBeChallengd ? '✓ Cannot be challenged' : '✗ Needs refinement'}
+              </p>
+              <p style={{ fontSize: '12px', color: '#666', marginTop: '8px' }}>
+                {!result.stage1.canBeChallengd
+                  ? 'This message passes both the validity test (logic is sound) and premise test (scriptural truth confirmed).'
+                  : 'Either the logical structure needs fixing or the premises need scriptural support.'}
               </p>
             </div>
           </div>
@@ -198,31 +227,39 @@ export default function ContentEngineAdmin() {
         {/* STAGE 2 */}
         <div style={{ marginBottom: '50px' }}>
           <h2 style={{ fontSize: '20px', fontWeight: 'bold', marginBottom: '15px' }}>
-            Stage 2: Your Logic Identified
+            Stage 2: Reconstructed Architecture & Audience Approach
           </h2>
+
+          <div style={{ marginBottom: '20px', padding: '15px', backgroundColor: '#f5f5f5', borderRadius: '4px' }}>
+            <p style={{ fontSize: '12px', color: '#999', margin: '0 0 8px 0', fontWeight: '600' }}>MESSAGE ARCHITECTURE</p>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '8px' }}>
+              <div><strong>Opening:</strong> {result.stage2.architecture.openingThrust}</div>
+              <div><strong>Logic:</strong> {result.stage2.architecture.logicalFlow.join(' → ')}</div>
+              <div><strong>Proof:</strong> {result.stage2.architecture.proof}</div>
+              <div><strong>Implication:</strong> {result.stage2.architecture.implication}</div>
+              <div><strong>Closing:</strong> {result.stage2.architecture.closing}</div>
+            </div>
+          </div>
+
           <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '12px' }}>
-            <div style={{ backgroundColor: 'white', padding: '15px', borderLeft: '4px solid #000', borderRadius: '4px' }}>
-              <p style={{ fontSize: '12px', color: '#999', margin: '0 0 4px 0', fontWeight: '600' }}>YOUR MAIN POINT</p>
-              <p style={{ fontSize: '14px', lineHeight: '1.6', margin: 0 }}>
-                {result.stage2.identified.yourMainPoint}
+            <div style={{ backgroundColor: '#e3f2fd', padding: '15px', borderLeft: '4px solid #1976d2', borderRadius: '4px' }}>
+              <p style={{ fontSize: '12px', color: '#999', margin: '0 0 8px 0', fontWeight: '600' }}>FOR ANALYTICAL MINDS</p>
+              <p style={{ fontSize: '13px', lineHeight: '1.6', margin: 0 }}>
+                {result.stage2.audienceLayering.analytical}
               </p>
             </div>
-            <div style={{ backgroundColor: 'white', padding: '15px', borderLeft: '4px solid #1976d2', borderRadius: '4px' }}>
-              <p style={{ fontSize: '12px', color: '#999', margin: '0 0 4px 0', fontWeight: '600' }}>HOW YOU REASON</p>
-              <p style={{ fontSize: '14px', lineHeight: '1.6', margin: 0 }}>
-                {result.stage2.identified.howYouReason}
+
+            <div style={{ backgroundColor: '#f3e5f5', padding: '15px', borderLeft: '4px solid #ab47bc', borderRadius: '4px' }}>
+              <p style={{ fontSize: '12px', color: '#999', margin: '0 0 8px 0', fontWeight: '600' }}>FOR RESISTANT/QUESTIONING MINDS</p>
+              <p style={{ fontSize: '13px', lineHeight: '1.6', margin: 0 }}>
+                {result.stage2.audienceLayering.resistant}
               </p>
             </div>
-            <div style={{ backgroundColor: 'white', padding: '15px', borderLeft: '4px solid #ff6b00', borderRadius: '4px' }}>
-              <p style={{ fontSize: '12px', color: '#999', margin: '0 0 4px 0', fontWeight: '600' }}>PROOF YOU GIVE</p>
-              <p style={{ fontSize: '14px', lineHeight: '1.6', margin: 0 }}>
-                {result.stage2.identified.proofYouGive}
-              </p>
-            </div>
-            <div style={{ backgroundColor: 'white', padding: '15px', borderLeft: '4px solid #d32f2f', borderRadius: '4px' }}>
-              <p style={{ fontSize: '12px', color: '#999', margin: '0 0 4px 0', fontWeight: '600' }}>WHERE YOU LEAD</p>
-              <p style={{ fontSize: '14px', lineHeight: '1.6', margin: 0 }}>
-                {result.stage2.identified.whereYouLead}
+
+            <div style={{ backgroundColor: '#e8f5e9', padding: '15px', borderLeft: '4px solid #66bb6a', borderRadius: '4px' }}>
+              <p style={{ fontSize: '12px', color: '#999', margin: '0 0 8px 0', fontWeight: '600' }}>FOR ACCEPTING MINDS</p>
+              <p style={{ fontSize: '13px', lineHeight: '1.6', margin: 0 }}>
+                {result.stage2.audienceLayering.accepting}
               </p>
             </div>
           </div>

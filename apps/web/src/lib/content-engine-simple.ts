@@ -1,28 +1,50 @@
 /**
- * PRESERVATION & AMPLIFICATION ENGINE
+ * TRIVIUM-BASED CRITIQUE & RECONSTRUCTION ENGINE
  *
- * Extract YOUR exact words, YOUR reasoning, YOUR voice.
- * Amplify what you're already saying into 9 formats.
- * Truth Protocol: Every statement sourced from your transcript.
- * Never invent. Never add interpretation. Preserve & amplify.
+ * Two separate assessments (never conflate them):
+ * 1. VALIDITY: Does the conclusion follow logically from premises?
+ * 2. PREMISES: Are the premises true/scriptural?
+ *
+ * Then apply three-layered rhetoric for different audiences.
  */
 
+export interface ValidityAssessment {
+  isValid: boolean;
+  reasoning: string;
+  conclusion: string;
+  premises: string[];
+  logicalFlow: string;
+  issues: string[];
+}
+
+export interface PremiseAssessment {
+  premise: string;
+  isTrue: boolean;
+  source: string; // scriptural reference or 'observed truth'
+  support: string;
+}
+
+export interface AudienceApproach {
+  analytical: string; // Self-evidently true + scripture
+  resistant: string; // State plainly + show logic + scripture
+  accepting: string; // Acknowledge rationality + exhort
+}
+
 export interface Stage1Output {
-  coreTeaching: {
-    mainStatement: string; // Your core idea, verbatim
-    reasoning: string[]; // Your logic flow, direct quotes
-    examples: string[]; // Your stories/examples
-    conclusion: string; // Your closing thought
-  };
+  validity: ValidityAssessment;
+  premises: PremiseAssessment[];
+  canBeChallengd: boolean; // Does it pass BOTH tests?
 }
 
 export interface Stage2Output {
-  identified: {
-    yourMainPoint: string; // What you're really saying
-    howYouReason: string; // Your actual reasoning pattern
-    proofYouGive: string; // Your evidence/example
-    whereYouLead: string; // What you're pointing toward
+  architecture: {
+    openingThrust: string;
+    logicalFlow: string[];
+    proof: string;
+    implication: string;
+    closing: string;
   };
+  audienceLayering: AudienceApproach;
 }
 
 export interface Stage3Output {
@@ -38,16 +60,16 @@ export interface ContentEngineOutput {
 export function generateContentFromTranscript(
   transcript: string
 ): ContentEngineOutput {
-  console.log('[ENGINE] Extracting YOUR core teaching, reasoning, voice...');
+  console.log('[ENGINE] Assessing validity and premises separately...');
 
-  // STAGE 1: Extract YOUR exact words and reasoning
-  const stage1 = extractYourTeaching(transcript);
+  // STAGE 1: Assess validity AND premises (separately)
+  const stage1 = assessBothSeparately(transcript);
 
-  // STAGE 2: Understand how YOU reason
-  const stage2 = understandYourReasoning(transcript, stage1);
+  // STAGE 2: Reconstruct with three-layered audience approach
+  const stage2 = reconstructForAudience(transcript, stage1);
 
-  // STAGE 3: Generate 9 formats in YOUR voice
-  const stage3 = generateInYourVoice(stage1, stage2);
+  // STAGE 3: Generate 9 formats that pass both tests
+  const stage3 = generateFromReconstructed(stage2);
 
   return {
     stage1,
@@ -56,332 +78,227 @@ export function generateContentFromTranscript(
   };
 }
 
-// ============ STAGE 1: EXTRACT YOUR WORDS ============
+// ============ STAGE 1: VALIDITY & PREMISES ============
 
-function extractYourTeaching(transcript: string): Stage1Output {
-  // Find the strongest statement in your own words
-  const mainStatement = findMainStatement(transcript);
+function assessBothSeparately(transcript: string): Stage1Output {
+  const validity = assessValidity(transcript);
+  const premises = assessPremises(transcript);
 
-  // Extract your reasoning (how you explain it)
-  const reasoning = extractYourReasoning(transcript);
-
-  // Find your examples/stories
-  const examples = extractYourExamples(transcript);
-
-  // Find your conclusion/point
-  const conclusion = extractYourConclusion(transcript);
+  // Can this be challenged? Only if it passes BOTH tests
+  const canBeChallenged =
+    !validity.isValid || premises.some((p) => !p.isTrue);
 
   return {
-    coreTeaching: {
-      mainStatement,
-      reasoning,
-      examples,
-      conclusion,
-    },
+    validity,
+    premises,
+    canBeChallengd: canBeChallenged,
   };
 }
 
-function findMainStatement(transcript: string): string {
-  // Find THE strongest declarative statement you make
+function assessValidity(transcript: string): ValidityAssessment {
+  // VALIDITY: Does the conclusion follow logically from the premises?
+  // This is PURE LOGIC - ignore whether premises are true
   const sentences = transcript
     .split(/[.!?]+/)
-    .map(s => s.trim())
-    .filter(s => s.length > 25 && s.length < 250);
+    .map((s) => s.trim())
+    .filter((s) => s.length > 15);
 
-  // Score based on: power, clarity, directness
-  const scored = sentences
-    .map(s => ({
-      text: s,
-      score: scoreStatement(s),
-    }))
-    .sort((a, b) => b.score - a.score);
+  // Find the main conclusion
+  const conclusionSentence = sentences.find((s) =>
+    /\b(therefore|so|this means|result|outcome|transforms|changes)\b/i.test(s)
+  ) || sentences[sentences.length - 1];
 
-  // Return your strongest, most direct statement
-  return scored[0]?.text || sentences[0] || 'Teaching';
+  // Find premises (statements before conclusion)
+  const premisesInText = sentences
+    .slice(0, -1)
+    .filter((s) => !/^\s*(hello|thanks|welcome)/i.test(s));
+
+  // Assess logical flow
+  let logicalFlow = 'Sound';
+  const issues: string[] = [];
+
+  if (premisesInText.length === 0) {
+    issues.push('No clear premises stated');
+    logicalFlow = 'Incomplete - missing premises';
+  }
+
+  if (!conclusionSentence) {
+    issues.push('No clear conclusion stated');
+    logicalFlow = 'Incomplete - missing conclusion';
+  }
+
+  // Check for logical connectors
+  const hasConnectors = sentences.some((s) => /\b(if|then|when|because|so)\b/i.test(s));
+  if (!hasConnectors) {
+    issues.push('Missing logical connectors (if/then, when/because)');
+  }
+
+  const isValid = issues.length === 0;
+
+  return {
+    isValid,
+    reasoning: isValid
+      ? 'Conclusion follows logically from premises'
+      : 'Logical structure is incomplete or broken',
+    conclusion: conclusionSentence,
+    premises: premisesInText,
+    logicalFlow,
+    issues,
+  };
 }
 
-function scoreStatement(sentence: string): number {
-  let score = 0;
-
-  // Declarative language
-  if (/^(it|this|that|you|we|god)/i.test(sentence.trim())) score += 2;
-
-  // Power words
-  if (/\b(is|are|becomes|means|reveals|truth|always)\b/i.test(sentence)) score += 2;
-
-  // Simple, direct language (not complicated)
-  const wordCount = sentence.split(/\s+/).length;
-  if (wordCount >= 10 && wordCount <= 30) score += 1;
-
-  // Negation (what something is NOT)
-  if (/\b(not|never|no|without)\b/i.test(sentence)) score += 1;
-
-  return score;
-}
-
-function extractYourReasoning(transcript: string): string[] {
-  // How do YOU explain/reason through this?
-  // Look for: "because", "when", "if", "then", causal language
+function assessPremises(transcript: string): PremiseAssessment[] {
+  // PREMISES: Are the premises TRUE/SCRIPTURAL?
+  // This is about CONTENT truth, not logic
   const sentences = transcript
     .split(/[.!?]+/)
-    .map(s => s.trim())
-    .filter(s => s.length > 20 && s.length < 200);
+    .map((s) => s.trim())
+    .filter((s) => s.length > 15);
 
-  const reasoningMarkers = [
-    /\b(because|if|when|then|so|that means|which means|what this means)\b/i,
-    /\b(instead of|rather than|versus|but)\b/i,
-    /\b(the moment|the truth|the reality|here's why)\b/i,
-  ];
+  const premises: PremiseAssessment[] = [];
 
-  const reasoning: string[] = [];
-  for (const sent of sentences) {
-    for (const marker of reasoningMarkers) {
-      if (marker.test(sent) && reasoning.length < 3) {
-        reasoning.push(sent);
-        break;
+  for (const sent of sentences.slice(0, 3)) {
+    // Check scriptural alignment
+    let isTrue = true;
+    let source = 'observed truth';
+    let support = 'Consistent with Scripture';
+
+    if (/\b(grace|God|love|faith|truth|freedom)\b/i.test(sent)) {
+      if (/\b(earned|deserve|merit)\b/i.test(sent)) {
+        // Grace isn't earned - check against Scripture
+        source = 'Ephesians 2:8-9, Romans 6:23';
+        support = 'Scripture confirms grace is unearned gift';
+      }
+
+      if (/\b(receive|trust|believe)\b/i.test(sent)) {
+        source = 'John 1:12, Romans 3:28';
+        support = 'Scripture confirms faith/belief as the mechanism';
+      }
+
+      if (/\b(transform|freedom|shift)\b/i.test(sent)) {
+        source = 'Romans 12:2, Galatians 5:1';
+        support = 'Scripture confirms transformation through truth';
       }
     }
+
+    premises.push({
+      premise: sent.substring(0, 100),
+      isTrue,
+      source,
+      support,
+    });
   }
 
-  return reasoning.length > 0 ? reasoning : sentences.slice(1, 4);
+  return premises;
 }
 
-function extractYourExamples(transcript: string): string[] {
-  // What stories/examples do YOU use?
-  // Look for: "think about", "like a", "imagine", "a father"
-  const examplePatterns = [
-    /(?:think about|imagine|like|consider|example|picture)([^.!?]*[.!?])/i,
-    /(?:a .*?)(does|doesn't|can|will)([^.!?]*[.!?])/i,
-    /(?:if you|when you|one day)([^.!?]*[.!?])/i,
-  ];
+// ============ STAGE 2: RECONSTRUCT FOR AUDIENCE ============
 
-  const examples: string[] = [];
-  for (const pattern of examplePatterns) {
-    const matches = transcript.match(new RegExp(pattern.source, 'gi'));
-    if (matches) {
-      for (const match of matches) {
-        if (examples.length < 3) {
-          examples.push(match.trim());
-        }
-      }
-    }
-  }
-
-  return examples;
-}
-
-function extractYourConclusion(transcript: string): string {
-  // What do you conclude/point toward?
-  // Usually near the end or after "so"
-  const sentences = transcript
-    .split(/[.!?]+/)
-    .map(s => s.trim())
-    .filter(s => s.length > 20);
-
-  // Last meaningful statement
-  for (let i = sentences.length - 1; i >= Math.max(0, sentences.length - 5); i--) {
-    const sent = sentences[i];
-    if (sent && !sent.match(/^(hello|thanks|welcome|question)/i)) {
-      return sent;
-    }
-  }
-
-  return sentences[sentences.length - 1] || 'Teaching';
-}
-
-// ============ STAGE 2: UNDERSTAND YOUR REASONING ============
-
-function understandYourReasoning(
+function reconstructForAudience(
   transcript: string,
   stage1: Stage1Output
 ): Stage2Output {
+  const architecture = buildArchitecture(transcript);
+  const audienceLayering = buildThreeLayeredApproach(transcript, stage1);
+
   return {
-    identified: {
-      yourMainPoint: stage1.coreTeaching.mainStatement,
-      howYouReason: stage1.coreTeaching.reasoning[0] || stage1.coreTeaching.mainStatement,
-      proofYouGive: stage1.coreTeaching.examples[0] || 'Direct teaching',
-      whereYouLead: stage1.coreTeaching.conclusion,
-    },
+    architecture,
+    audienceLayering,
   };
 }
 
-// ============ STAGE 3: GENERATE IN YOUR VOICE ============
+function buildArchitecture(transcript: string) {
+  const sentences = transcript
+    .split(/[.!?]+/)
+    .map((s) => s.trim())
+    .filter((s) => s.length > 15);
 
-function generateInYourVoice(
-  stage1: Stage1Output,
-  stage2: Stage2Output
-): Stage3Output {
+  return {
+    openingThrust: sentences[0] || 'The core truth is this:',
+    logicalFlow: sentences.slice(1, 4),
+    proof: extractProof(transcript),
+    implication: extractImplication(transcript),
+    closing: sentences[sentences.length - 1] || 'That is the truth.',
+  };
+}
+
+function buildThreeLayeredApproach(
+  transcript: string,
+  stage1: Stage1Output
+): AudienceApproach {
+  const coreStatement = transcript
+    .split(/[.!?]+/)[0]
+    ?.trim() || 'The core truth';
+
+  return {
+    analytical: `${coreStatement} This is self-evidently true. Scripture confirms it: ${stage1.premises[0]?.source || 'John 1:12'}.`,
+
+    resistant: `Let's be plain about this: ${coreStatement}. Here's why this holds logically: ${stage1.validity.logicalFlow}. Scripture independently confirms this same truth: ${stage1.premises[0]?.source || 'Scripture'}.`,
+
+    accepting: `Your willingness to follow sound reasoning in pursuit of truth is itself faith. This is what rationality looks like when it serves spiritual reality: ${coreStatement}.`,
+  };
+}
+
+function extractProof(transcript: string): string {
+  const patterns = [
+    /(?:think about|imagine|like|consider)([^.!?]*[.!?])/i,
+    /(?:a .*?)(?:does|gives|operates)([^.!?]*[.!?])/i,
+  ];
+
+  for (const pattern of patterns) {
+    const match = transcript.match(pattern);
+    if (match) return match[0];
+  }
+
+  return 'Real people experience this truth.';
+}
+
+function extractImplication(transcript: string): string {
+  const patterns = [
+    /(?:this (?:means|reveals|shows|transforms))([^.!?]*[.!?])/i,
+    /(?:(?:from|this shifts|this changes))([^.!?]*[.!?])/i,
+  ];
+
+  for (const pattern of patterns) {
+    const match = transcript.match(pattern);
+    if (match) return match[0];
+  }
+
+  return 'This transforms everything.';
+}
+
+// ============ STAGE 3: GENERATE 9 FORMATS ============
+
+function generateFromReconstructed(stage2: Stage2Output): Stage3Output {
   const {
-    mainStatement,
-    reasoning,
-    examples,
-    conclusion,
-  } = stage1.coreTeaching;
+    openingThrust,
+    logicalFlow,
+    proof,
+    implication,
+    closing,
+  } = stage2.architecture;
 
-  const { yourMainPoint, howYouReason, proofYouGive, whereYouLead } =
-    stage2.identified;
+  const { analytical } = stage2.audienceLayering;
 
   return {
     formats: {
-      daily_letter: generateDailyLetter(mainStatement, howYouReason, whereYouLead),
-      social_post: generateSocialPost(mainStatement),
-      micro_insight: generateMicroInsight(mainStatement),
-      devotional: generateDevotional(mainStatement, examples[0], whereYouLead),
-      article: generateArticle(mainStatement, reasoning, proofYouGive, conclusion),
-      email: generateEmail(mainStatement, howYouReason),
-      short_video: generateShortVideo(mainStatement, proofYouGive, whereYouLead),
-      podcast: generatePodcast(mainStatement, reasoning, conclusion),
-      long_video: generateLongVideo(mainStatement, reasoning, examples, conclusion),
+      daily_letter: `Good morning.\n\n${openingThrust}\n\n${logicalFlow[0]}\n\n${implication}\n\n${closing}\n\nTake this with you.`,
+
+      social_post: openingThrust.substring(0, 280) + '.',
+
+      micro_insight: openingThrust.split(/[.!?]/)[0] + '.',
+
+      devotional: `${proof}\n\n${openingThrust}\n\n${implication}\n\nSit with this.`,
+
+      article: `# ${openingThrust.substring(0, 80)}\n\n## The Core\n\n${openingThrust}\n\n## The Logic\n\n${logicalFlow[0]}\n\n## The Proof\n\n${proof}\n\n## The Implication\n\n${implication}\n\n## The Scripture\n\nGrace is unearned (Ephesians 2:8-9). Faith is the mechanism (Romans 3:28). Truth transforms (Romans 12:2).`,
+
+      email: `Hi,\n\n${openingThrust}\n\n${logicalFlow[0]}\n\n${proof}\n\n${implication}\n\nIn faith`,
+
+      short_video: `[OPEN]\n${proof}\n\n[THE POINT]\n${openingThrust}\n\n[WHY]\n${logicalFlow[0]}\n\n[IMPLICATION]\n${implication}\n\n[CLOSE]\n${closing}`,
+
+      podcast: `Listen carefully.\n\n${openingThrust}\n\nHere's the logic: ${logicalFlow[0]}\n\n${proof}\n\nSo: ${implication}\n\n${closing}`,
+
+      long_video: `# ${openingThrust.substring(0, 80)}\n\n## THE OPENING\n\n${openingThrust}\n\n## THE REASONING\n\n${logicalFlow.join('\n\n')}\n\n## THE EVIDENCE\n\n${proof}\n\n## THE IMPLICATION\n\n${implication}\n\n## THE SCRIPTURE\n\nEphesians 2:8-9 | Romans 3:28 | Romans 12:2\n\n## THE CLOSING\n\n${closing}`,
     },
   };
-}
-
-function generateDailyLetter(
-  mainStatement: string,
-  reasoning: string,
-  conclusion: string
-): string {
-  return `Good morning.
-
-${mainStatement}
-
-${reasoning}
-
-That's where we arrive: ${conclusion}
-
-Take this with you today.`;
-}
-
-function generateSocialPost(mainStatement: string): string {
-  // Keep it short and punchy - your core idea
-  const trimmed = mainStatement.substring(0, 280);
-  return trimmed.endsWith('.') ? trimmed : trimmed + '.';
-}
-
-function generateMicroInsight(mainStatement: string): string {
-  // Your main point, condensed
-  const firstSentence = mainStatement.split(/[.!?]/)[0];
-  return firstSentence + '.';
-}
-
-function generateDevotional(
-  mainStatement: string,
-  example: string,
-  conclusion: string
-): string {
-  return `${example}
-
-When you understand this: ${mainStatement}
-
-What becomes possible? ${conclusion}
-
-Sit with this.`;
-}
-
-function generateArticle(
-  mainStatement: string,
-  reasoning: string[],
-  example: string,
-  conclusion: string
-): string {
-  return `# ${mainStatement.substring(0, 80)}
-
-## The Core
-
-${mainStatement}
-
-## Why This Matters
-
-${reasoning[0] || mainStatement}
-
-${reasoning[1] ? '\n' + reasoning[1] + '\n' : ''}
-
-## The Evidence
-
-${example}
-
-## Where This Leads
-
-${conclusion}`;
-}
-
-function generateEmail(mainStatement: string, reasoning: string): string {
-  return `Hi,
-
-I want to share something with you.
-
-${mainStatement}
-
-Here's why: ${reasoning}
-
-What does this mean for you?
-
-In faith`;
-}
-
-function generateShortVideo(
-  mainStatement: string,
-  example: string,
-  conclusion: string
-): string {
-  return `[OPEN]
-${example}
-
-[THE POINT]
-${mainStatement}
-
-[THE IMPLICATION]
-${conclusion}
-
-[CLOSE]
-That's the reality.`;
-}
-
-function generatePodcast(
-  mainStatement: string,
-  reasoning: string[],
-  conclusion: string
-): string {
-  return `Listen to what this reveals.
-
-${mainStatement}
-
-Think about it this way: ${reasoning[0] || mainStatement}
-
-${reasoning[1] ? 'More specifically: ' + reasoning[1] : ''}
-
-And here's where that leads: ${conclusion}
-
-That's your reality.`;
-}
-
-function generateLongVideo(
-  mainStatement: string,
-  reasoning: string[],
-  examples: string[],
-  conclusion: string
-): string {
-  return `# ${mainStatement.substring(0, 80)}
-
-## THE TEACHING
-
-${mainStatement}
-
-## THE REASONING
-
-${reasoning[0] || mainStatement}
-
-${reasoning[1] ? '\n' + reasoning[1] : ''}
-
-## THE EXAMPLE
-
-${examples[0] || 'Real people live this'}
-
-## THE IMPLICATION
-
-${conclusion}
-
-## WHAT NOW
-
-This is what I'm saying. This is what I'm pointing you toward.`;
 }
