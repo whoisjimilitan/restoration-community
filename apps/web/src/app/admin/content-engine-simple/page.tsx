@@ -3,24 +3,20 @@
 import { useState } from 'react';
 
 interface Stage1 {
-  analysis: {
-    painPoint: string;
-    identity: string;
-    consequence: string;
-    mechanism: string;
+  coreTeaching: {
+    mainStatement: string;
+    reasoning: string[];
+    examples: string[];
+    conclusion: string;
   };
 }
 
 interface Stage2 {
-  transformed: {
-    painPoint: string;
-    preservedLines: string[];
-    consequence: string;
-    identityShift: string;
-    mechanism: string;
-    proof: string;
-    measurableTransformation: string;
-    backendBridge: string;
+  identified: {
+    yourMainPoint: string;
+    howYouReason: string;
+    proofYouGive: string;
+    whereYouLead: string;
   };
 }
 
@@ -165,31 +161,35 @@ export default function ContentEngineAdmin() {
         {/* STAGE 1 */}
         <div style={{ marginBottom: '50px' }}>
           <h2 style={{ fontSize: '20px', fontWeight: 'bold', marginBottom: '15px' }}>
-            Stage 1: Core System Analysis
+            Stage 1: Your Teaching (Extracted)
           </h2>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '12px' }}>
             <div style={{ backgroundColor: 'white', padding: '15px', borderLeft: '4px solid #000', borderRadius: '4px' }}>
-              <p style={{ fontSize: '12px', color: '#999', margin: '0 0 4px 0', fontWeight: '600' }}>PAIN POINT</p>
+              <p style={{ fontSize: '12px', color: '#999', margin: '0 0 4px 0', fontWeight: '600' }}>YOUR MAIN STATEMENT</p>
               <p style={{ fontSize: '14px', lineHeight: '1.6', margin: 0 }}>
-                {result.stage1.analysis.painPoint}
-              </p>
-            </div>
-            <div style={{ backgroundColor: 'white', padding: '15px', borderLeft: '4px solid #ff6b00', borderRadius: '4px' }}>
-              <p style={{ fontSize: '12px', color: '#999', margin: '0 0 4px 0', fontWeight: '600' }}>IDENTITY TENSION</p>
-              <p style={{ fontSize: '14px', lineHeight: '1.6', margin: 0 }}>
-                {result.stage1.analysis.identity}
-              </p>
-            </div>
-            <div style={{ backgroundColor: 'white', padding: '15px', borderLeft: '4px solid #d32f2f', borderRadius: '4px' }}>
-              <p style={{ fontSize: '12px', color: '#999', margin: '0 0 4px 0', fontWeight: '600' }}>CONSEQUENCE</p>
-              <p style={{ fontSize: '14px', lineHeight: '1.6', margin: 0 }}>
-                {result.stage1.analysis.consequence}
+                {result.stage1.coreTeaching.mainStatement}
               </p>
             </div>
             <div style={{ backgroundColor: 'white', padding: '15px', borderLeft: '4px solid #1976d2', borderRadius: '4px' }}>
-              <p style={{ fontSize: '12px', color: '#999', margin: '0 0 4px 0', fontWeight: '600' }}>MECHANISM</p>
+              <p style={{ fontSize: '12px', color: '#999', margin: '0 0 4px 0', fontWeight: '600' }}>YOUR REASONING</p>
+              {result.stage1.coreTeaching.reasoning.map((line, i) => (
+                <p key={i} style={{ fontSize: '13px', lineHeight: '1.6', margin: i === 0 ? 0 : '8px 0 0 0' }}>
+                  • {line}
+                </p>
+              ))}
+            </div>
+            <div style={{ backgroundColor: 'white', padding: '15px', borderLeft: '4px solid #ff6b00', borderRadius: '4px' }}>
+              <p style={{ fontSize: '12px', color: '#999', margin: '0 0 4px 0', fontWeight: '600' }}>YOUR EXAMPLES</p>
+              {result.stage1.coreTeaching.examples.map((example, i) => (
+                <p key={i} style={{ fontSize: '13px', lineHeight: '1.6', margin: i === 0 ? 0 : '8px 0 0 0' }}>
+                  • {example}
+                </p>
+              ))}
+            </div>
+            <div style={{ backgroundColor: 'white', padding: '15px', borderLeft: '4px solid #d32f2f', borderRadius: '4px' }}>
+              <p style={{ fontSize: '12px', color: '#999', margin: '0 0 4px 0', fontWeight: '600' }}>YOUR CONCLUSION</p>
               <p style={{ fontSize: '14px', lineHeight: '1.6', margin: 0 }}>
-                {result.stage1.analysis.mechanism}
+                {result.stage1.coreTeaching.conclusion}
               </p>
             </div>
           </div>
@@ -198,45 +198,31 @@ export default function ContentEngineAdmin() {
         {/* STAGE 2 */}
         <div style={{ marginBottom: '50px' }}>
           <h2 style={{ fontSize: '20px', fontWeight: 'bold', marginBottom: '15px' }}>
-            Stage 2: Transformed Content
+            Stage 2: Your Logic Identified
           </h2>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '12px' }}>
+            <div style={{ backgroundColor: 'white', padding: '15px', borderLeft: '4px solid #000', borderRadius: '4px' }}>
+              <p style={{ fontSize: '12px', color: '#999', margin: '0 0 4px 0', fontWeight: '600' }}>YOUR MAIN POINT</p>
+              <p style={{ fontSize: '14px', lineHeight: '1.6', margin: 0 }}>
+                {result.stage2.identified.yourMainPoint}
+              </p>
+            </div>
             <div style={{ backgroundColor: 'white', padding: '15px', borderLeft: '4px solid #1976d2', borderRadius: '4px' }}>
-              <p style={{ fontSize: '12px', color: '#999', margin: '0 0 4px 0', fontWeight: '600' }}>PRESERVED LINES (Verbatim Power)</p>
-              {result.stage2.transformed.preservedLines.map((line, i) => (
-                <p key={i} style={{ fontSize: '13px', lineHeight: '1.6', margin: i === 0 ? 0 : '8px 0 0 0', fontStyle: 'italic' }}>
-                  "{line}"
-                </p>
-              ))}
+              <p style={{ fontSize: '12px', color: '#999', margin: '0 0 4px 0', fontWeight: '600' }}>HOW YOU REASON</p>
+              <p style={{ fontSize: '14px', lineHeight: '1.6', margin: 0 }}>
+                {result.stage2.identified.howYouReason}
+              </p>
+            </div>
+            <div style={{ backgroundColor: 'white', padding: '15px', borderLeft: '4px solid #ff6b00', borderRadius: '4px' }}>
+              <p style={{ fontSize: '12px', color: '#999', margin: '0 0 4px 0', fontWeight: '600' }}>PROOF YOU GIVE</p>
+              <p style={{ fontSize: '14px', lineHeight: '1.6', margin: 0 }}>
+                {result.stage2.identified.proofYouGive}
+              </p>
             </div>
             <div style={{ backgroundColor: 'white', padding: '15px', borderLeft: '4px solid #d32f2f', borderRadius: '4px' }}>
-              <p style={{ fontSize: '12px', color: '#999', margin: '0 0 4px 0', fontWeight: '600' }}>INTENSIFIED CONSEQUENCE</p>
+              <p style={{ fontSize: '12px', color: '#999', margin: '0 0 4px 0', fontWeight: '600' }}>WHERE YOU LEAD</p>
               <p style={{ fontSize: '14px', lineHeight: '1.6', margin: 0 }}>
-                {result.stage2.transformed.consequence}
-              </p>
-            </div>
-            <div style={{ backgroundColor: 'white', padding: '15px', borderLeft: '4px solid #00a8e8', borderRadius: '4px' }}>
-              <p style={{ fontSize: '12px', color: '#999', margin: '0 0 4px 0', fontWeight: '600' }}>IDENTITY SHIFT</p>
-              <p style={{ fontSize: '14px', lineHeight: '1.6', margin: 0 }}>
-                {result.stage2.transformed.identityShift}
-              </p>
-            </div>
-            <div style={{ backgroundColor: 'white', padding: '15px', borderLeft: '4px solid #ffa726', borderRadius: '4px' }}>
-              <p style={{ fontSize: '12px', color: '#999', margin: '0 0 4px 0', fontWeight: '600' }}>PROOF ELEMENT</p>
-              <p style={{ fontSize: '14px', lineHeight: '1.6', margin: 0 }}>
-                {result.stage2.transformed.proof}
-              </p>
-            </div>
-            <div style={{ backgroundColor: 'white', padding: '15px', borderLeft: '4px solid #66bb6a', borderRadius: '4px' }}>
-              <p style={{ fontSize: '12px', color: '#999', margin: '0 0 4px 0', fontWeight: '600' }}>MEASURABLE TRANSFORMATION</p>
-              <p style={{ fontSize: '14px', lineHeight: '1.6', margin: 0 }}>
-                {result.stage2.transformed.measurableTransformation}
-              </p>
-            </div>
-            <div style={{ backgroundColor: 'white', padding: '15px', borderLeft: '4px solid #ab47bc', borderRadius: '4px' }}>
-              <p style={{ fontSize: '12px', color: '#999', margin: '0 0 4px 0', fontWeight: '600' }}>BACKEND BRIDGE</p>
-              <p style={{ fontSize: '14px', lineHeight: '1.6', margin: 0 }}>
-                {result.stage2.transformed.backendBridge}
+                {result.stage2.identified.whereYouLead}
               </p>
             </div>
           </div>
