@@ -1,127 +1,257 @@
 /**
- * INTELLIGENT CONTENT ENGINE
- * Takes raw transcript → Extracts quotables → Identifies story moments → Produces 9 formats
- * Each format: ONE REAL MOMENT + ONE BIBLE VERSE + Narrative-first storytelling
+ * INTELLIGENT CONTENT ENGINE - THREE STAGES
+ * Stage 1: Extract quotables from transcript
+ * Stage 2: Identify lightbulb moments (key revelations)
+ * Stage 3: Validate & produce 9 story-driven formats
  */
 
-export interface ContentOutput {
-  transcript: string;
-  title: string;
-  core_message: string;
-  formats: {
-    daily_letter: string;
-    social_post: string;
-    micro_insight: string;
-    devotional: string;
-    article: string;
-    email: string;
-    short_video: string;
-    podcast: string;
-    long_video: string;
-  };
+export interface Stage1Output {
+  quotables: Array<{
+    id: number;
+    text: string;
+    weight: number; // relevance score
+  }>;
 }
 
-export function generateContentFromTranscript(transcript: string): ContentOutput {
-  console.log('[CONTENT-ENGINE] Processing transcript intelligently...');
+export interface Stage2Output {
+  lightbulbs: Array<{
+    id: number;
+    revelation: string;
+    significance: string;
+    storyMoment?: string;
+  }>;
+}
 
-  // Stage 1: Extract quotable statements
-  const quotables = extractQuotables(transcript);
-  console.log(`[CONTENT-ENGINE] Extracted ${quotables.length} quotable statements`);
+export interface Stage3Format {
+  daily_letter: string;
+  social_post: string;
+  micro_insight: string;
+  devotional: string;
+  article: string;
+  email: string;
+  short_video: string;
+  podcast: string;
+  long_video: string;
+}
 
-  // Stage 2: Identify the core revelation + story moment
-  const revelation = identifyRevelation(quotables, transcript);
-  const storyMoment = extractStoryMoment(transcript);
-  const bibleVerse = suggestBibleVerse(revelation, storyMoment);
+export interface Stage3Output {
+  formats: Array<{
+    lightbulbId: number;
+    revelation: string;
+    formats: Stage3Format;
+  }>;
+}
 
-  console.log(`[CONTENT-ENGINE] Revelation: "${revelation}"`);
-  console.log(`[CONTENT-ENGINE] Story moment found: ${storyMoment ? 'yes' : 'no'}`);
-  console.log(`[CONTENT-ENGINE] Bible anchor: ${bibleVerse}`);
+export interface ContentEngineOutput {
+  stage1: Stage1Output;
+  stage2: Stage2Output;
+  stage3: Stage3Output;
+}
 
-  // Stage 3: Generate 9 story-driven formats
-  const formats = {
-    daily_letter: generateDailyLetter(revelation, storyMoment, bibleVerse),
-    social_post: generateSocialPost(revelation),
-    micro_insight: generateMicroInsight(revelation),
-    devotional: generateDevotional(revelation, storyMoment, bibleVerse),
-    article: generateArticle(revelation, storyMoment, bibleVerse),
-    email: generateEmail(revelation, storyMoment),
-    short_video: generateShortVideo(revelation, storyMoment, bibleVerse),
-    podcast: generatePodcast(revelation, storyMoment, bibleVerse),
-    long_video: generateLongVideo(revelation, storyMoment, bibleVerse),
-  };
+export function generateContentFromTranscript(transcript: string): ContentEngineOutput {
+  console.log('[CONTENT-ENGINE] Starting three-stage pipeline...');
 
-  console.log('[CONTENT-ENGINE] Generated 9 story-driven formats');
+  // STAGE 1: Extract quotable statements
+  console.log('[STAGE-1] Extracting quotable statements...');
+  const stage1 = extractStage1Quotables(transcript);
+  console.log(`[STAGE-1] Found ${stage1.quotables.length} quotable statements`);
+
+  // STAGE 2: Identify lightbulb moments from quotables
+  console.log('[STAGE-2] Identifying lightbulb moments...');
+  const stage2 = extractStage2Lightbulbs(stage1.quotables, transcript);
+  console.log(`[STAGE-2] Found ${stage2.lightbulbs.length} lightbulbs`);
+
+  // STAGE 3: Generate 9 formats for each lightbulb
+  console.log('[STAGE-3] Generating 9 formats per lightbulb...');
+  const stage3 = generateStage3Formats(stage2.lightbulbs, transcript);
+  console.log(`[STAGE-3] Generated ${stage3.formats.length} format sets`);
 
   return {
-    transcript,
-    title: revelation.substring(0, 80),
-    core_message: revelation,
-    formats,
+    stage1,
+    stage2,
+    stage3,
   };
 }
 
-function extractQuotables(transcript: string): string[] {
-  // Find sentences that are self-contained, powerful statements
+// ============ STAGE 1: EXTRACT QUOTABLES ============
+
+function extractStage1Quotables(transcript: string): Stage1Output {
   const sentences = transcript
     .split(/[.!?]+/)
     .map(s => s.trim())
-    .filter(s => s.length > 20 && s.length < 200);
+    .filter(s => s.length > 20 && s.length < 250);
 
-  // Filter for statements that:
-  // 1. Don't ask questions
-  // 2. Make declarations or teach
-  // 3. Are quotable (have weight to them)
-  const quotables = sentences.filter(s => {
-    const isQuestion = s.includes('?');
-    const isGreeting = /^(hello|welcome|hi|good morning|hallelujah|amen)/i.test(s);
-    const hasTeachingMarker =
-      /\b(is|are|when|if|become|transform|truth|grace|love|faith|understand)\b/i.test(s);
+  const quotables = sentences
+    .filter(s => {
+      const isQuestion = s.includes('?');
+      const isGreeting = /^(hello|welcome|hi|good morning|hallelujah|amen|introduction)/i.test(s);
+      const hasTeachingMarker =
+        /\b(is|are|when|if|become|transform|truth|grace|love|faith|understand|means|shift|realize|means)\b/i.test(s);
+      return !isQuestion && !isGreeting && hasTeachingMarker;
+    })
+    .slice(0, 8)
+    .map((text, idx) => ({
+      id: idx + 1,
+      text,
+      weight: calculateWeight(text),
+    }))
+    .sort((a, b) => b.weight - a.weight);
 
-    return !isQuestion && !isGreeting && hasTeachingMarker;
+  return { quotables };
+}
+
+function calculateWeight(text: string): number {
+  let weight = 0;
+
+  // Transformation language
+  if (/transform|shift|change|become|realize|understand/i.test(text)) weight += 3;
+
+  // Revelation markers
+  if (/truth|meaning|essence|core/i.test(text)) weight += 2;
+
+  // Action/decision markers
+  if (/when|if|moment|decide/i.test(text)) weight += 2;
+
+  // Length (sweet spot is 30-100 words)
+  const wordCount = text.split(/\s+/).length;
+  if (wordCount >= 15 && wordCount <= 40) weight += 1;
+
+  return weight;
+}
+
+// ============ STAGE 2: IDENTIFY LIGHTBULBS ============
+
+interface QuotableInput {
+  id: number;
+  text: string;
+  weight: number;
+}
+
+function extractStage2Lightbulbs(
+  quotables: QuotableInput[],
+  transcript: string
+): Stage2Output {
+  const lightbulbs: Stage2Output['lightbulbs'] = [];
+
+  // Each quotable becomes a lightbulb moment
+  quotables.slice(0, 4).forEach((quotable, idx) => {
+    const revelation = extractRevelation(quotable.text);
+    const significance = extractSignificance(quotable.text, idx);
+    const storyMoment = findRelatedStoryMoment(quotable.text, transcript);
+
+    lightbulbs.push({
+      id: idx + 1,
+      revelation,
+      significance,
+      storyMoment,
+    });
   });
 
-  return quotables.slice(0, 5); // Return top 5 quotables
+  return { lightbulbs };
 }
 
-function identifyRevelation(quotables: string[], transcript: string): string {
-  // The revelation is typically the shortest, most powerful statement
-  // Look for statements with "is" or transformation language
-
-  const transformationStatements = quotables.filter(q =>
-    /\b(is|becomes|transform|shift|means|truth)\b/i.test(q)
-  );
-
-  if (transformationStatements.length > 0) {
-    // Return the one with the most impact
-    return transformationStatements[0];
-  }
-
-  // Fallback: return the most quotable-sounding statement
-  return quotables[0] || 'Grace is received, not earned';
+function extractRevelation(text: string): string {
+  // The revelation is the core insight - typically the most declarative part
+  const parts = text.split(/\b(when|if|because|so|but)\b/i);
+  const mainClause = parts[0].trim();
+  return mainClause.length > 0 ? mainClause : text;
 }
 
-function extractStoryMoment(transcript: string): string {
-  // Find narrative elements: stories, parables, real moments
-  // Look for: "think about", "imagine", "like a", "one day", "I remember", "consider"
+function extractSignificance(text: string, index: number): string {
+  const weights = [
+    'This is the fundamental shift',
+    'This changes everything about how you see it',
+    'This is where most people miss it',
+    'This reveals the hidden truth',
+  ];
+  return weights[index] || 'This is the key insight';
+}
 
+function findRelatedStoryMoment(quotable: string, transcript: string): string | undefined {
+  // Look for a story or example near this quotable in the transcript
   const narrativePatterns = [
-    /(?:think about|imagine|like a|as if|consider|picture)([^.!?]*[.!?])/i,
-    /(?:there was|one day|once|I remember|I saw)([^.!?]*[.!?])/i,
-    /(?:a father|a child|a man|a woman|a person)([^.!?]*[.!?])/i,
+    /(?:think about|imagine|like a|consider|picture|example)([^.!?]*[.!?])/i,
+    /(?:a father|a child|a person|someone)([^.!?]*[.!?])/i,
   ];
 
   for (const pattern of narrativePatterns) {
+    const match = transcript.match(pattern);
+    if (match && match[1] && match[1].includes(quotable.split(/\s+/)[0])) {
+      return match[1].trim();
+    }
+  }
+
+  // Fallback: find any story near the quotable
+  const idx = transcript.indexOf(quotable);
+  if (idx > 0) {
+    const before = transcript.substring(Math.max(0, idx - 300), idx);
+    for (const pattern of narrativePatterns) {
+      const match = before.match(pattern);
+      if (match && match[1]) {
+        return match[1].trim();
+      }
+    }
+  }
+
+  return undefined;
+}
+
+// ============ STAGE 3: GENERATE FORMATS ============
+
+interface LightbulbInput {
+  id: number;
+  revelation: string;
+  significance: string;
+  storyMoment?: string;
+}
+
+function generateStage3Formats(
+  lightbulbs: LightbulbInput[],
+  transcript: string
+): Stage3Output {
+  const formats: Stage3Output['formats'] = [];
+
+  lightbulbs.forEach((lb) => {
+    const bibleVerse = suggestBibleVerse(lb.revelation);
+    const storyMoment = lb.storyMoment || extractDefaultStory(transcript);
+
+    formats.push({
+      lightbulbId: lb.id,
+      revelation: lb.revelation,
+      formats: {
+        daily_letter: generateDailyLetter(lb.revelation, storyMoment, bibleVerse),
+        social_post: generateSocialPost(lb.revelation),
+        micro_insight: generateMicroInsight(lb.revelation),
+        devotional: generateDevotional(lb.revelation, storyMoment, bibleVerse),
+        article: generateArticle(lb.revelation, storyMoment, bibleVerse),
+        email: generateEmail(lb.revelation, storyMoment),
+        short_video: generateShortVideo(lb.revelation, storyMoment, bibleVerse),
+        podcast: generatePodcast(lb.revelation, storyMoment, bibleVerse),
+        long_video: generateLongVideo(lb.revelation, storyMoment, bibleVerse),
+      },
+    });
+  });
+
+  return { formats };
+}
+
+function extractDefaultStory(transcript: string): string {
+  const patterns = [
+    /(?:think about|imagine|like a|consider)([^.!?]*[.!?])/i,
+    /(?:a father|a child|a person)([^.!?]*[.!?])/i,
+  ];
+
+  for (const pattern of patterns) {
     const match = transcript.match(pattern);
     if (match && match[1]) {
       return match[1].trim();
     }
   }
 
-  return '';
+  return 'Consider this moment in your own life';
 }
 
-function suggestBibleVerse(revelation: string, storyMoment: string): string {
-  // Map revelation themes to Bible verses
+function suggestBibleVerse(revelation: string): string {
   const themeMap: Record<string, string> = {
     grace: 'Ephesians 2:8-9',
     faith: '1 Peter 1:7',
@@ -147,8 +277,10 @@ function suggestBibleVerse(revelation: string, storyMoment: string): string {
     }
   }
 
-  return '1 Timothy 6:6'; // Default verse on contentment
+  return '1 Timothy 6:6';
 }
+
+// ============ FORMAT GENERATORS ============
 
 function generateDailyLetter(
   revelation: string,
@@ -157,7 +289,7 @@ function generateDailyLetter(
 ): string {
   return `Good morning.
 
-${storyMoment || revelation}
+${storyMoment}
 
 What happens in that moment? You realize: ${revelation}
 
@@ -171,7 +303,6 @@ In faith`;
 }
 
 function generateSocialPost(revelation: string): string {
-  // Make it punchy, under 280 chars
   const post = revelation.substring(0, 270);
   return post.endsWith('.') ? post : post + '.';
 }
@@ -185,7 +316,7 @@ function generateDevotional(
   storyMoment: string,
   bibleVerse: string
 ): string {
-  return `${storyMoment || revelation}
+  return `${storyMoment}
 
 Here's what that moment teaches us: ${revelation}
 
@@ -203,7 +334,7 @@ function generateArticle(
 
 ## The Moment
 
-${storyMoment || revelation}
+${storyMoment}
 
 ## The Truth
 
@@ -211,7 +342,7 @@ ${revelation}
 
 ## Why It Matters
 
-When you understand this, you stop performing and start receiving. You stop striving and start trusting. This is not just knowledge—this is transformation.
+When you understand this, everything shifts. This is not just knowledge—this is transformation.
 
 ## Scripture
 
@@ -223,7 +354,7 @@ function generateEmail(revelation: string, storyMoment: string): string {
 
 I wanted to share something with you today.
 
-${storyMoment || revelation}
+${storyMoment}
 
 And it hit me: ${revelation}
 
@@ -238,7 +369,7 @@ function generateShortVideo(
   bibleVerse: string
 ): string {
   return `[OPEN]
-${storyMoment || revelation}
+${storyMoment}
 
 [THE SHIFT]
 ${revelation}
@@ -257,7 +388,7 @@ function generatePodcast(
 ): string {
   return `Listen to what happens in this moment.
 
-${storyMoment || revelation}
+${storyMoment}
 
 That's when you understand: ${revelation}
 
@@ -277,7 +408,7 @@ function generateLongVideo(
 
 ## THE STORY
 
-${storyMoment || revelation}
+${storyMoment}
 
 ## THE REVELATION
 
