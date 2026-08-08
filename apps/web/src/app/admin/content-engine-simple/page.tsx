@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 
 interface Stage1 {
   quotables: Array<{ id: number; text: string; weight: number }>;
@@ -30,36 +29,12 @@ interface ContentEngineResult {
   stage3: Stage3;
 }
 
-const FORMAT_LABELS: Record<string, string> = {
-  daily_letter: 'Daily Letter',
-  social_post: 'Social Post',
-  micro_insight: 'Micro Insight',
-  devotional: 'Devotional',
-  article: 'Article',
-  email: 'Email',
-  short_video: 'Short Video',
-  podcast: 'Podcast',
-  long_video: 'Long Video',
-};
-
-const FORMAT_ORDER = [
-  'daily_letter',
-  'social_post',
-  'micro_insight',
-  'devotional',
-  'article',
-  'email',
-  'short_video',
-  'podcast',
-  'long_video',
-] as const;
-
 export default function ContentEngineAdmin() {
   const [transcript, setTranscript] = useState('');
   const [result, setResult] = useState<ContentEngineResult | null>(null);
   const [loading, setLoading] = useState(false);
   const [selectedLightbulb, setSelectedLightbulb] = useState(0);
-  const [selectedFormat, setSelectedFormat] = useState<typeof FORMAT_ORDER[number]>('daily_letter');
+  const [selectedFormat, setSelectedFormat] = useState('daily_letter');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -89,204 +64,241 @@ export default function ContentEngineAdmin() {
     }
   };
 
-  return (
-    <div className="min-h-screen bg-rc-bg text-rc-text">
-      {/* Header */}
-      <div className="w-full border-b border-rc-border px-6 sm:px-8 md:px-12 py-8">
-        <div className="max-w-7xl mx-auto">
-          <h1 className="text-3xl font-rc-serif font-bold">Content Engine</h1>
-          <p className="text-sm text-rc-text/60 font-light mt-2">
-            Transcript → Stage 1 (Quotables) → Stage 2 (Lightbulbs) → Stage 3 (9 Formats)
+  if (!result) {
+    return (
+      <div style={{ minHeight: '100vh', backgroundColor: '#f8f8f8', padding: '40px 20px' }}>
+        <div style={{ maxWidth: '900px', margin: '0 auto' }}>
+          <h1 style={{ fontSize: '32px', fontWeight: 'bold', marginBottom: '10px' }}>
+            Content Engine
+          </h1>
+          <p style={{ fontSize: '14px', color: '#888', marginBottom: '30px' }}>
+            Extract teaching → Identify lightbulbs → Generate 9 formats
           </p>
+
+          <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
+            <textarea
+              value={transcript}
+              onChange={(e) => setTranscript(e.target.value)}
+              placeholder="Paste your teaching transcript here..."
+              style={{
+                width: '100%',
+                height: '400px',
+                padding: '15px',
+                fontSize: '14px',
+                fontFamily: 'monospace',
+                border: '1px solid #ccc',
+                borderRadius: '6px',
+                resize: 'none',
+              }}
+            />
+
+            <button
+              type="submit"
+              disabled={loading || transcript.trim().length === 0}
+              style={{
+                padding: '12px 20px',
+                fontSize: '14px',
+                fontWeight: '600',
+                backgroundColor: loading || transcript.trim().length === 0 ? '#ccc' : '#000',
+                color: 'white',
+                border: 'none',
+                borderRadius: '4px',
+                cursor: loading || transcript.trim().length === 0 ? 'not-allowed' : 'pointer',
+              }}
+            >
+              {loading ? 'Processing...' : 'Extract & Generate'}
+            </button>
+          </form>
         </div>
       </div>
+    );
+  }
 
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 py-12">
-        {!result ? (
-          <div className="max-w-3xl">
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <textarea
-                  value={transcript}
-                  onChange={(e) => setTranscript(e.target.value)}
-                  placeholder="Paste your teaching transcript here..."
-                  className="w-full h-96 bg-white border border-rc-border rounded-lg p-4 text-rc-text placeholder-rc-text/40 font-light text-sm resize-none focus:outline-none focus:ring-2 focus:ring-rc-accent/50 transition"
-                />
+  const formatLabels: Record<string, string> = {
+    daily_letter: '📬 Letter',
+    social_post: '📱 Social',
+    micro_insight: '💡 Insight',
+    devotional: '🙏 Devotional',
+    article: '📰 Article',
+    email: '✉️ Email',
+    short_video: '🎬 Short',
+    podcast: '🎙️ Podcast',
+    long_video: '🎥 Long',
+  };
+
+  return (
+    <div style={{ minHeight: '100vh', backgroundColor: '#f8f8f8', padding: '40px 20px' }}>
+      <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+        {/* Header */}
+        <div style={{ marginBottom: '40px' }}>
+          <h1 style={{ fontSize: '32px', fontWeight: 'bold', marginBottom: '10px' }}>
+            Content Engine
+          </h1>
+          <p style={{ fontSize: '14px', color: '#888' }}>
+            Stage 1 → Stage 2 → Stage 3
+          </p>
+          <button
+            onClick={() => {
+              setResult(null);
+              setTranscript('');
+            }}
+            style={{
+              marginTop: '15px',
+              padding: '8px 16px',
+              fontSize: '12px',
+              backgroundColor: '#eee',
+              border: '1px solid #999',
+              borderRadius: '4px',
+              cursor: 'pointer',
+            }}
+          >
+            ← Process Another
+          </button>
+        </div>
+
+        {/* STAGE 1 */}
+        <div style={{ marginBottom: '50px' }}>
+          <h2 style={{ fontSize: '20px', fontWeight: 'bold', marginBottom: '15px' }}>
+            Stage 1: Quotable Statements ({result.stage1.quotables.length})
+          </h2>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '12px' }}>
+            {result.stage1.quotables.map((q) => (
+              <div
+                key={q.id}
+                style={{
+                  backgroundColor: 'white',
+                  padding: '15px',
+                  borderLeft: '4px solid #000',
+                  borderRadius: '4px',
+                }}
+              >
+                <p style={{ fontSize: '14px', lineHeight: '1.6', margin: 0 }}>
+                  {q.text}
+                </p>
+                <p style={{ fontSize: '12px', color: '#999', marginTop: '8px', margin: 0 }}>
+                  Weight: {q.weight}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* STAGE 2 */}
+        <div style={{ marginBottom: '50px' }}>
+          <h2 style={{ fontSize: '20px', fontWeight: 'bold', marginBottom: '15px' }}>
+            Stage 2: Lightbulb Moments ({result.stage2.lightbulbs.length})
+          </h2>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '12px' }}>
+            {result.stage2.lightbulbs.map((lb) => (
+              <div
+                key={lb.id}
+                style={{
+                  backgroundColor: 'white',
+                  padding: '15px',
+                  borderLeft: '4px solid #ff6b00',
+                  borderRadius: '4px',
+                }}
+              >
+                <p style={{ fontSize: '14px', fontWeight: '600', margin: '0 0 8px 0' }}>
+                  {lb.revelation}
+                </p>
+                <p style={{ fontSize: '12px', color: '#666', margin: '0 0 8px 0', fontStyle: 'italic' }}>
+                  {lb.significance}
+                </p>
+                {lb.storyMoment && (
+                  <p style={{ fontSize: '12px', color: '#555', margin: 0, backgroundColor: '#f5f5f5', padding: '8px', borderRadius: '3px' }}>
+                    📖 {lb.storyMoment}
+                  </p>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* STAGE 3 */}
+        <div>
+          <h2 style={{ fontSize: '20px', fontWeight: 'bold', marginBottom: '15px' }}>
+            Stage 3: 9 Formats
+          </h2>
+
+          {result.stage3.formats.map((formatSet, idx) => (
+            <div key={idx} style={{ marginBottom: '40px' }}>
+              {/* Lightbulb selector */}
+              <div
+                style={{
+                  backgroundColor: 'white',
+                  padding: '15px',
+                  borderLeft: '4px solid #00a8e8',
+                  marginBottom: '15px',
+                  borderRadius: '4px',
+                }}
+              >
+                <p style={{ fontSize: '14px', fontWeight: '600', margin: '0 0 12px 0' }}>
+                  Lightbulb {formatSet.lightbulbId}: {formatSet.revelation}
+                </p>
+
+                {selectedLightbulb === idx && (
+                  <>
+                    {/* Format tabs */}
+                    <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '15px' }}>
+                      {Object.keys(formatSet.formats).map((fmt) => (
+                        <button
+                          key={fmt}
+                          onClick={() => setSelectedFormat(fmt)}
+                          style={{
+                            padding: '8px 12px',
+                            fontSize: '12px',
+                            backgroundColor: selectedFormat === fmt ? '#000' : '#eee',
+                            color: selectedFormat === fmt ? 'white' : '#000',
+                            border: 'none',
+                            borderRadius: '4px',
+                            cursor: 'pointer',
+                          }}
+                        >
+                          {formatLabels[fmt] || fmt}
+                        </button>
+                      ))}
+                    </div>
+
+                    {/* Format content */}
+                    <div
+                      style={{
+                        backgroundColor: '#fafafa',
+                        padding: '15px',
+                        borderRadius: '4px',
+                        fontSize: '13px',
+                        lineHeight: '1.8',
+                        fontFamily: 'monospace',
+                        whiteSpace: 'pre-wrap',
+                        wordWrap: 'break-word',
+                        maxHeight: '500px',
+                        overflowY: 'auto',
+                      }}
+                    >
+                      {(formatSet.formats as Record<string, string>)[selectedFormat]}
+                    </div>
+                  </>
+                )}
+
                 <button
-                  type="submit"
-                  disabled={loading || transcript.trim().length === 0}
-                  className={`px-6 py-3 font-light text-sm rounded-lg transition ${
-                    loading || transcript.trim().length === 0
-                      ? 'bg-rc-border text-rc-text/40 cursor-not-allowed'
-                      : 'bg-rc-accent text-white hover:opacity-90'
-                  }`}
-                >
-                  {loading ? 'Processing...' : 'Extract & Generate'}
-                </button>
-              </form>
-            </div>
-        ) : (
-          <div className="space-y-16">
-              {/* STAGE 1: QUOTABLES */}
-              <div className="space-y-6">
-                <div>
-                  <h2 className="text-2xl font-rc-serif font-bold">Stage 1: Quotable Statements</h2>
-                  <p className="text-xs text-rc-text/50 uppercase font-light tracking-wide mt-1">
-                    {result.stage1.quotables.length} quotables extracted
-                  </p>
-                </div>
-
-                {result.stage1.quotables.length > 0 ? (
-                  <div className="space-y-3">
-                    {result.stage1.quotables.map((quotable, idx) => (
-                      <motion.div
-                        key={quotable.id}
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: idx * 0.05 }}
-                        className="bg-white border border-rc-border rounded-lg p-4 hover:border-rc-accent/50 transition"
-                      >
-                        <div className="space-y-2">
-                          <p className="text-sm font-light text-rc-text/90">{quotable.text}</p>
-                          <p className="text-xs text-rc-text/50">Weight: {quotable.weight}</p>
-                        </div>
-                      </motion.div>
-                    ))}
-                  </div>
-                ) : (
-                  <p className="text-sm text-rc-text/60 font-light">No quotables extracted.</p>
-                )}
-              </div>
-
-              {/* STAGE 2: LIGHTBULBS */}
-              <div className="space-y-6 pt-8 border-t border-rc-border">
-                <div>
-                  <h2 className="text-2xl font-rc-serif font-bold">Stage 2: Lightbulb Moments</h2>
-                  <p className="text-xs text-rc-text/50 uppercase font-light tracking-wide mt-1">
-                    {result.stage2.lightbulbs.length} revelations identified
-                  </p>
-                </div>
-
-                {result.stage2.lightbulbs.length > 0 ? (
-                  <div className="space-y-4">
-                    {result.stage2.lightbulbs.map((lightbulb, idx) => (
-                      <motion.div
-                        key={lightbulb.id}
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: idx * 0.05 }}
-                        className="bg-white border border-rc-border rounded-lg p-6 space-y-3"
-                      >
-                        <p className="text-sm font-rc-serif font-bold text-rc-text">
-                          {lightbulb.revelation}
-                        </p>
-                        <p className="text-xs text-rc-text/60 italic">{lightbulb.significance}</p>
-                        {lightbulb.storyMoment && (
-                          <p className="text-sm text-rc-text/80 font-light bg-rc-warm-gray p-3 rounded">
-                            Story: {lightbulb.storyMoment}
-                          </p>
-                        )}
-                      </motion.div>
-                    ))}
-                  </div>
-                ) : (
-                  <p className="text-sm text-rc-text/60 font-light">No lightbulbs found.</p>
-                )}
-              </div>
-
-              {/* STAGE 3: 9 FORMATS */}
-              <div className="space-y-6 pt-8 border-t border-rc-border">
-                <div>
-                  <h2 className="text-2xl font-rc-serif font-bold">Stage 3: Publication Formats</h2>
-                  <p className="text-xs text-rc-text/50 uppercase font-light tracking-wide mt-1">
-                    9 formats per lightbulb
-                  </p>
-                </div>
-
-                {result.stage3.formats.length > 0 ? (
-                  <div className="space-y-10">
-                    {result.stage3.formats.map((formatSet, formatIdx) => (
-                      <div key={formatSet.lightbulbId} className="space-y-4">
-                        <div className="space-y-2">
-                          <p className="text-sm font-rc-serif font-bold text-rc-text border-l-4 border-rc-accent pl-4">
-                            Lightbulb {formatSet.lightbulbId}: {formatSet.revelation}
-                          </p>
-                          <button
-                            onClick={() => setSelectedLightbulb(formatIdx)}
-                            className={`text-xs font-light px-3 py-1 rounded-lg border transition ${
-                              selectedLightbulb === formatIdx
-                                ? 'bg-rc-accent text-white border-rc-accent'
-                                : 'border-rc-border text-rc-text/60 hover:border-rc-text/30'
-                            }`}
-                          >
-                            {selectedLightbulb === formatIdx ? 'Viewing' : 'View'} Formats
-                          </button>
-                        </div>
-
-                        {selectedLightbulb === formatIdx && (
-                          <motion.div
-                            initial={{ opacity: 0, height: 0 }}
-                            animate={{ opacity: 1, height: 'auto' }}
-                            transition={{ duration: 0.3 }}
-                            className="space-y-4 pt-4"
-                          >
-                            {/* Format Selector */}
-                            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2">
-                              {FORMAT_ORDER.map((format) => (
-                                <button
-                                  key={format}
-                                  onClick={() => setSelectedFormat(format)}
-                                  className={`px-3 py-2 text-xs font-light rounded-lg border transition ${
-                                    selectedFormat === format
-                                      ? 'bg-rc-accent text-white border-rc-accent'
-                                      : 'border-rc-border text-rc-text/70 hover:border-rc-text/30'
-                                  }`}
-                                >
-                                  {FORMAT_LABELS[format]}
-                                </button>
-                              ))}
-                            </div>
-
-                            {/* Format Display */}
-                            <div className="bg-white border border-rc-border rounded-lg p-6 min-h-64">
-                              <motion.div
-                                key={`${formatIdx}-${selectedFormat}`}
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                transition={{ duration: 0.2 }}
-                                className="space-y-4"
-                              >
-                                <p className="text-xs text-rc-text/50 uppercase font-light tracking-wide">
-                                  {FORMAT_LABELS[selectedFormat]}
-                                </p>
-                                <p className="text-sm font-light leading-relaxed text-rc-text/90 whitespace-pre-wrap">
-                                  {(formatSet.formats as Record<string, string>)[selectedFormat]}
-                                </p>
-                              </motion.div>
-                            </div>
-                          </motion.div>
-                        )}
-                      </div>
-                    ))}
-                  </div>
-                ) : (
-                  <p className="text-sm text-rc-text/60 font-light">No formats generated.</p>
-                )}
-              </div>
-
-              {/* ACTIONS */}
-              <div className="pt-8 border-t border-rc-border space-y-2">
-                <button
-                  onClick={() => {
-                    setResult(null);
-                    setTranscript('');
+                  onClick={() => setSelectedLightbulb(selectedLightbulb === idx ? -1 : idx)}
+                  style={{
+                    marginTop: selectedLightbulb === idx ? '15px' : '0',
+                    padding: '8px 12px',
+                    fontSize: '12px',
+                    backgroundColor: selectedLightbulb === idx ? '#ff6b00' : '#00a8e8',
+                    color: 'white',
+                    border: 'none',
+                    borderRadius: '4px',
+                    cursor: 'pointer',
                   }}
-                  className="px-6 py-2 text-rc-text/60 font-light text-sm hover:text-rc-text transition"
                 >
-                  ← Process Another Transcript
+                  {selectedLightbulb === idx ? '− Hide Formats' : '+ View Formats'}
                 </button>
               </div>
             </div>
-        )}
+          ))}
+        </div>
       </div>
     </div>
   );
