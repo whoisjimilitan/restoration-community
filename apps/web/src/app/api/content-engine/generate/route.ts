@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { generateContentFromTranscript } from '@/lib/content-engine-simple';
 
 export async function POST(request: NextRequest) {
-  console.log('[CONTENT-ENGINE] Processing transcript through three-stage pipeline...');
+  console.log('[TRANSFORMATION-ENGINE] Analyzing for pain → identity → consequence → mechanism...');
 
   try {
     const { transcript } = await request.json();
@@ -14,13 +14,13 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    console.log('[CONTENT-ENGINE] Stage 1: Extracting quotables');
-    console.log('[CONTENT-ENGINE] Stage 2: Identifying lightbulbs');
-    console.log('[CONTENT-ENGINE] Stage 3: Generating 9 formats per lightbulb');
+    console.log('[STAGE-1] Analyzing core system elements');
+    console.log('[STAGE-2] Transforming content');
+    console.log('[STAGE-3] Generating 9 formats');
 
     const result = generateContentFromTranscript(transcript.trim());
 
-    console.log('[CONTENT-ENGINE] Pipeline complete');
+    console.log('[TRANSFORMATION-ENGINE] Complete');
 
     return NextResponse.json({
       success: true,
@@ -29,9 +29,9 @@ export async function POST(request: NextRequest) {
       stage3: result.stage3,
     });
   } catch (error) {
-    console.error('[CONTENT-ENGINE] Error:', error);
+    console.error('[TRANSFORMATION-ENGINE] Error:', error);
     return NextResponse.json(
-      { error: error instanceof Error ? error.message : 'Failed to generate content' },
+      { error: error instanceof Error ? error.message : 'Failed to transform content' },
       { status: 500 }
     );
   }

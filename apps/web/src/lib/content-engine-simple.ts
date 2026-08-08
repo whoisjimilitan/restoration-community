@@ -1,45 +1,38 @@
 /**
- * INTELLIGENT CONTENT ENGINE - THREE STAGES
- * Stage 1: Extract quotables from transcript
- * Stage 2: Identify lightbulb moments (key revelations)
- * Stage 3: Validate & produce 9 story-driven formats
+ * TRANSFORMATION ENGINE
+ * Applies the core system: Emotion → Identity → Consequence → Mechanism → Proof → Shift
+ * Preserves verbatim power lines. Intensifies stakes. Frames measurable transformation.
  */
 
+export interface TransformedContent {
+  painPoint: string;
+  preservedLines: string[];
+  consequence: string;
+  identityShift: string;
+  mechanism: string;
+  proof: string;
+  measurableTransformation: string;
+  backendBridge: string;
+}
+
 export interface Stage1Output {
-  quotables: Array<{
-    id: number;
-    text: string;
-    weight: number; // relevance score
-  }>;
+  analysis: {
+    painPoint: string;
+    identity: string;
+    consequence: string;
+    mechanism: string;
+  };
 }
 
 export interface Stage2Output {
-  lightbulbs: Array<{
-    id: number;
-    revelation: string;
-    significance: string;
-    storyMoment?: string;
-  }>;
-}
-
-export interface Stage3Format {
-  daily_letter: string;
-  social_post: string;
-  micro_insight: string;
-  devotional: string;
-  article: string;
-  email: string;
-  short_video: string;
-  podcast: string;
-  long_video: string;
+  transformed: TransformedContent;
 }
 
 export interface Stage3Output {
-  formats: Array<{
-    lightbulbId: number;
-    revelation: string;
-    formats: Stage3Format;
-  }>;
+  formats: Record<
+    string,
+    string
+  >;
 }
 
 export interface ContentEngineOutput {
@@ -48,23 +41,19 @@ export interface ContentEngineOutput {
   stage3: Stage3Output;
 }
 
-export function generateContentFromTranscript(transcript: string): ContentEngineOutput {
-  console.log('[CONTENT-ENGINE] Starting three-stage pipeline...');
+export function generateContentFromTranscript(
+  transcript: string
+): ContentEngineOutput {
+  console.log('[ENGINE] Analyzing transcript for pain, identity, consequence, mechanism...');
 
-  // STAGE 1: Extract quotable statements
-  console.log('[STAGE-1] Extracting quotable statements...');
-  const stage1 = extractStage1Quotables(transcript);
-  console.log(`[STAGE-1] Found ${stage1.quotables.length} quotable statements`);
+  // STAGE 1: Analyze for core system elements
+  const stage1 = analyzeForCoreSystem(transcript);
 
-  // STAGE 2: Identify lightbulb moments from quotables
-  console.log('[STAGE-2] Identifying lightbulb moments...');
-  const stage2 = extractStage2Lightbulbs(stage1.quotables, transcript);
-  console.log(`[STAGE-2] Found ${stage2.lightbulbs.length} lightbulbs`);
+  // STAGE 2: Transform using the framework
+  const stage2 = transformContent(transcript, stage1);
 
-  // STAGE 3: Generate 9 formats for each lightbulb
-  console.log('[STAGE-3] Generating 9 formats per lightbulb...');
-  const stage3 = generateStage3Formats(stage2.lightbulbs, transcript);
-  console.log(`[STAGE-3] Generated ${stage3.formats.length} format sets`);
+  // STAGE 3: Generate 9 formats from transformed content
+  const stage3 = generateFormats(stage2.transformed);
 
   return {
     stage1,
@@ -73,354 +62,465 @@ export function generateContentFromTranscript(transcript: string): ContentEngine
   };
 }
 
-// ============ STAGE 1: EXTRACT QUOTABLES ============
+// ============ STAGE 1: ANALYZE ============
 
-function extractStage1Quotables(transcript: string): Stage1Output {
-  const sentences = transcript
-    .split(/[.!?]+/)
-    .map(s => s.trim())
-    .filter(s => s.length > 20 && s.length < 250);
+function analyzeForCoreSystem(transcript: string): Stage1Output {
+  const painPoint = extractPainPoint(transcript);
+  const identity = extractIdentityTension(transcript);
+  const consequence = extractConsequence(transcript);
+  const mechanism = extractMechanism(transcript);
 
-  const quotables = sentences
-    .filter(s => {
-      const isQuestion = s.includes('?');
-      const isGreeting = /^(hello|welcome|hi|good morning|hallelujah|amen|introduction)/i.test(s);
-      const hasTeachingMarker =
-        /\b(is|are|when|if|become|transform|truth|grace|love|faith|understand|means|shift|realize|means)\b/i.test(s);
-      return !isQuestion && !isGreeting && hasTeachingMarker;
-    })
-    .slice(0, 8)
-    .map((text, idx) => ({
-      id: idx + 1,
-      text,
-      weight: calculateWeight(text),
-    }))
-    .sort((a, b) => b.weight - a.weight);
-
-  return { quotables };
+  return {
+    analysis: {
+      painPoint,
+      identity,
+      consequence,
+      mechanism,
+    },
+  };
 }
 
-function calculateWeight(text: string): number {
-  let weight = 0;
-
-  // Transformation language
-  if (/transform|shift|change|become|realize|understand/i.test(text)) weight += 3;
-
-  // Revelation markers
-  if (/truth|meaning|essence|core/i.test(text)) weight += 2;
-
-  // Action/decision markers
-  if (/when|if|moment|decide/i.test(text)) weight += 2;
-
-  // Length (sweet spot is 30-100 words)
-  const wordCount = text.split(/\s+/).length;
-  if (wordCount >= 15 && wordCount <= 40) weight += 1;
-
-  return weight;
-}
-
-// ============ STAGE 2: IDENTIFY LIGHTBULBS ============
-
-interface QuotableInput {
-  id: number;
-  text: string;
-  weight: number;
-}
-
-function extractStage2Lightbulbs(
-  quotables: QuotableInput[],
-  transcript: string
-): Stage2Output {
-  const lightbulbs: Stage2Output['lightbulbs'] = [];
-
-  // Each quotable becomes a lightbulb moment
-  quotables.slice(0, 4).forEach((quotable, idx) => {
-    const revelation = extractRevelation(quotable.text);
-    const significance = extractSignificance(quotable.text, idx);
-    const storyMoment = findRelatedStoryMoment(quotable.text, transcript);
-
-    lightbulbs.push({
-      id: idx + 1,
-      revelation,
-      significance,
-      storyMoment,
-    });
-  });
-
-  return { lightbulbs };
-}
-
-function extractRevelation(text: string): string {
-  // The revelation is the core insight - typically the most declarative part
-  const parts = text.split(/\b(when|if|because|so|but)\b/i);
-  const mainClause = parts[0].trim();
-  return mainClause.length > 0 ? mainClause : text;
-}
-
-function extractSignificance(text: string, index: number): string {
-  const weights = [
-    'This is the fundamental shift',
-    'This changes everything about how you see it',
-    'This is where most people miss it',
-    'This reveals the hidden truth',
-  ];
-  return weights[index] || 'This is the key insight';
-}
-
-function findRelatedStoryMoment(quotable: string, transcript: string): string | undefined {
-  // Look for a story or example near this quotable in the transcript
-  const narrativePatterns = [
-    /(?:think about|imagine|like a|consider|picture|example)([^.!?]*[.!?])/i,
-    /(?:a father|a child|a person|someone)([^.!?]*[.!?])/i,
+function extractPainPoint(transcript: string): string {
+  // Look for words indicating struggle, difficulty, problem
+  const painIndicators = [
+    /(?:struggle|difficult|hard|frustrat|challenge|problem|stuck|can't|unable|fail)/i,
+    /(?:spend|waste|lost|time|effort|energy).*?(?:on|trying)/i,
+    /(?:many of us|we all|people|tend to).*?(?:struggle|try|attempt)/i,
   ];
 
-  for (const pattern of narrativePatterns) {
-    const match = transcript.match(pattern);
-    if (match && match[1] && match[1].includes(quotable.split(/\s+/)[0])) {
-      return match[1].trim();
-    }
-  }
+  const sentences = transcript.split(/[.!?]+/).map(s => s.trim()).filter(s => s.length > 30);
 
-  // Fallback: find any story near the quotable
-  const idx = transcript.indexOf(quotable);
-  if (idx > 0) {
-    const before = transcript.substring(Math.max(0, idx - 300), idx);
-    for (const pattern of narrativePatterns) {
-      const match = before.match(pattern);
-      if (match && match[1]) {
-        return match[1].trim();
+  for (const pattern of painIndicators) {
+    for (const sent of sentences) {
+      if (pattern.test(sent)) {
+        return sent;
       }
     }
   }
 
-  return undefined;
+  return sentences[0] || 'People struggle with this';
+}
+
+function extractIdentityTension(transcript: string): string {
+  // Look for contrast between current identity and potential identity
+  const identityPatterns = [
+    /(?:from|instead of|no longer).*?(?:to|into|become)/i,
+    /(?:shift|transform|become|realize|see yourself as)/i,
+    /(?:you are|you're not|not just a)/i,
+  ];
+
+  const sentences = transcript.split(/[.!?]+/).map(s => s.trim()).filter(s => s.length > 30);
+
+  for (const pattern of identityPatterns) {
+    for (const sent of sentences) {
+      if (pattern.test(sent)) {
+        return sent;
+      }
+    }
+  }
+
+  return 'Who you are vs who you can become';
+}
+
+function extractConsequence(transcript: string): string {
+  // Project the cost of inaction - intensify it
+  const costIndicators = [
+    /(?:cost|expense|price|cost you)/i,
+    /(?:miss|lose|never|fade|diminish)/i,
+    /(?:stay|remain|continue|stuck)/i,
+  ];
+
+  const sentences = transcript.split(/[.!?]+/).map(s => s.trim()).filter(s => s.length > 40);
+
+  let bestMatch = '';
+  for (const pattern of costIndicators) {
+    for (const sent of sentences) {
+      if (pattern.test(sent) && sent.length > bestMatch.length) {
+        bestMatch = sent;
+      }
+    }
+  }
+
+  if (bestMatch) return bestMatch;
+  return 'The cost of staying stuck compounds daily.';
+}
+
+function extractMechanism(transcript: string): string {
+  // Find the HOW - the specific steps or process
+  const mechanismPatterns = [
+    /(?:step|first|second|then|next|here's how|process|method).*?(?:is|involves|means)/i,
+    /(?:what happen|the moment|when you).*?(?:then|is|become)/i,
+  ];
+
+  const sentences = transcript.split(/[.!?]+/).map(s => s.trim()).filter(s => s.length > 30);
+
+  for (const pattern of mechanismPatterns) {
+    for (const sent of sentences) {
+      if (pattern.test(sent)) {
+        return sent;
+      }
+    }
+  }
+
+  // Fallback: find actionable sentence
+  for (const sent of sentences) {
+    if (/\b(do|stop|start|receive|let|allow|embrace)\b/i.test(sent)) {
+      return sent;
+    }
+  }
+
+  return 'The mechanism is a shift in perspective and action.';
+}
+
+// ============ STAGE 2: TRANSFORM ============
+
+function transformContent(
+  transcript: string,
+  stage1: Stage1Output
+): Stage2Output {
+  const preserved = preserveVerbatimPower(transcript);
+  const intensified = intensifyConsequence(stage1.analysis.consequence);
+  const shift = frameIdentityShift(stage1.analysis.identity);
+  const measured = frameMeasurable(transcript);
+  const proof = extractProof(transcript);
+  const bridge = createBackendBridge(stage1.analysis.mechanism);
+
+  return {
+    transformed: {
+      painPoint: stage1.analysis.painPoint,
+      preservedLines: preserved,
+      consequence: intensified,
+      identityShift: shift,
+      mechanism: stage1.analysis.mechanism,
+      proof,
+      measurableTransformation: measured,
+      backendBridge: bridge,
+    },
+  };
+}
+
+function preserveVerbatimPower(transcript: string): string[] {
+  // Find 2-3 of the strongest lines - keep them exactly as is
+  const sentences = transcript
+    .split(/[.!?]+/)
+    .map(s => s.trim())
+    .filter(s => s.length > 25 && s.length < 200);
+
+  const scored = sentences
+    .map(s => ({
+      text: s,
+      score: calculatePowerScore(s),
+    }))
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 3)
+    .map(x => x.text);
+
+  return scored;
+}
+
+function calculatePowerScore(sentence: string): number {
+  let score = 0;
+
+  // Power words
+  if (/\b(transform|shift|realize|true|essential|fundamental|power|freedom|grace)\b/i.test(sentence))
+    score += 3;
+  if (/\b(not|never|stop|quit|only|must)\b/i.test(sentence)) score += 2;
+  if (/\b(you|your|we|our)\b/i.test(sentence)) score += 1;
+
+  // Length (sweet spot)
+  const wordCount = sentence.split(/\s+/).length;
+  if (wordCount >= 15 && wordCount <= 35) score += 2;
+
+  return score;
+}
+
+function intensifyConsequence(originalConsequence: string): string {
+  // Take the consequence and project forward - what happens in 1 year, 5 years?
+  const projections = [
+    'A year from now, if you stay stuck: ',
+    'The real cost compounds: ',
+    'Every day you delay: ',
+    'When you finally realize the cost of waiting: ',
+  ];
+
+  const projection = projections[Math.floor(Math.random() * projections.length)];
+
+  // Extract key elements and intensify
+  if (
+    originalConsequence.toLowerCase().includes('time') ||
+    originalConsequence.toLowerCase().includes('spend')
+  ) {
+    return (
+      projection +
+      'more months lost, more relationships strained, more potential unrealized.'
+    );
+  }
+
+  if (
+    originalConsequence.toLowerCase().includes('struggle') ||
+    originalConsequence.toLowerCase().includes('hard')
+  ) {
+    return (
+      projection +
+      "you're still exhausted, still doubting, still performing instead of being."
+    );
+  }
+
+  return projection + originalConsequence;
+}
+
+function frameIdentityShift(identity: string): string {
+  // Frame as: "You can become X instead of Y"
+  if (identity.toLowerCase().includes('from')) {
+    const parts = identity.split('from')[1]?.trim().substring(0, 60);
+    return 'You can shift from ' + (parts || 'old patterns') + ' to freedom.';
+  }
+
+  return 'Your identity can shift from striving to receiving, from performing to resting.';
+}
+
+function frameMeasurable(transcript: string): string {
+  // Find or create measurable transformation
+  // Look for: faster, clearer, more/less, freedom, peace
+  const measurements = [
+    'More time for what matters',
+    'Clarity instead of confusion',
+    'Peace instead of anxiety',
+    'Freedom from constant performance',
+    'Trust instead of doubt',
+  ];
+
+  const relevant = measurements.find(m =>
+    new RegExp(m.split(/\s+/)[0], 'i').test(transcript)
+  );
+
+  return relevant || measurements[0];
+}
+
+function extractProof(transcript: string): string {
+  // Look for: examples, stories, metaphors, metrics
+  // "Think about", "like a", "remember", "this happened"
+
+  const storyPatterns = [
+    /(?:think about|imagine|like|consider|example)([^.!?]*[.!?])/i,
+    /(?:a .*?)(does|doesn't|can't|will)([^.!?]*[.!?])/i,
+  ];
+
+  for (const pattern of storyPatterns) {
+    const match = transcript.match(pattern);
+    if (match && match[0]) {
+      return match[0].substring(0, 150);
+    }
+  }
+
+  return 'Real people experience this daily.';
+}
+
+function createBackendBridge(mechanism: string): string {
+  // Bridge the mechanism to an offer/next step
+  return (
+    'The mechanism is clear. Now, the work is putting it into practice ' +
+    'with structure, accountability, and community that keeps you moving forward.'
+  );
 }
 
 // ============ STAGE 3: GENERATE FORMATS ============
 
-interface LightbulbInput {
-  id: number;
-  revelation: string;
-  significance: string;
-  storyMoment?: string;
-}
-
-function generateStage3Formats(
-  lightbulbs: LightbulbInput[],
-  transcript: string
-): Stage3Output {
-  const formats: Stage3Output['formats'] = [];
-
-  lightbulbs.forEach((lb) => {
-    const bibleVerse = suggestBibleVerse(lb.revelation);
-    const storyMoment = lb.storyMoment || extractDefaultStory(transcript);
-
-    formats.push({
-      lightbulbId: lb.id,
-      revelation: lb.revelation,
-      formats: {
-        daily_letter: generateDailyLetter(lb.revelation, storyMoment, bibleVerse),
-        social_post: generateSocialPost(lb.revelation),
-        micro_insight: generateMicroInsight(lb.revelation),
-        devotional: generateDevotional(lb.revelation, storyMoment, bibleVerse),
-        article: generateArticle(lb.revelation, storyMoment, bibleVerse),
-        email: generateEmail(lb.revelation, storyMoment),
-        short_video: generateShortVideo(lb.revelation, storyMoment, bibleVerse),
-        podcast: generatePodcast(lb.revelation, storyMoment, bibleVerse),
-        long_video: generateLongVideo(lb.revelation, storyMoment, bibleVerse),
-      },
-    });
-  });
-
-  return { formats };
-}
-
-function extractDefaultStory(transcript: string): string {
-  const patterns = [
-    /(?:think about|imagine|like a|consider)([^.!?]*[.!?])/i,
-    /(?:a father|a child|a person)([^.!?]*[.!?])/i,
-  ];
-
-  for (const pattern of patterns) {
-    const match = transcript.match(pattern);
-    if (match && match[1]) {
-      return match[1].trim();
-    }
-  }
-
-  return 'Consider this moment in your own life';
-}
-
-function suggestBibleVerse(revelation: string): string {
-  const themeMap: Record<string, string> = {
-    grace: 'Ephesians 2:8-9',
-    faith: '1 Peter 1:7',
-    love: '1 John 4:7-8',
-    truth: 'John 8:32',
-    freedom: 'Galatians 5:1',
-    strength: 'Philippians 4:13',
-    peace: 'Philippians 4:6-7',
-    joy: 'Nehemiah 8:10',
-    hope: 'Romans 15:13',
-    forgiveness: 'Matthew 6:14-15',
-    receive: 'John 1:12',
-    earned: 'Romans 6:23',
-    transform: 'Romans 12:2',
-    shift: 'Proverbs 23:7',
-    understand: 'Proverbs 3:5-6',
+function generateFormats(transformed: TransformedContent): Stage3Output {
+  return {
+    formats: {
+      daily_letter: generateDailyLetter(transformed),
+      social_post: generateSocialPost(transformed),
+      micro_insight: generateMicroInsight(transformed),
+      devotional: generateDevotional(transformed),
+      article: generateArticle(transformed),
+      email: generateEmail(transformed),
+      short_video: generateShortVideo(transformed),
+      podcast: generatePodcast(transformed),
+      long_video: generateLongVideo(transformed),
+    },
   };
-
-  const lower = revelation.toLowerCase();
-  for (const [theme, verse] of Object.entries(themeMap)) {
-    if (lower.includes(theme)) {
-      return verse;
-    }
-  }
-
-  return '1 Timothy 6:6';
 }
 
-// ============ FORMAT GENERATORS ============
-
-function generateDailyLetter(
-  revelation: string,
-  storyMoment: string,
-  bibleVerse: string
-): string {
+function generateDailyLetter(t: TransformedContent): string {
   return `Good morning.
 
-${storyMoment}
+${t.painPoint}
 
-What happens in that moment? You realize: ${revelation}
+That's the pain point most of us live in.
 
-This is the truth that changes everything.
+What if that changed? ${t.consequence}
 
-${bibleVerse}
+Here's what's possible: ${t.identityShift}
 
-Take this with you today.
+The shift happens through: ${t.mechanism}
 
-In faith`;
+${t.measurableTransformation}.
+
+Take this with you today.`;
 }
 
-function generateSocialPost(revelation: string): string {
-  const post = revelation.substring(0, 270);
-  return post.endsWith('.') ? post : post + '.';
+function generateSocialPost(t: TransformedContent): string {
+  const line = t.preservedLines[0] || t.painPoint;
+  return `${line}
+
+${t.consequence}
+
+${t.identityShift}
+
+${t.measurableTransformation}.`;
 }
 
-function generateMicroInsight(revelation: string): string {
-  return revelation.split('.')[0] + '.';
+function generateMicroInsight(t: TransformedContent): string {
+  return t.preservedLines[0] || t.painPoint;
 }
 
-function generateDevotional(
-  revelation: string,
-  storyMoment: string,
-  bibleVerse: string
-): string {
-  return `${storyMoment}
+function generateDevotional(t: TransformedContent): string {
+  return `${t.painPoint}
 
-Here's what that moment teaches us: ${revelation}
+Most people don't realize: ${t.consequence}
 
-Sit with this. What is it inviting you toward?
+But here's the truth:
 
-${bibleVerse}`;
+${t.identityShift}
+
+How? ${t.mechanism}
+
+What becomes possible? ${t.measurableTransformation}.`;
 }
 
-function generateArticle(
-  revelation: string,
-  storyMoment: string,
-  bibleVerse: string
-): string {
-  return `# ${revelation.substring(0, 60)}
+function generateArticle(t: TransformedContent): string {
+  return `# The Cost of Staying Stuck
 
-## The Moment
+## The Pain
 
-${storyMoment}
+${t.painPoint}
 
-## The Truth
+## The Real Cost
 
-${revelation}
+${t.consequence}
 
-## Why It Matters
+## What's Possible
 
-When you understand this, everything shifts. This is not just knowledge—this is transformation.
+${t.identityShift}
 
-## Scripture
+## The Mechanism
 
-${bibleVerse}`;
+${t.mechanism}
+
+## The Proof
+
+${t.proof}
+
+## What Changes
+
+${t.measurableTransformation}
+
+## Next Step
+
+${t.backendBridge}`;
 }
 
-function generateEmail(revelation: string, storyMoment: string): string {
-  return `Hi there,
+function generateEmail(t: TransformedContent): string {
+  return `Hi,
 
-I wanted to share something with you today.
+I noticed something today.
 
-${storyMoment}
+${t.painPoint}
 
-And it hit me: ${revelation}
+That's where most of us are stuck.
 
-If you're sensing this too, I'd love to hear what you're thinking.
+But here's what happens if we stay there: ${t.consequence}
 
-In faith`;
+What if instead: ${t.identityShift}
+
+The path is simple: ${t.mechanism}
+
+I've seen it happen: ${t.proof}
+
+Result: ${t.measurableTransformation}
+
+Ready?`;
 }
 
-function generateShortVideo(
-  revelation: string,
-  storyMoment: string,
-  bibleVerse: string
-): string {
+function generateShortVideo(t: TransformedContent): string {
   return `[OPEN]
-${storyMoment}
+${t.painPoint}
+
+[THE COST]
+${t.consequence}
 
 [THE SHIFT]
-${revelation}
+${t.identityShift}
 
-[SCRIPTURE]
-${bibleVerse}
+[THE MECHANISM]
+${t.mechanism}
+
+[THE RESULT]
+${t.measurableTransformation}
 
 [CLOSE]
-This is freedom.`;
+This is available to you.`;
 }
 
-function generatePodcast(
-  revelation: string,
-  storyMoment: string,
-  bibleVerse: string
-): string {
-  return `Listen to what happens in this moment.
+function generatePodcast(t: TransformedContent): string {
+  return `So let's talk about this.
 
-${storyMoment}
+${t.painPoint}
 
-That's when you understand: ${revelation}
+Most people live here and never question it.
 
-This is not comfortable. This is truthful.
+But what if you projected forward? ${t.consequence}
 
-Scripture says: ${bibleVerse}
+That's the cost.
 
-That's your reality.`;
+Now, what's available? ${t.identityShift}
+
+Here's how: ${t.mechanism}
+
+The proof? ${t.proof}
+
+The transformation: ${t.measurableTransformation}
+
+That's what we're building toward.`;
 }
 
-function generateLongVideo(
-  revelation: string,
-  storyMoment: string,
-  bibleVerse: string
-): string {
-  return `# ${revelation.substring(0, 60)}
+function generateLongVideo(t: TransformedContent): string {
+  return `# ${t.identityShift}
 
-## THE STORY
+## THE OPENING
 
-${storyMoment}
+${t.painPoint}
 
-## THE REVELATION
+You feel this. Everyone does.
 
-${revelation}
+## THE REALITY
 
-## THE SCRIPTURE
+${t.consequence}
 
-${bibleVerse}
+That's what happens if nothing changes.
 
-## WHAT NOW
+## THE SHIFT
 
-This is not something you have to figure out. This is something you receive.
+${t.identityShift}
 
-Let it land.`;
+This is real. This is available.
+
+## THE MECHANISM
+
+Here's exactly how:
+
+${t.mechanism}
+
+## THE PROOF
+
+${t.proof}
+
+## THE TRANSFORMATION
+
+${t.measurableTransformation}
+
+## THE NEXT STEP
+
+${t.backendBridge}`;
 }

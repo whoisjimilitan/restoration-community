@@ -3,27 +3,33 @@
 import { useState } from 'react';
 
 interface Stage1 {
-  quotables: Array<{ id: number; text: string; weight: number }>;
+  analysis: {
+    painPoint: string;
+    identity: string;
+    consequence: string;
+    mechanism: string;
+  };
 }
 
 interface Stage2 {
-  lightbulbs: Array<{
-    id: number;
-    revelation: string;
-    significance: string;
-    storyMoment?: string;
-  }>;
+  transformed: {
+    painPoint: string;
+    preservedLines: string[];
+    consequence: string;
+    identityShift: string;
+    mechanism: string;
+    proof: string;
+    measurableTransformation: string;
+    backendBridge: string;
+  };
 }
 
 interface Stage3 {
-  formats: Array<{
-    lightbulbId: number;
-    revelation: string;
-    formats: Record<string, string>;
-  }>;
+  formats: Record<string, string>;
 }
 
 interface ContentEngineResult {
+  success?: boolean;
   stage1: Stage1;
   stage2: Stage2;
   stage3: Stage3;
@@ -159,145 +165,128 @@ export default function ContentEngineAdmin() {
         {/* STAGE 1 */}
         <div style={{ marginBottom: '50px' }}>
           <h2 style={{ fontSize: '20px', fontWeight: 'bold', marginBottom: '15px' }}>
-            Stage 1: Quotable Statements ({result.stage1.quotables.length})
+            Stage 1: Core System Analysis
           </h2>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '12px' }}>
-            {result.stage1.quotables.map((q) => (
-              <div
-                key={q.id}
-                style={{
-                  backgroundColor: 'white',
-                  padding: '15px',
-                  borderLeft: '4px solid #000',
-                  borderRadius: '4px',
-                }}
-              >
-                <p style={{ fontSize: '14px', lineHeight: '1.6', margin: 0 }}>
-                  {q.text}
-                </p>
-                <p style={{ fontSize: '12px', color: '#999', marginTop: '8px', margin: 0 }}>
-                  Weight: {q.weight}
-                </p>
-              </div>
-            ))}
+            <div style={{ backgroundColor: 'white', padding: '15px', borderLeft: '4px solid #000', borderRadius: '4px' }}>
+              <p style={{ fontSize: '12px', color: '#999', margin: '0 0 4px 0', fontWeight: '600' }}>PAIN POINT</p>
+              <p style={{ fontSize: '14px', lineHeight: '1.6', margin: 0 }}>
+                {result.stage1.analysis.painPoint}
+              </p>
+            </div>
+            <div style={{ backgroundColor: 'white', padding: '15px', borderLeft: '4px solid #ff6b00', borderRadius: '4px' }}>
+              <p style={{ fontSize: '12px', color: '#999', margin: '0 0 4px 0', fontWeight: '600' }}>IDENTITY TENSION</p>
+              <p style={{ fontSize: '14px', lineHeight: '1.6', margin: 0 }}>
+                {result.stage1.analysis.identity}
+              </p>
+            </div>
+            <div style={{ backgroundColor: 'white', padding: '15px', borderLeft: '4px solid #d32f2f', borderRadius: '4px' }}>
+              <p style={{ fontSize: '12px', color: '#999', margin: '0 0 4px 0', fontWeight: '600' }}>CONSEQUENCE</p>
+              <p style={{ fontSize: '14px', lineHeight: '1.6', margin: 0 }}>
+                {result.stage1.analysis.consequence}
+              </p>
+            </div>
+            <div style={{ backgroundColor: 'white', padding: '15px', borderLeft: '4px solid #1976d2', borderRadius: '4px' }}>
+              <p style={{ fontSize: '12px', color: '#999', margin: '0 0 4px 0', fontWeight: '600' }}>MECHANISM</p>
+              <p style={{ fontSize: '14px', lineHeight: '1.6', margin: 0 }}>
+                {result.stage1.analysis.mechanism}
+              </p>
+            </div>
           </div>
         </div>
 
         {/* STAGE 2 */}
         <div style={{ marginBottom: '50px' }}>
           <h2 style={{ fontSize: '20px', fontWeight: 'bold', marginBottom: '15px' }}>
-            Stage 2: Lightbulb Moments ({result.stage2.lightbulbs.length})
+            Stage 2: Transformed Content
           </h2>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '12px' }}>
-            {result.stage2.lightbulbs.map((lb) => (
-              <div
-                key={lb.id}
-                style={{
-                  backgroundColor: 'white',
-                  padding: '15px',
-                  borderLeft: '4px solid #ff6b00',
-                  borderRadius: '4px',
-                }}
-              >
-                <p style={{ fontSize: '14px', fontWeight: '600', margin: '0 0 8px 0' }}>
-                  {lb.revelation}
+            <div style={{ backgroundColor: 'white', padding: '15px', borderLeft: '4px solid #1976d2', borderRadius: '4px' }}>
+              <p style={{ fontSize: '12px', color: '#999', margin: '0 0 4px 0', fontWeight: '600' }}>PRESERVED LINES (Verbatim Power)</p>
+              {result.stage2.transformed.preservedLines.map((line, i) => (
+                <p key={i} style={{ fontSize: '13px', lineHeight: '1.6', margin: i === 0 ? 0 : '8px 0 0 0', fontStyle: 'italic' }}>
+                  "{line}"
                 </p>
-                <p style={{ fontSize: '12px', color: '#666', margin: '0 0 8px 0', fontStyle: 'italic' }}>
-                  {lb.significance}
-                </p>
-                {lb.storyMoment && (
-                  <p style={{ fontSize: '12px', color: '#555', margin: 0, backgroundColor: '#f5f5f5', padding: '8px', borderRadius: '3px' }}>
-                    📖 {lb.storyMoment}
-                  </p>
-                )}
-              </div>
-            ))}
+              ))}
+            </div>
+            <div style={{ backgroundColor: 'white', padding: '15px', borderLeft: '4px solid #d32f2f', borderRadius: '4px' }}>
+              <p style={{ fontSize: '12px', color: '#999', margin: '0 0 4px 0', fontWeight: '600' }}>INTENSIFIED CONSEQUENCE</p>
+              <p style={{ fontSize: '14px', lineHeight: '1.6', margin: 0 }}>
+                {result.stage2.transformed.consequence}
+              </p>
+            </div>
+            <div style={{ backgroundColor: 'white', padding: '15px', borderLeft: '4px solid #00a8e8', borderRadius: '4px' }}>
+              <p style={{ fontSize: '12px', color: '#999', margin: '0 0 4px 0', fontWeight: '600' }}>IDENTITY SHIFT</p>
+              <p style={{ fontSize: '14px', lineHeight: '1.6', margin: 0 }}>
+                {result.stage2.transformed.identityShift}
+              </p>
+            </div>
+            <div style={{ backgroundColor: 'white', padding: '15px', borderLeft: '4px solid #ffa726', borderRadius: '4px' }}>
+              <p style={{ fontSize: '12px', color: '#999', margin: '0 0 4px 0', fontWeight: '600' }}>PROOF ELEMENT</p>
+              <p style={{ fontSize: '14px', lineHeight: '1.6', margin: 0 }}>
+                {result.stage2.transformed.proof}
+              </p>
+            </div>
+            <div style={{ backgroundColor: 'white', padding: '15px', borderLeft: '4px solid #66bb6a', borderRadius: '4px' }}>
+              <p style={{ fontSize: '12px', color: '#999', margin: '0 0 4px 0', fontWeight: '600' }}>MEASURABLE TRANSFORMATION</p>
+              <p style={{ fontSize: '14px', lineHeight: '1.6', margin: 0 }}>
+                {result.stage2.transformed.measurableTransformation}
+              </p>
+            </div>
+            <div style={{ backgroundColor: 'white', padding: '15px', borderLeft: '4px solid #ab47bc', borderRadius: '4px' }}>
+              <p style={{ fontSize: '12px', color: '#999', margin: '0 0 4px 0', fontWeight: '600' }}>BACKEND BRIDGE</p>
+              <p style={{ fontSize: '14px', lineHeight: '1.6', margin: 0 }}>
+                {result.stage2.transformed.backendBridge}
+              </p>
+            </div>
           </div>
         </div>
 
         {/* STAGE 3 */}
         <div>
           <h2 style={{ fontSize: '20px', fontWeight: 'bold', marginBottom: '15px' }}>
-            Stage 3: 9 Formats
+            Stage 3: 9 Transformed Formats
           </h2>
 
-          {result.stage3.formats.map((formatSet, idx) => (
-            <div key={idx} style={{ marginBottom: '40px' }}>
-              {/* Lightbulb selector */}
-              <div
+          {/* Format tabs */}
+          <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '15px' }}>
+            {Object.keys(result.stage3.formats).map((fmt) => (
+              <button
+                key={fmt}
+                onClick={() => setSelectedFormat(fmt)}
                 style={{
-                  backgroundColor: 'white',
-                  padding: '15px',
-                  borderLeft: '4px solid #00a8e8',
-                  marginBottom: '15px',
+                  padding: '10px 14px',
+                  fontSize: '12px',
+                  fontWeight: selectedFormat === fmt ? '600' : '400',
+                  backgroundColor: selectedFormat === fmt ? '#000' : '#eee',
+                  color: selectedFormat === fmt ? 'white' : '#333',
+                  border: 'none',
                   borderRadius: '4px',
+                  cursor: 'pointer',
                 }}
               >
-                <p style={{ fontSize: '14px', fontWeight: '600', margin: '0 0 12px 0' }}>
-                  Lightbulb {formatSet.lightbulbId}: {formatSet.revelation}
-                </p>
+                {formatLabels[fmt] || fmt}
+              </button>
+            ))}
+          </div>
 
-                {selectedLightbulb === idx && (
-                  <>
-                    {/* Format tabs */}
-                    <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '15px' }}>
-                      {Object.keys(formatSet.formats).map((fmt) => (
-                        <button
-                          key={fmt}
-                          onClick={() => setSelectedFormat(fmt)}
-                          style={{
-                            padding: '8px 12px',
-                            fontSize: '12px',
-                            backgroundColor: selectedFormat === fmt ? '#000' : '#eee',
-                            color: selectedFormat === fmt ? 'white' : '#000',
-                            border: 'none',
-                            borderRadius: '4px',
-                            cursor: 'pointer',
-                          }}
-                        >
-                          {formatLabels[fmt] || fmt}
-                        </button>
-                      ))}
-                    </div>
-
-                    {/* Format content */}
-                    <div
-                      style={{
-                        backgroundColor: '#fafafa',
-                        padding: '15px',
-                        borderRadius: '4px',
-                        fontSize: '13px',
-                        lineHeight: '1.8',
-                        fontFamily: 'monospace',
-                        whiteSpace: 'pre-wrap',
-                        wordWrap: 'break-word',
-                        maxHeight: '500px',
-                        overflowY: 'auto',
-                      }}
-                    >
-                      {(formatSet.formats as Record<string, string>)[selectedFormat]}
-                    </div>
-                  </>
-                )}
-
-                <button
-                  onClick={() => setSelectedLightbulb(selectedLightbulb === idx ? -1 : idx)}
-                  style={{
-                    marginTop: selectedLightbulb === idx ? '15px' : '0',
-                    padding: '8px 12px',
-                    fontSize: '12px',
-                    backgroundColor: selectedLightbulb === idx ? '#ff6b00' : '#00a8e8',
-                    color: 'white',
-                    border: 'none',
-                    borderRadius: '4px',
-                    cursor: 'pointer',
-                  }}
-                >
-                  {selectedLightbulb === idx ? '− Hide Formats' : '+ View Formats'}
-                </button>
-              </div>
-            </div>
-          ))}
+          {/* Format content */}
+          <div
+            style={{
+              backgroundColor: 'white',
+              padding: '20px',
+              borderRadius: '4px',
+              fontSize: '13px',
+              lineHeight: '1.8',
+              fontFamily: '"Segoe UI", Tahoma, Geneva, Verdana, sans-serif',
+              whiteSpace: 'pre-wrap',
+              wordWrap: 'break-word',
+              minHeight: '400px',
+              border: '1px solid #eee',
+            }}
+          >
+            {(result.stage3.formats as Record<string, string>)[selectedFormat]}
+          </div>
         </div>
       </div>
     </div>
