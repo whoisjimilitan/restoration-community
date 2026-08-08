@@ -76,7 +76,7 @@ export function selectRandomPattern(type: keyof typeof VOICE_PATTERNS): string {
 
 export function buildNarrativeStructure(
   statement: string,
-  context?: string
+  _context?: string
 ): string {
   const opening = selectRandomPattern('opening');
   const acknowledgment = selectRandomPattern('acknowledgment');

@@ -5,7 +5,7 @@ import { extractTranscript } from '@/lib/firecrawl-connector';
 export async function POST(request: NextRequest) {
   const session = await getServerSession();
 
-  if (!session?.user?.id) {
+  if (!session?.user?.email) {
     console.log('[EXTRACT] Unauthorized request');
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }

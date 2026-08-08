@@ -9,10 +9,12 @@ import { prisma } from '@/lib/prisma';
 export async function POST(request: NextRequest) {
   const session = await getServerSession();
 
-  if (!session?.user?.id) {
+  if (!session?.user?.email) {
     console.log('[GENERATE] Unauthorized request');
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
+
+  const userId = (session.user as any).id || session.user?.email;
 
   console.log('[GENERATE] Content generation request started');
 
@@ -58,7 +60,7 @@ export async function POST(request: NextRequest) {
         context,
         sourceType: 'direct',
         category: 'general',
-        userId: session.user.id,
+        userId,
         status: 'expanded',
       },
     });
