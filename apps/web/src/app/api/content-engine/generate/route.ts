@@ -1,107 +1,30 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getServerSession } from 'next-auth/next';
-import { expandStatement } from '@/lib/narrative-expansion';
-import { identifyElements } from '@/lib/element-identifier';
-import { applyFrame, type Frame } from '@/lib/frame-applier';
-import { generateAllFormats } from '@/lib/format-generators';
-import { prisma } from '@/lib/prisma';
+import { generateContentFromTranscript } from '@/lib/content-engine-simple';
 
 export async function POST(request: NextRequest) {
-  const session = await getServerSession();
-
-  if (!session?.user?.email) {
-    console.log('[GENERATE] Unauthorized request');
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-  }
-
-  const userId = (session.user as any).id || session.user?.email;
-
-  console.log('[GENERATE] Content generation request started');
+  console.log('[CONTENT-ENGINE] Processing transcript...');
 
   try {
-    const { statement, context, frame = 'enlighten' } = await request.json();
+    const { transcript } = await request.json();
 
-    if (!statement) {
+    if (!transcript || transcript.trim().length === 0) {
       return NextResponse.json(
-        { error: 'Statement is required' },
+        { error: 'Transcript is required' },
         { status: 400 }
       );
     }
 
-    // Step 1: Expand statement into narrative
-    console.log('[GENERATE] Step 1: Expanding statement');
-    const { narrative } = await expandStatement({ statement, context });
+    console.log('[CONTENT-ENGINE] Generating 9 formats from transcript');
+    const result = generateContentFromTranscript(transcript.trim());
 
-    // Step 2: Identify elements
-    console.log('[GENERATE] Step 2: Identifying elements');
-    const elements = identifyElements(narrative);
-
-    // Step 3: Apply frame
-    console.log('[GENERATE] Step 3: Applying frame');
-    const { framedNarrative } = applyFrame({
-      narrative,
-      frame: frame as Frame,
-      elements,
-    });
-
-    // Step 4: Generate all 9 formats
-    console.log('[GENERATE] Step 4: Generating all 9 formats');
-    const formats = generateAllFormats({
-      narrative: framedNarrative,
-      elements,
-      frame,
-    });
-
-    // Step 5: Store in database
-    console.log('[GENERATE] Step 5: Storing in database');
-    const contentInput = await prisma.contentInput.create({
-      data: {
-        statement,
-        context,
-        sourceType: 'direct',
-        category: 'general',
-        userId,
-        status: 'expanded',
-      },
-    });
-
-    const expandedNarrative = await prisma.expandedNarrative.create({
-      data: {
-        narrative: framedNarrative,
-        revelation: elements.revelation,
-        contrast: elements.contrast,
-        coreMessage: elements.coreMessage,
-        identityChoice: elements.identityChoice,
-        callToAction: elements.callToAction,
-        frame: frame as string,
-        contentInputId: contentInput.id,
-      },
-    });
-
-    // Store each format
-    await Promise.all(
-      Object.entries(formats).map(([formatType, content]) =>
-        prisma.generatedOutput.create({
-          data: {
-            format: formatType as string,
-            content: content as string,
-            narrativeId: expandedNarrative.id,
-          },
-        })
-      )
-    );
-
-    console.log('[GENERATE] Generation complete. Stored in database.');
+    console.log('[CONTENT-ENGINE] Complete');
 
     return NextResponse.json({
       success: true,
-      narrative: framedNarrative,
-      elements,
-      formats,
-      narrativeId: expandedNarrative.id,
+      data: result,
     });
   } catch (error) {
-    console.error('[GENERATE] Error:', error);
+    console.error('[CONTENT-ENGINE] Error:', error);
     return NextResponse.json(
       { error: error instanceof Error ? error.message : 'Failed to generate content' },
       { status: 500 }

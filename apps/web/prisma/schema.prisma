@@ -1001,8 +1001,8 @@ model ContentInput {
 
   // Relationships
   narrative     ExpandedNarrative?
-  userId        String
-  user          User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId        String?
+  user          User? @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   updatedAt     DateTime @updatedAt
   @@map("content_inputs")
@@ -1074,3 +1074,74 @@ model GeneratedOutput {
 
 // Extend User model with new relationships
 // Add to User model relationships: PrayerCalls, Programs, ProgramParticipants, Facilitator, TestimoniesAsParticipant
+
+// ============================================================================
+// VOICE ENGINE (VOICE-ENGINE-001)
+// ============================================================================
+// Stores teaching transcripts and extracted wisdom pieces
+
+model VoiceTranscript {
+  id              String   @id @default(cuid())
+
+  // Source info
+  transcript      String   @db.Text
+  title           String?
+
+  // Extracted metadata
+  mainRevelation  String?
+
+  // Relationships
+  wisdomPieces    WisdomPiece[]
+
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@index([createdAt])
+  @@map("voice_transcripts")
+}
+
+model WisdomPiece {
+  id              String   @id @default(cuid())
+
+  // Source
+  transcriptId    String
+  transcript      VoiceTranscript @relation(fields: [transcriptId], references: [id], onDelete: Cascade)
+
+  // Extracted content
+  exact_quote     String   @db.Text
+  claim           String   @db.Text
+  premises        String[] @default([])
+  conclusion      String   @db.Text
+
+  // VALIDITY Assessment
+  validity_structure              String?
+  validity_logical_flow           String?
+  validity_structure_valid        Boolean @default(true)
+
+  // PREMISES Assessment (stored as JSON)
+  premise_assessments_json        String  @db.Text @default("[]")
+
+  // Three-layered presentation
+  presentation_analytical        String  @db.Text
+  presentation_resistant         String  @db.Text
+  presentation_accepting         String  @db.Text
+
+  // Strongest case
+  strongest_case  String   @db.Text
+
+  // Video scripts
+  reflective_question   String   @db.Text
+  reflective_statement  String   @db.Text
+
+  // Status & metadata
+  status          String   @default("draft") // "draft" | "approved" | "published"
+  notes           String?
+
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@index([transcriptId])
+  @@index([status])
+  @@index([createdAt])
+  @@map("wisdom_pieces")
+}

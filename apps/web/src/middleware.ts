@@ -29,18 +29,6 @@ export async function middleware(request: NextRequest) {
     return NextResponse.redirect(new URL('/auth/signin', request.url));
   }
 
-  // If onboarding not completed, redirect to onboarding
-  // (except for onboarding and API routes)
-  if (
-    !pathname.startsWith('/onboarding') &&
-    !pathname.startsWith('/api/onboarding') &&
-    !pathname.startsWith('/api/auth')
-  ) {
-    // Note: We can't check onboarding status in middleware without a DB call.
-    // Instead, the onboarding check happens in the dashboard component.
-    // This middleware just ensures authentication.
-  }
-
   return NextResponse.next();
 }
 

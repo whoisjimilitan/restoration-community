@@ -32,7 +32,7 @@ export function identifyElements(narrative: string): IdentifiedElements {
   };
 }
 
-function extractRevelation(_narrative: string, sentences: string[]): string {
+function extractRevelation(narrative: string, sentences: string[]): string {
   // Look for key revelation statements
   const revelationKeywords = ['spiritual', 'bondage', 'trap', 'choice', 'freedom', 'reality'];
   const relevant = sentences.find((s) =>
@@ -47,10 +47,10 @@ function extractRevelation(_narrative: string, sentences: string[]): string {
   return sentences[Math.floor(sentences.length / 2)];
 }
 
-function extractContrast(_narrative: string, sentences: string[]): string {
+function extractContrast(narrative: string, sentences: string[]): string {
   // Look for contrasts (promised vs delivered, etc)
-  if (_narrative.toLowerCase().includes('but')) {
-    const parts = _narrative.split(/but/i);
+  if (narrative.toLowerCase().includes('but')) {
+    const parts = narrative.split(/but/i);
     if (parts.length >= 2) {
       return `${parts[0].trim().substring(0, 100)}... But ${parts[1].trim().substring(0, 100)}...`;
     }
@@ -60,7 +60,7 @@ function extractContrast(_narrative: string, sentences: string[]): string {
   return sentences.slice(-2).join('. ');
 }
 
-function extractCoreMessage(_narrative: string, sentences: string[]): string {
+function extractCoreMessage(narrative: string, sentences: string[]): string {
   // Last significant statement usually contains core message
   if (sentences.length >= 2) {
     return sentences[sentences.length - 2];
