@@ -102,15 +102,8 @@ export default function ContentEngineAdmin() {
       </div>
 
       <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 py-12">
-        <AnimatePresence mode="wait">
-          {!result ? (
-            <motion.div
-              key="input"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="max-w-3xl"
-            >
+        {!result ? (
+          <div className="max-w-3xl">
               <form onSubmit={handleSubmit} className="space-y-4">
                 <textarea
                   value={transcript}
@@ -130,15 +123,9 @@ export default function ContentEngineAdmin() {
                   {loading ? 'Processing...' : 'Extract & Generate'}
                 </button>
               </form>
-            </motion.div>
-          ) : (
-            <motion.div
-              key="results"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="space-y-16"
-            >
+            </div>
+        ) : (
+          <div className="space-y-16">
               {/* STAGE 1: QUOTABLES */}
               <div className="space-y-6">
                 <div>
@@ -298,9 +285,8 @@ export default function ContentEngineAdmin() {
                   ← Process Another Transcript
                 </button>
               </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+            </div>
+        )}
       </div>
     </div>
   );
