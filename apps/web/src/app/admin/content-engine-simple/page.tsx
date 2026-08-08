@@ -2,62 +2,59 @@
 
 import { useState } from 'react';
 
-interface Stage1 {
-  validity: {
-    isValid: boolean;
-    reasoning: string;
-    conclusion: string;
-    premises: string[];
-    logicalFlow: string;
-    issues: string[];
-  };
-  premises: Array<{
-    premise: string;
-    isTrue: boolean;
-    source: string;
-    support: string;
-  }>;
-  canBeChallengd: boolean;
-}
-
-interface Stage2 {
-  architecture: {
-    openingThrust: string;
-    logicalFlow: string[];
-    proof: string;
-    implication: string;
-    closing: string;
-  };
-  audienceLayering: {
-    analytical: string;
-    resistant: string;
-    accepting: string;
-  };
-}
-
-interface Stage3 {
-  formats: Record<string, string>;
-}
-
 interface ContentEngineResult {
   success?: boolean;
-  stage1: Stage1;
-  stage2: Stage2;
-  stage3: Stage3;
+  stage1: {
+    validity: {
+      isValid: boolean;
+      reasoning: string;
+      conclusion: string;
+      premises: string[];
+      logicalFlow: string;
+      issues: string[];
+    };
+    premises: Array<{
+      premise: string;
+      isTrue: boolean;
+      source: string;
+      support: string;
+    }>;
+    canBeChallengd: boolean;
+  };
+  stage2: {
+    architecture: {
+      openingThrust: string;
+      logicalFlow: string[];
+      proof: string;
+      implication: string;
+      closing: string;
+    };
+    audienceLayering: {
+      analytical: string;
+      resistant: string;
+      accepting: string;
+    };
+  };
+  stage3: {
+    formats: Record<string, string>;
+  };
 }
 
 export default function ContentEngineAdmin() {
   const [transcript, setTranscript] = useState('');
   const [result, setResult] = useState<ContentEngineResult | null>(null);
   const [loading, setLoading] = useState(false);
-  const [selectedLightbulb, setSelectedLightbulb] = useState(0);
   const [selectedFormat, setSelectedFormat] = useState('daily_letter');
+  const [stage, setStage] = useState<1 | 2 | 3>(1);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (transcript.trim().length === 0) return;
 
     setLoading(true);
+    setStage(1);
+    setResult(null);
+
     try {
       const res = await fetch('/api/content-engine/generate', {
         method: 'POST',
@@ -66,9 +63,16 @@ export default function ContentEngineAdmin() {
       });
 
       const data = await res.json();
+
       if (data.success || (data.stage1 && data.stage2 && data.stage3)) {
+        // Simulate progressive output
+        await new Promise(r => setTimeout(r, 500));
+        setStage(2);
+
+        await new Promise(r => setTimeout(r, 500));
+        setStage(3);
+
         setResult(data);
-        setSelectedLightbulb(0);
         setSelectedFormat('daily_letter');
       } else {
         alert('Error: ' + (data.error || 'Unknown error'));
@@ -89,7 +93,7 @@ export default function ContentEngineAdmin() {
             Content Engine
           </h1>
           <p style={{ fontSize: '14px', color: '#888', marginBottom: '30px' }}>
-            Extract teaching → Identify lightbulbs → Generate 9 formats
+            Critique → Reconstruct → Generate
           </p>
 
           <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
@@ -123,7 +127,7 @@ export default function ContentEngineAdmin() {
                 cursor: loading || transcript.trim().length === 0 ? 'not-allowed' : 'pointer',
               }}
             >
-              {loading ? 'Processing...' : 'Extract & Generate'}
+              {loading ? `Processing Stage ${stage}/3...` : 'Extract & Generate'}
             </button>
           </form>
         </div>
@@ -132,15 +136,15 @@ export default function ContentEngineAdmin() {
   }
 
   const formatLabels: Record<string, string> = {
-    daily_letter: '📬 Letter',
-    social_post: '📱 Social',
-    micro_insight: '💡 Insight',
-    devotional: '🙏 Devotional',
-    article: '📰 Article',
-    email: '✉️ Email',
-    short_video: '🎬 Short',
-    podcast: '🎙️ Podcast',
-    long_video: '🎥 Long',
+    daily_letter: 'Letter',
+    social_post: 'Social',
+    micro_insight: 'Insight',
+    devotional: 'Devotional',
+    article: 'Article',
+    email: 'Email',
+    short_video: 'Video',
+    podcast: 'Podcast',
+    long_video: 'Long Video',
   };
 
   return (
@@ -151,9 +155,6 @@ export default function ContentEngineAdmin() {
           <h1 style={{ fontSize: '32px', fontWeight: 'bold', marginBottom: '10px' }}>
             Content Engine
           </h1>
-          <p style={{ fontSize: '14px', color: '#888' }}>
-            Stage 1 → Stage 2 → Stage 3
-          </p>
           <button
             onClick={() => {
               setResult(null);
@@ -176,89 +177,153 @@ export default function ContentEngineAdmin() {
         {/* STAGE 1 */}
         <div style={{ marginBottom: '50px' }}>
           <h2 style={{ fontSize: '20px', fontWeight: 'bold', marginBottom: '15px' }}>
-            Stage 1: Validity & Premises (Two Separate Tests)
+            Stage 1: Validity & Premises
           </h2>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '12px' }}>
-            <div style={{ backgroundColor: result.stage1.validity.isValid ? '#e8f5e9' : '#ffebee', padding: '15px', borderLeft: `4px solid ${result.stage1.validity.isValid ? '#66bb6a' : '#d32f2f'}`, borderRadius: '4px' }}>
-              <p style={{ fontSize: '12px', color: '#999', margin: '0 0 4px 0', fontWeight: '600' }}>VALIDITY TEST (Logic Structure)</p>
+
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', marginBottom: '20px' }}>
+            {/* Validity */}
+            <div
+              style={{
+                backgroundColor: result.stage1.validity.isValid ? '#e8f5e9' : '#ffebee',
+                padding: '15px',
+                borderLeft: `4px solid ${result.stage1.validity.isValid ? '#66bb6a' : '#d32f2f'}`,
+                borderRadius: '4px',
+              }}
+            >
+              <p style={{ fontSize: '12px', color: '#999', margin: '0 0 8px 0', fontWeight: '600' }}>
+                VALIDITY TEST
+              </p>
               <p style={{ fontSize: '14px', fontWeight: '600', margin: '0 0 8px 0' }}>
                 {result.stage1.validity.isValid ? '✓ VALID' : '✗ BROKEN'}
               </p>
-              <p style={{ fontSize: '13px', margin: '0 0 8px 0' }}>
-                {result.stage1.validity.reasoning}
-              </p>
+              <p style={{ fontSize: '12px', margin: 0 }}>{result.stage1.validity.reasoning}</p>
               {result.stage1.validity.issues.length > 0 && (
-                <div>
-                  <p style={{ fontSize: '12px', color: '#d32f2f', fontWeight: '600', margin: '0 0 4px 0' }}>Issues to fix:</p>
+                <div style={{ marginTop: '8px' }}>
                   {result.stage1.validity.issues.map((issue, i) => (
-                    <p key={i} style={{ fontSize: '12px', margin: i === 0 ? 0 : '4px 0 0 0' }}>• {issue}</p>
+                    <p key={i} style={{ fontSize: '11px', color: '#d32f2f', margin: '4px 0' }}>
+                      • {issue}
+                    </p>
                   ))}
                 </div>
               )}
             </div>
 
-            <div style={{ backgroundColor: 'white', padding: '15px', borderLeft: '4px solid #1976d2', borderRadius: '4px' }}>
-              <p style={{ fontSize: '12px', color: '#999', margin: '0 0 4px 0', fontWeight: '600' }}>PREMISE TEST (Scriptural Truth)</p>
-              {result.stage1.premises.map((p, i) => (
-                <div key={i} style={{ marginBottom: i === result.stage1.premises.length - 1 ? 0 : '12px' }}>
-                  <p style={{ fontSize: '12px', margin: '0 0 4px 0', fontStyle: 'italic' }}>"{p.premise}"</p>
-                  <p style={{ fontSize: '11px', color: '#666', margin: 0 }}>
+            {/* Premises */}
+            <div
+              style={{
+                backgroundColor: result.stage1.premises.every((p) => p.isTrue) ? '#e8f5e9' : '#fff3e0',
+                padding: '15px',
+                borderLeft: `4px solid ${result.stage1.premises.every((p) => p.isTrue) ? '#66bb6a' : '#ff9800'}`,
+                borderRadius: '4px',
+              }}
+            >
+              <p style={{ fontSize: '12px', color: '#999', margin: '0 0 8px 0', fontWeight: '600' }}>
+                PREMISE TEST
+              </p>
+              {result.stage1.premises.slice(0, 2).map((p, i) => (
+                <div key={i} style={{ marginBottom: i === 0 ? '8px' : 0 }}>
+                  <p style={{ fontSize: '11px', margin: '0 0 2px 0', fontStyle: 'italic' }}>
                     {p.isTrue ? '✓' : '✗'} {p.source}
                   </p>
-                  <p style={{ fontSize: '11px', color: '#999', margin: '2px 0 0 0' }}>{p.support}</p>
                 </div>
               ))}
             </div>
+          </div>
 
-            <div style={{ backgroundColor: result.stage1.canBeChallengd ? '#fff3e0' : '#e8f5e9', padding: '15px', borderLeft: `4px solid ${result.stage1.canBeChallengd ? '#ff9800' : '#66bb6a'}`, borderRadius: '4px' }}>
-              <p style={{ fontSize: '12px', color: '#999', margin: '0 0 4px 0', fontWeight: '600' }}>PASSES BOTH TESTS?</p>
-              <p style={{ fontSize: '14px', fontWeight: '600' }}>
-                {!result.stage1.canBeChallengd ? '✓ Cannot be challenged' : '✗ Needs refinement'}
-              </p>
-              <p style={{ fontSize: '12px', color: '#666', marginTop: '8px' }}>
-                {!result.stage1.canBeChallengd
-                  ? 'This message passes both the validity test (logic is sound) and premise test (scriptural truth confirmed).'
-                  : 'Either the logical structure needs fixing or the premises need scriptural support.'}
-              </p>
-            </div>
+          {/* Passes both tests? */}
+          <div
+            style={{
+              backgroundColor: result.stage1.canBeChallengd ? '#fff3e0' : '#e8f5e9',
+              padding: '15px',
+              borderLeft: `4px solid ${result.stage1.canBeChallengd ? '#ff9800' : '#66bb6a'}`,
+              borderRadius: '4px',
+            }}
+          >
+            <p style={{ fontSize: '12px', fontWeight: '600', margin: '0 0 8px 0' }}>
+              {!result.stage1.canBeChallengd ? '✓ Cannot be challenged' : '✗ Needs refinement'}
+            </p>
+            <p style={{ fontSize: '12px', margin: 0 }}>
+              {!result.stage1.canBeChallengd
+                ? 'This message passes both validity (sound logic) and premise (scriptural truth) tests.'
+                : 'Either the logic needs fixing or the premises need scriptural support.'}
+            </p>
           </div>
         </div>
 
         {/* STAGE 2 */}
         <div style={{ marginBottom: '50px' }}>
           <h2 style={{ fontSize: '20px', fontWeight: 'bold', marginBottom: '15px' }}>
-            Stage 2: Reconstructed Architecture & Audience Approach
+            Stage 2: Reconstructed Message & Audience Approaches
           </h2>
 
           <div style={{ marginBottom: '20px', padding: '15px', backgroundColor: '#f5f5f5', borderRadius: '4px' }}>
-            <p style={{ fontSize: '12px', color: '#999', margin: '0 0 8px 0', fontWeight: '600' }}>MESSAGE ARCHITECTURE</p>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '8px' }}>
-              <div><strong>Opening:</strong> {result.stage2.architecture.openingThrust}</div>
-              <div><strong>Logic:</strong> {result.stage2.architecture.logicalFlow.join(' → ')}</div>
-              <div><strong>Proof:</strong> {result.stage2.architecture.proof}</div>
-              <div><strong>Implication:</strong> {result.stage2.architecture.implication}</div>
-              <div><strong>Closing:</strong> {result.stage2.architecture.closing}</div>
+            <p style={{ fontSize: '12px', fontWeight: '600', margin: '0 0 12px 0', textTransform: 'uppercase' }}>
+              Message Architecture
+            </p>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '8px', fontSize: '12px' }}>
+              <div>
+                <strong style={{ color: '#333' }}>Opening:</strong> {result.stage2.architecture.openingThrust}
+              </div>
+              <div>
+                <strong style={{ color: '#333' }}>Logic:</strong>{' '}
+                {result.stage2.architecture.logicalFlow.slice(0, 2).join(' → ')}
+              </div>
+              <div>
+                <strong style={{ color: '#333' }}>Proof:</strong> {result.stage2.architecture.proof}
+              </div>
+              <div>
+                <strong style={{ color: '#333' }}>Implication:</strong>{' '}
+                {result.stage2.architecture.implication}
+              </div>
             </div>
           </div>
 
+          {/* Three audience approaches */}
           <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '12px' }}>
-            <div style={{ backgroundColor: '#e3f2fd', padding: '15px', borderLeft: '4px solid #1976d2', borderRadius: '4px' }}>
-              <p style={{ fontSize: '12px', color: '#999', margin: '0 0 8px 0', fontWeight: '600' }}>FOR ANALYTICAL MINDS</p>
-              <p style={{ fontSize: '13px', lineHeight: '1.6', margin: 0 }}>
+            <div
+              style={{
+                backgroundColor: '#e3f2fd',
+                padding: '15px',
+                borderLeft: '4px solid #1976d2',
+                borderRadius: '4px',
+              }}
+            >
+              <p style={{ fontSize: '12px', color: '#999', margin: '0 0 8px 0', fontWeight: '600' }}>
+                FOR ANALYTICAL MINDS
+              </p>
+              <p style={{ fontSize: '12px', lineHeight: '1.6', margin: 0 }}>
                 {result.stage2.audienceLayering.analytical}
               </p>
             </div>
 
-            <div style={{ backgroundColor: '#f3e5f5', padding: '15px', borderLeft: '4px solid #ab47bc', borderRadius: '4px' }}>
-              <p style={{ fontSize: '12px', color: '#999', margin: '0 0 8px 0', fontWeight: '600' }}>FOR RESISTANT/QUESTIONING MINDS</p>
-              <p style={{ fontSize: '13px', lineHeight: '1.6', margin: 0 }}>
+            <div
+              style={{
+                backgroundColor: '#f3e5f5',
+                padding: '15px',
+                borderLeft: '4px solid #ab47bc',
+                borderRadius: '4px',
+              }}
+            >
+              <p style={{ fontSize: '12px', color: '#999', margin: '0 0 8px 0', fontWeight: '600' }}>
+                FOR RESISTANT MINDS
+              </p>
+              <p style={{ fontSize: '12px', lineHeight: '1.6', margin: 0 }}>
                 {result.stage2.audienceLayering.resistant}
               </p>
             </div>
 
-            <div style={{ backgroundColor: '#e8f5e9', padding: '15px', borderLeft: '4px solid #66bb6a', borderRadius: '4px' }}>
-              <p style={{ fontSize: '12px', color: '#999', margin: '0 0 8px 0', fontWeight: '600' }}>FOR ACCEPTING MINDS</p>
-              <p style={{ fontSize: '13px', lineHeight: '1.6', margin: 0 }}>
+            <div
+              style={{
+                backgroundColor: '#e8f5e9',
+                padding: '15px',
+                borderLeft: '4px solid #66bb6a',
+                borderRadius: '4px',
+              }}
+            >
+              <p style={{ fontSize: '12px', color: '#999', margin: '0 0 8px 0', fontWeight: '600' }}>
+                FOR ACCEPTING MINDS
+              </p>
+              <p style={{ fontSize: '12px', lineHeight: '1.6', margin: 0 }}>
                 {result.stage2.audienceLayering.accepting}
               </p>
             </div>
@@ -268,7 +333,7 @@ export default function ContentEngineAdmin() {
         {/* STAGE 3 */}
         <div>
           <h2 style={{ fontSize: '20px', fontWeight: 'bold', marginBottom: '15px' }}>
-            Stage 3: 9 Transformed Formats
+            Stage 3: 9 Publication Formats
           </h2>
 
           {/* Format tabs */}
@@ -288,7 +353,7 @@ export default function ContentEngineAdmin() {
                   cursor: 'pointer',
                 }}
               >
-                {formatLabels[fmt] || fmt}
+                {formatLabels[fmt]}
               </button>
             ))}
           </div>
@@ -308,7 +373,7 @@ export default function ContentEngineAdmin() {
               border: '1px solid #eee',
             }}
           >
-            {(result.stage3.formats as Record<string, string>)[selectedFormat]}
+            {result.stage3.formats[selectedFormat as keyof typeof result.stage3.formats]}
           </div>
         </div>
       </div>
