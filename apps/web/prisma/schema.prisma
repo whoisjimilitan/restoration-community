@@ -71,6 +71,9 @@ model User {
   // Testimony videos (TESTIMONY-001)
   testimonyVideos        TestimonyVideo[] @relation("TestimoniesAsParticipant")
 
+  // Content engine (CONTENT-ENGINE-V3)
+  contentInputs          ContentInput[]
+
   @@map("users")
 }
 
@@ -976,6 +979,94 @@ model TestimonyVideo {
   @@index([status])
   @@index([participantId])
   @@map("testimony_videos")
+}
+
+// ============================================================================
+// CONTENT ENGINE V3 (CONTENT-ENGINE-V3)
+// ============================================================================
+
+model ContentInput {
+  id            String   @id @default(cuid())
+  createdAt     DateTime @default(now())
+
+  // Raw input from user
+  statement     String @db.Text
+  category      String @default("general") // "fraud", "deliverance", "identity", etc.
+  context       String? @db.Text
+  sourceType    String? // "direct", "youtube", "podcast", "webpage"
+  sourceUrl     String?
+
+  // Processing status
+  status        String @default("pending") // "pending" | "expanded" | "published"
+
+  // Relationships
+  narrative     ExpandedNarrative?
+  userId        String
+  user          User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  updatedAt     DateTime @updatedAt
+  @@map("content_inputs")
+}
+
+model ExpandedNarrative {
+  id                String   @id @default(cuid())
+  createdAt         DateTime @default(now())
+
+  // The expanded narrative
+  narrative         String @db.Text
+
+  // Extracted elements
+  revelation        String @db.Text
+  contrast          String @db.Text
+  coreMessage       String @db.Text
+  identityChoice    String // What identity is being chosen?
+  callToAction      String @db.Text
+
+  // Frame applied
+  frame             String @default("enlighten") // "counsel" | "advise" | "uplift" | "enlighten" | "educate"
+
+  // Generated outputs
+  outputs           GeneratedOutput[]
+
+  // Tracking
+  voiceValidationScore Float? // 0-100, how authentic is this narrative?
+  voiceValidationNotes  String? @db.Text
+
+  contentInput      ContentInput @relation(fields: [contentInputId], references: [id], onDelete: Cascade)
+  contentInputId    String @unique
+
+  updatedAt         DateTime @updatedAt
+  @@map("expanded_narratives")
+}
+
+model GeneratedOutput {
+  id                String   @id @default(cuid())
+  createdAt         DateTime @default(now())
+
+  // Format type
+  format            String // "daily-letter" | "social-post" | "micro-insight" | "devotional" | "article" | "short-video" | "long-video" | "podcast-moment" | "email"
+
+  // The generated content
+  content           String @db.Text
+  title             String?
+
+  // Metadata
+  wordCount         Int?
+  duration          String? // for videos/audio
+
+  // Publishing
+  status            String @default("draft") // "draft" | "published" | "scheduled"
+  publishedUrl      String?
+  publishedAt       DateTime?
+
+  // Quality
+  voiceValidation   String? @db.Text // Notes on voice consistency
+
+  narrative         ExpandedNarrative @relation(fields: [narrativeId], references: [id], onDelete: Cascade)
+  narrativeId       String
+
+  updatedAt         DateTime @updatedAt
+  @@map("generated_outputs")
 }
 
 // Extend RestorationStage and UserRestoration models with new relationships
