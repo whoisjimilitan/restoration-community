@@ -336,23 +336,23 @@ function generateFullFormats(stage2: Stage2Output, stage1: Stage1Output): Stage3
 
   return {
     formats: {
-      daily_letter: `Good morning.\n\n${opening}\n\nHere's what I'm thinking about this: ${premise1}\n\n${proof}\n\nAnd here's where that leads: ${implication}\n\n${closing}\n\nLet this land today. Take it with you.\n\nIn faith`,
+      daily_letter: `${opening}\n\n${premise1}\n\n${proof}\n\n${implication}\n\nThat's it. That's the truth.\n\nIn faith`,
 
-      social_post: `${opening}\n\n${premise2}\n\n${implication}`,
+      social_post: `${opening}\n\n${premise2}`,
 
       micro_insight: opening.split('.')[0] + '.',
 
-      devotional: `${proof}\n\n${opening}\n\nWhen you truly receive this: ${premise2}\n\n${implication}\n\nSit with this. Let it reshape how you see everything.`,
+      devotional: `${proof}\n\n${opening}\n\n${implication}`,
 
-      article: `# ${opening.substring(0, 80)}\n\n## The Core Truth\n\n${opening}\n\nThis is not abstract theology. This is how spiritual reality actually works.\n\n## Why This Matters\n\n${premise1}\n\n${premise2}\n\nThese are not opinions. This is how the Kingdom functions. When you understand this at this level, something shifts.\n\n## The Real Proof\n\n${proof}\n\nThis is not theory tested in a lab. This is truth tested in human living.\n\n## What Changes\n\n${implication}\n\nYou don't have to figure this out. You just have to receive it.\n\n## Where This Leads\n\n${closing}\n\nThis is what spiritual maturity looks like. Not more effort. More freedom.`,
+      article: `${opening}\n\nThis is how the Kingdom works. Not theory. Reality.\n\n${premise1}\n\n${premise2}\n\nThese are not opinions. This is the way things are. When you understand it at this depth, everything shifts.\n\n${proof}\n\nThis is not test data. This is how people actually live when they get it.\n\n${implication}\n\nYou don't have to earn this. You can't earn this. You receive it.\n\n${closing}\n\nThat's spiritual maturity. Not more striving. Freedom.`,
 
-      email: `Hi,\n\nI wanted to share something that matters.\n\n${opening}\n\nHere's my reasoning: ${premise1}\n\nMore specifically: ${premise2}\n\n${proof}\n\nSo here's what this actually means: ${implication}\n\n${closing}\n\nIf this is landing with you, I'd love to know what you're thinking.\n\nIn faith`,
+      email: `${opening}\n\n${premise1}\n\n${premise2}\n\n${proof}\n\n${implication}\n\n${closing}\n\nIf this lands with you, let me know.`,
 
-      short_video: `[OPEN]\n${proof}\n\n[THE POINT]\n${opening}\n\n[THE REASONING]\n${premise1}\n\n[THE IMPLICATION]\n${implication}\n\n[CLOSE]\n${closing}`,
+      short_video: `[OPEN]\n${proof}\n\n[TRUTH]\n${opening}\n\n[WHY]\n${premise1}\n\n[SHIFT]\n${implication}\n\n[CLOSE]\nFreedom.`,
 
-      podcast: `Let me tell you something that's been sitting with me.\n\n${opening}\n\nHere's the thing about this: ${premise1}\n\nWhen you go deeper: ${premise2}\n\nListen to what this reveals: ${proof}\n\nSo what does this actually mean for you? ${implication}\n\nThat's the shift. That's where everything changes. ${closing}`,
+      podcast: `${opening}\n\n${premise1}\n\n${premise2}\n\n${proof}\n\n${implication}\n\n${closing}`,
 
-      long_video: `# ${opening.substring(0, 80)}\n\n## THE OPENING\n\n${opening}\n\nI want you to understand something fundamental about how the Kingdom works.\n\n## THE FIRST PREMISE\n\n${premise1}\n\nThis isn't optional. This isn't negotiable. This is how spiritual reality actually functions.\n\n## GOING DEEPER\n\n${premise2}\n\nWhen you truly grasp this, something shifts inside you. Not your circumstances. You.\n\n## THE PROOF\n\n${proof}\n\nThis is what it looks like in real life. Not in theory. In actual human experience.\n\n## WHAT IT MEANS\n\n${implication}\n\nDo you see what's happening here? Everything changes when you understand this.\n\n## THE CLOSING\n\n${closing}\n\nThat is not comfort. That is freedom. That is what Jesus makes possible.`,
+      long_video: `${opening}\n\nUnderstand this. This is foundational.\n\n${premise1}\n\nMore specifically:\n\n${premise2}\n\nThis is what it actually looks like:\n\n${proof}\n\nSo what does this mean for your life?\n\n${implication}\n\nThat's the point. ${closing}\n\nThis is what Jesus offers. Not comfort. Reality.`,
     },
   };
 }
