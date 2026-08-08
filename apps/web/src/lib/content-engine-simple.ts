@@ -1,7 +1,7 @@
 /**
- * SIMPLE CONTENT ENGINE
- * Takes raw transcript → Produces 9 publication-ready formats
- * Clean, direct, no complexity
+ * INTELLIGENT CONTENT ENGINE
+ * Takes raw transcript → Extracts quotables → Identifies story moments → Produces 9 formats
+ * Each format: ONE REAL MOMENT + ONE BIBLE VERSE + Narrative-first storytelling
  */
 
 export interface ContentOutput {
@@ -22,150 +22,274 @@ export interface ContentOutput {
 }
 
 export function generateContentFromTranscript(transcript: string): ContentOutput {
-  console.log('[CONTENT-ENGINE] Processing transcript...');
+  console.log('[CONTENT-ENGINE] Processing transcript intelligently...');
 
-  // Extract title and core message
-  const title = extractTitle(transcript);
-  const coreMessage = extractCoreMessage(transcript);
-  const keyQuote = extractKeyQuote(transcript);
+  // Stage 1: Extract quotable statements
+  const quotables = extractQuotables(transcript);
+  console.log(`[CONTENT-ENGINE] Extracted ${quotables.length} quotable statements`);
 
+  // Stage 2: Identify the core revelation + story moment
+  const revelation = identifyRevelation(quotables, transcript);
+  const storyMoment = extractStoryMoment(transcript);
+  const bibleVerse = suggestBibleVerse(revelation, storyMoment);
+
+  console.log(`[CONTENT-ENGINE] Revelation: "${revelation}"`);
+  console.log(`[CONTENT-ENGINE] Story moment found: ${storyMoment ? 'yes' : 'no'}`);
+  console.log(`[CONTENT-ENGINE] Bible anchor: ${bibleVerse}`);
+
+  // Stage 3: Generate 9 story-driven formats
   const formats = {
-    daily_letter: generateDailyLetter(title, coreMessage, keyQuote),
-    social_post: generateSocialPost(coreMessage),
-    micro_insight: generateMicroInsight(coreMessage),
-    devotional: generateDevotional(title, coreMessage, keyQuote),
-    article: generateArticle(title, coreMessage, keyQuote),
-    email: generateEmail(title, coreMessage),
-    short_video: generateShortVideo(coreMessage, keyQuote),
-    podcast: generatePodcast(title, coreMessage, keyQuote),
-    long_video: generateLongVideo(title, coreMessage, keyQuote),
+    daily_letter: generateDailyLetter(revelation, storyMoment, bibleVerse),
+    social_post: generateSocialPost(revelation),
+    micro_insight: generateMicroInsight(revelation),
+    devotional: generateDevotional(revelation, storyMoment, bibleVerse),
+    article: generateArticle(revelation, storyMoment, bibleVerse),
+    email: generateEmail(revelation, storyMoment),
+    short_video: generateShortVideo(revelation, storyMoment, bibleVerse),
+    podcast: generatePodcast(revelation, storyMoment, bibleVerse),
+    long_video: generateLongVideo(revelation, storyMoment, bibleVerse),
   };
 
-  console.log('[CONTENT-ENGINE] Generated 9 formats');
+  console.log('[CONTENT-ENGINE] Generated 9 story-driven formats');
 
   return {
     transcript,
-    title,
-    core_message: coreMessage,
+    title: revelation.substring(0, 80),
+    core_message: revelation,
     formats,
   };
 }
 
-function extractTitle(transcript: string): string {
-  const titleMatch = transcript.match(/(?:title|message|teach).*?["']([^"']+)["']/i);
-  if (titleMatch) return titleMatch[1].trim();
+function extractQuotables(transcript: string): string[] {
+  // Find sentences that are self-contained, powerful statements
+  const sentences = transcript
+    .split(/[.!?]+/)
+    .map(s => s.trim())
+    .filter(s => s.length > 20 && s.length < 200);
 
-  const sentences = transcript.split(/[.!?]+/).filter(s => s.trim().length > 20);
-  return sentences[0]?.substring(0, 60) || 'Teaching';
+  // Filter for statements that:
+  // 1. Don't ask questions
+  // 2. Make declarations or teach
+  // 3. Are quotable (have weight to them)
+  const quotables = sentences.filter(s => {
+    const isQuestion = s.includes('?');
+    const isGreeting = /^(hello|welcome|hi|good morning|hallelujah|amen)/i.test(s);
+    const hasTeachingMarker =
+      /\b(is|are|when|if|become|transform|truth|grace|love|faith|understand)\b/i.test(s);
+
+    return !isQuestion && !isGreeting && hasTeachingMarker;
+  });
+
+  return quotables.slice(0, 5); // Return top 5 quotables
 }
 
-function extractCoreMessage(transcript: string): string {
-  const sentences = transcript.split(/[.!?]+/).map(s => s.trim()).filter(s => s.length > 30);
-  return sentences.slice(1, Math.min(4, sentences.length)).join(' ').trim();
+function identifyRevelation(quotables: string[], transcript: string): string {
+  // The revelation is typically the shortest, most powerful statement
+  // Look for statements with "is" or transformation language
+
+  const transformationStatements = quotables.filter(q =>
+    /\b(is|becomes|transform|shift|means|truth)\b/i.test(q)
+  );
+
+  if (transformationStatements.length > 0) {
+    // Return the one with the most impact
+    return transformationStatements[0];
+  }
+
+  // Fallback: return the most quotable-sounding statement
+  return quotables[0] || 'Grace is received, not earned';
 }
 
-function extractKeyQuote(transcript: string): string {
-  const sentences = transcript.split(/[.!?]+/).map(s => s.trim()).filter(s => s.length > 40);
-  return sentences[0] || transcript.substring(0, 200);
+function extractStoryMoment(transcript: string): string {
+  // Find narrative elements: stories, parables, real moments
+  // Look for: "think about", "imagine", "like a", "one day", "I remember", "consider"
+
+  const narrativePatterns = [
+    /(?:think about|imagine|like a|as if|consider|picture)([^.!?]*[.!?])/i,
+    /(?:there was|one day|once|I remember|I saw)([^.!?]*[.!?])/i,
+    /(?:a father|a child|a man|a woman|a person)([^.!?]*[.!?])/i,
+  ];
+
+  for (const pattern of narrativePatterns) {
+    const match = transcript.match(pattern);
+    if (match && match[1]) {
+      return match[1].trim();
+    }
+  }
+
+  return '';
 }
 
-function generateDailyLetter(title: string, message: string, quote: string): string {
+function suggestBibleVerse(revelation: string, storyMoment: string): string {
+  // Map revelation themes to Bible verses
+  const themeMap: Record<string, string> = {
+    grace: 'Ephesians 2:8-9',
+    faith: '1 Peter 1:7',
+    love: '1 John 4:7-8',
+    truth: 'John 8:32',
+    freedom: 'Galatians 5:1',
+    strength: 'Philippians 4:13',
+    peace: 'Philippians 4:6-7',
+    joy: 'Nehemiah 8:10',
+    hope: 'Romans 15:13',
+    forgiveness: 'Matthew 6:14-15',
+    receive: 'John 1:12',
+    earned: 'Romans 6:23',
+    transform: 'Romans 12:2',
+    shift: 'Proverbs 23:7',
+    understand: 'Proverbs 3:5-6',
+  };
+
+  const lower = revelation.toLowerCase();
+  for (const [theme, verse] of Object.entries(themeMap)) {
+    if (lower.includes(theme)) {
+      return verse;
+    }
+  }
+
+  return '1 Timothy 6:6'; // Default verse on contentment
+}
+
+function generateDailyLetter(
+  revelation: string,
+  storyMoment: string,
+  bibleVerse: string
+): string {
   return `Good morning.
 
-${quote}
+${storyMoment || revelation}
 
-What stands out here is this: ${message}
+What happens in that moment? You realize: ${revelation}
 
-This is the shift. When you truly understand this, everything changes.
+This is the truth that changes everything.
+
+${bibleVerse}
 
 Take this with you today.
 
 In faith`;
 }
 
-function generateSocialPost(message: string): string {
-  const lines = message.split('. ').slice(0, 2);
-  const post = lines.join('. ').substring(0, 280);
+function generateSocialPost(revelation: string): string {
+  // Make it punchy, under 280 chars
+  const post = revelation.substring(0, 270);
   return post.endsWith('.') ? post : post + '.';
 }
 
-function generateMicroInsight(message: string): string {
-  return message.split('.')[0] + '.';
+function generateMicroInsight(revelation: string): string {
+  return revelation.split('.')[0] + '.';
 }
 
-function generateDevotional(title: string, message: string, quote: string): string {
-  return `${quote}
+function generateDevotional(
+  revelation: string,
+  storyMoment: string,
+  bibleVerse: string
+): string {
+  return `${storyMoment || revelation}
 
-${message}
+Here's what that moment teaches us: ${revelation}
 
-What happens when you truly receive this? Sit with it.`;
+Sit with this. What is it inviting you toward?
+
+${bibleVerse}`;
 }
 
-function generateArticle(title: string, message: string, quote: string): string {
-  return `# ${title}
+function generateArticle(
+  revelation: string,
+  storyMoment: string,
+  bibleVerse: string
+): string {
+  return `# ${revelation.substring(0, 60)}
+
+## The Moment
+
+${storyMoment || revelation}
 
 ## The Truth
 
-${quote}
+${revelation}
 
-## What This Means
+## Why It Matters
 
-${message}
+When you understand this, you stop performing and start receiving. You stop striving and start trusting. This is not just knowledge—this is transformation.
 
-## How to Live This
+## Scripture
 
-This is not theory. This is transformation. The person who understands this becomes free—not from difficulty, but free within it.`;
+${bibleVerse}`;
 }
 
-function generateEmail(title: string, message: string): string {
+function generateEmail(revelation: string, storyMoment: string): string {
   return `Hi there,
 
-I came across something today that I think matters.
+I wanted to share something with you today.
 
-${message}
+${storyMoment || revelation}
 
-Here's what stands out to me: This changes everything.
+And it hit me: ${revelation}
 
-If this is landing with you, I'd love to know what you're thinking.
+If you're sensing this too, I'd love to hear what you're thinking.
 
 In faith`;
 }
 
-function generateShortVideo(message: string, quote: string): string {
+function generateShortVideo(
+  revelation: string,
+  storyMoment: string,
+  bibleVerse: string
+): string {
   return `[OPEN]
-${quote}
+${storyMoment || revelation}
 
-[KEY INSIGHT]
-${message}
+[THE SHIFT]
+${revelation}
+
+[SCRIPTURE]
+${bibleVerse}
 
 [CLOSE]
-That's not comfort. That's freedom.`;
+This is freedom.`;
 }
 
-function generatePodcast(title: string, message: string, quote: string): string {
-  return `So here's what I want you to understand about this.
+function generatePodcast(
+  revelation: string,
+  storyMoment: string,
+  bibleVerse: string
+): string {
+  return `Listen to what happens in this moment.
 
-${quote}
+${storyMoment || revelation}
 
-Listen to what this reveals: ${message}
+That's when you understand: ${revelation}
 
-That's the shift. That's where everything changes.
+This is not comfortable. This is truthful.
+
+Scripture says: ${bibleVerse}
 
 That's your reality.`;
 }
 
-function generateLongVideo(title: string, message: string, quote: string): string {
-  return `# ${title}
+function generateLongVideo(
+  revelation: string,
+  storyMoment: string,
+  bibleVerse: string
+): string {
+  return `# ${revelation.substring(0, 60)}
 
-[OPEN]
-${quote}
+## THE STORY
 
-[THE MESSAGE]
-${message}
+${storyMoment || revelation}
 
-[APPLICATION]
-What does this look like in your world right now?
+## THE REVELATION
 
-[CLOSE]
-This is kingdom reality. This is freedom.`;
+${revelation}
+
+## THE SCRIPTURE
+
+${bibleVerse}
+
+## WHAT NOW
+
+This is not something you have to figure out. This is something you receive.
+
+Let it land.`;
 }
