@@ -266,7 +266,9 @@ export default function ContentEngineAdmin() {
               </div>
               <div>
                 <strong style={{ color: '#333' }}>Logic:</strong>{' '}
-                {result.stage2.architecture.logicalFlow.slice(0, 2).join(' → ')}
+                {Array.isArray(result.stage2.architecture.logicalFlow)
+                  ? result.stage2.architecture.logicalFlow.slice(0, 2).join(' → ')
+                  : 'Logic flow'}
               </div>
               <div>
                 <strong style={{ color: '#333' }}>Proof:</strong> {result.stage2.architecture.proof}
