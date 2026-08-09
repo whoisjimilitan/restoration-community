@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 
-export default function LoginPage() {
+export default function LoginForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const from = searchParams.get('from') || '/dashboard/teaching-engine';
@@ -18,10 +18,7 @@ export default function LoginPage() {
     setIsLoading(true);
 
     try {
-      // Set auth cookie
       document.cookie = `teaching-engine-auth=${password}; path=/; max-age=2592000; samesite=strict`;
-
-      // Redirect to dashboard or intended page
       router.push(from);
     } catch (err) {
       setError('Authentication failed');
