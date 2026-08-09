@@ -52,10 +52,15 @@ export async function POST(request: NextRequest) {
     const password = process.env.TEACHING_ENGINE_PASSWORD || 'teachingengine2024';
     const authHeader = `Bearer ${password}`;
 
+    // Construct base URL from request headers
+    const protocol = request.headers.get('x-forwarded-proto') || 'https';
+    const host = request.headers.get('x-forwarded-host') || request.headers.get('host') || 'localhost:3000';
+    const baseUrl = `${protocol}://${host}`;
+
     // Step 1: Phase 1 - Verbatim Extraction
     console.log('[ORCHESTRATOR] Phase 1: Verbatim extraction');
     const phase1Response = await fetch(
-      `/api/teaching-engine/phase-1`,
+      `${baseUrl}/api/teaching-engine/phase-1`,
       {
         method: 'POST',
         headers: {
@@ -79,7 +84,7 @@ export async function POST(request: NextRequest) {
     // Step 2: Phase 2 - Deep Reasoning
     console.log('[ORCHESTRATOR] Phase 2: Deep reasoning');
     const phase2Response = await fetch(
-      `/api/teaching-engine/phase-2`,
+      `${baseUrl}/api/teaching-engine/phase-2`,
       {
         method: 'POST',
         headers: {
@@ -106,7 +111,7 @@ export async function POST(request: NextRequest) {
     // Step 2.5: Phase 2.5 - Strategic Positioning
     console.log('[ORCHESTRATOR] Phase 2.5: Strategic positioning');
     const phase25Response = await fetch(
-      `/api/teaching-engine/phase-2-5`,
+      `${baseUrl}/api/teaching-engine/phase-2-5`,
       {
         method: 'POST',
         headers: {
@@ -133,7 +138,7 @@ export async function POST(request: NextRequest) {
     // Step 3: Phase 3 - Output Generation
     console.log('[ORCHESTRATOR] Phase 3: Output generation');
     const phase3Response = await fetch(
-      `/api/teaching-engine/phase-3`,
+      `${baseUrl}/api/teaching-engine/phase-3`,
       {
         method: 'POST',
         headers: {
