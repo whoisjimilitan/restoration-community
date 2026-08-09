@@ -25,12 +25,17 @@ export default function InsightPanel({ process }: InsightPanelProps) {
     'statements' | 'truths' | 'verses' | 'insight'
   >('statements');
 
+  // Defensive checks - data may not be available from all sources
+  if (!process.verbatimElements || !process.reasoning) {
+    return null;
+  }
+
   const verbatimStatements = process.verbatimElements.filter(
     (v) => v.type === 'statement'
   );
-  const hiddenTruths = process.reasoning.triviumAnalysis.hiddenTruths || [];
+  const hiddenTruths = process.reasoning.triviumAnalysis?.hiddenTruths || [];
   const verses =
-    process.reasoning.validation.scripture.supportingVerses || [];
+    process.reasoning.validation?.scripture?.supportingVerses || [];
 
   return (
     <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-8">

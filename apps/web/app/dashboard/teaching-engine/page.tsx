@@ -68,15 +68,17 @@ export default function TeachingEngineDashboard() {
                 {/* Processing Status */}
                 <ProcessingIndicator process={currentProcess} />
 
-                {/* Insights Panel */}
+                {/* Insights Panel - only if reasoning data available */}
+                {currentProcess.status === 'complete' && currentProcess.reasoning && (
+                  <InsightPanel process={currentProcess} />
+                )}
+
+                {/* Output Gallery */}
                 {currentProcess.status === 'complete' && (
-                  <>
-                    <InsightPanel process={currentProcess} />
-                    <OutputGallery
-                      process={currentProcess}
-                      onUpdate={setCurrentProcess}
-                    />
-                  </>
+                  <OutputGallery
+                    process={currentProcess}
+                    onUpdate={setCurrentProcess}
+                  />
                 )}
               </div>
             )}
