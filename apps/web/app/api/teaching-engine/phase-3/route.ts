@@ -90,8 +90,11 @@ export async function POST(request: NextRequest) {
     const formats = Object.entries(outputs) as [string, string][];
     let passCount = 0;
 
+    // Ensure verbatimElements is an array
+    const validVerbatim = Array.isArray(verbatimElements) ? verbatimElements : [];
+
     for (const [format, content] of formats) {
-      const validation = validateVerbatimInOutput(verbatimElements, content, format);
+      const validation = validateVerbatimInOutput(validVerbatim, content, format);
       formatValidation.push({
         format,
         verbatimPreserved: validation.preservedCount > 0,
@@ -111,7 +114,7 @@ export async function POST(request: NextRequest) {
       stats: {
         totalFormatsGenerated: formats.length,
         formatsPassingValidation: passCount,
-        verbatimElementsUsed: verbatimElements.length,
+        verbatimElementsUsed: validVerbatim.length,
       },
     };
 
