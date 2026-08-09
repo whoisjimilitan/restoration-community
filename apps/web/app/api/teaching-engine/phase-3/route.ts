@@ -147,7 +147,7 @@ function extractRevelation(
   // Extract inverse incentive from hidden truths
   const inverseIncentive =
     reasoning.triviumAnalysis.hiddenTruths[0] ||
-    'The world teaches one thing; God's truth is the opposite.';
+    `The world teaches one thing; God's truth is the opposite.`;
 
   // Core message from holistic insight
   const coreMessage = reasoning.holisticInsight;
@@ -205,13 +205,13 @@ function generateArticle(
     // Opening: Establish the question/revelation
     applyBrotherJimiVoice(revelation.truth),
     '',
-    '## The Inversion You've Been Taught',
+    `## The Inversion You've Been Taught`,
     '',
     applyBrotherJimiVoice(
       `Most people believe: ${revelation.inverseIncentive.split(';')[0]} But that's the lie.`
     ),
     '',
-    '## What's Actually True',
+    `## What's Actually True`,
     '',
     applyBrotherJimiVoice(revelation.coreMessage),
     '',
@@ -231,7 +231,7 @@ function generateArticle(
     '## The Application',
     '',
     applyBrotherJimiVoice(
-      'This isn\'t theory. This is lived reality. The question now is not whether this is true—it\'s whether you will act on it.'
+      `This isn't theory. This is lived reality. The question now is not whether this is true—it's whether you will act on it.`
     ),
   ];
 
@@ -384,7 +384,7 @@ function generatePodcast(
       `In this episode we examine a fundamental lie most people believe, and we ask: What does the truth actually look like?`
     ),
     '',
-    'WHAT WE'LL COVER',
+    `WHAT WE'LL COVER`,
     '1. The inversion everyone accepts as true',
     '2. Why this lie persists',
     '3. What the actual truth reveals',
