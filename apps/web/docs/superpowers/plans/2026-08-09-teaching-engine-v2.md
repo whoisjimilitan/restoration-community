@@ -1397,9 +1397,86 @@ curl -X POST http://localhost:3000/api/teaching-engine/v2/orchestrator \
 
 ---
 
+### Task 11: Teaching Engine v2 Skill (CLI Access)
+
+**Files:**
+- Create: `.claude/skills/teaching-engine-v2.md`
+
+**Purpose:** Expose teaching engine v2 as a callable skill, enabling users to invoke `/teaching-engine-v2 [transcript]` from CLI or other workflows.
+
+- [ ] **Step 1: Create skill file**
+
+```markdown
+# /teaching-engine-v2
+
+Teaching Engine v2 — Holistic Transcript Refinement
+
+This skill processes sermon transcripts through:
+1. Validity Analysis (logic assessment)
+2. Premise Validation (scripture assessment)
+3. Trivium Refinement (polished core transcript)
+4. Format Generation (7 publication-ready outputs)
+
+## Usage
+
+\`/teaching-engine-v2 [sermon-title] [transcript]\`
+
+Or provide interactive prompts for title and transcript input.
+
+## Output
+
+Returns:
+- Validity Report (logic status, issues, strength score)
+- Premise Report (scripture assessment, supporting verses)
+- Refined Core Transcript (polished, validated version)
+- 7 Formats (Article, Email, Facebook, Twitter, Instagram, Podcast, Video)
+
+## Example
+
+\`/teaching-engine-v2 "Faith Over Fear" "Faith is not about avoiding fear..."\`
+
+Or:
+
+\`/teaching-engine-v2\`
+
+(Prompts for sermon title and transcript)
+```
+
+- [ ] **Step 2: Implement skill handler**
+
+The skill invokes the orchestrator API endpoint:
+```
+POST /api/teaching-engine/v2/orchestrator
+```
+
+With the provided transcript and title, then displays results in terminal-friendly format.
+
+- [ ] **Step 3: Test skill invocation locally**
+
+```bash
+# Start dev server
+npm run dev &
+
+# Invoke skill (from Claude Code CLI)
+/teaching-engine-v2 "Test Sermon" "Faith is not about avoiding fear..."
+```
+
+- [ ] **Step 4: Commit**
+
+```bash
+git add .claude/skills/teaching-engine-v2.md
+git commit -m "feat: add teaching engine v2 skill for CLI access
+
+Exposes teaching engine v2 as callable skill. Users can invoke
+/teaching-engine-v2 from CLI to process sermons end-to-end without
+needing the dashboard. Skill wraps orchestrator API endpoint."
+```
+
+---
+
 ## Summary
 
-This plan builds Teaching Engine v2 through 10 focused tasks:
+This plan builds Teaching Engine v2 through 11 focused tasks:
 
 1. **Voice Guardrails** — Foundational voice components
 2. **Validity Analyzer** — Logic assessment
@@ -1411,6 +1488,11 @@ This plan builds Teaching Engine v2 through 10 focused tasks:
 8. **API Routes** — Granular endpoints
 9. **Integration Testing** — End-to-end validation
 10. **Voice Skill Alignment** — Consistent voice application
+11. **Teaching Engine v2 Skill** — CLI access via `/teaching-engine-v2`
+
+**Execution:**
+- **Phase A (Subagent-Driven):** Tasks 1-6 (backend foundation, parallel where possible)
+- **Phase B (Inline):** Tasks 7-11 (UI, testing, skill, integration)
 
 **Local testing only** until 100% validation complete, then single final Netlify deployment.
 
