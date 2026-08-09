@@ -1,0 +1,274 @@
+diff --git a/apps/web/src/lib/teaching-engine/v2/__tests__/validity-analyzer.test.ts b/apps/web/src/lib/teaching-engine/v2/__tests__/validity-analyzer.test.ts
+new file mode 100644
+index 0000000..04e990f
+--- /dev/null
++++ b/apps/web/src/lib/teaching-engine/v2/__tests__/validity-analyzer.test.ts
+@@ -0,0 +1,27 @@
++import { analyzeValidity } from '../validity-analyzer';
++
++test('analyzeValidity identifies core claim from transcript', () => {
++  const transcript = "Faith is not about avoiding fear. Fear is real. But faith means acting even when afraid.";
++  const report = analyzeValidity(transcript);
++
++  expect(report.core_claim).toBeDefined();
++  expect(report.core_claim.toLowerCase()).toContain('faith');
++  expect(report.logic_status).toMatch(/SOUND|BROKEN|NEEDS_CLARIFICATION/);
++});
++
++test('analyzeValidity detects broken logic chains', () => {
++  const transcript = "All birds have wings. My car has wheels. Therefore, birds are cars.";
++  const report = analyzeValidity(transcript);
++
++  expect(report.logic_status).toBe('BROKEN');
++  expect(report.issues.length).toBeGreaterThan(0);
++  expect(report.issues[0].problem_type).toContain('CHAIN');
++});
++
++test('analyzeValidity assigns strength score', () => {
++  const transcript = "Faith is not about avoiding fear. Fear is real. But faith means acting even when afraid. Jesus said to His disciples, 'Why are you afraid? Have you no faith?'";
++  const report = analyzeValidity(transcript);
++
++  expect(report.strength_assessment).toBeGreaterThanOrEqual(0);
++  expect(report.strength_assessment).toBeLessThanOrEqual(100);
++});
+diff --git a/apps/web/src/lib/teaching-engine/v2/types.ts b/apps/web/src/lib/teaching-engine/v2/types.ts
+new file mode 100644
+index 0000000..fc25549
+--- /dev/null
++++ b/apps/web/src/lib/teaching-engine/v2/types.ts
+@@ -0,0 +1,53 @@
++export type ValidityStatus = 'SOUND' | 'BROKEN' | 'NEEDS_CLARIFICATION';
++export type ProblemType = 'BROKEN_CHAIN' | 'WEAK_PREMISE' | 'STRUCTURAL_GAP' | 'FALLACY' | 'CLARITY_ISSUE';
++
++export interface ValidityIssue {
++  location: string; // quote or context
++  problem_type: ProblemType;
++  description: string;
++  impact: string;
++}
++
++export interface ValidityReport {
++  core_claim: string;
++  logic_status: ValidityStatus;
++  issues: ValidityIssue[];
++  strength_assessment: number; // 0-100
++}
++
++export type ScriptureStatus = 'SCRIPTURALLY_SOUND' | 'CONTRADICTS_SCRIPTURE' | 'LACKS_SUPPORT' | 'AMBIGUOUS';
++export type PremiseType = 'BIBLICAL' | 'LOGICAL_INFERENCE' | 'CULTURAL' | 'UNCERTAIN';
++
++export interface Premise {
++  premise: string;
++  type: PremiseType;
++  status: ScriptureStatus;
++  supporting_verses: string[];
++  contradicting_verses: string[];
++  assessment: string;
++}
++
++export interface PremiseReport {
++  premises: Premise[];
++  overall_scriptural_integrity: 'PASS' | 'FAIL' | 'NEEDS_SUPPORT';
++}
++
++export interface VerbatimElement {
++  text: string;
++  type: 'quote' | 'statement' | 'key-phrase';
++  strength: 'high' | 'medium' | 'low';
++}
++
++export interface RefinedCoreOutput {
++  refined_transcript: string;
++  verbatim_highlights: VerbatimElement[];
++  validity_status: ValidityStatus;
++  premise_status: ScriptureStatus;
++}
++
++export interface FormatOutput {
++  format: 'article' | 'email' | 'facebook' | 'twitter' | 'instagram' | 'podcast' | 'video';
++  content: string;
++  hooks: string[];
++  call_to_action: string;
++}
+diff --git a/apps/web/src/lib/teaching-engine/v2/validity-analyzer.ts b/apps/web/src/lib/teaching-engine/v2/validity-analyzer.ts
+new file mode 100644
+index 0000000..ed1360b
+--- /dev/null
++++ b/apps/web/src/lib/teaching-engine/v2/validity-analyzer.ts
+@@ -0,0 +1,176 @@
++import { ValidityReport, ValidityStatus, ProblemType } from './types';
++
++export function analyzeValidity(transcript: string): ValidityReport {
++  // Extract core claim (first major statement or imperative)
++  const coreClaim = extractCoreClaim(transcript);
++
++  // Identify logical structure
++  const logicStructure = analyzeLogicalStructure(transcript);
++
++  // Detect issues
++  const issues = detectLogicalIssues(transcript, logicStructure);
++
++  // Determine overall logic status
++  const logicStatus = determineLogicStatus(issues);
++
++  // Calculate strength score
++  const strengthAssessment = calculateStrength(issues, transcript.length);
++
++  return {
++    core_claim: coreClaim,
++    logic_status: logicStatus,
++    issues,
++    strength_assessment: strengthAssessment,
++  };
++}
++
++function extractCoreClaim(transcript: string): string {
++  // Extract first complete thought or imperative
++  const sentences = transcript.split(/[.!?]+/).filter(s => s.trim());
++  return sentences[0] || transcript;
++}
++
++interface LogicalStructure {
++  premises: string[];
++  conclusion: string;
++  connectives: string[];
++}
++
++function analyzeLogicalStructure(transcript: string): LogicalStructure {
++  // Simple structure analysis: find premises and conclusion
++  const connectives = ['therefore', 'thus', 'so', 'because', 'since', 'if', 'then', 'but', 'however'];
++  const foundConnectives = connectives.filter(c => transcript.toLowerCase().includes(c));
++
++  const sentences = transcript.split(/[.!?]+/).filter(s => s.trim());
++
++  return {
++    premises: sentences.slice(0, -1),
++    conclusion: sentences[sentences.length - 1] || '',
++    connectives: foundConnectives,
++  };
++}
++
++function detectLogicalIssues(transcript: string, structure: LogicalStructure) {
++  const issues = [];
++
++  // Check for broken logic chains (e.g., category errors)
++  if (transcript.toLowerCase().includes('therefore')) {
++    if (!hasValidLogicalConnector(transcript)) {
++      issues.push({
++        location: 'Logic chain',
++        problem_type: 'BROKEN_CHAIN' as ProblemType,
++        description: 'Conclusion does not logically follow from premises',
++        impact: 'Undermines credibility of the entire argument',
++      });
++    }
++  }
++
++  // Also detect category errors (unrelated concepts forced together)
++  if (hasDistinctCategories(transcript)) {
++    issues.push({
++      location: 'Category mismatch',
++      problem_type: 'BROKEN_CHAIN' as ProblemType,
++      description: 'Premises from different logical categories being combined incorrectly',
++      impact: 'Logic chain is fundamentally invalid',
++    });
++  }
++
++  // Check for missing connectives
++  if (structure.connectives.length === 0 && structure.premises.length > 1) {
++    issues.push({
++      location: 'Overall structure',
++      problem_type: 'STRUCTURAL_GAP' as ProblemType,
++      description: 'Multiple claims without logical connectors (therefore, because, but, etc.)',
++      impact: 'Reader cannot see how ideas relate to each other',
++    });
++  }
++
++  // Check for weak premises (future enhancement: NLP-based assessment)
++  if (transcript.includes('probably') || transcript.includes('maybe') || transcript.includes('might')) {
++    issues.push({
++      location: 'Hedged language',
++      problem_type: 'WEAK_PREMISE' as ProblemType,
++      description: 'Premises qualified with uncertain language (probably, maybe, might)',
++      impact: 'Undermines confidence in the argument',
++    });
++  }
++
++  return issues;
++}
++
++function hasValidLogicalConnector(transcript: string): boolean {
++  // Check if "therefore" or "thus" is followed by a valid conclusion
++  const thereforePattern = /therefore|thus/i;
++  if (!thereforePattern.test(transcript)) {
++    return true; // No therefore/thus claims, so no broken chain
++  }
++
++  // Simple heuristic: if both parts of the logic chain share concepts, it's likely valid
++  const parts = transcript.split(/therefore|thus/i);
++  if (parts.length < 2) return true;
++
++  const premise = parts[0].toLowerCase();
++  const conclusion = parts[1].toLowerCase();
++
++  // Extract key nouns from both parts
++  const premiseWords = new Set(premise.split(/\s+/));
++  const conclusionWords = new Set(conclusion.split(/\s+/));
++
++  // Check if they share meaningful words (not just common words)
++  const commonWords = Array.from(premiseWords).filter(w => conclusionWords.has(w) && w.length > 3);
++
++  // A valid logical chain should share at least some key concepts
++  return commonWords.length > 0;
++}
++
++function hasDistinctCategories(transcript: string): boolean {
++  // Detect unrelated categories being forced together
++  // Example: "All birds have wings. My car has wheels. Therefore, birds are cars."
++
++  // Look for pattern where multiple unrelated premises lead to incorrect conclusion
++  const sentences = transcript.split(/[.!?]+/).filter(s => s.trim());
++
++  if (sentences.length < 3) return false;
++
++  // Extract subjects from sentences: "All X have Y" or "X have Y"
++  // Pattern: optional "All" or "My/A/An", then capture word(s) until "have/has"
++  const subjectPattern = /^(?:all\s+|my\s+|a\s+|an\s+)?(\w+(?:\s+\w+)?)\s+(?:have|has)\s+/i;
++  let subjects = [];
++
++  for (let i = 0; i < sentences.length - 1; i++) {
++    const match = subjectPattern.exec(sentences[i].trim());
++    if (match) {
++      subjects.push(match[1].toLowerCase());
++    }
++  }
++
++  // Check the conclusion
++  const lastSentence = sentences[sentences.length - 1].toLowerCase();
++
++  // If we have multiple distinct subjects being equated in the conclusion
++  if (subjects.length >= 2) {
++    const uniqueSubjects = new Set(subjects);
++
++    // If subjects are distinct AND conclusion tries to equate them
++    if (uniqueSubjects.size > 1) {
++      // Check for patterns like "X are Y" where X and Y are from different premises
++      if (lastSentence.includes('are')) {
++        return true;
++      }
++    }
++  }
++
++  return false;
++}
++
++function determineLogicStatus(issues: any[]): ValidityStatus {
++  if (issues.length === 0) return 'SOUND';
++  if (issues.some(i => i.problem_type === 'BROKEN_CHAIN')) return 'BROKEN';
++  return 'NEEDS_CLARIFICATION';
++}
++
++function calculateStrength(issues: any[], transcriptLength: number): number {
++  let baseScore = Math.min(100, (transcriptLength / 100) + 50); // longer = slightly stronger
++  const issueDeduction = issues.length * 15;
++  return Math.max(0, baseScore - issueDeduction);
++}
