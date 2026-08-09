@@ -10,6 +10,8 @@
  */
 
 import { NextRequest, NextResponse } from 'next/server';
+import { writeFile } from 'fs/promises';
+import { join } from 'path';
 
 export const dynamic = 'force-dynamic';
 
@@ -52,10 +54,16 @@ export async function POST(request: NextRequest) {
     const password = process.env.TEACHING_ENGINE_PASSWORD || 'teachingengine2024';
     const authHeader = `Bearer ${password}`;
 
-    // Construct base URL from request headers
-    const protocol = request.headers.get('x-forwarded-proto') || 'https';
-    const host = request.headers.get('x-forwarded-host') || request.headers.get('host') || 'localhost:3000';
-    const baseUrl = `${protocol}://${host}`;
+    // Construct base URL - Netlify provides URL env var
+    let baseUrl = process.env.URL || process.env.DEPLOY_PRIME_URL;
+
+    if (!baseUrl) {
+      const host = request.headers.get('host') || 'localhost:3000';
+      const protocol = host.includes('localhost') ? 'http' : 'https';
+      baseUrl = `${protocol}://${host}`;
+    }
+
+    console.log('[ORCHESTRATOR] baseUrl:', baseUrl);
 
     // Step 1: Phase 1 - Verbatim Extraction
     console.log('[ORCHESTRATOR] Phase 1: Verbatim extraction');
@@ -178,6 +186,25 @@ export async function POST(request: NextRequest) {
         phase3: phase3.stats,
       },
     };
+
+    // Save locally to archive folder
+    try {
+      const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
+      const filename = `${timestamp}_${sermonTitle.replace(/\s+/g, '_')}.json`;
+      const archivePath = join(process.cwd(), 'public', 'archive', filename);
+
+      const archiveData = {
+        timestamp: new Date().toISOString(),
+        sermonTitle,
+        outputs: phase3.outputs,
+        stats: response.stats,
+      };
+
+      await writeFile(archivePath, JSON.stringify(archiveData, null, 2));
+      console.log('[ORCHESTRATOR] ✓ Saved to:', archivePath);
+    } catch (archiveError) {
+      console.error('[ORCHESTRATOR] Archive save failed (non-blocking):', archiveError);
+    }
 
     return NextResponse.json(response);
   } catch (error) {
