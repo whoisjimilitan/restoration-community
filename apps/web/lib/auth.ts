@@ -12,3 +12,6 @@ export const authOptions = {
   pages: {},
   callbacks: {},
 };
+
+export const GET = null;
+export const POST = null;

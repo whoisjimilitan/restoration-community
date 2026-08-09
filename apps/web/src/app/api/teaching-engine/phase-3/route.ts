@@ -20,6 +20,7 @@ export const dynamic = 'force-dynamic';
 interface Phase3Request {
   verbatimElements: VerbatimElement[];
   reasoning: DeepReasoning;
+  positioning?: any; // PositioningBlueprint from Phase 2.5
 }
 
 interface Phase3Response {
@@ -54,7 +55,7 @@ export async function POST(request: NextRequest) {
 
   try {
     const body = (await request.json()) as Phase3Request;
-    const { verbatimElements, reasoning } = body;
+    const { verbatimElements, reasoning, positioning } = body;
 
     if (!verbatimElements || verbatimElements.length === 0) {
       return NextResponse.json({ error: 'Verbatim elements required' }, { status: 400 });
@@ -64,10 +65,13 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Reasoning required' }, { status: 400 });
     }
 
-    console.log('[PHASE-3] Generating 7 formats...');
+    console.log('[PHASE-3] Generating 7 formats with positioning blueprint...');
+    if (positioning) {
+      console.log('[PHASE-3] Using strategic positioning for connective content');
+    }
 
     const statements = verbatimElements.filter((v) => v.type === 'statement');
-    const outputs = generateAllFormats(statements, reasoning);
+    const outputs = generateAllFormats(statements, reasoning, positioning);
 
     console.log('[PHASE-3] ✓ All formats generated');
     console.log('[PHASE-3] Validating verbatim preservation...');
@@ -121,21 +125,26 @@ export async function POST(request: NextRequest) {
 }
 
 /**
- * Generate all 7 formats
+ * Generate all 7 formats with optional strategic positioning
  */
-function generateAllFormats(statements: VerbatimElement[], reasoning: DeepReasoning): any {
+function generateAllFormats(statements: VerbatimElement[], reasoning: DeepReasoning, positioning?: any): any {
   return {
-    article: generateArticle(statements, reasoning),
-    email: generateEmail(statements, reasoning),
-    facebook: generateFacebook(statements, reasoning),
-    twitter: generateTwitter(statements, reasoning),
-    instagram: generateInstagram(statements, reasoning),
-    podcast: generatePodcast(statements, reasoning),
-    video: generateVideo(statements, reasoning),
+    article: generateArticle(statements, reasoning, positioning),
+    email: generateEmail(statements, reasoning, positioning),
+    facebook: generateFacebook(statements, reasoning, positioning),
+    twitter: generateTwitter(statements, reasoning, positioning),
+    instagram: generateInstagram(statements, reasoning, positioning),
+    podcast: generatePodcast(statements, reasoning, positioning),
+    video: generateVideo(statements, reasoning, positioning),
   };
 }
 
-function generateArticle(statements: VerbatimElement[], reasoning: DeepReasoning): string {
+function getPositioningStrategy(index: number, positioning?: any): any {
+  if (!positioning || !positioning.statements) return null;
+  return positioning.statements[index] || null;
+}
+
+function generateArticle(statements: VerbatimElement[], reasoning: DeepReasoning, positioning?: any): string {
   const sections = [
     statements[0]?.text || 'The Core Truth',
     '',
@@ -179,7 +188,7 @@ function generateArticle(statements: VerbatimElement[], reasoning: DeepReasoning
   return sections.filter((s) => s.trim().length > 0).join('\n');
 }
 
-function generateEmail(statements: VerbatimElement[], reasoning: DeepReasoning): string {
+function generateEmail(statements: VerbatimElement[], reasoning: DeepReasoning, positioning?: any): string {
   return [
     'Hi there,',
     '',
@@ -214,7 +223,7 @@ function generateEmail(statements: VerbatimElement[], reasoning: DeepReasoning):
     .join('\n');
 }
 
-function generateFacebook(statements: VerbatimElement[], reasoning: DeepReasoning): string {
+function generateFacebook(statements: VerbatimElement[], reasoning: DeepReasoning, positioning?: any): string {
   return [
     statements[0]?.text || '',
     '',
@@ -234,7 +243,7 @@ function generateFacebook(statements: VerbatimElement[], reasoning: DeepReasonin
     .join('\n');
 }
 
-function generateTwitter(statements: VerbatimElement[], reasoning: DeepReasoning): string {
+function generateTwitter(statements: VerbatimElement[], reasoning: DeepReasoning, positioning?: any): string {
   const tweets = [
     `Tweet 1:\n${statements[0]?.text || ''}`,
     `Tweet 2:\n${statements[1]?.text || ''}`,
@@ -249,7 +258,7 @@ function generateTwitter(statements: VerbatimElement[], reasoning: DeepReasoning
   return tweets.filter((t) => t.length > 0).join('\n\n');
 }
 
-function generateInstagram(statements: VerbatimElement[], reasoning: DeepReasoning): string {
+function generateInstagram(statements: VerbatimElement[], reasoning: DeepReasoning, positioning?: any): string {
   return [
     statements[0]?.text || '',
     '',
@@ -273,7 +282,7 @@ function generateInstagram(statements: VerbatimElement[], reasoning: DeepReasoni
     .join('\n');
 }
 
-function generatePodcast(statements: VerbatimElement[], reasoning: DeepReasoning): string {
+function generatePodcast(statements: VerbatimElement[], reasoning: DeepReasoning, positioning?: any): string {
   return [
     'EPISODE TITLE: From Bondage to Breakthrough',
     '',
@@ -291,7 +300,7 @@ function generatePodcast(statements: VerbatimElement[], reasoning: DeepReasoning
     .join('\n');
 }
 
-function generateVideo(statements: VerbatimElement[], reasoning: DeepReasoning): string {
+function generateVideo(statements: VerbatimElement[], reasoning: DeepReasoning, positioning?: any): string {
   return [
     '[OPEN - 0-3 seconds]',
     '[Direct eye contact]',

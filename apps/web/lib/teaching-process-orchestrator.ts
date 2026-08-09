@@ -45,6 +45,25 @@ export async function runTeachingPipeline(
       throw new Error(`Phase 2 failed: ${phase2.error}`);
     }
 
+    // Step 2.5: Call Phase 2.5 (Strategic Positioning)
+    console.log('[ORCHESTRATOR] Phase 2.5: Strategic positioning');
+    const phase25Response = await fetch(
+      'http://localhost:3000/api/teaching-engine/phase-2-5',
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          verbatimElements: phase1.verbatimElements,
+          reasoning: phase2.reasoning,
+        }),
+      }
+    );
+    const phase25 = await phase25Response.json();
+
+    if (!phase25.success) {
+      throw new Error(`Phase 2.5 failed: ${phase25.error}`);
+    }
+
     // Step 3: Call Phase 3
     console.log('[ORCHESTRATOR] Phase 3: Output generation');
     const phase3Response = await fetch(
@@ -55,6 +74,7 @@ export async function runTeachingPipeline(
         body: JSON.stringify({
           verbatimElements: phase1.verbatimElements,
           reasoning: phase2.reasoning,
+          positioning: phase25.positioning,
         }),
       }
     );
