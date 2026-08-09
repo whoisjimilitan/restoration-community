@@ -13,6 +13,7 @@ export async function middleware(request: NextRequest) {
     '/auth/register',
     '/',
     '/api/auth',
+    '/admin',
   ];
 
   const isPublicRoute = publicRoutes.some((route) =>

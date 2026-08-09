@@ -74,7 +74,7 @@ export function extractStage2Lightbulbs(coreTeaching: string, voiceMarkers: any)
       const supporting = matchingSentences.slice(1, 3);
 
       // Extract the revelation (the deeper insight)
-      const revelation = extractRevealation(primaryQuote, theme.angle);
+      const revelation = extractRevelation(primaryQuote, theme.angle);
 
       // Identify the speaker's voice in this section
       const voiceInContext = identifyVoiceInContext(matchingSentences);
@@ -100,7 +100,7 @@ export function extractStage2Lightbulbs(coreTeaching: string, voiceMarkers: any)
   };
 }
 
-function extractRevealation(sentence: string, angle: string): string {
+function extractRevelation(sentence: string, angle: string): string {
   // The revelation is the deeper truth the sentence reveals
   const revelations: Record<string, string> = {
     'Grace as the mechanism, not effort':

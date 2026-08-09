@@ -1,170 +1,143 @@
-export interface GeneratorInput {
-  narrative: string;
-  elements: {
-    revelation: string;
-    contrast: string;
-    coreMessage: string;
-    identityChoice?: string;
-    callToAction?: string;
-  };
-  frame?: string;
-}
+/**
+ * FORMAT GENERATORS
+ * Each format gets its own intelligent generator
+ */
 
-export interface AllFormats {
+import type { ExtractedMessage } from './message-extractor';
+
+export interface FormatOutputs {
   dailyLetter: string;
   socialPost: string;
   microInsight: string;
   devotional: string;
-  article: string;
-  shortVideo: string;
-  longVideo: string;
+  articleExcerpt: string;
+  shortVideoScript: string;
+  longVideoScript: string;
   podcastMoment: string;
-  email: string;
+  email: { subject: string; body: string };
 }
 
-/**
- * Generates all 9 formats from a single narrative
- */
-export function generateAllFormats(input: GeneratorInput): AllFormats {
-  console.log('[GENERATOR] Generating all 9 formats');
-
+export function generateAllFormats(message: ExtractedMessage): FormatOutputs {
   return {
-    dailyLetter: generateDailyLetter(input),
-    socialPost: generateSocialPost(input),
-    microInsight: generateMicroInsight(input),
-    devotional: generateDevotional(input),
-    article: generateArticle(input),
-    shortVideo: generateShortVideo(input),
-    longVideo: generateLongVideo(input),
-    podcastMoment: generatePodcastMoment(input),
-    email: generateEmail(input),
+    dailyLetter: generateDailyLetter(message),
+    socialPost: generateSocialPost(message),
+    microInsight: generateMicroInsight(message),
+    devotional: generateDevotional(message),
+    articleExcerpt: generateArticle(message),
+    shortVideoScript: generateShortVideo(message),
+    longVideoScript: generateLongVideo(message),
+    podcastMoment: generatePodcast(message),
+    email: generateEmail(message),
   };
 }
 
-function generateDailyLetter(input: GeneratorInput): string {
-  return `${input.narrative}
+function generateDailyLetter(msg: ExtractedMessage): string {
+  return `Good morning.
 
-${input.elements.revelation}
+${msg.coreRevelation}.
 
-This is not about what you have done. This is about who you are choosing right now.
+${msg.mechanism}
 
-${input.elements.contrast}
+This is what I want you to sit with today. Not the idea. The reality in your actual life.
 
-${input.elements.coreMessage}
-
-The power is yours. Always has been. Always will be.
-
-With faith,
+In faith,
 Brother Jimi`;
 }
 
-function generateSocialPost(input: GeneratorInput): string {
-  const hook = input.narrative.split('.')[0];
-  const truncated = input.elements.revelation.substring(0, 80);
-  const post = `${hook}.\n\n${truncated}...`;
+function generateSocialPost(msg: ExtractedMessage): string {
+  const post = msg.hookFormula.includes('Conviction')
+    ? `Most people don't realize: ${msg.coreRevelation.toLowerCase()}.`
+    : msg.coreRevelation;
 
-  if (post.length > 280) {
-    return `${hook}.\n\n${input.elements.callToAction || 'The power is yours.'}`;
-  }
-  return post;
+  return post.length > 280 ? post.substring(0, 277) + '…' : post;
 }
 
-function generateMicroInsight(input: GeneratorInput): string {
-  return `${input.elements.revelation} ${input.elements.coreMessage}`;
+function generateMicroInsight(msg: ExtractedMessage): string {
+  return msg.coreRevelation.endsWith('.') ? msg.coreRevelation : msg.coreRevelation + '.';
 }
 
-function generateDevotional(input: GeneratorInput): string {
-  return `${input.narrative}
+function generateDevotional(msg: ExtractedMessage): string {
+  return `${msg.coreRevelation}.
 
-${input.elements.revelation}
+${msg.mechanism}
 
-${input.elements.contrast}
-
-What choice will you make today?`;
+What changes when you actually live this?`;
 }
 
-function generateArticle(input: GeneratorInput): string {
-  const title = input.elements.revelation.split('.')[0];
+function generateArticle(msg: ExtractedMessage): string {
+  return `# The Core Truth
 
-  return `# ${title}
+${msg.coreRevelation}.
 
-${input.narrative}
+## How It Works
 
-## The Truth
+${msg.mechanism}
 
-${input.elements.revelation}
+## Why This Matters
 
-## The Contrast
+${msg.cost}
 
-${input.elements.contrast}
+## What Changes
 
-## The Choice
-
-${input.elements.coreMessage}
-
-The power is yours to choose. What will you do?`;
+${msg.transformation}`;
 }
 
-function generateShortVideo(input: GeneratorInput): string {
-  const narrative = input.narrative;
-  const firstSentence = narrative.split('.')[0];
+function generateShortVideo(msg: ExtractedMessage): string {
+  return `${msg.hookFormula === 'Conviction Hook' ? 'Most people get this wrong.' : 'Something I realized.'}
 
-  return `[OPEN - 10 seconds]
-${firstSentence}.
+[PAUSE]
 
-[BODY - 40 seconds]
-${narrative}
+${msg.coreRevelation}.
 
-[TURN - 5 seconds]
-${input.elements.revelation}
+${msg.mechanism}
 
-[CLOSE - 5 seconds]
-${input.elements.coreMessage}`;
+That's where transformation happens.`;
 }
 
-function generateLongVideo(input: GeneratorInput): string {
-  return `[OPEN - 30 seconds]
-${input.narrative.split('.')[0]}.
+function generateLongVideo(msg: ExtractedMessage): string {
+  return `[OPEN]
+${msg.hookFormula === 'Conviction Hook' ? 'Most believers misunderstand this.' : 'I spent years getting this wrong.'}
 
-[STORY - 3 minutes]
-${input.narrative}
+[THE PROBLEM]
+${msg.cost}
 
-[TEACHING - 5 minutes]
-${input.elements.revelation}
+[THE REVELATION]
+${msg.coreRevelation}.
 
-${input.elements.contrast}
+[HOW IT WORKS]
+${msg.mechanism}
 
-[APPLICATION - 3 minutes]
-${input.elements.coreMessage}
+[THE TRANSFORMATION]
+${msg.transformation}
 
-[CLOSE - 1 minute]
-The power is yours. That is the truth.`;
+[CLOSE]
+That's your actual life changing.`;
 }
 
-function generatePodcastMoment(input: GeneratorInput): string {
-  return `[Conversational, 90 seconds]
+function generatePodcast(msg: ExtractedMessage): string {
+  return `[PODCAST MOMENT]
 
-${input.narrative}
+"${msg.coreRevelation}."
 
-That is the thing most people miss. ${input.elements.revelation}
+${msg.mechanism}
 
-Think about it this way: ${input.elements.contrast}
-
-So here is what matters: ${input.elements.coreMessage}`;
+That's not theology. That's your life changing.`;
 }
 
-function generateEmail(input: GeneratorInput): string {
-  return `Hi there,
+function generateEmail(msg: ExtractedMessage): { subject: string; body: string } {
+  return {
+    subject: 'A truth worth sitting with',
+    body: `Hi there,
 
-${input.narrative}
+${msg.coreRevelation}.
 
-I wanted to share this with you because ${input.elements.revelation}
+${msg.mechanism}
 
-Most people believe ${input.elements.contrast}
+${msg.transformation}
 
-But here is what I know to be true: ${input.elements.coreMessage}
+What would change if you actually applied this today?
 
-Take it to heart.
-
-Brother Jimi`;
+Best,
+Jimi`,
+  };
 }

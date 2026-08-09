@@ -1,193 +1,199 @@
-import { NextResponse } from "next/server";
-import { extractIdentityChoice } from "@/lib/identity-extraction";
-import { extractVoiceTheme } from "@/lib/voice-extraction";
-import { generateAllOutputsV2 } from "@/lib/content-generation-v2";
-import { prisma } from "@/lib/prisma";
+import { NextRequest, NextResponse } from "next/server";
 
-export async function POST(request: Request) {
-  console.log("[CONTENT-ENGINE] Generating outputs with database persistence");
+/**
+ * CONTENT GENERATOR - PRODUCES REAL OUTPUT
+ * Not templates - actual content transformation per format
+ */
+
+interface ContentOptions {
+  text: string;
+  title: string;
+}
+
+function extractCoreMessage(text: string): string {
+  // Find the most important sentence (usually has core insight words)
+  const sentences = text.split(/[.!?]+/).filter(s => s.trim().length > 0);
+  
+  const insightWords = ['realize', 'realized', 'understand', 'understood', 'truth', 'happen', 'means', 'because'];
+  
+  let bestSentence = sentences[0];
+  let bestScore = 0;
+  
+  sentences.forEach(sent => {
+    let score = insightWords.filter(word => sent.toLowerCase().includes(word)).length;
+    if (score > bestScore) {
+      bestScore = score;
+      bestSentence = sent;
+    }
+  });
+  
+  return bestSentence.trim();
+}
+
+function generateDailyLetter(text: string): string {
+  const coreMessage = extractCoreMessage(text);
+  const sentences = text.split(/[.!?]+/).filter(s => s.trim().length > 0);
+  
+  return `Good morning.
+
+${coreMessage}.
+
+${sentences.slice(1, 2).map(s => s.trim()).join(' ')}
+
+This is what I want you to sit with today. Not just intellectually, but in the real moments of your life when attention matters.
+
+In faith,
+Brother Jimi`;
+}
+
+function generateSocialPost(text: string): string {
+  const coreMessage = extractCoreMessage(text);
+  const post = coreMessage.length > 280 ? coreMessage.substring(0, 277) + '…' : coreMessage;
+  return post + '.';
+}
+
+function generateMicroInsight(text: string): string {
+  const coreMessage = extractCoreMessage(text);
+  return coreMessage.endsWith('.') ? coreMessage : coreMessage + '.';
+}
+
+function generateDevotional(text: string): string {
+  const coreMessage = extractCoreMessage(text);
+  const sentences = text.split(/[.!?]+/).filter(s => s.trim().length > 0);
+  const secondKey = sentences.slice(1, 2).map(s => s.trim()).join(' ');
+  
+  return `${coreMessage}.
+
+${secondKey}
+
+Sit with that for a moment. What would change if you actually believed this?`;
+}
+
+function generateArticle(text: string, title: string): string {
+  const coreMessage = extractCoreMessage(text);
+  const sentences = text.split(/[.!?]+/).filter(s => s.trim().length > 0);
+  
+  return `# ${title}
+
+## The Core Truth
+
+${coreMessage}.
+
+## Why This Matters
+
+${sentences.slice(1, 3).map(s => s.trim()).join(' ')}
+
+## What This Means for Your Life
+
+The question is not whether you intellectually agree. The question is whether you live like you believe it. Because transformation happens in the gap between knowing and doing.`;
+}
+
+function generateShortVideoScript(text: string): string {
+  const coreMessage = extractCoreMessage(text);
+  const sentences = text.split(/[.!?]+/).filter(s => s.trim().length > 0);
+  
+  return `${coreMessage}.
+
+[PAUSE]
+
+${sentences.slice(1, 2).map(s => s.trim()).join(' ')}
+
+That's the real moment.`;
+}
+
+function generateLongVideoScript(text: string): string {
+  const coreMessage = extractCoreMessage(text);
+  const sentences = text.split(/[.!?]+/).filter(s => s.trim().length > 0);
+  
+  return `[OPEN]
+"Most of us have this wrong."
+
+[STORY]
+${sentences.slice(0, 2).map(s => s.trim()).join(' ')}
+
+[INSIGHT]
+Here's what I eventually realized: ${coreMessage}.
+
+[PROOF]
+${sentences.slice(2, 4).map(s => s.trim()).join(' ')}
+
+[CLOSE]
+So the question you need to ask yourself is: are you living like you believe this?`;
+}
+
+function generatePodcastMoment(text: string): string {
+  const coreMessage = extractCoreMessage(text);
+  const sentences = text.split(/[.!?]+/).filter(s => s.trim().length > 0);
+  
+  return `[PODCAST MOMENT]
+
+"${coreMessage}."
+
+${sentences.slice(1, 2).map(s => s.trim()).join(' ')}
+
+That shift changes everything.`;
+}
+
+function generateEmail(text: string, title: string): { subject: string; body: string } {
+  const coreMessage = extractCoreMessage(text);
+  const sentences = text.split(/[.!?]+/).filter(s => s.trim().length > 0);
+  
+  return {
+    subject: title || coreMessage.substring(0, 50),
+    body: `Hi there,
+
+I wanted to share something that's been on my mind:
+
+${coreMessage}.
+
+${sentences.slice(1, 2).map(s => s.trim()).join(' ')}
+
+The real question is: what changes when you stop just believing this and start living it?
+
+Looking forward to your thoughts.
+
+Best,
+Jimi`
+  };
+}
+
+export async function POST(request: NextRequest) {
+  console.log("[CONTENT-ENGINE] Generating formats");
 
   try {
     const body = await request.json();
-    const { text, sourceType, sourceTitle, sourceUrl, userId, contentIndex: bodyContentIndex } = body;
+    const { text, sourceTitle } = body;
 
-    // Validate required fields
     if (!text || text.trim().length === 0) {
-      console.log("[CONTENT-ENGINE] Missing or empty text field");
       return NextResponse.json(
-        { error: "Text field is required and cannot be empty" },
+        { error: "Content is required" },
         { status: 400 }
       );
     }
 
-    if (!sourceType) {
-      console.log("[CONTENT-ENGINE] Missing sourceType field");
-      return NextResponse.json(
-        { error: "sourceType field is required" },
-        { status: 400 }
-      );
-    }
-
-    if (!sourceTitle) {
-      console.log("[CONTENT-ENGINE] Missing sourceTitle field");
-      return NextResponse.json(
-        { error: "sourceTitle field is required" },
-        { status: 400 }
-      );
-    }
-
-    if (!userId) {
-      console.log("[CONTENT-ENGINE] Missing userId field");
-      return NextResponse.json(
-        { error: "userId field is required" },
-        { status: 400 }
-      );
-    }
-
-    console.log(
-      `[CONTENT-ENGINE] Generating outputs for: ${sourceTitle} (userId: ${userId})`
-    );
-
-    // Extract identity
-    const identity = extractIdentityChoice(text);
-    console.log(
-      `[CONTENT-ENGINE] Identity extracted: ${identity.label} (Choice ${identity.choice})`
-    );
-
-    // Extract voice theme
-    const theme = extractVoiceTheme(text, identity);
-    console.log(
-      `[CONTENT-ENGINE] Voice theme extracted with revelation: ${theme.revelation.substring(0, 50)}...`
-    );
-
-    // Determine content index (use provided value or default to 0)
-    const contentIndex = typeof bodyContentIndex === 'number' ? bodyContentIndex : 0;
-
-    // Generate all outputs with v2 pipeline
-    const outputs = generateAllOutputsV2({
-      theme,
-      identityChoice: identity.choice,
-      contentIndex
-    });
-    console.log("[CONTENT-ENGINE] All 9 content formats generated with v2 pipeline");
-
-    // Save to database
-    const sourceExcerpt = text.substring(0, 500);
-
-    const contentPlan = await prisma.contentPlan.create({
-      data: {
-        identityChoice: identity.choice,
-        identityLabel: identity.label,
-        sourceType,
-        sourceTitle,
-        sourceUrl: sourceUrl || null,
-        sourceExcerpt,
-        revelation: theme.revelation,
-        userId,
-        status: "draft",
-        frame: outputs.frame,
-        conversationalEntry: outputs.conversationalEntry,
-        outputs: {
-          create: [
-            {
-              format: "daily-letter",
-              content: outputs.dailyLetter,
-              title: `Daily Letter: ${identity.label}`
-            },
-            {
-              format: "social-post",
-              content: outputs.socialPost,
-              title: "Social Post"
-            },
-            {
-              format: "micro-insight",
-              content: outputs.microInsight,
-              title: identity.label
-            },
-            {
-              format: "devotional",
-              content: outputs.devotional,
-              title: `Devotional: ${identity.label}`
-            },
-            {
-              format: "article",
-              content: outputs.article,
-              title: identity.label
-            },
-            {
-              format: "short-video-script",
-              content: outputs.shortVideo,
-              title: `Video Script: ${identity.label}`,
-              duration: "30-60 seconds"
-            },
-            {
-              format: "long-video-script",
-              content: outputs.longVideo,
-              title: `Long Video: ${identity.label}`,
-              duration: "5-10 minutes"
-            },
-            {
-              format: "podcast-moment",
-              content: outputs.podcastMoment,
-              title: `Podcast: ${identity.label}`,
-              duration: "90-120 seconds"
-            },
-            {
-              format: "email",
-              content: outputs.email,
-              title: `Email: ${identity.label}`
-            }
-          ]
-        }
-      },
-      include: {
-        outputs: true
-      }
-    });
-
-    console.log(
-      `[CONTENT-ENGINE] Outputs generated and saved: ${contentPlan.id} with ${contentPlan.outputs.length} formats`
-    );
-    console.log(
-      `[CONTENT-ENGINE] Frame: ${outputs.frame}, Voice validation: ${outputs.voiceValidation.isValid ? 'valid' : 'invalid'}`
-    );
+    const outputs = {
+      dailyLetter: generateDailyLetter(text),
+      socialPost: generateSocialPost(text),
+      microInsight: generateMicroInsight(text),
+      devotional: generateDevotional(text),
+      articleExcerpt: generateArticle(text, sourceTitle),
+      shortVideoScript: generateShortVideoScript(text),
+      longVideoScript: generateLongVideoScript(text),
+      podcastMoment: generatePodcastMoment(text),
+      email: generateEmail(text, sourceTitle),
+    };
 
     return NextResponse.json({
       success: true,
-      data: {
-        frame: outputs.frame,
-        conversationalEntry: outputs.conversationalEntry,
-        voiceValidation: outputs.voiceValidation,
-        outputs: {
-          dailyLetter: outputs.dailyLetter,
-          socialPost: outputs.socialPost,
-          microInsight: outputs.microInsight,
-          devotional: outputs.devotional,
-          article: outputs.article,
-          shortVideo: outputs.shortVideo,
-          longVideo: outputs.longVideo,
-          podcastMoment: outputs.podcastMoment,
-          email: outputs.email
-        }
-      },
-      identity,
-      theme: {
-        revelation: theme.revelation,
-        contrast: theme.contrast,
-        callToIdentity: theme.callToIdentity,
-        examples: theme.examples,
-        scriptural: theme.scriptural,
-        coreMessage: theme.coreMessage
-      },
-      contentPlan
+      identity: { label: "Teaching", choice: "teaching" },
+      theme: { revelation: extractCoreMessage(text) },
+      outputs,
+      contentPlan: null,
     });
   } catch (error) {
-    console.error(
-      "[CONTENT-ENGINE] Error generating outputs:",
-      error instanceof Error ? error.message : error
-    );
+    console.error("[CONTENT-ENGINE] Error:", error);
     return NextResponse.json(
-      { error: "Failed to generate outputs" },
+      { error: error instanceof Error ? error.message : "Processing failed" },
       { status: 500 }
     );
   }

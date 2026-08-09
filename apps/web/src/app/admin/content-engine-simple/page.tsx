@@ -49,22 +49,31 @@ export default function ContentEngineAdmin() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (transcript.trim().length === 0) return;
+    console.log('[UI] Form submitted, transcript length:', transcript.trim().length);
 
+    if (transcript.trim().length === 0) {
+      console.log('[UI] Transcript empty, returning');
+      return;
+    }
+
+    console.log('[UI] Starting content engine...');
     setLoading(true);
     setStage(1);
-    setResult(null);
 
     try {
+      console.log('[UI] Calling API...');
       const res = await fetch('/api/content-engine/generate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ transcript: transcript.trim() }),
       });
 
+      console.log('[UI] API response status:', res.status);
       const data = await res.json();
+      console.log('[UI] API response:', data);
 
       if (data.success || (data.stage1 && data.stage2 && data.stage3)) {
+        console.log('[UI] Processing successful');
         // Simulate progressive output
         await new Promise(r => setTimeout(r, 500));
         setStage(2);
@@ -74,12 +83,14 @@ export default function ContentEngineAdmin() {
 
         setResult(data);
         setSelectedFormat('daily_letter');
+        console.log('[UI] Result set');
       } else {
+        console.log('[UI] Invalid response:', data);
         alert('Error: ' + (data.error || 'Unknown error'));
       }
     } catch (error) {
-      alert('Error processing transcript');
-      console.error(error);
+      console.error('[UI] Error:', error);
+      alert('Error processing transcript: ' + String(error));
     } finally {
       setLoading(false);
     }
@@ -262,20 +273,20 @@ export default function ContentEngineAdmin() {
             </p>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '8px', fontSize: '12px' }}>
               <div>
-                <strong style={{ color: '#333' }}>Opening:</strong> {result.stage2.architecture.openingThrust}
+                <strong style={{ color: '#333' }}>Opening:</strong> {result?.stage2?.architecture?.openingThrust || 'Opening statement...'}
               </div>
               <div>
                 <strong style={{ color: '#333' }}>Logic:</strong>{' '}
-                {Array.isArray(result.stage2.architecture.logicalFlow)
+                {Array.isArray(result?.stage2?.architecture?.logicalFlow)
                   ? result.stage2.architecture.logicalFlow.slice(0, 2).join(' → ')
                   : 'Logic flow'}
               </div>
               <div>
-                <strong style={{ color: '#333' }}>Proof:</strong> {result.stage2.architecture.proof}
+                <strong style={{ color: '#333' }}>Proof:</strong> {result?.stage2?.architecture?.proof || 'Proof...'}
               </div>
               <div>
                 <strong style={{ color: '#333' }}>Implication:</strong>{' '}
-                {result.stage2.architecture.implication}
+                {result?.stage2?.architecture?.implication || 'Implication...'}
               </div>
             </div>
           </div>
@@ -294,7 +305,7 @@ export default function ContentEngineAdmin() {
                 FOR ANALYTICAL MINDS
               </p>
               <p style={{ fontSize: '12px', lineHeight: '1.6', margin: 0 }}>
-                {result.stage2.audienceLayering.analytical}
+                {result?.stage2?.audienceLayering?.analytical || 'Analytical approach...'}
               </p>
             </div>
 
@@ -310,7 +321,7 @@ export default function ContentEngineAdmin() {
                 FOR RESISTANT MINDS
               </p>
               <p style={{ fontSize: '12px', lineHeight: '1.6', margin: 0 }}>
-                {result.stage2.audienceLayering.resistant}
+                {result?.stage2?.audienceLayering?.resistant || 'Resistant approach...'}
               </p>
             </div>
 
@@ -326,7 +337,7 @@ export default function ContentEngineAdmin() {
                 FOR ACCEPTING MINDS
               </p>
               <p style={{ fontSize: '12px', lineHeight: '1.6', margin: 0 }}>
-                {result.stage2.audienceLayering.accepting}
+                {result?.stage2?.audienceLayering?.accepting || 'Accepting approach...'}
               </p>
             </div>
           </div>

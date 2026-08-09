@@ -1,51 +1,65 @@
 /**
- * Identity Extraction Logic
+ * Identity Extraction Engine
  *
- * Classifies content into one of the 7 identity choices using keyword-based matching.
- * Scores each identity by counting keyword occurrences and adds bonus points for
- * opposite-side term mentions (which show contrast/tension).
+ * Classifies source material into one of 7 identity choices using
+ * keyword matching and confidence scoring.
  */
 
 import {
   IDENTITY_CHOICES,
-  type IdentityChoiceId,
-  type ExtractedIdentity,
-  type IdentityChoice
+  IdentityChoiceId,
+  ExtractedIdentity,
+  getIdentityChoice,
+  getAllIdentityChoices
 } from "./identity-framework";
 
 /**
- * Count occurrences of a keyword in text (case-insensitive, word boundaries)
+ * Score text against a single identity choice by counting keyword matches
  */
-function countKeywordMatches(text: string, keyword: string): number {
+function scoreIdentityChoice(text: string, choiceId: IdentityChoiceId): number {
+  const choice = getIdentityChoice(choiceId);
   const normalizedText = text.toLowerCase();
-  const normalizedKeyword = keyword.toLowerCase();
 
-  // Match whole words only using word boundaries
-  const regex = new RegExp(`\\b${normalizedKeyword}\\b`, "g");
-  const matches = normalizedText.match(regex);
+  let score = 0;
 
-  return matches ? matches.length : 0;
+  // Score positive keywords (normal weight)
+  for (const keyword of choice.keywords) {
+    const regex = new RegExp(`\\b${keyword}\\b`, "gi");
+    const matches = normalizedText.match(regex) || [];
+    score += matches.length;
+  }
+
+  // Score opposite-side keywords with bonus (indicates contrast/opposition)
+  for (const keyword of choice.oppositeSide) {
+    const regex = new RegExp(`\\b${keyword}\\b`, "gi");
+    const matches = normalizedText.match(regex) || [];
+    // 2x bonus when opposite-side term appears (shows contrast)
+    score += matches.length * 2;
+  }
+
+  return score;
 }
 
 /**
- * Extract matched keywords from text for a given identity
+ * Extract matched keywords from text for a given identity choice
  */
-function extractMatchedKeywords(
-  text: string,
-  choice: IdentityChoice
-): string[] {
-  const matched = new Set<string>();
+function extractMatchedKeywords(text: string, choiceId: IdentityChoiceId): string[] {
+  const choice = getIdentityChoice(choiceId);
+  const normalizedText = text.toLowerCase();
+  const matched: Set<string> = new Set();
 
-  // Check keywords
+  // Collect matched keywords
   for (const keyword of choice.keywords) {
-    if (countKeywordMatches(text, keyword) > 0) {
+    const regex = new RegExp(`\\b${keyword}\\b`, "gi");
+    if (regex.test(normalizedText)) {
       matched.add(keyword);
     }
   }
 
-  // Check opposite side keywords
+  // Collect matched opposite-side keywords
   for (const keyword of choice.oppositeSide) {
-    if (countKeywordMatches(text, keyword) > 0) {
+    const regex = new RegExp(`\\b${keyword}\\b`, "gi");
+    if (regex.test(normalizedText)) {
       matched.add(keyword);
     }
   }
@@ -54,98 +68,98 @@ function extractMatchedKeywords(
 }
 
 /**
- * Score a single identity choice against the given text
- *
- * Scoring logic:
- * - Each keyword match = 1 point
- * - Each opposite-side mention = 2 points (shows contrast/tension, strengthens the identity)
+ * Calculate confidence score based on top score vs total score
+ * Confidence = topScore / totalScore (handles zero division)
  */
-function scoreIdentityChoice(text: string, choice: IdentityChoice): number {
-  let score = 0;
-
-  // Score positive keywords
-  for (const keyword of choice.keywords) {
-    score += countKeywordMatches(text, keyword);
+function calculateConfidence(topScore: number, totalScore: number): number {
+  if (totalScore === 0) {
+    return 0;
   }
-
-  // Score opposite-side keywords with bonus
-  // (mentioning the opposite strengthens the choice)
-  for (const keyword of choice.oppositeSide) {
-    const count = countKeywordMatches(text, keyword);
-    score += count * 2; // 2x bonus for opposite-side mentions
-  }
-
-  return score;
+  const confidence = topScore / totalScore;
+  // Clamp to 0-1 range
+  return Math.min(1, Math.max(0, confidence));
 }
 
 /**
- * Extract the primary identity choice from given text
+ * Extract identity choice from source text
  *
- * Returns the identity choice with the highest score, along with confidence,
- * reasoning, and matched keywords.
+ * Process:
+ * 1. Score text against all 7 identity choices
+ * 2. Find highest scoring choice
+ * 3. Calculate confidence (topScore / totalScore)
+ * 4. Return choice with reasoning
+ *
+ * Edge case: If totalScore is 0 (no keywords matched), defaults to choice 1 with low confidence
  */
 export function extractIdentityChoice(text: string): ExtractedIdentity {
   if (!text || text.trim().length === 0) {
-    // Default to choice 1 if text is empty
-    const defaultChoice = IDENTITY_CHOICES[1];
+    // Return default choice with reasoning
     return {
       choice: 1,
-      label: defaultChoice.label,
-      question: defaultChoice.question,
-      stage: defaultChoice.stage,
+      label: "Truth vs Deception",
+      question: "Are you a person of TRUTH or LIES?",
+      stage: "Truth",
       confidence: 0,
       reasoning: "No text provided for analysis",
       keywordMatches: []
     };
   }
 
-  // Score all identity choices
+  // Score against all identity choices
   const scores: Record<IdentityChoiceId, number> = {
-    1: scoreIdentityChoice(text, IDENTITY_CHOICES[1]),
-    2: scoreIdentityChoice(text, IDENTITY_CHOICES[2]),
-    3: scoreIdentityChoice(text, IDENTITY_CHOICES[3]),
-    4: scoreIdentityChoice(text, IDENTITY_CHOICES[4]),
-    5: scoreIdentityChoice(text, IDENTITY_CHOICES[5]),
-    6: scoreIdentityChoice(text, IDENTITY_CHOICES[6]),
-    7: scoreIdentityChoice(text, IDENTITY_CHOICES[7])
+    1: 0,
+    2: 0,
+    3: 0,
+    4: 0,
+    5: 0,
+    6: 0,
+    7: 0
   };
+
+  for (const choiceId of [1, 2, 3, 4, 5, 6, 7] as IdentityChoiceId[]) {
+    scores[choiceId] = scoreIdentityChoice(text, choiceId);
+  }
 
   // Calculate total score
   const totalScore = Object.values(scores).reduce((sum, score) => sum + score, 0);
 
-  // Find the choice with the highest score
+  // Find top scoring choice
   let topChoiceId: IdentityChoiceId = 1;
   let topScore = scores[1];
 
-  for (let i = 2; i <= 7; i++) {
-    const id = i as IdentityChoiceId;
-    if (scores[id] > topScore) {
-      topScore = scores[id];
-      topChoiceId = id;
+  for (const choiceId of [2, 3, 4, 5, 6, 7] as IdentityChoiceId[]) {
+    if (scores[choiceId] > topScore) {
+      topScore = scores[choiceId];
+      topChoiceId = choiceId;
     }
   }
 
-  const topChoice = IDENTITY_CHOICES[topChoiceId];
-
-  // Calculate confidence as a ratio
-  // If totalScore is 0, confidence is 0
-  // Otherwise, confidence is topScore divided by totalScore
-  const confidence = totalScore === 0 ? 0 : topScore / totalScore;
-
-  // Extract matched keywords for reasoning
-  const keywordMatches = extractMatchedKeywords(text, topChoice);
-
-  // Build reasoning message
-  let reasoning: string;
+  // Handle edge case: no keywords found
   if (totalScore === 0) {
-    reasoning = "No identity-specific keywords found; defaulting to first choice";
-  } else if (keywordMatches.length === 0) {
-    reasoning = "Selected based on higher score relative to other choices";
-  } else {
-    reasoning = `Found keywords: ${keywordMatches.slice(0, 3).join(", ")}${
-      keywordMatches.length > 3 ? ` and ${keywordMatches.length - 3} more` : ""
-    }`;
+    return {
+      choice: 1,
+      label: "Truth vs Deception",
+      question: "Are you a person of TRUTH or LIES?",
+      stage: "Truth",
+      confidence: 0,
+      reasoning: "No identity keywords detected in text. Default to Truth vs Deception.",
+      keywordMatches: []
+    };
   }
+
+  // Calculate confidence
+  const confidence = calculateConfidence(topScore, totalScore);
+
+  // Get matched keywords for reasoning
+  const matchedKeywords = extractMatchedKeywords(text, topChoiceId);
+
+  // Build reasoning
+  const topChoice = getIdentityChoice(topChoiceId);
+  const topChoiceLabel = topChoice.label;
+  const confidencePercent = Math.round(confidence * 100);
+  const keywordList = matchedKeywords.slice(0, 3).join(", ");
+
+  const reasoning = `Detected "${topChoiceLabel}" identity (${confidencePercent}% confidence) based on keywords: ${keywordList}`;
 
   return {
     choice: topChoiceId,
@@ -154,41 +168,66 @@ export function extractIdentityChoice(text: string): ExtractedIdentity {
     stage: topChoice.stage,
     confidence,
     reasoning,
-    keywordMatches
+    keywordMatches: matchedKeywords
   };
 }
 
 /**
- * Extract all identity scores for debugging/analysis
- *
- * Returns scores for all 7 identities, useful for understanding why a particular
- * choice was selected or for debugging edge cases.
+ * Extract identity choices with confidence for all 7 choices
+ * Returns all choices ranked by confidence score
  */
-export function extractAllIdentityScores(
-  text: string
-): Record<IdentityChoiceId, { score: number; confidence: number }> {
+export function extractAllIdentityChoices(text: string): ExtractedIdentity[] {
+  if (!text || text.trim().length === 0) {
+    return getAllIdentityChoices().map((choice) => ({
+      choice: choice.id,
+      label: choice.label,
+      question: choice.question,
+      stage: choice.stage,
+      confidence: 0,
+      reasoning: "No text provided for analysis",
+      keywordMatches: []
+    }));
+  }
+
   const scores: Record<IdentityChoiceId, number> = {
-    1: scoreIdentityChoice(text, IDENTITY_CHOICES[1]),
-    2: scoreIdentityChoice(text, IDENTITY_CHOICES[2]),
-    3: scoreIdentityChoice(text, IDENTITY_CHOICES[3]),
-    4: scoreIdentityChoice(text, IDENTITY_CHOICES[4]),
-    5: scoreIdentityChoice(text, IDENTITY_CHOICES[5]),
-    6: scoreIdentityChoice(text, IDENTITY_CHOICES[6]),
-    7: scoreIdentityChoice(text, IDENTITY_CHOICES[7])
+    1: 0,
+    2: 0,
+    3: 0,
+    4: 0,
+    5: 0,
+    6: 0,
+    7: 0
   };
+
+  for (const choiceId of [1, 2, 3, 4, 5, 6, 7] as IdentityChoiceId[]) {
+    scores[choiceId] = scoreIdentityChoice(text, choiceId);
+  }
 
   const totalScore = Object.values(scores).reduce((sum, score) => sum + score, 0);
 
-  const result: Record<IdentityChoiceId, { score: number; confidence: number }> =
-    {} as any;
+  // Build results for all choices
+  const results: ExtractedIdentity[] = [];
 
-  for (let i = 1; i <= 7; i++) {
-    const id = i as IdentityChoiceId;
-    result[id] = {
-      score: scores[id],
-      confidence: totalScore === 0 ? 0 : scores[id] / totalScore
-    };
+  for (const choiceId of [1, 2, 3, 4, 5, 6, 7] as IdentityChoiceId[]) {
+    const choice = getIdentityChoice(choiceId);
+    const score = scores[choiceId];
+    const confidence = calculateConfidence(score, totalScore);
+
+    const matchedKeywords = extractMatchedKeywords(text, choiceId);
+    const confidencePercent = Math.round(confidence * 100);
+    const keywordList = matchedKeywords.slice(0, 2).join(", ") || "none";
+
+    results.push({
+      choice: choiceId,
+      label: choice.label,
+      question: choice.question,
+      stage: choice.stage,
+      confidence,
+      reasoning: `${confidencePercent}% confidence based on keywords: ${keywordList}`,
+      keywordMatches: matchedKeywords
+    });
   }
 
-  return result;
+  // Sort by confidence descending
+  return results.sort((a, b) => b.confidence - a.confidence);
 }
