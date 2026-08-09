@@ -4,8 +4,9 @@ import ModalProvider from '@/components/ModalProvider';
 
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
-    <ModalProvider>
+    <>
+      <ModalProvider />
       {children}
-    </ModalProvider>
+    </>
   );
 }

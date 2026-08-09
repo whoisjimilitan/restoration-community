@@ -14,8 +14,7 @@ import {
   generatePositioningBlueprint,
   type PositioningBlueprint,
 } from '@/lib/strategic-positioning-engine';
-import type { VerbatimElement } from '@/lib/verbatim-extractor';
-import type { DeepReasoning } from '@/lib/reasoning-engine';
+import type { VerbatimElement, DeepReasoning } from '@/lib/types/teaching-process';
 
 export const dynamic = 'force-dynamic';
 

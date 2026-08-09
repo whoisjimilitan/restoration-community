@@ -8,7 +8,7 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 import { performDeepReasoning } from '@/lib/reasoning-engine';
-import type { VerbatimElement } from '@/lib/verbatim-extractor';
+import type { VerbatimElement, DeepReasoning } from '@/lib/types/teaching-process';
 
 export const dynamic = 'force-dynamic';
 
@@ -19,7 +19,7 @@ interface Phase2Request {
 
 interface Phase2Response {
   success: boolean;
-  reasoning: any;
+  reasoning: DeepReasoning;
   stats: {
     sentencesAnalyzed: number;
     hiddenTruthsExtracted: number;

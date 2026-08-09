@@ -7,6 +7,7 @@
  */
 
 import { NextRequest, NextResponse } from 'next/server';
+import type { VerbatimElement } from '@/lib/types/teaching-process';
 import { acceptTranscript, extractFromUrl, preprocessContent } from '@/lib/content-input';
 import { extractVerbatimElements } from '@/lib/verbatim-extractor';
 import { exhumeTeachingStructure } from '@/lib/teaching-exhumer';
@@ -24,8 +25,12 @@ interface Phase1Response {
     type: 'url' | 'transcript';
     source?: string;
   };
-  verbatimElements: any[];
-  structure: any;
+  verbatimElements: VerbatimElement[];
+  structure: {
+    themes: any[];
+    gapsBetweenStatements: any[];
+    [key: string]: any;
+  };
   stats: {
     contentLength: number;
     verbatimCount: number;

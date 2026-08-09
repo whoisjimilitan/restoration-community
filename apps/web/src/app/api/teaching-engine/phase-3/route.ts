@@ -12,8 +12,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { validateVerbatimInOutput } from '@/lib/output-validator';
 import { applyBrotherJimiVoice } from '@/lib/voice-applier';
-import type { VerbatimElement } from '@/lib/verbatim-extractor';
-import type { DeepReasoning } from '@/lib/reasoning-engine';
+import type { VerbatimElement, DeepReasoning } from '@/lib/types/teaching-process';
 
 export const dynamic = 'force-dynamic';
 
