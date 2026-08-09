@@ -1145,3 +1145,82 @@ model WisdomPiece {
   @@index([createdAt])
   @@map("wisdom_pieces")
 }
+
+// ============================================================================
+// TEACHING ENGINE (TEACHING-ENGINE-001)
+// ============================================================================
+// Sermon processing: Phase 1-3 results, social media scheduling, performance tracking
+
+model TeachingProcess {
+  id            String   @id @default(cuid())
+  createdAt     DateTime @default(now())
+  sermonTitle   String
+  transcript    String   @db.Text
+
+  // Full Phase 1-3 results stored as JSON
+  verbatimElements Json   // VerbatimElement[]
+  reasoning        Json   // DeepReasoning
+  outputs          Json   // { article, email, facebook, twitter, instagram, podcast, video }
+  viralityScores   Json   // { format → score }
+
+  status        String   @default("processing")
+  errorMessage  String?
+
+  scheduledPosts ScheduledPost[]
+  publishedPosts PublishedPost[]
+
+  @@index([status])
+  @@index([createdAt])
+  @@map("teaching_processes")
+}
+
+model ScheduledPost {
+  id               String   @id @default(cuid())
+  createdAt        DateTime @default(now())
+
+  teachingProcess  TeachingProcess @relation(fields: [processId], references: [id], onDelete: Cascade)
+  processId        String
+
+  platform         String   // "twitter", "instagram", "facebook", "tiktok"
+  format           String   // "twitter", "instagram", "email", etc.
+  content          String   @db.Text
+  hashtags         String?
+  scheduledTime    DateTime
+
+  status           String   @default("pending") // "pending", "published", "failed"
+  publishedAt      DateTime?
+  publishedUrl     String?
+
+  @@index([status])
+  @@index([processId])
+  @@index([scheduledTime])
+  @@map("scheduled_posts")
+}
+
+model PublishedPost {
+  id               String   @id @default(cuid())
+  createdAt        DateTime @default(now())
+
+  teachingProcess  TeachingProcess @relation(fields: [processId], references: [id], onDelete: Cascade)
+  processId        String
+
+  platform         String   // "twitter", "instagram", "facebook", "tiktok"
+  format           String
+  content          String   @db.Text
+
+  publishedUrl     String   @unique
+  publishedAt      DateTime
+
+  // Engagement metrics
+  likes            Int      @default(0)
+  shares           Int      @default(0)
+  comments         Int      @default(0)
+  clicks           Int      @default(0)
+  impressions      Int      @default(0)
+  reach            Int      @default(0)
+
+  @@index([platform])
+  @@index([processId])
+  @@index([publishedAt])
+  @@map("published_posts")
+}
