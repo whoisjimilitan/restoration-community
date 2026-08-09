@@ -55,7 +55,7 @@ export async function POST(request: NextRequest) {
     // Step 1: Phase 1 - Verbatim Extraction
     console.log('[ORCHESTRATOR] Phase 1: Verbatim extraction');
     const phase1Response = await fetch(
-      `${process.env.NODE_ENV === 'production' ? process.env.VERCEL_URL : 'http://localhost:3000'}/api/teaching-engine/phase-1`,
+      `/api/teaching-engine/phase-1`,
       {
         method: 'POST',
         headers: {
@@ -79,7 +79,7 @@ export async function POST(request: NextRequest) {
     // Step 2: Phase 2 - Deep Reasoning
     console.log('[ORCHESTRATOR] Phase 2: Deep reasoning');
     const phase2Response = await fetch(
-      `${process.env.NODE_ENV === 'production' ? process.env.VERCEL_URL : 'http://localhost:3000'}/api/teaching-engine/phase-2`,
+      `/api/teaching-engine/phase-2`,
       {
         method: 'POST',
         headers: {
@@ -106,7 +106,7 @@ export async function POST(request: NextRequest) {
     // Step 2.5: Phase 2.5 - Strategic Positioning
     console.log('[ORCHESTRATOR] Phase 2.5: Strategic positioning');
     const phase25Response = await fetch(
-      `${process.env.NODE_ENV === 'production' ? process.env.VERCEL_URL : 'http://localhost:3000'}/api/teaching-engine/phase-2-5`,
+      `/api/teaching-engine/phase-2-5`,
       {
         method: 'POST',
         headers: {
@@ -133,7 +133,7 @@ export async function POST(request: NextRequest) {
     // Step 3: Phase 3 - Output Generation
     console.log('[ORCHESTRATOR] Phase 3: Output generation');
     const phase3Response = await fetch(
-      `${process.env.NODE_ENV === 'production' ? process.env.VERCEL_URL : 'http://localhost:3000'}/api/teaching-engine/phase-3`,
+      `/api/teaching-engine/phase-3`,
       {
         method: 'POST',
         headers: {
