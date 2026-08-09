@@ -1,8 +1,17 @@
 'use client';
 
+import type { Metadata } from 'next';
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { AnimatePresence } from 'framer-motion';
+
+// Ensure this page is built
+export const generateMetadata = (): Metadata => {
+  return {
+    title: 'Restoration Community | Brother Jimi Ministry',
+    description: 'Experience spiritual deliverance and restoration through Jesus Christ.',
+  };
+};
 
 export default function Home() {
   const [isLoaded, setIsLoaded] = useState(false);
