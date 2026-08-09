@@ -94,7 +94,7 @@ export async function POST(request: NextRequest) {
     const validVerbatim = Array.isArray(verbatimElements) ? verbatimElements : [];
 
     for (const [format, content] of formats) {
-      const validation = validateVerbatimInOutput(validVerbatim, content, format);
+      const validation = validateVerbatimInOutput(content, validVerbatim);
       formatValidation.push({
         format,
         verbatimPreserved: validation.preservedCount > 0,
