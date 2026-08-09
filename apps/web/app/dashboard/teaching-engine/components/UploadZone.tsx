@@ -27,7 +27,7 @@ export default function UploadZone({ onUpload }: UploadZoneProps) {
     setError('');
 
     try {
-      const response = await fetch('/api/teaching-engine/process', {
+      const response = await fetch('/api/teaching-engine/orchestrator', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ sermonTitle: title, transcript }),

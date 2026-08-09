@@ -49,13 +49,19 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    const password = process.env.TEACHING_ENGINE_PASSWORD || 'teachingengine2024';
+    const authHeader = `Bearer ${password}`;
+
     // Step 1: Phase 1 - Verbatim Extraction
     console.log('[ORCHESTRATOR] Phase 1: Verbatim extraction');
     const phase1Response = await fetch(
       `${process.env.NODE_ENV === 'production' ? process.env.VERCEL_URL : 'http://localhost:3000'}/api/teaching-engine/phase-1`,
       {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': authHeader
+        },
         body: JSON.stringify({ transcript }),
       }
     );
@@ -76,7 +82,10 @@ export async function POST(request: NextRequest) {
       `${process.env.NODE_ENV === 'production' ? process.env.VERCEL_URL : 'http://localhost:3000'}/api/teaching-engine/phase-2`,
       {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': authHeader
+        },
         body: JSON.stringify({
           rawContent: transcript,
           verbatimElements: phase1.verbatimElements,
@@ -100,7 +109,10 @@ export async function POST(request: NextRequest) {
       `${process.env.NODE_ENV === 'production' ? process.env.VERCEL_URL : 'http://localhost:3000'}/api/teaching-engine/phase-2-5`,
       {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': authHeader
+        },
         body: JSON.stringify({
           verbatimElements: phase1.verbatimElements,
           reasoning: phase2.reasoning,
@@ -124,7 +136,10 @@ export async function POST(request: NextRequest) {
       `${process.env.NODE_ENV === 'production' ? process.env.VERCEL_URL : 'http://localhost:3000'}/api/teaching-engine/phase-3`,
       {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': authHeader
+        },
         body: JSON.stringify({
           verbatimElements: phase1.verbatimElements,
           reasoning: phase2.reasoning,
