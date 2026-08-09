@@ -53,6 +53,17 @@ export interface ValidationResult {
   summary: string;
 }
 
+export interface VideoRecommendation {
+  hasNaturalQuestion: boolean;
+  suggestedOpeningQuestion?: string;
+  optionalStructure?: {
+    act1Question: string;
+    act2Points: string[];
+    act3Benediction: string;
+  };
+  note: string;
+}
+
 export interface DeepReasoning {
   sentenceAnalyses: SentenceAnalysis[];
   triviumAnalysis: TriviumAnalysis;
@@ -63,6 +74,7 @@ export interface DeepReasoning {
     blockers: string[];
     strengths: string[];
   };
+  videoRecommendation?: VideoRecommendation;
 }
 
 export interface TeachingProcessOutput {

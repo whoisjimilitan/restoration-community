@@ -307,24 +307,40 @@ function generatePodcast(statements: VerbatimElement[], reasoning: DeepReasoning
 }
 
 function generateVideo(statements: VerbatimElement[], reasoning: DeepReasoning, positioning?: any): string {
-  return [
-    '[OPEN - 0-3 seconds]',
-    '[Direct eye contact]',
-    applyBrotherJimiVoice(statements[0]?.text || ''),
-    '',
-    '[BODY - 3-20 seconds]',
+  const sections = [];
+
+  // Optional video recommendation (informational, not prescriptive)
+  if (reasoning.videoRecommendation?.hasNaturalQuestion) {
+    sections.push('[OPTIONAL VIDEO FRAMEWORK - Use if it feels natural]');
+    sections.push(`Question Hook: "${reasoning.videoRecommendation.suggestedOpeningQuestion}"`);
+    if (reasoning.videoRecommendation.optionalStructure) {
+      sections.push('Structure: Question → 3 Points → Benediction (close with blessing/application)');
+      sections.push(`Benediction idea: "${reasoning.videoRecommendation.optionalStructure.act3Benediction}"`);
+    }
+    sections.push(`Note: ${reasoning.videoRecommendation.note}`);
+    sections.push('');
+    sections.push('---');
+    sections.push('');
+  }
+
+  sections.push('[OPEN - 0-3 seconds]');
+  sections.push('[Direct eye contact]');
+  sections.push(applyBrotherJimiVoice(statements[0]?.text || ''));
+  sections.push('');
+  sections.push('[BODY - 3-20 seconds]');
+  sections.push(
     applyBrotherJimiVoice(
       statements.slice(1, -1).map((s) => s.text).join(' ')
-    ),
-    '',
-    '[CLOSE - 20-30 seconds]',
-    applyBrotherJimiVoice(statements[statements.length - 1]?.text || ''),
-    '',
-    '[VISUAL NOTES]',
-    '- Simple background',
-    '- Natural eye contact',
-    '- No distracting graphics',
-  ]
-    .filter((s) => s.trim().length > 0)
-    .join('\n');
+    )
+  );
+  sections.push('');
+  sections.push('[CLOSE - 20-30 seconds]');
+  sections.push(applyBrotherJimiVoice(statements[statements.length - 1]?.text || ''));
+  sections.push('');
+  sections.push('[VISUAL NOTES]');
+  sections.push('- Simple background');
+  sections.push('- Natural eye contact');
+  sections.push('- No distracting graphics');
+
+  return sections.filter((s) => s.trim().length > 0).join('\n');
 }
