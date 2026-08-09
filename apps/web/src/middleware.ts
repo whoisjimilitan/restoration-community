@@ -13,7 +13,7 @@ export function middleware(request: NextRequest) {
     if (!sessionCookie || sessionCookie.value !== TEACHING_ENGINE_PASSWORD) {
       // Redirect to login with return URL
       return NextResponse.redirect(
-        new URL(`/teaching-engine-login?from=${pathname}`, request.url)
+        new URL(`/login?from=${pathname}`, request.url)
       );
     }
   }

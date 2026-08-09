@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 
-export default function TeachingEngineLogin() {
+export default function LoginPage() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const from = searchParams.get('from') || '/dashboard/teaching-engine';
@@ -34,7 +34,7 @@ export default function TeachingEngineLogin() {
       <div className="bg-white rounded-lg shadow-lg p-8 w-full max-w-md">
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-slate-900 mb-2">Teaching Engine</h1>
-          <p className="text-slate-600">Enter password to access the dashboard</p>
+          <p className="text-slate-600">Enter password to access</p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -64,15 +64,9 @@ export default function TeachingEngineLogin() {
             disabled={isLoading || !password}
             className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-slate-400 text-white font-medium py-2 px-4 rounded-lg transition-colors"
           >
-            {isLoading ? 'Authenticating...' : 'Access Dashboard'}
+            {isLoading ? 'Authenticating...' : 'Access'}
           </button>
         </form>
-
-        <div className="mt-6 pt-6 border-t border-slate-200">
-          <p className="text-xs text-slate-500">
-            This dashboard is password protected. Ask Brother Jimi for the password.
-          </p>
-        </div>
       </div>
     </div>
   );
