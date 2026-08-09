@@ -127,14 +127,21 @@ export async function POST(request: NextRequest) {
  * Generate all 7 formats with optional strategic positioning
  */
 function generateAllFormats(statements: VerbatimElement[], reasoning: DeepReasoning, positioning?: any): any {
+  // For social media, prioritize hook-tier content (questions, scenarios, quotes)
+  const hookFirst = [...statements].sort((a, b) => {
+    const aPriority = a.hookPriority || 0;
+    const bPriority = b.hookPriority || 0;
+    return bPriority - aPriority; // Descending: high priority first
+  });
+
   return {
     article: generateArticle(statements, reasoning, positioning),
     email: generateEmail(statements, reasoning, positioning),
-    facebook: generateFacebook(statements, reasoning, positioning),
-    twitter: generateTwitter(statements, reasoning, positioning),
-    instagram: generateInstagram(statements, reasoning, positioning),
+    facebook: generateFacebook(hookFirst, reasoning, positioning),
+    twitter: generateTwitter(hookFirst, reasoning, positioning),
+    instagram: generateInstagram(hookFirst, reasoning, positioning),
     podcast: generatePodcast(statements, reasoning, positioning),
-    video: generateVideo(statements, reasoning, positioning),
+    video: generateVideo(hookFirst, reasoning, positioning),
   };
 }
 

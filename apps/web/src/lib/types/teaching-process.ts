@@ -5,6 +5,8 @@ export interface VerbatimElement {
   strength: 'high' | 'medium' | 'low';
   locked: boolean;
   lineNumber?: number;
+  hookType?: 'question' | 'scenario' | 'quote' | 'story' | 'contradiction' | null;
+  hookPriority?: number;
 }
 
 export interface SentenceAnalysis {
