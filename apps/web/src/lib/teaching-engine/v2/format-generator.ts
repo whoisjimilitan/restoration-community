@@ -1,6 +1,6 @@
 import { FormatOutput, VerbatimElement } from './types';
-import { GuardRails } from '../voice/guardrails';
-import { applyTriviumRefinement } from '../voice/trivium-voice-applier';
+import { GuardRails } from '@/lib/voice/guardrails';
+import { applyTriviumRefinement } from '@/lib/voice/trivium-voice-applier';
 
 export function generateAllFormats(
   refinedTranscript: string,

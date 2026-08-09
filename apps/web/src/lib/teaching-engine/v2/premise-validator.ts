@@ -120,7 +120,7 @@ function validateSinglePremise(premise: PremiseInput): Premise {
         );
         status = 'SCRIPTURALLY_SOUND';
       } else {
-        status = 'NEEDS_SUPPORT';
+        status = 'LACKS_SUPPORT';
       }
     }
   }

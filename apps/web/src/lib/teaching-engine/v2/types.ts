@@ -42,7 +42,7 @@ export interface RefinedCoreOutput {
   refined_transcript: string;
   verbatim_highlights: VerbatimElement[];
   validity_status: ValidityStatus;
-  premise_status: ScriptureStatus;
+  premise_status: 'PASS' | 'FAIL' | 'NEEDS_SUPPORT';
 }
 
 export interface FormatOutput {
