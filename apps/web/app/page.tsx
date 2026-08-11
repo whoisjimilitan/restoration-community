@@ -36,29 +36,34 @@ export default function Home() {
     <div className="bg-rc-bg text-rc-text relative">
       {/* HERO */}
       <section className="w-full min-h-screen flex flex-col justify-center bg-gradient-to-br from-rc-accent to-rc-text px-6 sm:px-8 md:px-12 py-24 md:py-32">
-        <div className="max-w-2xl mx-auto w-full space-y-6">
+        <div className="max-w-2xl mx-auto w-full space-y-16 flex flex-col justify-center">
           <div className={`transform transition-all duration-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '0ms' }}>
-            <p className="text-xs font-medium text-white/70 uppercase tracking-wider">For Young People In A Hurry</p>
-          </div>
-
-          <div className={`transform transition-all duration-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '80ms' }}>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight tracking-tight">
-              You were made for something far better.
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-rc-serif font-bold text-white leading-tight tracking-tight">
+              Fraud. God.
             </h1>
           </div>
 
-          <div className={`transform transition-all duration-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '160ms' }}>
-            <div className="space-y-3 text-base md:text-lg text-white/90 leading-relaxed font-light">
-              <p>Fraud promised you freedom.</p>
-              <p>But gave you a version without peace.</p>
-              <p className="pt-2">Fraud is a spiritual trap.</p>
-              <p>Only One Man can set you free.</p>
-            </div>
+          <div className={`transform transition-all duration-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '120ms' }}>
+            <blockquote className="border-l-4 border-white/40 pl-6 py-4 space-y-4">
+              <p className="text-lg md:text-xl text-white/90 leading-relaxed font-rc-serif font-light">
+                "Like a partridge that hatches eggs it did not lay
+                <br />
+                are those who gain riches by fraud.
+                <br />
+                <br />
+                At midlife they will prove to be fools,
+                <br />
+                and in the end they will face the consequences of their folly."
+              </p>
+              <p className="text-sm md:text-base text-white/70 font-light">
+                — Jeremiah 17:11
+              </p>
+            </blockquote>
           </div>
         </div>
       </section>
 
-      {/* MY STORY */}
+      {/* WHAT FRAUD DOES */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -67,17 +72,51 @@ export default function Home() {
           viewport={{ once: true, amount: 0.15 }}
           className="max-w-2xl mx-auto space-y-12"
         >
-          <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">My Story</h2>
+          <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">The Face of Fraud</h2>
 
           <div className="space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light border-l-4 border-rc-accent pl-8">
-            <p>I too was once controlled by that spirit.</p>
-            <p>I justified my actions.</p>
-            <p>I blamed my country's economy.</p>
-            <p>I convinced myself I had no choice.</p>
-            <p className="pt-2">Until my encounter with that One Man.</p>
-            <p className="pt-4 text-rc-text font-medium">He delivered me from that spirit.</p>
-            <p className="pt-4">My God. My Deliverer.</p>
-            <p className="text-rc-text font-medium">Jesus Christ.</p>
+            <p>Fraud is intentional deception.</p>
+            <p>It promises quick gain.</p>
+            <p>But it brings long lasting loss.</p>
+
+            <div className="pt-4 space-y-4">
+              <p>It destroys people.</p>
+              <p>It steals destinies.</p>
+              <p>It kills nations.</p>
+              <p>It teaches others.</p>
+              <p>It multiplies itself.</p>
+            </div>
+
+            <div className="pt-4 space-y-4">
+              <p>The Lord sees.</p>
+              <p>The Lord judges.</p>
+              <p>The Lord is the avenger.</p>
+            </div>
+          </div>
+        </motion.div>
+      </section>
+
+      {/* HOW FRAUD BINDS YOU */}
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+          viewport={{ once: true, amount: 0.15 }}
+          className="max-w-2xl mx-auto space-y-12"
+        >
+          <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">The Spirit Behind Fraud</h2>
+
+          <div className="space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light border-l-4 border-rc-accent pl-8">
+            <p>When you believe a lie</p>
+            <p>for the promise of gain,</p>
+            <p>you agree with deception.</p>
+            <p>And its spirit enters you.</p>
+            <p className="pt-4">Two entities now live in one body.</p>
+            <p>You war against yourself.</p>
+            <p className="pt-4">One wants you to inherit His wrath.</p>
+            <p>The other may not.</p>
+            <p className="pt-4">Only One Man can separate you.</p>
           </div>
         </motion.div>
       </section>
@@ -91,17 +130,43 @@ export default function Home() {
           viewport={{ once: true, amount: 0.15 }}
           className="max-w-2xl mx-auto space-y-12"
         >
-          <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">My Encounter</h2>
+          <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">My Story</h2>
 
           <div className="space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light border-l-4 border-rc-accent pl-8">
-            <p>In 2015.</p>
-            <p>Jesus used Prophet TB Joshua.</p>
-            <p>To pray for me in His name.</p>
-            <p className="pt-2">One utterance: "All that is over."</p>
-            <p className="pt-4">The urge for wastefulness left me.</p>
+            <p>I too was once controlled by that spirit.</p>
+            <p>I told myself I was collecting what was looted.</p>
+            <p>I convinced myself I had no choice.</p>
+            <p className="pt-4">I had some wealth.</p>
+            <p>But there was no peace.</p>
+            <p className="pt-4">The partridge was me.</p>
+            <p>Hatching eggs I did not lay.</p>
+            <p>Labor without gain.</p>
+            <p>Gain without substance.</p>
+            <p className="pt-4">Empty. Trapped. Foolish.</p>
+          </div>
+        </motion.div>
+      </section>
+
+      {/* MY FREEDOM */}
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+          viewport={{ once: true, amount: 0.15 }}
+          className="max-w-2xl mx-auto space-y-12"
+        >
+          <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">My Freedom</h2>
+
+          <div className="space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light border-l-4 border-rc-accent pl-8">
+            <p>It came in Jesus's name.</p>
+            <p>In 2015, through His servant Prophet TB Joshua.</p>
+            <p>One utterance: "All that is over."</p>
+            <p className="pt-4">The urge for wastage left me.</p>
             <p>That desire for fantasy gone.</p>
-            <p>My confusion disappeared.</p>
-            <p>The curses undone.</p>
+            <p className="pt-4">The partridge became free.</p>
+            <p className="pt-4">I was bound in spiritual chains.</p>
+            <p>Jesus shattered them.</p>
           </div>
         </motion.div>
       </section>
@@ -115,23 +180,19 @@ export default function Home() {
           viewport={{ once: true, amount: 0.15 }}
           className="max-w-2xl mx-auto space-y-12"
         >
-          <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">Samuel's Story</h2>
+          <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">Samuel's Freedom</h2>
 
           <div className="space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light border-l-4 border-rc-accent pl-8">
-            <p>In 2015.</p>
-            <p>His friend died at 23.</p>
-            <p>Samuel knew he was next.</p>
-            <p>Samuel had wealth.</p>
+            <p>He had it all.</p>
             <p>But there was no peace.</p>
-            <p>A spirit lived inside him.</p>
-            <p>Two people in one body.</p>
-            <p>Fear.</p>
-            <p>Isolation.</p>
-            <p>Everything troubling him.</p>
-            <p className="pt-2">Then came Jesus Christ.</p>
-            <p className="pt-4">One touch from His servant.</p>
+            <p className="pt-4">A spirit lived inside him.</p>
+            <p>Two entities in one body.</p>
+            <p>Fear. Isolation.</p>
+            <p className="pt-6">Then came Jesus Christ.</p>
+            <p>One touch from His servant.</p>
             <p>The spirit left him.</p>
             <p>His identity restored.</p>
+            <p className="pt-4">Everything changed.</p>
           </div>
         </motion.div>
       </section>
@@ -145,13 +206,15 @@ export default function Home() {
           viewport={{ once: true, amount: 0.15 }}
           className="max-w-2xl mx-auto space-y-12"
         >
-          <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight tracking-tight">Your Story</h2>
+          <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight tracking-tight">Your Freedom</h2>
 
           <div className="space-y-4 text-base md:text-lg text-white/90 leading-relaxed font-light">
-            <p>Jesus Christ delivered me.</p>
-            <p>He delivered Samuel.</p>
-            <p className="pt-2">Now it's your turn.</p>
-            <p>He's waiting for you.</p>
+            <p>Samuel was delivered.</p>
+            <p>You could be next.</p>
+            <p className="pt-4">I am calling you to freedom.</p>
+            <p className="pt-4">Confess it to Jesus.</p>
+            <p>Ask Him to deliver you today.</p>
+            <p>Tomorrow may be too late.</p>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 pt-4">
@@ -159,7 +222,7 @@ export default function Home() {
               href="/stories"
               className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-white text-rc-text font-medium rounded-lg hover:bg-white/95 hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300"
             >
-              Watch Samuel's Full Story
+              See the Full Story
             </a>
             <button
               onClick={() => {
@@ -168,7 +231,7 @@ export default function Home() {
               }}
               className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] text-white font-medium border border-white/60 rounded-lg hover:border-white hover:bg-white/10 hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300"
             >
-              Request Deliverance
+              Prepare for Deliverance
             </button>
           </div>
         </motion.div>
@@ -210,7 +273,7 @@ export default function Home() {
                         value={deliverance.need}
                         onChange={(e) => setDeliverance({ ...deliverance, need: e.target.value })}
                         className="w-full px-4 py-3 border border-rc-border rounded-lg focus:outline-none focus:border-rc-accent/60 transition-colors bg-white text-rc-text resize-none"
-                        placeholder="What binds you?"
+                        placeholder="What is destroying you?"
                         rows={3}
                       />
                     </div>
@@ -393,7 +456,7 @@ export default function Home() {
                     Live Teaching and Meeting With Brother Jimi
                   </h2>
                   <p className="text-rc-text/70 text-sm mb-6">
-                    Friday, August 15 at 7:00 PM · Mango Farm, Abokobi
+                    Friday, August 15 at 7:00 PM · Patmos Retreat Centre, Larteh Junction, Akpropong
                   </p>
                   <form
                     onSubmit={async (e) => {
