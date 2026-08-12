@@ -35,14 +35,14 @@ export default function Home() {
   return (
     <div className="bg-rc-bg text-rc-text relative">
       {/* HERO */}
-      <section className="w-full min-h-screen flex flex-col justify-center bg-gradient-to-br from-rc-accent to-rc-text px-6 sm:px-8 md:px-12 py-32 md:py-40">
-        <div className="max-w-3xl mx-auto w-full flex flex-col justify-center">
-          <div className={`transform transition-all duration-600 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '100ms' }}>
-            <blockquote className="space-y-12">
-              <p className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white leading-tight font-rc-serif font-light italic tracking-tight">
+      <section className="w-full min-h-screen flex flex-col justify-center bg-gradient-to-br from-rc-accent to-rc-text px-6 sm:px-8 md:px-12 py-24 md:py-32">
+        <div className="max-w-2xl mx-auto w-full flex flex-col justify-center">
+          <div className={`transform transition-all duration-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '0ms' }}>
+            <blockquote className="space-y-8">
+              <p className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white leading-relaxed font-rc-serif font-light italic">
                 "That no man go beyond and defraud his brother in any matter: because that the Lord is the avenger of all such, as we also have forewarned you and testified."
               </p>
-              <p className="text-lg md:text-xl text-white/85 font-light tracking-wide">
+              <p className="text-base md:text-lg text-white/80 font-light">
                 — 1 Thessalonians 4:6
               </p>
             </blockquote>
@@ -186,17 +186,17 @@ export default function Home() {
       </section>
 
       {/* YOUR TURN */}
-      <section className="w-full py-32 md:py-40 px-6 sm:px-8 md:px-12 bg-gradient-to-br from-rc-accent to-rc-text border-t border-rc-border">
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-gradient-to-br from-rc-accent to-rc-text border-t border-rc-border">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
           viewport={{ once: true, amount: 0.15 }}
-          className="max-w-2xl mx-auto space-y-16"
+          className="max-w-2xl mx-auto space-y-12"
         >
-          <h2 className="text-5xl md:text-6xl font-rc-serif font-bold text-white leading-tight tracking-tight">Your Freedom</h2>
+          <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight tracking-tight">Your Freedom</h2>
 
-          <div className="space-y-6 text-lg md:text-xl text-white/95 leading-relaxed font-light">
+          <div className="space-y-4 text-base md:text-lg text-white/90 leading-relaxed font-light">
             <p>I was delivered.</p>
             <p>Samuel was delivered.</p>
             <p className="pt-4">Now it's your turn.</p>
@@ -205,10 +205,10 @@ export default function Home() {
             <p className="pt-4">Will you turn to Him?</p>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 pt-8">
+          <div className="flex flex-col sm:flex-row gap-4 pt-4">
             <a
               href="/stories"
-              className="inline-flex items-center justify-center px-8 py-4 min-h-[52px] bg-white text-rc-text font-medium rounded-lg hover:bg-white/90 hover:-translate-y-1 hover:shadow-2xl active:translate-y-0 transition-all duration-300 ease-out"
+              className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-white text-rc-text font-medium rounded-lg hover:bg-white/95 hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300"
             >
               See the Full Story
             </a>
@@ -217,7 +217,7 @@ export default function Home() {
                 setIsModalOpen(true);
                 setDeliverance({ step: 1, need: '', duration: '', name: '', email: '', phone: '', submitted: false });
               }}
-              className="inline-flex items-center justify-center px-8 py-4 min-h-[52px] text-white font-medium border-2 border-white/70 rounded-lg hover:border-white hover:bg-white/15 hover:-translate-y-1 hover:shadow-2xl active:translate-y-0 transition-all duration-300 ease-out backdrop-blur-sm"
+              className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] text-white font-medium border border-white/60 rounded-lg hover:border-white hover:bg-white/10 hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300"
             >
               Prepare for Deliverance
             </button>
@@ -444,7 +444,7 @@ export default function Home() {
                     Live Teaching and Meeting With Brother Jimi
                   </h2>
                   <p className="text-rc-text/70 text-sm mb-6">
-                    Friday, August 15, 2025 at 3:00 PM · SCOAN Accra, Ghana
+                    Friday, August 15 at 7:00 PM · Patmos Retreat Centre, Larteh Junction, Akpropong
                   </p>
                   <form
                     onSubmit={async (e) => {
