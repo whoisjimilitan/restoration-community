@@ -150,7 +150,7 @@ export default function Home() {
 
           <div className="space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light border-l-4 border-rc-accent pl-8">
             <p>I too was once controlled by that spirit.</p>
-            <p>I told myself I was collecting what was looted.</p>
+            <p>I told myself I was collecting what was stolen.</p>
             <p>I convinced myself I had no choice.</p>
             <p className="pt-4">I had it all.</p>
             <p>But there was no peace.</p>
