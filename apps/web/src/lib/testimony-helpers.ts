@@ -1,4 +1,26 @@
-import { Testimony, TestimonyImage } from '@prisma/client';
+// Type definitions for testimony data (Prisma types imported at runtime)
+interface TestimonyImage {
+  id: string;
+  url: string;
+  alt: string;
+  type: string;
+  heroImageId?: string | null;
+  createdAt: Date;
+}
+
+interface Testimony {
+  id: string;
+  name: string;
+  role: string;
+  stage: number;
+  quote: string;
+  story: string;
+  heroImageId?: string | null;
+  heroImage?: TestimonyImage | null;
+  proofImages: TestimonyImage[];
+  createdAt: Date;
+  updatedAt: Date;
+}
 
 export interface TestimonyWithImages extends Testimony {
   heroImage?: TestimonyImage | null;
