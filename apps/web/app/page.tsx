@@ -121,14 +121,14 @@ export default function Home() {
           viewport={{ once: true, amount: 0.15 }}
           className="max-w-2xl mx-auto space-y-12"
         >
-          <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">The Spirit Behind Fraud</h2>
+          <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">The Spirit</h2>
 
           <div className="space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light border-l-4 border-rc-accent pl-8">
             <p>When you believe a lie</p>
             <p>for the promise of gain,</p>
             <p>you agree with deception.</p>
             <p>And its spirit enters you.</p>
-            <p className="pt-4">Two entities now live in one body.</p>
+            <p className="pt-4">Two entities but one body.</p>
             <p>You war against yourself.</p>
             <p className="pt-4">One wants you to inherit His wrath.</p>
             <p>The other may not.</p>
@@ -152,7 +152,7 @@ export default function Home() {
             <p>I too was once controlled by that spirit.</p>
             <p>I told myself I was collecting what was looted.</p>
             <p>I convinced myself I had no choice.</p>
-            <p className="pt-4">I had some wealth.</p>
+            <p className="pt-4">I had it all.</p>
             <p>But there was no peace.</p>
             <p className="pt-4">The partridge was me.</p>
             <p>Hatching eggs I did not lay.</p>
