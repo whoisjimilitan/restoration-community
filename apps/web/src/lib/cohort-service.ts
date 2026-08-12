@@ -8,11 +8,11 @@ export async function getCohortStats(cohortId: string) {
     include: { currentStage: true, user: true }
   });
 
-  const byStage = participants.reduce((acc, p) => {
-    const stageName = p.currentStage.name;
+  const byStage: Record<string, number> = participants.reduce((acc: any, p: any) => {
+    const stageName = p.currentStage?.name || 'unknown';
     acc[stageName] = (acc[stageName] || 0) + 1;
     return acc;
-  }, {} as Record<string, number>);
+  }, {});
 
   const stats = {
     totalParticipants: participants.length,
