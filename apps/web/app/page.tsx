@@ -38,26 +38,42 @@ export default function Home() {
       <section className="w-full min-h-screen flex flex-col justify-center bg-gradient-to-br from-rc-accent to-rc-text px-6 sm:px-8 md:px-12 py-24 md:py-32">
         <div className="max-w-2xl mx-auto w-full space-y-16 flex flex-col justify-center">
           <div className={`transform transition-all duration-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '0ms' }}>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-rc-serif font-bold text-white leading-tight tracking-tight">
-              Fraud. God.
+            <h1 className="text-6xl sm:text-7xl md:text-8xl font-rc-serif font-bold text-white leading-tight tracking-tight">
+              REPENT
             </h1>
           </div>
 
-          <div className={`transform transition-all duration-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '120ms' }}>
-            <blockquote className="border-l-4 border-white/40 pl-6 py-4 space-y-4">
-              <p className="text-lg md:text-xl text-white/90 leading-relaxed font-rc-serif font-light">
-                "Like a partridge that hatches eggs it did not lay
+          <div className={`transform transition-all duration-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '100ms' }}>
+            <div className="space-y-6">
+              <p className="text-xl md:text-2xl text-white/95 leading-relaxed font-rc-serif font-light">
+                Gains from fraud are not a blessing.
                 <br />
-                are those who gain riches by fraud.
+                They are a curse.
                 <br />
-                <br />
-                At midlife they will prove to be fools,
-                <br />
-                and in the end they will face the consequences of their folly."
+                God is the avenger.
               </p>
-              <p className="text-sm md:text-base text-white/70 font-light">
-                — Jeremiah 17:11
-              </p>
+            </div>
+          </div>
+
+          <div className={`transform transition-all duration-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '200ms' }}>
+            <blockquote className="border-l-4 border-white/40 pl-6 py-6 space-y-6">
+              <div className="space-y-4">
+                <p className="text-base md:text-lg text-white/90 leading-relaxed font-rc-serif font-light italic">
+                  "Like a partridge that hatches eggs it did not lay are those who gain riches by fraud. At midlife they will prove to be fools, and in the end they will face the consequences of their folly."
+                </p>
+                <p className="text-sm md:text-base text-white/70 font-light">
+                  — Jeremiah 17:11
+                </p>
+              </div>
+
+              <div className="border-t border-white/20 pt-6 space-y-4">
+                <p className="text-base md:text-lg text-white/90 leading-relaxed font-rc-serif font-light italic">
+                  "The Lord will punish all those who commit such sins, as we told you and warned you before."
+                </p>
+                <p className="text-sm md:text-base text-white/70 font-light">
+                  — 1 Thessalonians 4:6
+                </p>
+              </div>
             </blockquote>
           </div>
         </div>
