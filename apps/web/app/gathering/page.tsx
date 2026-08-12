@@ -54,12 +54,12 @@ export default function GatheringPage() {
             <p className="text-base text-rc-text/70 font-light">
               Friday, August 15, 2025 · 7:00 PM
               <br />
-              Patmos Retreat Centre, Larteh Junction, Akpropong
+              Mango Farm, Abokobi
             </p>
           </div>
 
           <a
-            href="https://maps.google.com/?q=Patmos+Retreat+Centre+Larteh+Junction+Akpropong"
+            href="https://maps.google.com/?q=Mango+Farm+Abokobi"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-rc-accent text-white font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-200"
