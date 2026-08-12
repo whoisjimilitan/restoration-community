@@ -25,14 +25,14 @@ export default function GatheringPage() {
 
           <div className={`transform transition-all duration-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '80ms' }}>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight tracking-tight">
-              Prayer. Deliverance. Discipleship.
+              This is where it becomes real.
             </h1>
           </div>
 
           <div className={`transform transition-all duration-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '160ms' }}>
             <div className="space-y-3 text-base md:text-lg text-white/90 leading-relaxed font-light">
-              <p>Where transformation becomes real through presence and community.</p>
-              <p className="pt-2">This is where your 7-stage journey begins.</p>
+              <p>Prayer. Deliverance. Discipleship.</p>
+              <p className="pt-2">In community. Together.</p>
             </div>
           </div>
         </div>

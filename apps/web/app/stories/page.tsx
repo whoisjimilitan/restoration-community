@@ -67,14 +67,14 @@ export default function StoriesPage() {
 
           <div className={`transform transition-all duration-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '80ms' }}>
             <div className="space-y-3">
-              <p className="text-3xl sm:text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight tracking-tight">Not stories of shame.</p>
-              <p className="text-3xl sm:text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight tracking-tight">Stories of freedom.</p>
+              <p className="text-3xl sm:text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight tracking-tight">You have seen what the spirit does.</p>
+              <p className="text-3xl sm:text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight tracking-tight">You have seen Jesus break it.</p>
             </div>
           </div>
 
           <div className={`transform transition-all duration-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '160ms' }}>
             <p className="text-base md:text-lg text-white/90 leading-relaxed font-light">
-              Real people. Real stories. Jesus Christ.
+              Now meet those who have been delivered.
             </p>
           </div>
         </div>

@@ -26,14 +26,14 @@ export default function JourneyPage() {
 
           <div>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight tracking-tight">
-              The 7-Stage Journey
+              You said yes.
             </h1>
           </div>
 
           <div>
             <div className="space-y-4 text-base md:text-lg text-white/90 leading-relaxed font-light">
-              <p>Welcome to your restoration journey.</p>
-              <p className="pt-2">Here is where Jesus Christ continues the work that began at the gathering.</p>
+              <p>Now walk this path.</p>
+              <p className="pt-2">Here are the seven stages of restoration.</p>
             </div>
           </div>
 
