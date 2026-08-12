@@ -25,14 +25,14 @@ export default function GatheringPage() {
 
           <div className={`transform transition-all duration-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '80ms' }}>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight tracking-tight">
-              Jesus Christ delivers here.
+              God's love sustains your salvation.
             </h1>
           </div>
 
           <div className={`transform transition-all duration-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '160ms' }}>
             <div className="space-y-3 text-base md:text-lg text-white/90 leading-relaxed font-light">
-              <p>In prayer. In the presence. In community.</p>
-              <p className="pt-2">His power breaks the chains.</p>
+              <p>In prayer. In community. In the presence of His people.</p>
+              <p className="pt-2">Walk your salvation together.</p>
             </div>
           </div>
         </div>
