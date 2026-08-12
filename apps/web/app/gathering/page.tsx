@@ -121,7 +121,7 @@ export default function GatheringPage() {
             <div className="space-y-3 border-l-4 border-rc-accent pl-8">
               <p className="text-sm font-medium text-rc-text uppercase tracking-wide">Community</p>
               <p className="text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
-                Jesus is here. In the company of the delivered. You are not alone in this.
+                Jesus is here. With the delivered. Not alone.
               </p>
             </div>
 
