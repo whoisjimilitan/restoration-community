@@ -83,9 +83,9 @@ export default function GatheringPage() {
           </h2>
 
           <div className="space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
-            <p>Jesus didn't heal people from a distance. He showed up. He was present.</p>
-            <p>Deliverance is real when you're with others. In prayer. In witness. When you know you're not alone.</p>
-            <p>This gathering is where you meet Jesus and your community. It's where everything begins.</p>
+            <p>Jesus showed up. He didn't heal from a distance.</p>
+            <p>Neither do we.</p>
+            <p>You need to be here. Not alone.</p>
           </div>
         </motion.div>
       </section>
@@ -107,35 +107,35 @@ export default function GatheringPage() {
             <div className="space-y-3 border-l-4 border-rc-accent pl-8">
               <p className="text-sm font-medium text-rc-text uppercase tracking-wide">Teaching</p>
               <p className="text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
-                Brother Jimi walks you through your 7-stage journey. Why each stage matters. What you'll face. How Jesus leads you forward.
+                Jesus speaks. About fraud. About freedom. About what He demands. What He offers.
               </p>
             </div>
 
             <div className="space-y-3 border-l-4 border-rc-accent pl-8">
               <p className="text-sm font-medium text-rc-text uppercase tracking-wide">Prayer</p>
               <p className="text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
-                We pray together. The Holy Spirit meets you where you are. God begins to show you things about yourself and your situation.
+                Jesus hears. He cuts through the lies you've built. He shows you yourself.
               </p>
             </div>
 
             <div className="space-y-3 border-l-4 border-rc-accent pl-8">
               <p className="text-sm font-medium text-rc-text uppercase tracking-wide">Community</p>
               <p className="text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
-                You're not alone. You meet others on this same journey. You find your mentor. You begin.
+                Jesus is here. In the company of the delivered. You are not alone in this.
               </p>
             </div>
 
             <div className="space-y-3 border-l-4 border-rc-accent pl-8">
               <p className="text-sm font-medium text-rc-text uppercase tracking-wide">Counsel</p>
               <p className="text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
-                One-on-one conversations where someone listens. Where God speaks through the wisdom of those who've been delivered.
+                Jesus sent them. Delivered ones. Speaking what Jesus does.
               </p>
             </div>
           </div>
 
           <div className="pt-8 border-t border-rc-border/30 space-y-4">
             <p className="text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
-              When the gathering ends, your private journey starts. For six weeks you work through the seven stages with your mentor. You pray. You confess. You experience Jesus in a way you never have before.
+              The gathering ends. Your real work begins. Six weeks. Jesus breaks what fraud built. He restores what it destroyed. He demands your honesty. He gives you freedom.
             </p>
           </div>
         </motion.div>

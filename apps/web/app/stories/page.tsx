@@ -209,9 +209,9 @@ export default function StoriesPage() {
 
             <div className="border-t border-white/20 pt-8">
               <div className="space-y-4 text-base md:text-lg text-white/90 leading-relaxed font-light">
-                <p>What comes next is the gathering.</p>
-                <p className="pt-2">Transformation becomes real through community prayer and presence.</p>
-                <p className="pt-2">Then begins your private 7-stage journey of restoration.</p>
+                <p>What comes next: the gathering.</p>
+                <p className="pt-2">Not alone.</p>
+                <p className="pt-2">Jesus meets you there.</p>
               </div>
             </div>
           </div>
