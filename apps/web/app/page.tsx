@@ -46,13 +46,11 @@ export default function Home() {
           <div className={`transform transition-all duration-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '100ms' }}>
             <div className="space-y-6">
               <p className="text-xl md:text-2xl text-white/95 leading-relaxed font-rc-serif font-light">
-                Satan wants you to think you should do anything for money.
+                Gains from fraud are not a blessing.
                 <br />
-                He deceives you with promises.
+                They are a curse.
                 <br />
-                But he is snarling your soul.
-                <br />
-                God will avenge it.
+                God is the avenger.
               </p>
             </div>
           </div>
@@ -126,16 +124,15 @@ export default function Home() {
           <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">The Spirit Behind Fraud</h2>
 
           <div className="space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light border-l-4 border-rc-accent pl-8">
-            <p>Satan deceives you with a promise.</p>
-            <p>You believe the lie.</p>
-            <p>You agree with the deception.</p>
-            <p>And his spirit enters you.</p>
+            <p>When you believe a lie</p>
+            <p>for the promise of gain,</p>
+            <p>you agree with deception.</p>
+            <p>And its spirit enters you.</p>
             <p className="pt-4">Two entities now live in one body.</p>
             <p>You war against yourself.</p>
-            <p className="pt-4">One wants you to inherit his wrath.</p>
+            <p className="pt-4">One wants you to inherit His wrath.</p>
             <p>The other may not.</p>
-            <p className="pt-4">Only One Man can separate you from that spirit.</p>
-            <p>Only Jesus can break the snare.</p>
+            <p className="pt-4">Only One Man can separate you.</p>
           </div>
         </motion.div>
       </section>
@@ -153,7 +150,6 @@ export default function Home() {
 
           <div className="space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light border-l-4 border-rc-accent pl-8">
             <p>I too was once controlled by that spirit.</p>
-            <p>Satan deceived me with a promise.</p>
             <p>I told myself I was collecting what was looted.</p>
             <p>I convinced myself I had no choice.</p>
             <p className="pt-4">I had some wealth.</p>
@@ -163,7 +159,6 @@ export default function Home() {
             <p>Labor without gain.</p>
             <p>Gain without substance.</p>
             <p className="pt-4">Empty. Trapped. Foolish.</p>
-            <p>That was the curse attached to my fraud.</p>
           </div>
         </motion.div>
       </section>
@@ -180,15 +175,15 @@ export default function Home() {
           <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">My Freedom</h2>
 
           <div className="space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light border-l-4 border-rc-accent pl-8">
-            <p>Jesus delivered me from that spirit.</p>
+            <p>It came in Jesus's name.</p>
             <p>In 2015, through His servant Prophet TB Joshua.</p>
             <p>One utterance: "All that is over."</p>
             <p className="pt-4">The urge for wastage left me.</p>
             <p>That desire for fantasy gone.</p>
             <p>My confusion disappeared.</p>
             <p>The curses undone.</p>
-            <p className="pt-4">I was snarled in spiritual chains.</p>
-            <p>Jesus broke them.</p>
+            <p className="pt-4">I was bound in spiritual chains.</p>
+            <p>Jesus shattered them.</p>
           </div>
         </motion.div>
       </section>
@@ -210,7 +205,6 @@ export default function Home() {
             <p className="pt-4">A spirit lived inside him.</p>
             <p>Two entities in one body.</p>
             <p>Fear. Isolation.</p>
-            <p>The curse of his fraud.</p>
             <p className="pt-6">Then came Jesus Christ.</p>
             <p>One touch from His servant.</p>
             <p>The spirit left him.</p>
@@ -232,14 +226,12 @@ export default function Home() {
           <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight tracking-tight">Your Freedom</h2>
 
           <div className="space-y-4 text-base md:text-lg text-white/90 leading-relaxed font-light">
-            <p>Jesus Christ delivered me from that spirit.</p>
-            <p>He delivered Samuel from that spirit.</p>
+            <p>I was delivered.</p>
+            <p>Samuel was delivered.</p>
             <p className="pt-4">Now it's your turn.</p>
-            <p className="pt-4">You have seen the snare.</p>
-            <p>You have seen the curses.</p>
-            <p>You have seen the freedom.</p>
-            <p className="pt-4">Will you turn to Jesus?</p>
-            <p className="pt-4">He's waiting for you.</p>
+            <p className="pt-4">You have seen what the spirit does.</p>
+            <p>You have seen Jesus break it.</p>
+            <p className="pt-4">Will you turn to Him?</p>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 pt-4">
