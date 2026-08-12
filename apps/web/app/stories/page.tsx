@@ -66,15 +66,12 @@ export default function StoriesPage() {
           </div>
 
           <div className={`transform transition-all duration-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '80ms' }}>
-            <div className="space-y-3">
-              <p className="text-3xl sm:text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight tracking-tight">You have seen what the spirit does.</p>
-              <p className="text-3xl sm:text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight tracking-tight">You have seen Jesus break it.</p>
-            </div>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight tracking-tight">Delivered.</h1>
           </div>
 
           <div className={`transform transition-all duration-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '160ms' }}>
             <p className="text-base md:text-lg text-white/90 leading-relaxed font-light">
-              Now meet those who have been delivered.
+              Here are the stories.
             </p>
           </div>
         </div>
