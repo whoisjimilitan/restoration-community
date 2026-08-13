@@ -34,38 +34,48 @@ export default function Home() {
 
   return (
     <div className="bg-rc-bg text-rc-text relative">
-      {/* HERO - Premium Minimal: Balanced Binary + Supporting Arc */}
+      {/* HERO - 8 Lenses: Tagline → Heading → Subheading → Proof → Way Out */}
       <section className="w-full min-h-screen flex flex-col justify-center bg-gradient-to-br from-rc-accent to-rc-text px-6 sm:px-8 md:px-12 py-24 md:py-32">
-        <div className="max-w-2xl mx-auto w-full flex flex-col justify-center">
-          {/* Binary Statement - Equal Weight & Size */}
+        <div className="max-w-2xl w-full flex flex-col justify-center">
+          {/* Lens 1: Tagline (small, uppercase, sets context) */}
           <div className={`transform transition-all duration-500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+            <p className="text-xs font-medium text-white/70 uppercase tracking-widest leading-relaxed">
+              The Deception You Believe
+            </p>
+          </div>
+
+          {/* Lens 1+5: Heading (STATE the truth - binary, left-aligned, no center) */}
+          <div className={`transform transition-all duration-500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ marginTop: '1.5rem' }}>
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-rc-serif font-bold text-white leading-tight tracking-tight">
               <span className="block">You think it's a blessing.</span>
-              <span className="block mt-3 md:mt-4">It is a curse.</span>
+              <span className="block mt-2">It is a curse.</span>
             </h1>
           </div>
 
-          {/* Scripture - Supporting Proof */}
-          <div className={`transform transition-all duration-500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ marginTop: '5rem' }}>
-            <blockquote className="text-center space-y-3">
+          {/* Lens 1+5: Subheading (EXPLAIN - conversational, light) */}
+          <div className={`transform transition-all duration-500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ marginTop: '2rem' }}>
+            <p className="text-base md:text-lg text-white/85 leading-relaxed font-rc-serif font-light">
+              Scripture shows what's really happening inside.
+            </p>
+          </div>
+
+          {/* Lens 5+6: Scripture (SHOW the proof - left-aligned, left border accent) */}
+          <div className={`transform transition-all duration-500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ marginTop: '3rem' }}>
+            <blockquote className="border-l-4 border-white/30 pl-6 md:pl-8 space-y-3">
               <p className="text-base md:text-lg text-white/80 leading-relaxed font-rc-serif font-light">
                 Like a partridge that hatches eggs it did not lay are those who gain riches by fraud. At midlife they will prove to be fools, and in the end they will face the consequences of their folly.
               </p>
-              <p className="text-xs md:text-sm text-white/65 font-rc-serif font-light tracking-wide">
+              <p className="text-xs md:text-sm text-white/70 font-rc-serif font-light tracking-wide">
                 — JEREMIAH 17:11
               </p>
             </blockquote>
           </div>
 
-          {/* Way Out - Judgment & Deliverance */}
-          <div className={`transform transition-all duration-500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ marginTop: '4rem' }}>
-            <div className="text-center space-y-2">
-              <p className="text-base md:text-lg text-white/85 font-rc-serif font-normal leading-relaxed">
-                Unjust gain invokes His judgment.
-              </p>
-              <p className="text-base md:text-lg text-white/85 font-rc-serif font-normal leading-relaxed">
-                Only Jesus delivers.
-              </p>
+          {/* Lens 5+6: Way Out (Judgment + Deliverance - left-aligned, unified) */}
+          <div className={`transform transition-all duration-500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ marginTop: '3rem' }}>
+            <div className="space-y-3 text-base md:text-lg text-white/85 font-rc-serif font-normal leading-relaxed">
+              <p>Unjust gain invokes His judgment.</p>
+              <p>Only Jesus delivers.</p>
             </div>
           </div>
         </div>
