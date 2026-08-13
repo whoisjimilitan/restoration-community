@@ -43,10 +43,11 @@ export default function Home() {
             loop
             muted
             playsInline
+            preload="auto"
             poster="/images/hero-fallback.jpg"
             className="absolute inset-0 w-full h-full object-cover"
           >
-            <source src="/videos/hero.mp4" type="video/mp4" />
+            <source src="/videos/hero-optimized.mp4" type="video/mp4" />
             {/* Fallback image: frame from video */}
             <img
               src="/images/hero-fallback.jpg"
@@ -55,7 +56,7 @@ export default function Home() {
             />
           </video>
           {/* Gradient polish overlay - creates refined, premium effect */}
-          <div className="absolute inset-0 bg-gradient-to-r from-rc-accent via-rc-accent/85 to-rc-accent/40"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-rc-accent via-rc-accent/85 to-rc-accent/50"></div>
         </div>
 
         {/* Content - Left-Aligned on top */}
@@ -63,14 +64,14 @@ export default function Home() {
           {/* Setup Line */}
           <div className={`transform transition-all duration-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '0ms' }}>
             <p className="text-base md:text-lg text-white/75 font-rc-serif font-normal leading-relaxed">
-              You think fraud gains are a blessing.
+              Your gain from fraud feels like a blessing.
             </p>
           </div>
 
           {/* Main Statement */}
           <div className={`transform transition-all duration-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ marginTop: '1.5rem', transitionDelay: '80ms' }}>
             <h1 className="text-5xl sm:text-6xl md:text-7xl font-rc-serif font-bold text-white leading-tight tracking-tight">
-              It is a curse.
+              It's a curse.
             </h1>
           </div>
         </div>
