@@ -53,11 +53,14 @@ export default function Home() {
 
           {/* Scripture - The Validation */}
           <div className={`transform transition-all duration-600 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`} style={{ transitionDelay: '300ms' }}>
-            <blockquote className="border-l-4 border-white/30 pl-6 md:pl-8 space-y-4">
-              <p className="text-base md:text-lg text-white/90 leading-relaxed font-rc-serif font-normal">
-                "Like a partridge that hatches eggs it did not lay are those who gain riches by fraud. At midlife they will prove to be fools, and in the end they will face the consequences of their folly."
-              </p>
-              <p className="text-sm md:text-base text-white/70 font-rc-serif font-light">
+            <blockquote className="border-l-4 border-white/30 pl-6 md:pl-8 space-y-3">
+              <div className="text-base md:text-lg text-white/90 leading-relaxed font-rc-serif font-normal space-y-2">
+                <p>Like a partridge that hatches eggs it did not lay</p>
+                <p>are those who gain riches by fraud.</p>
+                <p className="pt-2">At midlife they will prove to be fools,</p>
+                <p>and in the end they will face the consequences of their folly.</p>
+              </div>
+              <p className="text-sm md:text-base text-white/70 font-rc-serif font-light pt-2">
                 — Jeremiah 17:11
               </p>
             </blockquote>
@@ -66,7 +69,7 @@ export default function Home() {
           {/* The Consequence */}
           <div className={`transform transition-all duration-600 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`} style={{ transitionDelay: '450ms' }}>
             <p className="text-base md:text-lg text-white/95 font-rc-serif font-medium leading-relaxed">
-              God is the avenger of unjust gain.
+              Unjust gain invokes His judgment. Only Jesus can deliver you from it.
             </p>
           </div>
         </div>
