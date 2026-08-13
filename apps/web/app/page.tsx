@@ -34,35 +34,32 @@ export default function Home() {
 
   return (
     <div className="bg-rc-bg text-rc-text relative">
-      {/* HERO - Centered, Prophetic: Tagline → Binary + Watermark */}
+      {/* HERO - Left-Aligned, Full-Screen Watermark + Premium Typography */}
       <section className="w-full min-h-screen flex flex-col justify-center bg-gradient-to-br from-rc-accent to-rc-text px-6 sm:px-8 md:px-12 py-24 md:py-32 relative overflow-hidden">
-        {/* Watermark Background - Subtle Authority Anchor */}
+        {/* Full-Screen Watermark - Brother Jimi Presence */}
         <div className="absolute inset-0 pointer-events-none">
           <img
             src="/images/brother-jimi-hero-watermark.jpg"
-            alt="Brother Jimi"
-            className="absolute inset-0 w-full h-full object-cover opacity-10"
+            alt=""
+            loading="lazy"
+            decoding="async"
+            className="absolute inset-0 w-full h-full object-cover object-[center_30%] opacity-8"
           />
+          {/* Gradient overlay to protect text readability */}
+          <div className="absolute inset-0 bg-gradient-to-r from-rc-accent via-rc-accent/80 to-rc-accent/50"></div>
         </div>
 
-        {/* Content - Layered on top */}
-        <div className="max-w-2xl mx-auto w-full flex flex-col justify-center space-y-6 relative z-10">
-          {/* Tagline - Authority & Context */}
-          <div className={`transform transition-all duration-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '0ms' }}>
-            <p className="text-xs font-medium text-white/70 uppercase tracking-widest leading-relaxed">
-              The Mind of God on Fraud
-            </p>
-          </div>
-
+        {/* Content - Left-Aligned on top */}
+        <div className="max-w-2xl w-full flex flex-col justify-center relative z-10">
           {/* Setup Line */}
-          <div className={`transform transition-all duration-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '80ms' }}>
+          <div className={`transform transition-all duration-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '0ms' }}>
             <p className="text-base md:text-lg text-white/75 font-rc-serif font-normal leading-relaxed">
-              You think it's a blessing.
+              You think the gains from fraud is a blessing.
             </p>
           </div>
 
           {/* Main Statement */}
-          <div className={`transform transition-all duration-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '160ms' }}>
+          <div className={`transform transition-all duration-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ marginTop: '1.5rem', transitionDelay: '80ms' }}>
             <h1 className="text-5xl sm:text-6xl md:text-7xl font-rc-serif font-bold text-white leading-tight tracking-tight">
               It is a curse.
             </h1>
