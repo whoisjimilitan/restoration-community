@@ -34,17 +34,19 @@ export default function Home() {
 
   return (
     <div className="bg-rc-bg text-rc-text relative">
-      {/* HERO - Left-Aligned, Subtle Watermark Polish + Premium Typography */}
+      {/* HERO - Left-Aligned, Premium Polish Effect + Brother Jimi Presence */}
       <section className="w-full min-h-screen flex flex-col justify-center bg-gradient-to-br from-rc-accent to-rc-text px-6 sm:px-8 md:px-12 py-24 md:py-32 relative overflow-hidden">
-        {/* Subtle Watermark - Polish Effect Only */}
+        {/* Premium Polish Layer - Image + Gradient Overlay */}
         <div className="absolute inset-0 pointer-events-none">
           <img
             src="/images/brother-jimi-hero-watermark.jpg"
             alt=""
             loading="lazy"
             decoding="async"
-            className="absolute inset-0 w-full h-full object-cover object-[center_25%] opacity-4"
+            className="absolute inset-0 w-full h-full object-cover object-[center_20%] opacity-7"
           />
+          {/* Gradient polish overlay - creates refined, premium effect */}
+          <div className="absolute inset-0 bg-gradient-to-r from-rc-accent via-rc-accent/85 to-rc-accent/40"></div>
         </div>
 
         {/* Content - Left-Aligned on top */}
