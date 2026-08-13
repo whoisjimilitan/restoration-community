@@ -39,25 +39,25 @@ export default function Home() {
         <div className="max-w-3xl mx-auto w-full flex flex-col justify-center space-y-16">
           {/* The Lie */}
           <div className={`transform transition-all duration-500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '0ms' }}>
-            <p className="text-sm md:text-base text-white/70 font-light tracking-wider uppercase">
-              You think it's a blessing.
+            <p className="text-sm md:text-base text-white/60 font-rc-serif font-light tracking-widest uppercase leading-relaxed">
+              You think it is a blessing.
             </p>
           </div>
 
           {/* The Truth - Main Hero */}
           <div className={`transform transition-all duration-600 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`} style={{ transitionDelay: '150ms' }}>
-            <h1 className="text-6xl sm:text-7xl md:text-8xl font-rc-serif font-bold text-white leading-tight tracking-tight">
-              It's a curse.
+            <h1 className="text-5xl sm:text-6xl md:text-7xl font-rc-serif font-bold text-white leading-tight tracking-tight">
+              It is a curse.
             </h1>
           </div>
 
           {/* Scripture - The Validation */}
           <div className={`transform transition-all duration-600 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`} style={{ transitionDelay: '300ms' }}>
-            <blockquote className="border-l-4 border-white/40 pl-8 space-y-6">
-              <p className="text-lg md:text-xl text-white/95 leading-relaxed font-rc-serif font-light italic">
+            <blockquote className="border-l-4 border-white/30 pl-8 space-y-6">
+              <p className="text-lg md:text-xl text-white/90 leading-relaxed font-rc-serif font-light italic">
                 "Like a partridge that hatches eggs it did not lay are those who gain riches by fraud. At midlife they will prove to be fools, and in the end they will face the consequences of their folly."
               </p>
-              <p className="text-base md:text-lg text-white/70 font-light">
+              <p className="text-base text-white/70 font-rc-serif font-light">
                 — Jeremiah 17:11
               </p>
             </blockquote>
@@ -65,7 +65,7 @@ export default function Home() {
 
           {/* The Consequence */}
           <div className={`transform transition-all duration-600 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`} style={{ transitionDelay: '450ms' }}>
-            <p className="text-xl md:text-2xl text-white/90 font-light leading-relaxed">
+            <p className="text-lg md:text-xl text-white/95 font-rc-serif font-medium leading-relaxed">
               God is the avenger of unjust gain.
             </p>
           </div>
