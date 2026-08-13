@@ -34,29 +34,47 @@ export default function Home() {
 
   return (
     <div className="bg-rc-bg text-rc-text relative">
-      {/* HERO - Premium Minimal Binary + Scripture */}
+      {/* HERO - Premium Minimal: Lie, Truth, Proof, Judgment, Deliverance */}
       <section className="w-full min-h-screen flex flex-col justify-center bg-gradient-to-br from-rc-accent to-rc-text px-6 sm:px-8 md:px-12 py-24 md:py-32">
-        <div className="max-w-2xl mx-auto w-full flex flex-col justify-center space-y-0">
-          {/* The Binary - Conversational Contrast */}
+        <div className="max-w-2xl mx-auto w-full flex flex-col justify-center">
+          {/* 1. The Lie - What They Believe */}
           <div className={`transform transition-all duration-500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
             <p className="text-base md:text-lg text-white/70 font-rc-serif font-normal leading-relaxed">
-              You think it's a blessing.
+              You think fraud gains are a blessing.
             </p>
-            <h1 className="text-5xl sm:text-6xl md:text-7xl font-rc-serif font-bold text-white leading-tight tracking-tight mt-2">
+          </div>
+
+          {/* 2. The Truth - The Reality */}
+          <div className={`transform transition-all duration-500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ marginTop: '2rem' }}>
+            <h1 className="text-5xl sm:text-6xl md:text-7xl font-rc-serif font-bold text-white leading-tight tracking-tight">
               It is a curse.
             </h1>
           </div>
 
-          {/* Scripture Validation - Unified with Binary */}
-          <div className={`transform transition-all duration-500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ marginTop: '3rem' }}>
-            <blockquote className="border-l-4 border-white/30 pl-6 md:pl-8">
-              <p className="text-base md:text-lg text-white/90 leading-relaxed font-rc-serif font-normal">
+          {/* 3. The Proof - Scripture Centered */}
+          <div className={`transform transition-all duration-500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ marginTop: '4rem', marginBottom: '4rem' }}>
+            <blockquote className="text-center space-y-4">
+              <p className="text-lg md:text-xl text-white/85 leading-relaxed font-rc-serif font-light">
                 Like a partridge that hatches eggs it did not lay are those who gain riches by fraud. At midlife they will prove to be fools, and in the end they will face the consequences of their folly.
               </p>
-              <p className="text-sm md:text-base text-white/70 font-rc-serif font-light mt-4">
+              <p className="text-sm md:text-base text-white/70 font-rc-serif font-light">
                 — Jeremiah 17:11
               </p>
             </blockquote>
+          </div>
+
+          {/* 4. The Judgment */}
+          <div className={`transform transition-all duration-500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ marginTop: '2rem' }}>
+            <p className="text-lg md:text-xl text-white/95 font-rc-serif font-normal leading-relaxed">
+              Unjust gain invokes His judgment.
+            </p>
+          </div>
+
+          {/* 5. The Deliverance */}
+          <div className={`transform transition-all duration-500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ marginTop: '1.5rem' }}>
+            <p className="text-lg md:text-xl text-white/95 font-rc-serif font-normal leading-relaxed">
+              Only Jesus delivers.
+            </p>
           </div>
         </div>
       </section>
