@@ -25,7 +25,7 @@ export default function GatheringPage() {
 
           <div className={`transform transition-all duration-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '80ms' }}>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight tracking-tight">
-              Your restoration continues here.
+              His grace continues here.
             </h1>
           </div>
 
