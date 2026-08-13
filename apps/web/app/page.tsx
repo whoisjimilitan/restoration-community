@@ -62,10 +62,9 @@ export default function Home() {
                 <p>At midlife they will prove to be fools.</p>
               </div>
               <div className="text-base md:text-lg text-white/90 leading-relaxed font-rc-serif font-normal space-y-2">
-                <p>And in the end they will face</p>
-                <p>the consequences of their folly.</p>
+                <p>In the end, they face the consequences of their folly.</p>
               </div>
-              <p className="text-sm md:text-base text-white/70 font-rc-serif font-light pt-4">
+              <p className="text-sm md:text-base text-white/70 font-rc-serif font-light pt-2">
                 — Jeremiah 17:11
               </p>
             </blockquote>
