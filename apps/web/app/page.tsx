@@ -34,55 +34,29 @@ export default function Home() {
 
   return (
     <div className="bg-rc-bg text-rc-text relative">
-      {/* HERO */}
+      {/* HERO - Premium Minimal Binary + Scripture */}
       <section className="w-full min-h-screen flex flex-col justify-center bg-gradient-to-br from-rc-accent to-rc-text px-6 sm:px-8 md:px-12 py-24 md:py-32">
-        <div className="max-w-3xl mx-auto w-full flex flex-col justify-center space-y-12 md:space-y-16">
-          {/* Section 1: The Lie */}
-          <div className={`transform transition-all duration-500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '0ms' }}>
-            <p className="text-xs md:text-sm text-white/60 font-rc-serif font-light tracking-widest uppercase leading-relaxed">
-              You think it is a blessing.
+        <div className="max-w-2xl mx-auto w-full flex flex-col justify-center space-y-0">
+          {/* The Binary - Conversational Contrast */}
+          <div className={`transform transition-all duration-500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+            <p className="text-base md:text-lg text-white/70 font-rc-serif font-normal leading-relaxed">
+              You think it's a blessing.
             </p>
-          </div>
-
-          {/* Section 2: The Truth - Main Hero */}
-          <div className={`transform transition-all duration-600 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`} style={{ transitionDelay: '500ms' }}>
-            <h1 className="text-4xl sm:text-5xl md:text-7xl font-rc-serif font-bold text-white leading-tight tracking-tight">
+            <h1 className="text-5xl sm:text-6xl md:text-7xl font-rc-serif font-bold text-white leading-tight tracking-tight mt-2">
               It is a curse.
             </h1>
           </div>
 
-          {/* Section 3: Scripture - The Validation */}
-          <div className={`transform transition-all duration-600 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`} style={{ transitionDelay: '1200ms' }}>
-            <blockquote className="border-l-4 border-white/30 pl-6 md:pl-8 space-y-4">
-              <div className="text-base md:text-lg text-white/90 leading-relaxed font-rc-serif font-normal space-y-2">
-                <p>Like a partridge that hatches eggs it did not lay</p>
-                <p>are those who gain riches by fraud.</p>
-              </div>
-              <div className="text-base md:text-lg text-white/90 leading-relaxed font-rc-serif font-normal space-y-2">
-                <p>At midlife they will prove to be fools.</p>
-              </div>
-              <div className="text-base md:text-lg text-white/90 leading-relaxed font-rc-serif font-normal space-y-2">
-                <p>In the end, they face the consequences of their folly.</p>
-              </div>
-              <p className="text-sm md:text-base text-white/70 font-rc-serif font-light pt-2">
+          {/* Scripture Validation - Unified with Binary */}
+          <div className={`transform transition-all duration-500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ marginTop: '3rem' }}>
+            <blockquote className="border-l-4 border-white/30 pl-6 md:pl-8">
+              <p className="text-base md:text-lg text-white/90 leading-relaxed font-rc-serif font-normal">
+                Like a partridge that hatches eggs it did not lay are those who gain riches by fraud. At midlife they will prove to be fools, and in the end they will face the consequences of their folly.
+              </p>
+              <p className="text-sm md:text-base text-white/70 font-rc-serif font-light mt-4">
                 — Jeremiah 17:11
               </p>
             </blockquote>
-          </div>
-
-          {/* Section 4: The Consequence */}
-          <div className={`transform transition-all duration-600 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`} style={{ transitionDelay: '1800ms' }}>
-            <div className="space-y-4 text-base md:text-lg text-white/95 font-rc-serif font-medium leading-relaxed">
-              <p>Unjust gain invokes His judgment.</p>
-              <p>Only Jesus can deliver you from it.</p>
-            </div>
-          </div>
-
-          {/* Section 5: Reading Time Indicator */}
-          <div className={`transform transition-all duration-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '2400ms' }}>
-            <p className="text-xs text-white/50 font-light tracking-wide">
-              Est. reading time: 2 minutes
-            </p>
           </div>
         </div>
       </section>
