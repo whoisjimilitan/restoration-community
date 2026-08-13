@@ -43,7 +43,7 @@ export default function Home() {
             alt=""
             loading="lazy"
             decoding="async"
-            className="absolute inset-0 w-full h-full object-cover object-center opacity-7"
+            className="absolute inset-0 w-full h-full object-cover object-center opacity-4"
           />
           {/* Gradient polish overlay - creates refined, premium effect */}
           <div className="absolute inset-0 bg-gradient-to-r from-rc-accent via-rc-accent/85 to-rc-accent/40"></div>
