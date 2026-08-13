@@ -142,6 +142,16 @@ export default function StoriesPage() {
                       &ldquo;{testimonies[0].quote}&rdquo;
                     </p>
                   </blockquote>
+
+                  {/* Scripture - Premium Quote */}
+                  <div className="my-16 md:my-20">
+                    <blockquote className="border-t border-white/15 bg-white/12 px-10 md:px-16 py-12 md:py-16 text-center space-y-6">
+                      <p className="text-xl md:text-3xl font-rc-serif font-normal text-white/98 leading-snug">
+                        Like a partridge that hatches eggs it did not lay are those who gain riches by fraud.
+                      </p>
+                      <p className="text-xs text-white/65 font-light tracking-wide">JEREMIAH 17:11</p>
+                    </blockquote>
+                  </div>
                 </motion.div>
 
                 {/* The Story */}
