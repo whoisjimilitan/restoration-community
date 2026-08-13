@@ -37,18 +37,17 @@ export default function Home() {
       {/* HERO - 8 Lenses: Tagline → Heading → Subheading → Proof → Way Out */}
       <section className="w-full min-h-screen flex flex-col justify-center bg-gradient-to-br from-rc-accent to-rc-text px-6 sm:px-8 md:px-12 py-24 md:py-32">
         <div className="max-w-2xl w-full flex flex-col justify-center">
-          {/* Lens 1: Tagline (small, uppercase, sets context) */}
+          {/* Lens 1: Tagline (small, sets up the lie) */}
           <div className={`transform transition-all duration-500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-            <p className="text-xs font-medium text-white/70 uppercase tracking-widest leading-relaxed">
-              The Deception You Believe
+            <p className="text-base md:text-lg text-white/70 font-rc-serif font-normal leading-relaxed">
+              You think it's a blessing.
             </p>
           </div>
 
-          {/* Lens 1+5: Heading (STATE the truth - binary, left-aligned, no center) */}
+          {/* Lens 1+5: Heading (STATE the truth - the main impact) */}
           <div className={`transform transition-all duration-500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ marginTop: '1.5rem' }}>
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-rc-serif font-bold text-white leading-tight tracking-tight">
-              <span className="block">You think it's a blessing.</span>
-              <span className="block mt-2">It is a curse.</span>
+              It is a curse.
             </h1>
           </div>
 
