@@ -1,7 +1,8 @@
 {
   "pipeline": {
     "build": {
-      "cache": true
+      "cache": true,
+      "outputs": [".next/**", "dist/**"]
     },
     "dev": {
       "cache": false,
