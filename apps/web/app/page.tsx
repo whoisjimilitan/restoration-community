@@ -34,17 +34,25 @@ export default function Home() {
 
   return (
     <div className="bg-rc-bg text-rc-text relative">
-      {/* HERO - Left-Aligned, Premium Polish Effect + Brother Jimi Presence */}
+      {/* HERO - Video + Premium Polish + Typography */}
       <section className="w-full min-h-screen flex flex-col justify-center bg-gradient-to-br from-rc-accent to-rc-text px-6 sm:px-8 md:px-12 py-24 md:py-32 relative overflow-hidden">
-        {/* Premium Polish Layer - Image + Gradient Overlay */}
+        {/* Muted Autoplay Video - Meditation/Presence */}
         <div className="absolute inset-0 pointer-events-none">
-          <img
-            src="/images/brother-jimi-hero-watermark.jpg"
-            alt=""
-            loading="lazy"
-            decoding="async"
-            className="absolute inset-0 w-full h-full object-cover object-center opacity-4"
-          />
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+          >
+            <source src="/videos/hero.mp4" type="video/mp4" />
+            {/* Fallback image if video doesn't load */}
+            <img
+              src="/images/brother-jimi-hero-watermark.jpg"
+              alt=""
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+          </video>
           {/* Gradient polish overlay - creates refined, premium effect */}
           <div className="absolute inset-0 bg-gradient-to-r from-rc-accent via-rc-accent/85 to-rc-accent/40"></div>
         </div>
