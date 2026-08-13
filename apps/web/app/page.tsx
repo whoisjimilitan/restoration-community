@@ -45,14 +45,14 @@ export default function Home() {
           </div>
 
           {/* Section 2: The Truth - Main Hero */}
-          <div className={`transform transition-all duration-600 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`} style={{ transitionDelay: '150ms' }}>
+          <div className={`transform transition-all duration-600 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`} style={{ transitionDelay: '500ms' }}>
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-rc-serif font-bold text-white leading-tight tracking-tight">
               It is a curse.
             </h1>
           </div>
 
           {/* Section 3: Scripture - The Validation */}
-          <div className={`transform transition-all duration-600 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`} style={{ transitionDelay: '300ms' }}>
+          <div className={`transform transition-all duration-600 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`} style={{ transitionDelay: '1200ms' }}>
             <blockquote className="border-l-4 border-white/30 pl-6 md:pl-8 space-y-4">
               <div className="text-base md:text-lg text-white/90 leading-relaxed font-rc-serif font-normal space-y-2">
                 <p>Like a partridge that hatches eggs it did not lay</p>
@@ -71,7 +71,7 @@ export default function Home() {
           </div>
 
           {/* Section 4: The Consequence */}
-          <div className={`transform transition-all duration-600 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`} style={{ transitionDelay: '450ms' }}>
+          <div className={`transform transition-all duration-600 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`} style={{ transitionDelay: '1800ms' }}>
             <div className="space-y-4 text-base md:text-lg text-white/95 font-rc-serif font-medium leading-relaxed">
               <p>Unjust gain invokes His judgment.</p>
               <p>Only Jesus can deliver you from it.</p>
