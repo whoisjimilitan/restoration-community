@@ -34,14 +34,26 @@ export default function Home() {
 
   return (
     <div className="bg-rc-bg text-rc-text relative">
-      {/* HERO - Minimal Statement */}
+      {/* HERO - Centered, Prophetic: Tagline → Binary */}
       <section className="w-full min-h-screen flex flex-col justify-center bg-gradient-to-br from-rc-accent to-rc-text px-6 sm:px-8 md:px-12 py-24 md:py-32">
-        <div className="max-w-2xl w-full flex flex-col justify-center">
-          <div className={`transform transition-all duration-500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-            <p className="text-base md:text-lg text-white/70 font-rc-serif font-normal leading-relaxed">
+        <div className="max-w-2xl mx-auto w-full flex flex-col justify-center space-y-6">
+          {/* Tagline - Authority & Context */}
+          <div className={`transform transition-all duration-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '0ms' }}>
+            <p className="text-xs font-medium text-white/70 uppercase tracking-widest leading-relaxed">
+              The Mind of God on Fraud
+            </p>
+          </div>
+
+          {/* Setup Line */}
+          <div className={`transform transition-all duration-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '80ms' }}>
+            <p className="text-base md:text-lg text-white/75 font-rc-serif font-normal leading-relaxed">
               You think it's a blessing.
             </p>
-            <h1 className="text-5xl sm:text-6xl md:text-7xl font-rc-serif font-bold text-white leading-tight tracking-tight mt-2">
+          </div>
+
+          {/* Main Statement */}
+          <div className={`transform transition-all duration-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '160ms' }}>
+            <h1 className="text-5xl sm:text-6xl md:text-7xl font-rc-serif font-bold text-white leading-tight tracking-tight">
               It is a curse.
             </h1>
           </div>
