@@ -70,7 +70,7 @@ export default function StoriesPage() {
           </div>
 
           <div className={`transform transition-all duration-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '160ms' }}>
-            <p className="text-base md:text-lg text-white/90 leading-relaxed font-light">
+            <p className="text-base md:text-lg text-white/90 leading-relaxed font-rc-serif font-light">
               Here are the stories.
             </p>
           </div>
@@ -138,7 +138,7 @@ export default function StoriesPage() {
                   </div>
 
                   <blockquote className="border-l-4 border-[#D4A574] pl-8 pt-2">
-                    <p className="text-xl md:text-2xl font-rc-serif italic text-white/95 leading-relaxed">
+                    <p className="text-lg md:text-xl font-rc-serif font-normal text-white/95 leading-relaxed">
                       &ldquo;{testimonies[0].quote}&rdquo;
                     </p>
                   </blockquote>
@@ -216,17 +216,17 @@ export default function StoriesPage() {
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 pt-4">
+          <div className="flex flex-col sm:flex-row gap-4 pt-8">
             <a
               href="/gathering"
-              className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-white text-rc-text font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-200"
+              className="inline-flex items-center justify-center px-8 py-4 min-h-[52px] bg-white text-rc-text font-medium rounded-lg hover:bg-white/95 hover:-translate-y-1 hover:shadow-xl active:translate-y-0 transition-all duration-300 ease-out"
             >
               Attend the Gathering
             </a>
 
             <a
               href="/journey-preview"
-              className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] text-white font-medium border border-white/60 rounded-lg hover:border-white hover:bg-white/10 hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-200"
+              className="inline-flex items-center justify-center px-8 py-4 min-h-[52px] text-white font-medium border-2 border-white/70 rounded-lg hover:border-white hover:bg-white/15 hover:-translate-y-1 hover:shadow-xl active:translate-y-0 transition-all duration-300 ease-out"
             >
               Preview the 7-Stage Journey
             </a>
