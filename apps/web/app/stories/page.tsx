@@ -209,7 +209,7 @@ export default function StoriesPage() {
 
             <div className="border-t border-white/20 pt-8">
               <div className="space-y-4 text-base md:text-lg text-white/90 leading-relaxed font-light">
-                <p>What comes next: the gathering.</p>
+                <p>What comes next: The Gathering.</p>
                 <p className="pt-2">Not alone.</p>
                 <p className="pt-2">Jesus meets you there.</p>
               </div>
