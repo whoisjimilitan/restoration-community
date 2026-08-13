@@ -34,19 +34,17 @@ export default function Home() {
 
   return (
     <div className="bg-rc-bg text-rc-text relative">
-      {/* HERO - Left-Aligned, Full-Screen Watermark + Premium Typography */}
+      {/* HERO - Left-Aligned, Subtle Watermark Polish + Premium Typography */}
       <section className="w-full min-h-screen flex flex-col justify-center bg-gradient-to-br from-rc-accent to-rc-text px-6 sm:px-8 md:px-12 py-24 md:py-32 relative overflow-hidden">
-        {/* Full-Screen Watermark - Brother Jimi Presence */}
+        {/* Subtle Watermark - Polish Effect Only */}
         <div className="absolute inset-0 pointer-events-none">
           <img
             src="/images/brother-jimi-hero-watermark.jpg"
             alt=""
             loading="lazy"
             decoding="async"
-            className="absolute inset-0 w-full h-full object-cover object-[center_30%] opacity-8"
+            className="absolute inset-0 w-full h-full object-cover object-[center_25%] opacity-4"
           />
-          {/* Gradient overlay to protect text readability */}
-          <div className="absolute inset-0 bg-gradient-to-r from-rc-accent via-rc-accent/80 to-rc-accent/50"></div>
         </div>
 
         {/* Content - Left-Aligned on top */}
@@ -54,7 +52,7 @@ export default function Home() {
           {/* Setup Line */}
           <div className={`transform transition-all duration-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ transitionDelay: '0ms' }}>
             <p className="text-base md:text-lg text-white/75 font-rc-serif font-normal leading-relaxed">
-              You think the gains from fraud is a blessing.
+              You think fraud gains are a blessing.
             </p>
           </div>
 
