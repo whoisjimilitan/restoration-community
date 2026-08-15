@@ -155,9 +155,8 @@ export default function Home() {
           <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">The Only Way</h2>
 
           <div className="space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light border-l-4 border-rc-accent pl-8">
-            <p>We cannot save ourselves.</p>
-            <p>We cannot deliver ourselves.</p>
-            <p>We cannot separate ourselves.</p>
+            <p>You cannot save yourself.</p>
+            <p>You cannot deliver yourself.</p>
 
             <p className="pt-4">Only One Man can.</p>
             <p>His name is Jesus Christ.</p>
@@ -165,8 +164,8 @@ export default function Home() {
             <p className="pt-4">By acting faith in Him,</p>
             <p>you fetch in His grace.</p>
 
-            <p className="pt-4">Believe what you have read.</p>
-            <p>Confess with your mouth.</p>
+            <p className="pt-4">Believe what you have just read.</p>
+            <p>Confess your sins with your mouth.</p>
             <p>Repent genuinely.</p>
 
             <p className="pt-4">You will be delivered.</p>
