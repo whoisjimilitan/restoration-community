@@ -118,7 +118,7 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* MY STORY */}
+      {/* MY STORY + THE WAY OUT - Continuous Narrative */}
       <section className="w-full py-32 md:py-40 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -127,60 +127,34 @@ export default function Home() {
           viewport={{ once: true, amount: 0.15 }}
           className="max-w-2xl mx-auto space-y-12"
         >
-          <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">My Story</h2>
-
-          <div className="space-y-6 text-base md:text-lg text-rc-text/80 leading-relaxed font-light border-l-4 border-rc-accent pl-8">
-            <p>I too was once controlled by that spirit.</p>
-            <p>I told myself I was taking back our money.</p>
-            <p>I convinced myself I had no choice.</p>
-            <p className="pt-4">Even though I had it all.</p>
-            <p>But there was no peace.</p>
-            <p className="pt-4">That partridge was me.</p>
-            <p>Hatching eggs I did not lay.</p>
-            <p>Labor without gain.</p>
-            <p>Gain without substance.</p>
-            <p className="pt-4">Just as the Bible says.</p>
-          </div>
-        </motion.div>
-      </section>
-
-      {/* THE WAY OUT - Repentance Theology */}
-      <section className="w-full py-32 md:py-40 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
-          viewport={{ once: true, amount: 0.15 }}
-          className="max-w-2xl mx-auto space-y-16"
-        >
-          <div className="space-y-6">
-            <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">The Way Out</h2>
-            <div className="w-12 h-1 bg-rc-accent"></div>
-          </div>
-
           <div className="space-y-12">
-            <div className="space-y-3">
-              <p className="text-sm font-medium text-rc-accent uppercase tracking-wide">First</p>
-              <h3 className="text-2xl font-rc-serif font-bold text-rc-text">Believe.</h3>
-              <p className="text-base md:text-lg text-rc-text/75 leading-relaxed font-light">
-                Jesus breaks chains. He's stronger than what binds you.
-              </p>
+            <div className="space-y-6 text-base md:text-lg text-rc-text/80 leading-relaxed font-light border-l-4 border-rc-accent pl-8">
+              <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text -ml-8">My Story</h2>
+              <p>I too was once controlled by that spirit.</p>
+              <p>I told myself I was taking back our money.</p>
+              <p>I convinced myself I had no choice.</p>
+              <p className="pt-4">Even though I had it all.</p>
+              <p>But there was no peace.</p>
+              <p className="pt-4">That partridge was me.</p>
+              <p>Hatching eggs I did not lay.</p>
+              <p>Labor without gain.</p>
+              <p>Gain without substance.</p>
+              <p className="pt-4">Just as the Bible says.</p>
             </div>
 
-            <div className="space-y-3">
-              <p className="text-sm font-medium text-rc-accent uppercase tracking-wide">Second</p>
-              <h3 className="text-2xl font-rc-serif font-bold text-rc-text">Confess.</h3>
-              <p className="text-base md:text-lg text-rc-text/75 leading-relaxed font-light">
-                Name what you've done. Break agreement with the lie.
-              </p>
-            </div>
-
-            <div className="space-y-3">
-              <p className="text-sm font-medium text-rc-accent uppercase tracking-wide">Third</p>
-              <h3 className="text-2xl font-rc-serif font-bold text-rc-text">Repent.</h3>
-              <p className="text-base md:text-lg text-rc-text/75 leading-relaxed font-light">
-                Turn away. Let Him rebuild you.
-              </p>
+            <div className="space-y-6 text-base md:text-lg text-rc-text/80 leading-relaxed font-light border-l-4 border-rc-accent pl-8">
+              <h3 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text -ml-8">The Way Out</h3>
+              <p>Deliverance means to be set free from sin and its penalties.</p>
+              <p className="pt-4">For me, it meant believing that Jesus could break what bound me.</p>
+              <p>It meant confessing what I had done—not to punish myself, but to break agreement with the lie.</p>
+              <p>It meant turning away. Repenting.</p>
+              <p className="pt-4">And He met me there.</p>
+              <p>In 2015, through His servant Prophet TB Joshua, one utterance changed everything.</p>
+              <p>"All that is over."</p>
+              <p className="pt-4">The urge for wastage left me.</p>
+              <p>My confusion disappeared.</p>
+              <p>The curses undone.</p>
+              <p>Jesus shattered my chains.</p>
             </div>
           </div>
         </motion.div>
