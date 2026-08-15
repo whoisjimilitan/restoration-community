@@ -81,14 +81,14 @@ export default function Home() {
               <p>It destroys people.</p>
               <p>It steals destinies.</p>
               <p>It kills nations.</p>
-              <p>It teaches others.</p>
+              <p>It lures others.</p>
               <p>It multiplies itself.</p>
             </div>
 
             <div className="pt-4 space-y-4">
-              <p>The Lord sees.</p>
-              <p>The Lord judges.</p>
-              <p>The Lord is the avenger.</p>
+              <p>The Lord sees it.</p>
+              <p>The Lord judges it.</p>
+              <p>The Lord avenges such acts.</p>
             </div>
           </div>
         </motion.div>
