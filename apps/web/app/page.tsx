@@ -155,10 +155,7 @@ export default function Home() {
           <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">The Only Way</h2>
 
           <div className="space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light border-l-4 border-rc-accent pl-8">
-            <p>You cannot save yourself.</p>
-            <p>You cannot deliver yourself.</p>
-
-            <p className="pt-4">Only One Man can.</p>
+            <p>Only One Man can deliver.</p>
             <p>His name is Jesus Christ.</p>
 
             <p className="pt-4">By acting faith in Him,</p>
