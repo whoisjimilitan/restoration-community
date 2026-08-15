@@ -17,6 +17,19 @@ interface StoryCard {
 const mockStories: StoryCard[] = [
   {
     id: '0',
+    name: 'Brother Jimi',
+    role: 'Delivered from Fraud and Greed',
+    quote: 'I was bound in spiritual chains. Jesus shattered them.',
+    story: `I told myself I was taking back our money. I convinced myself I had no choice.\n\nEven though I had it all. But there was no peace. That partridge was me. Hatching eggs I did not lay. Labor without gain. Gain without substance.\n\nIt came in Jesus's name. In 2015, through His servant Prophet TB Joshua. One utterance: "All that is over." The urge for wastage left me. That desire for fantasy gone. My confusion disappeared. The curses undone. I was bound in spiritual chains. Jesus shattered them.`,
+    heroImage: {
+      url: '/images/testimony.png',
+      alt: 'Brother Jimi - Delivered from Fraud'
+    },
+    videoUrl: 'https://www.youtube.com/embed/VIDEO_ID_HERE',
+    isFeatured: true
+  },
+  {
+    id: '1',
     name: 'Samuel Johnson',
     role: 'Delivered from Internet Fraud',
     quote: 'When the man of God touched me, I immediately saw myself facing a judge.',
@@ -77,9 +90,9 @@ export default function StoriesPage() {
         </div>
       </section>
 
-      {/* Featured Story - Samuel's Deliverance (Full-Width Dark Cinematic) */}
-      {testimonies.length > 0 && testimonies[0].isFeatured && (
-        <section className="w-screen -mx-[calc(50vw-50%)] bg-gradient-to-br from-[#0F0F0F] to-[#1a1a1a]">
+      {/* Featured Stories - Full-Width Dark Cinematic */}
+      {testimonies.length > 0 && testimonies.filter(t => t.isFeatured).map((testimony, idx) => (
+        <section key={testimony.id} className="w-screen -mx-[calc(50vw-50%)] bg-gradient-to-br from-[#0F0F0F] to-[#1a1a1a]">
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -90,8 +103,8 @@ export default function StoriesPage() {
             {/* Video Hero */}
             <div className="relative w-full aspect-video md:aspect-auto md:min-h-screen flex items-center justify-center overflow-hidden">
               <img
-                src={testimonies[0].heroImage?.url}
-                alt={testimonies[0].heroImage?.alt}
+                src={testimony.heroImage?.url}
+                alt={testimony.heroImage?.alt}
                 className="absolute inset-0 w-full h-full object-cover"
               />
 
@@ -102,9 +115,9 @@ export default function StoriesPage() {
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
 
               {/* Play Button */}
-              {testimonies[0].videoUrl && (
+              {testimony.videoUrl && (
                 <button
-                  onClick={() => setSelectedVideo(testimonies[0].videoUrl!)}
+                  onClick={() => setSelectedVideo(testimony.videoUrl!)}
                   className="relative z-10 group flex items-center justify-center hover:scale-110 transition-transform duration-300"
                 >
                   <div className="w-24 h-24 rounded-full bg-white/95 flex items-center justify-center shadow-2xl group-hover:bg-white">
@@ -130,16 +143,16 @@ export default function StoriesPage() {
                   <div className="space-y-2">
                     <p className="text-sm text-white/60 font-light tracking-wide">2015</p>
                     <h2 className="text-4xl sm:text-5xl md:text-6xl font-rc-serif font-bold text-white leading-tight tracking-tight">
-                      {testimonies[0].name}
+                      {testimony.name}
                     </h2>
                     <p className="text-lg md:text-xl text-white/80 font-light">
-                      {testimonies[0].role}
+                      {testimony.role}
                     </p>
                   </div>
 
                   <blockquote className="border-l-4 border-[#D4A574] pl-8 pt-2">
                     <p className="text-lg md:text-xl font-rc-serif font-normal text-white/95 leading-relaxed">
-                      &ldquo;{testimonies[0].quote}&rdquo;
+                      &ldquo;{testimony.quote}&rdquo;
                     </p>
                   </blockquote>
 
@@ -165,38 +178,44 @@ export default function StoriesPage() {
                   <p className="text-xs font-medium text-white/60 uppercase tracking-widest">The Story</p>
 
                   {/* Timeline: Before */}
-                  <div className="space-y-3">
-                    <p className="text-xs font-medium text-white/50 uppercase tracking-wide">Before</p>
-                    <p className="text-base md:text-lg text-white/85 leading-relaxed font-light">
-                      {testimonies[0].story.split('\n\n')[0]}
-                    </p>
-                  </div>
+                  {testimony.story.split('\n\n')[0] && (
+                    <div className="space-y-3">
+                      <p className="text-xs font-medium text-white/50 uppercase tracking-wide">Before</p>
+                      <p className="text-base md:text-lg text-white/85 leading-relaxed font-light">
+                        {testimony.story.split('\n\n')[0]}
+                      </p>
+                    </div>
+                  )}
 
                   {/* Timeline: Encounter */}
-                  <div className="space-y-3">
-                    <p className="text-xs font-medium text-white/50 uppercase tracking-wide">The Encounter</p>
-                    <p className="text-base md:text-lg text-white/85 leading-relaxed font-light">
-                      {testimonies[0].story.split('\n\n')[1]}
-                    </p>
-                  </div>
+                  {testimony.story.split('\n\n')[1] && (
+                    <div className="space-y-3">
+                      <p className="text-xs font-medium text-white/50 uppercase tracking-wide">The Encounter</p>
+                      <p className="text-base md:text-lg text-white/85 leading-relaxed font-light">
+                        {testimony.story.split('\n\n')[1]}
+                      </p>
+                    </div>
+                  )}
 
                   {/* Timeline: Lesson */}
-                  <div className="space-y-3">
-                    <p className="text-xs font-medium text-white/50 uppercase tracking-wide">The Lesson</p>
-                    <p className="text-base md:text-lg text-white/85 leading-relaxed font-light">
-                      {testimonies[0].story.split('\n\n')[2]}
-                    </p>
-                  </div>
+                  {testimony.story.split('\n\n')[2] && (
+                    <div className="space-y-3">
+                      <p className="text-xs font-medium text-white/50 uppercase tracking-wide">The Lesson</p>
+                      <p className="text-base md:text-lg text-white/85 leading-relaxed font-light">
+                        {testimony.story.split('\n\n')[2]}
+                      </p>
+                    </div>
+                  )}
 
                   <div className="pt-4 border-t border-white/10">
-                    <p className="text-sm text-white/50">41 minutes • Full confession at The SCOAN</p>
+                    <p className="text-sm text-white/50">{idx === 0 ? "Full deliverance testimony" : "41 minutes • Full confession at The SCOAN"}</p>
                   </div>
                 </motion.div>
               </div>
             </div>
           </motion.div>
         </section>
-      )}
+      ))}
 
       {/* Closing Section */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-gradient-to-br from-rc-accent to-rc-text border-t border-rc-border">
