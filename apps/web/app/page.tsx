@@ -165,13 +165,13 @@ export default function Home() {
             <p>you fetch in His grace.</p>
 
             <p className="pt-4">Believe what you have just read.</p>
-            <p>Confess your sins with your mouth.</p>
+            <p>Confess your sins.</p>
             <p>Repent genuinely.</p>
 
             <p className="pt-4">You will be delivered.</p>
             <p>You will be saved.</p>
 
-            <p className="pt-4">This begins with prayer.</p>
+            <p className="pt-4">Then you are ready for prayer.</p>
           </div>
         </motion.div>
       </section>
