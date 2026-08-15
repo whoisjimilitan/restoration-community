@@ -161,7 +161,7 @@ export default function Home() {
             <p className="pt-4">By acting faith in Him,</p>
             <p>you fetch in His grace.</p>
 
-            <p className="pt-4">Believe what you have just read.</p>
+            <p className="pt-4">Believe what you read here.</p>
             <p>Confess your sins.</p>
             <p>Repent genuinely.</p>
 
