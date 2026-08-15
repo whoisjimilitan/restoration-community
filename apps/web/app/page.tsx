@@ -155,84 +155,60 @@ export default function Home() {
         >
           <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">The Way Out</h2>
 
-          <div className="space-y-8 text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
-            <div className="space-y-3 border-l-4 border-rc-accent pl-8">
-              <p className="text-sm font-medium text-rc-accent uppercase tracking-wide">First</p>
-              <p className="text-lg font-rc-serif">Believe.</p>
-              <p>That the spirit exists. That it operates through deception. That it promises gain but brings loss. That Jesus is the only way out.</p>
-            </div>
-
-            <div className="space-y-3 border-l-4 border-rc-accent pl-8">
-              <p className="text-sm font-medium text-rc-accent uppercase tracking-wide">Second</p>
-              <p className="text-lg font-rc-serif">Confess.</p>
-              <p>Name what you have done. Not to condemn yourself, but to break agreement with the lie. Confession breaks the contract with deception.</p>
-            </div>
-
-            <div className="space-y-3 border-l-4 border-rc-accent pl-8">
-              <p className="text-sm font-medium text-rc-accent uppercase tracking-wide">Third</p>
-              <p className="text-lg font-rc-serif">Repent.</p>
-              <p>Turn away. Stop the deed. Refuse the temptation. Ask Jesus for power to walk free. Not through your strength—through His grace.</p>
-            </div>
+          <div className="space-y-6 text-base md:text-lg text-rc-text/80 leading-relaxed font-light border-l-4 border-rc-accent pl-8">
+            <p>Believe.</p>
+            <p>Jesus Christ is Lord.</p>
+            <p>He breaks chains.</p>
+            <p className="pt-4">Confess.</p>
+            <p>What you've done.</p>
+            <p>Who you've become.</p>
+            <p>The deception you've agreed with.</p>
+            <p className="pt-4">Repent.</p>
+            <p>Turn away from the lie.</p>
+            <p>Turn toward the Truth.</p>
+            <p>He receives you.</p>
+            <p className="pt-4">Will you?</p>
           </div>
         </motion.div>
       </section>
 
-      {/* ARE YOU READY? */}
-      <section className="w-full py-32 md:py-40 px-6 sm:px-8 md:px-12 bg-gradient-to-br from-rc-accent to-rc-text border-t border-rc-border">
+      {/* DO YOU NEED PRAYER? */}
+      <section className="w-full py-32 md:py-40 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
           viewport={{ once: true, amount: 0.15 }}
-          className="max-w-2xl mx-auto space-y-14"
+          className="max-w-2xl mx-auto space-y-12"
         >
-          <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight tracking-tight">Are You Ready?</h2>
+          <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">Do you need prayer?</h2>
 
-          <div className="space-y-6 text-lg md:text-xl text-white/95 leading-relaxed font-light">
-            <p>Freedom is not a prayer.</p>
-            <p>It is an encounter.</p>
-            <p className="pt-4">You need someone who has walked this path.</p>
-            <p>Someone who understands the spirit.</p>
-            <p>Someone who knows Jesus can break it.</p>
-            <p className="pt-4">Let's connect you.</p>
-          </div>
+          <p className="text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
+            Let's connect you with prayer right now.
+          </p>
 
-          <div className="grid sm:grid-cols-3 gap-4 pt-8">
+          <div className="flex flex-col sm:flex-row gap-4 pt-4">
             <button
               onClick={() => {
                 window.location.href = 'https://calendly.com/restoration-community/video-call';
               }}
-              className="inline-flex flex-col items-center justify-center px-6 py-6 min-h-[140px] bg-white/15 text-white font-medium border border-white/30 rounded-lg hover:bg-white/25 hover:border-white hover:-translate-y-1 hover:shadow-xl active:translate-y-0 transition-all duration-300 ease-out"
+              className="flex-1 px-8 py-4 bg-rc-accent text-white font-medium rounded-lg hover:bg-rc-accent/90 hover:-translate-y-1 hover:shadow-lg active:translate-y-0 transition-all duration-300"
             >
-              <svg className="w-6 h-6 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-              </svg>
               Video Call
             </button>
-
             <button
               onClick={() => {
                 window.open('https://wa.me/1234567890', '_blank');
               }}
-              className="inline-flex flex-col items-center justify-center px-6 py-6 min-h-[140px] bg-white/15 text-white font-medium border border-white/30 rounded-lg hover:bg-white/25 hover:border-white hover:-translate-y-1 hover:shadow-xl active:translate-y-0 transition-all duration-300 ease-out"
+              className="flex-1 px-8 py-4 bg-rc-accent text-white font-medium rounded-lg hover:bg-rc-accent/90 hover:-translate-y-1 hover:shadow-lg active:translate-y-0 transition-all duration-300"
             >
-              <svg className="w-6 h-6 mb-3" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.272-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-9.746 9.798c0 2.718.735 5.37 2.129 7.689L.929 23.71l8.272-2.737c2.194 1.156 4.653 1.771 7.169 1.771 5.432 0 9.852-4.48 9.797-9.798 0-2.616-.79-5.07-2.291-7.16A9.773 9.773 0 0011.95 6.979z" />
-              </svg>
               WhatsApp
             </button>
-
             <button
-              onClick={() => {
-                setIsAttendanceModalOpen(true);
-                setAttendanceStep('form');
-              }}
-              className="inline-flex flex-col items-center justify-center px-6 py-6 min-h-[140px] bg-white text-rc-text font-medium rounded-lg hover:bg-white/95 hover:-translate-y-1 hover:shadow-xl active:translate-y-0 transition-all duration-300 ease-out"
+              onClick={() => setIsAttendanceModalOpen(true)}
+              className="flex-1 px-8 py-4 bg-rc-accent text-white font-medium rounded-lg hover:bg-rc-accent/90 hover:-translate-y-1 hover:shadow-lg active:translate-y-0 transition-all duration-300"
             >
-              <svg className="w-6 h-6 mb-3 text-rc-text" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-              </svg>
-              Friday Gathering
+              Friday Call
             </button>
           </div>
         </motion.div>
