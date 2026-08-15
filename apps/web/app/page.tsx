@@ -119,103 +119,106 @@ export default function Home() {
       </section>
 
       {/* MY STORY + THE WAY OUT - Continuous Narrative */}
-      <section className="w-full py-32 md:py-40 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
           viewport={{ once: true, amount: 0.15 }}
-          className="max-w-2xl mx-auto space-y-12"
+          className="max-w-2xl mx-auto space-y-16"
         >
-          <div className="space-y-12">
-            <div className="space-y-6 text-base md:text-lg text-rc-text/80 leading-relaxed font-light border-l-4 border-rc-accent pl-8">
-              <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text -ml-8">My Story</h2>
-              <p>I too was once controlled by that spirit.</p>
-              <p>I told myself I was taking back our money.</p>
-              <p>I convinced myself I had no choice.</p>
-              <p className="pt-4">Even though I had it all.</p>
-              <p>But there was no peace.</p>
-              <p className="pt-4">That partridge was me.</p>
-              <p>Hatching eggs I did not lay.</p>
-              <p>Labor without gain.</p>
-              <p>Gain without substance.</p>
-              <p className="pt-4">Just as the Bible says.</p>
-            </div>
+          <div className="space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light border-l-4 border-rc-accent pl-8">
+            <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text -ml-8">My Story</h2>
+            <p>I too was once controlled by that spirit.</p>
+            <p>I told myself I was taking back our money.</p>
+            <p>I convinced myself I had no choice.</p>
+            <p className="pt-4">Even though I had it all.</p>
+            <p>But there was no peace.</p>
+            <p className="pt-4">That partridge was me.</p>
+            <p>Hatching eggs I did not lay.</p>
+            <p>Labor without gain.</p>
+            <p>Gain without substance.</p>
+            <p className="pt-4">Just as the Bible says.</p>
+          </div>
 
-            <div className="space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light border-l-4 border-rc-accent pl-8">
-              <h3 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text -ml-8">The Way Out</h3>
-              <p>Deliverance means to be set free.</p>
-              <p className="pt-4">Believe.</p>
-              <p>Jesus breaks chains.</p>
-              <p className="pt-4">Confess.</p>
-              <p>Break agreement with the lie.</p>
-              <p className="pt-4">Repent.</p>
-              <p>Turn away.</p>
-              <p className="pt-4">And He met me there.</p>
-              <p>2015. Prophet TB Joshua.</p>
-              <p>"All that is over."</p>
-              <p className="pt-4">The urge for wastage left.</p>
-              <p>My confusion gone.</p>
-              <p>The curses undone.</p>
-              <p>Jesus shattered my chains.</p>
-            </div>
+          <div className="space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light border-l-4 border-rc-accent pl-8">
+            <h3 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text -ml-8">The Way Out</h3>
+            <p>Deliverance means to be set free.</p>
+            <p className="pt-4">Believe.</p>
+            <p>Jesus breaks chains.</p>
+            <p className="pt-4">Confess.</p>
+            <p>Break agreement with the lie.</p>
+            <p className="pt-4">Repent.</p>
+            <p>Turn away.</p>
+            <p className="pt-4">And He met me there.</p>
+            <p>2015. Prophet TB Joshua.</p>
+            <p>"All that is over."</p>
+            <p className="pt-4">The urge for wastage left.</p>
+            <p>My confusion gone.</p>
+            <p>The curses undone.</p>
+            <p>Jesus shattered my chains.</p>
           </div>
         </motion.div>
       </section>
 
-      {/* CONNECT - Soft CTA */}
+      {/* NEXT STEP - Direct CTA */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
           viewport={{ once: true, amount: 0.15 }}
-          className="max-w-2xl mx-auto space-y-8"
+          className="max-w-2xl mx-auto space-y-12"
         >
-          <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text">Connect</h2>
+          <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text">What's Next</h2>
 
-          <div className="relative inline-block">
-            <button
-              onClick={(e) => {
-                const menu = e.currentTarget.nextElementSibling as HTMLElement;
-                menu?.classList.toggle('hidden');
-              }}
-              className="px-8 py-3 bg-rc-accent text-white font-medium rounded-lg hover:bg-rc-accent/90 hover:-translate-y-0.5 transition-all duration-300"
+          <div className="grid sm:grid-cols-3 gap-4">
+            <a
+              href="https://calendly.com/restoration-community/video-call"
+              className="p-6 border border-rc-border rounded-lg hover:bg-rc-warm-gray hover:-translate-y-1 transition-all duration-300 text-center space-y-3"
             >
-              Chat, Audio, or Video
-            </button>
-            <div className="hidden absolute top-full mt-2 left-0 bg-white border border-rc-border rounded-lg shadow-lg z-10">
-              <a
-                href="https://calendly.com/restoration-community/video-call"
-                className="block px-6 py-3 text-rc-text hover:bg-rc-bg transition-colors border-b border-rc-border last:border-b-0 text-sm"
-              >
-                Video
-              </a>
-              <a
-                href="#"
-                onClick={() => {
-                  window.open('https://wa.me/1234567890', '_blank');
-                }}
-                className="block px-6 py-3 text-rc-text hover:bg-rc-bg transition-colors border-b border-rc-border last:border-b-0 text-sm"
-              >
-                Audio
-              </a>
-              <a
-                href="#"
-                onClick={() => {
-                  window.open('https://wa.me/1234567890', '_blank');
-                }}
-                className="block px-6 py-3 text-rc-text hover:bg-rc-bg transition-colors last:border-b-0 text-sm"
-              >
-                Chat
-              </a>
-            </div>
+              <svg className="w-6 h-6 mx-auto text-rc-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+              <div>
+                <p className="font-medium text-rc-text">Video</p>
+                <p className="text-sm text-rc-text/60">Face to face</p>
+              </div>
+            </a>
+
+            <a
+              href="#"
+              onClick={() => window.open('https://wa.me/1234567890', '_blank')}
+              className="p-6 border border-rc-border rounded-lg hover:bg-rc-warm-gray hover:-translate-y-1 transition-all duration-300 text-center space-y-3"
+            >
+              <svg className="w-6 h-6 mx-auto text-rc-accent" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.272-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-9.746 9.798c0 2.718.735 5.37 2.129 7.689L.929 23.71l8.272-2.737c2.194 1.156 4.653 1.771 7.169 1.771 5.432 0 9.852-4.48 9.797-9.798 0-2.616-.79-5.07-2.291-7.16A9.773 9.773 0 0011.95 6.979z" />
+              </svg>
+              <div>
+                <p className="font-medium text-rc-text">Audio</p>
+                <p className="text-sm text-rc-text/60">Phone call</p>
+              </div>
+            </a>
+
+            <a
+              href="#"
+              onClick={() => window.open('https://wa.me/1234567890', '_blank')}
+              className="p-6 border border-rc-border rounded-lg hover:bg-rc-warm-gray hover:-translate-y-1 transition-all duration-300 text-center space-y-3"
+            >
+              <svg className="w-6 h-6 mx-auto text-rc-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+              </svg>
+              <div>
+                <p className="font-medium text-rc-text">Chat</p>
+                <p className="text-sm text-rc-text/60">Text message</p>
+              </div>
+            </a>
           </div>
         </motion.div>
       </section>
 
-      {/* FRIDAY GATHERING - Secondary CTA */}
-      <section className="w-full py-32 md:py-40 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
+      {/* FRIDAY GATHERING - Community Gathering */}
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -223,41 +226,29 @@ export default function Home() {
           viewport={{ once: true, amount: 0.15 }}
           className="max-w-2xl mx-auto space-y-12"
         >
-          <div className="space-y-6">
-            <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">Friday Gathering</h2>
-            <div className="w-12 h-1 bg-rc-accent"></div>
+          <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text">Friday Gathering</h2>
+
+          <div className="space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
+            <p>Every Friday, 3 PM EST.</p>
+            <p>Patmos Retreat Centre, Larteh Junction, Akropong.</p>
           </div>
 
-          <div className="space-y-8">
-            <div className="space-y-4">
-              <p className="text-base md:text-lg text-rc-text/75 leading-relaxed font-light">
-                Every Friday, 3 PM EST.
-              </p>
-              <p className="text-base md:text-lg text-rc-text/75 leading-relaxed font-light">
-                At Patmos Retreat Centre, Larteh Junction, Akropong.
-              </p>
-              <p className="text-base md:text-lg text-rc-text/75 leading-relaxed font-light">
-                Prayer and encounter. Nothing else.
-              </p>
-            </div>
+          <div className="flex flex-col sm:flex-row gap-4">
+            <button
+              onClick={() => setIsAttendanceModalOpen(true)}
+              className="flex-1 px-8 py-4 bg-rc-accent text-white font-medium rounded-lg hover:bg-rc-accent/90 hover:-translate-y-1 transition-all duration-300"
+            >
+              Register
+            </button>
 
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <button
-                onClick={() => setIsAttendanceModalOpen(true)}
-                className="flex-1 px-8 py-4 bg-rc-accent text-white font-medium rounded-lg hover:bg-rc-accent/90 hover:-translate-y-1 hover:shadow-lg active:translate-y-0 transition-all duration-300"
-              >
-                Register
-              </button>
-
-              <a
-                href="https://maps.google.com/?q=Patmos+Retreat+Centre+Larteh+Junction+Akropong"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-1 px-8 py-4 bg-white border border-rc-text text-rc-text font-medium rounded-lg hover:bg-rc-text/5 hover:-translate-y-1 hover:shadow-lg active:translate-y-0 transition-all duration-300"
-              >
-                Get Directions
-              </a>
-            </div>
+            <a
+              href="https://maps.google.com/?q=Patmos+Retreat+Centre+Larteh+Junction+Akropong"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 px-8 py-4 bg-white border border-rc-text text-rc-text font-medium rounded-lg hover:bg-rc-text/5 hover:-translate-y-1 transition-all duration-300"
+            >
+              Get Directions
+            </a>
           </div>
         </motion.div>
       </section>
