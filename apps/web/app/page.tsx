@@ -109,12 +109,11 @@ export default function Home() {
             <p>When you believe a lie</p>
             <p>for the promise of gain,</p>
             <p>you agree with deception.</p>
-            <p>And its spirit enters you.</p>
+            <p>And its spirit controls that agreement.</p>
             <p className="pt-4">Two entities but one body.</p>
             <p>You war against yourself.</p>
-            <p className="pt-4">One wants you to inherit His wrath.</p>
-            <p>The other may not.</p>
-            <p className="pt-4">Only One Man can separate you.</p>
+            <p className="pt-4">One wants you to inherit a curse.</p>
+            <p>The other genuinely wrestles.</p>
           </div>
         </motion.div>
       </section>
