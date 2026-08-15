@@ -81,14 +81,14 @@ export default function Home() {
               <p>It destroys people.</p>
               <p>It steals destinies.</p>
               <p>It kills nations.</p>
-              <p>It teaches others.</p>
+              <p>It lures others.</p>
               <p>It multiplies itself.</p>
             </div>
 
             <div className="pt-4 space-y-4">
-              <p>The Lord sees.</p>
-              <p>The Lord judges.</p>
-              <p>The Lord is the avenger.</p>
+              <p>The Lord sees it.</p>
+              <p>The Lord judges it.</p>
+              <p>The Lord is the avenger of such acts.</p>
             </div>
           </div>
         </motion.div>
@@ -109,12 +109,11 @@ export default function Home() {
             <p>When you believe a lie</p>
             <p>for the promise of gain,</p>
             <p>you agree with deception.</p>
-            <p>And its spirit enters you.</p>
+            <p>And its spirit controls that agreement.</p>
             <p className="pt-4">Two entities but one body.</p>
             <p>You war against yourself.</p>
-            <p className="pt-4">One wants you to inherit His wrath.</p>
-            <p>The other may not.</p>
-            <p className="pt-4">Only One Man can separate you.</p>
+            <p className="pt-4">One wants you to inherit a curse.</p>
+            <p>The other genuinely may not.</p>
           </div>
         </motion.div>
       </section>
