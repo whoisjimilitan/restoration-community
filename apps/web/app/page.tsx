@@ -142,17 +142,20 @@ export default function Home() {
               <p className="pt-4">Just as the Bible says.</p>
             </div>
 
-            <div className="space-y-6 text-base md:text-lg text-rc-text/80 leading-relaxed font-light border-l-4 border-rc-accent pl-8">
-              <h3 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text -ml-8">The Way Out</h3>
-              <p>Deliverance means to be set free from sin and its penalties.</p>
-              <p className="pt-4">For me, it meant believing that Jesus could break what bound me.</p>
-              <p>It meant confessing what I had done—not to punish myself, but to break agreement with the lie.</p>
-              <p>It meant turning away. Repenting.</p>
+            <div className="space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light border-l-4 border-rc-accent pl-8">
+              <h3 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text -ml-8">The Way Out</h3>
+              <p>Deliverance means to be set free.</p>
+              <p className="pt-4">Believe.</p>
+              <p>Jesus breaks chains.</p>
+              <p className="pt-4">Confess.</p>
+              <p>Break agreement with the lie.</p>
+              <p className="pt-4">Repent.</p>
+              <p>Turn away.</p>
               <p className="pt-4">And He met me there.</p>
-              <p>In 2015, through His servant Prophet TB Joshua, one utterance changed everything.</p>
+              <p>2015. Prophet TB Joshua.</p>
               <p>"All that is over."</p>
-              <p className="pt-4">The urge for wastage left me.</p>
-              <p>My confusion disappeared.</p>
+              <p className="pt-4">The urge for wastage left.</p>
+              <p>My confusion gone.</p>
               <p>The curses undone.</p>
               <p>Jesus shattered my chains.</p>
             </div>
@@ -160,38 +163,53 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* DO YOU NEED PRAYER? - Soft CTA */}
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
+      {/* CONNECT - Soft CTA */}
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
           viewport={{ once: true, amount: 0.15 }}
-          className="max-w-2xl mx-auto space-y-10"
+          className="max-w-2xl mx-auto space-y-8"
         >
-          <div className="space-y-4">
-            <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">Do You Need Prayer?</h2>
-            <p className="text-base text-rc-text/70 font-light">Connect now. We're listening.</p>
-          </div>
+          <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text">Connect</h2>
 
-          <div className="grid sm:grid-cols-2 gap-3">
+          <div className="relative inline-block">
             <button
-              onClick={() => {
-                window.location.href = 'https://calendly.com/restoration-community/video-call';
+              onClick={(e) => {
+                const menu = e.currentTarget.nextElementSibling as HTMLElement;
+                menu?.classList.toggle('hidden');
               }}
-              className="px-6 py-3 bg-rc-accent/8 text-rc-text font-medium border border-rc-accent/25 rounded-lg hover:bg-rc-accent/15 hover:border-rc-accent/50 hover:-translate-y-0.5 transition-all duration-300 text-sm"
+              className="px-8 py-3 bg-rc-accent text-white font-medium rounded-lg hover:bg-rc-accent/90 hover:-translate-y-0.5 transition-all duration-300"
             >
-              Video Call
+              Chat, Audio, or Video
             </button>
-
-            <button
-              onClick={() => {
-                window.open('https://wa.me/1234567890', '_blank');
-              }}
-              className="px-6 py-3 bg-rc-accent/8 text-rc-text font-medium border border-rc-accent/25 rounded-lg hover:bg-rc-accent/15 hover:border-rc-accent/50 hover:-translate-y-0.5 transition-all duration-300 text-sm"
-            >
-              WhatsApp
-            </button>
+            <div className="hidden absolute top-full mt-2 left-0 bg-white border border-rc-border rounded-lg shadow-lg z-10">
+              <a
+                href="https://calendly.com/restoration-community/video-call"
+                className="block px-6 py-3 text-rc-text hover:bg-rc-bg transition-colors border-b border-rc-border last:border-b-0 text-sm"
+              >
+                Video
+              </a>
+              <a
+                href="#"
+                onClick={() => {
+                  window.open('https://wa.me/1234567890', '_blank');
+                }}
+                className="block px-6 py-3 text-rc-text hover:bg-rc-bg transition-colors border-b border-rc-border last:border-b-0 text-sm"
+              >
+                Audio
+              </a>
+              <a
+                href="#"
+                onClick={() => {
+                  window.open('https://wa.me/1234567890', '_blank');
+                }}
+                className="block px-6 py-3 text-rc-text hover:bg-rc-bg transition-colors last:border-b-0 text-sm"
+              >
+                Chat
+              </a>
+            </div>
           </div>
         </motion.div>
       </section>
