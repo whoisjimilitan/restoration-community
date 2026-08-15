@@ -80,7 +80,6 @@ export default function Home() {
             <div className="pt-4 space-y-4">
               <p>It destroys people.</p>
               <p>It steals destinies.</p>
-              <p>It kills nations.</p>
               <p>It lures others.</p>
               <p>It multiplies itself.</p>
             </div>
