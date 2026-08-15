@@ -88,7 +88,7 @@ export default function Home() {
             <div className="pt-4 space-y-4">
               <p>The Lord sees it.</p>
               <p>The Lord judges it.</p>
-              <p>The Lord is the avenger of such acts.</p>
+              <p>The Lord avenges such acts.</p>
             </div>
           </div>
         </motion.div>
@@ -113,7 +113,7 @@ export default function Home() {
             <p className="pt-4">Two entities but one body.</p>
             <p>You war against yourself.</p>
             <p className="pt-4">One wants you to inherit a curse.</p>
-            <p>The other genuinely may not.</p>
+            <p>The other genuinely wrestles.</p>
           </div>
         </motion.div>
       </section>
@@ -131,15 +131,15 @@ export default function Home() {
 
           <div className="space-y-6 text-base md:text-lg text-rc-text/80 leading-relaxed font-light border-l-4 border-rc-accent pl-8">
             <p>I too was once controlled by that spirit.</p>
-            <p>I told myself I was collecting what was stolen.</p>
+            <p>I told myself I was taking back our money.</p>
             <p>I convinced myself I had no choice.</p>
-            <p className="pt-4">I had it all.</p>
+            <p className="pt-4">Even though I had it all.</p>
             <p>But there was no peace.</p>
-            <p className="pt-4">The partridge was me.</p>
+            <p className="pt-4">That partridge was me.</p>
             <p>Hatching eggs I did not lay.</p>
             <p>Labor without gain.</p>
             <p>Gain without substance.</p>
-            <p className="pt-4">Empty. Trapped. Foolish.</p>
+            <p className="pt-4">Just as the Bible says.</p>
           </div>
         </motion.div>
       </section>
