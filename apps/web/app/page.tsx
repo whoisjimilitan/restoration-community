@@ -173,7 +173,7 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* FORM SECTIONS */}
+      {/* THE GIFT OF PRAYER */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -182,20 +182,31 @@ export default function Home() {
           viewport={{ once: true, amount: 0.15 }}
           className="max-w-2xl mx-auto space-y-12"
         >
-          <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">Do You Need Prayer?</h2>
+          <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">The Gift Of Prayer</h2>
 
-          <div className="space-y-6">
-            <p className="text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
-              If this message resonates with you—if you're recognizing the deception in your own life—I want to pray with you. This is not condemnation. This is invitation. God sees you. He loves you. And He wants to set you free.
-            </p>
+          <div className="space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light border-l-4 border-rc-accent pl-8">
+            <p>Do you need prayer?</p>
+            <p>Yes.</p>
 
-            <button
-              onClick={() => setIsModalOpen(true)}
-              className="inline-block px-8 py-4 bg-rc-accent text-white font-rc-serif font-bold text-lg rounded-full hover:bg-rc-accent/90 transition-all"
-            >
-              Request Prayer
-            </button>
+            <p className="pt-4">The Bible says:</p>
+            <p>Ask and you shall receive.</p>
+            <p>Seek and you will find.</p>
+            <p>Knock and the door will be opened.</p>
+
+            <p className="pt-4">You cannot do this alone.</p>
+            <p>Two believers are better than one.</p>
+
+            <p className="pt-4">Use your faith.</p>
+            <p>Press the button.</p>
+            <p>And never remain the same.</p>
           </div>
+
+          <button
+            onClick={() => setIsModalOpen(true)}
+            className="inline-block px-8 py-4 bg-rc-accent text-white font-rc-serif font-bold text-lg rounded-full hover:bg-rc-accent/90 transition-all"
+          >
+            Request Prayer
+          </button>
         </motion.div>
       </section>
 
