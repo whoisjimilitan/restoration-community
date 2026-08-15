@@ -119,7 +119,7 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* MY ENCOUNTER */}
+      {/* MY STORY */}
       <section className="w-full py-32 md:py-40 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -132,26 +132,21 @@ export default function Home() {
 
           <div className="space-y-6 text-base md:text-lg text-rc-text/80 leading-relaxed font-light border-l-4 border-rc-accent pl-8">
             <p>I too was once controlled by that spirit.</p>
-
-            <p>As a young man, I was ambitious. I wanted success, influence, and money—quickly. And I found shortcuts. Small ones at first. Inflated numbers here, hidden truth there. I told myself they were harmless—just tools to move faster, to level the playing field.</p>
-
-            <p>But each lie fed the next.</p>
-
-            <p>By my early thirties, I had built an empire. Success by all accounts. But internally, I was enslaved. The more I achieved, the more paranoid I became. I couldn't trust anyone. Friends couldn't understand why I was so tense. My family saw the wealth but not the poverty of my spirit.</p>
-
-            <p>One night, I encountered Jesus. Not in a dream or vision, but in a direct word spoken to my heart. He said, "I own your future. And fraud has stolen your peace."</p>
-
-            <p>I collapsed. I wept. I confessed everything—not just to God, but to those I had hurt. The legal consequences came. The shame came. My empire crumbled.</p>
-
-            <p>But my soul was free.</p>
-
-            <p>That's when I learned: The best deception is believing you can keep both the gain AND your freedom. You cannot. One of them will own you.</p>
+            <p>I told myself I was collecting what was stolen.</p>
+            <p>I convinced myself I had no choice.</p>
+            <p className="pt-4">I had it all.</p>
+            <p>But there was no peace.</p>
+            <p className="pt-4">The partridge was me.</p>
+            <p>Hatching eggs I did not lay.</p>
+            <p>Labor without gain.</p>
+            <p>Gain without substance.</p>
+            <p className="pt-4">Empty. Trapped. Foolish.</p>
           </div>
         </motion.div>
       </section>
 
-      {/* CLOSING */}
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
+      {/* MY FREEDOM */}
+      <section className="w-full py-32 md:py-40 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -159,71 +154,83 @@ export default function Home() {
           viewport={{ once: true, amount: 0.15 }}
           className="max-w-2xl mx-auto space-y-12"
         >
-          <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">The Way Out</h2>
+          <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">My Freedom</h2>
 
           <div className="space-y-6 text-base md:text-lg text-rc-text/80 leading-relaxed font-light border-l-4 border-rc-accent pl-8">
-            <p>Repentance is not penance. It is not performance.</p>
-
-            <p>Repentance is a complete reversal—away from the lie and toward the Truth. When you repent, you don't just admit wrongdoing. You change direction. You align with God's judgment over your own deception.</p>
-
-            <p>And Jesus receives you.</p>
-
-            <p>The spirit that controlled you—that drove you to the fraud in the first place—must be cast out. Only Jesus can do this. He is the Waymaker. He is the One who breaks chains.</p>
-
-            <p>If you are trapped in fraud—if you've made gain through deception and it's costing you your peace—there is a way out. Not through hiding. Not through justification. Only through the One who conquered death itself.</p>
-
-            <p>Encounter Him. Repent. Be free.</p>
+            <p>It came in Jesus's name.</p>
+            <p>In 2015, through His servant Prophet TB Joshua.</p>
+            <p>One utterance: "All that is over."</p>
+            <p className="pt-4">The urge for wastage left me.</p>
+            <p>That desire for fantasy gone.</p>
+            <p>My confusion disappeared.</p>
+            <p>The curses undone.</p>
+            <p className="pt-4">I was bound in spiritual chains.</p>
+            <p>Jesus shattered them.</p>
           </div>
         </motion.div>
       </section>
 
-      {/* FORM SECTIONS */}
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
+      {/* SAMUEL'S FREEDOM */}
+      <section className="w-full py-32 md:py-40 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
           viewport={{ once: true, amount: 0.15 }}
           className="max-w-2xl mx-auto space-y-12"
         >
-          <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">Do You Need Prayer?</h2>
+          <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">Samuel's Freedom</h2>
 
-          <div className="space-y-6">
-            <p className="text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
-              If this message resonates with you—if you're recognizing the deception in your own life—I want to pray with you. This is not condemnation. This is invitation. God sees you. He loves you. And He wants to set you free.
-            </p>
-
-            <button
-              onClick={() => setIsModalOpen(true)}
-              className="inline-block px-8 py-4 bg-rc-accent text-white font-rc-serif font-bold text-lg rounded-full hover:bg-rc-accent/90 transition-all"
-            >
-              Request Prayer
-            </button>
+          <div className="space-y-6 text-base md:text-lg text-rc-text/80 leading-relaxed font-light border-l-4 border-rc-accent pl-8">
+            <p>He had it all.</p>
+            <p>But there was no peace.</p>
+            <p className="pt-4">A spirit lived inside him.</p>
+            <p>Two entities in one body.</p>
+            <p>Fear. Isolation.</p>
+            <p className="pt-6">Then came Jesus Christ.</p>
+            <p>One touch from His servant.</p>
+            <p>The spirit left him.</p>
+            <p>His identity restored.</p>
+            <p className="pt-4">Everything changed.</p>
           </div>
         </motion.div>
       </section>
 
-      {/* GATHERING */}
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
+      {/* YOUR FREEDOM */}
+      <section className="w-full py-32 md:py-40 px-6 sm:px-8 md:px-12 bg-gradient-to-br from-rc-accent to-rc-text border-t border-rc-border">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
           viewport={{ once: true, amount: 0.15 }}
-          className="max-w-2xl mx-auto space-y-12"
+          className="max-w-2xl mx-auto space-y-14"
         >
-          <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">Friday Gathering</h2>
+          <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight tracking-tight">Your Freedom</h2>
 
-          <div className="space-y-6">
-            <p className="text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
-              Every Friday at 3 PM EST, we gather to pray. The call is free. No agenda—just prayer. If you're facing something that fraud has bound you to, come pray with us.
-            </p>
+          <div className="space-y-6 text-lg md:text-xl text-white/95 leading-relaxed font-light">
+            <p>I was delivered.</p>
+            <p>Samuel was delivered.</p>
+            <p className="pt-4">Now it's your turn.</p>
+            <p className="pt-4">You have seen what the spirit does.</p>
+            <p>You have seen Jesus break it.</p>
+            <p className="pt-4">Will you turn to Him?</p>
+          </div>
 
-            <button
-              onClick={() => setIsAttendanceModalOpen(true)}
-              className="inline-block px-8 py-4 bg-rc-accent text-white font-rc-serif font-bold text-lg rounded-full hover:bg-rc-accent/90 transition-all"
+          <div className="flex flex-col sm:flex-row gap-4 pt-8">
+            <a
+              href="/stories"
+              className="inline-flex items-center justify-center px-8 py-4 min-h-[52px] bg-white text-rc-text font-medium rounded-lg hover:bg-white/95 hover:-translate-y-1 hover:shadow-xl active:translate-y-0 transition-all duration-300 ease-out"
             >
-              Join the Call
+              See the Full Story
+            </a>
+            <button
+              onClick={() => {
+                setIsModalOpen(true);
+                setDeliverance({ step: 1, need: '', duration: '', name: '', email: '', phone: '', submitted: false });
+              }}
+              className="inline-flex items-center justify-center px-8 py-4 min-h-[52px] text-white font-medium border-2 border-white/70 rounded-lg hover:border-white hover:bg-white/20 hover:-translate-y-1 hover:shadow-xl active:translate-y-0 transition-all duration-300 ease-out"
+            >
+              Prepare for Deliverance
             </button>
           </div>
         </motion.div>
