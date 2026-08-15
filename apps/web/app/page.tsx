@@ -130,22 +130,17 @@ export default function Home() {
         >
           <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">My Story</h2>
 
-          <div className="space-y-6 text-base md:text-lg text-rc-text/80 leading-relaxed font-light border-l-4 border-rc-accent pl-8">
+          <div className="space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light border-l-4 border-rc-accent pl-8">
             <p>I too was once controlled by that spirit.</p>
-
-            <p>As a young man, I was ambitious. I wanted success, influence, and money—quickly. And I found shortcuts. Small ones at first. Inflated numbers here, hidden truth there. I told myself they were harmless—just tools to move faster, to level the playing field.</p>
-
-            <p>But each lie fed the next.</p>
-
-            <p>By my early thirties, I had built an empire. Success by all accounts. But internally, I was enslaved. The more I achieved, the more paranoid I became. I couldn't trust anyone. Friends couldn't understand why I was so tense. My family saw the wealth but not the poverty of my spirit.</p>
-
-            <p>One night, I encountered Jesus. Not in a dream or vision, but in a direct word spoken to my heart. He said, "I own your future. And fraud has stolen your peace."</p>
-
-            <p>I collapsed. I wept. I confessed everything—not just to God, but to those I had hurt. The legal consequences came. The shame came. My empire crumbled.</p>
-
-            <p>But my soul was free.</p>
-
-            <p>That's when I learned: The best deception is believing you can keep both the gain AND your freedom. You cannot. One of them will own you.</p>
+            <p>I told myself I was taking back our money.</p>
+            <p>I convinced myself I had no choice.</p>
+            <p className="pt-4">Even though I had it all.</p>
+            <p>But there was no peace.</p>
+            <p className="pt-4">That partridge was me.</p>
+            <p>Hatching eggs I did not lay.</p>
+            <p>Labor without gain.</p>
+            <p>Gain without substance.</p>
+            <p className="pt-4">Just as the Bible says.</p>
           </div>
         </motion.div>
       </section>
