@@ -138,7 +138,6 @@ export default function Home() {
             <p>Hatching eggs I did not lay.</p>
             <p>Labor without gain.</p>
             <p>Gain without substance.</p>
-            <p className="pt-4">Just as the Bible says.</p>
           </div>
         </motion.div>
       </section>
@@ -194,7 +193,6 @@ export default function Home() {
             <p>Knock and the door will be opened.</p>
 
             <p className="pt-4">You cannot do this alone.</p>
-            <p>Two believers are better than one.</p>
 
             <p className="pt-4">Use your faith.</p>
             <p>Press the button.</p>
