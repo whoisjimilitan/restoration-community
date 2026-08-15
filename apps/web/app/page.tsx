@@ -145,7 +145,35 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* MY FREEDOM */}
+      {/* THE WAY OUT */}
+      <section className="w-full py-32 md:py-40 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+          viewport={{ once: true, amount: 0.15 }}
+          className="max-w-2xl mx-auto space-y-12"
+        >
+          <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">The Way Out</h2>
+
+          <div className="space-y-6 text-base md:text-lg text-rc-text/80 leading-relaxed font-light border-l-4 border-rc-accent pl-8">
+            <p>Believe.</p>
+            <p>Jesus Christ is Lord.</p>
+            <p>He breaks chains.</p>
+            <p className="pt-4">Confess.</p>
+            <p>What you've done.</p>
+            <p>Who you've become.</p>
+            <p>The deception you've agreed with.</p>
+            <p className="pt-4">Repent.</p>
+            <p>Turn away from the lie.</p>
+            <p>Turn toward the Truth.</p>
+            <p>He receives you.</p>
+            <p className="pt-4">Will you?</p>
+          </div>
+        </motion.div>
+      </section>
+
+      {/* DO YOU NEED PRAYER? */}
       <section className="w-full py-32 md:py-40 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -154,89 +182,93 @@ export default function Home() {
           viewport={{ once: true, amount: 0.15 }}
           className="max-w-2xl mx-auto space-y-12"
         >
-          <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">My Freedom</h2>
+          <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">Are you ready?</h2>
 
-          <div className="space-y-6 text-base md:text-lg text-rc-text/80 leading-relaxed font-light border-l-4 border-rc-accent pl-8">
-            <p>It came in Jesus's name.</p>
-            <p>In 2015, through His servant Prophet TB Joshua.</p>
-            <p>One utterance: "All that is over."</p>
-            <p className="pt-4">The urge for wastage left me.</p>
-            <p>That desire for fantasy gone.</p>
-            <p>My confusion disappeared.</p>
-            <p>The curses undone.</p>
-            <p className="pt-4">I was bound in spiritual chains.</p>
-            <p>Jesus shattered them.</p>
-          </div>
-        </motion.div>
-      </section>
+          <p className="text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
+            Let's connect you with prayer right now.
+          </p>
 
-      {/* SAMUEL'S FREEDOM */}
-      <section className="w-full py-32 md:py-40 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-          viewport={{ once: true, amount: 0.15 }}
-          className="max-w-2xl mx-auto space-y-12"
-        >
-          <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">Samuel's Freedom</h2>
-
-          <div className="space-y-6 text-base md:text-lg text-rc-text/80 leading-relaxed font-light border-l-4 border-rc-accent pl-8">
-            <p>He had it all.</p>
-            <p>But there was no peace.</p>
-            <p className="pt-4">A spirit lived inside him.</p>
-            <p>Two entities in one body.</p>
-            <p>Fear. Isolation.</p>
-            <p className="pt-6">Then came Jesus Christ.</p>
-            <p>One touch from His servant.</p>
-            <p>The spirit left him.</p>
-            <p>His identity restored.</p>
-            <p className="pt-4">Everything changed.</p>
-          </div>
-        </motion.div>
-      </section>
-
-      {/* YOUR FREEDOM */}
-      <section className="w-full py-32 md:py-40 px-6 sm:px-8 md:px-12 bg-gradient-to-br from-rc-accent to-rc-text border-t border-rc-border">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-          viewport={{ once: true, amount: 0.15 }}
-          className="max-w-2xl mx-auto space-y-14"
-        >
-          <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight tracking-tight">Your Freedom</h2>
-
-          <div className="space-y-6 text-lg md:text-xl text-white/95 leading-relaxed font-light">
-            <p>I was delivered.</p>
-            <p>Samuel was delivered.</p>
-            <p className="pt-4">Now it's your turn.</p>
-            <p className="pt-4">You have seen what the spirit does.</p>
-            <p>You have seen Jesus break it.</p>
-            <p className="pt-4">Will you turn to Him?</p>
-          </div>
-
-          <div className="flex flex-col sm:flex-row gap-4 pt-8">
-            <a
-              href="/stories"
-              className="inline-flex items-center justify-center px-8 py-4 min-h-[52px] bg-white text-rc-text font-medium rounded-lg hover:bg-white/95 hover:-translate-y-1 hover:shadow-xl active:translate-y-0 transition-all duration-300 ease-out"
-            >
-              See the Full Story
-            </a>
+          <div className="flex flex-col sm:flex-row gap-4 pt-4">
             <button
-              onClick={() => {
-                setIsModalOpen(true);
-                setDeliverance({ step: 1, need: '', duration: '', name: '', email: '', phone: '', submitted: false });
-              }}
-              className="inline-flex items-center justify-center px-8 py-4 min-h-[52px] text-white font-medium border-2 border-white/70 rounded-lg hover:border-white hover:bg-white/20 hover:-translate-y-1 hover:shadow-xl active:translate-y-0 transition-all duration-300 ease-out"
+              onClick={() => setIsModalOpen(true)}
+              className="flex-1 px-8 py-4 bg-rc-accent text-white font-medium rounded-lg hover:bg-rc-accent/90 hover:-translate-y-1 hover:shadow-lg active:translate-y-0 transition-all duration-300"
             >
-              Prepare for Deliverance
+              Video Call
+            </button>
+            <button
+              onClick={() => setIsModalOpen(true)}
+              className="flex-1 px-8 py-4 bg-rc-accent text-white font-medium rounded-lg hover:bg-rc-accent/90 hover:-translate-y-1 hover:shadow-lg active:translate-y-0 transition-all duration-300"
+            >
+              Chat
+            </button>
+            <button
+              onClick={() => setIsModalOpen(true)}
+              className="flex-1 px-8 py-4 bg-rc-accent text-white font-medium rounded-lg hover:bg-rc-accent/90 hover:-translate-y-1 hover:shadow-lg active:translate-y-0 transition-all duration-300"
+            >
+              Phone Call
             </button>
           </div>
         </motion.div>
       </section>
 
-      {/* PRAYER REQUEST MODAL */}
+      {/* FRIDAY GATHERING */}
+      <section className="w-full py-32 md:py-40 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+          viewport={{ once: true, amount: 0.15 }}
+          className="max-w-2xl mx-auto space-y-12"
+        >
+          <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">Friday Gathering</h2>
+
+          <p className="text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
+            Every Friday at 3 PM EST, we gather to pray. The call is free. No agenda—just prayer and encounter. If you're facing something that fraud has bound you to, come pray with us.
+          </p>
+
+          <button
+            onClick={() => setIsAttendanceModalOpen(true)}
+            className="px-8 py-4 bg-rc-accent text-white font-medium rounded-lg hover:bg-rc-accent/90 hover:-translate-y-1 hover:shadow-lg active:translate-y-0 transition-all duration-300"
+          >
+            Join the Call
+          </button>
+        </motion.div>
+      </section>
+
+      {/* FOOTER */}
+      <footer className="w-full px-6 sm:px-8 md:px-12 py-12 bg-rc-text border-t border-rc-border text-center">
+        <div className="max-w-2xl mx-auto space-y-8">
+          <h3 className="text-lg md:text-xl font-rc-serif font-bold text-white">You Are Not Alone</h3>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-8 flex-wrap">
+            <a
+              href="/gathering"
+              className="text-white/80 hover:text-white transition-colors group text-sm"
+            >
+              Friday Gathering
+              <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
+            </a>
+            <a
+              href="/stories"
+              className="text-white/80 hover:text-white transition-colors group text-sm"
+            >
+              Stories of Freedom
+              <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
+            </a>
+            <a
+              href="/journey"
+              className="text-white/80 hover:text-white transition-colors group text-sm"
+            >
+              Your Journey
+              <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
+            </a>
+          </div>
+
+          <p className="text-white/40 text-xs">© 2026. All rights reserved.</p>
+        </div>
+      </footer>
+
+      {/* DELIVERANCE REQUEST MODAL */}
       <AnimatePresence>
         {isModalOpen && (
           <motion.div
