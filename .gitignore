@@ -44,3 +44,6 @@ lerna-debug.log*
 
 # Local Netlify folder
 .netlify
+
+# Vercel deployment config (local cache, should not be committed)
+.vercel
