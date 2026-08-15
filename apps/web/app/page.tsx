@@ -143,7 +143,7 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* CLOSING */}
+      {/* THE ONLY WAY */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -152,20 +152,27 @@ export default function Home() {
           viewport={{ once: true, amount: 0.15 }}
           className="max-w-2xl mx-auto space-y-12"
         >
-          <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">The Way Out</h2>
+          <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">The Only Way</h2>
 
-          <div className="space-y-6 text-base md:text-lg text-rc-text/80 leading-relaxed font-light border-l-4 border-rc-accent pl-8">
-            <p>Repentance is not penance. It is not performance.</p>
+          <div className="space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light border-l-4 border-rc-accent pl-8">
+            <p>We cannot save ourselves.</p>
+            <p>We cannot deliver ourselves.</p>
+            <p>We cannot separate ourselves.</p>
 
-            <p>Repentance is a complete reversal—away from the lie and toward the Truth. When you repent, you don't just admit wrongdoing. You change direction. You align with God's judgment over your own deception.</p>
+            <p className="pt-4">Only One Man can.</p>
+            <p>His name is Jesus Christ.</p>
 
-            <p>And Jesus receives you.</p>
+            <p className="pt-4">By acting faith in Him,</p>
+            <p>you fetch in His grace.</p>
 
-            <p>The spirit that controlled you—that drove you to the fraud in the first place—must be cast out. Only Jesus can do this. He is the Waymaker. He is the One who breaks chains.</p>
+            <p className="pt-4">Believe what you have read.</p>
+            <p>Confess with your mouth.</p>
+            <p>Repent genuinely.</p>
 
-            <p>If you are trapped in fraud—if you've made gain through deception and it's costing you your peace—there is a way out. Not through hiding. Not through justification. Only through the One who conquered death itself.</p>
+            <p className="pt-4">You will be delivered.</p>
+            <p>You will be saved.</p>
 
-            <p>Encounter Him. Repent. Be free.</p>
+            <p className="pt-4">This begins with prayer.</p>
           </div>
         </motion.div>
       </section>
