@@ -4,7 +4,50 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { AnimatePresence } from 'framer-motion';
 
+const GATHERING_TZ = 'America/New_York';
+
+/** Next Friday, 3 PM America/New_York. Deterministic given "now", so safe to compute in a
+ *  useState initializer with no layout shift or hydration mismatch. */
+function getNextGathering(): Date {
+  const now = new Date();
+  const zonedNow = new Date(now.toLocaleString('en-US', { timeZone: GATHERING_TZ }));
+  const day = zonedNow.getDay();
+  const daysUntilFriday = (5 - day + 7) % 7;
+
+  const zonedCandidate = new Date(zonedNow);
+  zonedCandidate.setDate(zonedNow.getDate() + daysUntilFriday);
+  zonedCandidate.setHours(15, 0, 0, 0);
+
+  if (daysUntilFriday === 0 && zonedNow >= zonedCandidate) {
+    zonedCandidate.setDate(zonedCandidate.getDate() + 7);
+  }
+
+  const offsetMinutes = (zonedNow.getTime() - now.getTime()) / 60000;
+  return new Date(zonedCandidate.getTime() - offsetMinutes * 60000);
+}
+
+function formatGatheringDate(d: Date): string {
+  return d.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', timeZone: GATHERING_TZ });
+}
+
+/** Premium, subtle, on-dark button — same approved color/shape as the rest of the site,
+ *  weightier motion (slower ease, gentle lift, soft glow) reserved for this closing section. */
+function ReturnButton({ onClick, children }: { onClick: () => void; children: React.ReactNode }) {
+  return (
+    <button
+      onClick={onClick}
+      className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] text-white font-medium border-2 border-white rounded-lg
+        transition-all duration-300 ease-out
+        hover:bg-white/10 hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(255,255,255,0.15)]
+        focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+    >
+      {children}
+    </button>
+  );
+}
+
 export default function Home() {
+  const [nextGathering] = useState(getNextGathering);
   const [isLoaded, setIsLoaded] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [deliverance, setDeliverance] = useState({
@@ -172,8 +215,8 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* THE GIFT OF PRAYER */}
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
+      {/* COME PRAY — Return Section, bookends the hero */}
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-gradient-to-br from-rc-accent to-rc-text border-t border-rc-border">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -181,58 +224,54 @@ export default function Home() {
           viewport={{ once: true, amount: 0.15 }}
           className="max-w-2xl mx-auto space-y-12"
         >
-          <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">The Grace Of Prayer</h2>
+          <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight tracking-tight">Come Pray</h2>
 
-          <div className="space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light border-l-4 border-rc-accent pl-8">
+          <div className="space-y-4 text-base md:text-lg text-white/90 leading-relaxed font-light">
             <p>Do you need prayer?</p>
-            <p>Yes.</p>
+            <p>Yes, we all do.</p>
 
-            <p className="pt-4">The Bible says:</p>
-            <p>Ask and you shall receive.</p>
-            <p>Seek and you will find.</p>
-            <p>Knock and the door will be opened.</p>
+            <p className="pt-4">Ask, and it will be given.</p>
+            <p>Seek, and you will find.</p>
+            <p>Knock, and the door will be opened.</p>
 
-            <p className="pt-4">You cannot do this alone.</p>
-
-            <p className="pt-4">Use your faith.</p>
-            <p>Press the button.</p>
-            <p>And never remain the same.</p>
+            <p className="pt-4 font-medium">You cannot do this alone.</p>
           </div>
 
-          <button
-            onClick={() => setIsModalOpen(true)}
-            className="inline-block px-8 py-4 bg-rc-accent text-white font-rc-serif font-bold text-lg rounded-full hover:bg-rc-accent/90 transition-all"
-          >
-            Request Prayer
-          </button>
+          <ReturnButton onClick={() => setIsModalOpen(true)}>Request Prayer</ReturnButton>
+
+          <div className="space-y-2 text-base md:text-lg text-white/90 leading-relaxed font-light pt-8 border-t border-white/15">
+            <p className="pt-8">Next Gathering: {formatGatheringDate(nextGathering)}, 3 PM EST.</p>
+            <p>Free. No agenda.</p>
+          </div>
+
+          <ReturnButton onClick={() => setIsAttendanceModalOpen(true)}>Join the Gathering</ReturnButton>
         </motion.div>
       </section>
 
-      {/* GATHERING */}
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
-          viewport={{ once: true, amount: 0.15 }}
-          className="max-w-2xl mx-auto space-y-12"
-        >
-          <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">Friday Gathering</h2>
-
-          <div className="space-y-6">
-            <p className="text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
-              Every Friday at 3 PM EST, we gather to pray. The call is free. No agenda—just prayer. If you're facing something that fraud has bound you to, come pray with us.
-            </p>
-
-            <button
-              onClick={() => setIsAttendanceModalOpen(true)}
-              className="inline-block px-8 py-4 bg-rc-accent text-white font-rc-serif font-bold text-lg rounded-full hover:bg-rc-accent/90 transition-all"
-            >
-              Join the Call
-            </button>
+      {/* Footer */}
+      <footer className="w-full px-6 sm:px-8 md:px-12 py-8 bg-rc-text border-t border-rc-border text-center">
+        <div className="max-w-2xl mx-auto space-y-6">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 flex-wrap">
+            <a href="/" className="text-white/80 hover:text-white transition-colors group text-sm">
+              Home
+              <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
+            </a>
+            <a href="/stories" className="text-white/80 hover:text-white transition-colors group text-sm">
+              Stories
+              <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
+            </a>
+            <a href="/gathering" className="text-white/80 hover:text-white transition-colors group text-sm">
+              Gathering
+              <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
+            </a>
+            <a href="/journey" className="text-white/80 hover:text-white transition-colors group text-sm">
+              Journey
+              <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
+            </a>
           </div>
-        </motion.div>
-      </section>
+          <p className="text-white/40 text-xs">© 2026. All rights reserved.</p>
+        </div>
+      </footer>
 
       {/* PRAYER REQUEST MODAL */}
       <AnimatePresence>
