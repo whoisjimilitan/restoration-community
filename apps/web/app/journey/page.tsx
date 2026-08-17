@@ -84,16 +84,12 @@ export default function JourneyPage() {
               Home
               <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
             </a>
-            <a href="/stories" className="text-white/80 hover:text-white transition-colors group text-sm">
-              Stories
-              <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
-            </a>
-            <a href="/gathering" className="text-white/80 hover:text-white transition-colors group text-sm">
-              Gathering
+            <a href="/deliverances" className="text-white/80 hover:text-white transition-colors group text-sm">
+              Deliverances
               <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
             </a>
             <a href="/journey" className="text-white/80 hover:text-white transition-colors group text-sm">
-              Journey
+              Sign In
               <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
             </a>
           </div>

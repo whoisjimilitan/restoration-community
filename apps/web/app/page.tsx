@@ -1,12 +1,24 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { AnimatePresence } from 'framer-motion';
+import { useState, useEffect, useRef } from 'react';
+import { useSearchParams } from 'next/navigation';
+import { motion, useScroll, useTransform, AnimatePresence, type Variants } from 'framer-motion';
 
-const GATHERING_TZ = 'America/New_York';
+/** Shared reveal choreography: section container staggers its children in,
+ *  each line rises and settles on the same eased curve used site-wide. */
+const staggerContainer: Variants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.09, delayChildren: 0.05 } },
+};
 
-/** Next Friday, 3 PM America/New_York. Deterministic given "now", so safe to compute in a
+const fadeInLine: Variants = {
+  hidden: { opacity: 0, y: 16 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] } },
+};
+
+const GATHERING_TZ = 'UTC';
+
+/** Next Friday, 3 PM GMT. Deterministic given "now", so safe to compute in a
  *  useState initializer with no layout shift or hydration mismatch. */
 function getNextGathering(): Date {
   const now = new Date();
@@ -65,21 +77,27 @@ export default function Home() {
   const [attendanceData, setAttendanceData] = useState({ name: '', email: '', phone: '' });
   const [isSubmittingAttendance, setIsSubmittingAttendance] = useState(false);
 
+  const heroRef = useRef<HTMLElement>(null);
+  const { scrollYProgress: heroScroll } = useScroll({ target: heroRef, offset: ['start start', 'end start'] });
+  const heroY = useTransform(heroScroll, [0, 1], [0, 140]);
+  const heroOpacity = useTransform(heroScroll, [0, 1], [1, 0.15]);
+
   useEffect(() => {
     setIsLoaded(true);
   }, []);
 
+  const searchParams = useSearchParams();
   useEffect(() => {
-    const handleOpenAttendance = () => setIsAttendanceModalOpen(true);
-    document.addEventListener('open-attendance-modal', handleOpenAttendance);
-    return () => document.removeEventListener('open-attendance-modal', handleOpenAttendance);
-  }, []);
+    if (searchParams.get('attend') === '1') {
+      setIsAttendanceModalOpen(true);
+    }
+  }, [searchParams]);
 
   return (
     <div className="bg-rc-bg text-rc-text relative">
       {/* HERO - Premium Minimal Binary + Scripture */}
-      <section className="w-full min-h-screen flex flex-col justify-center bg-gradient-to-br from-rc-accent to-rc-text px-6 sm:px-8 md:px-12 py-24 md:py-32">
-        <div className="max-w-2xl mx-auto w-full flex flex-col justify-center space-y-0">
+      <section ref={heroRef} className="w-full min-h-screen flex flex-col justify-center overflow-hidden bg-gradient-to-br from-rc-accent to-rc-text px-6 sm:px-8 md:px-12 py-24 md:py-32">
+        <motion.div style={{ y: heroY, opacity: heroOpacity }} className="max-w-2xl mx-auto w-full flex flex-col justify-center space-y-0">
           {/* The Binary - Conversational Contrast */}
           <div className={`transform transition-all duration-500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
             <p className="text-base md:text-lg text-white/70 font-rc-serif font-normal leading-relaxed">
@@ -101,150 +119,117 @@ export default function Home() {
               </p>
             </blockquote>
           </div>
-        </div>
-      </section>
-
-      {/* WHAT FRAUD DOES */}
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
-          viewport={{ once: true, amount: 0.15 }}
-          className="max-w-2xl mx-auto space-y-12"
-        >
-          <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">The Face of Fraud</h2>
-
-          <div className="space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light border-l-4 border-rc-accent pl-8">
-            <p>Fraud is intentional deception.</p>
-            <p>It promises quick gain.</p>
-            <p>But it brings long lasting loss.</p>
-
-            <div className="pt-4 space-y-4">
-              <p>It destroys people.</p>
-              <p>It steals destinies.</p>
-              <p>It lures others.</p>
-              <p>It multiplies itself.</p>
-            </div>
-
-            <div className="pt-4 space-y-4">
-              <p>The Lord sees it.</p>
-              <p>The Lord judges it.</p>
-              <p>The Lord avenges such acts.</p>
-            </div>
-          </div>
         </motion.div>
       </section>
 
-      {/* HOW FRAUD BINDS YOU */}
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
+      {/* MY STORY */}
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: true, amount: 0.15 }}
+          variants={staggerContainer}
           className="max-w-2xl mx-auto space-y-12"
         >
-          <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">The Spirit Behind It</h2>
+          <motion.h2 variants={fadeInLine} className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">My Story</motion.h2>
 
-          <div className="space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light border-l-4 border-rc-accent pl-8">
-            <p>When you believe a lie</p>
-            <p>for the promise of gain,</p>
-            <p>you agree with deception.</p>
-            <p>And its spirit controls that agreement.</p>
-            <p className="pt-4">Two entities but one body.</p>
-            <p>You war against yourself.</p>
-            <p className="pt-4">One wants you to inherit a curse.</p>
-            <p>The other genuinely wrestles.</p>
-          </div>
+          <motion.div variants={staggerContainer} className="space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light border-l-4 border-rc-accent pl-8">
+            <motion.p variants={fadeInLine}>I would have ended up a fool.</motion.p>
+            <motion.p variants={fadeInLine}>That was once supposed to be my story.</motion.p>
+            <motion.p variants={fadeInLine} className="pt-4">I told myself I was taking back mine.</motion.p>
+            <motion.p variants={fadeInLine}>I convinced myself I had no choice.</motion.p>
+            <motion.p variants={fadeInLine} className="pt-4">Even though I had it all.</motion.p>
+            <motion.p variants={fadeInLine}>But there was no peace.</motion.p>
+            <motion.p variants={fadeInLine} className="pt-4">I was the partridge God spoke of.</motion.p>
+            <motion.p variants={fadeInLine}>Hatching eggs I did not lay.</motion.p>
+          </motion.div>
         </motion.div>
       </section>
 
       {/* MY ENCOUNTER */}
       <section className="w-full py-32 md:py-40 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: true, amount: 0.15 }}
+          variants={staggerContainer}
           className="max-w-2xl mx-auto space-y-12"
         >
-          <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">My Story</h2>
+          <motion.h2 variants={fadeInLine} className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">My Encounter</motion.h2>
 
-          <div className="space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light border-l-4 border-rc-accent pl-8">
-            <p>I too was once controlled by that spirit.</p>
-            <p>I told myself I was taking back our money.</p>
-            <p>I convinced myself I had no choice.</p>
-            <p className="pt-4">Even though I had it all.</p>
-            <p>But there was no peace.</p>
-            <p className="pt-4">That partridge was me.</p>
-            <p>Hatching eggs I did not lay.</p>
-            <p>Labor without gain.</p>
-            <p>Gain without substance.</p>
-          </div>
+          <motion.div variants={staggerContainer} className="space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light border-l-4 border-rc-accent pl-8">
+            <motion.p variants={fadeInLine}>In 2015.</motion.p>
+            <motion.p variants={fadeInLine}>God used Prophet TB Joshua.</motion.p>
+            <motion.p variants={fadeInLine}>To pray for me in Jesus name.</motion.p>
+            <motion.p variants={fadeInLine} className="pt-4">One utterance: &ldquo;All that is over.&rdquo;</motion.p>
+
+            <motion.div variants={staggerContainer} className="pt-4 space-y-4">
+              <motion.p variants={fadeInLine}>The urge for waste left me.</motion.p>
+              <motion.p variants={fadeInLine}>That desire for fantasy gone.</motion.p>
+              <motion.p variants={fadeInLine}>My confusion dispelled.</motion.p>
+              <motion.p variants={fadeInLine}>My curses undone.</motion.p>
+            </motion.div>
+
+            <motion.p variants={fadeInLine} className="pt-4">The partridge became free.</motion.p>
+            <motion.p variants={fadeInLine}>Now it lays its own eggs.</motion.p>
+          </motion.div>
         </motion.div>
       </section>
 
       {/* THE ONLY WAY */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: true, amount: 0.15 }}
+          variants={staggerContainer}
           className="max-w-2xl mx-auto space-y-12"
         >
-          <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">The Only Way</h2>
+          <motion.h2 variants={fadeInLine} className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">The Only Way</motion.h2>
 
-          <div className="space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light border-l-4 border-rc-accent pl-8">
-            <p>Only One Man can deliver.</p>
-            <p>His name is Jesus Christ.</p>
+          <motion.div variants={staggerContainer} className="space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light border-l-4 border-rc-accent pl-8">
+            <motion.p variants={fadeInLine}>Only One Man delivers.</motion.p>
+            <motion.p variants={fadeInLine}>His name is Jesus Christ.</motion.p>
 
-            <p className="pt-4">By acting faith in Him,</p>
-            <p>you fetch in His grace.</p>
+            <motion.p variants={fadeInLine} className="pt-4">By acting faith in Him,</motion.p>
+            <motion.p variants={fadeInLine}>you fetch in His grace.</motion.p>
 
-            <p className="pt-4">Believe what you read here.</p>
-            <p>Confess your sins.</p>
-            <p>Repent genuinely.</p>
+            <motion.p variants={fadeInLine} className="pt-4">Believe what you read here.</motion.p>
+            <motion.p variants={fadeInLine}>Confess your sins.</motion.p>
+            <motion.p variants={fadeInLine}>Repent genuinely.</motion.p>
 
-            <p className="pt-4">You will be delivered.</p>
-            <p>You will be saved.</p>
-
-            <p className="pt-4">Then you are ready for prayer.</p>
-          </div>
+            <motion.p variants={fadeInLine} className="pt-4">You will be delivered.</motion.p>
+            <motion.p variants={fadeInLine}>You will be saved.</motion.p>
+          </motion.div>
         </motion.div>
       </section>
 
-      {/* COME PRAY — Return Section, bookends the hero */}
+      {/* THE SAME PRAYER — Return Section, bookends the hero */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-gradient-to-br from-rc-accent to-rc-text border-t border-rc-border">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: true, amount: 0.15 }}
+          variants={staggerContainer}
           className="max-w-2xl mx-auto space-y-12"
         >
-          <h2 className="text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight tracking-tight">Come Pray</h2>
+          <motion.h2 variants={fadeInLine} className="text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight tracking-tight">The Same Prayer</motion.h2>
 
-          <div className="space-y-4 text-base md:text-lg text-white/90 leading-relaxed font-light">
-            <p>Do you need prayer?</p>
-            <p>Yes, we all do.</p>
+          <motion.div variants={staggerContainer} className="space-y-4 text-base md:text-lg text-white/90 leading-relaxed font-light">
+            <motion.p variants={fadeInLine}>Just as I was set free by prayer,</motion.p>
+            <motion.p variants={fadeInLine}>Jesus Christ is saying to you:</motion.p>
 
-            <p className="pt-4">Ask, and it will be given.</p>
-            <p>Seek, and you will find.</p>
-            <p>Knock, and the door will be opened.</p>
+            <motion.p variants={fadeInLine} className="pt-4">Ask, and it will be given.</motion.p>
+            <motion.p variants={fadeInLine}>Seek, and you will find.</motion.p>
+            <motion.p variants={fadeInLine}>Knock, and the door will be opened.</motion.p>
 
-            <p className="pt-4 font-medium">You cannot do this alone.</p>
-          </div>
+            <motion.p variants={fadeInLine} className="pt-4 font-medium">If you are tired of deception,</motion.p>
+          </motion.div>
 
-          <ReturnButton onClick={() => setIsModalOpen(true)}>Request Prayer</ReturnButton>
-
-          <div className="space-y-2 text-base md:text-lg text-white/90 leading-relaxed font-light pt-8 border-t border-white/15">
-            <p className="pt-8">Next Gathering: {formatGatheringDate(nextGathering)}, 3 PM EST.</p>
-            <p>Free. No agenda.</p>
-          </div>
-
-          <ReturnButton onClick={() => setIsAttendanceModalOpen(true)}>Join the Gathering</ReturnButton>
+          <motion.div variants={fadeInLine} className="flex flex-col sm:flex-row gap-4">
+            <ReturnButton onClick={() => setIsModalOpen(true)}>Request Prayer</ReturnButton>
+            <ReturnButton onClick={() => setIsAttendanceModalOpen(true)}>Attend Gathering</ReturnButton>
+          </motion.div>
         </motion.div>
       </section>
 
@@ -256,16 +241,12 @@ export default function Home() {
               Home
               <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
             </a>
-            <a href="/stories" className="text-white/80 hover:text-white transition-colors group text-sm">
-              Stories
-              <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
-            </a>
-            <a href="/gathering" className="text-white/80 hover:text-white transition-colors group text-sm">
-              Gathering
+            <a href="/deliverances" className="text-white/80 hover:text-white transition-colors group text-sm">
+              Deliverances
               <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
             </a>
             <a href="/journey" className="text-white/80 hover:text-white transition-colors group text-sm">
-              Journey
+              Sign In
               <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
             </a>
           </div>
@@ -360,7 +341,7 @@ export default function Home() {
                     }
                   }}
                   disabled={isSubmittingDeliverance}
-                  className="w-full px-4 py-2 bg-rc-accent text-white rounded-lg font-bold hover:bg-rc-accent/90 disabled:opacity-50"
+                  className="w-full px-4 py-2 bg-rc-accent text-white rounded-lg font-bold transition-all duration-300 ease-out hover:bg-rc-accent/90 hover:scale-[1.01] hover:shadow-lg disabled:opacity-50 disabled:hover:scale-100"
                 >
                   {isSubmittingDeliverance ? 'Submitting...' : 'Submit'}
                 </button>
@@ -387,7 +368,7 @@ export default function Home() {
               onClick={(e) => e.stopPropagation()}
               className="bg-white rounded-lg p-8 max-w-md w-full mx-4"
             >
-              <h3 className="text-2xl font-rc-serif font-bold text-rc-text mb-6">Friday Gathering - 3 PM EST</h3>
+              <h3 className="text-2xl font-rc-serif font-bold text-rc-text mb-6">{formatGatheringDate(nextGathering)} at 3 PM GMT</h3>
 
               {attendanceStep === 'form' ? (
                 <div className="space-y-4">
@@ -437,7 +418,7 @@ export default function Home() {
                       }
                     }}
                     disabled={isSubmittingAttendance}
-                    className="w-full px-4 py-2 bg-rc-accent text-white rounded-lg font-bold hover:bg-rc-accent/90 disabled:opacity-50"
+                    className="w-full px-4 py-2 bg-rc-accent text-white rounded-lg font-bold transition-all duration-300 ease-out hover:bg-rc-accent/90 hover:scale-[1.01] hover:shadow-lg disabled:opacity-50 disabled:hover:scale-100"
                   >
                     {isSubmittingAttendance ? 'Registering...' : 'Register'}
                   </button>
@@ -445,13 +426,21 @@ export default function Home() {
               ) : (
                 <div className="text-center space-y-4">
                   <p className="text-lg text-rc-text font-rc-serif">You're registered!</p>
-                  <p className="text-rc-text/80">We'll send you the call link via email. See you Friday at 3 PM EST.</p>
+                  <p className="text-rc-text/80">We'll send you the call link via email. See you Friday at 3 PM GMT.</p>
+                  <a
+                    href="https://maps.google.com/?q=Mango+Farm+Abokobi"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block text-rc-accent font-medium hover:underline"
+                  >
+                    Get directions →
+                  </a>
                   <button
                     onClick={() => {
                       setIsAttendanceModalOpen(false);
                       setAttendanceStep('form');
                     }}
-                    className="w-full px-4 py-2 bg-rc-accent text-white rounded-lg font-bold"
+                    className="w-full px-4 py-2 bg-rc-accent text-white rounded-lg font-bold transition-all duration-300 ease-out hover:bg-rc-accent/90 hover:scale-[1.01] hover:shadow-lg"
                   >
                     Close
                   </button>

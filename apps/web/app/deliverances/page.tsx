@@ -1,0 +1,381 @@
+'use client';
+
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence, type Variants } from 'framer-motion';
+
+/** Same reveal choreography as the homepage — shared DNA, not a coincidence. */
+const staggerContainer: Variants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.09, delayChildren: 0.05 } },
+};
+
+const fadeInLine: Variants = {
+  hidden: { opacity: 0, y: 16 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] } },
+};
+
+const bridgeLines = [
+  'You already know my story.',
+  'The partridge that became free.',
+  'It did not stop with me.',
+  'Hear from another.',
+];
+
+const fraudLines = [
+  ['Fraud is intentional deception.', 'It promises quick gain.', 'But it brings long lasting loss.'],
+  ['It destroys people.', 'It steals destinies.', 'It lures others.', 'It multiplies itself.'],
+  ['The Lord sees it.', 'The Lord judges it.', 'The Lord avenges such acts.'],
+];
+
+const spiritLines = [
+  ['When you believe a lie', 'for the promise of gain,', 'you agree with deception.', 'And its spirit controls that agreement.'],
+  ['Two entities but one body.', 'You war against yourself.'],
+  ['One wants you to inherit a curse.', 'The other genuinely wrestles.'],
+];
+
+interface StoryCard {
+  id: string;
+  name: string;
+  role: string;
+  quote: string;
+  year: string;
+  duration: string;
+  storyBefore: string[];
+  storyEncounter: string[];
+  heroImage?: { url: string; alt: string };
+  videoUrl?: string;
+}
+
+const samuel: StoryCard = {
+  id: '1',
+  name: 'Samuel Johnson',
+  role: 'Delivered from Internet Fraud',
+  quote: 'When the man of God touched me, I immediately saw myself facing a judge.',
+  year: '',
+  duration: '41 minutes • Full confession at The SCOAN',
+  storyBefore: [
+    'Samuel Johnson was a professional internet fraudster.',
+    'Demonically inspired to deceive, defraud, and destroy.',
+    'Through the most advanced online tactics and methods.',
+  ],
+  storyEncounter: [
+    'He was not just a local king of internet scamming.',
+    'He taught hundreds of youngsters his satanic tricks.',
+    'Then one encounter changed everything.',
+    'There is much to learn from his journey.',
+  ],
+  heroImage: {
+    url: '/images/testimony.png',
+    alt: 'Samuel Johnson - The King of Internet Scamming',
+  },
+  videoUrl: 'https://www.youtube.com/embed/bKJCcWQVuq8',
+};
+
+export default function StoriesPage() {
+  const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []);
+
+  return (
+    <div className="bg-rc-bg text-rc-text">
+      {/* HERO */}
+      <section className="w-full min-h-screen flex flex-col justify-center bg-gradient-to-br from-rc-accent to-rc-text px-6 sm:px-8 md:px-12 py-24 md:py-32">
+        <div className="max-w-2xl mx-auto w-full flex flex-col justify-center space-y-0">
+          <div className={`transform transition-all duration-500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+            <p className="text-base md:text-lg text-white/70 font-rc-serif font-normal leading-relaxed">
+              You&rsquo;ve heard mine.
+            </p>
+            <h1 className="text-5xl sm:text-6xl md:text-7xl font-rc-serif font-bold text-white leading-tight tracking-tight mt-2">
+              Now hear theirs.
+            </h1>
+          </div>
+
+          <div className={`transform transition-all duration-500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ marginTop: '3rem' }}>
+            <blockquote className="border-l-4 border-white/30 pl-6 md:pl-8">
+              <p className="text-base md:text-lg text-white/90 leading-relaxed font-rc-serif font-normal">
+                They triumphed by the word of their testimony.
+              </p>
+              <p className="text-sm md:text-base text-white/70 font-rc-serif font-light mt-4">
+                — Revelation 12:11
+              </p>
+            </blockquote>
+          </div>
+        </div>
+      </section>
+
+      {/* NOT JUST ME — the bridge, not a replay. Same black as Samuel's section so darkness carries straight through — the lights dimming before the movie starts. */}
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-gradient-to-br from-[#0F0F0F] to-[#1a1a1a]">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.15 }}
+          variants={staggerContainer}
+          className="max-w-2xl mx-auto space-y-12"
+        >
+          <motion.h2 variants={fadeInLine} className="text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight tracking-tight">Not Just Me</motion.h2>
+
+          <motion.div variants={staggerContainer} className="space-y-4 text-base md:text-lg text-white/80 leading-relaxed font-light border-l-4 border-testimony-gold pl-8">
+            {bridgeLines.map((line, i) => (
+              <motion.p key={i} variants={fadeInLine}>{line}</motion.p>
+            ))}
+          </motion.div>
+        </motion.div>
+      </section>
+
+      {/* SAMUEL'S STORY — Full-Width Dark Cinematic, video presentation untouched */}
+      <section className="w-screen -mx-[calc(50vw-50%)] bg-gradient-to-br from-[#0F0F0F] to-[#1a1a1a]">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
+          viewport={{ once: true, amount: 0.15 }}
+          className="w-full"
+        >
+          {/* Video Hero */}
+          <div className="relative w-full aspect-video md:aspect-auto md:min-h-screen flex items-center justify-center overflow-hidden">
+            <img
+              src={samuel.heroImage?.url}
+              alt={samuel.heroImage?.alt}
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+
+            {/* Movie Overlay - Left to Right Gradient */}
+            <div className="absolute inset-0 bg-gradient-to-r from-black via-black/40 to-transparent"></div>
+
+            {/* Bottom Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+
+            {/* Play Button */}
+            {samuel.videoUrl && (
+              <button
+                onClick={() => setSelectedVideo(samuel.videoUrl!)}
+                className="relative z-10 group flex items-center justify-center hover:scale-110 transition-transform duration-300"
+              >
+                <div className="w-24 h-24 rounded-full bg-white/95 flex items-center justify-center shadow-2xl group-hover:bg-white">
+                  <svg className="w-10 h-10 text-[#0F0F0F] ml-1" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </div>
+              </button>
+            )}
+          </div>
+
+          {/* Premium Content Section */}
+          <div className="relative px-6 sm:px-8 md:px-12 py-24 md:py-32">
+            <div className="max-w-2xl mx-auto space-y-16">
+              {/* Name & Role */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
+                viewport={{ once: true, amount: 0.15 }}
+                className="space-y-6"
+              >
+                <div className="space-y-2">
+                  {samuel.year && <p className="text-sm text-white/60 font-light tracking-wide">{samuel.year}</p>}
+                  <h2 className="text-4xl sm:text-5xl md:text-6xl font-rc-serif font-bold text-white leading-tight tracking-tight">
+                    {samuel.name}
+                  </h2>
+                  <p className="text-lg md:text-xl text-white/80 font-light">
+                    {samuel.role}
+                  </p>
+                </div>
+
+                <blockquote className="border-l-4 border-testimony-gold pl-8 pt-2">
+                  <p className="text-lg md:text-xl font-rc-serif font-normal text-white/95 leading-relaxed">
+                    &ldquo;{samuel.quote}&rdquo;
+                  </p>
+                </blockquote>
+              </motion.div>
+
+              {/* The Story */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
+                viewport={{ once: true, amount: 0.15 }}
+                className="space-y-10"
+              >
+                <div className="space-y-3">
+                  <p className="text-xs font-medium text-white/50 uppercase tracking-wide">The King of Scamming</p>
+                  <div className="space-y-2">
+                    {samuel.storyBefore.map((line, i) => (
+                      <p key={i} className="text-base md:text-lg text-white/85 leading-relaxed font-light">{line}</p>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="space-y-3">
+                  <p className="text-xs font-medium text-white/50 uppercase tracking-wide">Facing the Judge</p>
+                  <div className="space-y-2">
+                    {samuel.storyEncounter.map((line, i) => (
+                      <p key={i} className="text-base md:text-lg text-white/85 leading-relaxed font-light">{line}</p>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="pt-4 border-t border-white/10">
+                  <p className="text-sm text-white/50">{samuel.duration}</p>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </motion.div>
+      </section>
+
+      {/* THE FACE OF FRAUD — relocated from Home, verbatim, now framed as debrief after Samuel's story */}
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.15 }}
+          variants={staggerContainer}
+          className="max-w-2xl mx-auto space-y-12"
+        >
+          <motion.h2 variants={fadeInLine} className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">The Face of Fraud</motion.h2>
+
+          <motion.div variants={staggerContainer} className="space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light border-l-4 border-rc-accent pl-8">
+            {fraudLines.map((group, gi) => (
+              <motion.div key={gi} variants={staggerContainer} className={gi > 0 ? 'pt-4 space-y-4' : 'space-y-4'}>
+                {group.map((line, i) => (
+                  <motion.p key={i} variants={fadeInLine}>{line}</motion.p>
+                ))}
+              </motion.div>
+            ))}
+          </motion.div>
+        </motion.div>
+      </section>
+
+      {/* THE DANGER OF FLIRTING WITH THAT SPIRIT — relocated Spirit Behind It, verbatim */}
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.15 }}
+          variants={staggerContainer}
+          className="max-w-2xl mx-auto space-y-12"
+        >
+          <motion.h2 variants={fadeInLine} className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">The Spirit of Fraud</motion.h2>
+
+          <motion.div variants={staggerContainer} className="space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light border-l-4 border-rc-accent pl-8">
+            {spiritLines.map((group, gi) => (
+              <motion.div key={gi} variants={staggerContainer} className={gi > 0 ? 'pt-4 space-y-4' : 'space-y-4'}>
+                {group.map((line, i) => (
+                  <motion.p key={i} variants={fadeInLine}>{line}</motion.p>
+                ))}
+              </motion.div>
+            ))}
+          </motion.div>
+        </motion.div>
+      </section>
+
+      {/* Closing Section */}
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-gradient-to-br from-rc-accent to-rc-text border-t border-rc-border">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
+          viewport={{ once: true, amount: 0.15 }}
+          className="max-w-2xl mx-auto space-y-12"
+        >
+          <div className="space-y-8">
+            <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-white leading-tight tracking-tight">
+              You read my own story.
+            </h2>
+
+            <div className="space-y-6 text-base md:text-lg text-white/90 leading-relaxed font-light border-l-2 border-white/30 pl-6">
+              <p>You watched Samuel's story.</p>
+              <p>Now see yours begin.</p>
+            </div>
+
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-4 pt-8">
+            <a
+              href="/?attend=1"
+              className="inline-flex items-center justify-center px-8 py-4 min-h-[52px] bg-white text-rc-text font-medium rounded-lg transition-all duration-300 ease-out hover:bg-white/95 hover:scale-[1.02] hover:shadow-xl"
+            >
+              Attend Gathering
+            </a>
+
+            <a
+              href="/journey"
+              className="inline-flex items-center justify-center px-8 py-4 min-h-[52px] text-white font-medium border-2 border-white rounded-lg transition-all duration-300 ease-out hover:bg-white/10 hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(255,255,255,0.15)]"
+            >
+              Preview the Journey
+            </a>
+          </div>
+        </motion.div>
+      </section>
+
+      {/* Footer */}
+      <footer className="w-full px-6 sm:px-8 md:px-12 py-8 bg-rc-text border-t border-rc-border text-center">
+        <div className="max-w-2xl mx-auto space-y-6">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 flex-wrap">
+            <a
+              href="/"
+              className="text-white/80 hover:text-white transition-colors group text-sm"
+            >
+              Home
+              <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
+            </a>
+            <a
+              href="/deliverances"
+              className="text-white/80 hover:text-white transition-colors group text-sm"
+            >
+              Deliverances
+              <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
+            </a>
+            <a
+              href="/journey"
+              className="text-white/80 hover:text-white transition-colors group text-sm"
+            >
+              Sign In
+              <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
+            </a>
+          </div>
+
+          <p className="text-white/40 text-xs">© 2026. All rights reserved.</p>
+        </div>
+      </footer>
+
+      {/* Video Modal */}
+      <AnimatePresence>
+        {selectedVideo && (
+          <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center px-4">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.15 }}
+              className="relative w-full max-w-4xl"
+            >
+              <button
+                onClick={() => setSelectedVideo(null)}
+                className="absolute -top-12 right-0 text-white hover:text-white/70 transition-colors"
+              >
+                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+              <div className="w-full aspect-video rounded-lg overflow-hidden shadow-2xl">
+                <iframe
+                  width="100%"
+                  height="100%"
+                  src={`${selectedVideo}?autoplay=1`}
+                  frameBorder="0"
+                  allow="autoplay; fullscreen; picture-in-picture"
+                  allowFullScreen
+                  style={{ border: 'none' }}
+                ></iframe>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
