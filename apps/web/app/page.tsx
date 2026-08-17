@@ -58,15 +58,19 @@ function ReturnButton({ onClick, children }: { onClick: () => void; children: Re
   );
 }
 
-export default function Home() {
-  return (
-    <Suspense fallback={null}>
-      <HomeContent />
-    </Suspense>
-  );
+/** Isolated so only this tiny piece defers to client-side rendering —
+ *  the rest of the page must stay statically rendered for SEO and first paint. */
+function AttendParamWatcher({ onAttend }: { onAttend: () => void }) {
+  const searchParams = useSearchParams();
+  useEffect(() => {
+    if (searchParams.get('attend') === '1') {
+      onAttend();
+    }
+  }, [searchParams, onAttend]);
+  return null;
 }
 
-function HomeContent() {
+export default function Home() {
   const [nextGathering] = useState(getNextGathering);
   const [isLoaded, setIsLoaded] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -94,15 +98,12 @@ function HomeContent() {
     setIsLoaded(true);
   }, []);
 
-  const searchParams = useSearchParams();
-  useEffect(() => {
-    if (searchParams.get('attend') === '1') {
-      setIsAttendanceModalOpen(true);
-    }
-  }, [searchParams]);
-
   return (
     <div className="bg-rc-bg text-rc-text relative">
+      <Suspense fallback={null}>
+        <AttendParamWatcher onAttend={() => setIsAttendanceModalOpen(true)} />
+      </Suspense>
+
       {/* HERO - Premium Minimal Binary + Scripture */}
       <section ref={heroRef} className="w-full min-h-screen flex flex-col justify-center overflow-hidden bg-gradient-to-br from-rc-accent to-rc-text px-6 sm:px-8 md:px-12 py-24 md:py-32">
         <motion.div style={{ y: heroY, opacity: heroOpacity }} className="max-w-2xl mx-auto w-full flex flex-col justify-center space-y-0">
