@@ -222,7 +222,7 @@ export default function Home() {
           variants={staggerContainer}
           className="max-w-2xl mx-auto space-y-12"
         >
-          <motion.h2 variants={fadeInLine} className="text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight tracking-tight">The Same Prayer</motion.h2>
+          <motion.h2 variants={fadeInLine} className="text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight tracking-tight">Same Prayer</motion.h2>
 
           <motion.div variants={staggerContainer} className="space-y-4 text-base md:text-lg text-white/90 leading-relaxed font-light">
             <motion.p variants={fadeInLine}>Just as I was set free by prayer,</motion.p>
