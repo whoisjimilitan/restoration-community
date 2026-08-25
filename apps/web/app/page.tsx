@@ -119,7 +119,7 @@ export default function Home() {
               href="/book"
               className="inline-block text-white/70 hover:text-white text-base font-medium transition-colors duration-200"
             >
-              Read The Book
+              Preview My Book
             </a>
           </div>
         </motion.div>
@@ -203,7 +203,7 @@ export default function Home() {
             className="block bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-8 text-center hover:bg-white/15 hover:border-white/40 transition-all duration-200 group"
           >
             <span className="text-base font-medium text-white">
-              Read the book →
+              Preview the book →
             </span>
           </motion.a>
         </motion.div>
