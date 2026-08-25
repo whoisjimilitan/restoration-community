@@ -134,7 +134,7 @@ export default function Home() {
           variants={staggerContainer}
           className="max-w-2xl mx-auto"
         >
-          <motion.p variants={fadeInLine} className="text-base md:text-lg text-rc-text leading-relaxed font-light">
+          <motion.p variants={fadeInLine} className="text-base md:text-lg text-rc-text leading-relaxed font-normal">
             Its name was Weje. A Yoruba word for the wasteful one. It controlled my life for twenty years.
           </motion.p>
 
