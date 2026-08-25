@@ -4,6 +4,7 @@ import { useState, useEffect, useRef, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { motion, useScroll, useTransform, AnimatePresence, type Variants } from 'framer-motion';
 import SiteFooter from '@/components/SiteFooter';
+import SiteButton from '@/components/SiteButton';
 
 const staggerContainer: Variants = {
   hidden: {},
@@ -111,12 +112,9 @@ export default function Home() {
           </div>
 
           <div className={`flex items-center justify-center gap-6 transform transition-all duration-500 delay-150 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-            <a
-              href="/my-story"
-              className="inline-block text-white/70 hover:text-white text-base font-medium transition-colors duration-200"
-            >
+            <SiteButton href="/my-story" variant="solid">
               Watch My Story
-            </a>
+            </SiteButton>
             <a
               href="/book"
               className="inline-block text-white/70 hover:text-white text-base font-medium transition-colors duration-200"
@@ -148,25 +146,34 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* THE SCRIPTURE MOMENT — one anchor verse, given room to breathe */}
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
+      {/* THE DARK BAND — the page's one deliberate dramatic peak: the real man
+          alongside the highest-stakes line on the page, at the same weight. */}
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-text border-t border-rc-border">
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
           variants={staggerContainer}
-          className="max-w-2xl mx-auto text-center"
+          className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center"
         >
-          <motion.p variants={fadeInLine} className="text-2xl md:text-3xl font-rc-serif font-bold text-rc-text leading-snug mb-6">
-            This is the end for everyone who does not repent and receive God&apos;s mercy. It would have been mine.
-          </motion.p>
-          <motion.p variants={fadeInLine} className="text-base text-rc-text/70 font-light leading-relaxed mb-2">
-            &ldquo;Like a partridge that hatches eggs it did not lay, are those who gain riches by unjust means.
-            When their lives are half gone, their riches will desert them, and in the end they will prove to be fools.&rdquo;
-          </motion.p>
-          <motion.p variants={fadeInLine} className="text-base font-medium text-rc-accent">
-            Jeremiah 17:11
-          </motion.p>
+          <motion.img
+            variants={fadeInLine}
+            src="/images/portrait-hero-website.jpg"
+            alt="Brother Jimi"
+            className="w-full h-auto rounded-xl object-cover"
+          />
+          <div className="text-left">
+            <motion.p variants={fadeInLine} className="text-2xl md:text-3xl font-rc-serif font-bold tracking-tight text-white leading-snug mb-6">
+              This is the end for everyone who does not repent and receive God&apos;s mercy. It would have been mine.
+            </motion.p>
+            <motion.p variants={fadeInLine} className="text-base text-white/70 font-light leading-relaxed mb-2">
+              &ldquo;Like a partridge that hatches eggs it did not lay, are those who gain riches by unjust means.
+              When their lives are half gone, their riches will desert them, and in the end they will prove to be fools.&rdquo;
+            </motion.p>
+            <motion.p variants={fadeInLine} className="text-base font-medium text-white/90">
+              Jeremiah 17:11
+            </motion.p>
+          </div>
         </motion.div>
       </section>
 
@@ -203,7 +210,7 @@ export default function Home() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setIsAttendanceModalOpen(false)}
-            className="fixed inset-0 bg-black/50 flex items-center justify-center z-40"
+            className="fixed inset-0 bg-black/50 flex items-center justify-center z-[60]"
           >
             <motion.div
               initial={{ scale: 0.95, opacity: 0 }}

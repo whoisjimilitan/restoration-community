@@ -8,7 +8,7 @@ type SiteButtonProps = {
 } & Omit<HTMLMotionProps<'a'>, 'href' | 'onClick' | 'children'>;
 
 const BASE =
-  'inline-flex items-center justify-center px-8 py-3 min-h-[48px] rounded-lg font-medium tracking-wide ' +
+  'inline-flex items-center justify-center px-8 py-3 min-h-[48px] rounded-xl font-medium tracking-wide ' +
   'transition-all duration-300 ease-out hover:scale-[1.02] active:scale-[0.99] ' +
   'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2';
 
