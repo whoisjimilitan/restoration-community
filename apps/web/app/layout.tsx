@@ -3,6 +3,7 @@ import Script from 'next/script';
 import { Providers } from './providers';
 import { frauncesFontClass } from '../tailwind.config';
 import LetsConnectPersistence from '@/components/LetsConnectPersistence';
+import Navigation from '@/components/Navigation';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -23,6 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={frauncesFontClass}>
       <body>
+        <Navigation />
         <Providers>{children}</Providers>
         {/* Let's Connect — live/AI prayer chat, site-wide. afterInteractive
             loads it right after the page is usable, without blocking the

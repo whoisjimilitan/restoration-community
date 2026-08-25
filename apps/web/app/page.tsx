@@ -76,7 +76,7 @@ export default function Home() {
       {/* HERO — full-bleed muted looping video background, with the teal/charcoal
           gradient layered on top (not replaced) so the brand color still governs
           the frame and the centered text stays legible everywhere, not just one side. */}
-      <section ref={heroRef} className="relative w-full min-h-[85svh] flex flex-col justify-center overflow-hidden bg-rc-text px-6 sm:px-8 md:px-12 py-24 md:py-32">
+      <section ref={heroRef} id="hero" className="relative w-full min-h-[85svh] flex flex-col justify-center overflow-hidden bg-rc-text px-6 sm:px-8 md:px-12 py-24 md:py-32">
         <video
           ref={heroVideoRef}
           autoPlay
