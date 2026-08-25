@@ -151,15 +151,15 @@ export default function Home() {
           variants={staggerContainer}
           className="max-w-2xl mx-auto text-center"
         >
-          <motion.p variants={fadeInLine} className="text-2xl md:text-3xl font-rc-serif font-bold text-rc-text leading-relaxed mb-6">
+          <motion.p variants={fadeInLine} className="text-2xl md:text-3xl font-rc-serif font-bold text-rc-text leading-snug mb-6">
+            This is the end for everyone who does not repent and receive God&apos;s mercy. It would have been mine.
+          </motion.p>
+          <motion.p variants={fadeInLine} className="text-base text-rc-text/70 font-light leading-relaxed mb-2">
             &ldquo;Like a partridge that hatches eggs it did not lay, are those who gain riches by unjust means.
             When their lives are half gone, their riches will desert them, and in the end they will prove to be fools.&rdquo;
           </motion.p>
-          <motion.p variants={fadeInLine} className="text-base font-medium text-rc-accent mb-2">
+          <motion.p variants={fadeInLine} className="text-base font-medium text-rc-accent">
             Jeremiah 17:11
-          </motion.p>
-          <motion.p variants={fadeInLine} className="text-base text-rc-text/70 font-light">
-            This is the end for everyone who does not repent and receive God&apos;s mercy. It would have been mine.
           </motion.p>
         </motion.div>
       </section>

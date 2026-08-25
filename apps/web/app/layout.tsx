@@ -22,14 +22,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={frauncesFontClass}>
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&display=swap"
-          rel="stylesheet"
-        />
-      </head>
       <body>
         <Providers>{children}</Providers>
         {/* Let's Connect — live/AI prayer chat, site-wide. afterInteractive
