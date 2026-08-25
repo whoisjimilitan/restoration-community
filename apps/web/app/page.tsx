@@ -134,25 +134,29 @@ export default function Home() {
           variants={staggerContainer}
           className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center"
         >
-          <motion.img
-            variants={fadeInLine}
-            src="/images/weje-era.png"
-            alt="Brother Jimi during the years Weje controlled his life"
-            className="mx-auto w-full max-w-[300px] md:max-w-[380px] aspect-[2/3] object-cover rounded-[2rem]"
-          />
+          <motion.div variants={fadeInLine} className="mx-auto w-full max-w-[300px] md:max-w-[380px]">
+            <img
+              src="/images/weje-era.png"
+              alt="Brother Jimi during the years Weje controlled his life"
+              className="w-full aspect-[2/3] object-cover rounded-[2rem]"
+            />
+            <p className="text-xs uppercase tracking-wider text-rc-text/50 font-medium mt-3 text-center">
+              2012 — during Weje
+            </p>
+          </motion.div>
           <div className="text-left">
             <motion.p variants={fadeInLine} className="text-base md:text-lg text-rc-text leading-relaxed font-light">
-              Its name was Weje. A Yoruba word for the wasteful one. It controlled my life for twenty years.
+              His name was Weje. A Yoruba word for the wasteful one. The spirit that controlled my life for twenty years.
             </motion.p>
 
-            <motion.p variants={fadeInLine} className="text-xl md:text-2xl font-rc-serif tracking-tight leading-snug mt-14">
+            <motion.p variants={fadeInLine} className="text-lg md:text-xl font-rc-serif tracking-tight leading-snug mt-14">
               <span className="font-light text-rc-text/70">But in 2015, </span>
               <span className="font-bold text-rc-text">Jesus Christ delivered me completely,</span>
               <span className="font-light text-rc-text/70"> through Prophet T.B. Joshua&apos;s ministry.</span>
             </motion.p>
 
             <motion.p variants={fadeInLine} className="text-base md:text-lg text-rc-text/70 font-light leading-relaxed mt-14">
-              I tell this story so someone else does not have to wander hopelessly, searching rather than believing.
+              I tell this story so someone else does not have to wander hopelessly, under demonic torment.
             </motion.p>
           </div>
         </motion.div>
