@@ -103,7 +103,7 @@ export default function Home() {
 
         <motion.div style={{ y: heroY, opacity: heroOpacity }} className="relative max-w-2xl mx-auto w-full flex flex-col justify-center space-y-8 text-center">
           <div className={`transform transition-all duration-500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-rc-serif font-bold text-white leading-tight tracking-tighter">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-rc-serif font-bold text-white leading-tight tracking-tight">
               Fraud is not just a crime. It is a spirit.
             </h1>
             <p className="text-base md:text-lg text-white/80 font-rc-serif font-normal leading-relaxed mt-6">
@@ -158,9 +158,9 @@ export default function Home() {
         >
           <motion.img
             variants={fadeInLine}
-            src="/images/portrait-hero-website.jpg"
+            src="/images/portrait-declaration-closeup.png"
             alt="Brother Jimi"
-            className="w-full h-auto rounded-xl object-cover"
+            className="w-full h-auto"
           />
           <div className="text-left">
             <motion.p variants={fadeInLine} className="text-2xl md:text-3xl font-rc-serif font-bold tracking-tight text-white leading-snug mb-6">
@@ -177,9 +177,10 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* CLOSING ACTION — the page's one goal. Series/Book stay present but
-          quiet: two small elevated cards, not a promotional block. */}
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
+      {/* CLOSING ACTION — the page's one goal, kept in the same dark passage
+          as the testimony above it, not a hard cut back to a bright section.
+          Glass cards float on the dark surface instead of opaque white ones. */}
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-text">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -190,18 +191,18 @@ export default function Home() {
           <motion.a
             variants={fadeInLine}
             href="/my-story"
-            className="block bg-white border border-rc-border rounded-xl p-8 text-center hover:border-rc-accent transition-colors duration-200 group"
+            className="block bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-8 text-center hover:bg-white/15 hover:border-white/40 transition-all duration-200 group"
           >
-            <span className="text-base font-medium text-rc-text group-hover:text-rc-accent transition-colors duration-200">
+            <span className="text-base font-medium text-white">
               Watch the full series →
             </span>
           </motion.a>
           <motion.a
             variants={fadeInLine}
             href="/book"
-            className="block bg-white border border-rc-border rounded-xl p-8 text-center hover:border-rc-accent transition-colors duration-200 group"
+            className="block bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-8 text-center hover:bg-white/15 hover:border-white/40 transition-all duration-200 group"
           >
-            <span className="text-base font-medium text-rc-text group-hover:text-rc-accent transition-colors duration-200">
+            <span className="text-base font-medium text-white">
               Read the book →
             </span>
           </motion.a>
