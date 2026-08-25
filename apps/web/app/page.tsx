@@ -156,12 +156,14 @@ export default function Home() {
           variants={staggerContainer}
           className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center"
         >
-          <motion.img
-            variants={fadeInLine}
-            src="/images/portrait-declaration-closeup.png"
-            alt="Brother Jimi"
-            className="w-full h-auto"
-          />
+          <motion.div variants={fadeInLine} className="relative mx-auto w-full max-w-[280px] md:max-w-[340px]">
+            <div className="absolute inset-0 -z-10 scale-90 rounded-full bg-rc-accent/20 blur-3xl" />
+            <img
+              src="/images/portrait-declaration-closeup.png"
+              alt="Brother Jimi"
+              className="w-full h-auto [mask-image:radial-gradient(ellipse_65%_65%_at_center,black_55%,transparent_100%)] [-webkit-mask-image:radial-gradient(ellipse_65%_65%_at_center,black_55%,transparent_100%)]"
+            />
+          </motion.div>
           <div className="text-left">
             <motion.p variants={fadeInLine} className="text-2xl md:text-3xl font-rc-serif font-bold tracking-tight text-white leading-snug mb-6">
               This is the end for everyone who does not repent and receive God&apos;s mercy. It would have been mine.
@@ -209,7 +211,7 @@ export default function Home() {
         </motion.div>
       </section>
 
-      <SiteFooter />
+      <SiteFooter precededByDarkSection />
 
       {/* ATTENDANCE MODAL */}
       <AnimatePresence>
