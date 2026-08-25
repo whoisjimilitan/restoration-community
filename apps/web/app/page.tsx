@@ -193,9 +193,10 @@ export default function Home() {
           variants={staggerContainer}
           className="max-w-2xl mx-auto"
         >
-          <motion.p variants={fadeInLine} className="text-xl md:text-2xl font-rc-serif font-bold tracking-tight text-white leading-snug mb-16">
+          <motion.p variants={fadeInLine} className="text-xl md:text-2xl font-rc-serif font-bold tracking-tight text-white leading-snug">
             I am calling every youth away from fraud and into the salvation only Jesus Christ gives.
           </motion.p>
+          <motion.div variants={fadeInLine} className="w-12 h-px bg-white/15 mt-10 mb-10" />
         </motion.div>
         <motion.div
           initial="hidden"
