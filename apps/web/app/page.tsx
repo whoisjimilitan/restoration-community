@@ -132,15 +132,19 @@ export default function Home() {
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
           variants={staggerContainer}
-          className="max-w-xl mx-auto space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light"
+          className="max-w-xl mx-auto"
         >
-          <motion.p variants={fadeInLine}>
+          <motion.p variants={fadeInLine} className="text-base md:text-lg text-rc-text leading-relaxed font-light">
             Its name was Weje. A Yoruba word for the wasteful one. It controlled my life for twenty years.
           </motion.p>
-          <motion.p variants={fadeInLine}>
+
+          <motion.div variants={fadeInLine} className="w-12 h-px bg-rc-border my-8" />
+
+          <motion.p variants={fadeInLine} className="text-xl md:text-2xl font-rc-serif font-bold tracking-tight text-rc-text leading-snug">
             But in 2015, Jesus Christ delivered me completely, through Prophet T.B. Joshua&apos;s ministry.
           </motion.p>
-          <motion.p variants={fadeInLine} className="font-medium text-rc-text">
+
+          <motion.p variants={fadeInLine} className="text-base md:text-lg text-rc-text/70 font-light leading-relaxed mt-8">
             I tell this story so someone else does not have to wander hopelessly, searching rather than believing.
           </motion.p>
         </motion.div>
