@@ -126,7 +126,7 @@ export default function Home() {
       </section>
 
       {/* FOUNDER'S WITNESS — proof the journey is real, before anything else is asked of the visitor */}
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
+      <section className="w-full py-32 md:py-40 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
         <motion.div
           initial="hidden"
           whileInView="visible"
