@@ -59,6 +59,7 @@ export default function Home() {
   const [isSubmittingAttendance, setIsSubmittingAttendance] = useState(false);
 
   const heroRef = useRef<HTMLElement>(null);
+  const heroVideoRef = useRef<HTMLVideoElement>(null);
   const { scrollYProgress: heroScroll } = useScroll({ target: heroRef, offset: ['start start', 'end start'] });
   const heroY = useTransform(heroScroll, [0, 1], [0, 140]);
   const heroOpacity = useTransform(heroScroll, [0, 1], [1, 0.15]);
@@ -78,10 +79,22 @@ export default function Home() {
           the frame and the centered text stays legible everywhere, not just one side. */}
       <section ref={heroRef} className="relative w-full min-h-[85vh] flex flex-col justify-center overflow-hidden bg-rc-text px-6 sm:px-8 md:px-12 py-24 md:py-32">
         <video
+          ref={heroVideoRef}
           autoPlay
           muted
           loop
           playsInline
+          poster="/images/hero-poster.jpg"
+          onCanPlay={(e) => {
+            const video = e.currentTarget;
+            if (video.paused) {
+              video.play().catch(() => {
+                // Some browsers still block autoplay outright (e.g. low-power
+                // mode). The poster frame is styled to match the video's own
+                // first frame, so this fallback state looks intentional, not broken.
+              });
+            }
+          }}
           className="absolute inset-0 w-full h-full object-cover"
         >
           <source src="/videos/hero-optimized.mp4" type="video/mp4" />
