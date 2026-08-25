@@ -107,7 +107,7 @@ export default function Home() {
               Fraud is not just a crime. It is a spirit.
             </h1>
             <p className="text-base md:text-lg text-white/80 font-rc-serif font-normal leading-relaxed mt-6">
-              I know. It lived inside me for over 20 years.
+              I know because it lived inside me for over 20 years.
             </p>
           </div>
 

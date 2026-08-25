@@ -53,10 +53,13 @@ export default function Navigation() {
     return () => observer.disconnect();
   }, [pathname, isHomepage]);
 
-  // Homepage: transparent nav, text color adapts to the dark hero underneath
-  // it. Every other page: solid nav from the top, always legible regardless
-  // of what section sits beneath it — those pages are out of this plan's
-  // scope, so the nav can't assume anything about their content color.
+  // Homepage: glass nav, text color adapts to the dark hero underneath it —
+  // but it always carries a translucent scrim (never zero background),
+  // since blur alone doesn't guarantee contrast against a moving video or
+  // busy light content. Every other page: solid nav from the top, always
+  // legible regardless of what section sits beneath it — those pages are
+  // out of this plan's scope, so the nav can't assume anything about their
+  // content color.
   const isTransparentMode = isHomepage;
   const isLight = isTransparentMode && isOverHero;
   const showBorder = isScrolled || !isTransparentMode;
@@ -64,7 +67,7 @@ export default function Navigation() {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-md transition-colors duration-300 ${
-        isTransparentMode ? '' : 'bg-rc-bg/95'
+        isTransparentMode ? (isLight ? 'bg-black/20' : 'bg-rc-bg/80') : 'bg-rc-bg/95'
       } ${showBorder ? 'border-b border-rc-border' : 'border-b border-transparent'}`}
     >
       <div className="max-w-5xl mx-auto px-6 sm:px-8 md:px-12 h-16 flex items-center justify-end">
