@@ -187,7 +187,7 @@ export default function Home() {
           </motion.div>
           <div className="text-left">
             <motion.p variants={fadeInLine} className="text-2xl md:text-3xl font-rc-serif font-bold tracking-tight text-white leading-snug mb-6">
-              This is the end for everyone who does not repent and receive God&apos;s mercy. It would have been mine.
+              This would have been my end.
             </motion.p>
             <motion.p variants={fadeInLine} className="text-base text-white/70 font-light leading-relaxed mb-2">
               &ldquo;Like a partridge that hatches eggs it did not lay, are those who gain riches by unjust means.
