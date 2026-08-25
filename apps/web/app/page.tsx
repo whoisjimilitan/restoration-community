@@ -135,13 +135,13 @@ export default function Home() {
           className="max-w-xl mx-auto space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light"
         >
           <motion.p variants={fadeInLine}>
-            Its name was Weje. A Yoruba word for the prodigal child, the wasteful one. It controlled my life for twenty years.
+            Its name was Weje. A Yoruba word for the wasteful one. It controlled my life for twenty years.
           </motion.p>
           <motion.p variants={fadeInLine}>
             But in 2015, Jesus Christ delivered me completely, through Prophet T.B. Joshua&apos;s ministry.
           </motion.p>
           <motion.p variants={fadeInLine} className="font-medium text-rc-text">
-            I tell this story so someone else does not have to wander hopelessly, searching for what only God can give.
+            I tell this story so someone else does not have to wander hopelessly, searching rather than believing.
           </motion.p>
         </motion.div>
       </section>
