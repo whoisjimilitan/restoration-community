@@ -138,8 +138,9 @@ export default function Home() {
             Its name was Weje. A Yoruba word for the wasteful one. It controlled my life for twenty years.
           </motion.p>
 
-          <motion.p variants={fadeInLine} className="text-xl md:text-2xl font-rc-serif font-bold tracking-tight text-rc-text leading-snug mt-14">
-            But in 2015, Jesus Christ delivered me completely, through Prophet T.B. Joshua&apos;s ministry.
+          <motion.p variants={fadeInLine} className="text-xl md:text-2xl font-rc-serif tracking-tight leading-snug mt-14">
+            <span className="font-bold text-rc-text">But in 2015, Jesus Christ delivered me completely,</span>
+            <span className="font-light text-rc-text/70"> through Prophet T.B. Joshua&apos;s ministry.</span>
           </motion.p>
 
           <motion.p variants={fadeInLine} className="text-base md:text-lg text-rc-text/70 font-light leading-relaxed mt-14">
