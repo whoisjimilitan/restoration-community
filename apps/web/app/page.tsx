@@ -177,9 +177,20 @@ export default function Home() {
           <motion.h2 variants={fadeInLine} className="text-2xl md:text-3xl font-rc-serif font-bold text-rc-text text-center mb-4">
             If you identify with the spirit described on this site, there is a way out.
           </motion.h2>
-          <motion.p variants={fadeInLine} className="text-sm text-rc-text/60 text-center mb-10">
-            No form. No waiting. Talk to me right now — look for the chat in the corner of this page.
+          <motion.p variants={fadeInLine} className="text-sm text-rc-text/60 text-center mb-6">
+            No form. No waiting. Talk to me right now.
           </motion.p>
+          <motion.div variants={fadeInLine} className="flex justify-center">
+            <button
+              onClick={() => {
+                const w = window as unknown as { pathadvice?: { startChatFullScreen?: () => void } };
+                w.pathadvice?.startChatFullScreen?.();
+              }}
+              className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] text-white font-medium bg-rc-accent rounded-lg transition-all duration-200 hover:shadow-lg hover:bg-rc-accent/90"
+            >
+              Start Prayer Chat
+            </button>
+          </motion.div>
           <motion.div variants={fadeInLine} className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-10">
             <a href="/my-story" className="text-sm text-rc-text/60 hover:text-rc-accent transition-colors duration-200">
               Watch the full series →
