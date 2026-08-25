@@ -107,7 +107,7 @@ export default function Home() {
               Fraud is not just a crime. It is a spirit.
             </h1>
             <p className="text-base md:text-lg text-white/80 font-rc-serif font-normal leading-relaxed mt-6">
-              I know because it lived inside me for nearly 20 years.
+              I know because it lived inside me for 20 years.
             </p>
           </div>
 
@@ -135,7 +135,7 @@ export default function Home() {
           className="max-w-xl mx-auto space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light"
         >
           <motion.p variants={fadeInLine}>
-            Its name inside me was Weje. A Yoruba word for the prodigal child, the wasteful one. It controlled my life for nearly twenty years.
+            Its name inside me was Weje. A Yoruba word for the prodigal child, the wasteful one. It controlled my life for twenty years.
           </motion.p>
           <motion.p variants={fadeInLine}>
             But in 2015, Jesus Christ delivered me completely, through Prophet T.B. Joshua&apos;s ministry.
@@ -164,7 +164,7 @@ export default function Home() {
           />
           <div className="text-left">
             <motion.p variants={fadeInLine} className="text-2xl md:text-3xl font-rc-serif font-bold tracking-tight text-white leading-snug mb-6">
-              This would have been my end. I would have ended up being a fool.
+              This would have been my end. A fool&apos;s end.
             </motion.p>
             <motion.p variants={fadeInLine} className="text-base text-white/70 font-light leading-relaxed mb-2">
               &ldquo;Like a partridge that hatches eggs it did not lay, are those who gain riches by unjust means.
