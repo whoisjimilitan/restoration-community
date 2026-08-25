@@ -110,23 +110,13 @@ export default function Home() {
             </p>
           </div>
 
-          <div className={`flex flex-col items-center gap-4 transform transition-all duration-500 delay-150 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+          <div className={`transform transition-all duration-500 delay-150 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
             <a
               href="/my-story"
-              className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-white text-rc-text font-medium rounded-lg transition-all duration-200 hover:shadow-lg hover:scale-[1.02]"
+              className="inline-block text-white/70 hover:text-white text-base font-medium transition-colors duration-200"
             >
               Watch My Story
             </a>
-            <button
-              onClick={() => {
-                const w = window as unknown as { pathadvice?: { startChatFullScreen?: () => void } };
-                w.pathadvice?.startChatFullScreen?.();
-              }}
-              className="inline-block text-white/70 hover:text-white text-base font-medium transition-colors duration-200 group"
-            >
-              Receive Deliverance Prayer
-              <span className="block h-px w-0 group-hover:w-full bg-white/70 transition-all duration-300 mt-1"></span>
-            </button>
           </div>
         </motion.div>
       </section>
@@ -186,24 +176,10 @@ export default function Home() {
           variants={staggerContainer}
           className="max-w-2xl mx-auto"
         >
-          <motion.h2 variants={fadeInLine} className="text-2xl md:text-3xl font-rc-serif font-bold text-rc-text text-center mb-4">
-            If you identify with the spirit described on this site, Jesus is the Deliverer.
+          <motion.h2 variants={fadeInLine} className="text-2xl md:text-3xl font-rc-serif font-bold text-rc-text text-center mb-10">
+            Let&apos;s pray together.
           </motion.h2>
-          <motion.p variants={fadeInLine} className="text-sm text-rc-text/60 text-center mb-6">
-            Request deliverance prayer.
-          </motion.p>
-          <motion.div variants={fadeInLine} className="flex justify-center">
-            <button
-              onClick={() => {
-                const w = window as unknown as { pathadvice?: { startChatFullScreen?: () => void } };
-                w.pathadvice?.startChatFullScreen?.();
-              }}
-              className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] text-white font-medium bg-rc-accent rounded-lg transition-all duration-200 hover:shadow-lg hover:bg-rc-accent/90"
-            >
-              Start Prayer Chat
-            </button>
-          </motion.div>
-          <motion.div variants={fadeInLine} className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-10">
+          <motion.div variants={fadeInLine} className="flex flex-col sm:flex-row items-center justify-center gap-6">
             <a href="/my-story" className="text-sm text-rc-text/60 hover:text-rc-accent transition-colors duration-200 group">
               Watch the full series →
               <span className="block h-px w-0 group-hover:w-full bg-rc-accent transition-all duration-300 mt-1"></span>
