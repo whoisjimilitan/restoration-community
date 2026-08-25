@@ -139,7 +139,8 @@ export default function Home() {
           </motion.p>
 
           <motion.p variants={fadeInLine} className="text-xl md:text-2xl font-rc-serif tracking-tight leading-snug mt-14">
-            <span className="font-bold text-rc-text">But in 2015, Jesus Christ delivered me completely,</span>
+            <span className="font-light text-rc-text/70">But in 2015, </span>
+            <span className="font-bold text-rc-text">Jesus Christ delivered me completely,</span>
             <span className="font-light text-rc-text/70"> through Prophet T.B. Joshua&apos;s ministry.</span>
           </motion.p>
 
