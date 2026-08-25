@@ -67,16 +67,7 @@ export default function Navigation() {
         isTransparentMode ? '' : 'bg-rc-bg/95'
       } ${showBorder ? 'border-b border-rc-border' : 'border-b border-transparent'}`}
     >
-      <div className="max-w-5xl mx-auto px-6 sm:px-8 md:px-12 h-16 flex items-center justify-between">
-        <Link
-          href="/"
-          className={`text-sm font-rc-serif font-bold tracking-tight transition-colors duration-300 ${
-            isLight ? 'text-white' : 'text-rc-text'
-          }`}
-        >
-          Brother Jimi
-        </Link>
-
+      <div className="max-w-5xl mx-auto px-6 sm:px-8 md:px-12 h-16 flex items-center justify-end">
         <div className="hidden md:flex items-center gap-8">
           {LINKS.map((link) => (
             <Link
