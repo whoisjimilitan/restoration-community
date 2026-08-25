@@ -13,16 +13,22 @@ The homepage hero now links to both `/my-story` and `/book`, added specifically 
 
 ## Content inventory (verified real, not invented)
 
+**Correction (2026-08-25):** the two videos live on YouTube (`fc9g750tqdQ`, `A9X9TrMBda0`) are declaration videos — a separate category from the 9-episode series, confirmed by the founder. They are not Episode 1 or Episode 7. All 9 episodes below are currently unproduced.
+
 **Episodes** (`apps/web/app/my-story/page.tsx`, existing `EPISODES` array — unchanged):
-1. "There Is a Spirit Moving" — **live**, corresponds to YouTube video `fc9g750tqdQ`
+1. "There Is a Spirit Moving" — not yet produced
 2. "Before the Spirit" — not yet produced
 3. "Rise Up and Walk" — not yet produced
 4. "Weje" — not yet produced
 5. "I'm Taking This Death Because of You" — not yet produced
 6. "A Very Good Idea" — not yet produced
-7. "The Spirit of Waste" — **live**, corresponds to YouTube video `A9X9TrMBda0`
+7. "The Spirit of Waste" — not yet produced
 8. "Heart of Stone" — not yet produced
 9. "Today It Has Turned to Victory" — not yet produced
+
+**Declarations** (real, live now, separate from the episode series):
+1. "A Spirit Moving Around" — YouTube video `fc9g750tqdQ`
+2. "The Spirit of Waste" — YouTube video `A9X9TrMBda0`
 
 **Chapters** (`apps/web/app/book/page.tsx`, existing `CHAPTERS` array — unchanged, 12 entries, titles only, no chapter body text exists).
 
@@ -45,13 +51,15 @@ The homepage hero now links to both `/my-story` and `/book`, added specifically 
 
 Hero section: **unchanged** — already correct (name, Weje introduction, no video redundancy).
 
+Declaration section (new, sits between hero and the episode grid): the two live declaration videos, distinct from the episode series, each with their real title, real thumbnail (`declaration-a-spirit-moving-around.png`, `declaration-the-spirit-of-waste.png`), and a link to their YouTube URL.
+
 Episode section: replace the current bordered-list layout with a responsive grid.
 
 - Grid: `grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8`, inside the existing `max-w-5xl mx-auto` container (grid content per `DESIGN_LANGUAGE.md`).
 - Each card:
-  - Thumbnail image, `aspect-video w-full object-cover rounded-lg`, using the real per-episode PNG (copied into `apps/web/public/images/episodes/episode-0N.png` for episodes without a "live" status, and the `ExistingVideo` thumbnails for Episodes 1 and 7 specifically, since those are the ones an actual visitor will click through to and should show the exact thumbnail used on YouTube).
+  - Thumbnail image, `aspect-video w-full object-cover rounded-lg`, using the real per-episode PNG (`apps/web/public/images/episodes/episode-0N.png`).
   - Below the image: `Episode N` label (existing style: `text-xs uppercase tracking-wider text-rc-accent font-medium`), episode title (`text-xl font-rc-serif font-bold`), one-line description (existing text, unchanged, `text-sm text-rc-text/70 font-light`).
-  - Status: Episodes 1 and 7 render as a real `<a>` linking to their YouTube URL (`https://www.youtube.com/watch?v=fc9g750tqdQ` and `https://www.youtube.com/watch?v=A9X9TrMBda0` respectively) with a "Watch Now →" label styled with the existing hover-underline pattern. The other 7 render as a static (non-link) card with a small "Coming Soon" badge overlaid on the bottom-left corner of the thumbnail (`absolute`, semi-transparent `bg-rc-text/80`, small `text-white text-xs uppercase tracking-wide px-3 py-1 rounded-full`) — matching the visual language of a real YouTube playlist showing a mix of published and upcoming content in the same grid.
+  - Status: all 9 episodes are currently unproduced and render as a static (non-link) card with a small "Coming Soon" badge overlaid on the bottom-left corner of the thumbnail (`absolute`, semi-transparent `bg-rc-text/80`, small `text-white text-xs uppercase tracking-wide px-3 py-1 rounded-full`).
 
 ### `/book`
 
@@ -59,7 +67,7 @@ Cover section: replace the current styled-div mock cover with an `<img src="/ima
 
 Waitlist section: **unchanged** — already honest, no purchase language, already correct.
 
-Chapters section: keep the existing numbered list exactly as-is for the 10 chapters with no matching video. For the 2 chapters that match a live episode (Chapter 1 "There Is a Spirit Moving" ↔ Episode 1; Chapter 7 "The Spirit of Waste" ↔ Episode 7), add a small thumbnail (using the same `ExistingVideo` PNG used on `/my-story` for that episode, `w-16 h-9 object-cover rounded shrink-0`) to the left of the chapter number, and make that row a link to the same YouTube URL used on `/my-story`, with a small "Watch this chapter →" micro-label beneath the title in `text-xs text-rc-accent`. This is the closest honest version of "preview the chapters" available — the two chapters that have a real audiovisual counterpart get a way to actually experience that part of the story; the other 10 stay as titles only.
+Chapters section: keep the existing numbered list exactly as-is for all 12 chapters — no video, no thumbnail. The declaration videos don't correspond to any specific chapter, so no chapter gets a video link.
 
 ## Out of scope
 
