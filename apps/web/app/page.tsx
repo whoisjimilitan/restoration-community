@@ -110,12 +110,18 @@ export default function Home() {
             </p>
           </div>
 
-          <div className={`transform transition-all duration-500 delay-150 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+          <div className={`flex items-center justify-center gap-6 transform transition-all duration-500 delay-150 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
             <a
               href="/my-story"
               className="inline-block text-white/70 hover:text-white text-base font-medium transition-colors duration-200"
             >
               Watch My Story
+            </a>
+            <a
+              href="/book"
+              className="inline-block text-white/70 hover:text-white text-base font-medium transition-colors duration-200"
+            >
+              Read The Book
             </a>
           </div>
         </motion.div>
