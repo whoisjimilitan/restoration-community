@@ -160,7 +160,7 @@ export default function Home() {
             variants={fadeInLine}
             src="/images/portrait-declaration-closeup.png"
             alt="Brother Jimi"
-            className="mx-auto w-full max-w-[280px] md:max-w-[340px] aspect-square object-cover rounded-[2rem]"
+            className="mx-auto w-full max-w-[260px] md:max-w-[300px] aspect-square object-cover rounded-[2rem]"
           />
           <div className="text-left">
             <motion.p variants={fadeInLine} className="text-2xl md:text-3xl font-rc-serif font-bold tracking-tight text-white leading-snug">
