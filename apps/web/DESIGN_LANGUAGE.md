@@ -140,6 +140,39 @@ Each section follows this pattern:
 
 ---
 
+## Emphasis & Narrative Beats (NEW)
+
+Proven out on the homepage's dark band and closing sections — the patterns below are how this site marks a turning point or a declaration, distinct from ordinary section titles.
+
+**Mixed-weight emphasis within one statement:** when a single sentence contains both the weight of the problem and the lightness of the solution, split it — bold for the heavy half, light for the relieving half. The typography enacts the meaning instead of just describing it.
+
+```tsx
+<motion.p className="text-xl md:text-2xl font-rc-serif tracking-tight leading-snug">
+  <span className="font-bold text-white">the heavy half</span>
+  <span className="font-light text-white/70"> the relieving half.</span>
+</motion.p>
+```
+
+**Hairline separator marking a beat:** a short rule (`w-12 h-px`) used to mark a shift — a pivot, or the transition from declaration into action. This device is only as strong as the room it's given: **always `mt-14 mb-14` (56px) minimum on both sides.** A hairline with less room than that reads as an accident, not a design choice — the same device used with different confidence in two places on one page is a visible inconsistency, not a style variation. Use `bg-rc-border` on light sections, `bg-white/15` on dark sections.
+
+```tsx
+<motion.div className="w-12 h-px bg-rc-border mt-14 mb-14" />
+```
+
+**A pivot sentence gets headline weight, not body weight.** If a sentence is the narrative turn of its section (a "But" moment, a moment of deliverance, a declaration), it gets the same `font-rc-serif font-bold tracking-tight` treatment as a section title — never left at body-paragraph weight just because it's mid-paragraph. Flat hierarchy on the most important sentence in a section is the single most common gap in early drafts of a page — check for it specifically.
+
+---
+
+## CTA Honesty (NEW)
+
+Every CTA verb must be true to what the destination actually contains right now, not what it will eventually contain. This site tells the truth about its own state of completion — "coming soon" content never gets a CTA verb that implies it's ready.
+
+- **"Watch" / "Read"** — only for content that is fully, immediately consumable at the destination.
+- **"Preview"** — for anything partially built: a series that's mostly "Coming Soon," a book that's cover-and-waitlist-only. Honest, still active, doesn't overpromise.
+- When a page has multiple CTAs pointing at the same destination (e.g., a hero button and a closing card both linking to `/my-story`), **they must use the same verb.** Fixing the wording on one and missing the other is a real, visible inconsistency, not a minor detail — check every CTA to the same destination together, not one at a time.
+
+---
+
 ## CTA Button Styling (UNIFIED)
 
 All CTA buttons should use the shared `SiteButton` component (`apps/web/src/components/SiteButton.tsx`) rather than hand-copied classes:
