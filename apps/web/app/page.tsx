@@ -163,8 +163,11 @@ export default function Home() {
             className="mx-auto w-full max-w-[280px] md:max-w-[340px] aspect-square object-cover rounded-[2rem]"
           />
           <div className="text-left">
+            <motion.p variants={fadeInLine} className="text-2xl md:text-3xl font-rc-serif font-bold tracking-tight text-white leading-snug">
+              This would have been my end.
+            </motion.p>
             <motion.p variants={fadeInLine} className="text-2xl md:text-3xl font-rc-serif font-bold tracking-tight text-white leading-snug mb-6">
-              This would have been my end. A fool&apos;s end.
+              A fool&apos;s end.
             </motion.p>
             <motion.p variants={fadeInLine} className="text-base text-white/70 font-light leading-relaxed mb-2">
               &ldquo;Like a partridge that hatches eggs it did not lay, are those who gain riches by unjust means.
