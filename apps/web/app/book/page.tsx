@@ -67,7 +67,7 @@ export default function BookPage() {
           </motion.h1>
 
           <motion.p variants={fadeInLine} className="text-base md:text-lg text-white/90 leading-relaxed font-rc-serif font-normal">
-            The spirit of waste lived inside me for over twenty years. He drove me across nations. He built an empire of deception through my hands. And then Jesus Christ cast him out. This is the full story.
+            The spirit of waste lived inside me for nearly twenty years. He drove me across nations. He built an empire of deception through my hands. And then Jesus Christ cast him out. This is the full story.
           </motion.p>
         </motion.div>
       </section>
