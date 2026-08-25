@@ -113,7 +113,7 @@ export default function Home() {
 
           <div className={`flex items-center justify-center gap-6 transform transition-all duration-500 delay-150 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
             <SiteButton href="/my-story" variant="solid">
-              Watch My Story
+              Preview My Story
             </SiteButton>
             <a
               href="/book"
@@ -138,13 +138,13 @@ export default function Home() {
             Its name was Weje. A Yoruba word for the wasteful one. It controlled my life for twenty years.
           </motion.p>
 
-          <motion.div variants={fadeInLine} className="w-12 h-px bg-rc-border my-8" />
+          <motion.div variants={fadeInLine} className="w-12 h-px bg-rc-border mt-14 mb-14" />
 
           <motion.p variants={fadeInLine} className="text-xl md:text-2xl font-rc-serif font-bold tracking-tight text-rc-text leading-snug">
             But in 2015, Jesus Christ delivered me completely, through Prophet T.B. Joshua&apos;s ministry.
           </motion.p>
 
-          <motion.p variants={fadeInLine} className="text-base md:text-lg text-rc-text/70 font-light leading-relaxed mt-8">
+          <motion.p variants={fadeInLine} className="text-base md:text-lg text-rc-text/70 font-light leading-relaxed mt-14">
             I tell this story so someone else does not have to wander hopelessly, searching rather than believing.
           </motion.p>
         </motion.div>
