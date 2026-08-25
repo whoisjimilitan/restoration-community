@@ -3,9 +3,8 @@
 import { useState, useEffect, useRef, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { motion, useScroll, useTransform, AnimatePresence, type Variants } from 'framer-motion';
+import SiteFooter from '@/components/SiteFooter';
 
-/** Shared reveal choreography: section container staggers its children in,
- *  each line rises and settles on the same eased curve used site-wide. */
 const staggerContainer: Variants = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.09, delayChildren: 0.05 } },
@@ -18,8 +17,6 @@ const fadeInLine: Variants = {
 
 const GATHERING_TZ = 'UTC';
 
-/** Next Friday, 3 PM GMT. Deterministic given "now", so safe to compute in a
- *  useState initializer with no layout shift or hydration mismatch. */
 function getNextGathering(): Date {
   const now = new Date();
   const zonedNow = new Date(now.toLocaleString('en-US', { timeZone: GATHERING_TZ }));
@@ -42,24 +39,23 @@ function formatGatheringDate(d: Date): string {
   return d.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', timeZone: GATHERING_TZ });
 }
 
-/** Premium, subtle, on-dark button — same approved color/shape as the rest of the site,
- *  weightier motion (slower ease, gentle lift, soft glow) reserved for this closing section. */
-function ReturnButton({ onClick, children }: { onClick: () => void; children: React.ReactNode }) {
+function ReturnButton({ onClick, children, variant = 'dark' }: { onClick: () => void; children: React.ReactNode; variant?: 'dark' | 'light' }) {
+  const styles =
+    variant === 'dark'
+      ? 'text-white border-white hover:bg-white/10 hover:shadow-[0_0_20px_rgba(255,255,255,0.15)]'
+      : 'text-rc-text border-rc-text hover:bg-rc-text/5';
   return (
     <button
       onClick={onClick}
-      className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] text-white font-medium border-2 border-white rounded-lg
-        transition-all duration-300 ease-out
-        hover:bg-white/10 hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(255,255,255,0.15)]
-        focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+      className={`inline-flex items-center justify-center px-8 py-3 min-h-[48px] font-medium border-2 rounded-lg
+        transition-all duration-300 ease-out hover:scale-[1.02]
+        focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 ${styles}`}
     >
       {children}
     </button>
   );
 }
 
-/** Isolated so only this tiny piece defers to client-side rendering —
- *  the rest of the page must stay statically rendered for SEO and first paint. */
 function AttendParamWatcher({ onAttend }: { onAttend: () => void }) {
   const searchParams = useSearchParams();
   useEffect(() => {
@@ -73,17 +69,6 @@ function AttendParamWatcher({ onAttend }: { onAttend: () => void }) {
 export default function Home() {
   const [nextGathering] = useState(getNextGathering);
   const [isLoaded, setIsLoaded] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [deliverance, setDeliverance] = useState({
-    step: 'video' as string | number,
-    need: '',
-    duration: '',
-    name: '',
-    email: '',
-    phone: '',
-    submitted: false,
-  });
-  const [isSubmittingDeliverance, setIsSubmittingDeliverance] = useState(false);
   const [isAttendanceModalOpen, setIsAttendanceModalOpen] = useState(false);
   const [attendanceStep, setAttendanceStep] = useState<'form' | 'complete'>('form');
   const [attendanceData, setAttendanceData] = useState({ name: '', email: '', phone: '' });
@@ -104,261 +89,198 @@ export default function Home() {
         <AttendParamWatcher onAttend={() => setIsAttendanceModalOpen(true)} />
       </Suspense>
 
-      {/* HERO - Premium Minimal Binary + Scripture */}
-      <section ref={heroRef} className="w-full min-h-screen flex flex-col justify-center overflow-hidden bg-gradient-to-br from-rc-accent to-rc-text px-6 sm:px-8 md:px-12 py-24 md:py-32">
-        <motion.div style={{ y: heroY, opacity: heroOpacity }} className="max-w-2xl mx-auto w-full flex flex-col justify-center space-y-0">
-          {/* The Binary - Conversational Contrast */}
+      {/* HERO — full-bleed muted looping video background, with the teal/charcoal
+          gradient layered on top (not replaced) so the brand color still governs
+          the frame and the centered text stays legible everywhere, not just one side. */}
+      <section ref={heroRef} className="relative w-full min-h-[85vh] flex flex-col justify-center overflow-hidden bg-rc-text px-6 sm:px-8 md:px-12 py-24 md:py-32">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="/videos/hero-optimized.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-br from-rc-accent/85 to-rc-text/90" />
+
+        <motion.div style={{ y: heroY, opacity: heroOpacity }} className="relative max-w-2xl mx-auto w-full flex flex-col justify-center space-y-8 text-center">
           <div className={`transform transition-all duration-500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-            <p className="text-base md:text-lg text-white/70 font-rc-serif font-normal leading-relaxed">
-              You think it's a blessing.
-            </p>
-            <h1 className="text-5xl sm:text-6xl md:text-7xl font-rc-serif font-bold text-white leading-tight tracking-tight mt-2">
-              It is a curse.
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-rc-serif font-bold text-white leading-tight tracking-tight">
+              Fraud is not just a crime. It is a spirit.
             </h1>
+            <p className="text-base md:text-lg text-white/80 font-rc-serif font-normal leading-relaxed mt-6">
+              I know because it lived inside me for over 20 years.
+            </p>
           </div>
 
-          {/* Scripture Validation - Unified with Binary */}
-          <div className={`transform transition-all duration-500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ marginTop: '3rem' }}>
-            <blockquote className="border-l-4 border-white/30 pl-6 md:pl-8">
-              <p className="text-base md:text-lg text-white/90 leading-relaxed font-rc-serif font-normal">
-                Like a partridge that hatches eggs it did not lay are those who gain riches by fraud. At midlife they will prove to be fools, and in the end they will face the consequences of their folly.
-              </p>
-              <p className="text-sm md:text-base text-white/70 font-rc-serif font-light mt-4">
-                — Jeremiah 17:11
-              </p>
-            </blockquote>
-          </div>
-        </motion.div>
-      </section>
-
-      {/* MY STORY */}
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.15 }}
-          variants={staggerContainer}
-          className="max-w-2xl mx-auto space-y-12"
-        >
-          <motion.h2 variants={fadeInLine} className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">My Story</motion.h2>
-
-          <motion.div variants={staggerContainer} className="space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light border-l-4 border-rc-accent pl-8">
-            <motion.p variants={fadeInLine}>I would have ended up a fool.</motion.p>
-            <motion.p variants={fadeInLine}>That was once supposed to be my story.</motion.p>
-            <motion.p variants={fadeInLine} className="pt-4">I told myself I was taking back mine.</motion.p>
-            <motion.p variants={fadeInLine}>I convinced myself I had no choice.</motion.p>
-            <motion.p variants={fadeInLine} className="pt-4">Even though I had it all.</motion.p>
-            <motion.p variants={fadeInLine}>But there was no peace.</motion.p>
-            <motion.p variants={fadeInLine} className="pt-4">I was the partridge God spoke of.</motion.p>
-            <motion.p variants={fadeInLine}>Hatching eggs I did not lay.</motion.p>
-          </motion.div>
-        </motion.div>
-      </section>
-
-      {/* MY ENCOUNTER */}
-      <section className="w-full py-32 md:py-40 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.15 }}
-          variants={staggerContainer}
-          className="max-w-2xl mx-auto space-y-12"
-        >
-          <motion.h2 variants={fadeInLine} className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">My Encounter</motion.h2>
-
-          <motion.div variants={staggerContainer} className="space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light border-l-4 border-rc-accent pl-8">
-            <motion.p variants={fadeInLine}>In 2015.</motion.p>
-            <motion.p variants={fadeInLine}>God used Prophet TB Joshua.</motion.p>
-            <motion.p variants={fadeInLine}>To pray for me in Jesus name.</motion.p>
-            <motion.p variants={fadeInLine} className="pt-4">One utterance: &ldquo;All that is over.&rdquo;</motion.p>
-
-            <motion.div variants={staggerContainer} className="pt-4 space-y-4">
-              <motion.p variants={fadeInLine}>The urge for waste left me.</motion.p>
-              <motion.p variants={fadeInLine}>That desire for fantasy gone.</motion.p>
-              <motion.p variants={fadeInLine}>My confusion dispelled.</motion.p>
-              <motion.p variants={fadeInLine}>My curses undone.</motion.p>
-            </motion.div>
-
-            <motion.p variants={fadeInLine} className="pt-4">The partridge became free.</motion.p>
-            <motion.p variants={fadeInLine}>Now it lays its own eggs.</motion.p>
-          </motion.div>
-        </motion.div>
-      </section>
-
-      {/* THE ONLY WAY */}
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.15 }}
-          variants={staggerContainer}
-          className="max-w-2xl mx-auto space-y-12"
-        >
-          <motion.h2 variants={fadeInLine} className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">The Only Way</motion.h2>
-
-          <motion.div variants={staggerContainer} className="space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light border-l-4 border-rc-accent pl-8">
-            <motion.p variants={fadeInLine}>Only One Man delivers.</motion.p>
-            <motion.p variants={fadeInLine}>His name is Jesus Christ.</motion.p>
-
-            <motion.p variants={fadeInLine} className="pt-4">By acting faith in Him,</motion.p>
-            <motion.p variants={fadeInLine}>you fetch in His grace.</motion.p>
-
-            <motion.p variants={fadeInLine} className="pt-4">Believe what you read here.</motion.p>
-            <motion.p variants={fadeInLine}>Confess your sins.</motion.p>
-            <motion.p variants={fadeInLine}>Repent genuinely.</motion.p>
-
-            <motion.p variants={fadeInLine} className="pt-4">You will be delivered.</motion.p>
-            <motion.p variants={fadeInLine}>You will be saved.</motion.p>
-          </motion.div>
-        </motion.div>
-      </section>
-
-      {/* THE SAME PRAYER — Return Section, bookends the hero */}
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-gradient-to-br from-rc-accent to-rc-text border-t border-rc-border">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.15 }}
-          variants={staggerContainer}
-          className="max-w-2xl mx-auto space-y-12"
-        >
-          <motion.h2 variants={fadeInLine} className="text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight tracking-tight">Same Prayer</motion.h2>
-
-          <motion.div variants={staggerContainer} className="space-y-4 text-base md:text-lg text-white/90 leading-relaxed font-light">
-            <motion.p variants={fadeInLine}>Just as I was set free by prayer,</motion.p>
-            <motion.p variants={fadeInLine}>Jesus Christ is saying to you:</motion.p>
-
-            <motion.p variants={fadeInLine} className="pt-4">Ask, and it will be given.</motion.p>
-            <motion.p variants={fadeInLine}>Seek, and you will find.</motion.p>
-            <motion.p variants={fadeInLine}>Knock, and the door will be opened.</motion.p>
-
-            <motion.p variants={fadeInLine} className="pt-4 font-medium">If you are tired of deception,</motion.p>
-          </motion.div>
-
-          <motion.div variants={fadeInLine} className="flex flex-col sm:flex-row gap-4">
-            <ReturnButton onClick={() => setIsModalOpen(true)}>Request Prayer</ReturnButton>
-            <ReturnButton onClick={() => setIsAttendanceModalOpen(true)}>Attend Gathering</ReturnButton>
-          </motion.div>
-        </motion.div>
-      </section>
-
-      {/* Footer */}
-      <footer className="w-full px-6 sm:px-8 md:px-12 py-8 bg-rc-text border-t border-rc-border text-center">
-        <div className="max-w-2xl mx-auto space-y-6">
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 flex-wrap">
-            <a href="/" className="text-white/80 hover:text-white transition-colors group text-sm">
-              Home
-              <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
-            </a>
-            <a href="/deliverances" className="text-white/80 hover:text-white transition-colors group text-sm">
-              Deliverances
-              <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
-            </a>
-            <a href="/journey" className="text-white/80 hover:text-white transition-colors group text-sm">
-              Sign In
-              <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
-            </a>
-          </div>
-          <p className="text-white/40 text-xs">© 2026. All rights reserved.</p>
-        </div>
-      </footer>
-
-      {/* PRAYER REQUEST MODAL */}
-      <AnimatePresence>
-        {isModalOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setIsModalOpen(false)}
-            className="fixed inset-0 bg-black/50 flex items-center justify-center z-40"
-          >
-            <motion.div
-              initial={{ scale: 0.95, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.95, opacity: 0 }}
-              onClick={(e) => e.stopPropagation()}
-              className="bg-white rounded-lg p-8 max-w-md w-full mx-4"
+          <div className={`transform transition-all duration-500 delay-150 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+            <a
+              href="/my-story"
+              className="inline-block text-white/70 hover:text-white text-base font-medium transition-colors duration-200"
             >
-              <h3 className="text-2xl font-rc-serif font-bold text-rc-text mb-6">Prayer Request</h3>
+              Watch My Story
+            </a>
+          </div>
+        </motion.div>
+      </section>
 
-              <div className="space-y-4">
-                <input
-                  type="text"
-                  placeholder="Your name"
-                  value={deliverance.name}
-                  onChange={(e) => setDeliverance({ ...deliverance, name: e.target.value })}
-                  className="w-full px-4 py-2 border border-rc-border rounded-lg"
-                />
-                <input
-                  type="email"
-                  placeholder="Your email"
-                  value={deliverance.email}
-                  onChange={(e) => setDeliverance({ ...deliverance, email: e.target.value })}
-                  className="w-full px-4 py-2 border border-rc-border rounded-lg"
-                />
-                <input
-                  type="tel"
-                  placeholder="Phone number (optional)"
-                  value={deliverance.phone}
-                  onChange={(e) => setDeliverance({ ...deliverance, phone: e.target.value })}
-                  className="w-full px-4 py-2 border border-rc-border rounded-lg"
-                />
-                <textarea
-                  placeholder="What would you like prayer for?"
-                  value={deliverance.need}
-                  onChange={(e) => setDeliverance({ ...deliverance, need: e.target.value })}
-                  className="w-full px-4 py-2 border border-rc-border rounded-lg h-24"
-                />
+      {/* FOUNDER'S WITNESS — proof the journey is real, before anything else is asked of the visitor */}
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={staggerContainer}
+          className="max-w-2xl mx-auto space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light"
+        >
+          <motion.p variants={fadeInLine}>
+            His name was Weje. Yoruba for the prodigal spirit, the wasteful one. He controlled my life for over twenty years.
+          </motion.p>
+          <motion.p variants={fadeInLine}>
+            In 2015, Jesus Christ delivered me completely, through Prophet T.B. Joshua&apos;s ministry.
+          </motion.p>
+          <motion.p variants={fadeInLine} className="font-medium text-rc-text">
+            Now I tell this story so someone else does not have to walk it for twenty years before finding the way out.
+          </motion.p>
+        </motion.div>
+      </section>
 
-                <button
-                  onClick={async () => {
-                    if (!deliverance.name || !deliverance.email || !deliverance.need) {
-                      alert('Please fill in all required fields');
-                      return;
-                    }
-                    setIsSubmittingDeliverance(true);
-                    try {
-                      const res = await fetch('/api/prayer-request', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({
-                          name: deliverance.name,
-                          email: deliverance.email,
-                          phone: deliverance.phone,
-                          need: deliverance.need,
-                        }),
-                      });
-                      if (res.ok) {
-                        setDeliverance({
-                          step: 'video',
-                          need: '',
-                          duration: '',
-                          name: '',
-                          email: '',
-                          phone: '',
-                          submitted: true,
-                        });
-                        alert('Thank you. Your prayer request has been received.');
-                        setIsModalOpen(false);
-                      }
-                    } catch (e) {
-                      console.error(e);
-                      alert('Error submitting request. Please try again.');
-                    } finally {
-                      setIsSubmittingDeliverance(false);
-                    }
-                  }}
-                  disabled={isSubmittingDeliverance}
-                  className="w-full px-4 py-2 bg-rc-accent text-white rounded-lg font-bold transition-all duration-300 ease-out hover:bg-rc-accent/90 hover:scale-[1.01] hover:shadow-lg disabled:opacity-50 disabled:hover:scale-100"
-                >
-                  {isSubmittingDeliverance ? 'Submitting...' : 'Submit'}
-                </button>
-              </div>
+      {/* THE SCRIPTURE MOMENT — one anchor verse, given room to breathe */}
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={staggerContainer}
+          className="max-w-2xl mx-auto text-center"
+        >
+          <motion.p variants={fadeInLine} className="text-2xl md:text-3xl font-rc-serif font-bold text-rc-text leading-relaxed mb-6">
+            &ldquo;Like a partridge that hatches eggs it did not lay, are those who gain riches by unjust means.
+            When their lives are half gone, their riches will desert them, and in the end they will prove to be fools.&rdquo;
+          </motion.p>
+          <motion.p variants={fadeInLine} className="text-base font-medium text-rc-accent mb-2">
+            Jeremiah 17:11
+          </motion.p>
+          <motion.p variants={fadeInLine} className="text-base text-rc-text/70 font-light">
+            This is the end for everyone who does not repent and receive God&apos;s mercy. It would have been mine.
+          </motion.p>
+        </motion.div>
+      </section>
+
+      {/* THE TWO VIDEOS */}
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.15 }}
+          variants={staggerContainer}
+          className="max-w-5xl mx-auto"
+        >
+          <motion.p variants={fadeInLine} className="text-base font-medium text-rc-accent text-center mb-4">
+            Watch it happen
+          </motion.p>
+          <motion.h2 variants={fadeInLine} className="text-2xl md:text-3xl font-rc-serif font-bold text-rc-text text-center mb-14 max-w-xl mx-auto">
+            Two moments from the testimony
+          </motion.h2>
+          <motion.div variants={staggerContainer} className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <motion.div variants={fadeInLine} className="aspect-video w-full rounded-lg overflow-hidden bg-rc-text/5 border border-rc-border">
+              <iframe
+                className="w-full h-full"
+                src="https://www.youtube.com/embed/fc9g750tqdQ"
+                title="The Spirit of Waste | I Was Once Influenced Demonically"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </motion.div>
+            <motion.div variants={fadeInLine} className="aspect-video w-full rounded-lg overflow-hidden bg-rc-text/5 border border-rc-border">
+              <iframe
+                className="w-full h-full"
+                src="https://www.youtube.com/embed/A9X9TrMBda0"
+                title="The Spirit of Waste | My Testimony"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
             </motion.div>
           </motion.div>
-        )}
-      </AnimatePresence>
+
+          <motion.p variants={fadeInLine} className="max-w-2xl mx-auto text-base md:text-lg text-rc-text/80 leading-relaxed font-light text-center mt-16">
+            Brother Jimi is a ministry calling young people out of the spirit of fraud and into the freedom of Jesus Christ. The message is simple: fraud is spiritual, deception enters through fear, and deliverance is available through Christ.
+          </motion.p>
+        </motion.div>
+      </section>
+
+      {/* WHERE TO GO NEXT — the one navigation moment on the page, placed after
+          the arc is complete. Request Prayer is the real goal, so it gets a
+          featured full-width card; Series/Book are smaller, secondary. Every
+          card has a real image now — no placeholder gradients standing in. */}
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.15 }}
+          variants={staggerContainer}
+          className="max-w-3xl mx-auto"
+        >
+          <motion.h2 variants={fadeInLine} className="text-2xl md:text-3xl font-rc-serif font-bold text-rc-text text-center mb-14">
+            Where to go from here
+          </motion.h2>
+
+          {/* Featured: Request Prayer */}
+          <motion.a
+            href="/get-help"
+            variants={{
+              hidden: { opacity: 0, y: 16, rotate: -1 },
+              visible: { opacity: 1, y: 0, rotate: -1, transition: { duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] } },
+            }}
+            whileHover={{ rotate: 0, y: -6, transition: { duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] } }}
+            className="block bg-white rounded-lg shadow-lg shadow-black/10 overflow-hidden mb-6"
+          >
+            <div className="flex flex-col sm:flex-row items-center">
+              <div className="w-32 h-32 sm:w-40 sm:h-40 shrink-0 p-4">
+                <img
+                  src="/images/portrait-card.jpg"
+                  alt="Brother Jimi"
+                  className="w-full h-full object-cover rounded-full"
+                />
+              </div>
+              <div className="p-5 sm:pl-2 text-center sm:text-left">
+                <h3 className="text-xl font-rc-serif font-bold text-rc-text leading-tight">Request Prayer</h3>
+                <p className="text-sm text-rc-text/60 font-light mt-1">There is a way out. I read every request personally.</p>
+              </div>
+            </div>
+          </motion.a>
+
+          {/* Secondary: Series + Book */}
+          <motion.div variants={staggerContainer} className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {[
+              { title: 'The Series', body: 'Watch my story.', href: '/my-story', rotate: 1.5, image: '/images/brother-jimi-before-after-thumbnail.png' },
+              { title: 'The Book', body: 'Read the full story.', href: '/book', rotate: -1.5, image: '/images/book-cover.png' },
+            ].map((card) => (
+              <motion.a
+                key={card.title}
+                href={card.href}
+                variants={{
+                  hidden: { opacity: 0, y: 16, rotate: card.rotate },
+                  visible: { opacity: 1, y: 0, rotate: card.rotate, transition: { duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] } },
+                }}
+                whileHover={{ rotate: 0, y: -6, transition: { duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] } }}
+                className="block bg-white rounded-lg shadow-lg shadow-black/10 overflow-hidden text-left"
+              >
+                <div className="aspect-video w-full overflow-hidden">
+                  <img src={card.image} alt={card.title} className="w-full h-full object-cover" />
+                </div>
+                <div className="p-5">
+                  <h3 className="text-lg font-rc-serif font-bold text-rc-text leading-tight">{card.title}</h3>
+                  <p className="text-sm text-rc-text/60 font-light mt-1">{card.body}</p>
+                </div>
+              </motion.a>
+            ))}
+          </motion.div>
+        </motion.div>
+      </section>
+
+      <SiteFooter />
 
       {/* ATTENDANCE MODAL */}
       <AnimatePresence>
@@ -386,21 +308,21 @@ export default function Home() {
                     placeholder="Your name"
                     value={attendanceData.name}
                     onChange={(e) => setAttendanceData({ ...attendanceData, name: e.target.value })}
-                    className="w-full px-4 py-2 border border-rc-border rounded-lg"
+                    className="w-full px-4 py-3 min-h-[48px] border border-rc-border rounded-lg font-light focus:outline-none focus:border-rc-accent transition-colors duration-200"
                   />
                   <input
                     type="email"
                     placeholder="Your email"
                     value={attendanceData.email}
                     onChange={(e) => setAttendanceData({ ...attendanceData, email: e.target.value })}
-                    className="w-full px-4 py-2 border border-rc-border rounded-lg"
+                    className="w-full px-4 py-3 min-h-[48px] border border-rc-border rounded-lg font-light focus:outline-none focus:border-rc-accent transition-colors duration-200"
                   />
                   <input
                     type="tel"
                     placeholder="Phone (optional)"
                     value={attendanceData.phone}
                     onChange={(e) => setAttendanceData({ ...attendanceData, phone: e.target.value })}
-                    className="w-full px-4 py-2 border border-rc-border rounded-lg"
+                    className="w-full px-4 py-3 min-h-[48px] border border-rc-border rounded-lg font-light focus:outline-none focus:border-rc-accent transition-colors duration-200"
                   />
 
                   <button
@@ -427,7 +349,7 @@ export default function Home() {
                       }
                     }}
                     disabled={isSubmittingAttendance}
-                    className="w-full px-4 py-2 bg-rc-accent text-white rounded-lg font-bold transition-all duration-300 ease-out hover:bg-rc-accent/90 hover:scale-[1.01] hover:shadow-lg disabled:opacity-50 disabled:hover:scale-100"
+                    className="w-full px-4 py-3 min-h-[48px] bg-rc-accent text-white rounded-lg font-medium transition-all duration-200 hover:bg-rc-accent/90 hover:shadow-lg disabled:opacity-50 disabled:hover:scale-100"
                   >
                     {isSubmittingAttendance ? 'Registering...' : 'Register'}
                   </button>
@@ -449,7 +371,7 @@ export default function Home() {
                       setIsAttendanceModalOpen(false);
                       setAttendanceStep('form');
                     }}
-                    className="w-full px-4 py-2 bg-rc-accent text-white rounded-lg font-bold transition-all duration-300 ease-out hover:bg-rc-accent/90 hover:scale-[1.01] hover:shadow-lg"
+                    className="w-full px-4 py-3 min-h-[48px] bg-rc-accent text-white rounded-lg font-medium transition-all duration-200 hover:bg-rc-accent/90 hover:shadow-lg"
                   >
                     Close
                   </button>
