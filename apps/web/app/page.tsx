@@ -53,6 +53,7 @@ function AttendParamWatcher({ onAttend }: { onAttend: () => void }) {
 export default function Home() {
   const [nextGathering] = useState(getNextGathering);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const [isAttendanceModalOpen, setIsAttendanceModalOpen] = useState(false);
   const [attendanceStep, setAttendanceStep] = useState<'form' | 'complete'>('form');
   const [attendanceData, setAttendanceData] = useState({ name: '', email: '', phone: '' });
@@ -84,14 +85,17 @@ export default function Home() {
           muted
           loop
           playsInline
+          disablePictureInPicture
           poster="/images/hero-poster.jpg"
+          onPlaying={() => setIsVideoPlaying(true)}
+          onPause={() => setIsVideoPlaying(false)}
           onCanPlay={(e) => {
             const video = e.currentTarget;
             if (video.paused) {
               video.play().catch(() => {
                 // Some browsers still block autoplay outright (e.g. low-power
-                // mode). The poster frame is styled to match the video's own
-                // first frame, so this fallback state looks intentional, not broken.
+                // mode). isVideoPlaying stays false, and the custom play
+                // button below (not the browser's default one) handles it.
               });
             }
           }}
@@ -100,6 +104,21 @@ export default function Home() {
           <source src="/videos/hero-optimized.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-br from-rc-accent/85 to-rc-text/90" />
+
+        {!isVideoPlaying && (
+          <button
+            type="button"
+            onClick={() => heroVideoRef.current?.play()}
+            aria-label="Play video"
+            className="absolute inset-0 z-10 flex items-center justify-center"
+          >
+            <span className="flex items-center justify-center w-16 h-16 rounded-full bg-white/10 border border-white/25 backdrop-blur-md transition-all duration-200 hover:bg-white/20 hover:scale-105">
+              <svg width="20" height="24" viewBox="0 0 20 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2 2L18 12L2 22V2Z" fill="white" fillOpacity="0.9" />
+              </svg>
+            </span>
+          </button>
+        )}
 
         <motion.div style={{ y: heroY, opacity: heroOpacity }} className="relative max-w-2xl mx-auto w-full flex flex-col justify-center space-y-8 text-center">
           <div className={`transform transition-all duration-500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
@@ -158,11 +177,13 @@ export default function Home() {
         >
           <motion.div variants={fadeInLine} className="relative mx-auto w-full max-w-[280px] md:max-w-[340px]">
             <div className="absolute inset-0 -z-10 scale-90 rounded-full bg-rc-accent/20 blur-3xl" />
-            <img
-              src="/images/portrait-declaration-closeup.png"
-              alt="Brother Jimi"
-              className="w-full h-auto [mask-image:radial-gradient(ellipse_65%_65%_at_center,black_55%,transparent_100%)] [-webkit-mask-image:radial-gradient(ellipse_65%_65%_at_center,black_55%,transparent_100%)]"
-            />
+            <div className="rounded-[2rem] border border-white/15 bg-white/5 backdrop-blur-sm p-3">
+              <img
+                src="/images/portrait-declaration-closeup.png"
+                alt="Brother Jimi"
+                className="w-full h-auto rounded-[1.5rem] [mask-image:radial-gradient(ellipse_75%_80%_at_center,black_75%,transparent_100%)] [-webkit-mask-image:radial-gradient(ellipse_75%_80%_at_center,black_75%,transparent_100%)]"
+              />
+            </div>
           </motion.div>
           <div className="text-left">
             <motion.p variants={fadeInLine} className="text-2xl md:text-3xl font-rc-serif font-bold tracking-tight text-white leading-snug mb-6">
