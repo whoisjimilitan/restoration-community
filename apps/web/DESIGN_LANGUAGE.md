@@ -60,6 +60,26 @@ Section 4: bg-rc-warm-gray (light gray #F5F5F5)
 
 ---
 
+## Surface & Elevation (NEW)
+
+Most of the site is flat — text directly on `bg-rc-bg` or `bg-rc-warm-gray`, no elevation. Cards are the deliberate exception, used only where content genuinely needs to feel like a distinct, liftable unit (not as a default container for everything).
+
+**Card pattern:**
+
+```tsx
+<a href="..." className="block bg-white border border-rc-border rounded-xl p-8 hover:border-rc-accent transition-colors duration-200">
+  {/* content */}
+</a>
+```
+
+**Rules:**
+1. Card surface is always `bg-white` — even on sections whose canvas is `bg-rc-bg` (off-white, not pure white), so the card visibly lifts off the page.
+2. Never add a `shadow-*` class to a card. Depth comes from the border/background contrast, not elevation.
+3. Border is always `border border-rc-border`, `rounded-xl`. On hover, the border may switch to `border-rc-accent` to signal interactivity.
+4. Use cards sparingly and deliberately — most content should stay flat. A page with cards everywhere loses the contrast that makes cards feel special.
+
+---
+
 ## Content Max-Width (RECOMMENDED)
 
 Wrap section content in max-width containers for intimacy:
@@ -114,35 +134,34 @@ Each section follows this pattern:
 - Body: sans-serif (default), light weight, 16-18px
 - Use `space-y-4` for paragraph spacing (not `space-y-6`)
 - Use `leading-relaxed` for body text (improves readability)
+- Serif headers `text-3xl` and above always get `tracking-tight`. The single largest headline on a page (typically the hero `<h1>`) steps further to `tracking-tighter`. This is a fixed rule, not a per-page judgment call.
 
 ---
 
 ## CTA Button Styling (UNIFIED)
 
-All CTA buttons should follow this pattern:
+All CTA buttons should use the shared `SiteButton` component (`apps/web/src/components/SiteButton.tsx`) rather than hand-copied classes:
 
 ```tsx
-{/* Primary CTA (accent background) */}
-<button className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-rc-accent text-white font-medium rounded-lg hover:shadow-lg transition-all duration-200">
-  Request Deliverance
-</button>
+import SiteButton from '@/components/SiteButton';
 
-{/* Secondary CTA (outlined) */}
-<button className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] text-rc-accent font-medium border-2 border-rc-accent rounded-lg hover:bg-rc-accent/5 transition-all duration-200">
-  Start a Conversation
-</button>
+{/* Primary CTA (accent background) */}
+<SiteButton variant="solid" href="/some-path">Request Deliverance</SiteButton>
+
+{/* Secondary CTA (outlined, dark text) */}
+<SiteButton variant="outline-dark" href="/some-path">Start a Conversation</SiteButton>
 
 {/* On dark background */}
-<button className="inline-flex items-center justify-center px-8 py-3 min-h-[48px] text-white font-medium border-2 border-white rounded-lg hover:bg-white/10 transition-all duration-200">
-  Return to Your Journey
-</button>
+<SiteButton variant="outline-light" href="/some-path">Return to Your Journey</SiteButton>
 ```
 
-**Properties:**
+**Properties (baked into `SiteButton`, do not override):**
 - `min-h-[48px]` — ensures touch-friendly size
-- `rounded-lg` — slightly rounded, not pill-shaped
-- `transition-all duration-200` — smooth hover effects
+- `rounded-xl` — generous but not pill-shaped
+- `transition-all duration-300 ease-out` — smooth hover effects
 - Consistent padding: `px-8 py-3`
+
+If a one-off case genuinely can't use `SiteButton` (rare — flag it in review rather than assuming), match these properties by hand, using `rounded-xl` (not the old `rounded-lg`).
 
 ---
 
@@ -161,6 +180,19 @@ Links between pages use hover-reveal underline animation:
 - Bottom "Explore" sections on all pages
 - Any cross-page navigation
 - Creates premium feel with subtle interaction
+
+---
+
+## Navigation (NEW)
+
+Every page gets the shared `Navigation` component (`apps/web/src/components/Navigation.tsx`), rendered once from `layout.tsx` — never re-implement or duplicate nav markup on a per-page basis.
+
+**Behavior:**
+- Fixed to the top, `backdrop-blur-md`, `z-50`. Any full-screen modal or overlay on a page must use a higher z-index (`z-[60]` or above) to render above the nav.
+- On the homepage, the nav is transparent and its text switches between light (over the dark hero) and dark (once scrolled past it), tracked via `IntersectionObserver` on the hero section's `id="hero"`.
+- On every other page, the nav renders as a solid `bg-rc-bg/95` bar with dark text from the very top — those pages may open with their own dark gradient section (per the Background Color Pattern's hero exception below), and the nav can't assume anything about a given page's content color without inspecting it, so it stays deliberately safe/opaque everywhere except the homepage.
+- Links: Home, My Story, Book, Scriptures, Get Help, About, Deliverances — the 7 real, built routes. Do not add a link to `/journey` or `/login` until those pages are actually ready.
+- Below `768px`, the link row collapses into a hamburger-triggered slide-down sheet with the same 7 links.
 
 ---
 
@@ -223,6 +255,8 @@ Before shipping any page, verify:
 - [ ] Footer is identical across all pages
 - [ ] No inline styles—all Tailwind classes
 - [ ] Mobile spacing and layout tested
+- [ ] Cards (if any) use `bg-white`, `border border-rc-border`, `rounded-xl`, zero shadow
+- [ ] All CTAs use the `SiteButton` component, not hand-copied button classes
 
 ---
 
