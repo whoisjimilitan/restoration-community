@@ -134,15 +134,15 @@ export default function Home() {
           variants={staggerContainer}
           className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center"
         >
-          <motion.div variants={fadeInLine} className="mx-auto w-full max-w-[300px] md:max-w-[380px]">
+          <motion.div variants={fadeInLine} className="relative mx-auto w-full max-w-[300px] md:max-w-[380px]">
             <img
               src="/images/weje-era.png"
               alt="Brother Jimi during the years Weje controlled his life"
               className="w-full aspect-[2/3] object-cover rounded-[2rem]"
             />
-            <p className="text-xs uppercase tracking-wider text-rc-text/50 font-medium mt-3 text-center">
-              2012 — during Weje
-            </p>
+            <span className="absolute bottom-4 left-4 text-white text-xs uppercase tracking-wide font-medium px-3 py-1 rounded-full bg-rc-text/80">
+              2012
+            </span>
           </motion.div>
           <div className="text-left">
             <motion.p variants={fadeInLine} className="text-base md:text-lg text-rc-text leading-relaxed font-light">
