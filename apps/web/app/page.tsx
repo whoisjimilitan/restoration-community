@@ -174,12 +174,6 @@ export default function Home() {
           variants={staggerContainer}
           className="max-w-2xl mx-auto"
         >
-          <motion.h2 variants={fadeInLine} className="text-2xl md:text-3xl font-rc-serif font-bold text-rc-text text-center mb-4">
-            Let&apos;s pray together.
-          </motion.h2>
-          <motion.p variants={fadeInLine} className="text-sm text-rc-text/60 text-center mb-10">
-            Open the chat in the corner of this page. I read every message myself.
-          </motion.p>
           <motion.div variants={fadeInLine} className="flex flex-col sm:flex-row items-center justify-center gap-6">
             <a href="/my-story" className="text-sm text-rc-text/60 hover:text-rc-accent transition-colors duration-200 group">
               Watch the full series →
