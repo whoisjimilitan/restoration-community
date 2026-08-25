@@ -4,7 +4,6 @@ import { useState, useEffect, useRef, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { motion, useScroll, useTransform, AnimatePresence, type Variants } from 'framer-motion';
 import SiteFooter from '@/components/SiteFooter';
-import DeliveranceForm from '@/components/DeliveranceForm';
 
 const staggerContainer: Variants = {
   hidden: {},
@@ -179,11 +178,8 @@ export default function Home() {
             If you identify with the spirit described on this site, there is a way out.
           </motion.h2>
           <motion.p variants={fadeInLine} className="text-sm text-rc-text/60 text-center mb-10">
-            No registration. No pressure. I read every request personally.
+            No form. No waiting. Talk to me right now — look for the chat in the corner of this page.
           </motion.p>
-          <motion.div variants={fadeInLine} className="bg-white border-t-4 border-rc-accent rounded-lg p-6 md:p-8 shadow-sm">
-            <DeliveranceForm />
-          </motion.div>
           <motion.div variants={fadeInLine} className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-10">
             <a href="/my-story" className="text-sm text-rc-text/60 hover:text-rc-accent transition-colors duration-200">
               Watch the full series →
