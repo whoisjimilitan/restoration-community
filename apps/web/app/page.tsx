@@ -106,7 +106,7 @@ export default function Home() {
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-rc-serif font-bold text-white leading-tight tracking-tight">
               Fraud is not just a crime. It is a spirit.
             </h1>
-            <p className="text-base md:text-lg text-white/80 font-rc-serif font-normal leading-relaxed mt-6">
+            <p className="text-base md:text-lg text-white/80 font-light leading-relaxed mt-6">
               I know because it lived inside me for 20 years.
             </p>
           </div>
@@ -132,7 +132,7 @@ export default function Home() {
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
           variants={staggerContainer}
-          className="max-w-xl mx-auto"
+          className="max-w-2xl mx-auto"
         >
           <motion.p variants={fadeInLine} className="text-base md:text-lg text-rc-text leading-relaxed font-light">
             Its name was Weje. A Yoruba word for the wasteful one. It controlled my life for twenty years.
@@ -173,11 +173,11 @@ export default function Home() {
             <motion.p variants={fadeInLine} className="text-2xl md:text-3xl font-rc-serif font-bold tracking-tight text-white leading-snug mb-6">
               A fool&apos;s end.
             </motion.p>
-            <motion.p variants={fadeInLine} className="text-base text-white/70 font-light leading-relaxed mb-2">
+            <motion.p variants={fadeInLine} className="text-base md:text-lg text-white/70 font-light leading-relaxed mb-2">
               &ldquo;Like a partridge that hatches eggs it did not lay, are those who gain riches by unjust means.
               When their lives are half gone, their riches will desert them, and in the end they will prove to be fools.&rdquo;
             </motion.p>
-            <motion.p variants={fadeInLine} className="text-base font-medium text-white/90">
+            <motion.p variants={fadeInLine} className="text-base md:text-lg font-medium text-white/90">
               Jeremiah 17:11
             </motion.p>
           </div>

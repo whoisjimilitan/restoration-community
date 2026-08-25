@@ -134,7 +134,9 @@ Each section follows this pattern:
 - Body: sans-serif (default), light weight, 16-18px
 - Use `space-y-4` for paragraph spacing (not `space-y-6`)
 - Use `leading-relaxed` for body text (improves readability)
-- Serif headers `text-3xl` and above always get `tracking-tight`. The single largest headline on a page (typically the hero `<h1>`) steps further to `tracking-tighter`. This is a fixed rule, not a per-page judgment call.
+- Serif headers `text-3xl` and above always get `tracking-tight`. This is a fixed rule, not a per-page judgment call.
+- Body text (sans-serif, light weight) never uses `font-rc-serif` — serif is reserved for headline-weight statements only.
+- Responsive scaling (`text-base md:text-lg`) applies to all body-weight paragraphs, including quoted scripture and citations — never lock body text to a single fixed size across breakpoints.
 
 ---
 
