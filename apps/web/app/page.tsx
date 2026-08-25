@@ -103,7 +103,7 @@ export default function Home() {
 
         <motion.div style={{ y: heroY, opacity: heroOpacity }} className="relative max-w-2xl mx-auto w-full flex flex-col justify-center space-y-8 text-center">
           <div className={`transform transition-all duration-500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-rc-serif font-bold text-white leading-tight tracking-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-rc-serif font-bold text-white leading-tight tracking-tighter">
               Fraud is not just a crime. It is a spirit.
             </h1>
             <p className="text-base md:text-lg text-white/80 font-rc-serif font-normal leading-relaxed mt-6">
@@ -177,26 +177,34 @@ export default function Home() {
         </motion.div>
       </section>
 
-      {/* CLOSING ACTION — the page's one goal. Embedded form, no extra click.
-          Series/Book stay present but quiet: plain text links, not cards. */}
+      {/* CLOSING ACTION — the page's one goal. Series/Book stay present but
+          quiet: two small elevated cards, not a promotional block. */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.15 }}
           variants={staggerContainer}
-          className="max-w-2xl mx-auto"
+          className="max-w-2xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-6"
         >
-          <motion.div variants={fadeInLine} className="flex flex-col sm:flex-row items-center justify-center gap-6">
-            <a href="/my-story" className="text-sm text-rc-text/60 hover:text-rc-accent transition-colors duration-200 group">
+          <motion.a
+            variants={fadeInLine}
+            href="/my-story"
+            className="block bg-white border border-rc-border rounded-xl p-8 text-center hover:border-rc-accent transition-colors duration-200 group"
+          >
+            <span className="text-base font-medium text-rc-text group-hover:text-rc-accent transition-colors duration-200">
               Watch the full series →
-              <span className="block h-px w-0 group-hover:w-full bg-rc-accent transition-all duration-300 mt-1"></span>
-            </a>
-            <a href="/book" className="text-sm text-rc-text/60 hover:text-rc-accent transition-colors duration-200 group">
+            </span>
+          </motion.a>
+          <motion.a
+            variants={fadeInLine}
+            href="/book"
+            className="block bg-white border border-rc-border rounded-xl p-8 text-center hover:border-rc-accent transition-colors duration-200 group"
+          >
+            <span className="text-base font-medium text-rc-text group-hover:text-rc-accent transition-colors duration-200">
               Read the book →
-              <span className="block h-px w-0 group-hover:w-full bg-rc-accent transition-all duration-300 mt-1"></span>
-            </a>
-          </motion.div>
+            </span>
+          </motion.a>
         </motion.div>
       </section>
 
