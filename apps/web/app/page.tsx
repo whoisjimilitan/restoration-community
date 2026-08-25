@@ -194,7 +194,7 @@ export default function Home() {
           className="max-w-2xl mx-auto"
         >
           <motion.p variants={fadeInLine} className="text-xl md:text-2xl font-rc-serif font-bold tracking-tight text-white leading-snug mb-16">
-            I am calling you away from fraud and into the salvation only Jesus Christ gives.
+            I am calling every youth away from fraud and into the salvation only Jesus Christ gives.
           </motion.p>
         </motion.div>
         <motion.div
