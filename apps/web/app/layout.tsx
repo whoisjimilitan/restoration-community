@@ -34,7 +34,7 @@ export default function RootLayout({
         {/* Let's Connect — live/AI prayer chat, site-wide. lazyOnload so it
             never competes with the hero video for the first paint. */}
         <Script
-          id="Ry1a6rs3kJcO7O3obT0S"
+          id="9GBWhxT8KsCsuVDzXge3"
           src="https://app.letsconnect.at/embed.js"
           strategy="lazyOnload"
         />
