@@ -100,7 +100,7 @@ export default function Home() {
         </video>
         <div className="absolute inset-0 bg-gradient-to-br from-rc-accent/85 to-rc-text/90" />
 
-        <motion.div style={{ y: heroY, opacity: heroOpacity }} className="relative max-w-2xl mx-auto w-full flex flex-col justify-center space-y-14 text-center">
+        <motion.div style={{ y: heroY, opacity: heroOpacity }} className="relative max-w-2xl mx-auto w-full flex flex-col justify-center text-center">
           <div className={`transform transition-all duration-500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-rc-serif font-bold text-white leading-tight tracking-tight">
               Fraud is not just a crime. It is a spirit.
@@ -109,16 +109,16 @@ export default function Home() {
               I know because it lived inside me for over 20 years.
             </p>
           </div>
-
-          <div className={`transform transition-all duration-500 delay-150 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-            <a
-              href="/my-story"
-              className="inline-block text-white/70 hover:text-white text-base font-medium transition-colors duration-200"
-            >
-              Watch My Story
-            </a>
-          </div>
         </motion.div>
+
+        {/* Stored away from the main declaration, bottom-right — clearly optional,
+            not a second thing competing with the hero's one statement. */}
+        <a
+          href="/my-story"
+          className={`absolute bottom-6 right-6 sm:bottom-8 sm:right-8 text-sm text-white/50 hover:text-white/90 font-medium transition-all duration-500 delay-300 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+        >
+          Watch My Story
+        </a>
       </section>
 
       {/* FOUNDER'S WITNESS — proof the journey is real, before anything else is asked of the visitor */}
@@ -128,17 +128,22 @@ export default function Home() {
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
           variants={staggerContainer}
-          className="max-w-xl mx-auto border-l-2 border-rc-accent pl-6 md:pl-8 space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light"
+          className="max-w-xl mx-auto"
         >
-          <motion.p variants={fadeInLine}>
-            His name was Weje. Yoruba for the prodigal spirit, the wasteful one. He controlled my life for over twenty years.
+          <motion.p variants={fadeInLine} className="text-sm font-medium tracking-widest text-rc-accent uppercase mb-6">
+            In My Own Words
           </motion.p>
-          <motion.p variants={fadeInLine}>
-            In 2015, Jesus Christ delivered me completely, through Prophet T.B. Joshua&apos;s ministry.
-          </motion.p>
-          <motion.p variants={fadeInLine} className="font-medium text-rc-text">
-            Now I tell this story so someone else does not have to search twenty years for what only Christ can give.
-          </motion.p>
+          <motion.div className="space-y-4 text-base md:text-lg text-rc-text leading-relaxed font-light">
+            <motion.p variants={fadeInLine}>
+              His name was Weje. Yoruba for the prodigal spirit, the wasteful one. He controlled my life for over twenty years.
+            </motion.p>
+            <motion.p variants={fadeInLine}>
+              But in 2015, Jesus Christ delivered me completely, through Prophet T.B. Joshua&apos;s ministry.
+            </motion.p>
+            <motion.p variants={fadeInLine} className="font-medium text-rc-text">
+              Now I tell this story so someone else does not have to search twenty years for what only Christ can give.
+            </motion.p>
+          </motion.div>
         </motion.div>
       </section>
 
@@ -151,14 +156,15 @@ export default function Home() {
           variants={staggerContainer}
           className="max-w-2xl mx-auto text-center"
         >
-          <motion.p variants={fadeInLine} className="text-base md:text-lg font-rc-serif italic text-rc-text/70 leading-relaxed mb-3">
+          <motion.p variants={fadeInLine} className="text-sm font-medium tracking-widest text-rc-accent uppercase mb-6">
+            What God Already Said
+          </motion.p>
+          <motion.p variants={fadeInLine} className="text-base md:text-lg font-rc-serif italic text-rc-text/70 leading-relaxed mb-2">
             &ldquo;Like a partridge that hatches eggs it did not lay, are those who gain riches by unjust means.
             When their lives are half gone, their riches will desert them, and in the end they will prove to be fools.&rdquo;
           </motion.p>
-          <motion.p variants={fadeInLine} className="mb-8">
-            <span className="inline-block text-sm font-medium text-rc-accent bg-rc-accent/10 px-3 py-1 rounded-full">
-              Jeremiah 17:11
-            </span>
+          <motion.p variants={fadeInLine} className="text-sm text-rc-text/50 mb-8">
+            Jeremiah 17:11
           </motion.p>
           <motion.p variants={fadeInLine} className="text-2xl md:text-3xl font-rc-serif font-bold text-rc-text leading-snug">
             This is the end for everyone who does not repent and receive God&apos;s mercy. It would have been mine.
@@ -176,8 +182,8 @@ export default function Home() {
           variants={staggerContainer}
           className="max-w-2xl mx-auto"
         >
-          <motion.p variants={fadeInLine} className="text-sm font-medium text-rc-accent text-center mb-3">
-            If you are still carrying what I carried
+          <motion.p variants={fadeInLine} className="text-sm font-medium tracking-widest text-rc-accent uppercase text-center mb-6">
+            My Invitation To You
           </motion.p>
           <motion.h2 variants={fadeInLine} className="text-2xl md:text-3xl font-rc-serif font-bold text-rc-text text-center mb-4">
             Let&apos;s pray together.
