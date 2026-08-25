@@ -132,7 +132,7 @@ export default function Home() {
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
           variants={staggerContainer}
-          className="max-w-2xl mx-auto border-l-4 border-rc-accent pl-8"
+          className="max-w-2xl mx-auto"
         >
           <motion.p variants={fadeInLine} className="text-base md:text-lg text-rc-text leading-relaxed font-bold">
             Its name was Weje. A Yoruba word for the wasteful one. It controlled my life for twenty years.
