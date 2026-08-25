@@ -20,8 +20,43 @@ export default function Navigation() {
   const isHomepage = pathname === '/';
 
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isOverHero, setIsOverHero] = useState(isHomepage);
+  const [isOverDark, setIsOverDark] = useState(isHomepage);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  // Homepage has several dark sections (hero, the dark band, the closing
+  // cards, the footer) separated by light ones — a single "over the hero"
+  // check isn't enough, since everything below the hero was wrongly assumed
+  // to be light. Every section that needs light nav text carries
+  // data-nav-mode="light"; on scroll, check whether any of them currently
+  // overlaps the strip of viewport the fixed nav sits in (0 to 64px).
+  useEffect(() => {
+    setIsMenuOpen(false);
+    if (!isHomepage) {
+      setIsOverDark(false);
+      return;
+    }
+
+    const NAV_HEIGHT = 64;
+    const checkDarkSections = () => {
+      const darkSections = document.querySelectorAll('[data-nav-mode="light"]');
+      let overDark = false;
+      darkSections.forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top <= NAV_HEIGHT && rect.bottom >= 0) {
+          overDark = true;
+        }
+      });
+      setIsOverDark(overDark);
+    };
+
+    checkDarkSections();
+    window.addEventListener('scroll', checkDarkSections, { passive: true });
+    window.addEventListener('resize', checkDarkSections);
+    return () => {
+      window.removeEventListener('scroll', checkDarkSections);
+      window.removeEventListener('resize', checkDarkSections);
+    };
+  }, [pathname, isHomepage]);
 
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 10);
@@ -30,38 +65,15 @@ export default function Navigation() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  useEffect(() => {
-    setIsMenuOpen(false);
-
-    if (!isHomepage) {
-      setIsOverHero(false);
-      return;
-    }
-
-    const heroEl = document.getElementById('hero');
-    if (!heroEl) {
-      setIsOverHero(false);
-      return;
-    }
-
-    setIsOverHero(true);
-    const observer = new IntersectionObserver(
-      ([entry]) => setIsOverHero(entry.isIntersecting),
-      { threshold: 0 }
-    );
-    observer.observe(heroEl);
-    return () => observer.disconnect();
-  }, [pathname, isHomepage]);
-
-  // Homepage: glass nav, text color adapts to the dark hero underneath it —
-  // but it always carries a translucent scrim (never zero background),
-  // since blur alone doesn't guarantee contrast against a moving video or
-  // busy light content. Every other page: solid nav from the top, always
-  // legible regardless of what section sits beneath it — those pages are
-  // out of this plan's scope, so the nav can't assume anything about their
-  // content color.
+  // Homepage: glass nav, text color adapts to whichever section is
+  // currently under it — but it always carries a translucent scrim (never
+  // zero background), since blur alone doesn't guarantee contrast against a
+  // moving video or busy content. Every other page: solid nav from the top,
+  // always legible regardless of what section sits beneath it — those pages
+  // are out of this plan's scope, so the nav can't assume anything about
+  // their content color.
   const isTransparentMode = isHomepage;
-  const isLight = isTransparentMode && isOverHero;
+  const isLight = isTransparentMode && isOverDark;
   const showBorder = isScrolled || !isTransparentMode;
 
   return (

@@ -11,6 +11,7 @@ export default function SiteFooter({ precededByDarkSection = false }: { preceded
 
   return (
     <footer
+      data-nav-mode="light"
       className={`w-full px-6 sm:px-8 md:px-12 py-8 bg-rc-text text-center border-t ${
         precededByDarkSection ? 'border-white/10' : 'border-rc-border'
       }`}

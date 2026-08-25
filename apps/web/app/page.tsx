@@ -77,7 +77,7 @@ export default function Home() {
       {/* HERO — full-bleed muted looping video background, with the teal/charcoal
           gradient layered on top (not replaced) so the brand color still governs
           the frame and the centered text stays legible everywhere, not just one side. */}
-      <section ref={heroRef} id="hero" className="relative w-full min-h-[85svh] flex flex-col justify-center overflow-hidden bg-rc-text px-6 sm:px-8 md:px-12 py-24 md:py-32">
+      <section ref={heroRef} id="hero" data-nav-mode="light" className="relative w-full min-h-[85svh] flex flex-col justify-center overflow-hidden bg-rc-text px-6 sm:px-8 md:px-12 py-24 md:py-32">
         <video
           ref={heroVideoRef}
           autoPlay
@@ -148,7 +148,7 @@ export default function Home() {
 
       {/* THE DARK BAND — the page's one deliberate dramatic peak: the real man
           alongside the highest-stakes line on the page, at the same weight. */}
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-text border-t border-rc-border">
+      <section data-nav-mode="light" className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-text border-t border-rc-border">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -156,13 +156,12 @@ export default function Home() {
           variants={staggerContainer}
           className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center"
         >
-          <motion.div variants={fadeInLine} className="relative mx-auto w-full max-w-[280px] md:max-w-[340px] rounded-[2rem] border border-white/15 bg-white/5 backdrop-blur-sm overflow-hidden">
-            <img
-              src="/images/portrait-declaration-closeup.png"
-              alt="Brother Jimi"
-              className="w-full aspect-square object-cover"
-            />
-          </motion.div>
+          <motion.img
+            variants={fadeInLine}
+            src="/images/portrait-declaration-closeup.png"
+            alt="Brother Jimi"
+            className="mx-auto w-full max-w-[280px] md:max-w-[340px] aspect-square object-cover rounded-[2rem]"
+          />
           <div className="text-left">
             <motion.p variants={fadeInLine} className="text-2xl md:text-3xl font-rc-serif font-bold tracking-tight text-white leading-snug mb-6">
               This would have been my end.
@@ -181,7 +180,7 @@ export default function Home() {
       {/* CLOSING ACTION — the page's one goal, kept in the same dark passage
           as the testimony above it, not a hard cut back to a bright section.
           Glass cards float on the dark surface instead of opaque white ones. */}
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-text">
+      <section data-nav-mode="light" className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-text">
         <motion.div
           initial="hidden"
           whileInView="visible"
