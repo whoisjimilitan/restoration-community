@@ -76,7 +76,7 @@ export default function Home() {
       {/* HERO — full-bleed muted looping video background, with the teal/charcoal
           gradient layered on top (not replaced) so the brand color still governs
           the frame and the centered text stays legible everywhere, not just one side. */}
-      <section ref={heroRef} className="relative w-full min-h-[85vh] flex flex-col justify-center overflow-hidden bg-rc-text px-6 sm:px-8 md:px-12 py-24 md:py-32">
+      <section ref={heroRef} className="relative w-full min-h-[85svh] flex flex-col justify-center overflow-hidden bg-rc-text px-6 sm:px-8 md:px-12 py-24 md:py-32">
         <video
           ref={heroVideoRef}
           autoPlay
@@ -113,9 +113,10 @@ export default function Home() {
           <div className={`transform transition-all duration-500 delay-150 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
             <a
               href="/my-story"
-              className="inline-block text-white/70 hover:text-white text-base font-medium transition-colors duration-200"
+              className="inline-block text-white/70 hover:text-white text-base font-medium transition-colors duration-200 group"
             >
               Watch My Story
+              <span className="block h-px w-0 group-hover:w-full bg-white/70 transition-all duration-300 mt-1"></span>
             </a>
           </div>
         </motion.div>
@@ -155,8 +156,10 @@ export default function Home() {
             &ldquo;Like a partridge that hatches eggs it did not lay, are those who gain riches by unjust means.
             When their lives are half gone, their riches will desert them, and in the end they will prove to be fools.&rdquo;
           </motion.p>
-          <motion.p variants={fadeInLine} className="text-base font-medium text-rc-accent mb-2">
-            Jeremiah 17:11
+          <motion.p variants={fadeInLine} className="mb-2">
+            <span className="inline-block text-sm font-medium text-rc-accent bg-rc-accent/10 px-3 py-1 rounded-full">
+              Jeremiah 17:11
+            </span>
           </motion.p>
           <motion.p variants={fadeInLine} className="text-base text-rc-text/70 font-light">
             This is the end for everyone who does not repent and receive God&apos;s mercy. It would have been mine.
@@ -192,11 +195,13 @@ export default function Home() {
             </button>
           </motion.div>
           <motion.div variants={fadeInLine} className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-10">
-            <a href="/my-story" className="text-sm text-rc-text/60 hover:text-rc-accent transition-colors duration-200">
+            <a href="/my-story" className="text-sm text-rc-text/60 hover:text-rc-accent transition-colors duration-200 group">
               Watch the full series →
+              <span className="block h-px w-0 group-hover:w-full bg-rc-accent transition-all duration-300 mt-1"></span>
             </a>
-            <a href="/book" className="text-sm text-rc-text/60 hover:text-rc-accent transition-colors duration-200">
+            <a href="/book" className="text-sm text-rc-text/60 hover:text-rc-accent transition-colors duration-200 group">
               Read the book →
+              <span className="block h-px w-0 group-hover:w-full bg-rc-accent transition-all duration-300 mt-1"></span>
             </a>
           </motion.div>
         </motion.div>
