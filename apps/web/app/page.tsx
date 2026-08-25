@@ -193,19 +193,9 @@ export default function Home() {
           variants={staggerContainer}
           className="max-w-2xl mx-auto"
         >
-          <motion.div variants={staggerContainer} className="space-y-6 mb-16">
-            <motion.p variants={fadeInLine} className="text-xl md:text-2xl font-rc-serif font-bold tracking-tight text-white leading-snug">
-              I am calling you away from fraud and into the salvation only Jesus Christ gives.
-            </motion.p>
-            <div className="space-y-2">
-              <motion.p variants={fadeInLine} className="text-base md:text-lg text-white/70 font-light leading-relaxed">
-                What Weje wasted in me, Christ restored.
-              </motion.p>
-              <motion.p variants={fadeInLine} className="text-base md:text-lg text-white/70 font-light leading-relaxed">
-                What that spirit is wasting in you, Christ can deliver.
-              </motion.p>
-            </div>
-          </motion.div>
+          <motion.p variants={fadeInLine} className="text-xl md:text-2xl font-rc-serif font-bold tracking-tight text-white leading-snug mb-16">
+            I am calling you away from fraud and into the salvation only Jesus Christ gives.
+          </motion.p>
         </motion.div>
         <motion.div
           initial="hidden"
