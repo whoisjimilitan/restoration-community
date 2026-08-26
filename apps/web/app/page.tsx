@@ -149,13 +149,13 @@ export default function Home() {
               His name was Weje. A Yoruba word for the wasteful one. The spirit that controlled my life for twenty years.
             </motion.p>
 
-            <motion.p variants={fadeInLine} className="text-lg md:text-xl font-rc-serif tracking-tight leading-snug mt-14">
+            <motion.p variants={fadeInLine} className="text-lg md:text-xl font-rc-serif tracking-tight leading-snug mt-6">
               <span className="font-light text-rc-text/70">But in 2015, </span>
               <span className="font-bold text-rc-text">Jesus Christ delivered me completely,</span>
               <span className="font-light text-rc-text/70"> through Prophet T.B. Joshua&apos;s ministry.</span>
             </motion.p>
 
-            <motion.p variants={fadeInLine} className="text-base md:text-lg text-rc-text/70 font-light leading-relaxed mt-14">
+            <motion.p variants={fadeInLine} className="text-base md:text-lg text-rc-text/70 font-light leading-relaxed mt-6">
               I tell this story so someone else does not have to wander hopelessly, under demonic torment.
             </motion.p>
           </div>
