@@ -220,7 +220,7 @@ Links between pages use hover-reveal underline animation:
 
 ## Page Hero (NEW)
 
-Every inner page's hero uses the shared `PageHero` component (`apps/web/src/components/PageHero.tsx`) — never hand-roll a hero section.
+Every inner page's hero should use the shared `PageHero` component (`apps/web/src/components/PageHero.tsx`) — never hand-roll a new hero section. Currently applied to `/about`, `/get-help`, and `/scriptures`; `/my-story` and `/book` still hand-roll their hero, pending their own planned rebuilds.
 
 ```tsx
 import PageHero from '@/components/PageHero';
