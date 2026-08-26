@@ -16,43 +16,42 @@ const fadeInLine: Variants = {
 };
 
 export default function GetHelpPage() {
-  const heroRef = useRef<HTMLElement>(null);
+  const heroRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress: heroScroll } = useScroll({ target: heroRef, offset: ['start start', 'end start'] });
   const heroY = useTransform(heroScroll, [0, 1], [0, 140]);
   const heroOpacity = useTransform(heroScroll, [0, 1], [1, 0.15]);
 
   return (
     <div className="bg-rc-bg text-rc-text relative">
-      <div className="relative min-h-[60svh]">
-        <PageHero
-          headline="If You Identify With This Spirit, There Is a Way Out"
-          photo={{ src: '/images/portrait-declaration-closeup.png', alt: 'Brother Jimi' }}
-          headlineSizeClass="text-3xl sm:text-4xl md:text-5xl"
-        />
-        <section ref={heroRef} className="absolute inset-0 flex flex-col justify-end pointer-events-none">
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={staggerContainer}
-            style={{ y: heroY, opacity: heroOpacity }}
-            className="pointer-events-auto max-w-2xl mx-auto w-full px-6 sm:px-8 md:px-12 pb-24 md:pb-32 space-y-8 text-center"
-          >
-            <motion.div variants={staggerContainer} className="space-y-4 text-base md:text-lg text-white/90 leading-relaxed font-light text-left border-l-4 border-white/30 pl-6 md:pl-8">
-              <motion.p variants={fadeInLine}>Fraud is not just a habit. It is not just a choice. If you are caught in this lifestyle and you cannot stop, it may be because a spirit is operating inside you.</motion.p>
-              <motion.p variants={fadeInLine} className="pt-2">I know because I carried one for twenty years. His name was Weje and he controlled my affairs until Jesus Christ cast him out in May 2015.</motion.p>
-              <motion.p variants={fadeInLine}>That was the same year Jeremiah 17:11 stopped describing someone else's life. And started describing mine.</motion.p>
-              <motion.p variants={fadeInLine} className="pt-2 font-medium">The same Jesus who set me free can set you free. You do not have to carry this alone. Make me your prayer partner and let us seek deliverance together.</motion.p>
-            </motion.div>
-            <motion.a
-              variants={fadeInLine}
-              href="/about"
-              className="inline-block text-sm text-white/60 hover:text-white hover:underline"
-            >
-              Want the fuller story first? Read about who I am →
-            </motion.a>
+      <PageHero
+        headline="If You Identify With This Spirit, There Is a Way Out"
+        photo={{ src: '/images/portrait-declaration-closeup.png', alt: 'Brother Jimi' }}
+        headlineSizeClass="text-3xl sm:text-4xl md:text-5xl"
+      />
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-text">
+        <motion.div
+          ref={heroRef}
+          initial="hidden"
+          animate="visible"
+          variants={staggerContainer}
+          style={{ y: heroY, opacity: heroOpacity }}
+          className="max-w-2xl mx-auto space-y-8 text-center"
+        >
+          <motion.div variants={staggerContainer} className="space-y-4 text-base md:text-lg text-white/90 leading-relaxed font-light text-left border-l-4 border-white/30 pl-6 md:pl-8">
+            <motion.p variants={fadeInLine}>Fraud is not just a habit. It is not just a choice. If you are caught in this lifestyle and you cannot stop, it may be because a spirit is operating inside you.</motion.p>
+            <motion.p variants={fadeInLine} className="pt-2">I know because I carried one for twenty years. His name was Weje and he controlled my affairs until Jesus Christ cast him out in May 2015.</motion.p>
+            <motion.p variants={fadeInLine}>That was the same year Jeremiah 17:11 stopped describing someone else's life. And started describing mine.</motion.p>
+            <motion.p variants={fadeInLine} className="pt-2 font-medium">The same Jesus who set me free can set you free. You do not have to carry this alone. Make me your prayer partner and let us seek deliverance together.</motion.p>
           </motion.div>
-        </section>
-      </div>
+          <motion.a
+            variants={fadeInLine}
+            href="/about"
+            className="inline-block text-sm text-white/60 hover:text-white hover:underline"
+          >
+            Want the fuller story first? Read about who I am →
+          </motion.a>
+        </motion.div>
+      </section>
 
       <section className="w-full py-16 md:py-20 px-6 sm:px-8 md:px-12 bg-gradient-to-br from-rc-accent to-rc-text border-t border-rc-border text-center">
         <p className="text-white/90 font-rc-serif text-lg md:text-xl">
