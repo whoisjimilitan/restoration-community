@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence, type Variants } from 'framer-motion';
+import SiteFooter from '@/components/SiteFooter';
 
 /** Same reveal choreography as the homepage — shared DNA, not a coincidence. */
 const staggerContainer: Variants = {
@@ -302,45 +303,16 @@ export default function StoriesPage() {
             </a>
 
             <a
-              href="/journey"
+              href="/get-help"
               className="inline-flex items-center justify-center px-8 py-4 min-h-[52px] text-white font-medium border-2 border-white rounded-lg transition-all duration-300 ease-out hover:bg-white/10 hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(255,255,255,0.15)]"
             >
-              Preview the Journey
+              Get Help
             </a>
           </div>
         </motion.div>
       </section>
 
-      {/* Footer */}
-      <footer className="w-full px-6 sm:px-8 md:px-12 py-8 bg-rc-text border-t border-rc-border text-center">
-        <div className="max-w-2xl mx-auto space-y-6">
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 flex-wrap">
-            <a
-              href="/"
-              className="text-white/80 hover:text-white transition-colors group text-sm"
-            >
-              Home
-              <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
-            </a>
-            <a
-              href="/deliverances"
-              className="text-white/80 hover:text-white transition-colors group text-sm"
-            >
-              Deliverances
-              <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
-            </a>
-            <a
-              href="/journey"
-              className="text-white/80 hover:text-white transition-colors group text-sm"
-            >
-              Sign In
-              <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
-            </a>
-          </div>
-
-          <p className="text-white/40 text-xs">© 2026. All rights reserved.</p>
-        </div>
-      </footer>
+      <SiteFooter />
 
       {/* Video Modal */}
       <AnimatePresence>

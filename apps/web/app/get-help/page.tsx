@@ -3,7 +3,6 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform, type Variants } from 'framer-motion';
 import SiteFooter from '@/components/SiteFooter';
-import DeliveranceForm from '@/components/DeliveranceForm';
 
 const staggerContainer: Variants = {
   hidden: {},
@@ -47,18 +46,6 @@ export default function GetHelpPage() {
           >
             Want the fuller story first? Read about who I am →
           </motion.a>
-        </motion.div>
-      </section>
-
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
-          variants={fadeInLine}
-          className="max-w-2xl mx-auto bg-rc-warm-gray rounded-lg p-8 md:p-10 border border-rc-border"
-        >
-          <DeliveranceForm />
         </motion.div>
       </section>
 
