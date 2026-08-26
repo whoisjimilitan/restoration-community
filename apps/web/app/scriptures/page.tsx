@@ -1,6 +1,7 @@
 'use client';
 
 import { motion, type Variants } from 'framer-motion';
+import PageHero from '@/components/PageHero';
 import SiteFooter from '@/components/SiteFooter';
 import SiteButton from '@/components/SiteButton';
 
@@ -37,18 +38,7 @@ const SCRIPTURES = [
 export default function ScripturesPage() {
   return (
     <div className="bg-rc-bg text-rc-text relative">
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-gradient-to-br from-rc-accent to-rc-text">
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={staggerContainer}
-          className="max-w-2xl mx-auto text-center"
-        >
-          <motion.h1 variants={fadeInLine} className="text-4xl sm:text-5xl md:text-6xl font-rc-serif font-bold text-white leading-tight tracking-tight">
-            Scriptures That Shaped My Story
-          </motion.h1>
-        </motion.div>
-      </section>
+      <PageHero headline="Scriptures That Shaped My Story" />
 
       {SCRIPTURES.map((s, i) => (
         <section
