@@ -47,7 +47,7 @@ export default function PageHero({ headline, photo, headlineSizeClass }: PageHer
         initial="hidden"
         animate="visible"
         variants={staggerContainer}
-        className="max-w-2xl mx-auto text-center"
+        className="relative z-10 max-w-2xl mx-auto text-center"
       >
         <motion.h1 variants={fadeInLine} className={`${sizeClass} font-rc-serif font-bold text-white leading-tight tracking-tight`}>
           {headline}
