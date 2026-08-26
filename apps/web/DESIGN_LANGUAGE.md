@@ -218,6 +218,39 @@ Links between pages use hover-reveal underline animation:
 
 ---
 
+## Page Hero (NEW)
+
+Every inner page's hero uses the shared `PageHero` component (`apps/web/src/components/PageHero.tsx`) — never hand-roll a hero section.
+
+```tsx
+import PageHero from '@/components/PageHero';
+
+{/* With a real photo */}
+<PageHero
+  headline="Page Title"
+  photo={{ src: '/images/some-real-photo.jpg', alt: 'Descriptive alt text' }}
+/>
+
+{/* No photo — flat gradient, e.g. /scriptures, where a photo would imply
+    a personal connection the content doesn't call for */}
+<PageHero headline="Page Title" />
+
+{/* Longer headline that would wrap awkwardly at the default size */}
+<PageHero
+  headline="A meaningfully longer headline than the others"
+  photo={{ src: '...', alt: '...' }}
+  headlineSizeClass="text-3xl sm:text-4xl md:text-5xl"
+/>
+```
+
+**Rules:**
+- Photo overlay is always `bg-gradient-to-br from-rc-accent/85 to-rc-text/90` — the exact same math as the homepage hero. Never adjust the opacity per-page; the shared tonal identity is the point.
+- Only use the no-photo path when the page's content genuinely doesn't call for a personal photo (e.g. `/scriptures` — about the Word, not about him). Don't default to no-photo out of convenience.
+- `headlineSizeClass` only exists for headlines meaningfully longer than the ~3-5 word norm ("About Brother Jimi", "Scriptures That Shaped My Story"). Don't reach for it as a first choice — the default large size is correct for most pages.
+- Real assets only. Never a generated/stock photo. See `~/.claude/skills/flux-image-generator` if genuinely abstract/decorative imagery is ever needed elsewhere — never for anything claiming to depict a real moment.
+
+---
+
 ## Navigation (NEW)
 
 Every page gets the shared `Navigation` component (`apps/web/src/components/Navigation.tsx`), rendered once from `layout.tsx` — never re-implement or duplicate nav markup on a per-page basis.
