@@ -91,7 +91,7 @@ export default function BookPage() {
           className="max-w-2xl mx-auto"
         >
           <motion.p variants={fadeInLine} className="text-xs uppercase tracking-wider text-rc-accent font-medium mb-6 text-center">
-            Chapter One — Preview
+            Chapter One: Preview
           </motion.p>
           <motion.div
             variants={fadeInLine}
