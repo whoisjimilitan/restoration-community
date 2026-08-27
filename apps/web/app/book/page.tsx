@@ -182,11 +182,14 @@ export default function BookPage() {
               Watch the nine-episode series →
             </a>
           </motion.div>
-          <motion.div variants={staggerContainer} className="space-y-3">
+          <motion.div variants={staggerContainer} className="space-y-1">
             {CHAPTERS.map((title, i) => (
-              <motion.div key={title} variants={fadeInLine} className="flex items-baseline gap-4 border-b border-rc-border pb-3">
-                <span className="text-rc-accent font-rc-serif font-bold text-lg w-8 shrink-0">{i + 1}.</span>
-                <span className="text-base md:text-lg text-rc-text/90 font-light">{title}</span>
+              <motion.div key={title} variants={fadeInLine} className="flex items-baseline gap-3 py-2">
+                <span className="text-rc-accent font-rc-serif font-bold text-base shrink-0 tabular-nums">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <span className="text-base md:text-lg text-rc-text font-rc-serif shrink-0">{title}</span>
+                <span aria-hidden="true" className="flex-1 border-b border-dotted border-rc-border mb-1" />
               </motion.div>
             ))}
           </motion.div>
