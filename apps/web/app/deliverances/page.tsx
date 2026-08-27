@@ -92,7 +92,7 @@ export default function StoriesPage() {
               You&rsquo;ve heard mine.
             </p>
             <h1 className="text-5xl sm:text-6xl md:text-7xl font-rc-serif font-bold text-white leading-tight tracking-tight mt-2">
-              Now hear theirs.
+              Now hear his.
             </h1>
           </div>
 
