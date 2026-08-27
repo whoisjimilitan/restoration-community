@@ -75,7 +75,7 @@ export default function ScripturesPage() {
                 <p className="text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
                   He can do it for you too.
                 </p>
-                <SiteButton href="/get-help">Get Help</SiteButton>
+                <SiteButton href="/get-help">I Need Jesus</SiteButton>
               </motion.div>
             )}
           </motion.div>
