@@ -149,7 +149,7 @@ export default function MyStoryPage() {
                 {card}
               </motion.a>
             ) : (
-              <motion.div key={ep.n} variants={fadeInLine}>
+              <motion.div key={ep.n} variants={fadeInLine} className="opacity-70">
                 {card}
               </motion.div>
             );
