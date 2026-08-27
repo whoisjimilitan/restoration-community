@@ -160,7 +160,7 @@ export default function Home() {
             </motion.p>
 
             <motion.p variants={fadeInLine} className="text-base md:text-lg text-rc-text/70 font-light leading-relaxed mt-6">
-              I tell this story so someone else can trade wrath for mercy.
+              I tell this story so someone else can also trade God&apos;s wrath for His mercy.
             </motion.p>
           </div>
         </motion.div>
