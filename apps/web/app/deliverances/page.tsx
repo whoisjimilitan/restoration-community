@@ -310,7 +310,7 @@ export default function StoriesPage() {
               href="/get-help"
               className="inline-flex items-center justify-center px-8 py-4 min-h-[52px] text-white font-medium border-2 border-white rounded-lg transition-all duration-300 ease-out hover:bg-white/10 hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(255,255,255,0.15)]"
             >
-              Get Help
+              I Need Jesus
             </a>
           </div>
         </motion.div>
