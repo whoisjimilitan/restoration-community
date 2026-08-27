@@ -68,7 +68,7 @@ export default function MyStoryPage() {
             My Story
           </motion.h1>
           <motion.p variants={fadeInLine} className="text-base md:text-lg text-white/90 leading-relaxed font-rc-serif font-normal">
-            For twenty years, Weje, a spirit, ran the affairs of my life until the day Jesus Christ cast him out.
+            Weje ran the affairs of my life until the day Jesus Christ cast him out.
           </motion.p>
           <motion.a
             variants={fadeInLine}
