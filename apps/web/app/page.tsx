@@ -146,22 +146,28 @@ export default function Home() {
           </motion.div>
           <div className="text-left">
             <motion.p variants={fadeInLine} className="text-2xl md:text-3xl font-rc-serif font-bold tracking-tight text-rc-text leading-snug">
-              His name was Weje.
+              He was Weje.
             </motion.p>
 
-            <motion.p variants={fadeInLine} className="text-base md:text-lg text-rc-text leading-relaxed font-light mt-4">
-              A Yoruba word for the wasteful one. The spirit that controlled my life for twenty years.
+            <motion.p variants={fadeInLine} className="text-base md:text-lg text-rc-text leading-relaxed font-light mt-6">
+              The spirit that controlled my life for twenty years. A Yoruba word for the wasteful one.
             </motion.p>
 
-            <motion.p variants={fadeInLine} className="text-lg md:text-xl font-rc-serif tracking-tight leading-snug mt-6">
-              <span className="font-light text-rc-text/70">But in 2015, </span>
-              <span className="font-bold text-rc-text">Jesus Christ delivered me completely,</span>
-              <span className="font-light text-rc-text/70"> through Prophet T.B. Joshua&apos;s ministry.</span>
+            <motion.p variants={fadeInLine} className="text-base md:text-lg text-rc-text leading-relaxed font-light mt-6">
+              But in 2015, <span className="text-rc-accent font-medium">Jesus Christ delivered me completely</span>, through Prophet T.B. Joshua&apos;s ministry.
             </motion.p>
 
             <motion.p variants={fadeInLine} className="text-base md:text-lg text-rc-text/70 font-light leading-relaxed mt-6">
-              I tell this story so someone else can also trade God&apos;s wrath for His mercy.
+              I tell this story so someone else can also trade the wrath of God for His mercy.
             </motion.p>
+
+            <motion.a
+              variants={fadeInLine}
+              href="/get-help"
+              className="inline-block text-sm text-rc-text/60 hover:text-rc-text hover:underline mt-6"
+            >
+              Get Help →
+            </motion.a>
           </div>
         </motion.div>
       </section>
@@ -176,12 +182,16 @@ export default function Home() {
           variants={staggerContainer}
           className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center"
         >
-          <motion.img
-            variants={fadeInLine}
-            src="/images/portrait-declaration-closeup.png"
-            alt="Brother Jimi"
-            className="mx-auto w-full max-w-[300px] md:max-w-[380px] aspect-square object-cover rounded-[2rem]"
-          />
+          <motion.div variants={fadeInLine} className="relative mx-auto w-full max-w-[300px] md:max-w-[380px]">
+            <img
+              src="/images/portrait-declaration-closeup.png"
+              alt="Brother Jimi"
+              className="w-full aspect-square object-cover rounded-[2rem]"
+            />
+            <span className="absolute bottom-4 left-4 text-white text-xs uppercase tracking-wide font-medium px-3 py-1 rounded-full bg-rc-text/80">
+              2026
+            </span>
+          </motion.div>
           <div className="text-left">
             <motion.p variants={fadeInLine} className="text-2xl md:text-3xl font-rc-serif font-bold tracking-tight text-white leading-snug mb-6">
               This would have been my end.
@@ -211,7 +221,7 @@ export default function Home() {
           className="max-w-2xl mx-auto"
         >
           <motion.p variants={fadeInLine} className="text-xl md:text-2xl font-rc-serif tracking-tight leading-snug">
-            <span className="font-bold text-white">I am calling every youth away from fraud</span>
+            <span className="font-bold text-white">I am calling every youth out of fraud</span>
             <span className="font-light text-white/70"> into the salvation only Jesus Christ gives.</span>
           </motion.p>
           <motion.div variants={fadeInLine} className="w-12 h-px bg-white/15 mt-14 mb-14" />
