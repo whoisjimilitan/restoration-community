@@ -81,6 +81,41 @@ export default function BookPage() {
         </motion.div>
       </section>
 
+      {/* LOOK INSIDE */}
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.15 }}
+          variants={staggerContainer}
+          className="max-w-2xl mx-auto"
+        >
+          <motion.p variants={fadeInLine} className="text-xs uppercase tracking-wider text-rc-accent font-medium mb-6 text-center">
+            Chapter One — Preview
+          </motion.p>
+          <motion.div
+            variants={fadeInLine}
+            className="bg-white border border-rc-border rounded-xl p-8 md:p-12 space-y-5"
+          >
+            <p className="text-base md:text-lg text-rc-text leading-relaxed font-rc-serif">
+              There is a spirit moving among young people right now. I know because it lived inside me for twenty years. This spirit was named Weje when it lived in me.
+            </p>
+            <p className="text-base md:text-lg text-rc-text leading-relaxed font-rc-serif">
+              It entered when I was removed from the covering of God that protected me from the attacks of the devil. My mother died in 1996. Her last words to me were that she was taking her death because of me. I carried that for years.
+            </p>
+            <p className="text-base md:text-lg text-rc-text leading-relaxed font-rc-serif">
+              Then came trafficking. Drug runs across multiple countries. Then finally, fraud, a scam that preyed on people&rsquo;s fear and made tens of thousands of dollars a week. None of it brought peace.
+            </p>
+            <p className="text-base md:text-lg text-rc-text leading-relaxed font-rc-serif">
+              But in May 2015, Jesus Christ cast Weje out of me, through the ministry of Prophet T.B. Joshua.
+            </p>
+            <p className="text-base md:text-lg text-rc-text leading-relaxed font-rc-serif">
+              This book is the story of how Weje got in, what it did while it was in me, and how I got free.
+            </p>
+          </motion.div>
+        </motion.div>
+      </section>
+
       {/* WAITLIST */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
         <motion.div
