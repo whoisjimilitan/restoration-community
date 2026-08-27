@@ -161,6 +161,16 @@ Proven out on the homepage's dark band and closing sections — the patterns bel
 
 **A pivot sentence gets headline weight, not body weight.** If a sentence is the narrative turn of its section (a "But" moment, a moment of deliverance, a declaration), it gets the same `font-rc-serif font-bold tracking-tight` treatment as a section title — never left at body-paragraph weight just because it's mid-paragraph. Flat hierarchy on the most important sentence in a section is the single most common gap in early drafts of a page — check for it specifically.
 
+**Narrative pivot color — reserved exclusively for the clause naming Christ's deliverance action.** This is not a general emphasis device and is not interchangeable with mixed-weight emphasis above; the two coexist rather than compete. Within a first-person testimony passage, the exact clause that names Jesus Christ actively delivering ("Jesus Christ cast him out," "Jesus Christ cast Weje out of me," "The Lord Jesus Christ removed my heart of stone") gets the teal accent color, and nothing else on the page does. Everywhere else stays plain body color. The rarity is the point — if color appeared on every sentence it would just be another text color, not a signal. Use `text-rc-accent` on light backgrounds, `text-rc-accent-light` on dark backgrounds (plain `rc-accent` is too dark to read cleanly against `rc-text`'s near-black). Only apply this where the passage already contains a genuine, existing clause naming that action — never invent or rephrase copy to manufacture a place for it.
+
+```tsx
+{/* light background */}
+<p>His name was Weje. <span className="text-rc-accent">Jesus Christ cast him out</span> in May 2015.</p>
+
+{/* dark background */}
+<p>His name was Weje. <span className="text-rc-accent-light">Jesus Christ cast him out</span> in May 2015.</p>
+```
+
 ---
 
 ## CTA Honesty (NEW)
