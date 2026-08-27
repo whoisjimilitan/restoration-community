@@ -24,7 +24,7 @@ export default function GetHelpPage() {
   return (
     <div className="bg-rc-bg text-rc-text relative">
       <PageHero
-        headline="If You Identify With This Spirit, There Is a Way Out"
+        headline="If You Identify With This Spirit, Jesus Is the Way Out"
         photo={{ src: '/images/portrait-declaration-closeup.png', alt: 'Brother Jimi' }}
         headlineSizeClass="text-3xl sm:text-4xl md:text-5xl"
       />
