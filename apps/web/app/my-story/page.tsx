@@ -32,7 +32,7 @@ const EPISODES = [
 
 export default function MyStoryPage() {
   return (
-    <div className="bg-rc-bg text-rc-text relative">
+    <div className="bg-rc-text text-white relative">
       <section
         id="hero"
         className="relative w-full min-h-[85svh] flex flex-col justify-center overflow-hidden bg-rc-text px-6 sm:px-8 md:px-12 py-24 md:py-32"
@@ -65,7 +65,7 @@ export default function MyStoryPage() {
         </motion.div>
       </section>
 
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
+      <section id="declaration" className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-text border-t border-white/10">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -73,10 +73,10 @@ export default function MyStoryPage() {
           variants={staggerContainer}
           className="max-w-2xl mx-auto"
         >
-          <motion.h2 variants={fadeInLine} className="text-2xl md:text-3xl font-rc-serif font-bold text-rc-text text-center mb-4">
+          <motion.h2 variants={fadeInLine} className="text-2xl md:text-3xl font-rc-serif font-bold text-white text-center mb-4">
             The Declaration
           </motion.h2>
-          <motion.p variants={fadeInLine} className="text-base text-rc-text/70 leading-relaxed font-light text-center mb-12">
+          <motion.p variants={fadeInLine} className="text-base text-white/70 leading-relaxed font-light text-center mb-12">
             Before the series, two videos already tell the beginning of it.
           </motion.p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
@@ -92,8 +92,8 @@ export default function MyStoryPage() {
                 <div className="relative aspect-video w-full overflow-hidden rounded-lg">
                   <img src={d.thumbnail} alt={d.title} className="w-full h-full object-cover" />
                 </div>
-                <h3 className="text-xl font-rc-serif font-bold text-rc-text leading-tight mt-4 mb-1">{d.title}</h3>
-                <span className="inline-block text-sm text-rc-accent font-medium group-hover:underline">
+                <h3 className="text-xl font-rc-serif font-bold text-white leading-tight mt-4 mb-1">{d.title}</h3>
+                <span className="inline-block text-sm text-white/60 hover:text-white font-medium group-hover:underline">
                   Watch Now →
                 </span>
               </motion.a>
@@ -102,7 +102,7 @@ export default function MyStoryPage() {
         </motion.div>
       </section>
 
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-text border-t border-white/10">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -121,11 +121,11 @@ export default function MyStoryPage() {
                     </span>
                   )}
                 </div>
-                <p className="text-xs uppercase tracking-wider text-rc-accent font-medium mt-4 mb-1">Episode {ep.n}</p>
-                <h2 className="text-xl font-rc-serif font-bold text-rc-text leading-tight mb-2">{ep.title}</h2>
-                <p className="text-sm text-rc-text/70 leading-relaxed font-light">{ep.desc}</p>
+                <p className="text-xs uppercase tracking-wider text-white/50 font-medium mt-4 mb-1">Episode {ep.n}</p>
+                <h2 className="text-xl font-rc-serif font-bold text-white leading-tight mb-2">{ep.title}</h2>
+                <p className="text-sm text-white/70 leading-relaxed font-light">{ep.desc}</p>
                 {ep.youtubeId && (
-                  <span className="inline-block text-sm text-rc-accent font-medium mt-3 group-hover:underline">
+                  <span className="inline-block text-sm text-white/60 hover:text-white font-medium mt-3 group-hover:underline">
                     Watch Now →
                   </span>
                 )}
@@ -152,7 +152,7 @@ export default function MyStoryPage() {
         </motion.div>
       </section>
 
-      <SiteFooter />
+      <SiteFooter precededByDarkSection />
     </div>
   );
 }

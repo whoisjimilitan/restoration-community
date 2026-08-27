@@ -251,6 +251,12 @@ import PageHero from '@/components/PageHero';
 
 ---
 
+## Page Rhythm Exceptions (NEW)
+
+The site's default pattern alternates light and dark section backgrounds down a page (see the homepage's structure). `/my-story` is a deliberate, single exception: it stays dark end-to-end, the same way a streaming-service browsing page never interrupts itself with a light section mid-scroll. This is the same category of intentional exception as the homepage's single dark band — a considered choice for a specific page's purpose, not a lapse in the alternating rhythm. Don't treat `/my-story`'s all-dark background as a precedent for other pages; the alternating rhythm remains the default everywhere else.
+
+---
+
 ## Navigation (NEW)
 
 Every page gets the shared `Navigation` component (`apps/web/src/components/Navigation.tsx`), rendered once from `layout.tsx` — never re-implement or duplicate nav markup on a per-page basis.
