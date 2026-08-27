@@ -110,7 +110,7 @@ export default function StoriesPage() {
       </section>
 
       {/* NOT JUST ME — the bridge, not a replay. Same black as Samuel's section so darkness carries straight through — the lights dimming before the movie starts. */}
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-gradient-to-br from-[#0F0F0F] to-[#1a1a1a]">
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-text">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -120,7 +120,7 @@ export default function StoriesPage() {
         >
           <motion.h2 variants={fadeInLine} className="text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight tracking-tight">Not Just Me</motion.h2>
 
-          <motion.div variants={staggerContainer} className="space-y-4 text-base md:text-lg text-white/80 leading-relaxed font-light border-l-4 border-testimony-gold pl-8">
+          <motion.div variants={staggerContainer} className="space-y-4 text-base md:text-lg text-white/80 leading-relaxed font-light border-l-4 border-rc-accent pl-8">
             {bridgeLines.map((line, i) => (
               <motion.p key={i} variants={fadeInLine}>{line}</motion.p>
             ))}
@@ -130,7 +130,7 @@ export default function StoriesPage() {
 
       {/* STORIES — Full-Width Dark Cinematic, video presentation untouched */}
       {STORIES.map((story) => (
-        <section key={story.id} className="w-screen -mx-[calc(50vw-50%)] bg-gradient-to-br from-[#0F0F0F] to-[#1a1a1a]">
+        <section key={story.id} className="w-screen -mx-[calc(50vw-50%)] bg-rc-text">
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -159,7 +159,7 @@ export default function StoriesPage() {
                   className="relative z-10 group flex items-center justify-center hover:scale-110 transition-transform duration-300"
                 >
                   <div className="w-24 h-24 rounded-full bg-white/95 flex items-center justify-center shadow-2xl group-hover:bg-white">
-                    <svg className="w-10 h-10 text-[#0F0F0F] ml-1" fill="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-10 h-10 text-rc-text ml-1" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M8 5v14l11-7z" />
                     </svg>
                   </div>
@@ -188,7 +188,7 @@ export default function StoriesPage() {
                     </p>
                   </div>
 
-                  <blockquote className="border-l-4 border-testimony-gold pl-8 pt-2">
+                  <blockquote className="border-l-4 border-rc-accent pl-8 pt-2">
                     <p className="text-lg md:text-xl font-rc-serif font-normal text-white/95 leading-relaxed">
                       &ldquo;{story.quote}&rdquo;
                     </p>
