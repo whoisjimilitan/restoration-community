@@ -102,7 +102,7 @@ export default function StoriesPage() {
                 They triumphed by the word of their testimony.
               </p>
               <p className="text-sm md:text-base text-white/70 font-rc-serif font-light mt-4">
-                — Revelation 12:11
+                Revelation 12:11
               </p>
             </blockquote>
           </div>
