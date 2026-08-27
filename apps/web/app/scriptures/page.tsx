@@ -64,11 +64,7 @@ export default function ScripturesPage() {
               {s.explanation}
             </motion.p>
             {s.repeatWarning && (
-              <motion.div variants={staggerContainer} className="space-y-1 pt-2">
-                <motion.p variants={fadeInLine} className="text-xl md:text-2xl font-rc-serif font-bold text-rc-accent">Take this as a warning.</motion.p>
-                <motion.p variants={fadeInLine} className="text-xl md:text-2xl font-rc-serif font-bold text-rc-accent/70">Take this as a warning.</motion.p>
-                <motion.p variants={fadeInLine} className="text-xl md:text-2xl font-rc-serif font-bold text-rc-accent/40">Take this as a warning.</motion.p>
-              </motion.div>
+              <motion.p variants={fadeInLine} className="text-xl md:text-2xl font-rc-serif font-bold text-rc-accent pt-2">Take this as a warning.</motion.p>
             )}
             {s.showGetHelp && (
               <motion.div variants={fadeInLine} className="space-y-4">
