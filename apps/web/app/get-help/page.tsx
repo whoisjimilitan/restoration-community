@@ -37,7 +37,7 @@ export default function GetHelpPage() {
           style={{ y: heroY, opacity: heroOpacity }}
           className="max-w-2xl mx-auto space-y-8 text-center"
         >
-          <motion.div variants={staggerContainer} className="space-y-4 text-base md:text-lg text-white/90 leading-relaxed font-light text-left border-l-4 border-white/30 pl-6 md:pl-8">
+          <motion.div variants={staggerContainer} className="space-y-4 text-base md:text-lg text-white/90 leading-relaxed font-light text-left">
             <motion.p variants={fadeInLine}>Fraud is not just a habit. It is not just a choice. If you are caught in this lifestyle and you cannot stop, it may be because a spirit is operating inside you.</motion.p>
             <motion.p variants={fadeInLine} className="pt-2">I know because I carried one for twenty years. His name was Weje and he controlled my affairs until Jesus Christ cast him out in May 2015.</motion.p>
             <motion.p variants={fadeInLine}>That was the same year Jeremiah 17:11 stopped describing someone else's life. And started describing mine.</motion.p>

@@ -29,7 +29,7 @@ export default function AboutPage() {
           whileInView="visible"
           viewport={{ once: true, amount: 0.15 }}
           variants={staggerContainer}
-          className="max-w-2xl mx-auto space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light border-l-4 border-rc-accent pl-6 md:pl-8"
+          className="max-w-2xl mx-auto space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light"
         >
           <motion.p variants={fadeInLine}>Brother Jimi (J-I-M-I) is a minister of the gospel of Jesus Christ.</motion.p>
           <motion.p variants={fadeInLine} className="pt-2">Born in Canada, raised in Nigeria, he was controlled by a spirit called Weje for twenty years.</motion.p>
