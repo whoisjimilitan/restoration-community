@@ -229,10 +229,10 @@ export default function BookPage() {
           className="max-w-2xl mx-auto space-y-8"
         >
           <motion.h2 variants={fadeInLine} className="text-3xl md:text-4xl font-rc-serif font-bold text-white leading-tight tracking-tight">
-            If this story is yours too, there is a way out.
+            If this story is yours too, Jesus is the way out.
           </motion.h2>
           <motion.div variants={fadeInLine} className="pt-4">
-            <SiteButton variant="outline-light" href="/get-help">Get Help</SiteButton>
+            <SiteButton variant="outline-light" href="/get-help">I Need Jesus</SiteButton>
           </motion.div>
         </motion.div>
       </section>
