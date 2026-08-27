@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import { motion, type Variants } from 'framer-motion';
 import SiteFooter from '@/components/SiteFooter';
 
@@ -31,6 +32,17 @@ const EPISODES = [
 ];
 
 export default function MyStoryPage() {
+  const [openVideoId, setOpenVideoId] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!openVideoId) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setOpenVideoId(null);
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [openVideoId]);
+
   return (
     <div className="bg-rc-text text-white relative">
       <section
@@ -96,13 +108,12 @@ export default function MyStoryPage() {
           </motion.p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
             {DECLARATIONS.map((d) => (
-              <motion.a
+              <motion.button
                 key={d.youtubeId}
                 variants={fadeInLine}
-                href={`https://www.youtube.com/watch?v=${d.youtubeId}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block group"
+                type="button"
+                onClick={() => setOpenVideoId(d.youtubeId)}
+                className="block group text-left w-full"
               >
                 <div className="relative aspect-video w-full overflow-hidden rounded-lg">
                   <img src={d.thumbnail} alt={d.title} className="w-full h-full object-cover" />
@@ -116,7 +127,7 @@ export default function MyStoryPage() {
                   </span>
                 </div>
                 <h3 className="text-xl font-rc-serif font-bold text-white leading-tight mt-4 mb-1">{d.title}</h3>
-              </motion.a>
+              </motion.button>
             ))}
           </div>
         </motion.div>
@@ -178,6 +189,31 @@ export default function MyStoryPage() {
       </section>
 
       <SiteFooter precededByDarkSection />
+
+      {openVideoId && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 sm:p-8"
+          onClick={() => setOpenVideoId(null)}
+        >
+          <button
+            type="button"
+            onClick={() => setOpenVideoId(null)}
+            aria-label="Close video"
+            className="absolute top-4 right-4 sm:top-6 sm:right-6 text-white/70 hover:text-white text-3xl leading-none"
+          >
+            &times;
+          </button>
+          <div className="w-full max-w-4xl aspect-video" onClick={(e) => e.stopPropagation()}>
+            <iframe
+              src={`https://www.youtube.com/embed/${openVideoId}?autoplay=1`}
+              title="Video player"
+              allow="autoplay; encrypted-media; picture-in-picture"
+              allowFullScreen
+              className="w-full h-full rounded-lg"
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 }
