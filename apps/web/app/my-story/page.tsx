@@ -33,12 +33,21 @@ const EPISODES = [
 export default function MyStoryPage() {
   return (
     <div className="bg-rc-bg text-rc-text relative">
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-gradient-to-br from-rc-accent to-rc-text">
+      <section
+        id="hero"
+        className="relative w-full min-h-[85svh] flex flex-col justify-center overflow-hidden bg-rc-text px-6 sm:px-8 md:px-12 py-24 md:py-32"
+      >
+        <img
+          src="/images/portrait-hero.jpg"
+          alt="Brother Jimi"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-rc-accent/85 to-rc-text/90" />
         <motion.div
           initial="hidden"
           animate="visible"
           variants={staggerContainer}
-          className="max-w-2xl mx-auto text-center space-y-6"
+          className="relative z-10 max-w-2xl mx-auto text-center space-y-6"
         >
           <motion.h1 variants={fadeInLine} className="text-4xl sm:text-5xl md:text-6xl font-rc-serif font-bold text-white leading-tight tracking-tight">
             My Story
@@ -46,6 +55,13 @@ export default function MyStoryPage() {
           <motion.p variants={fadeInLine} className="text-base md:text-lg text-white/90 leading-relaxed font-rc-serif font-normal">
             My name is Brother Jimi. When I was a boy, God healed me through Prophet T.B. Joshua. But when the covering of God was removed from my life, a spirit entered and controlled me for twenty years. His name was Weje. This is the story of how he entered, what he did, and how Jesus Christ cast him out.
           </motion.p>
+          <motion.a
+            variants={fadeInLine}
+            href="#declaration"
+            className="inline-block text-sm text-white/70 hover:text-white hover:underline pt-4"
+          >
+            Begin with the Declaration ↓
+          </motion.a>
         </motion.div>
       </section>
 
