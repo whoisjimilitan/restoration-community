@@ -42,7 +42,7 @@ export default function MyStoryPage() {
           muted
           loop
           playsInline
-          poster="/images/portrait-hero.jpg"
+          poster="/images/my-story-hero-poster.jpg"
           onCanPlay={(e) => {
             const video = e.currentTarget;
             if (video.paused) {
@@ -55,7 +55,7 @@ export default function MyStoryPage() {
           }}
           className="absolute inset-0 w-full h-full object-cover"
         >
-          <source src="/videos/trailer-optimized.mp4" type="video/mp4" />
+          <source src="/videos/my-story-hero-loop.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-br from-rc-accent/85 to-rc-text/90" />
         <motion.div
