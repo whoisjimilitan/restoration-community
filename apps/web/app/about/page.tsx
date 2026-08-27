@@ -33,7 +33,7 @@ export default function AboutPage() {
         >
           <motion.p variants={fadeInLine}>Brother Jimi (J-I-M-I) is a minister of the gospel of Jesus Christ.</motion.p>
           <motion.p variants={fadeInLine} className="pt-2">Born in Canada, raised in Nigeria, he was controlled by a spirit called Weje for twenty years.</motion.p>
-          <motion.p variants={fadeInLine} className="pt-2">Through the grace of God and the ministry of Prophet T.B. Joshua, he was delivered in May 2015 and received a new heart.</motion.p>
+          <motion.p variants={fadeInLine} className="pt-2">Through the grace of God and the ministry of Prophet T.B. Joshua, <span className="text-rc-accent">he was delivered in May 2015 and received a new heart</span>.</motion.p>
           <motion.p variants={fadeInLine} className="pt-2">Today he lives in Ghana with his wife and two sons, Josiah and Jeriah, ministering to young people across West Africa and beyond.</motion.p>
           <motion.p variants={fadeInLine} className="pt-4 font-medium text-rc-text">His message is clear: fraud is a spiritual problem and the solution is deliverance through Jesus Christ.</motion.p>
           <motion.p variants={fadeInLine}>He is your brother, your friend, and your son in the Lord.</motion.p>
