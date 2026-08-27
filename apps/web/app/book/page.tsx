@@ -3,6 +3,7 @@
 import { useRef, useState } from 'react';
 import { motion, useScroll, useTransform, type Variants } from 'framer-motion';
 import SiteFooter from '@/components/SiteFooter';
+import SiteButton from '@/components/SiteButton';
 
 const staggerContainer: Variants = {
   hidden: {},
@@ -126,7 +127,7 @@ export default function BookPage() {
               Then came trafficking. Drug runs across multiple countries. Then finally, fraud, a scam that preyed on people&rsquo;s fear and made tens of thousands of dollars a week. None of it brought peace.
             </p>
             <p className="text-base md:text-lg text-rc-text leading-relaxed font-rc-serif">
-              But in May 2015, Jesus Christ cast Weje out of me, through the ministry of Prophet T.B. Joshua.
+              But in May 2015, <span className="text-rc-accent">Jesus Christ cast Weje out of me</span>, through the ministry of Prophet T.B. Joshua.
             </p>
             <p className="text-base md:text-lg text-rc-text leading-relaxed font-rc-serif">
               This book is the story of how Weje got in, what it did while it was in me, and how I got free.
@@ -215,6 +216,23 @@ export default function BookPage() {
                 <span aria-hidden="true" className="flex-1 border-b border-dotted border-rc-border mb-1" />
               </motion.div>
             ))}
+          </motion.div>
+        </motion.div>
+      </section>
+
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-gradient-to-br from-rc-accent to-rc-text border-t border-rc-border text-center">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={staggerContainer}
+          className="max-w-2xl mx-auto space-y-8"
+        >
+          <motion.h2 variants={fadeInLine} className="text-3xl md:text-4xl font-rc-serif font-bold text-white leading-tight tracking-tight">
+            If this story is yours too, there is a way out.
+          </motion.h2>
+          <motion.div variants={fadeInLine} className="pt-4">
+            <SiteButton variant="outline-light" href="/get-help">Get Help</SiteButton>
           </motion.div>
         </motion.div>
       </section>
