@@ -33,11 +33,30 @@ export default function BookPage() {
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+  const [submitting, setSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: wire to a real waitlist endpoint before this ships live.
-    setSubmitted(true);
+    setSubmitError(null);
+    setSubmitting(true);
+    try {
+      const res = await fetch('/api/book-waitlist', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email }),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setSubmitError(data.error || 'Something went wrong. Please try again.');
+        return;
+      }
+      setSubmitted(true);
+    } catch {
+      setSubmitError('Something went wrong. Please try again.');
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const heroRef = useRef<HTMLElement>(null);
@@ -151,11 +170,15 @@ export default function BookPage() {
                 required
                 className="w-full px-4 py-3 border border-rc-border rounded-lg bg-rc-bg"
               />
+              {submitError && (
+                <p className="text-sm text-red-600">{submitError}</p>
+              )}
               <button
                 type="submit"
-                className="w-full inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-rc-accent text-white rounded-lg font-medium tracking-wide shadow-md transition-all duration-300 ease-out hover:bg-rc-accent-light hover:shadow-xl hover:scale-[1.01]"
+                disabled={submitting}
+                className="w-full inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-rc-accent text-white rounded-lg font-medium tracking-wide shadow-md transition-all duration-300 ease-out hover:bg-rc-accent-light hover:shadow-xl hover:scale-[1.01] disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100"
               >
-                Join Waitlist
+                {submitting ? 'Joining…' : 'Join Waitlist'}
               </button>
             </motion.form>
           )}
