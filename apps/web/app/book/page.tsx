@@ -67,7 +67,7 @@ export default function BookPage() {
                 boxShadow: '24px 24px 48px rgba(0, 0, 0, 0.45)',
               }}
             >
-              <img src="/images/book-cover.png" alt="Weje: The Spirit of Waste Lived Inside Me — book cover" className="w-full h-auto" />
+              <img src="/images/book-cover.png" alt="Weje: The Spirit of Waste Lived Inside Me, book cover" className="w-full h-auto" />
             </div>
           </motion.div>
 
