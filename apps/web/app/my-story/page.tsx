@@ -198,12 +198,20 @@ export default function MyStoryPage() {
           className="max-w-2xl mx-auto space-y-8"
         >
           <motion.h2 variants={fadeInLine} className="text-3xl md:text-4xl font-rc-serif font-bold text-white leading-tight tracking-tight">
-            If this is your story too, there is a way out.
+            If this is your story too, Jesus is the way out.
           </motion.h2>
-          <motion.div variants={fadeInLine} className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-            <SiteButton href="/get-help">Get Help</SiteButton>
-            <a href="/book" className="inline-flex items-center justify-center text-sm text-white/60 hover:text-white hover:underline">
+          <motion.div variants={fadeInLine} className="pt-4">
+            <SiteButton href="/get-help">I Need Jesus</SiteButton>
+          </motion.div>
+          <motion.div variants={fadeInLine} className="flex flex-col sm:flex-row gap-6 justify-center pt-10 border-t border-white/10 mt-2">
+            <a href="/book" className="text-sm text-white/50 hover:text-white/80 hover:underline transition-colors">
               Preview the book →
+            </a>
+            <a href="/about" className="text-sm text-white/50 hover:text-white/80 hover:underline transition-colors">
+              Who is Brother Jimi? →
+            </a>
+            <a href="/scriptures" className="text-sm text-white/50 hover:text-white/80 hover:underline transition-colors">
+              The scriptures behind this →
             </a>
           </motion.div>
         </motion.div>
