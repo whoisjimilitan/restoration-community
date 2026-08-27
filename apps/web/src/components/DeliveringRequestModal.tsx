@@ -6,25 +6,33 @@ import { motion, AnimatePresence } from 'framer-motion';
 interface DeliveringRequestModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onSuccess?: () => void;
 }
 
-export default function DeliveringRequestModal({ isOpen, onClose, onSuccess }: DeliveringRequestModalProps) {
+const WHATSAPP_NUMBER = '447471605871';
+
+function buildWhatsAppLink(need: string, duration: string, name: string): string {
+  const lines = [
+    name ? `Hi Brother Jimi, my name is ${name}.` : 'Hi Brother Jimi.',
+    need ? `What I need deliverance from: ${need}` : '',
+    duration ? `How long this has been going on: ${duration}` : '',
+  ].filter(Boolean);
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(lines.join('\n\n'))}`;
+}
+
+export default function DeliveringRequestModal({ isOpen, onClose }: DeliveringRequestModalProps) {
   const [deliverance, setDeliverance] = useState({
-    step: 1 as number | string,
+    step: 1 as number,
     need: '',
     duration: '',
     name: '',
-    email: '',
-    phone: '',
-    submitted: false,
   });
-  const [isSubmittingDeliverance, setIsSubmittingDeliverance] = useState(false);
 
   const handleClose = () => {
-    setDeliverance({ step: 1, need: '', duration: '', name: '', email: '', phone: '', submitted: false });
+    setDeliverance({ step: 1, need: '', duration: '', name: '' });
     onClose();
   };
+
+  const waLink = buildWhatsAppLink(deliverance.need, deliverance.duration, deliverance.name);
 
   return (
     <AnimatePresence>
@@ -138,45 +146,25 @@ export default function DeliveringRequestModal({ isOpen, onClose, onSuccess }: D
               </div>
             )}
 
-            {/* Step 3: Contact */}
+            {/* Step 3: Name, then straight to WhatsApp */}
             {deliverance.step === 3 && (
               <div className="p-8 md:p-12 space-y-6">
                 <div className="space-y-2">
                   <h2 className="text-2xl md:text-3xl font-rc-serif font-bold text-rc-text tracking-tight">
-                    How we reach you
+                    What&apos;s your name?
                   </h2>
                   <p className="text-rc-text/70 text-sm">Step 3 of 3</p>
                 </div>
 
                 <form
-                  onSubmit={async (e) => {
+                  onSubmit={(e) => {
                     e.preventDefault();
-                    if (deliverance.name && deliverance.email && deliverance.phone) {
-                      setIsSubmittingDeliverance(true);
-                      try {
-                        const res = await fetch('/api/deliverance-request', {
-                          method: 'POST',
-                          headers: { 'Content-Type': 'application/json' },
-                          body: JSON.stringify({
-                            need: deliverance.need,
-                            duration: deliverance.duration,
-                            name: deliverance.name,
-                            email: deliverance.email,
-                            phone: deliverance.phone,
-                          }),
-                        });
-                        if (res.ok) {
-                          setDeliverance({ ...deliverance, submitted: true, step: 4 });
-                          onSuccess?.();
-                        }
-                      } catch (error) {
-                        console.error('[DELIVERANCE] Error:', error);
-                      } finally {
-                        setIsSubmittingDeliverance(false);
-                      }
+                    if (deliverance.name.trim()) {
+                      window.open(waLink, '_blank', 'noopener,noreferrer');
+                      setDeliverance({ ...deliverance, step: 4 });
                     }
                   }}
-                  className="space-y-4"
+                  className="space-y-6"
                 >
                   <div className="space-y-2">
                     <label className="block text-sm font-medium text-rc-text/70">
@@ -192,34 +180,6 @@ export default function DeliveringRequestModal({ isOpen, onClose, onSuccess }: D
                     />
                   </div>
 
-                  <div className="space-y-2">
-                    <label className="block text-sm font-medium text-rc-text/70">
-                      Email Address
-                    </label>
-                    <input
-                      type="email"
-                      required
-                      value={deliverance.email}
-                      onChange={(e) => setDeliverance({ ...deliverance, email: e.target.value })}
-                      className="w-full px-4 py-3 border border-rc-border rounded-lg focus:outline-none focus:border-rc-accent/60 transition-colors bg-white text-rc-text"
-                      placeholder="your@email.com"
-                    />
-                  </div>
-
-                  <div className="space-y-2">
-                    <label className="block text-sm font-medium text-rc-text/70">
-                      Phone Number (WhatsApp)
-                    </label>
-                    <input
-                      type="tel"
-                      required
-                      value={deliverance.phone}
-                      onChange={(e) => setDeliverance({ ...deliverance, phone: e.target.value })}
-                      className="w-full px-4 py-3 border border-rc-border rounded-lg focus:outline-none focus:border-rc-accent/60 transition-colors bg-white text-rc-text"
-                      placeholder="+233..."
-                    />
-                  </div>
-
                   <div className="flex gap-3 pt-4">
                     <button
                       type="button"
@@ -230,29 +190,36 @@ export default function DeliveringRequestModal({ isOpen, onClose, onSuccess }: D
                     </button>
                     <button
                       type="submit"
-                      disabled={isSubmittingDeliverance}
-                      className="flex-1 px-6 py-3 bg-rc-accent text-white font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300 disabled:opacity-50"
+                      className="flex-1 px-6 py-3 bg-[#25D366] text-white font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300"
                     >
-                      {isSubmittingDeliverance ? 'Sending...' : 'Send Request'}
+                      Continue on WhatsApp
                     </button>
                   </div>
                 </form>
               </div>
             )}
 
-            {/* Step 4: Success */}
-            {deliverance.step === 4 && deliverance.submitted && (
+            {/* Step 4: Confirmation, with a manual fallback in case the popup was blocked */}
+            {deliverance.step === 4 && (
               <div className="p-8 md:p-12 text-center space-y-4">
                 <div className="text-4xl mb-4">✓</div>
                 <h3 className="text-2xl font-rc-serif font-bold text-rc-text">
-                  Your request is received
+                  Opening WhatsApp
                 </h3>
                 <p className="text-rc-text/70">
-                  We will pray for you. Expect contact via WhatsApp.
+                  Your message is ready to send. If WhatsApp did not open automatically, tap below.
                 </p>
+                <a
+                  href={waLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block px-6 py-3 bg-[#25D366] text-white font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300"
+                >
+                  Open WhatsApp →
+                </a>
                 <button
                   onClick={handleClose}
-                  className="mt-6 px-6 py-3 bg-rc-accent text-white font-medium rounded-lg hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 transition-all duration-300"
+                  className="block mx-auto mt-4 px-6 py-3 text-rc-text/70 hover:text-rc-text transition-colors"
                 >
                   Back to Page
                 </button>

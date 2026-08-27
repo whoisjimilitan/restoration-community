@@ -1,9 +1,11 @@
 'use client';
 
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { motion, useScroll, useTransform, type Variants } from 'framer-motion';
 import SiteFooter from '@/components/SiteFooter';
 import PageHero from '@/components/PageHero';
+import SiteButton from '@/components/SiteButton';
+import DeliveringRequestModal from '@/components/DeliveringRequestModal';
 
 const staggerContainer: Variants = {
   hidden: {},
@@ -20,6 +22,7 @@ export default function GetHelpPage() {
   const { scrollYProgress: heroScroll } = useScroll({ target: heroRef, offset: ['start start', 'end start'] });
   const heroY = useTransform(heroScroll, [0, 1], [0, 140]);
   const heroOpacity = useTransform(heroScroll, [0, 1], [1, 0.15]);
+  const [isDeliveranceModalOpen, setIsDeliveranceModalOpen] = useState(false);
 
   return (
     <div className="bg-rc-bg text-rc-text relative">
@@ -43,6 +46,11 @@ export default function GetHelpPage() {
             <motion.p variants={fadeInLine}>That was the same year Jeremiah 17:11 stopped describing someone else's life. And started describing mine.</motion.p>
             <motion.p variants={fadeInLine} className="pt-2 font-medium">The same Jesus who set me free can set you free. You do not have to carry this alone. Make me your prayer partner and let us seek deliverance together.</motion.p>
           </motion.div>
+          <motion.div variants={fadeInLine}>
+            <SiteButton variant="solid" onClick={() => setIsDeliveranceModalOpen(true)}>
+              Request Deliverance Prayer
+            </SiteButton>
+          </motion.div>
           <motion.a
             variants={fadeInLine}
             href="/about"
@@ -61,6 +69,11 @@ export default function GetHelpPage() {
       </section>
 
       <SiteFooter />
+
+      <DeliveringRequestModal
+        isOpen={isDeliveranceModalOpen}
+        onClose={() => setIsDeliveranceModalOpen(false)}
+      />
     </div>
   );
 }
