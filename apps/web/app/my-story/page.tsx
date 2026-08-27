@@ -39,7 +39,8 @@ export default function MyStoryPage() {
       >
         <img
           src="/images/portrait-hero.jpg"
-          alt="Brother Jimi"
+          alt=""
+          fetchPriority="high"
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-br from-rc-accent/85 to-rc-text/90" />
@@ -91,12 +92,12 @@ export default function MyStoryPage() {
               >
                 <div className="relative aspect-video w-full overflow-hidden rounded-lg">
                   <img src={d.thumbnail} alt={d.title} className="w-full h-full object-cover" />
-                  <div className="absolute inset-0 flex items-center justify-center">
+                  <div aria-hidden="true" className="absolute inset-0 flex items-center justify-center">
                     <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center group-hover:bg-white/30 transition-colors">
                       <div className="w-0 h-0 border-t-[10px] border-t-transparent border-b-[10px] border-b-transparent border-l-[16px] border-l-white ml-1" />
                     </div>
                   </div>
-                  <span className="absolute bottom-3 left-3 text-white text-xs uppercase tracking-wide font-medium px-3 py-1 rounded-full bg-rc-text/80">
+                  <span aria-hidden="true" className="absolute bottom-3 left-3 text-white text-xs uppercase tracking-wide font-medium px-3 py-1 rounded-full bg-rc-text/80">
                     Watch Now
                   </span>
                 </div>
@@ -137,6 +138,9 @@ export default function MyStoryPage() {
               </>
             );
 
+            // Only the "coming soon" branch is dimmed — a future episode with
+            // a real youtubeId should read as available immediately, same as
+            // the Declaration cards, with no further code change needed.
             return ep.youtubeId ? (
               <motion.a
                 key={ep.n}
