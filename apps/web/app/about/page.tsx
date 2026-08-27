@@ -45,7 +45,7 @@ export default function AboutPage() {
           <p className="text-white font-rc-serif text-xl md:text-2xl font-medium leading-relaxed">
             Make me your prayer partner. And together we will stop Satan in his tracks.
           </p>
-          <SiteButton variant="outline-light" href="/get-help">I Need Help</SiteButton>
+          <SiteButton variant="outline-light" href="/get-help">I Need Jesus</SiteButton>
         </div>
       </section>
 
