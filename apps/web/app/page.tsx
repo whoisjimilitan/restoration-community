@@ -220,7 +220,7 @@ export default function Home() {
           whileInView="visible"
           viewport={{ once: true, amount: 0.15 }}
           variants={staggerContainer}
-          className="max-w-2xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-6"
+          className="max-w-md mx-auto text-center"
         >
           <motion.a
             variants={fadeInLine}
@@ -234,11 +234,9 @@ export default function Home() {
           <motion.a
             variants={fadeInLine}
             href="/book"
-            className="block bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-8 text-center hover:bg-white/15 hover:border-white/40 transition-all duration-200 group"
+            className="inline-block mt-6 text-sm text-white/60 hover:text-white transition-colors duration-200"
           >
-            <span className="text-base font-medium text-white">
-              Preview the book →
-            </span>
+            Preview the book →
           </motion.a>
         </motion.div>
       </section>
