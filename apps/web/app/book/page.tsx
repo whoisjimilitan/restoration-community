@@ -57,9 +57,18 @@ export default function BookPage() {
         >
           <motion.div
             variants={fadeInLine}
-            className="mx-auto w-48 md:w-56 rounded shadow-2xl overflow-hidden"
+            className="mx-auto w-48 md:w-56"
+            style={{ perspective: '1000px' }}
           >
-            <img src="/images/book-cover.png" alt="Weje: The Spirit of Waste Lived Inside Me — book cover" className="w-full h-auto" />
+            <div
+              className="rounded overflow-hidden"
+              style={{
+                transform: 'rotateY(-18deg) rotateX(4deg)',
+                boxShadow: '24px 24px 48px rgba(0, 0, 0, 0.45)',
+              }}
+            >
+              <img src="/images/book-cover.png" alt="Weje: The Spirit of Waste Lived Inside Me — book cover" className="w-full h-auto" />
+            </div>
           </motion.div>
 
           <motion.h1 variants={fadeInLine} className="text-3xl sm:text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight tracking-tight">
