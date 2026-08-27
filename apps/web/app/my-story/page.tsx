@@ -25,7 +25,7 @@ const EPISODES = [
   { n: 4, title: 'Weje', desc: 'Leaving the church. Rebellion enters. Occupation, not teenage angst. The spirit gets its name.', thumbnail: '/images/episodes/episode-04.png', youtubeId: null },
   { n: 5, title: "I'm Taking This Death Because of You", desc: 'March 1996. Her last words. The weight that shaped everything after.', thumbnail: '/images/episodes/episode-05.png', youtubeId: null },
   { n: 6, title: 'A Very Good Idea', desc: 'Trafficked. Drug runs. Multiple countries. Promises to God. Broken promises. Running.', thumbnail: '/images/episodes/episode-06.png', youtubeId: null },
-  { n: 7, title: 'The Spirit of Waste', desc: 'The fraud years. The scam that preys on fear. Hundreds of thousands per week. No peace.', thumbnail: '/images/episodes/episode-07.png', youtubeId: null },
+  { n: 7, title: 'The Spirit of Waste', desc: 'The fraud years. The scam that preys on fear. Tens of thousands per week. No peace.', thumbnail: '/images/episodes/episode-07.png', youtubeId: null },
   { n: 8, title: 'Heart of Stone', desc: 'May 2015. The trance. Two figures from one body. The spirit cast out. A new heart placed in.', thumbnail: '/images/episodes/episode-08.png', youtubeId: null },
   { n: 9, title: 'Today It Has Turned to Victory', desc: 'After deliverance. Ghana. Restoration. New family. The call.', thumbnail: '/images/episodes/episode-09.png', youtubeId: null },
 ];
