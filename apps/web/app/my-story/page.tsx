@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { motion, type Variants } from 'framer-motion';
 import SiteFooter from '@/components/SiteFooter';
+import SiteButton from '@/components/SiteButton';
 
 const staggerContainer: Variants = {
   hidden: {},
@@ -80,7 +81,7 @@ export default function MyStoryPage() {
             My Story
           </motion.h1>
           <motion.p variants={fadeInLine} className="text-base md:text-lg text-white/90 leading-relaxed font-rc-serif font-normal">
-            Weje ran the affairs of my life until the day Jesus Christ cast him out.
+            Weje ran the affairs of my life until the day <span className="text-rc-accent-light">Jesus Christ cast him out</span>.
           </motion.p>
           <motion.a
             variants={fadeInLine}
@@ -185,6 +186,26 @@ export default function MyStoryPage() {
               </motion.div>
             );
           })}
+        </motion.div>
+      </section>
+
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-text border-t border-white/10 text-center">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={staggerContainer}
+          className="max-w-2xl mx-auto space-y-8"
+        >
+          <motion.h2 variants={fadeInLine} className="text-3xl md:text-4xl font-rc-serif font-bold text-white leading-tight tracking-tight">
+            If this is your story too, there is a way out.
+          </motion.h2>
+          <motion.div variants={fadeInLine} className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+            <SiteButton href="/get-help">Get Help</SiteButton>
+            <a href="/book" className="inline-flex items-center justify-center text-sm text-white/60 hover:text-white hover:underline">
+              Preview the book →
+            </a>
+          </motion.div>
         </motion.div>
       </section>
 
