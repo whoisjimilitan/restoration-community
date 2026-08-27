@@ -143,7 +143,9 @@ export default function MyStoryPage() {
                 </div>
                 <p className="text-xs uppercase tracking-wider text-white/50 font-medium mt-4 mb-1">Episode {ep.n}</p>
                 <h2 className="text-xl font-rc-serif font-bold text-white leading-tight mb-2">{ep.title}</h2>
-                <p className="text-sm text-white/70 leading-relaxed font-light">{ep.desc}</p>
+                {ep.youtubeId && (
+                  <p className="text-sm text-white/70 leading-relaxed font-light">{ep.desc}</p>
+                )}
                 {ep.youtubeId && (
                   <span className="inline-block text-sm text-white/60 hover:text-white font-medium mt-3 group-hover:underline">
                     Watch Now →
