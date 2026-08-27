@@ -145,8 +145,12 @@ export default function Home() {
             </span>
           </motion.div>
           <div className="text-left">
-            <motion.p variants={fadeInLine} className="text-base md:text-lg text-rc-text leading-relaxed font-light">
-              His name was Weje. A Yoruba word for the wasteful one. The spirit that controlled my life for twenty years.
+            <motion.p variants={fadeInLine} className="text-2xl md:text-3xl font-rc-serif font-bold tracking-tight text-rc-text leading-snug">
+              His name was Weje.
+            </motion.p>
+
+            <motion.p variants={fadeInLine} className="text-base md:text-lg text-rc-text leading-relaxed font-light mt-4">
+              A Yoruba word for the wasteful one. The spirit that controlled my life for twenty years.
             </motion.p>
 
             <motion.p variants={fadeInLine} className="text-lg md:text-xl font-rc-serif tracking-tight leading-snug mt-6">
@@ -156,7 +160,7 @@ export default function Home() {
             </motion.p>
 
             <motion.p variants={fadeInLine} className="text-base md:text-lg text-rc-text/70 font-light leading-relaxed mt-6">
-              I tell this story so someone else does not have to wander hopelessly, under demonic torment.
+              I tell this story so someone else can trade wrath for mercy.
             </motion.p>
           </div>
         </motion.div>
@@ -179,11 +183,8 @@ export default function Home() {
             className="mx-auto w-full max-w-[300px] md:max-w-[380px] aspect-square object-cover rounded-[2rem]"
           />
           <div className="text-left">
-            <motion.p variants={fadeInLine} className="text-2xl md:text-3xl font-rc-serif font-bold tracking-tight text-white leading-snug">
-              This would have been my end.
-            </motion.p>
             <motion.p variants={fadeInLine} className="text-2xl md:text-3xl font-rc-serif font-bold tracking-tight text-white leading-snug mb-6">
-              A fool&apos;s end.
+              This would have been my end.
             </motion.p>
             <motion.p variants={fadeInLine} className="text-base md:text-lg text-white/70 font-light leading-relaxed mb-2">
               &ldquo;Like a partridge that hatches eggs it did not lay, are those who gain riches by unjust means.
