@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence, type Variants } from 'framer-motion';
 import SiteFooter from '@/components/SiteFooter';
+import SiteButton from '@/components/SiteButton';
 
 /** Same reveal choreography as the homepage — shared DNA, not a coincidence. */
 const staggerContainer: Variants = {
@@ -20,18 +21,6 @@ const bridgeLines = [
   'The partridge that became free.',
   'It did not stop with me.',
   'Hear from another.',
-];
-
-const fraudLines = [
-  ['Fraud is intentional deception.', 'It promises quick gain.', 'But it brings long lasting loss.'],
-  ['It destroys people.', 'It steals destinies.', 'It lures others.', 'It multiplies itself.'],
-  ['The Lord sees it.', 'The Lord judges it.', 'The Lord avenges such acts.'],
-];
-
-const spiritLines = [
-  ['When you believe a lie', 'for the promise of gain,', 'you agree with deception.', 'And its spirit controls that agreement.'],
-  ['Two entities but one body.', 'You war against yourself.'],
-  ['One wants you to inherit a curse.', 'The other genuinely wrestles.'],
 ];
 
 interface StoryCard {
@@ -85,32 +74,21 @@ export default function StoriesPage() {
   return (
     <div className="bg-rc-bg text-rc-text">
       {/* HERO */}
-      <section className="w-full min-h-screen flex flex-col justify-center bg-gradient-to-br from-rc-accent to-rc-text px-6 sm:px-8 md:px-12 py-24 md:py-32">
+      <section data-nav-mode="light" className="w-full min-h-[85svh] flex flex-col justify-center bg-gradient-to-br from-rc-accent to-rc-text px-6 sm:px-8 md:px-12 py-24 md:py-32">
         <div className="max-w-2xl mx-auto w-full flex flex-col justify-center space-y-0">
           <div className={`transform transition-all duration-500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
             <p className="text-base md:text-lg text-white/70 font-rc-serif font-normal leading-relaxed">
               You&rsquo;ve heard mine.
             </p>
-            <h1 className="text-5xl sm:text-6xl md:text-7xl font-rc-serif font-bold text-white leading-tight tracking-tight mt-2">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-rc-serif font-bold text-white leading-tight tracking-tight mt-2">
               Now hear his.
             </h1>
-          </div>
-
-          <div className={`transform transition-all duration-500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`} style={{ marginTop: '3rem' }}>
-            <blockquote className="border-l-4 border-white/30 pl-6 md:pl-8">
-              <p className="text-base md:text-lg text-white/90 leading-relaxed font-rc-serif font-normal">
-                They triumphed by the word of their testimony.
-              </p>
-              <p className="text-sm md:text-base text-white/70 font-rc-serif font-light mt-4">
-                Revelation 12:11
-              </p>
-            </blockquote>
           </div>
         </div>
       </section>
 
       {/* NOT JUST ME — the bridge, not a replay. Same black as Samuel's section so darkness carries straight through — the lights dimming before the movie starts. */}
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-text">
+      <section data-nav-mode="light" className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-text">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -120,7 +98,7 @@ export default function StoriesPage() {
         >
           <motion.h2 variants={fadeInLine} className="text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight tracking-tight">Not Just Me</motion.h2>
 
-          <motion.div variants={staggerContainer} className="space-y-4 text-base md:text-lg text-white/80 leading-relaxed font-light border-l-4 border-rc-accent pl-8">
+          <motion.div variants={staggerContainer} className="space-y-4 text-base md:text-lg text-white/80 leading-relaxed font-light">
             {bridgeLines.map((line, i) => (
               <motion.p key={i} variants={fadeInLine}>{line}</motion.p>
             ))}
@@ -130,7 +108,7 @@ export default function StoriesPage() {
 
       {/* STORIES — Full-Width Dark Cinematic, video presentation untouched */}
       {STORIES.map((story) => (
-        <section key={story.id} className="w-screen -mx-[calc(50vw-50%)] bg-rc-text">
+        <section key={story.id} data-nav-mode="light" className="w-screen -mx-[calc(50vw-50%)] bg-rc-text">
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -139,7 +117,7 @@ export default function StoriesPage() {
             className="w-full"
           >
             {/* Video Hero */}
-            <div className="relative w-full aspect-video md:aspect-auto md:min-h-screen flex items-center justify-center overflow-hidden">
+            <div className="relative w-full aspect-video md:aspect-auto md:min-h-[85svh] flex items-center justify-center overflow-hidden">
               <img
                 src={story.heroImage?.url}
                 alt={story.heroImage?.alt}
@@ -188,11 +166,9 @@ export default function StoriesPage() {
                     </p>
                   </div>
 
-                  <blockquote className="border-l-4 border-rc-accent pl-8 pt-2">
-                    <p className="text-lg md:text-xl font-rc-serif font-normal text-white/95 leading-relaxed">
-                      &ldquo;{story.quote}&rdquo;
-                    </p>
-                  </blockquote>
+                  <p className="text-lg md:text-xl font-rc-serif font-normal text-white/95 leading-relaxed">
+                    &ldquo;{story.quote}&rdquo;
+                  </p>
                 </motion.div>
 
                 {/* The Story */}
@@ -204,7 +180,7 @@ export default function StoriesPage() {
                   className="space-y-10"
                 >
                   <div className="space-y-3">
-                    <p className="text-xs font-medium text-white/50 uppercase tracking-wide">The King of Scamming</p>
+                    <p className="text-xs font-medium text-rc-accent-light uppercase tracking-wider">The King of Scamming</p>
                     <div className="space-y-2">
                       {story.storyBefore.map((line, i) => (
                         <p key={i} className="text-base md:text-lg text-white/85 leading-relaxed font-light">{line}</p>
@@ -213,7 +189,7 @@ export default function StoriesPage() {
                   </div>
 
                   <div className="space-y-3">
-                    <p className="text-xs font-medium text-white/50 uppercase tracking-wide">Facing the Judge</p>
+                    <p className="text-xs font-medium text-rc-accent-light uppercase tracking-wider">Facing the Judge</p>
                     <div className="space-y-2">
                       {story.storyEncounter.map((line, i) => (
                         <p key={i} className="text-base md:text-lg text-white/85 leading-relaxed font-light">{line}</p>
@@ -231,54 +207,8 @@ export default function StoriesPage() {
         </section>
       ))}
 
-      {/* THE FACE OF FRAUD — relocated from Home, verbatim, now framed as debrief after Samuel's story */}
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.15 }}
-          variants={staggerContainer}
-          className="max-w-2xl mx-auto space-y-12"
-        >
-          <motion.h2 variants={fadeInLine} className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">The Face of Fraud</motion.h2>
-
-          <motion.div variants={staggerContainer} className="space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light border-l-4 border-rc-accent pl-8">
-            {fraudLines.map((group, gi) => (
-              <motion.div key={gi} variants={staggerContainer} className={gi > 0 ? 'pt-4 space-y-4' : 'space-y-4'}>
-                {group.map((line, i) => (
-                  <motion.p key={i} variants={fadeInLine}>{line}</motion.p>
-                ))}
-              </motion.div>
-            ))}
-          </motion.div>
-        </motion.div>
-      </section>
-
-      {/* THE DANGER OF FLIRTING WITH THAT SPIRIT — relocated Spirit Behind It, verbatim */}
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.15 }}
-          variants={staggerContainer}
-          className="max-w-2xl mx-auto space-y-12"
-        >
-          <motion.h2 variants={fadeInLine} className="text-4xl md:text-5xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">The Spirit of Fraud</motion.h2>
-
-          <motion.div variants={staggerContainer} className="space-y-4 text-base md:text-lg text-rc-text/80 leading-relaxed font-light border-l-4 border-rc-accent pl-8">
-            {spiritLines.map((group, gi) => (
-              <motion.div key={gi} variants={staggerContainer} className={gi > 0 ? 'pt-4 space-y-4' : 'space-y-4'}>
-                {group.map((line, i) => (
-                  <motion.p key={i} variants={fadeInLine}>{line}</motion.p>
-                ))}
-              </motion.div>
-            ))}
-          </motion.div>
-        </motion.div>
-      </section>
-
-      {/* Closing Section */}
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-gradient-to-br from-rc-accent to-rc-text border-t border-rc-border">
+      {/* Closing Section — kept in the same dark passage as Samuel's testimony above it, not a hard cut to teal, matching the homepage's own closing-action pattern */}
+      <section data-nav-mode="light" className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-text">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -291,7 +221,7 @@ export default function StoriesPage() {
               You read my own story.
             </h2>
 
-            <div className="space-y-6 text-base md:text-lg text-white/90 leading-relaxed font-light border-l-2 border-white/30 pl-6">
+            <div className="space-y-6 text-base md:text-lg text-white/90 leading-relaxed font-light">
               <p>You watched Samuel's story.</p>
               <p>Now see yours begin.</p>
             </div>
@@ -299,19 +229,13 @@ export default function StoriesPage() {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 pt-8">
-            <a
-              href="/?attend=1"
-              className="inline-flex items-center justify-center px-8 py-4 min-h-[52px] bg-white text-rc-text font-medium rounded-lg transition-all duration-300 ease-out hover:bg-white/95 hover:scale-[1.02] hover:shadow-xl"
-            >
+            <SiteButton variant="solid-light" href="/?attend=1">
               Attend Gathering
-            </a>
+            </SiteButton>
 
-            <a
-              href="/get-help"
-              className="inline-flex items-center justify-center px-8 py-4 min-h-[52px] text-white font-medium border-2 border-white rounded-lg transition-all duration-300 ease-out hover:bg-white/10 hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(255,255,255,0.15)]"
-            >
+            <SiteButton variant="outline-light" href="/get-help">
               I Need Jesus
-            </a>
+            </SiteButton>
           </div>
         </motion.div>
       </section>
@@ -342,7 +266,6 @@ export default function StoriesPage() {
                   width="100%"
                   height="100%"
                   src={`${selectedVideo}?autoplay=1`}
-                  frameBorder="0"
                   allow="autoplay; fullscreen; picture-in-picture"
                   allowFullScreen
                   style={{ border: 'none' }}
