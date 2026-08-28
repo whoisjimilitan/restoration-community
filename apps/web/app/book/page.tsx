@@ -67,7 +67,7 @@ export default function BookPage() {
 
   return (
     <div className="bg-rc-bg text-rc-text relative">
-      <section ref={heroRef} className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-gradient-to-br from-rc-accent to-rc-text">
+      <section ref={heroRef} data-nav-mode="light" className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-gradient-to-br from-rc-accent to-rc-text">
         <motion.div
           initial="hidden"
           animate="visible"
@@ -118,19 +118,22 @@ export default function BookPage() {
             className="bg-white border border-rc-border rounded-xl p-8 md:p-12 space-y-5"
           >
             <p className="text-base md:text-lg text-rc-text leading-relaxed font-rc-serif">
-              There is a spirit moving among young people right now. I know because it lived inside me for twenty years. This spirit was named Weje when it lived in me.
+              There is a spirit moving among young people right now. For twenty years it lived in me. He was Weje.
             </p>
             <p className="text-base md:text-lg text-rc-text leading-relaxed font-rc-serif">
-              It entered when I was removed from the covering of God that protected me from the attacks of the devil. My mother died in 1996. Her last words to me were that she was taking her death because of me. I carried that for years.
+              My mother took me away from the church where God&rsquo;s covering had been over me. When she did, Weje found his way in.
             </p>
             <p className="text-base md:text-lg text-rc-text leading-relaxed font-rc-serif">
-              Then came trafficking. Drug runs across multiple countries. Then finally, fraud, a scam that preyed on people&rsquo;s fear and made tens of thousands of dollars a week. None of it brought peace.
+              She watched me change in front of her. She went from church to church, searching for what would bring me back. On one of those trips, she had an accident. She died in 1996. Her last words to me were &ldquo;Be that child God wants you to be.&rdquo;
             </p>
             <p className="text-base md:text-lg text-rc-text leading-relaxed font-rc-serif">
-              But in May 2015, <span className="text-rc-accent">Jesus Christ cast Weje out of me</span>, through the ministry of Prophet T.B. Joshua.
+              My human personality was taken over. First it was drug runs across borders. Then it began to teach me what interested it most: fraud, a particular scam that preyed on people&rsquo;s fear.
             </p>
             <p className="text-base md:text-lg text-rc-text leading-relaxed font-rc-serif">
-              This book is the story of how Weje got in, what it did while it was in me, and how I got free.
+              In May 2015, <span className="text-rc-accent">Jesus Christ cast Weje out of me</span>, through the ministry of the same Prophet of God my mother once took me from.
+            </p>
+            <p className="text-base md:text-lg text-rc-text leading-relaxed font-rc-serif">
+              This book is the story of how the spirit got in, what it did while it was in me, and how I got free.
             </p>
           </motion.div>
         </motion.div>
@@ -220,7 +223,7 @@ export default function BookPage() {
         </motion.div>
       </section>
 
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-gradient-to-br from-rc-accent to-rc-text border-t border-rc-border text-center">
+      <section data-nav-mode="light" className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-gradient-to-br from-rc-accent to-rc-text border-t border-rc-border text-center">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -229,7 +232,7 @@ export default function BookPage() {
           className="max-w-2xl mx-auto space-y-8"
         >
           <motion.h2 variants={fadeInLine} className="text-3xl md:text-4xl font-rc-serif font-bold text-white leading-tight tracking-tight">
-            If this story is yours too, Jesus is the way out.
+            Jesus is the way out.
           </motion.h2>
           <motion.div variants={fadeInLine} className="pt-4">
             <SiteButton variant="outline-light" href="/get-help">I Need Jesus</SiteButton>

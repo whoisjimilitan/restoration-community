@@ -45,31 +45,16 @@ export default function MyStoryPage() {
   }, [openVideoId]);
 
   return (
-    <div className="bg-rc-text text-white relative">
+    <div className="bg-rc-text text-white relative" data-nav-mode="light">
       <section
         id="hero"
         className="relative w-full min-h-[85svh] flex flex-col justify-center overflow-hidden bg-rc-text px-6 sm:px-8 md:px-12 py-24 md:py-32"
       >
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          poster="/images/my-story-hero-poster.jpg"
-          onCanPlay={(e) => {
-            const video = e.currentTarget;
-            if (video.paused) {
-              video.play().catch(() => {
-                // Some browsers still block autoplay outright (e.g. low-power
-                // mode). The poster frame is styled to match the video's own
-                // first frame, so this fallback state looks intentional, not broken.
-              });
-            }
-          }}
+        <img
+          src="/images/my-story-hero-poster.jpg"
+          alt="Brother Jimi"
           className="absolute inset-0 w-full h-full object-cover"
-        >
-          <source src="/videos/my-story-hero-loop.mp4" type="video/mp4" />
-        </video>
+        />
         <div className="absolute inset-0 bg-gradient-to-br from-rc-accent/85 to-rc-text/90" />
         <motion.div
           initial="hidden"
@@ -198,7 +183,7 @@ export default function MyStoryPage() {
           className="max-w-2xl mx-auto space-y-8"
         >
           <motion.h2 variants={fadeInLine} className="text-3xl md:text-4xl font-rc-serif font-bold text-white leading-tight tracking-tight">
-            If this is your story too, Jesus is the way out.
+            Jesus is the way out.
           </motion.h2>
           <motion.div variants={fadeInLine} className="pt-4">
             <SiteButton href="/get-help">I Need Jesus</SiteButton>

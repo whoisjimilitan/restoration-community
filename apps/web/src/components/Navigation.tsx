@@ -17,24 +17,19 @@ const LINKS = [
 
 export default function Navigation() {
   const pathname = usePathname();
-  const isHomepage = pathname === '/';
 
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isOverDark, setIsOverDark] = useState(isHomepage);
+  const [isOverDark, setIsOverDark] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // Homepage has several dark sections (hero, the dark band, the closing
-  // cards, the footer) separated by light ones — a single "over the hero"
-  // check isn't enough, since everything below the hero was wrongly assumed
-  // to be light. Every section that needs light nav text carries
-  // data-nav-mode="light"; on scroll, check whether any of them currently
-  // overlaps the strip of viewport the fixed nav sits in (0 to 64px).
+  // Every page has dark sections (hero, closing CTAs, etc.) separated by
+  // light ones — a single "over the hero" check isn't enough, since
+  // everything below the hero was wrongly assumed to be light. Every section
+  // that needs light nav text carries data-nav-mode="light"; on scroll,
+  // check whether any of them currently overlaps the strip of viewport the
+  // fixed nav sits in (0 to 64px). Runs on every page, not just the homepage.
   useEffect(() => {
     setIsMenuOpen(false);
-    if (!isHomepage) {
-      setIsOverDark(false);
-      return;
-    }
 
     const NAV_HEIGHT = 64;
     const checkDarkSections = () => {
@@ -56,7 +51,7 @@ export default function Navigation() {
       window.removeEventListener('scroll', checkDarkSections);
       window.removeEventListener('resize', checkDarkSections);
     };
-  }, [pathname, isHomepage]);
+  }, [pathname]);
 
   useEffect(() => {
     const onScroll = () => setIsScrolled(window.scrollY > 10);
@@ -65,21 +60,17 @@ export default function Navigation() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // Homepage: glass nav, text color adapts to whichever section is
-  // currently under it — but it always carries a translucent scrim (never
+  // Glass nav on every page: text color adapts to whichever section is
+  // currently under it, but it always carries a translucent scrim (never
   // zero background), since blur alone doesn't guarantee contrast against a
-  // moving video or busy content. Every other page: solid nav from the top,
-  // always legible regardless of what section sits beneath it — those pages
-  // are out of this plan's scope, so the nav can't assume anything about
-  // their content color.
-  const isTransparentMode = isHomepage;
-  const isLight = isTransparentMode && isOverDark;
-  const showBorder = isScrolled || !isTransparentMode;
+  // moving video or busy content.
+  const isLight = isOverDark;
+  const showBorder = isScrolled;
 
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-md transition-colors duration-300 ${
-        isTransparentMode ? (isLight ? 'bg-black/20' : 'bg-rc-bg/80') : 'bg-rc-bg/95'
+        isLight ? 'bg-black/20' : 'bg-rc-bg/80'
       } ${showBorder ? 'border-b border-rc-border' : 'border-b border-transparent'}`}
     >
       <div className="max-w-5xl mx-auto px-6 sm:px-8 md:px-12 h-16 flex items-center justify-end">

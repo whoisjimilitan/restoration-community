@@ -27,6 +27,7 @@ export default function PageHero({ headline, photo, headlineSizeClass }: PageHer
 
   return (
     <section
+      data-nav-mode="light"
       className={`w-full px-6 sm:px-8 md:px-12 py-24 md:py-32 ${
         photo
           ? 'relative min-h-[60svh] flex flex-col justify-center overflow-hidden bg-rc-text'
