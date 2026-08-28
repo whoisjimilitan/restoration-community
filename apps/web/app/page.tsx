@@ -146,7 +146,7 @@ export default function Home() {
           </motion.div>
           <div className="text-left">
             <motion.p variants={fadeInLine} className="text-2xl md:text-3xl font-rc-serif font-bold tracking-tight text-rc-text leading-snug">
-              He was Weje.
+              Weje.
             </motion.p>
 
             <motion.p variants={fadeInLine} className="text-base md:text-lg text-rc-text leading-relaxed font-light mt-6">
@@ -154,11 +154,11 @@ export default function Home() {
             </motion.p>
 
             <motion.p variants={fadeInLine} className="text-base md:text-lg text-rc-text leading-relaxed font-light mt-6">
-              But in 2015, <span className="text-rc-accent font-medium">Jesus Christ delivered me completely</span>, through Prophet T.B. Joshua&apos;s ministry.
+              But in 2015, Jesus Christ cast Weje out of me, through Prophet T.B. Joshua&apos;s ministry.
             </motion.p>
 
             <motion.p variants={fadeInLine} className="text-base md:text-lg text-rc-text/70 font-light leading-relaxed mt-6">
-              I tell this story so someone else can also trade the wrath of God for His mercy.
+              I tell this story in hope that someone else can also trade the wrath of God for His mercy.
             </motion.p>
 
             <motion.a
@@ -182,16 +182,12 @@ export default function Home() {
           variants={staggerContainer}
           className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center"
         >
-          <motion.div variants={fadeInLine} className="relative mx-auto w-full max-w-[300px] md:max-w-[380px]">
-            <img
-              src="/images/portrait-declaration-closeup.png"
-              alt="Brother Jimi"
-              className="w-full aspect-square object-cover rounded-[2rem]"
-            />
-            <span className="absolute bottom-4 left-4 text-white text-xs uppercase tracking-wide font-medium px-3 py-1 rounded-full bg-rc-text/80">
-              2026
-            </span>
-          </motion.div>
+          <motion.img
+            variants={fadeInLine}
+            src="/images/portrait-declaration-closeup.png"
+            alt="Brother Jimi"
+            className="mx-auto w-full max-w-[300px] md:max-w-[380px] aspect-square object-cover rounded-[2rem]"
+          />
           <div className="text-left">
             <motion.p variants={fadeInLine} className="text-2xl md:text-3xl font-rc-serif font-bold tracking-tight text-white leading-snug mb-6">
               This would have been my end.
