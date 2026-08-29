@@ -60,13 +60,6 @@ export default function ScripturesPage() {
                 {s.verse}
               </p>
             </motion.blockquote>
-            <motion.p variants={fadeInLine} className="text-base md:text-lg text-rc-text/80 leading-relaxed font-light">
-              {s.ref === 'Ezekiel 36:26' ? (
-                <>In May 2015, this scripture became my life. <span className="text-rc-accent">The Lord Jesus Christ removed my heart of stone and gave me a new heart.</span> What He did for me, He can do for you.</>
-              ) : (
-                s.explanation
-              )}
-            </motion.p>
             {s.repeatWarning && (
               <motion.p variants={fadeInLine} className="text-xl md:text-2xl font-rc-serif font-bold text-rc-accent pt-2">Take this as a warning.</motion.p>
             )}
