@@ -18,7 +18,7 @@ const stages = [
 export default function JourneyPage() {
   return (
     <div className="bg-rc-bg text-rc-text min-h-screen">
-      <section className="w-full min-h-screen flex flex-col justify-center bg-gradient-to-br from-rc-accent to-rc-text px-6 sm:px-8 md:px-12 py-24 md:py-32">
+      <section className="w-full min-h-screen flex flex-col justify-center bg-gradient-to-br from-rc-accent to-rc-canvas px-6 sm:px-8 md:px-12 py-24 md:py-32">
         <div className="max-w-2xl mx-auto w-full space-y-6">
           <div>
             <p className="text-xs font-medium text-white/70 uppercase tracking-wider">Your Restoration</p>
@@ -77,7 +77,7 @@ export default function JourneyPage() {
         </div>
       </section>
 
-      <footer className="w-full px-6 sm:px-8 md:px-12 py-8 bg-rc-text border-t border-rc-border text-center">
+      <footer className="w-full px-6 sm:px-8 md:px-12 py-8 bg-rc-canvas border-t border-rc-border text-center">
         <div className="max-w-2xl mx-auto space-y-6">
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 flex-wrap">
             <a href="/" className="text-white/80 hover:text-white transition-colors group text-sm">

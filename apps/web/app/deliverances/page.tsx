@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence, type Variants } from 'framer-motion';
 import SiteFooter from '@/components/SiteFooter';
 import SiteButton from '@/components/SiteButton';
@@ -15,13 +15,6 @@ const fadeInLine: Variants = {
   hidden: { opacity: 0, y: 16 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] } },
 };
-
-const bridgeLines = [
-  'You already know my story.',
-  'The partridge that became free.',
-  'It did not stop with me.',
-  'Hear from another.',
-];
 
 interface StoryCard {
   id: string;
@@ -65,50 +58,38 @@ const STORIES: StoryCard[] = [
 
 export default function StoriesPage() {
   const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
-  const [isLoaded, setIsLoaded] = useState(false);
-
-  useEffect(() => {
-    setIsLoaded(true);
-  }, []);
 
   return (
     <div className="bg-rc-bg text-rc-text">
-      {/* HERO */}
-      <section data-nav-mode="light" className="w-full min-h-[85svh] flex flex-col justify-center bg-gradient-to-br from-rc-accent to-rc-text px-6 sm:px-8 md:px-12 py-24 md:py-32">
-        <div className="max-w-2xl mx-auto w-full flex flex-col justify-center space-y-0">
-          <div className={`transform transition-all duration-500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-            <p className="text-base md:text-lg text-white/70 font-rc-serif font-normal leading-relaxed">
-              You&rsquo;ve heard mine.
-            </p>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-rc-serif font-bold text-white leading-tight tracking-tight mt-2">
-              Now hear his.
-            </h1>
-          </div>
-        </div>
-      </section>
-
-      {/* NOT JUST ME — the bridge, not a replay. Same black as Samuel's section so darkness carries straight through — the lights dimming before the movie starts. */}
-      <section data-nav-mode="light" className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-text">
+      {/* ONE tight intro — the lights dimming before the movie starts, not
+          two full sections saying the same transition twice. */}
+      <section data-nav-mode="light" className="grain-overlay w-full py-20 md:py-28 px-6 sm:px-8 md:px-12 bg-rc-canvas">
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.15 }}
           variants={staggerContainer}
-          className="max-w-2xl mx-auto space-y-12"
+          className="max-w-2xl mx-auto"
         >
-          <motion.h2 variants={fadeInLine} className="text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight tracking-tight">Not Just Me</motion.h2>
-
-          <motion.div variants={staggerContainer} className="space-y-4 text-base md:text-lg text-white/80 leading-relaxed font-light">
-            {bridgeLines.map((line, i) => (
-              <motion.p key={i} variants={fadeInLine}>{line}</motion.p>
-            ))}
-          </motion.div>
+          <motion.p variants={fadeInLine} className="text-base md:text-lg text-rc-bg/70 font-rc-serif font-normal leading-relaxed">
+            You&rsquo;ve heard mine.
+          </motion.p>
+          <motion.h1 variants={fadeInLine} className="text-4xl sm:text-5xl md:text-6xl font-rc-serif font-bold text-rc-bg leading-tight tracking-tight mt-2">
+            Now hear his. It didn&rsquo;t stop with me.
+          </motion.h1>
+          <motion.a
+            variants={fadeInLine}
+            href="/?prayer=1"
+            className="inline-block text-sm text-rc-bg/60 hover:text-rc-bg hover:underline mt-8"
+          >
+            Already know you need this? Ask for Prayer →
+          </motion.a>
         </motion.div>
       </section>
 
       {/* STORIES — Full-Width Dark Cinematic, video presentation untouched */}
       {STORIES.map((story) => (
-        <section key={story.id} data-nav-mode="light" className="w-screen -mx-[calc(50vw-50%)] bg-rc-text">
+        <section key={story.id} data-nav-mode="light" className="w-screen -mx-[calc(50vw-50%)] bg-rc-canvas">
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -157,16 +138,16 @@ export default function StoriesPage() {
                   className="space-y-6"
                 >
                   <div className="space-y-2">
-                    {story.year && <p className="text-sm text-white/60 font-light tracking-wide">{story.year}</p>}
-                    <h2 className="text-4xl sm:text-5xl md:text-6xl font-rc-serif font-bold text-white leading-tight tracking-tight">
+                    {story.year && <p className="text-sm text-rc-bg/60 font-light tracking-wide">{story.year}</p>}
+                    <h2 className="text-4xl sm:text-5xl md:text-6xl font-rc-serif font-bold text-rc-bg leading-tight tracking-tight">
                       {story.name}
                     </h2>
-                    <p className="text-lg md:text-xl text-white/80 font-light">
+                    <p className="text-lg md:text-xl text-rc-bg/80 font-light">
                       {story.role}
                     </p>
                   </div>
 
-                  <p className="text-lg md:text-xl font-rc-serif font-normal text-white/95 leading-relaxed">
+                  <p className="text-lg md:text-xl font-rc-serif font-normal text-rc-bg/95 leading-relaxed">
                     &ldquo;{story.quote}&rdquo;
                   </p>
                 </motion.div>
@@ -183,7 +164,7 @@ export default function StoriesPage() {
                     <p className="text-xs font-medium text-rc-accent-light uppercase tracking-wider">The King of Scamming</p>
                     <div className="space-y-2">
                       {story.storyBefore.map((line, i) => (
-                        <p key={i} className="text-base md:text-lg text-white/85 leading-relaxed font-light">{line}</p>
+                        <p key={i} className="text-base md:text-lg text-rc-bg/85 leading-relaxed font-light">{line}</p>
                       ))}
                     </div>
                   </div>
@@ -192,13 +173,13 @@ export default function StoriesPage() {
                     <p className="text-xs font-medium text-rc-accent-light uppercase tracking-wider">Facing the Judge</p>
                     <div className="space-y-2">
                       {story.storyEncounter.map((line, i) => (
-                        <p key={i} className="text-base md:text-lg text-white/85 leading-relaxed font-light">{line}</p>
+                        <p key={i} className="text-base md:text-lg text-rc-bg/85 leading-relaxed font-light">{line}</p>
                       ))}
                     </div>
                   </div>
 
                   <div className="pt-4 border-t border-white/10">
-                    <p className="text-sm text-white/50">{story.duration}</p>
+                    <p className="text-sm text-rc-bg/50">{story.duration}</p>
                   </div>
                 </motion.div>
               </div>
@@ -208,7 +189,7 @@ export default function StoriesPage() {
       ))}
 
       {/* Closing Section — kept in the same dark passage as Samuel's testimony above it, not a hard cut to teal, matching the homepage's own closing-action pattern */}
-      <section data-nav-mode="light" className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-text">
+      <section data-nav-mode="light" className="grain-overlay w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-canvas">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -217,11 +198,11 @@ export default function StoriesPage() {
           className="max-w-2xl mx-auto space-y-12"
         >
           <div className="space-y-8">
-            <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-white leading-tight tracking-tight">
+            <h2 className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-bg leading-tight tracking-tight">
               You read my own story.
             </h2>
 
-            <div className="space-y-6 text-base md:text-lg text-white/90 leading-relaxed font-light">
+            <div className="space-y-6 text-base md:text-lg text-rc-bg/90 leading-relaxed font-light">
               <p>You watched Samuel's story.</p>
               <p>Now see yours begin.</p>
             </div>
@@ -233,7 +214,7 @@ export default function StoriesPage() {
               Attend Gathering
             </SiteButton>
 
-            <SiteButton variant="outline-light" href="/get-help">
+            <SiteButton variant="outline-light" href="/?prayer=1">
               I Need Jesus
             </SiteButton>
           </div>
@@ -255,7 +236,7 @@ export default function StoriesPage() {
             >
               <button
                 onClick={() => setSelectedVideo(null)}
-                className="absolute -top-12 right-0 text-white hover:text-white/70 transition-colors"
+                className="absolute -top-12 right-0 text-rc-bg hover:text-rc-bg/70 transition-colors"
               >
                 <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />

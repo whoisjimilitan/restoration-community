@@ -20,7 +20,7 @@ export default function AboutPage() {
     <div className="bg-rc-bg text-rc-text relative">
       <PageHero
         headline="About Brother Jimi"
-        photo={{ src: '/images/portrait-hero-website.jpg', alt: 'Brother Jimi' }}
+        photo={{ src: '/images/portrait-warm-studio.jpg', alt: 'Brother Jimi' }}
       />
 
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
@@ -39,12 +39,12 @@ export default function AboutPage() {
         </motion.div>
       </section>
 
-      <section data-nav-mode="light" className="w-full py-16 md:py-20 px-6 sm:px-8 md:px-12 bg-gradient-to-br from-rc-accent to-rc-text border-t border-rc-border text-center">
+      <section data-nav-mode="light" className="grain-overlay w-full py-16 md:py-20 px-6 sm:px-8 md:px-12 bg-rc-canvas border-t border-rc-border text-center">
         <div className="max-w-2xl mx-auto space-y-8">
-          <p className="text-white font-rc-serif text-xl md:text-2xl font-medium leading-relaxed">
+          <p className="text-rc-bg font-rc-serif text-xl md:text-2xl font-medium leading-relaxed">
             The same Jesus who delivered me can deliver you.
           </p>
-          <SiteButton variant="outline-light" href="/get-help">I Need Jesus</SiteButton>
+          <SiteButton variant="outline-light" href="/?prayer=1">I Need Jesus</SiteButton>
         </div>
       </section>
 

@@ -1,17 +1,5 @@
 import type { Config } from 'tailwindcss';
 
-// Note: In production with internet access, use:
-// import { Fraunces } from 'next/font/google';
-// const fraunces = Fraunces({
-//   subsets: ['latin'],
-//   weight: ['400', '600', '700'],
-//   variable: '--font-fraunces',
-//   display: 'swap',
-// });
-
-// Fallback for offline environments: using Garamond (premium serif alternative)
-const frauncesFontClass = 'fraunces-fallback';
-
 const config: Config = {
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -23,7 +11,8 @@ const config: Config = {
       colors: {
         // Premium ministry brand palette
         'rc-bg': '#FAFAF7', // Ultra-refined off-white (luxury paper)
-        'rc-text': '#1A1A18', // Premium deep charcoal
+        'rc-text': '#1A1A18', // Premium deep charcoal (ink color, light-page body text — not a background)
+        'rc-canvas': '#0A342D', // Deep teal canvas — the site's dark section background, brand-specific rather than generic black
         'rc-text-secondary': '#8A8A80', // Sophisticated muted gray
         'rc-text-tertiary': '#A8A8A0', // Lighter secondary text
         'rc-accent': '#0D5E57', // Refined deep teal (restoration)
@@ -76,4 +65,3 @@ const config: Config = {
 };
 
 export default config;
-export { frauncesFontClass };

@@ -1,17 +1,32 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useSearchParams } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
+import DeliveringRequestModal from './DeliveringRequestModal';
 
+// Reads ?prayer=1 so /get-help (redirected in next.config.js) and any other
+// link into the prayer flow can open the modal from anywhere, not just from
+// a dedicated page. Needs its own Suspense boundary — useSearchParams
+// requires one in the App Router, same pattern as AttendParamWatcher.
+function PrayerParamWatcher({ onOpen }: { onOpen: () => void }) {
+  const searchParams = useSearchParams();
+  useEffect(() => {
+    if (searchParams.get('prayer') === '1') {
+      onOpen();
+    }
+  }, [searchParams, onOpen]);
+  return null;
+}
+
+// Order follows the narrative arc, not alphabetical/feature convenience:
+// who Weje was -> the book's deeper account -> why deliverance was possible ->
+// who's left after deliverance -> proof it's not just him -> the reader's own turn.
 const LINKS = [
   { href: '/', label: 'Home' },
-  { href: '/my-story', label: 'My Story' },
+  { href: '/my-story', label: 'The Series' },
   { href: '/book', label: 'Book' },
-  { href: '/scriptures', label: 'Scriptures' },
-  { href: '/get-help', label: 'Get Help' },
-  { href: '/about', label: 'About' },
   { href: '/deliverances', label: 'Deliverances' },
 ];
 
@@ -21,6 +36,7 @@ export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOverDark, setIsOverDark] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isPrayerOpen, setIsPrayerOpen] = useState(false);
 
   // Every page has dark sections (hero, closing CTAs, etc.) separated by
   // light ones — a single "over the hero" check isn't enough, since
@@ -73,7 +89,11 @@ export default function Navigation() {
         isLight ? 'bg-black/20' : 'bg-rc-bg/80'
       } ${showBorder ? 'border-b border-rc-border' : 'border-b border-transparent'}`}
     >
-      <div className="max-w-5xl mx-auto px-6 sm:px-8 md:px-12 h-16 flex items-center justify-end">
+      <Suspense fallback={null}>
+        <PrayerParamWatcher onOpen={() => setIsPrayerOpen(true)} />
+      </Suspense>
+
+      <div className="max-w-5xl mx-auto px-6 sm:px-8 md:px-12 h-16 flex items-center justify-end gap-8">
         <div className="hidden md:flex items-center gap-8">
           {LINKS.map((link) => (
             <Link
@@ -87,6 +107,21 @@ export default function Navigation() {
             </Link>
           ))}
         </div>
+
+        {/* Ask for Prayer — present on every page, opens the modal directly.
+            No navigation, no dedicated page: reaching prayer should never cost
+            someone the moment they're already in. */}
+        <button
+          type="button"
+          onClick={() => setIsPrayerOpen(true)}
+          className={`hidden md:inline-flex text-xs font-medium uppercase tracking-wider px-4 py-2 rounded-full border transition-all duration-300 hover:scale-[1.02] ${
+            isLight
+              ? 'text-white bg-white/10 border-white/25 hover:bg-white/20'
+              : 'text-rc-accent bg-rc-accent/10 border-rc-accent/30 hover:bg-rc-accent/20'
+          }`}
+        >
+          Ask for Prayer
+        </button>
 
         <button
           type="button"
@@ -134,10 +169,22 @@ export default function Navigation() {
                   {link.label}
                 </Link>
               ))}
+              <button
+                type="button"
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  setIsPrayerOpen(true);
+                }}
+                className="text-left text-base font-medium text-rc-accent py-3 transition-colors duration-200"
+              >
+                Ask for Prayer
+              </button>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
+
+      <DeliveringRequestModal isOpen={isPrayerOpen} onClose={() => setIsPrayerOpen(false)} />
     </nav>
   );
 }

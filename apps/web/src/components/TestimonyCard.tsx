@@ -17,7 +17,7 @@ export function TestimonyCard({
         <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
           {/* Image */}
           {testimony.heroImage && (
-            <div className="md:order-2 aspect-square rounded-lg overflow-hidden bg-rc-text/5">
+            <div className="md:order-2 aspect-square rounded-lg overflow-hidden bg-rc-canvas/5">
               <img
                 src={testimony.heroImage.url}
                 alt={testimony.heroImage.alt}
@@ -98,7 +98,7 @@ export function TestimonyCard({
     <div className="w-full bg-white rounded-lg border border-rc-border overflow-hidden hover:shadow-md transition-shadow">
       {/* Hero Image */}
       {testimony.heroImage && (
-        <div className="w-full aspect-video relative overflow-hidden bg-rc-text/5">
+        <div className="w-full aspect-video relative overflow-hidden bg-rc-canvas/5">
           <img
             src={testimony.heroImage.url}
             alt={testimony.heroImage.alt}

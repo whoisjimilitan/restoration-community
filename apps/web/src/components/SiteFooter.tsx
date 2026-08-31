@@ -3,8 +3,6 @@ export default function SiteFooter({ precededByDarkSection = false }: { preceded
     { href: '/', label: 'Home' },
     { href: '/my-story', label: 'The Series' },
     { href: '/book', label: 'The Book' },
-    { href: '/scriptures', label: 'Scriptures' },
-    { href: '/get-help', label: 'Get Help' },
     { href: '/about', label: 'About' },
     { href: '/deliverances', label: 'Deliverances' },
   ];
@@ -12,7 +10,7 @@ export default function SiteFooter({ precededByDarkSection = false }: { preceded
   return (
     <footer
       data-nav-mode="light"
-      className={`w-full px-6 sm:px-8 md:px-12 py-8 bg-rc-text text-center border-t ${
+      className={`w-full px-6 sm:px-8 md:px-12 py-8 bg-rc-canvas text-center border-t ${
         precededByDarkSection ? 'border-white/10' : 'border-rc-border'
       }`}
     >
@@ -22,14 +20,14 @@ export default function SiteFooter({ precededByDarkSection = false }: { preceded
             <a
               key={link.href}
               href={link.href}
-              className="text-white/80 hover:text-white transition-colors group text-sm"
+              className="text-rc-bg/80 hover:text-rc-bg transition-colors group text-sm"
             >
               {link.label}
               <span className="block h-px w-0 group-hover:w-full bg-white transition-all duration-300 mt-1"></span>
             </a>
           ))}
         </div>
-        <p className="text-white/40 text-xs">© 2026. All rights reserved.</p>
+        <p className="text-rc-bg/40 text-xs">© 2026. All rights reserved.</p>
       </div>
     </footer>
   );

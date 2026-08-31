@@ -26,7 +26,7 @@ export default function ProofGallery({ items, onVideoClick }: ProofGalleryProps)
             key={item.id}
             whileHover={{ scale: 1.05 }}
             onClick={() => item.type === 'video' && onVideoClick(item.url)}
-            className="relative aspect-square rounded-lg overflow-hidden bg-rc-text/5 border border-rc-border/20 hover:shadow-lg transition-all duration-300"
+            className="relative aspect-square rounded-lg overflow-hidden bg-rc-canvas/5 border border-rc-border/20 hover:shadow-lg transition-all duration-300"
             disabled={item.type === 'image'}
           >
             <img
@@ -38,7 +38,7 @@ export default function ProofGallery({ items, onVideoClick }: ProofGalleryProps)
 
             {item.type === 'video' && (
               <>
-                <div className="absolute inset-0 bg-gradient-to-br from-rc-text/20 to-rc-text/5 flex items-center justify-center">
+                <div className="absolute inset-0 bg-gradient-to-br from-rc-canvas/20 to-rc-canvas/5 flex items-center justify-center">
                   <svg className="w-8 h-8 text-rc-text/50" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M8 5v14l11-7z" />
                   </svg>

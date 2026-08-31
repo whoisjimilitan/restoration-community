@@ -18,20 +18,19 @@ type PageHeroProps = {
   headlineSizeClass?: string;
 };
 
-/** Shared inner-page hero: a real photo + the homepage's exact charcoal
- *  overlay math when a photo is given, or the existing flat gradient
- *  unchanged when it isn't — so pages with no photo (e.g. /scriptures)
- *  render identically to what they always have. */
+/** Shared inner-page hero: a real photo with a mostly-black overlay (teal
+ *  reduced to a hairline wash, not a dominant tone) when a photo is given,
+ *  or the existing flat gradient unchanged when it isn't. */
 export default function PageHero({ headline, photo, headlineSizeClass }: PageHeroProps) {
   const sizeClass = headlineSizeClass ?? 'text-4xl sm:text-5xl md:text-6xl';
 
   return (
     <section
       data-nav-mode="light"
-      className={`w-full px-6 sm:px-8 md:px-12 py-24 md:py-32 ${
+      className={`grain-overlay w-full px-6 sm:px-8 md:px-12 py-24 md:py-32 ${
         photo
-          ? 'relative min-h-[60svh] flex flex-col justify-center overflow-hidden bg-rc-text'
-          : 'bg-gradient-to-br from-rc-accent to-rc-text'
+          ? 'relative min-h-[60svh] flex flex-col justify-center overflow-hidden bg-rc-canvas'
+          : 'bg-gradient-to-br from-rc-accent to-rc-canvas'
       }`}
     >
       {photo && (
@@ -41,7 +40,11 @@ export default function PageHero({ headline, photo, headlineSizeClass }: PageHer
             alt={photo.alt}
             className="absolute inset-0 w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-rc-accent/85 to-rc-text/90" />
+          {/* Strong dark overlay throughout, for text contrast against any photo */}
+          <div className="absolute inset-0 bg-rc-canvas/85" />
+          {/* Teal reduced to a single contained accent glow, not a wash */}
+          <div className="absolute -top-1/4 -left-1/4 w-1/2 h-3/4 bg-rc-accent/40 blur-3xl rounded-full" />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-rc-canvas/40" />
         </>
       )}
       <motion.div
@@ -52,7 +55,7 @@ export default function PageHero({ headline, photo, headlineSizeClass }: PageHer
           .filter(Boolean)
           .join(' ')}
       >
-        <motion.h1 variants={fadeInLine} className={`${sizeClass} font-rc-serif font-bold text-white leading-tight tracking-tight`}>
+        <motion.h1 variants={fadeInLine} className={`${sizeClass} font-rc-serif font-bold text-rc-bg leading-tight tracking-tight`}>
           {headline}
         </motion.h1>
       </motion.div>

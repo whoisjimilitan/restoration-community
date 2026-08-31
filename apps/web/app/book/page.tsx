@@ -67,37 +67,91 @@ export default function BookPage() {
 
   return (
     <div className="bg-rc-bg text-rc-text relative">
-      <section ref={heroRef} data-nav-mode="light" className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-gradient-to-br from-rc-accent to-rc-text">
+      <section ref={heroRef} data-nav-mode="light" className="grain-overlay relative w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-canvas overflow-hidden">
+        {/* Soft atmospheric glow behind the book — depth without a shadow */}
+        <div
+          className="absolute pointer-events-none"
+          style={{
+            right: '5%',
+            top: '10%',
+            width: '520px',
+            height: '520px',
+            background: 'radial-gradient(circle, rgba(201,146,90,0.16) 0%, rgba(27,122,108,0.14) 45%, transparent 72%)',
+          }}
+        />
         <motion.div
           initial="hidden"
           animate="visible"
           variants={staggerContainer}
           style={{ y: heroY, opacity: heroOpacity }}
-          className="max-w-2xl mx-auto text-center space-y-8"
+          className="relative max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center"
         >
+          <div className="text-center md:text-left order-2 md:order-1">
+            <motion.p variants={fadeInLine} className="text-xs uppercase tracking-[0.2em] text-rc-gold font-medium mb-5">
+              A Testimony
+            </motion.p>
+            <motion.h1 variants={fadeInLine} className="text-3xl sm:text-4xl md:text-5xl font-rc-serif font-bold text-rc-bg leading-tight tracking-tight">
+              Weje: The Spirit of Waste Lived Inside Me
+            </motion.h1>
+            <motion.p variants={fadeInLine} className="text-base md:text-lg text-rc-bg/90 leading-relaxed font-rc-serif font-normal mt-6">
+              The book follows the same arc as the story. It goes three chapters deeper, with reflections and scripture the camera doesn&rsquo;t have room for.
+            </motion.p>
+          </div>
+
+          {/* Real 3D book: a front-cover face and a spine face joined at a right
+              angle in true 3D space (not a flat image faked with 2D rotation). */}
           <motion.div
             variants={fadeInLine}
-            className="mx-auto w-48 md:w-56"
-            style={{ perspective: '1000px' }}
+            className="mx-auto w-52 sm:w-64 order-1 md:order-2"
+            style={{ perspective: '1600px' }}
           >
             <div
-              className="rounded overflow-hidden"
+              className="relative aspect-[2/3]"
               style={{
-                transform: 'rotateY(-18deg) rotateX(4deg)',
-                boxShadow: '24px 24px 48px rgba(0, 0, 0, 0.45)',
+                transformStyle: 'preserve-3d',
+                transform: 'rotateY(-28deg)',
               }}
             >
-              <img src="/images/book-cover.png" alt="Weje: The Spirit of Waste Lived Inside Me, book cover" className="w-full h-auto" />
+              {/* Front cover */}
+              <div
+                className="absolute inset-0 rounded-r-sm overflow-hidden"
+                style={{ transform: 'translateZ(14px)', boxShadow: '2px 2px 10px rgba(0,0,0,0.4)' }}
+              >
+                <img
+                  src="/images/book-cover.png"
+                  alt="Weje: The Spirit of Waste Lived Inside Me, book cover"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              {/* Spine */}
+              <div
+                className="absolute top-0 bottom-0 bg-rc-canvas"
+                style={{
+                  left: '-28px',
+                  width: '28px',
+                  transform: 'rotateY(-90deg)',
+                  transformOrigin: 'right',
+                  boxShadow: 'inset -4px 0 8px rgba(0,0,0,0.5)',
+                }}
+              />
+              {/* Page edges */}
+              <div
+                className="absolute top-[2px] bottom-[2px]"
+                style={{
+                  right: '-6px',
+                  width: '6px',
+                  transform: 'rotateY(90deg)',
+                  transformOrigin: 'left',
+                  background: 'repeating-linear-gradient(180deg, #e8e2d4 0px, #e8e2d4 1px, #d4cdb8 1px, #d4cdb8 2px)',
+                }}
+              />
             </div>
+            {/* Contact shadow grounding the book in the dark */}
+            <div
+              className="mx-auto mt-3 h-3 w-4/5 rounded-full"
+              style={{ background: 'radial-gradient(ellipse at center, rgba(0,0,0,0.55) 0%, transparent 70%)' }}
+            />
           </motion.div>
-
-          <motion.h1 variants={fadeInLine} className="text-3xl sm:text-4xl md:text-5xl font-rc-serif font-bold text-white leading-tight tracking-tight">
-            Weje: The Spirit of Waste Lived Inside Me
-          </motion.h1>
-
-          <motion.p variants={fadeInLine} className="text-base md:text-lg text-white/90 leading-relaxed font-rc-serif font-normal">
-            The spirit of waste lived inside me for twenty years. He drove me across nations. He built an empire of deception through my hands. And then Jesus Christ cast him out. This is the full story.
-          </motion.p>
         </motion.div>
       </section>
 
@@ -180,7 +234,7 @@ export default function BookPage() {
               <button
                 type="submit"
                 disabled={submitting}
-                className="w-full inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-rc-accent text-white rounded-lg font-medium tracking-wide shadow-md transition-all duration-300 ease-out hover:bg-rc-accent-light hover:shadow-xl hover:scale-[1.01] disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100"
+                className="w-full inline-flex items-center justify-center px-8 py-3 min-h-[48px] bg-rc-accent text-rc-bg rounded-lg font-medium tracking-wide shadow-md transition-all duration-300 ease-out hover:bg-rc-accent-light hover:shadow-xl hover:scale-[1.01] disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100"
               >
                 {submitting ? 'Joining…' : 'Join Waitlist'}
               </button>
@@ -201,12 +255,9 @@ export default function BookPage() {
           <motion.h2 variants={fadeInLine} className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">
             Chapters
           </motion.h2>
-          <motion.div variants={fadeInLine} className="-mt-4 space-y-2">
-            <p className="text-sm text-rc-text/60 leading-relaxed font-light">
-              The book follows the same arc as the series. It goes three chapters deeper, with reflections and scripture the camera doesn&rsquo;t have room for.
-            </p>
+          <motion.div variants={fadeInLine} className="-mt-4">
             <a href="/my-story" className="inline-block text-sm text-rc-accent font-medium hover:underline">
-              Watch the nine-episode series →
+              Watch the story that inspired it →
             </a>
           </motion.div>
           <motion.div variants={staggerContainer} className="space-y-1">
@@ -223,7 +274,7 @@ export default function BookPage() {
         </motion.div>
       </section>
 
-      <section data-nav-mode="light" className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-gradient-to-br from-rc-accent to-rc-text border-t border-rc-border text-center">
+      <section data-nav-mode="light" className="grain-overlay w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-canvas border-t border-rc-border text-center">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -231,11 +282,11 @@ export default function BookPage() {
           variants={staggerContainer}
           className="max-w-2xl mx-auto space-y-8"
         >
-          <motion.h2 variants={fadeInLine} className="text-3xl md:text-4xl font-rc-serif font-bold text-white leading-tight tracking-tight">
-            Jesus is the way out.
+          <motion.h2 variants={fadeInLine} className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-bg leading-tight tracking-tight">
+            Jesus Still Delivers.
           </motion.h2>
           <motion.div variants={fadeInLine} className="pt-4">
-            <SiteButton variant="outline-light" href="/get-help">I Need Jesus</SiteButton>
+            <SiteButton variant="outline-light" href="/?prayer=1">I Need Jesus</SiteButton>
           </motion.div>
         </motion.div>
       </section>

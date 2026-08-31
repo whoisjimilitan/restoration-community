@@ -6,14 +6,35 @@ import { motion, useScroll, useTransform, AnimatePresence, type Variants } from 
 import SiteFooter from '@/components/SiteFooter';
 import SiteButton from '@/components/SiteButton';
 
+// Barely-perceptible drift as the photo scrolls past — quiet physical
+// presence, not a parallax "effect". Wraps whatever image is passed as children.
+function ParallaxPhoto({ children }: { children: React.ReactNode }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] });
+  const y = useTransform(scrollYProgress, [0, 1], [-16, 16]);
+  return (
+    <div ref={ref} className="relative mx-auto w-full max-w-[300px] md:max-w-[380px]">
+      <motion.div style={{ y }}>{children}</motion.div>
+    </div>
+  );
+}
+
+// Slightly slower and more spaced than a typical product-site reveal — this
+// is a testimony, not a feature list, and each line deserves room to be read
+// before the next arrives.
 const staggerContainer: Variants = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.09, delayChildren: 0.05 } },
+  visible: { transition: { staggerChildren: 0.12, delayChildren: 0.05 } },
 };
 
 const fadeInLine: Variants = {
   hidden: { opacity: 0, y: 16 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] } },
+};
+
+const settleIn: Variants = {
+  hidden: { opacity: 0, scale: 0.97, y: 12 },
+  visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] } },
 };
 
 const GATHERING_TZ = 'UTC';
@@ -52,21 +73,10 @@ function AttendParamWatcher({ onAttend }: { onAttend: () => void }) {
 
 export default function Home() {
   const [nextGathering] = useState(getNextGathering);
-  const [isLoaded, setIsLoaded] = useState(false);
   const [isAttendanceModalOpen, setIsAttendanceModalOpen] = useState(false);
   const [attendanceStep, setAttendanceStep] = useState<'form' | 'complete'>('form');
   const [attendanceData, setAttendanceData] = useState({ name: '', email: '', phone: '' });
   const [isSubmittingAttendance, setIsSubmittingAttendance] = useState(false);
-
-  const heroRef = useRef<HTMLElement>(null);
-  const heroVideoRef = useRef<HTMLVideoElement>(null);
-  const { scrollYProgress: heroScroll } = useScroll({ target: heroRef, offset: ['start start', 'end start'] });
-  const heroY = useTransform(heroScroll, [0, 1], [0, 140]);
-  const heroOpacity = useTransform(heroScroll, [0, 1], [1, 0.15]);
-
-  useEffect(() => {
-    setIsLoaded(true);
-  }, []);
 
   return (
     <div className="bg-rc-bg text-rc-text relative">
@@ -74,59 +84,55 @@ export default function Home() {
         <AttendParamWatcher onAttend={() => setIsAttendanceModalOpen(true)} />
       </Suspense>
 
-      {/* HERO — full-bleed muted looping video background, with the teal/charcoal
-          gradient layered on top (not replaced) so the brand color still governs
-          the frame and the centered text stays legible everywhere, not just one side. */}
-      <section ref={heroRef} id="hero" data-nav-mode="light" className="relative w-full min-h-[85svh] flex flex-col justify-center overflow-hidden bg-rc-text px-6 sm:px-8 md:px-12 py-24 md:py-32">
-        <video
-          ref={heroVideoRef}
-          autoPlay
-          muted
-          loop
-          playsInline
-          poster="/images/hero-poster.jpg"
-          onCanPlay={(e) => {
-            const video = e.currentTarget;
-            if (video.paused) {
-              video.play().catch(() => {
-                // Some browsers still block autoplay outright (e.g. low-power
-                // mode). The poster frame is styled to match the video's own
-                // first frame, so this fallback state looks intentional, not broken.
-              });
-            }
+      {/* 01 THE CLAIM — matches the approved reference design exactly: a
+          breathing radial glow behind centered text, no video, no gradient
+          wash. One thing, stated once. */}
+      <section id="hero" data-nav-mode="light" className="grain-overlay relative w-full min-h-[100svh] flex flex-col items-center justify-center text-center overflow-hidden bg-rc-canvas px-6 sm:px-8 md:px-12 py-24 md:py-32">
+        <div
+          className="absolute -top-[10%] left-1/2 -translate-x-1/2 rounded-full pointer-events-none animate-[jm-breathe_14s_ease-in-out_infinite]"
+          style={{
+            width: 'min(1100px, 120vw)',
+            height: 'min(1100px, 120vw)',
+            background: 'radial-gradient(circle, rgba(27,122,108,0.55) 0%, rgba(20,87,75,0.28) 38%, rgba(10,52,45,0) 68%)',
           }}
-          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={staggerContainer}
+          className="relative max-w-2xl mx-auto flex flex-col items-center"
         >
-          <source src="/videos/hero-optimized.mp4" type="video/mp4" />
-        </video>
-        <div className="absolute inset-0 bg-gradient-to-br from-rc-accent/85 to-rc-text/90" />
-
-        <motion.div style={{ y: heroY, opacity: heroOpacity }} className="relative max-w-2xl mx-auto w-full flex flex-col justify-center space-y-8 text-center">
-          <div className={`transform transition-all duration-500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-rc-serif font-bold text-white leading-tight tracking-tight">
-              Fraud is not just a crime. It is a spirit.
-            </h1>
-            <p className="text-base md:text-lg text-white/80 font-light leading-relaxed mt-6">
-              I know because it lived inside me for 20 years.
-            </p>
-          </div>
-
-          <div className={`flex items-center justify-center gap-6 transform transition-all duration-500 delay-150 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-            <SiteButton href="/my-story" variant="solid">
-              Preview My Story
+          <motion.p variants={fadeInLine} className="text-xs uppercase tracking-[0.2em] text-rc-gold font-medium">
+            A Testimony
+          </motion.p>
+          <motion.h1 variants={fadeInLine} className="text-4xl sm:text-5xl md:text-6xl font-rc-serif font-bold text-white leading-tight tracking-tight mt-8 max-w-[20ch]">
+            Fraud is not just a crime. It is a spirit.
+          </motion.h1>
+          <motion.p variants={fadeInLine} className="text-base md:text-lg text-[#BBC7C6] font-light leading-relaxed mt-7 max-w-[42ch]">
+            I know because it lived inside me for 20 years.
+          </motion.p>
+          <motion.div variants={fadeInLine} className="flex items-center gap-4 mt-11 flex-wrap justify-center">
+            <SiteButton href="/?prayer=1" variant="solid">
+              Ask for Prayer
             </SiteButton>
             <a
-              href="/book"
-              className="inline-block text-white/70 hover:text-white text-base font-medium transition-colors duration-200"
+              href="#weje"
+              className="relative inline-block text-[#BBC7C6] hover:text-white text-base font-medium transition-colors duration-200 group"
             >
-              Preview My Book
+              Keep reading ↓
+              <span className="absolute left-0 -bottom-0.5 h-px w-0 bg-white transition-all duration-300 group-hover:w-full" />
             </a>
-          </div>
+          </motion.div>
         </motion.div>
+        {/* Scroll hint — quiet, functional, not decorative */}
+        <div
+          className="absolute bottom-12 left-1/2 -translate-x-1/2 w-px h-[52px] animate-[jm-hint_3.4s_ease-in-out_infinite]"
+          style={{ background: 'linear-gradient(to bottom, rgba(237,255,254,0) 0%, rgba(237,255,254,0.6) 100%)' }}
+        />
       </section>
 
-      {/* FOUNDER'S WITNESS — proof the journey is real, before anything else is asked of the visitor */}
-      <section className="w-full py-32 md:py-40 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
+      {/* 02 THE SPIRIT IS NAMED — the page's typographic peak. */}
+      <section id="weje" className="w-full py-32 md:py-40 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -134,117 +140,157 @@ export default function Home() {
           variants={staggerContainer}
           className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center"
         >
-          <motion.div variants={fadeInLine} className="relative mx-auto w-full max-w-[300px] md:max-w-[380px]">
-            <img
-              src="/images/weje-era.png"
-              alt="Brother Jimi during the years Weje controlled his life"
-              className="w-full aspect-[2/3] object-cover rounded-[2rem]"
-            />
-            <span className="absolute bottom-4 left-4 text-white text-xs uppercase tracking-wide font-medium px-3 py-1 rounded-full bg-rc-text/80">
-              2012
-            </span>
+          <motion.div variants={fadeInLine}>
+            <ParallaxPhoto>
+              <div className="relative">
+                {/* Cool, receding glow — this photo is the past, pulling back */}
+                <div
+                  className="absolute -inset-8 rounded-full blur-3xl -z-10"
+                  style={{ background: 'radial-gradient(circle, rgba(27,122,108,0.35) 0%, transparent 70%)' }}
+                />
+                <img
+                  src="/images/weje-era.png"
+                  alt="Brother Jimi during the years Weje controlled his life"
+                  className="w-full aspect-[4/5] object-cover rounded-[1rem] saturate-[0.85] contrast-[0.96]"
+                  style={{ boxShadow: '0 20px 50px -20px rgba(7,31,27,0.5)' }}
+                />
+                <span className="absolute bottom-4 left-4 text-white text-xs uppercase tracking-wide font-medium px-3 py-1 rounded-full bg-rc-canvas/80">
+                  2012
+                </span>
+              </div>
+            </ParallaxPhoto>
           </motion.div>
           <div className="text-left">
-            <motion.p variants={fadeInLine} className="text-2xl md:text-3xl font-rc-serif font-bold tracking-tight text-rc-text leading-snug">
-              Weje.
+            <motion.p variants={fadeInLine} className="text-xs uppercase tracking-[0.2em] text-rc-gold font-medium">
+              Yoruba Noun
             </motion.p>
-
-            <motion.p variants={fadeInLine} className="text-base md:text-lg text-rc-text leading-relaxed font-light mt-6">
-              The spirit that controlled my life for twenty years. A Yoruba word for the wasteful one.
+            <motion.h2 variants={fadeInLine} className="text-6xl sm:text-7xl md:text-8xl font-rc-serif font-bold tracking-tight text-rc-text leading-[0.96] mt-6">
+              Weje
+            </motion.h2>
+            <motion.p variants={fadeInLine} className="text-2xl md:text-3xl font-rc-serif italic text-rc-text/70 mt-4">
+              the wasteful one
             </motion.p>
-
-            <motion.p variants={fadeInLine} className="text-base md:text-lg text-rc-text leading-relaxed font-light mt-6">
-              But in 2015, Jesus Christ cast Weje out of me, through Prophet T.B. Joshua&apos;s ministry.
+            <motion.p variants={fadeInLine} className="text-lg text-rc-text/80 leading-relaxed mt-10 max-w-[46ch]">
+              The spirit that controlled me for twenty years. He gave me money and took everything money cannot buy. He gave me a heart of stone and stole my heart of flesh.
             </motion.p>
-
-            <motion.p variants={fadeInLine} className="text-base md:text-lg text-rc-text/70 font-light leading-relaxed mt-6">
-              I tell this story in hope that someone else can also trade the wrath of God for His mercy.
-            </motion.p>
-
-            <motion.a
-              variants={fadeInLine}
-              href="/get-help"
-              className="inline-block text-sm text-rc-text/60 hover:text-rc-text hover:underline mt-6"
-            >
-              Get Help →
-            </motion.a>
           </div>
         </motion.div>
       </section>
 
-      {/* THE DARK BAND — the page's one deliberate dramatic peak: the real man
-          alongside the highest-stakes line on the page, at the same weight. */}
-      <section data-nav-mode="light" className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-text border-t border-rc-border">
+      {/* 03 THE SENTENCE — text only, no photo. Scripture, then the plea. A much
+          dimmer, slower breath than the hero — this section stays the quiet
+          one, the glow is just enough that it isn't the only static section
+          on the page. */}
+      <section data-nav-mode="light" className="grain-overlay relative w-full py-24 md:py-40 px-6 sm:px-8 md:px-12 bg-rc-canvas overflow-hidden">
+        <div
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full pointer-events-none animate-[jm-breathe_20s_ease-in-out_infinite]"
+          style={{
+            width: 'min(900px, 100vw)',
+            height: 'min(900px, 100vw)',
+            background: 'radial-gradient(circle, rgba(27,122,108,0.18) 0%, rgba(20,87,75,0.08) 45%, transparent 70%)',
+          }}
+        />
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
           variants={staggerContainer}
-          className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center"
+          className="max-w-3xl mx-auto flex flex-col gap-20"
         >
-          <motion.img
-            variants={fadeInLine}
-            src="/images/portrait-declaration-closeup.png"
-            alt="Brother Jimi"
-            className="mx-auto w-full max-w-[300px] md:max-w-[380px] aspect-square object-cover rounded-[2rem]"
-          />
-          <div className="text-left">
-            <motion.p variants={fadeInLine} className="text-2xl md:text-3xl font-rc-serif font-bold tracking-tight text-white leading-snug mb-6">
-              This would have been my end.
-            </motion.p>
-            <motion.p variants={fadeInLine} className="text-base md:text-lg text-white/70 font-light leading-relaxed mb-2">
-              &ldquo;Like a partridge that hatches eggs it did not lay, are those who gain riches by unjust means.
-              When their lives are half gone, their riches will desert them, and in the end they will prove to be fools.&rdquo;
-            </motion.p>
-            <motion.p variants={fadeInLine} className="text-base md:text-lg font-medium text-white/90">
-              Jeremiah 17:11
-            </motion.p>
-          </div>
+          <motion.div variants={fadeInLine} className="flex flex-col gap-7">
+            <p className="text-xs uppercase tracking-[0.2em] text-rc-gold font-medium">The Bible Says</p>
+            <p className="font-rc-serif italic text-2xl md:text-3xl text-white leading-snug tracking-tight max-w-[30ch]">
+              &ldquo;Like a partridge that hatches eggs it did not lay, are those who gain riches by unjust means. When their lives are half gone, their riches will desert them, and in the end they will prove to be fools.&rdquo;
+            </p>
+            <div className="flex items-center gap-4">
+              <span className="block w-9 h-px bg-rc-gold/70" />
+              <p className="text-xs uppercase tracking-[0.2em] text-rc-gold font-medium">Jeremiah 17:11</p>
+            </div>
+          </motion.div>
+          <motion.p variants={fadeInLine} className="font-rc-serif font-bold text-3xl md:text-4xl text-white leading-tight tracking-tight self-end text-right max-w-[20ch]">
+            I would have ended as a fool.
+          </motion.p>
         </motion.div>
       </section>
 
-      {/* CLOSING ACTION — the page's one goal, kept in the same dark passage
-          as the testimony above it, not a hard cut back to a bright section.
-          Mission statement leads: scripture said what God says about fraud,
-          this says what he's doing about it, then the two cards say where
-          to go next. Glass cards float on the dark surface, not opaque white. */}
-      <section data-nav-mode="light" className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-text">
+      {/* 04 CAST OUT */}
+      <section className="w-full py-24 md:py-40 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.15 }}
+          viewport={{ once: true, amount: 0.2 }}
           variants={staggerContainer}
-          className="max-w-2xl mx-auto"
+          className="max-w-3xl mx-auto"
         >
-          <motion.p variants={fadeInLine} className="text-xl md:text-2xl font-rc-serif tracking-tight leading-snug">
-            <span className="font-bold text-white">I am calling every youth out of fraud</span>
-            <span className="font-light text-white/70"> into the salvation only Jesus Christ gives.</span>
+          <motion.h2 variants={fadeInLine} className="font-rc-serif font-bold text-3xl sm:text-4xl md:text-5xl text-rc-text leading-tight tracking-tight max-w-[24ch]">
+            But in 2015, Jesus Christ cast Weje out of me.
+          </motion.h2>
+          <motion.p variants={fadeInLine} className="text-base font-medium text-rc-text/70 mt-2">
+            Through Prophet T.B. Joshua&apos;s ministry.
           </motion.p>
-          <motion.div variants={fadeInLine} className="w-12 h-px bg-white/15 mt-14 mb-14" />
+          {/* A literal timeline marker — the ten years get a visual presence,
+              not just a sentence saying they happened. */}
+          <motion.div variants={fadeInLine} className="flex flex-col items-start mt-16 mb-10">
+            <span className="w-2 h-2 rounded-full bg-rc-gold" />
+            <span className="w-px h-16 mt-1" style={{ background: 'linear-gradient(to bottom, rgba(201,146,90,0.6), transparent)' }} />
+          </motion.div>
+          <motion.p variants={settleIn} className="font-rc-serif font-bold text-2xl sm:text-3xl md:text-4xl text-rc-text leading-tight tracking-tight max-w-[18ch] ml-auto text-right">
+            Ten years later, I&apos;m a product of God&apos;s grace.
+          </motion.p>
         </motion.div>
+      </section>
+
+      {/* 05 THE APPEAL */}
+      <section data-nav-mode="light" className="grain-overlay w-full bg-rc-canvas">
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.15 }}
           variants={staggerContainer}
-          className="max-w-md mx-auto text-center"
+          className="max-w-5xl mx-auto py-24 md:py-40 px-6 sm:px-8 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-11 md:gap-20 items-center"
         >
-          <motion.a
-            variants={fadeInLine}
-            href="/my-story"
-            className="block bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-8 text-center hover:bg-white/15 hover:border-white/40 transition-all duration-200 group"
-          >
-            <span className="text-base font-medium text-white">
-              Preview the series →
-            </span>
-          </motion.a>
-          <motion.a
-            variants={fadeInLine}
-            href="/book"
-            className="inline-block mt-6 text-sm text-white/60 hover:text-white transition-colors duration-200"
-          >
-            Preview the book →
-          </motion.a>
+          <motion.div variants={fadeInLine}>
+            <ParallaxPhoto>
+              <div className="relative">
+                {/* Warm, grounded glow — this photo is the present, arrived */}
+                <div
+                  className="absolute -inset-10 rounded-full blur-3xl -z-10"
+                  style={{ background: 'radial-gradient(circle, rgba(201,146,90,0.28) 0%, transparent 70%)' }}
+                />
+                <img
+                  src="/images/portrait-declaration-closeup.png"
+                  alt="Brother Jimi"
+                  className="w-full aspect-square object-cover object-[50%_30%] rounded-2xl"
+                  style={{ boxShadow: '0 24px 60px -18px rgba(0,0,0,0.55)' }}
+                />
+                <div
+                  className="mx-auto mt-4 h-3 w-3/4 rounded-full blur-md"
+                  style={{ background: 'radial-gradient(ellipse at center, rgba(0,0,0,0.4) 0%, transparent 70%)' }}
+                />
+              </div>
+            </ParallaxPhoto>
+          </motion.div>
+          <div className="flex flex-col gap-11">
+            <div className="flex flex-col gap-5">
+              <motion.h2 variants={fadeInLine} className="font-rc-serif font-bold text-2xl sm:text-3xl md:text-4xl text-white leading-tight tracking-tight">
+                I am calling every youth out of fraud into the salvation only Jesus Christ gives.
+              </motion.h2>
+              <motion.p variants={fadeInLine} className="text-xs uppercase tracking-[0.2em] text-[#BBC7C6]/60 font-normal">
+                Brother Jimi &middot; A Servant of Jesus Christ
+              </motion.p>
+            </div>
+            <motion.div variants={fadeInLine} className="flex flex-col gap-5 items-start">
+              <SiteButton href="/?prayer=1" variant="solid">
+                Ask for Prayer
+              </SiteButton>
+              <a
+                href="/deliverances"
+                className="text-sm text-[#BBC7C6] hover:text-white border-b border-[#BBC7C6]/40 hover:border-white pb-0.5 transition-colors duration-200"
+              >
+                See God at work
+              </a>
+            </motion.div>
+          </div>
         </motion.div>
       </section>
 

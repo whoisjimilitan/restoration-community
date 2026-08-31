@@ -1,10 +1,27 @@
 import type { Metadata } from 'next';
 import Script from 'next/script';
+import { Fraunces, Inter } from 'next/font/google';
 import { Providers } from './providers';
-import { frauncesFontClass } from '../tailwind.config';
 import LetsConnectPersistence from '@/components/LetsConnectPersistence';
 import Navigation from '@/components/Navigation';
 import './globals.css';
+
+// Self-hosted via next/font: downloaded once at build time, served from our
+// own domain with font-display: swap baked in — no render-blocking request
+// to fonts.googleapis.com on every page load.
+const fraunces = Fraunces({
+  subsets: ['latin'],
+  weight: ['400', '600', '700'],
+  variable: '--font-fraunces',
+  display: 'swap',
+});
+
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-inter',
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   title: 'Brother Jimi',
@@ -22,7 +39,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={frauncesFontClass}>
+    <html lang="en" className={`${fraunces.variable} ${inter.variable}`}>
       <body>
         <Navigation />
         <Providers>{children}</Providers>

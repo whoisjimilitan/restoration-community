@@ -1,7 +1,7 @@
 import { motion, type HTMLMotionProps } from 'framer-motion';
 
 type SiteButtonProps = {
-  variant?: 'solid' | 'solid-light' | 'outline-dark' | 'outline-light';
+  variant?: 'solid' | 'solid-light' | 'outline-dark' | 'outline-light' | 'whatsapp';
   href?: string;
   onClick?: () => void;
   children: React.ReactNode;
@@ -15,8 +15,12 @@ const BASE =
 const VARIANTS: Record<NonNullable<SiteButtonProps['variant']>, string> = {
   solid: 'bg-rc-accent text-white shadow-md hover:shadow-xl hover:bg-rc-accent-light focus-visible:outline-rc-accent',
   'solid-light': 'bg-white text-rc-text shadow-md hover:shadow-xl hover:bg-white/95 focus-visible:outline-white',
-  'outline-dark': 'text-rc-text border-2 border-rc-text hover:bg-rc-text/5 focus-visible:outline-rc-text',
+  'outline-dark': 'text-rc-text border-2 border-rc-canvas hover:bg-rc-canvas/5 focus-visible:outline-rc-text',
   'outline-light': 'text-white border-2 border-white hover:bg-white/10 hover:shadow-[0_0_24px_rgba(255,255,255,0.15)] focus-visible:outline-white',
+  // Reserved for the one real "reach me" action (WhatsApp deliverance request) —
+  // deliberately outside the teal palette so the single most important click
+  // on the site reads as its own unmistakable color, not just another button.
+  whatsapp: 'bg-[#25D366] text-white shadow-md hover:shadow-xl hover:bg-[#22c15e] focus-visible:outline-[#25D366]',
 };
 
 /** Single source of truth for every CTA on the site — solid teal for primary actions,

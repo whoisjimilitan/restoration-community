@@ -16,6 +16,16 @@ const nextConfig = {
         destination: '/?attend=1',
         permanent: true,
       },
+      {
+        source: '/get-help',
+        destination: '/?prayer=1',
+        permanent: true,
+      },
+      {
+        source: '/scriptures',
+        destination: '/#weje',
+        permanent: true,
+      },
     ];
   },
 };

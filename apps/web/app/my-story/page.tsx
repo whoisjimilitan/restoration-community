@@ -7,29 +7,40 @@ import SiteButton from '@/components/SiteButton';
 
 const staggerContainer: Variants = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.09, delayChildren: 0.05 } },
+  visible: { transition: { staggerChildren: 0.12, delayChildren: 0.05 } },
 };
 
 const fadeInLine: Variants = {
   hidden: { opacity: 0, y: 16 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] } },
 };
 
-const DECLARATIONS = [
-  { title: 'A Spirit Moving Around', thumbnail: '/images/episodes/declaration-a-spirit-moving-around.png', youtubeId: 'fc9g750tqdQ' },
-  { title: 'The Spirit of Waste', thumbnail: '/images/episodes/declaration-the-spirit-of-waste.png', youtubeId: 'A9X9TrMBda0' },
-];
+// The stronger of the two declaration videos carries the trailer moment —
+// echoes the canonical narrative's own opening line ("There is a spirit
+// moving among young people right now"). The second stays reachable, quiet,
+// not equal billing — two videos saying near the same thing don't need
+// matching weight.
+const TRAILER = {
+  title: 'A Spirit Is Moving Around',
+  heroImage: '/images/weje-shadow-portrait.jpg',
+  youtubeId: 'fc9g750tqdQ',
+};
+
+const SECOND_DECLARATION = {
+  title: 'The Spirit of Waste',
+  youtubeId: 'A9X9TrMBda0',
+};
 
 const EPISODES = [
-  { n: 1, title: 'There Is a Spirit Moving', desc: 'The declaration. Who is Brother Jimi and why does he know this spirit is real. Because it lived in him.', thumbnail: '/images/episodes/episode-01.png', youtubeId: null },
-  { n: 2, title: 'Before the Spirit', desc: 'Born in Canada. Christian home. Smart kid. Something already pulling him off track. Dad passes. Mom holds the line.', thumbnail: '/images/episodes/episode-02.png', youtubeId: null },
-  { n: 3, title: 'Rise Up and Walk', desc: 'The sickness. The healing. The miracle. And the voices that stole the covering.', thumbnail: '/images/episodes/episode-03.png', youtubeId: null },
-  { n: 4, title: 'Weje', desc: 'Leaving the church. Rebellion enters. Occupation, not teenage angst. The spirit gets its name.', thumbnail: '/images/episodes/episode-04.png', youtubeId: null },
-  { n: 5, title: "I'm Taking This Death Because of You", desc: 'March 1996. Her last words. The weight that shaped everything after.', thumbnail: '/images/episodes/episode-05.png', youtubeId: null },
-  { n: 6, title: 'A Very Good Idea', desc: 'Trafficked. Drug runs. Multiple countries. Promises to God. Broken promises. Running.', thumbnail: '/images/episodes/episode-06.png', youtubeId: null },
-  { n: 7, title: 'The Spirit of Waste', desc: 'The fraud years. The scam that preys on fear. Tens of thousands per week. No peace.', thumbnail: '/images/episodes/episode-07.png', youtubeId: null },
-  { n: 8, title: 'Heart of Stone', desc: 'May 2015. The trance. Two figures from one body. The spirit cast out. A new heart placed in.', thumbnail: '/images/episodes/episode-08.png', youtubeId: null },
-  { n: 9, title: 'Today It Has Turned to Victory', desc: 'After deliverance. Ghana. Restoration. New family. The call.', thumbnail: '/images/episodes/episode-09.png', youtubeId: null },
+  { n: 1, title: 'There Is a Spirit Moving', youtubeId: null as string | null },
+  { n: 2, title: 'Before the Spirit', youtubeId: null },
+  { n: 3, title: 'Rise Up and Walk', youtubeId: null },
+  { n: 4, title: 'Weje', youtubeId: null },
+  { n: 5, title: "I'm Taking This Death Because of You", youtubeId: null },
+  { n: 6, title: 'A Very Good Idea', youtubeId: null },
+  { n: 7, title: 'The Spirit of Waste', youtubeId: null },
+  { n: 8, title: 'Heart of Stone', youtubeId: null },
+  { n: 9, title: 'Today It Has Turned to Victory', youtubeId: null },
 ];
 
 export default function MyStoryPage() {
@@ -45,136 +56,129 @@ export default function MyStoryPage() {
   }, [openVideoId]);
 
   return (
-    <div className="bg-rc-text text-white relative" data-nav-mode="light">
+    <div className="bg-rc-canvas text-rc-bg relative" data-nav-mode="light">
       <section
         id="hero"
-        className="relative w-full min-h-[85svh] flex flex-col justify-center overflow-hidden bg-rc-text px-6 sm:px-8 md:px-12 py-24 md:py-32"
+        className="grain-overlay relative w-full min-h-[70svh] flex flex-col justify-center overflow-hidden bg-rc-canvas px-6 sm:px-8 md:px-12 py-24 md:py-32"
       >
-        <img
-          src="/images/my-story-hero-poster.jpg"
-          alt="Brother Jimi"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-br from-rc-accent/85 to-rc-text/90" />
         <motion.div
           initial="hidden"
           animate="visible"
           variants={staggerContainer}
           className="relative z-10 max-w-2xl mx-auto text-center space-y-6"
         >
-          <motion.h1 variants={fadeInLine} className="text-4xl sm:text-5xl md:text-6xl font-rc-serif font-bold text-white leading-tight tracking-tight">
-            My Story
-          </motion.h1>
-          <motion.p variants={fadeInLine} className="text-base md:text-lg text-white/90 leading-relaxed font-rc-serif font-normal">
-            Weje ran my affairs until the day <span className="text-rc-accent-light">Jesus Christ cast him out</span>.
+          <motion.p variants={fadeInLine} className="text-xs uppercase tracking-[0.2em] text-rc-gold font-medium">
+            Nine Episodes
           </motion.p>
+          <motion.div variants={fadeInLine} className="w-12 h-px bg-rc-accent-light mx-auto" />
+          <motion.h1 variants={fadeInLine} className="text-4xl sm:text-5xl md:text-6xl font-rc-serif font-bold text-rc-bg leading-tight tracking-tight">
+            Jimi. Weje. Jimi.
+          </motion.h1>
+          <motion.p variants={fadeInLine} className="text-base md:text-lg text-rc-bg/90 leading-relaxed font-rc-serif font-normal">
+            My whole life, beginning to end.
+          </motion.p>
+        </motion.div>
+      </section>
+
+      {/* THE SERIES — one trailer moment, not a grid of nine near-identical
+          "coming soon" placeholders. The photo keeps its own natural shape —
+          contained, not cropped to fit a shape it was never composed for. */}
+      <section className="grain-overlay w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-canvas border-t border-white/10">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.15 }}
+          variants={staggerContainer}
+          className="max-w-sm mx-auto text-center"
+        >
+          <motion.p variants={fadeInLine} className="text-xs uppercase tracking-[0.2em] text-rc-gold font-medium mb-8">
+            Watch Now
+          </motion.p>
+          <motion.div variants={fadeInLine} className="relative dark-surface rounded-2xl p-2 mb-8">
+            <img
+              src={TRAILER.heroImage}
+              alt={TRAILER.title}
+              className="w-full h-auto rounded-xl"
+            />
+            <button
+              type="button"
+              onClick={() => setOpenVideoId(TRAILER.youtubeId)}
+              className="absolute inset-0 flex items-center justify-center group"
+              aria-label={`Watch ${TRAILER.title}`}
+            >
+              <div className="w-16 h-16 rounded-full bg-white/95 flex items-center justify-center shadow-2xl group-hover:bg-white group-hover:scale-110 transition-all duration-300">
+                <svg className="w-6 h-6 text-rc-canvas ml-1" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </div>
+            </button>
+          </motion.div>
+          <motion.h2 variants={fadeInLine} className="text-2xl md:text-3xl font-rc-serif font-bold text-rc-bg leading-tight tracking-tight">
+            {TRAILER.title}
+          </motion.h2>
           <motion.a
             variants={fadeInLine}
-            href="#declaration"
-            className="inline-block text-sm text-white/70 hover:text-white hover:underline pt-4"
+            href={`https://www.youtube.com/watch?v=${SECOND_DECLARATION.youtubeId}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block text-sm text-rc-bg/50 hover:text-rc-bg hover:underline mt-5"
           >
-            Begin with the Declaration ↓
+            Also watch: {SECOND_DECLARATION.title} →
           </motion.a>
         </motion.div>
       </section>
 
-      <section id="declaration" className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-text border-t border-white/10">
+      {/* EPISODES — a table of contents, not nine empty cards. */}
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-canvas border-t border-white/10">
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
+          viewport={{ once: true, amount: 0.15 }}
           variants={staggerContainer}
           className="max-w-2xl mx-auto"
         >
-          <motion.h2 variants={fadeInLine} className="text-2xl md:text-3xl font-rc-serif font-bold text-white text-center mb-4">
-            The Declaration
+          <motion.h2 variants={fadeInLine} className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-bg leading-tight tracking-tight mb-2">
+            The Episodes
           </motion.h2>
-          <motion.p variants={fadeInLine} className="text-base text-white/70 leading-relaxed font-light text-center mb-12">
-            Before the series, two videos already tell the beginning of it.
+          <motion.p variants={fadeInLine} className="text-sm text-rc-bg/50 font-light mb-10">
+            Nine episodes, releasing over time. Full life story, beginning to end.
           </motion.p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-            {DECLARATIONS.map((d) => (
-              <motion.button
-                key={d.youtubeId}
-                variants={fadeInLine}
-                type="button"
-                onClick={() => setOpenVideoId(d.youtubeId)}
-                className="block group text-left w-full"
-              >
-                <div className="relative aspect-video w-full overflow-hidden rounded-lg">
-                  <img src={d.thumbnail} alt={d.title} className="w-full h-full object-cover" />
-                  <div aria-hidden="true" className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center group-hover:bg-white/30 transition-colors">
-                      <div className="w-0 h-0 border-t-[10px] border-t-transparent border-b-[10px] border-b-transparent border-l-[16px] border-l-white ml-1" />
-                    </div>
-                  </div>
-                  <span aria-hidden="true" className="absolute bottom-3 left-3 text-white text-xs uppercase tracking-wide font-medium px-3 py-1 rounded-full bg-rc-text/80">
-                    Watch Now
+          <motion.div variants={staggerContainer} className="space-y-1">
+            {EPISODES.map((ep) => {
+              const row = (
+                <div className="flex items-baseline gap-3 py-2">
+                  <span className="text-rc-accent-light font-rc-serif font-bold text-base shrink-0 tabular-nums">
+                    {String(ep.n).padStart(2, '0')}
                   </span>
-                </div>
-                <h3 className="text-xl font-rc-serif font-bold text-white leading-tight mt-4 mb-1">{d.title}</h3>
-              </motion.button>
-            ))}
-          </div>
-        </motion.div>
-      </section>
-
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-text border-t border-white/10">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
-          variants={staggerContainer}
-          className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
-        >
-          {EPISODES.map((ep) => {
-            const card = (
-              <>
-                <div className="relative aspect-video w-full overflow-hidden rounded-lg">
-                  <img src={ep.thumbnail} alt={`Episode ${ep.n}: ${ep.title}`} className="w-full h-full object-cover" />
-                  {!ep.youtubeId && (
-                    <span className="absolute bottom-3 left-3 text-white text-xs uppercase tracking-wide font-medium px-3 py-1 rounded-full bg-rc-text/80">
-                      Coming Soon
-                    </span>
+                  <span className="text-base md:text-lg text-rc-bg font-rc-serif shrink-0">{ep.title}</span>
+                  <span aria-hidden="true" className="flex-1 border-b border-dotted border-white/15 mb-1" />
+                  {ep.youtubeId && (
+                    <span className="text-sm text-rc-accent-light font-medium shrink-0">Watch →</span>
                   )}
                 </div>
-                <p className="text-xs uppercase tracking-wider text-white/50 font-medium mt-4 mb-1">Episode {ep.n}</p>
-                <h2 className="text-xl font-rc-serif font-bold text-white leading-tight mb-2">{ep.title}</h2>
-                {ep.youtubeId && (
-                  <p className="text-sm text-white/70 leading-relaxed font-light">{ep.desc}</p>
-                )}
-                {ep.youtubeId && (
-                  <span className="inline-block text-sm text-white/60 hover:text-white font-medium mt-3 group-hover:underline">
-                    Watch Now →
-                  </span>
-                )}
-              </>
-            );
-
-            // Only the "coming soon" branch is dimmed — a future episode with
-            // a real youtubeId should read as available immediately, same as
-            // the Declaration cards, with no further code change needed.
-            return ep.youtubeId ? (
-              <motion.a
-                key={ep.n}
-                variants={fadeInLine}
-                href={`https://www.youtube.com/watch?v=${ep.youtubeId}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block group"
-              >
-                {card}
-              </motion.a>
-            ) : (
-              <motion.div key={ep.n} variants={fadeInLine} className="opacity-70">
-                {card}
-              </motion.div>
-            );
-          })}
+              );
+              return ep.youtubeId ? (
+                <motion.a
+                  key={ep.n}
+                  variants={fadeInLine}
+                  href={`https://www.youtube.com/watch?v=${ep.youtubeId}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block group"
+                >
+                  {row}
+                </motion.a>
+              ) : (
+                <motion.div key={ep.n} variants={fadeInLine} className="opacity-60">
+                  {row}
+                </motion.div>
+              );
+            })}
+          </motion.div>
         </motion.div>
       </section>
 
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-text border-t border-white/10 text-center">
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-canvas border-t border-white/10 text-center">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -182,23 +186,19 @@ export default function MyStoryPage() {
           variants={staggerContainer}
           className="max-w-2xl mx-auto space-y-8"
         >
-          <motion.h2 variants={fadeInLine} className="text-3xl md:text-4xl font-rc-serif font-bold text-white leading-tight tracking-tight">
-            Jesus is the way out.
+          <motion.h2 variants={fadeInLine} className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-bg leading-tight tracking-tight">
+            Jesus Still Delivers.
           </motion.h2>
           <motion.div variants={fadeInLine} className="pt-4">
-            <SiteButton href="/get-help">I Need Jesus</SiteButton>
+            <SiteButton href="/?prayer=1">Ask for Prayer</SiteButton>
           </motion.div>
-          <motion.div variants={fadeInLine} className="flex flex-col sm:flex-row gap-6 justify-center pt-10 border-t border-white/10 mt-2">
-            <a href="/book" className="text-sm text-white/50 hover:text-white/80 hover:underline transition-colors">
-              Preview the book →
-            </a>
-            <a href="/about" className="text-sm text-white/50 hover:text-white/80 hover:underline transition-colors">
-              Who is Brother Jimi? →
-            </a>
-            <a href="/scriptures" className="text-sm text-white/50 hover:text-white/80 hover:underline transition-colors">
-              The scriptures behind this →
-            </a>
-          </motion.div>
+          <motion.a
+            variants={fadeInLine}
+            href="/deliverances"
+            className="block text-sm text-rc-bg/60 hover:text-rc-bg hover:underline"
+          >
+            See God at work →
+          </motion.a>
         </motion.div>
       </section>
 
@@ -213,7 +213,7 @@ export default function MyStoryPage() {
             type="button"
             onClick={() => setOpenVideoId(null)}
             aria-label="Close video"
-            className="absolute top-4 right-4 sm:top-6 sm:right-6 text-white/70 hover:text-white text-3xl leading-none"
+            className="absolute top-4 right-4 sm:top-6 sm:right-6 text-rc-bg/70 hover:text-rc-bg text-3xl leading-none"
           >
             &times;
           </button>
