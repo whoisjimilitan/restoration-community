@@ -15,20 +15,20 @@ const fadeInLine: Variants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] } },
 };
 
-// The stronger of the two declaration videos carries the trailer moment —
-// echoes the canonical narrative's own opening line ("There is a spirit
-// moving among young people right now"). The second stays reachable, quiet,
-// not equal billing — two videos saying near the same thing don't need
-// matching weight.
+// The more personal of the two declaration videos carries the trailer
+// moment — it names Weje's own definition directly ("the wasteful one"),
+// matching this page's identity-specific frame ("Jimi. Weje. Jimi.")
+// rather than the more general, societal framing of the other video. The
+// second stays reachable, quiet, not equal billing.
 const TRAILER = {
-  title: 'A Spirit Is Moving Around',
+  title: 'The Spirit of Waste',
   heroImage: '/images/weje-shadow-portrait.jpg',
-  youtubeId: 'fc9g750tqdQ',
+  youtubeId: 'A9X9TrMBda0',
 };
 
 const SECOND_DECLARATION = {
-  title: 'The Spirit of Waste',
-  youtubeId: 'A9X9TrMBda0',
+  title: 'A Spirit Is Moving Around',
+  youtubeId: 'fc9g750tqdQ',
 };
 
 const EPISODES = [
@@ -197,7 +197,7 @@ export default function MyStoryPage() {
             href="/deliverances"
             className="block text-sm text-rc-bg/60 hover:text-rc-bg hover:underline"
           >
-            See God at work →
+            See how God delivered others →
           </motion.a>
         </motion.div>
       </section>

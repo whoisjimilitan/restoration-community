@@ -283,11 +283,18 @@ export default function BookPage() {
           className="max-w-2xl mx-auto space-y-8"
         >
           <motion.h2 variants={fadeInLine} className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-bg leading-tight tracking-tight">
-            Jesus Still Delivers.
+            You don&apos;t have to wait for the book to meet Him.
           </motion.h2>
           <motion.div variants={fadeInLine} className="pt-4">
-            <SiteButton variant="outline-light" href="/?prayer=1">I Need Jesus</SiteButton>
+            <SiteButton variant="outline-light" href="/?prayer=1">Ask for Prayer</SiteButton>
           </motion.div>
+          <motion.a
+            variants={fadeInLine}
+            href="/deliverances"
+            className="block text-sm text-rc-bg/60 hover:text-rc-bg hover:underline"
+          >
+            See how God delivered others →
+          </motion.a>
         </motion.div>
       </section>
 
