@@ -6,6 +6,8 @@ import { motion, useScroll, useTransform, AnimatePresence, type Variants } from 
 import SiteFooter from '@/components/SiteFooter';
 import SiteButton from '@/components/SiteButton';
 
+export const dynamic = 'force-dynamic';
+
 // Barely-perceptible drift as the photo scrolls past — quiet physical
 // presence, not a parallax "effect". Wraps whatever image is passed as children.
 function ParallaxPhoto({ children }: { children: React.ReactNode }) {
