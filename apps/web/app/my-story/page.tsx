@@ -92,7 +92,7 @@ export default function MyStoryPage() {
           className="max-w-sm mx-auto text-center"
         >
           <motion.p variants={fadeInLine} className="text-xs uppercase tracking-[0.2em] text-rc-gold font-medium mb-8">
-            The Declaration
+            But First, a Declaration
           </motion.p>
           <motion.div variants={fadeInLine} className="relative dark-surface rounded-2xl p-2 mb-8">
             <img
@@ -113,9 +113,6 @@ export default function MyStoryPage() {
               </div>
             </button>
           </motion.div>
-          <motion.h2 variants={fadeInLine} className="text-2xl md:text-3xl font-rc-serif font-bold text-rc-bg leading-tight tracking-tight">
-            {TRAILER.title}
-          </motion.h2>
           <motion.button
             variants={fadeInLine}
             type="button"
@@ -196,7 +193,7 @@ export default function MyStoryPage() {
             href="/deliverances"
             className="block text-sm text-rc-bg/60 hover:text-rc-bg hover:underline"
           >
-            See Him delivering others →
+            Or see Him delivering others →
           </motion.a>
         </motion.div>
       </section>
