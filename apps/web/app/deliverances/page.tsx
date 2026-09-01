@@ -21,7 +21,6 @@ interface StoryCard {
   name: string;
   role: string;
   quote: string;
-  duration: string;
   descent: string[];
   encounterLead: string;
   heroImage: { url: string; alt: string };
@@ -32,9 +31,8 @@ const STORIES: StoryCard[] = [
   {
     id: '1',
     name: 'Samuel Johnson',
-    role: 'Delivered from Internet Fraud',
+    role: 'Delivered from internet fraud',
     quote: 'When the man of God touched me, I immediately saw myself facing a judge.',
-    duration: '41 minutes • Full confession at The SCOAN',
     descent: [
       'Demonically inspired to deceive, defraud, and destroy.',
       'Through the most advanced online tactics and methods.',
@@ -54,22 +52,32 @@ export default function StoriesPage() {
   const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
 
   return (
-    <div className="bg-black text-white">
-      {/* THE SCREENING ROOM — this page goes where the rest of the site
-          doesn't: full black. The lights are down. The film is the hero.
-          Same mechanic as before: cinematic thumbnail, play button, sound
-          in the modal. The title sits over the image like a film title. */}
+    <div className="bg-rc-canvas text-white">
+      {/* THE SCREENING ROOM — this page goes dark to match the brand's
+          testimony palette (#0F0F0F). The lights are down. The film is
+          the hero. Same mechanic as the rest of the site: cinematic
+          image, play button, sound in the modal. The title sits over
+          the gradient like a film title. */}
       {STORIES.map((story) => (
-        <section key={story.id} data-nav-mode="light" className="relative w-full min-h-[100svh] flex items-center justify-center overflow-hidden bg-black">
+        <section key={story.id} data-nav-mode="light" className="grain-overlay relative w-full min-h-[100svh] flex items-center justify-center overflow-hidden bg-testimony-dark">
           <img
             src={story.heroImage.url}
             alt={story.heroImage.alt}
             className="absolute inset-0 w-full h-full object-cover"
           />
 
+          {/* Breathing gold glow behind the hero image — shared with homepage */}
+          <div
+            className="absolute inset-0 pointer-events-none animate-[jm-breathe_18s_ease-in-out_infinite]"
+            style={{
+              background: 'radial-gradient(circle, rgba(201,146,90,0.18) 0%, rgba(27,122,108,0.10) 45%, transparent 70%)',
+              zIndex: -1,
+            }}
+          />
+
           {/* Movie Overlays — the gradients do the lighting */}
-          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/40 to-transparent"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-testimony-dark via-black/40 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-testimony-dark via-black/20 to-transparent"></div>
 
           {/* Title block — bottom left, over the gradient, like a film title */}
           <div className="absolute inset-x-0 bottom-0 px-6 sm:px-8 md:px-12 pb-16 md:pb-24">
@@ -82,13 +90,13 @@ export default function StoriesPage() {
               <motion.p variants={fadeInLine} className="text-xs uppercase tracking-[0.2em] text-rc-gold font-medium mb-4">
                 Deliverance
               </motion.p>
-              <motion.h1 variants={fadeInLine} className="text-4xl sm:text-5xl md:text-6xl font-rc-serif font-bold text-white leading-tight tracking-tight max-w-[16ch]">
-                It didn&rsquo;t stop with me.
+              <motion.h1 variants={fadeInLine} className="text-4xl sm:text-5xl md:text-6xl font-rc-serif font-bold text-white leading-tight tracking-tight max-w-[20ch]">
+                {story.name}.
               </motion.h1>
               <motion.p variants={fadeInLine} className="mt-4 text-base md:text-lg text-white/70 font-light">
-                {story.name}. {story.role}.
+                {story.role}.
               </motion.p>
-            </motion.div>
+              </motion.div>
           </div>
 
           {/* Play Button */}
@@ -103,13 +111,19 @@ export default function StoriesPage() {
               </svg>
             </span>
           </button>
+
+          {/* Scroll hint — same pattern as homepage */}
+          <div
+            className="absolute bottom-12 left-1/2 -translate-x-1/2 w-px h-[52px] animate-[jm-hint_3.4s_ease-in-out_infinite]"
+            style={{ background: 'linear-gradient(to bottom, rgba(201,146,90,0) 0%, rgba(201,146,90,0.6) 100%)' }}
+          />
         </section>
       ))}
 
       {/* ACT ONE — THE DESCENT. Black, quiet, one line at a time. No labels,
           no blog furniture. The story goes down. */}
       {STORIES.map((story) => (
-        <section key={story.id} data-nav-mode="light" className="grain-overlay w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-black border-t border-white/5">
+        <section key={story.id} data-nav-mode="light" className="grain-overlay w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-gradient-to-b from-testimony-dark to-rc-canvas border-t border-white/5">
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -131,18 +145,18 @@ export default function StoriesPage() {
         </section>
       ))}
 
-      {/* ACT TWO — THE ENCOUNTER. The only teal on the page lives here, and
-          only here: a breathing glow behind the quote. On a black page, one
-          moment of light is the moment of deliverance. The color tells the
-          story before the words do. */}
+      {/* ACT TWO — THE ENCOUNTER. The page climbs from black to the brand's
+          deep teal — and here, for the only time, gold appears: a breathing glow
+          behind the quote. On a teal canvas, one moment of gold light is the
+          moment of deliverance. The color tells the story before the words do. */}
       {STORIES.map((story) => (
-        <section key={story.id} data-nav-mode="light" className="grain-overlay relative w-full py-32 md:py-40 px-6 sm:px-8 md:px-12 bg-black overflow-hidden">
+        <section key={story.id} data-nav-mode="light" className="grain-overlay relative w-full py-32 md:py-40 px-6 sm:px-8 md:px-12 bg-rc-canvas border-t border-white/5 overflow-hidden">
           <div
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full pointer-events-none animate-[jm-breathe_20s_ease-in-out_infinite]"
             style={{
               width: 'min(800px, 100vw)',
               height: 'min(800px, 100vw)',
-              background: 'radial-gradient(circle, rgba(27,122,108,0.30) 0%, rgba(20,87,75,0.12) 45%, transparent 70%)',
+              background: 'radial-gradient(circle, rgba(201,146,90,0.30) 0%, rgba(201,146,90,0.10) 45%, transparent 70%)',
             }}
           />
           <motion.div
@@ -161,17 +175,17 @@ export default function StoriesPage() {
               </p>
               <div className="flex items-center gap-4">
                 <span className="block w-9 h-px bg-rc-gold/70" />
-                <p className="text-xs uppercase tracking-[0.2em] text-rc-gold font-medium">{story.duration}</p>
+                <p className="text-xs uppercase tracking-[0.2em] text-rc-gold font-medium">Delivered at The SCOAN, Accra</p>
               </div>
             </motion.div>
           </motion.div>
         </section>
       ))}
 
-      {/* THE CLOSER — no presumption about how the visitor arrived. Facts,
-          then the turn, then the one door. On black, the solid teal button
-          is the only saturated color left: the way out is the light. */}
-      <section data-nav-mode="light" className="grain-overlay w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-black border-t border-white/5 text-center">
+      {/* THE CLOSER — the whole page has climbed from black to the brand's
+          teal. Here the page lands — one door stays open:the same Jesus
+          who met Samuel here. */}
+      <section data-nav-mode="light" className="grain-overlay w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-canvas border-t border-white/5 text-center">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -180,32 +194,28 @@ export default function StoriesPage() {
           className="max-w-2xl mx-auto space-y-8"
         >
           <motion.p variants={fadeInLine} className="text-base md:text-lg text-white/60 font-light leading-relaxed">
-            My story is nine episodes. Samuel&rsquo;s took one encounter.
+            Mine took one word. Samuel&rsquo;s took one touch.
           </motion.p>
           <motion.h2 variants={fadeInLine} className="text-3xl md:text-4xl font-rc-serif font-bold text-white leading-tight tracking-tight">
-            Now yours begins.
+            Now yours is next.
           </motion.h2>
           <motion.div variants={fadeInLine} className="pt-4">
-            <SiteButton variant="solid" href="/?prayer=1">
+            <SiteButton variant="solid" href="/\?prayer=1">
               Ask for Prayer
             </SiteButton>
           </motion.div>
-          <motion.a
-            variants={fadeInLine}
-            href="/book"
-            className="block text-sm text-white/50 hover:text-white hover:underline"
-          >
-            Prefer reading? My story is also a book. →
-          </motion.a>
+          <motion.p variants={fadeInLine} className="text-sm text-white/60 font-light leading-relaxed">
+            Jesus Christ still delivers.
+          </motion.p>
         </motion.div>
       </section>
 
-      <SiteFooter precededByDarkSection />
+      <SiteFooter />
 
       {/* Video Modal */}
       <AnimatePresence>
         {selectedVideo && (
-          <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center px-4">
+          <div className="fixed inset-0 bg-testimony-dark/95 z-50 flex items-center justify-center px-4">
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}

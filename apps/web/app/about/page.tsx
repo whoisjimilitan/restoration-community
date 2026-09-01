@@ -38,16 +38,16 @@ const ERAS = [
     id: 'weje',
     src: '/images/weje-era-group.png',
     alt: 'Brother Jimi during the years Weje controlled his life',
-    tag: '2012',
+    tag: 'Weje',
     caption: 'The Weje years. The username still leads to the people I ran with.',
     // Back of the pile.
     back: { x: 0, y: -6, rotate: 3, filter: 'saturate(0.7) contrast(0.92) brightness(0.85)' },
   },
   {
     id: 'today',
-    src: '/images/portrait-warm-studio.jpg',
+    src: '/images/portrait-today-current.jpg',
     alt: 'Brother Jimi today',
-    tag: 'Today',
+    tag: 'Jimi',
     caption: '',
     // Front of the pile by default; recedes left when the other era is pulled forward.
     back: { x: -26, y: 8, rotate: -6, filter: 'saturate(0.65) contrast(0.92) brightness(0.8)' },
@@ -147,7 +147,7 @@ export default function AboutPage() {
                 })}
                 {/* Spacer keeps the pile's height from the tallest print */}
                 <div className="invisible">
-                  <img src="/images/portrait-warm-studio.jpg" alt="" className="w-full aspect-[941/1672]" />
+                  <img src="/images/portrait-today-current.jpg" alt="" className="w-full aspect-[941/1672]" />
                 </div>
               </div>
             </ParallaxPhoto>
