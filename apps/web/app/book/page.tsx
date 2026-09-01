@@ -88,28 +88,32 @@ export default function BookPage() {
         >
           <div className="text-center md:text-left order-2 md:order-1">
             <motion.p variants={fadeInLine} className="text-xs uppercase tracking-[0.2em] text-rc-gold font-medium mb-5">
-              A Testimony
+              In Print
             </motion.p>
             <motion.h1 variants={fadeInLine} className="text-3xl sm:text-4xl md:text-5xl font-rc-serif font-bold text-rc-bg leading-tight tracking-tight">
               Weje: The Spirit of Waste Lived Inside Me
             </motion.h1>
             <motion.p variants={fadeInLine} className="text-base md:text-lg text-rc-bg/90 leading-relaxed font-rc-serif font-normal mt-6">
-              The book follows the same arc as the story. It goes three chapters deeper, with reflections and scripture the camera doesn&rsquo;t have room for.
+              The series tells the story in nine episodes. The book goes three chapters deeper — the reflections and scripture the camera doesn&rsquo;t have room for.
             </motion.p>
+            <motion.div variants={fadeInLine} className="mt-6">
+              <a href="/my-story" className="inline-block text-sm text-rc-accent font-medium hover:underline">
+                Watch the story that inspired it →
+              </a>
+            </motion.div>
           </div>
 
           {/* Real 3D book: a front-cover face and a spine face joined at a right
               angle in true 3D space (not a flat image faked with 2D rotation). */}
           <motion.div
             variants={fadeInLine}
-            className="mx-auto w-52 sm:w-64 order-1 md:order-2"
+            className="group mx-auto w-52 sm:w-64 order-1 md:order-2"
             style={{ perspective: '1600px' }}
           >
             <div
-              className="relative aspect-[2/3]"
+              className="relative aspect-[2/3] transition-transform duration-700 ease-out [transform:rotateY(-28deg)] group-hover:[transform:rotateY(-14deg)]"
               style={{
                 transformStyle: 'preserve-3d',
-                transform: 'rotateY(-28deg)',
               }}
             >
               {/* Front cover */}
@@ -122,15 +126,26 @@ export default function BookPage() {
                   alt="Weje: The Spirit of Waste Lived Inside Me, book cover"
                   className="w-full h-full object-cover"
                 />
+                {/* Light falls off toward the spine — the curve of a bound cover */}
+                <div
+                  className="absolute inset-y-0 left-0 w-[18%] pointer-events-none"
+                  style={{ background: 'linear-gradient(to right, rgba(0,0,0,0.38) 0%, rgba(0,0,0,0.12) 45%, transparent 100%)' }}
+                />
+                {/* Sheen — a printed cover catches light, it doesn't emit it */}
+                <div
+                  className="absolute inset-0 pointer-events-none"
+                  style={{ background: 'linear-gradient(115deg, rgba(255,255,255,0.10) 0%, transparent 30%, transparent 70%, rgba(255,255,255,0.05) 100%)' }}
+                />
               </div>
-              {/* Spine */}
+              {/* Spine — cloth-bound, darkest at the hinge where light can't reach */}
               <div
-                className="absolute top-0 bottom-0 bg-rc-canvas"
+                className="absolute top-0 bottom-0"
                 style={{
                   left: '-28px',
                   width: '28px',
                   transform: 'rotateY(-90deg)',
                   transformOrigin: 'right',
+                  background: 'linear-gradient(to right, #101b17 0%, #18251f 55%, #22332c 100%)',
                   boxShadow: 'inset -4px 0 8px rgba(0,0,0,0.5)',
                 }}
               />
@@ -193,7 +208,33 @@ export default function BookPage() {
         </motion.div>
       </section>
 
-      {/* WAITLIST */}
+      {/* CHAPTERS */}
+      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.15 }}
+          variants={staggerContainer}
+          className="max-w-2xl mx-auto space-y-8"
+        >
+          <motion.h2 variants={fadeInLine} className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">
+            Chapters
+          </motion.h2>
+          <motion.div variants={staggerContainer} className="space-y-1">
+            {CHAPTERS.map((title, i) => (
+              <motion.div key={title} variants={fadeInLine} className="flex items-baseline gap-3 py-2">
+                <span className="text-rc-accent font-rc-serif font-bold text-base shrink-0 tabular-nums">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <span className="text-base md:text-lg text-rc-text font-rc-serif shrink-0">{title}</span>
+                <span aria-hidden="true" className="flex-1 border-b border-dotted border-rc-border mb-1" />
+              </motion.div>
+            ))}
+          </motion.div>
+        </motion.div>
+      </section>
+
+      {/* WAITLIST — after the chapters, once the titles have built the want */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-warm-gray border-t border-rc-border">
         <motion.div
           initial="hidden"
@@ -243,37 +284,6 @@ export default function BookPage() {
         </motion.div>
       </section>
 
-      {/* CHAPTERS */}
-      <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.15 }}
-          variants={staggerContainer}
-          className="max-w-2xl mx-auto space-y-8"
-        >
-          <motion.h2 variants={fadeInLine} className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-text leading-tight tracking-tight">
-            Chapters
-          </motion.h2>
-          <motion.div variants={fadeInLine} className="-mt-4">
-            <a href="/my-story" className="inline-block text-sm text-rc-accent font-medium hover:underline">
-              Watch the story that inspired it →
-            </a>
-          </motion.div>
-          <motion.div variants={staggerContainer} className="space-y-1">
-            {CHAPTERS.map((title, i) => (
-              <motion.div key={title} variants={fadeInLine} className="flex items-baseline gap-3 py-2">
-                <span className="text-rc-accent font-rc-serif font-bold text-base shrink-0 tabular-nums">
-                  {String(i + 1).padStart(2, '0')}
-                </span>
-                <span className="text-base md:text-lg text-rc-text font-rc-serif shrink-0">{title}</span>
-                <span aria-hidden="true" className="flex-1 border-b border-dotted border-rc-border mb-1" />
-              </motion.div>
-            ))}
-          </motion.div>
-        </motion.div>
-      </section>
-
       <section data-nav-mode="light" className="grain-overlay w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-canvas border-t border-rc-border text-center">
         <motion.div
           initial="hidden"
@@ -293,7 +303,7 @@ export default function BookPage() {
             href="/deliverances"
             className="block text-sm text-rc-bg/60 hover:text-rc-bg hover:underline"
           >
-            See how God delivered others →
+            See Him delivering others →
           </motion.a>
         </motion.div>
       </section>

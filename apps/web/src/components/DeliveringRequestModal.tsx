@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 
 interface DeliveringRequestModalProps {
@@ -26,6 +27,11 @@ export default function DeliveringRequestModal({ isOpen, onClose }: DeliveringRe
     duration: '',
     name: '',
   });
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const handleClose = () => {
     setDeliverance({ step: 1, need: '', duration: '', name: '' });
@@ -34,16 +40,24 @@ export default function DeliveringRequestModal({ isOpen, onClose }: DeliveringRe
 
   const waLink = buildWhatsAppLink(deliverance.need, deliverance.duration, deliverance.name);
 
-  return (
+  if (!mounted) return null;
+
+  // Rendered via portal directly into document.body — Navigation's <nav>
+  // uses backdrop-blur (a backdrop-filter), which makes it the containing
+  // block for any position:fixed descendant in modern browsers. Without
+  // the portal, this modal was being sized relative to the 64px nav bar
+  // instead of the viewport, cutting it off almost entirely off-screen.
+  return createPortal(
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 px-4">
+        <div className="fixed inset-0 bg-black/50 z-50 overflow-y-auto">
+          <div className="min-h-full flex items-center justify-center px-4 py-8">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.3 }}
-            className="bg-rc-bg rounded-lg shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto"
+            className="bg-rc-bg rounded-lg shadow-2xl max-w-2xl w-full"
           >
             {/* Step 1: Need */}
             {deliverance.step === 1 && (
@@ -226,8 +240,10 @@ export default function DeliveringRequestModal({ isOpen, onClose }: DeliveringRe
               </div>
             )}
           </motion.div>
+          </div>
         </div>
       )}
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body
   );
 }

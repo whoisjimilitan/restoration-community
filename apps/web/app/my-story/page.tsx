@@ -68,7 +68,7 @@ export default function MyStoryPage() {
           className="relative z-10 max-w-2xl mx-auto text-center space-y-6"
         >
           <motion.p variants={fadeInLine} className="text-xs uppercase tracking-[0.2em] text-rc-gold font-medium">
-            Nine Episodes
+            My Testimony
           </motion.p>
           <motion.div variants={fadeInLine} className="w-12 h-px bg-rc-accent-light mx-auto" />
           <motion.h1 variants={fadeInLine} className="text-4xl sm:text-5xl md:text-6xl font-rc-serif font-bold text-rc-bg leading-tight tracking-tight">
@@ -92,7 +92,7 @@ export default function MyStoryPage() {
           className="max-w-sm mx-auto text-center"
         >
           <motion.p variants={fadeInLine} className="text-xs uppercase tracking-[0.2em] text-rc-gold font-medium mb-8">
-            Watch Now
+            The Declaration
           </motion.p>
           <motion.div variants={fadeInLine} className="relative dark-surface rounded-2xl p-2 mb-8">
             <img
@@ -116,15 +116,14 @@ export default function MyStoryPage() {
           <motion.h2 variants={fadeInLine} className="text-2xl md:text-3xl font-rc-serif font-bold text-rc-bg leading-tight tracking-tight">
             {TRAILER.title}
           </motion.h2>
-          <motion.a
+          <motion.button
             variants={fadeInLine}
-            href={`https://www.youtube.com/watch?v=${SECOND_DECLARATION.youtubeId}`}
-            target="_blank"
-            rel="noopener noreferrer"
+            type="button"
+            onClick={() => setOpenVideoId(SECOND_DECLARATION.youtubeId)}
             className="inline-block text-sm text-rc-bg/50 hover:text-rc-bg hover:underline mt-5"
           >
             Also watch: {SECOND_DECLARATION.title} →
-          </motion.a>
+          </motion.button>
         </motion.div>
       </section>
 
@@ -138,10 +137,10 @@ export default function MyStoryPage() {
           className="max-w-2xl mx-auto"
         >
           <motion.h2 variants={fadeInLine} className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-bg leading-tight tracking-tight mb-2">
-            The Episodes
+            How I Got Here
           </motion.h2>
           <motion.p variants={fadeInLine} className="text-sm text-rc-bg/50 font-light mb-10">
-            Nine episodes, releasing over time. Full life story, beginning to end.
+            Nine episodes — the story behind the declaration.
           </motion.p>
           <motion.div variants={staggerContainer} className="space-y-1">
             {EPISODES.map((ep) => {
@@ -197,7 +196,7 @@ export default function MyStoryPage() {
             href="/deliverances"
             className="block text-sm text-rc-bg/60 hover:text-rc-bg hover:underline"
           >
-            See how God delivered others →
+            See Him delivering others →
           </motion.a>
         </motion.div>
       </section>

@@ -1,8 +1,8 @@
 'use client';
 
-import { Suspense, useEffect, useState } from 'react';
+import { Suspense, useCallback, useEffect, useState } from 'react';
 import Link from 'next/link';
-import { usePathname, useSearchParams } from 'next/navigation';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import DeliveringRequestModal from './DeliveringRequestModal';
 
@@ -10,13 +10,21 @@ import DeliveringRequestModal from './DeliveringRequestModal';
 // link into the prayer flow can open the modal from anywhere, not just from
 // a dedicated page. Needs its own Suspense boundary — useSearchParams
 // requires one in the App Router, same pattern as AttendParamWatcher.
+//
+// Critically, it also strips the param from the URL once it's fired. Without
+// this, every re-render (including the one caused by opening the modal
+// itself) re-runs this effect, sees ?prayer=1 still sitting in the URL, and
+// reopens the modal — which made Close appear completely broken.
 function PrayerParamWatcher({ onOpen }: { onOpen: () => void }) {
   const searchParams = useSearchParams();
+  const pathname = usePathname();
+  const router = useRouter();
   useEffect(() => {
     if (searchParams.get('prayer') === '1') {
       onOpen();
+      router.replace(pathname, { scroll: false });
     }
-  }, [searchParams, onOpen]);
+  }, [searchParams, onOpen, pathname, router]);
   return null;
 }
 
@@ -37,6 +45,7 @@ export default function Navigation() {
   const [isOverDark, setIsOverDark] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isPrayerOpen, setIsPrayerOpen] = useState(false);
+  const openPrayer = useCallback(() => setIsPrayerOpen(true), []);
 
   // Every page has dark sections (hero, closing CTAs, etc.) separated by
   // light ones — a single "over the hero" check isn't enough, since
@@ -90,7 +99,7 @@ export default function Navigation() {
       } ${showBorder ? 'border-b border-rc-border' : 'border-b border-transparent'}`}
     >
       <Suspense fallback={null}>
-        <PrayerParamWatcher onOpen={() => setIsPrayerOpen(true)} />
+        <PrayerParamWatcher onOpen={openPrayer} />
       </Suspense>
 
       <div className="max-w-5xl mx-auto px-6 sm:px-8 md:px-12 h-16 flex items-center justify-end gap-8">
