@@ -287,7 +287,7 @@ export default function Home() {
                 href="/deliverances"
                 className="text-sm text-[#BBC7C6] hover:text-white border-b border-[#BBC7C6]/40 hover:border-white pb-0.5 transition-colors duration-200"
               >
-                Or see Him delivering others
+                Or watch Him delivering others
               </a>
             </motion.div>
           </div>

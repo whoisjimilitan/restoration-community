@@ -303,7 +303,7 @@ export default function BookPage() {
             href="/deliverances"
             className="block text-sm text-rc-bg/60 hover:text-rc-bg hover:underline"
           >
-            Or see Him delivering others →
+            Or watch Him delivering others →
           </motion.a>
         </motion.div>
       </section>

@@ -94,7 +94,7 @@ export default function MyStoryPage() {
           <motion.p variants={fadeInLine} className="text-xs uppercase tracking-[0.2em] text-rc-gold font-medium mb-8">
             But First, a Declaration
           </motion.p>
-          <motion.div variants={fadeInLine} className="relative dark-surface rounded-2xl p-2 mb-8">
+          <motion.div variants={fadeInLine} className="relative dark-surface rounded-2xl p-2 mb-5">
             <img
               src={TRAILER.heroImage}
               alt={TRAILER.title}
@@ -117,7 +117,7 @@ export default function MyStoryPage() {
             variants={fadeInLine}
             type="button"
             onClick={() => setOpenVideoId(SECOND_DECLARATION.youtubeId)}
-            className="inline-block text-sm text-rc-bg/50 hover:text-rc-bg hover:underline mt-5"
+            className="inline-block text-sm text-rc-bg/50 hover:text-rc-bg hover:underline"
           >
             Also watch: {SECOND_DECLARATION.title} →
           </motion.button>
@@ -137,7 +137,7 @@ export default function MyStoryPage() {
             How I Got Here
           </motion.h2>
           <motion.p variants={fadeInLine} className="text-sm text-rc-bg/50 font-light mb-10">
-            Nine episodes — the story behind the declaration.
+            Nine episodes — the story behind my declaration.
           </motion.p>
           <motion.div variants={staggerContainer} className="space-y-1">
             {EPISODES.map((ep) => {
@@ -193,7 +193,7 @@ export default function MyStoryPage() {
             href="/deliverances"
             className="block text-sm text-rc-bg/60 hover:text-rc-bg hover:underline"
           >
-            Or see Him delivering others →
+            Or watch Him delivering others →
           </motion.a>
         </motion.div>
       </section>
