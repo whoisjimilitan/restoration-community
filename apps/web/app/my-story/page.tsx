@@ -32,13 +32,13 @@ const SECOND_DECLARATION = {
 };
 
 const EPISODES = [
-  { n: 1, title: 'There Is a Spirit Moving', youtubeId: null as string | null },
-  { n: 2, title: 'Before the Spirit', youtubeId: null },
-  { n: 3, title: 'Rise Up and Walk', youtubeId: null },
-  { n: 4, title: 'Weje', youtubeId: null },
-  { n: 5, title: "I'm Taking This Death Because of You", youtubeId: null },
-  { n: 6, title: 'A Very Good Idea', youtubeId: null },
-  { n: 7, title: 'The Spirit of Waste', youtubeId: null },
+  { n: 1, title: 'Before the Spirit', youtubeId: null as string | null },
+  { n: 2, title: 'Rise Up and Walk', youtubeId: null },
+  { n: 3, title: 'Weje', youtubeId: null },
+  { n: 4, title: "I'm Taking This Death Because of You", youtubeId: null },
+  { n: 5, title: 'A Very Good Idea', youtubeId: null },
+  { n: 6, title: 'The Spirit of Waste', youtubeId: null },
+  { n: 7, title: 'Partridge Hatching Eggs', youtubeId: null },
   { n: 8, title: 'Heart of Stone', youtubeId: null },
   { n: 9, title: 'Today It Has Turned to Victory', youtubeId: null },
 ];

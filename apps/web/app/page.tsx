@@ -228,14 +228,14 @@ export default function Home() {
           <motion.p variants={fadeInLine} className="text-base font-medium text-rc-text/70 mt-2">
             Through Prophet T.B. Joshua&apos;s ministry.
           </motion.p>
-          {/* A literal timeline marker — the ten years get a visual presence,
+          {/* A literal timeline marker — the eleven years get a visual presence,
               not just a sentence saying they happened. */}
           <motion.div variants={fadeInLine} className="flex flex-col items-start mt-16 mb-10">
             <span className="w-2 h-2 rounded-full bg-rc-gold" />
             <span className="w-px h-16 mt-1" style={{ background: 'linear-gradient(to bottom, rgba(201,146,90,0.6), transparent)' }} />
           </motion.div>
           <motion.p variants={settleIn} className="font-rc-serif font-bold text-2xl sm:text-3xl md:text-4xl text-rc-text leading-tight tracking-tight max-w-[18ch] ml-auto text-right">
-            Ten years later, I&apos;m a product of God&apos;s grace.
+            Eleven years later, I&apos;m a product of God&apos;s grace.
           </motion.p>
         </motion.div>
       </section>
