@@ -94,24 +94,26 @@ export default function MyStoryPage() {
           <motion.p variants={fadeInLine} className="text-xs uppercase tracking-[0.2em] text-rc-gold font-medium mb-8">
             But First, a Declaration
           </motion.p>
-          <motion.div variants={fadeInLine} className="relative dark-surface rounded-2xl p-2 mb-5">
-            <img
-              src={TRAILER.heroImage}
-              alt={TRAILER.title}
-              className="w-full h-auto rounded-xl"
-            />
-            <button
-              type="button"
-              onClick={() => setOpenVideoId(TRAILER.youtubeId)}
-              className="absolute inset-0 flex items-center justify-center group"
-              aria-label={`Watch ${TRAILER.title}`}
-            >
-              <div className="w-16 h-16 rounded-full bg-white/95 flex items-center justify-center shadow-2xl group-hover:bg-white group-hover:scale-110 transition-all duration-300">
-                <svg className="w-6 h-6 text-rc-canvas ml-1" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M8 5v14l11-7z" />
-                </svg>
-              </div>
-            </button>
+          <motion.div variants={fadeInLine} className="group relative dark-surface rounded-2xl p-2 mb-5">
+            <div className="relative overflow-hidden rounded-xl">
+              <img
+                src={TRAILER.heroImage}
+                alt={TRAILER.title}
+                className="w-full h-auto scale-[1.05] transition-transform duration-700 ease-out group-hover:scale-100"
+              />
+              <button
+                type="button"
+                onClick={() => setOpenVideoId(TRAILER.youtubeId)}
+                className="absolute inset-0 flex items-center justify-center"
+                aria-label={`Watch ${TRAILER.title}`}
+              >
+                <div className="w-16 h-16 rounded-full bg-white/95 flex items-center justify-center shadow-2xl group-hover:bg-white group-hover:scale-110 transition-all duration-300">
+                  <svg className="w-6 h-6 text-rc-canvas ml-1" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </div>
+              </button>
+            </div>
           </motion.div>
           <motion.button
             variants={fadeInLine}
@@ -137,7 +139,7 @@ export default function MyStoryPage() {
             How I Got Here
           </motion.h2>
           <motion.p variants={fadeInLine} className="text-sm text-rc-bg/50 font-light mb-10">
-            Nine episodes — the story behind my declaration.
+            Nine episodes. The story behind my declaration.
           </motion.p>
           <motion.div variants={staggerContainer} className="space-y-1">
             {EPISODES.map((ep) => {
@@ -171,6 +173,11 @@ export default function MyStoryPage() {
               );
             })}
           </motion.div>
+          <motion.p variants={fadeInLine} className="mt-10">
+            <a href="/book" className="text-sm text-rc-bg/50 hover:text-rc-bg hover:underline">
+              The book goes three chapters deeper. →
+            </a>
+          </motion.p>
         </motion.div>
       </section>
 
@@ -193,7 +200,7 @@ export default function MyStoryPage() {
             href="/deliverances"
             className="block text-sm text-rc-bg/60 hover:text-rc-bg hover:underline"
           >
-            Or watch Him delivering others →
+            Or watch Him deliver others →
           </motion.a>
         </motion.div>
       </section>

@@ -20,13 +20,13 @@ const CHAPTERS = [
   'Before the Spirit',
   'Rise Up and Walk',
   'Weje',
+  "I'm Taking This Death Because of You",
   'Sold',
   'One More Time',
   'The Spirit of Waste',
   'Partridge Hatching Eggs',
   'Heart of Stone',
   'Victory',
-  'What I Learned',
   'Take This As a Warning',
 ];
 
@@ -68,9 +68,10 @@ export default function BookPage() {
   return (
     <div className="bg-rc-bg text-rc-text relative">
       <section ref={heroRef} data-nav-mode="light" className="grain-overlay relative w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-canvas overflow-hidden">
-        {/* Soft atmospheric glow behind the book — depth without a shadow */}
+        {/* Soft atmospheric glow behind the book — it breathes, like the
+            homepage's hero, so the page is never fully still */}
         <div
-          className="absolute pointer-events-none"
+          className="absolute pointer-events-none animate-[jm-breathe_14s_ease-in-out_infinite]"
           style={{
             right: '5%',
             top: '10%',
@@ -88,13 +89,16 @@ export default function BookPage() {
         >
           <div className="text-center md:text-left order-2 md:order-1">
             <motion.p variants={fadeInLine} className="text-xs uppercase tracking-[0.2em] text-rc-gold font-medium mb-5">
-              In Print
+              The Book
             </motion.p>
             <motion.h1 variants={fadeInLine} className="text-3xl sm:text-4xl md:text-5xl font-rc-serif font-bold text-rc-bg leading-tight tracking-tight">
               Weje: The Spirit of Waste Lived Inside Me
             </motion.h1>
             <motion.p variants={fadeInLine} className="text-base md:text-lg text-rc-bg/90 leading-relaxed font-rc-serif font-normal mt-6">
-              The series tells the story in nine episodes. The book goes three chapters deeper — the reflections and scripture the camera doesn&rsquo;t have room for.
+              The series tells the story in nine episodes. The book goes three chapters deeper.
+            </motion.p>
+            <motion.p variants={fadeInLine} className="text-sm md:text-base text-rc-bg/60 leading-relaxed font-light mt-3">
+              The reflections and scripture the camera doesn&rsquo;t have room for.
             </motion.p>
             <motion.div variants={fadeInLine} className="mt-6">
               <a href="/my-story" className="inline-block text-sm text-rc-accent font-medium hover:underline">
@@ -170,40 +174,52 @@ export default function BookPage() {
         </motion.div>
       </section>
 
-      {/* LOOK INSIDE */}
+      {/* LOOK INSIDE — the opening pages only. A preview creates the want;
+          it doesn't satisfy it. The text cuts at the heaviest line, so the
+          reader must turn past the spread to know what happened next. */}
       <section className="w-full py-24 md:py-32 px-6 sm:px-8 md:px-12 bg-rc-bg border-t border-rc-border">
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.15 }}
           variants={staggerContainer}
-          className="max-w-2xl mx-auto"
+          className="max-w-3xl mx-auto"
         >
-          <motion.p variants={fadeInLine} className="text-xs uppercase tracking-wider text-rc-accent font-medium mb-6 text-center">
-            Chapter One: Preview
+          <motion.p variants={fadeInLine} className="text-xs uppercase tracking-wider text-rc-accent font-medium mb-10 text-center">
+            Look Inside
           </motion.p>
-          <motion.div
-            variants={fadeInLine}
-            className="bg-white border border-rc-border rounded-xl p-8 md:p-12 space-y-5"
-          >
-            <p className="text-base md:text-lg text-rc-text leading-relaxed font-rc-serif">
-              There is a spirit moving among young people right now. For twenty years it lived in me. He was Weje.
-            </p>
-            <p className="text-base md:text-lg text-rc-text leading-relaxed font-rc-serif">
-              My mother took me away from the church where God&rsquo;s covering had been over me. When she did, Weje found his way in.
-            </p>
-            <p className="text-base md:text-lg text-rc-text leading-relaxed font-rc-serif">
-              She watched me change in front of her. She went from church to church, searching for what would bring me back. On one of those trips, she had an accident. She died in 1996. Her last words to me were &ldquo;Be that child God wants you to be.&rdquo;
-            </p>
-            <p className="text-base md:text-lg text-rc-text leading-relaxed font-rc-serif">
-              My human personality was taken over. First it was drug runs across borders. Then it began to teach me what interested it most: fraud, a particular scam that preyed on people&rsquo;s fear.
-            </p>
-            <p className="text-base md:text-lg text-rc-text leading-relaxed font-rc-serif">
-              In May 2015, <span className="text-rc-accent">Jesus Christ cast Weje out of me</span>, through the ministry of the same Prophet of God my mother once took me from.
-            </p>
-            <p className="text-base md:text-lg text-rc-text leading-relaxed font-rc-serif">
-              This book is the story of how the spirit got in, what it did while it was in me, and how I got free.
-            </p>
+          <motion.div variants={fadeInLine} className="relative" style={{ perspective: '2400px' }}>
+            <div
+              className="grid grid-cols-1 sm:grid-cols-2 rounded-md overflow-hidden"
+              style={{ boxShadow: '0 30px 60px -30px rgba(7,31,27,0.35), 0 0 0 1px rgba(0,0,0,0.06)' }}
+            >
+              {/* Verso — the chapter opening */}
+              <div className="relative bg-white px-7 py-10 md:px-10 md:py-14 sm:pr-10">
+                <p className="text-[10px] uppercase tracking-[0.3em] text-[#8f8a80] font-medium">Chapter One</p>
+                <h3 className="font-rc-serif font-bold text-xl md:text-2xl text-[#1a1a18] mt-3 leading-tight">
+                  There Is a Spirit Moving
+                </h3>
+                <div className="mt-8 space-y-4 font-rc-serif text-[13px] md:text-sm leading-relaxed text-[#2b2b28]">
+                  <p>
+                    <span className="float-left font-rc-serif font-bold text-5xl md:text-6xl leading-[0.8] pr-2 pt-1 text-[#1a1a18]">T</span>here is a spirit moving among young people right now. For twenty years it lived in me. He was Weje.
+                  </p>
+                  <p>My mother took me away from the church where God&rsquo;s covering had been over me. When she did, Weje found his way in.</p>
+                </div>
+                <span className="absolute bottom-4 left-1/2 -translate-x-1/2 text-[10px] text-[#8f8a80] font-rc-serif">1</span>
+                {/* Gutter — light dies toward the spine */}
+                <div className="hidden sm:block absolute inset-y-0 right-0 w-10 pointer-events-none" style={{ background: 'linear-gradient(to left, rgba(0,0,0,0.10), transparent)' }} />
+              </div>
+              {/* Recto — the story continues, and cuts at the heaviest line */}
+              <div className="relative bg-[#fbfaf7] px-7 py-10 md:px-10 md:py-14 sm:pl-10 border-t sm:border-t-0 border-[#e9e7e1]">
+                <p className="hidden sm:block text-[10px] uppercase tracking-[0.3em] text-[#8f8a80] font-medium">There Is a Spirit Moving</p>
+                <div className="mt-8 space-y-4 font-rc-serif text-[13px] md:text-sm leading-relaxed text-[#2b2b28]">
+                  <p>She watched me change in front of her. She went from church to church, searching for what would bring me back. On one of those trips, she had an accident. She died in 1996. Her last words to me were &ldquo;Be that child God wants you to be.&rdquo;</p>
+                  <p className="italic text-[#6f6b62]">The story continues in print.</p>
+                </div>
+                <span className="absolute bottom-4 left-1/2 -translate-x-1/2 text-[10px] text-[#8f8a80] font-rc-serif">2</span>
+                <div className="hidden sm:block absolute inset-y-0 left-0 w-10 pointer-events-none" style={{ background: 'linear-gradient(to right, rgba(0,0,0,0.10), transparent)' }} />
+              </div>
+            </div>
           </motion.div>
         </motion.div>
       </section>
@@ -244,7 +260,7 @@ export default function BookPage() {
           className="max-w-md mx-auto text-center space-y-6"
         >
           <motion.p variants={fadeInLine} className="text-base text-rc-text/80 leading-relaxed font-light">
-            The book is coming. Join the waitlist to be the first to know when it releases.
+            The book is coming. Be first to read it.
           </motion.p>
 
           {submitted ? (
@@ -292,9 +308,12 @@ export default function BookPage() {
           variants={staggerContainer}
           className="max-w-2xl mx-auto space-y-8"
         >
-          <motion.h2 variants={fadeInLine} className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-bg leading-tight tracking-tight">
-            You don&apos;t have to wait for the book to meet Him.
+          <motion.h2 variants={fadeInLine} className="text-3xl md:text-4xl font-rc-serif font-bold text-rc-bg leading-tight tracking-tight max-w-[26ch] mx-auto">
+            If the same spirit is moving in your life, reading my book can wait.
           </motion.h2>
+          <motion.p variants={fadeInLine} className="text-base md:text-lg text-rc-bg/80 leading-relaxed font-light">
+            Deliverance can&rsquo;t.
+          </motion.p>
           <motion.div variants={fadeInLine} className="pt-4">
             <SiteButton variant="outline-light" href="/?prayer=1">Ask for Prayer</SiteButton>
           </motion.div>
@@ -303,7 +322,7 @@ export default function BookPage() {
             href="/deliverances"
             className="block text-sm text-rc-bg/60 hover:text-rc-bg hover:underline"
           >
-            Or watch Him delivering others →
+            Or watch one more story →
           </motion.a>
         </motion.div>
       </section>
