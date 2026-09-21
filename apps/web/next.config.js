@@ -1,4 +1,5 @@
 /** @type {import('next').NextConfig} */
+// Force cache clear: favicon update (sept 21)
 const nextConfig = {
   reactStrictMode: true,
   typescript: {
