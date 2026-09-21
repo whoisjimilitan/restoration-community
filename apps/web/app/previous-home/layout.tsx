@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
 import Script from 'next/script';
 import { Fraunces, Inter } from 'next/font/google';
-import { Providers } from './providers';
+import { Providers } from '../providers';
 import LetsConnectPersistence from '@/components/LetsConnectPersistence';
 import Navigation from '@/components/Navigation';
-import './globals.css';
+import '../globals.css';
 
 // Self-hosted via next/font: downloaded once at build time, served from our
 // own domain with font-display: swap baked in — no render-blocking request
