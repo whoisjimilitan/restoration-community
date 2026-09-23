@@ -36,6 +36,11 @@ function AudioPlayer() {
   const handleTimeUpdate = () => {
     if (audioRef.current) {
       setCurrentTime(audioRef.current.currentTime);
+    }
+  };
+
+  const handleLoadedMetadata = () => {
+    if (audioRef.current) {
       setDuration(audioRef.current.duration);
     }
   };
@@ -143,13 +148,13 @@ function AudioPlayer() {
 
           {/* Duration */}
           <span className="flex-shrink-0 text-xs font-medium" style={{ color: '#8A8A80' }}>
-            {formatTime(duration > 0 ? duration : 18)}
+            {formatTime(duration)}
           </span>
         </div>
       </div>
 
       {/* Hidden audio element */}
-      <audio ref={audioRef} preload="metadata" onTimeUpdate={handleTimeUpdate} onEnded={handleEnded}>
+      <audio ref={audioRef} preload="metadata" onLoadedMetadata={handleLoadedMetadata} onTimeUpdate={handleTimeUpdate} onEnded={handleEnded}>
         <source src="/audio/brother-jimi-word.mp3" type="audio/mpeg" />
       </audio>
     </div>
