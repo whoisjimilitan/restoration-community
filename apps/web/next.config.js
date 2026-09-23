@@ -5,6 +5,9 @@ const nextConfig = {
   typescript: {
     tsconfigPath: './tsconfig.json',
   },
+  images: {
+    formats: ['image/webp', 'image/avif'],
+  },
   async redirects() {
     return [
       {
