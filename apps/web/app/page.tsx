@@ -146,9 +146,9 @@ function AudioPlayer() {
             />
           </div>
 
-          {/* Duration */}
+          {/* Current time / Duration */}
           <span className="flex-shrink-0 text-xs font-medium" style={{ color: '#8A8A80' }}>
-            {formatTime(duration)}
+            {formatTime(currentTime)} / {formatTime(duration)}
           </span>
         </div>
       </div>
