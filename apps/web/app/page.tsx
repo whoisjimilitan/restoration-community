@@ -181,7 +181,7 @@ export default function BroJimiPage() {
         initial="hidden"
         animate="visible"
         variants={staggerContainer}
-        className="w-full relative z-10 flex flex-col items-center justify-center text-center max-w-2xl mx-auto space-y-16 sm:space-y-20 md:space-y-24"
+        className="w-full relative z-10 flex flex-col items-center justify-center text-center max-w-2xl mx-auto space-y-12 sm:space-y-16 md:space-y-20"
       >
         {/* Mark line */}
         <motion.p
@@ -189,7 +189,7 @@ export default function BroJimiPage() {
           className="text-xs uppercase tracking-[0.2em] font-medium"
           style={{ color: 'rgba(255, 255, 255, 0.8)' }}
         >
-          Brother Jimi | A Product of God's Grace
+          Brother Jimi | The Upper Room
         </motion.p>
 
         {/* Headline */}
