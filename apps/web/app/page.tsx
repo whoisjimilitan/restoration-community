@@ -73,8 +73,8 @@ function AudioPlayer() {
       <div
         className="flex-shrink-0"
         style={{
-          width: 'clamp(52px, 9vw, 68px)',
-          height: 'clamp(52px, 9vw, 68px)',
+          width: '60px',
+          height: '60px',
           borderRadius: '50%',
           overflow: 'hidden',
         }}
@@ -165,13 +165,13 @@ export default function BroJimiPage() {
   return (
     <>
       <style>{`nav { display: none !important; }`}</style>
-      <div className="relative overflow-hidden bg-rc-canvas text-white min-h-screen flex flex-col items-center justify-center px-6 sm:px-8 md:px-12 grain-overlay">
+      <div className="w-full relative overflow-hidden bg-rc-canvas text-white min-h-screen flex flex-col items-center justify-center px-6 sm:px-8 md:px-12 grain-overlay">
       {/* Breathing radial glow */}
       <div
         className="absolute -top-[15%] left-1/2 -translate-x-1/2 rounded-full pointer-events-none animate-[jm-breathe_14s_ease-in-out_infinite] z-0"
         style={{
-          width: 'min(800px, 100vw)',
-          height: 'min(800px, 100vw)',
+          width: 'min(800px, 90vw)',
+          height: 'min(800px, 90vw)',
           background: 'radial-gradient(circle, rgba(27,122,108,0.55) 0%, rgba(20,87,75,0.28) 38%, rgba(10,52,45,0) 68%)',
         }}
       />
@@ -181,7 +181,7 @@ export default function BroJimiPage() {
         initial="hidden"
         animate="visible"
         variants={staggerContainer}
-        className="relative z-10 flex flex-col items-center text-center max-w-2xl space-y-20 md:space-y-24"
+        className="relative z-10 flex flex-col items-center text-center max-w-2xl space-y-16 sm:space-y-20 md:space-y-24"
       >
         {/* Mark line */}
         <motion.p
