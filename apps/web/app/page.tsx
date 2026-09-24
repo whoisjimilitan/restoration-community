@@ -200,7 +200,7 @@ export default function BroJimiPage() {
         >
           Believers gather daily.
           <br />
-          His story every Friday.
+          Faith stories every Friday.
         </motion.h1>
 
         {/* Audio player — message card */}
