@@ -195,12 +195,12 @@ export default function BroJimiPage() {
         {/* Headline */}
         <motion.h1
           variants={fadeInLine}
-          className="font-rc-serif font-bold text-3xl sm:text-4xl md:text-5xl leading-relaxed text-white"
-          style={{ letterSpacing: '-0.025em' }}
+          className="font-rc-serif font-bold text-3xl sm:text-4xl md:text-5xl text-white"
+          style={{ letterSpacing: '-0.025em', lineHeight: '1.8' }}
         >
-          Every day, believers gather.
+          Believers gather daily.
           <br />
-          Every Friday, his story.
+          His story every Friday.
         </motion.h1>
 
         {/* Audio player — message card */}
