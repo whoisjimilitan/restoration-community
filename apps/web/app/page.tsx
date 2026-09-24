@@ -181,7 +181,7 @@ export default function BroJimiPage() {
         initial="hidden"
         animate="visible"
         variants={staggerContainer}
-        className="relative z-10 flex flex-col items-center text-center max-w-2xl space-y-16 sm:space-y-20 md:space-y-24"
+        className="w-full relative z-10 flex flex-col items-center justify-center text-center max-w-2xl mx-auto space-y-16 sm:space-y-20 md:space-y-24"
       >
         {/* Mark line */}
         <motion.p
@@ -204,7 +204,7 @@ export default function BroJimiPage() {
         </motion.h1>
 
         {/* Audio player — message card */}
-        <motion.div variants={fadeInLine} className="w-full">
+        <motion.div variants={fadeInLine} className="w-full flex justify-center">
           <AudioPlayer />
         </motion.div>
 
