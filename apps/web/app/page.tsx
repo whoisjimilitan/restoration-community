@@ -198,7 +198,7 @@ export default function BroJimiPage() {
           className="font-rc-serif font-bold text-3xl sm:text-4xl md:text-5xl leading-relaxed text-white"
           style={{ letterSpacing: '-0.025em' }}
         >
-          Every day, prayer.
+          Every day, believers gather.
           <br />
           Every Friday, his story.
         </motion.h1>
