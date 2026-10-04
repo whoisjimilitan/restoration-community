@@ -1,0 +1,337 @@
+/* Brother Jimi Website — Design System
+   Based on Apple's design methodology
+   Adapted for salvation-centered messaging
+   Status: LOCKED
+*/
+
+:root {
+  /* ===== COLORS ===== */
+  /* Primary Palette */
+  --color-white: #ffffff;
+  --color-off-white: #fafafc;
+  --color-black: #1d1d1f;
+  --color-gray-light: #f5f5f7;
+  --color-gray-medium: #e6e6e8;
+  --color-gray-dark: #707070;
+
+  /* Accent Color (Choose One) */
+  /* Option 1: Deep Gold (Revelation, Light) */
+  --color-accent: #d4af37;
+
+  /* Option 2: Deep Sage (Grounding, Clarity) */
+  /* --color-accent: #6b8e6f; */
+
+  /* Option 3: Deep Burgundy (Authority, Depth) */
+  /* --color-accent: #800020; */
+
+  /* ===== TYPOGRAPHY ===== */
+  /* Font Families */
+  --font-serif: 'Fraunces', 'Georgia', serif;
+  --font-sans: 'Inter', 'SF Pro Text', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  /* Typography — Scale */
+  --text-nav: 12px;
+  --text-label: 14px;
+  --text-body: 17px;
+  --text-body-lg: 20px;
+  --text-feature: 28px;
+  --text-hero: 64px;
+
+  /* Line Heights */
+  --leading-tight: 1.1;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.7;
+
+  /* Letter Spacing */
+  --tracking-tight: -0.5px;
+  --tracking-normal: 0px;
+  --tracking-loose: 0.5px;
+
+  /* Font Weights */
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  /* ===== SPACING ===== */
+  --spacing-unit: 4px;
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 12px;
+  --spacing-lg: 16px;
+  --spacing-xl: 24px;
+  --spacing-2xl: 32px;
+  --spacing-3xl: 48px;
+  --spacing-4xl: 64px;
+  --spacing-5xl: 80px;
+  --spacing-6xl: 120px;
+
+  /* Section Gaps (Extreme Whitespace) */
+  --section-gap-xl: 100px;
+  --section-gap-lg: 80px;
+  --section-gap-md: 60px;
+
+  /* Component Spacing */
+  --padding-card: 40px;
+  --padding-section: 60px;
+  --gap-elements: 24px;
+
+  /* ===== BORDER RADIUS ===== */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-full: 9999px;
+
+  /* ===== SHADOWS ===== */
+  /* Intentionally minimal — Apple-style flat design */
+  --shadow-none: none;
+  --shadow-hairline: 0px 0px 0px 1px rgba(29, 29, 31, 0.1);
+  --shadow-subtle: 0px 1px 3px rgba(0, 0, 0, 0.08);
+
+  /* ===== SURFACES ===== */
+  --bg-primary: #ffffff;
+  --bg-secondary: #fafafc;
+  --text-primary: #1d1d1f;
+  --text-secondary: #707070;
+  --border-primary: #e6e6e8;
+
+  /* ===== BREAKPOINTS ===== */
+  --breakpoint-mobile: 320px;
+  --breakpoint-tablet: 768px;
+  --breakpoint-desktop: 1024px;
+}
+
+/* ===== TYPOGRAPHY STYLES ===== */
+
+h1 {
+  font-family: var(--font-serif);
+  font-size: var(--text-hero);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--text-primary);
+}
+
+h2 {
+  font-family: var(--font-serif);
+  font-size: var(--text-feature);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-normal);
+  color: var(--text-primary);
+}
+
+p, body {
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-normal);
+  letter-spacing: var(--tracking-normal);
+  color: var(--text-primary);
+}
+
+small, .text-label {
+  font-family: var(--font-sans);
+  font-size: var(--text-label);
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-normal);
+  color: var(--text-secondary);
+}
+
+/* ===== BUTTON STYLES ===== */
+
+.btn {
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  font-weight: var(--weight-semibold);
+  padding: var(--spacing-lg) var(--spacing-2xl);
+  border-radius: var(--radius-full);
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-primary {
+  background-color: var(--color-accent);
+  color: var(--color-white);
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+  transform: scale(1.02);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--color-accent);
+  border: 1px solid var(--color-accent);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-accent);
+  color: var(--color-white);
+}
+
+/* ===== LAYOUT COMPONENTS ===== */
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: var(--padding-section);
+  background-color: var(--bg-primary);
+  text-align: center;
+}
+
+.hero h1 {
+  margin-bottom: var(--spacing-lg);
+  max-width: 800px;
+}
+
+.hero p {
+  margin-bottom: var(--spacing-2xl);
+  color: var(--text-secondary);
+  max-width: 600px;
+}
+
+.section {
+  padding: var(--section-gap-xl) var(--padding-section);
+  background-color: var(--bg-primary);
+}
+
+.section + .section {
+  border-top: 1px solid var(--border-primary);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  gap: var(--gap-elements);
+}
+
+.grid-cols-1 { grid-template-columns: 1fr; }
+.grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+
+/* ===== CARD STYLES ===== */
+
+.card {
+  padding: var(--padding-card);
+  background-color: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-primary);
+}
+
+.card h3 {
+  margin-bottom: var(--spacing-md);
+  font-size: var(--text-feature);
+}
+
+.card p {
+  color: var(--text-secondary);
+  line-height: var(--leading-relaxed);
+}
+
+/* ===== QUOTABLE STYLES ===== */
+
+.quotable {
+  font-family: var(--font-serif);
+  font-size: 24px;
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-relaxed);
+  color: var(--text-primary);
+  padding: var(--spacing-2xl);
+  border-left: 4px solid var(--color-accent);
+  margin: var(--section-gap-lg) 0;
+  font-style: italic;
+}
+
+/* ===== SCRIPTURE STYLES ===== */
+
+.scripture {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-relaxed);
+  color: var(--text-secondary);
+  padding: var(--spacing-xl);
+  background-color: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  margin: var(--spacing-2xl) 0;
+}
+
+.scripture-ref {
+  font-weight: var(--weight-semibold);
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-sm);
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+
+@media (max-width: 768px) {
+  :root {
+    --text-hero: 48px;
+    --text-feature: 24px;
+    --section-gap-xl: 60px;
+    --padding-section: 32px;
+  }
+
+  h1 {
+    font-size: var(--text-hero);
+  }
+
+  .grid-cols-2,
+  .grid-cols-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --text-hero: 36px;
+    --text-feature: 20px;
+    --section-gap-xl: 48px;
+    --padding-section: 20px;
+  }
+}
+
+/* ===== UTILITY CLASSES ===== */
+
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.mt-0 { margin-top: 0; }
+.mt-xs { margin-top: var(--spacing-xs); }
+.mt-sm { margin-top: var(--spacing-sm); }
+.mt-md { margin-top: var(--spacing-md); }
+.mt-lg { margin-top: var(--spacing-lg); }
+.mt-xl { margin-top: var(--spacing-xl); }
+.mt-2xl { margin-top: var(--spacing-2xl); }
+
+.mb-0 { margin-bottom: 0; }
+.mb-xs { margin-bottom: var(--spacing-xs); }
+.mb-sm { margin-bottom: var(--spacing-sm); }
+.mb-md { margin-bottom: var(--spacing-md); }
+.mb-lg { margin-bottom: var(--spacing-lg); }
+.mb-xl { margin-bottom: var(--spacing-xl); }
+.mb-2xl { margin-bottom: var(--spacing-2xl); }
+
+.max-w-none { max-width: none; }
+.max-w-md { max-width: 600px; }
+.max-w-lg { max-width: 800px; }
+.max-w-xl { max-width: 1000px; }
+
+/* ===== STATUS ===== */
+/* LOCKED. Do not modify without explicit approval.
+   This design system is non-negotiable.
+   All pages use these values for consistency.
+*/

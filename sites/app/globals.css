@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white text-ink font-sans;
+  }
+
+  h1 {
+    @apply font-serif font-bold text-hero-display leading-tight tracking-tighter;
+  }
+
+  h2 {
+    @apply font-serif font-semibold text-feature-heading leading-tight;
+  }
+
+  p {
+    @apply font-sans text-body leading-normal;
+  }
+
+  a {
+    @apply text-apple-blue hover:underline;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-block px-32 py-16 rounded-pill font-semibold text-body transition-all duration-200 ease-in-out;
+  }
+
+  .btn-primary {
+    @apply bg-accent text-white hover:opacity-90;
+  }
+
+  .btn-secondary {
+    @apply border-2 border-accent text-accent hover:bg-accent hover:text-white;
+  }
+
+  .section {
+    @apply py-128 px-64;
+  }
+
+  .section-alt {
+    @apply bg-studio-mist;
+  }
+
+  .card {
+    @apply bg-white rounded-xl border border-hairline-silver p-card shadow-none;
+  }
+
+  .quotable {
+    @apply font-serif text-2xl font-semibold italic leading-relaxed text-ink border-l-4 border-accent pl-32 py-32 my-80;
+  }
+
+  .scripture {
+    @apply font-serif text-lg leading-relaxed text-slate bg-paper-frost rounded-lg p-24 my-32;
+  }
+
+  .scripture-ref {
+    @apply font-semibold text-ink mb-8 block;
+  }
+
+  .hero {
+    @apply flex flex-col items-center justify-center min-h-screen py-128 px-64 bg-white text-center;
+  }
+
+  .container-max {
+    @apply max-w-4xl mx-auto;
+  }
+}
