@@ -1,0 +1,55 @@
+# Memory Index
+
+**⚠️ CRITICAL SAFETY GATES:**
+- [[master_evidence_rule]] — All work requires documented evidence of process before posting
+- [[approval_gate_rule]] — NOTHING goes to the world without user email approval
+- [[locked_approval_format_non_negotiable]] — Approval email format is LOCKED (documented in /teach skill). Cannot create custom formats. All emails follow exact /teach output structure. (Oct 4, 2026)
+- [[boba-quote-structure-requirement]] — Boba sends numbered teaching positions (never individual statements). Gate before any processing. (Oct 4, 2026)
+- [[no-invention-rule]] — Creative freedom in refinement only. ZERO freedom in invention/inference. Any invention changes meaning = invalid work. (Oct 4, 2026)
+
+- [/preach](skill_preach.md) — Refine quotes into finished preaching pieces. Full rigor: Phases 1-5, alternatives tested, Phase 4 self-critique applied, no invention. Output is ready to record. (Oct 2, 2026)
+- [/teach](skill_teach.md) — Extract and generate HIDE-structured 40-second reels from locked /preach pieces. VERSION A: extract from teaching. VERSION B: build HIDE-first from scratch. Side-by-side format. Ready to record. (Oct 2, 2026)
+- [/preach is Mandatory](feedback_preach_is_mandatory.md) — Every teaching/preaching work goes through full /preach (all phases, alternatives tested, Phase 4 self-critique, no abbreviation). Daily standard. (Oct 2, 2026)
+- [/teach Output Format](skill_preach_hide_comparison_format.md) — Locked format for /teach results: side-by-side VERSION A + VERSION B, Scripture ref only, ready to record. (Oct 2, 2026)
+- [/loom](skill_prophetic_question_framework.md) — Comprehensive prophetic revelation framework. Question → quote → discernment → specific weakness → solution → application → Scripture. Teaches principle deeply and transforms. (Sept 29, 2026)
+- [/reflect](skill_reflect_framework.md) — Short-form spiritual introspection. Binary title → quote → discernment → revelation → benediction → Scripture. Confronts and provokes without instruction. Trust Scripture to work. (Oct 1, 2026)
+- [Brother Jimi Telegram Threshold (Final)](project_brotherjimi_telegram_threshold_final.md) — Premium threshold design: vertical centering + typographic elevation = genuinely premium (Sept 21, 2026)
+- [Teaching Script Delivery Standard](teaching_script_delivery_standard.md) — One idea per line, clear progression (what it isn't → is → requires → produces), sets up next stage, memorable, easy to deliver (Sept 15, 2026)
+- [Teaching Script Precision Standard](teaching_script_precision_standard.md) — Plain language, defensible claims, every word earns its place, suitable for meditation (Sept 15, 2026) — THE BASELINE
+- [Stage 1 Setup-Contrast Logic](stage1_setup_contrast_logic.md) — Establish intellectual claim, create contrast with lack of results, ask gap question that Stage 2 answers (Sept 15, 2026)
+- [Proactive Quality Standards](feedback_proactive_quality_standards.md) — Apply narrative-breakthrough-reference and quality standards to all teaching video work automatically, even without asking (Sept 15, 2026)
+- [Teaching Video Framework (Canonical)](teaching_video_framework_established.md) — Question → Answer → Blessing framework for all Brother Jimi teaching videos (Sept 15, 2026) — guides both cutting strategy and delivery
+- [Teaching Video Edit Skill](teaching_video_edit_skill.md) — Complete reusable workflow for editing teaching videos (HyperFrames, glass aesthetic, captions, closing screen) — Sept 14, 2026
+- [Glass Card Design Standard](glass_card_design_standard.md) — Finalized design pattern for glass cards (framed statements, 38px bold Fraunces, no labels, direct and observational) — Sept 14, 2026
+- [One Take Complete Model](onetake_complete_model.md) — Full business model, positioning, sales funnel (Sept 8, 2026) — DEFINITIVE VERSION OVERRIDES ALL PRIOR DOCS
+- [WEJE Series v1 Spec](project_weje_series_v1_spec.md) — Complete design/typography/production spec for WEJE testimony series (Fraunces, black/white, 9:16 vertical, reflective LUT)
+- [Agent Reach MCP Setup](agent_reach_setup.md) — Web page & YouTube access via MCP; installed Sept 3, 2026
+- [Agent Reach Automation](agent_reach_automation.md) — Configure Agent Reach to be available by default across all projects
+- [Design Language Canonical](design_language_canonical.md) — Visual language standards for premium, beautifully-spaced pages across Brother Jimi Ministries site
+- [Homepage Rhythm, Pace & Spacing](homepage_rhythm_pace_spacing.md) — Canonical template for restoration community homepage: prophetic voice, line-breaking pacing, typographic hierarchy for all future pages
+- [Landing Page vs Content Engine Voice](voice_landing_page_vs_content_engine.md) — Two distinct authentic voices—landing page (architectural, testimonial, brief) vs content engine (educational, framed, deep). Neither is merged; both serve different functions.
+- [Voice, Grammar & Revelation Structure](voice_grammar_and_revelation_structure.md) — Your prophetic teaching voice: grammar patterns, revelation layers, story-first structure—standard for content engine and all non-homepage pages
+- [Revelation Fidelity Constraint](feedback_revelation_fidelity.md) — Extracted revelations must remain intact; cannot contradict original material
+- [Quotable Preservation Priority](feedback_quotable_preservation.md) — Preserve verbatim memorable lines; prioritize direct quotes over paraphrasing
+- [Scriptural Foundation Priority](feedback_scriptural_foundation.md) — Preserve all biblical verses; never water down or remove Scripture
+- [Repository Knowledge Audit 001](repository_knowledge_audit_001.md) — Complete authority map of restoration community governance and Four-Book Foundation
+- [Operator Problem-Centric System](operator-problem-centric-system.md) — Gap-revelation system that converts confessions to YES conversations
+- [Opportunity Intelligence System](opportunity-intelligence-system.md) — Complete discovery engine that finds business confessions and converts them to leads
+- [Warm Outreach Pipeline](warm-outreach-pipeline.md) — Phone detection and smart call routing (mobile→WhatsApp, landline→VoIP)
+- [Teaching Engine Hook Detection](teaching_engine_hook_detection.md) — Sermon intro formula: detect questions, scenarios, quotes, stories, contradictions; prioritize in social outputs
+- [Teaching Engine Final State](teaching_engine_final_state.md) — v1.0 production-ready config: 4-phase pipeline, 7 formats, hook prioritization for social media, archive system
+- [Teaching-to-YouTube Complete System](teaching_to_youtube_complete_system.md) — Full reusable pipeline: 7-layer script generation → HyperFrames composition → audio EQ → trim to visual hook → captions → YouTube (REC46 proven, prevents loss)
+- [Professional Video Editing IDE](professional_video_editing_ide.md) — Remotion-based orchestration system (pdf-trend-lab): auto-cut detection, parallel export (YouTube/Instagram/TikTok/Web), caption generation, caching
+- [Brother Jimi: 5 Open Items](project_brotherjimi_five_open_items.md) — YouTube overhaul, FB API (done), /journey (frozen), /login (not started), logo choice pending — repo is restoration-community
+- [No Em Dashes](feedback_no_em_dashes.md) — Never use em dashes in any copy for the user; they read as AI-generated
+- [Video Pipeline Distinction](feedback_video_pipeline_distinction.md) — Don't conflate unused in-repo Remotion IDE with the actually-used clean-cut-sermon skill
+- [Clean-Cut Sermon Output](project_clean_cut_sermon_output.md) — VIDN0212 sermon edit + multi-platform exports produced, uncommitted, feeds YouTube overhaul
+- [Scripture Card & Raw Source](project_scripture_card_and_raw_source.md) — VIDN0233.mov (Desktop) is the true uncut single-take source; scripture-card design rebuilt as a skill after original was lost
+- [Voice: No Motivational Tricks](feedback_voice_no_motivational_tricks.md) — Avoid "it's not X, it's Y" AND soft conditional appeals ("if this is your story too"); declare, don't hedge — bold, raw, prophetic
+- [Brother Jimi Deployment Topology](brotherjimi_deployment_topology.md) — brotherjimi.com is served by Vercel project "brotherjiminew", not Netlify, not "brotherjimi" or "restoration-community" projects
+- [Brother Jimi Backend State](project_brotherjimi_backend_state.md) — Vercel has zero env vars configured; no email/DB works; Get Help uses a direct WhatsApp link instead
+- [Localhost Before Vercel](feedback_localhost_before_vercel.md) — Iterate on localhost:4021 for restoration-community, batch pushes to avoid burning Vercel's daily build limit
+- [AI Handoff: Project Culture](AI_HANDOFF_PROJECT_CULTURE.md) — Complete briefing for incoming AI: Jimi's voice, audience, atmosphere, working style, and pipeline status
+- [Video Pipeline: Free Setup](video_pipeline_free_setup.md) — Auto-cleanup cache (7-day retention), Google Drive backups, zero disk bloat (Sept 14, 2026)
+- [Deletion Safety First](feedback_deletion_safety.md) — Never delete without explicit confirmation; only safe temporary caches (Sept 17, 2026)
+- [Design Reference: Discord](design_reference_discord.md) — Complete design system: game-world environment, extreme color restraint (one accent only), bold typography, product integration, no shadows — principles for Brother Jimi landing page (Sept 19, 2026)
