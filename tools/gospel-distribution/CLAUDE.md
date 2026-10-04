@@ -12,12 +12,13 @@
 
 ## Non-Negotiable Rules
 
-1. **Process one quote at a time** — Never batch multiple quotes
-2. **Full evidence required** — All /preach and /teach phases documented
-3. **Email approval mandatory** — Send to whoisjimi.today@gmail.com before any publication
-4. **VERSION C locked format** — Title (challenges assumption) + Body (/preach AS IS) + Close (punchy, natural)
-5. **No construction marks** — Zero em dashes, no scaffolding, human speech only
-6. **Verify all changes** — After any edit, run through all quality gates before sending
+1. **QUOTE SET REQUIREMENT** — Every quote comes as a numbered SET (One, Two, Three, etc.) with multiple statements. REJECT any processing without the complete set. Do not process individual lines. Retrieve full set from Gmail archive email first, verify structure, then process.
+2. **Process one quote at a time** — Never batch multiple quotes
+3. **Full evidence required** — All /preach and /teach phases documented
+4. **Email approval mandatory** — Send to whoisjimi.today@gmail.com before any publication
+5. **VERSION C locked format** — Title (challenges assumption) + Body (/preach AS IS) + Close (punchy, natural)
+6. **No construction marks** — Zero em dashes, no scaffolding, human speech only
+7. **Verify all changes** — After any edit, run through all quality gates before sending
 
 ## Memory & Skills
 All decision history and skill definitions are in `docs/`:
