@@ -1,8 +1,12 @@
 /** @type {import('next').NextConfig} */
+// Force cache clear: favicon update (sept 21)
 const nextConfig = {
   reactStrictMode: true,
   typescript: {
     tsconfigPath: './tsconfig.json',
+  },
+  images: {
+    formats: ['image/webp', 'image/avif'],
   },
   async redirects() {
     return [
