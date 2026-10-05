@@ -1,22 +1,17 @@
-import type { Metadata } from 'next'
 import './globals.css'
 
-export const metadata: Metadata = {
-  title: 'Brother Jimi — Receive Jesus',
-  description: 'Start discovering who you are in Jesus. 90-day free mentorship.',
-  openGraph: {
-    title: 'Brother Jimi — Receive Jesus',
-    description: 'Start discovering who you are in Jesus.',
-    type: 'website',
-    url: 'https://brotherjimi.com',
+export const metadata = {
+  title'Brother Jimi — Receive Jesus',
+  description'Start discovering who you are in Jesus. 90-day free mentorship.',
+  openGraph{
+    title'Brother Jimi — Receive Jesus',
+    description'Start discovering who you are in Jesus.',
+    type'website',
+    url'https://brotherjimi.com',
   },
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>

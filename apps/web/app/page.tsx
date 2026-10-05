@@ -1,259 +1,165 @@
-'use client';
+'use client'
 
-import { useRef, useState } from 'react';
-import { motion, cubicBezier } from 'framer-motion';
+import Link from 'next/link'
+import { useState } from 'react'
 
-// Base64 avatar data URI (center-cropped square, 320x320, JPEG quality 85)
+export default function Home() {
+  const [email, setEmail] = useState('')
+  const [submitted, setSubmitted] = useState(false)
 
-const staggerContainer = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.1, delayChildren: 0.08 } },
-};
-
-const fadeInLine = {
-  hidden: { opacity: 0, y: 16 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: cubicBezier(0.25, 0.46, 0.45, 0.94) } },
-};
-
-// Audio player component — styled as a Telegram voice message
-function AudioPlayer() {
-  const audioRef = useRef<HTMLAudioElement>(null);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [currentTime, setCurrentTime] = useState(0);
-  const [duration, setDuration] = useState(0);
-
-  const togglePlay = () => {
-    if (audioRef.current) {
-      if (isPlaying) {
-        audioRef.current.pause();
-      } else {
-        audioRef.current.play();
-      }
-      setIsPlaying(!isPlaying);
-    }
-  };
-
-  const handleTimeUpdate = () => {
-    if (audioRef.current) {
-      setCurrentTime(audioRef.current.currentTime);
-    }
-  };
-
-  const handleLoadedMetadata = () => {
-    if (audioRef.current) {
-      setDuration(audioRef.current.duration);
-    }
-  };
-
-  const handleEnded = () => {
-    setIsPlaying(false);
-    if (audioRef.current) {
-      audioRef.current.currentTime = 0;
-      setCurrentTime(0);
-    }
-  };
-
-  const formatTime = (time: number) => {
-    if (!time || time === 0) return '0:00';
-    const minutes = Math.floor(time / 60);
-    const seconds = Math.floor(time % 60);
-    return `${minutes}:${String(seconds).padStart(2, '0')}`;
-  };
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    // TODO: Connect to Substack API
+    setSubmitted(true)
+    setEmail('')
+  }
 
   return (
-    <div
-      className="w-full max-w-lg rounded-2xl p-4 flex items-center gap-clamp backdrop-blur-sm"
-      style={{
-        backgroundColor: 'rgba(235, 231, 224, 0.88)',
-        border: '1px solid rgba(255, 255, 255, 0.12)',
-        gap: 'clamp(12px, 2.6vw, 18px)',
-      }}
-    >
-      {/* Avatar container — circular clipping */}
-      <div
-        className="flex-shrink-0"
-        style={{
-          width: '60px',
-          height: '60px',
-          borderRadius: '50%',
-          overflow: 'hidden',
-        }}
-      >
-        <img
-          src="/images/brother-jimi-profile.jpg"
-          alt="Portrait of Brother Jimi"
-          style={{
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-            display: 'block',
-            filter: 'grayscale(18%) sepia(6%) contrast(1.04) brightness(.97)',
-          }}
-        />
-      </div>
+    <main className="bg-white">
+      {/* Hero Section */}
+      <section className="hero">
+        <div className="container-max">
+          {/* Image: Hands holding Bible with verse */}
+          <div className="mb-80 w-full max-w-2xl mx-auto aspect-square bg-gradient-to-b from-studio-mist to-paper-frost rounded-3xl flex flex-col items-center justify-center p-64 relative">
+            {/* Hero image placeholder with verse overlay */}
+            <div className="absolute inset-0 rounded-3xl bg-gradient-to-b from-ink/5 to-ink/10" />
 
-      {/* Message content — right side, vertically stacked */}
-      <div className="flex-1 min-w-0 flex flex-col gap-0">
-        {/* Label */}
-        <p className="text-sm font-medium" style={{ color: '#1A1A18' }}>
-          A word from Brother Jimi
-        </p>
+            <div className="relative z-10 text-center">
+              <div className="text-accent text-product-kicker font-sf-pro-display font-semibold mb-32">
+                John 10:10
+              </div>
 
-        {/* Controls — play button, progress, duration all in a row */}
-        <div className="flex items-center gap-2">
-          {/* Play button */}
-          <button
-            onClick={togglePlay}
-            className="flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center transition-transform hover:scale-105"
-            style={{ backgroundColor: '#C9925A' }}
-            aria-label={isPlaying ? 'Pause' : 'Play'}
-          >
-            {isPlaying ? (
-              <svg width="14" height="14" viewBox="0 0 20 20" fill="#1A1A18">
-                <rect x="4" y="3" width="3" height="14" rx="1" />
-                <rect x="13" y="3" width="3" height="14" rx="1" />
-              </svg>
-            ) : (
-              <svg width="14" height="14" viewBox="0 0 20 20" fill="#1A1A18">
-                <polygon points="5,2 18,11 5,20" />
-              </svg>
-            )}
-          </button>
+              <p className="font-serif text-lg leading-relaxed text-ink mb-48 max-w-sm">
+                "I have come that they may have life, and have it to the full."
+              </p>
 
-          {/* Progress bar */}
-          <div
-            role="progressbar"
-            aria-label="Audio playback progress"
-            aria-valuenow={Math.round((currentTime / duration) * 100) || 0}
-            aria-valuemin={0}
-            aria-valuemax={100}
-            className="flex-1 h-1 rounded-full relative cursor-pointer"
-            style={{ backgroundColor: 'rgba(26, 26, 24, 0.15)' }}
-            onClick={(e) => {
-              if (audioRef.current && duration > 0) {
-                const rect = e.currentTarget.getBoundingClientRect();
-                const percent = (e.clientX - rect.left) / rect.width;
-                audioRef.current.currentTime = percent * duration;
-              }
-            }}
-          >
-            <div
-              className="h-full rounded-full transition-all"
-              style={{
-                backgroundColor: '#1A1A18',
-                width: duration > 0 ? `${(currentTime / duration) * 100}%` : '0%',
-              }}
-            />
+              <p className="text-sm text-slate">
+                Hands holding Bible
+              </p>
+            </div>
           </div>
 
-          {/* Current time */}
-          <span className="flex-shrink-0 text-xs font-medium" style={{ color: '#8A8A80' }}>
-            {formatTime(currentTime)}
-          </span>
+          <h1 className="mb-24 max-w-3xl mx-auto">
+            Receive Jesus
+          </h1>
+
+          <h2 className="text-feature-heading font-serif font-semibold mb-16 max-w-2xl mx-auto">
+            Daily counsel from Jesus
+          </h2>
+
+          <p className="text-product-kicker font-sf-pro-display font-semibold mb-48 text-slate max-w-2xl mx-auto">
+            Shared by Brother Jimi
+          </p>
+
+          <p className="text-body text-slate mb-64 max-w-2xl mx-auto leading-relaxed">
+            Start discovering who you are in Him. A 90-day free mentorship journey with daily reflections on freedom, truth, and transformation in Christ.
+          </p>
+
+          {/* Email Signup */}
+          <form onSubmit={handleSubmit} className="mb-80 max-w-xl mx-auto">
+            <div className="flex gap-16 flex-col sm:flex-row">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                className="flex-1 px-24 py-16 border border-control-gray rounded-pill text-body placeholder-steel focus:outline-none focus:border-accent"
+              />
+              <button type="submit" className="btn btn-primary">
+                {submitted ? 'Check your email' : 'Start Free'}
+              </button>
+            </div>
+          </form>
+
+          {submitted && (
+            <p className="text-center text-slate text-sm max-w-2xl mx-auto">
+              ✓ Check your email to confirm. Your first reflection arrives tomorrow at 6am.
+            </p>
+          )}
         </div>
-      </div>
+      </section>
 
-      {/* Hidden audio element */}
-      <audio ref={audioRef} preload="metadata" onLoadedMetadata={handleLoadedMetadata} onTimeUpdate={handleTimeUpdate} onEnded={handleEnded}>
-        <source src="/audio/brother-jimi-word.mp3" type="audio/mpeg" />
-      </audio>
-    </div>
-  );
-}
+      {/* Section Gap */}
+      <div className="h-128" />
 
-export default function BroJimiPage() {
-  return (
-    <>
-      <style>{`nav { display: none !important; }`}</style>
-      <div className="w-full relative overflow-hidden bg-rc-canvas text-white min-h-screen flex flex-col items-center justify-center px-6 sm:px-8 md:px-12 grain-overlay">
-      {/* Breathing radial glow */}
-      <div
-        className="absolute -top-[15%] left-1/2 -translate-x-1/2 rounded-full pointer-events-none animate-[jm-breathe_14s_ease-in-out_infinite] z-0"
-        style={{
-          width: 'min(800px, 90vw)',
-          height: 'min(800px, 90vw)',
-          background: 'radial-gradient(circle, rgba(27,122,108,0.55) 0%, rgba(20,87,75,0.28) 38%, rgba(10,52,45,0) 68%)',
-        }}
-      />
+      {/* Latest Reflection Preview */}
+      <section className="section bg-studio-mist">
+        <div className="container-max">
+          <h2 className="mb-64">Today's Reflection</h2>
 
-      {/* Content — clean spine */}
-      <motion.div
-        initial="hidden"
-        animate="visible"
-        variants={staggerContainer}
-        className="w-full relative z-10 flex flex-col items-center justify-center text-center max-w-2xl mx-auto space-y-12 sm:space-y-16 md:space-y-20"
-      >
-        {/* Mark line */}
-        <motion.p
-          variants={fadeInLine}
-          className="text-xs uppercase tracking-[0.2em] font-medium"
-          style={{ color: 'rgba(255, 255, 255, 0.8)' }}
-        >
-          Brother Jimi | The Upper Room
-        </motion.p>
+          <div className="card mb-48">
+            <div className="text-product-kicker font-sf-pro-display font-semibold mb-24 text-accent">
+              Day 1
+            </div>
 
-        {/* Headline */}
-        <motion.h1
-          variants={fadeInLine}
-          className="font-rc-serif font-bold text-3xl sm:text-4xl md:text-5xl text-white"
-          style={{ letterSpacing: '-0.025em', lineHeight: '1.8' }}
-        >
-          Believers gather daily.
-          <br />
-          Faith stories every Friday.
-        </motion.h1>
+            <h3 className="text-feature-heading font-serif font-semibold mb-32">
+              You're Not Weak
+            </h3>
 
-        {/* Audio player — message card */}
-        <motion.div variants={fadeInLine} className="w-full flex justify-center">
-          <AudioPlayer />
-        </motion.div>
+            <p className="text-body leading-relaxed mb-48 text-slate">
+              A believer operating in the natural is no match for satan. Human strength doesn't come from our natural abilities.
+            </p>
 
-        {/* CTA Button */}
-        <motion.a
-          variants={fadeInLine}
-          href="https://t.me/BrotherJimiMinistry"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex font-bold rounded-full transition-all duration-200 px-10 py-4 text-base"
-          style={{
-            backgroundColor: '#C9925A',
-            color: '#1A1A18',
-            textDecoration: 'none',
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.backgroundColor = '#B89446';
-            e.currentTarget.style.transform = 'translateY(-2px)';
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.backgroundColor = '#C9925A';
-            e.currentTarget.style.transform = 'translateY(0)';
-          }}
-        >
-          Enter on Telegram
-        </motion.a>
-      </motion.div>
+            <div className="quotable">
+              "You're not weak. You're drawing from death instead of life."
+            </div>
 
-      {/* Animation keyframes */}
-      <style>{`
-        @keyframes breathe {
-          0%, 100% {
-            opacity: 0.5;
-            transform: scale(1);
-          }
-          50% {
-            opacity: 0.82;
-            transform: scale(1.06);
-          }
-        }
+            <div className="scripture">
+              <div className="scripture-ref">Romans 8:5-6</div>
+              <p>"Those who live according to the flesh have their minds set on what the flesh desires; but those who live in accordance with the Spirit have their minds set on what the Spirit desires. The mind governed by the flesh is death, but the mind governed by the Spirit is life and peace."</p>
+            </div>
 
-        @media (prefers-reduced-motion: reduce) {
-          * {
-            animation: none !important;
-            transition: none !important;
-          }
-        }
-      `}</style>
-      </div>
-    </>
-  );
+            <Link href="/journey/1" className="btn btn-primary inline-block mt-48">
+              Read Full Reflection
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Section Gap */}
+      <div className="h-128" />
+
+      {/* Previous Reflections */}
+      <section className="section">
+        <div className="container-max">
+          <h2 className="mb-64">All Reflections</h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-48">
+            {[
+              { day: 1, title: "You're Not Weak", date: "Oct 4" },
+              { day: 2, title: "You're Not Trapped", date: "Oct 5" },
+              { day: 3, title: "Your Words Build Your Tomorrow", date: "Oct 6" },
+            ].map((reflection) => (
+              <Link
+                key={reflection.day}
+                href={`/journey/${reflection.day}`}
+                className="card hover:shadow-subtle transition-shadow"
+              >
+                <div className="text-global-nav text-slate font-semibold mb-12">
+                  Day {reflection.day}
+                </div>
+                <h3 className="text-feature-heading font-serif font-semibold mb-16 leading-tight">
+                  {reflection.title}
+                </h3>
+                <p className="text-slate text-sm">{reflection.date}</p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="section bg-studio-mist border-t border-hairline-silver">
+        <div className="container-max text-center">
+          <p className="text-slate text-sm mb-32">
+            © 2026 Brother Jimi. All reflections center on Jesus Christ.
+          </p>
+          <p className="text-steel text-xs">
+            Free mentorship Days 1–90. No payment required.
+          </p>
+        </div>
+      </footer>
+    </main>
+  )
 }
