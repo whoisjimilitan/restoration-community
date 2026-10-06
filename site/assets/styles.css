@@ -432,7 +432,7 @@ footer a{color:var(--slate)}
 .dk-link{padding:14px 12px;opacity:.78} .dk-link:hover{opacity:1}
 .dock .on{background:rgba(255,255,255,.16);opacity:1}
 .dk-cta{margin-left:4px;padding:14px 15px;font-weight:600;background:var(--wine)} .dk-cta:hover{background:var(--wine-hover)}
-@media (max-width:359px){ .dk-home{display:none} }
+@media (max-width:399px){ .dk-home{display:none} }
 footer{padding-bottom:calc(96px + env(safe-area-inset-bottom,0px))}
 
 @media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto} }
