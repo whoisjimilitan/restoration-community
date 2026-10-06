@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Brother Jimi - Daily counsel from Scripture",
   "scripts": {
+    "prebuild": "cp -R site/. public/",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",

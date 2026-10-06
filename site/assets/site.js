@@ -89,6 +89,43 @@
     });
   }
 
+  /* Letter: the 6:00 AM notification opens into the full letter, and folds back when closed */
+  $$("[data-letter]").forEach(card => {
+    const sheet = document.getElementById(card.getAttribute("aria-controls"));
+    if (!sheet || !sheet.showModal) return;
+    const calm = () => matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const from = () => {
+      const c = card.getBoundingClientRect(), d = sheet.getBoundingClientRect();
+      return `translate(${c.left - d.left}px, ${c.top - d.top}px) scale(${c.width / d.width}, ${c.height / d.height})`;
+    };
+    const ease = "cubic-bezier(.3,.7,.2,1)";
+    card.addEventListener("click", () => {
+      sheet.showModal(); sheet.scrollTop = 0;
+      if (calm() || !sheet.animate) return;
+      card.classList.add("away");
+      sheet.style.transformOrigin = "0 0";
+      sheet.animate([{ transform: from(), opacity: .4, borderRadius: "24px" }, { transform: "none", opacity: 1 }], { duration: 480, easing: ease });
+    });
+    let closing = false;
+    const close = () => {
+      if (closing) return;
+      if (calm() || !sheet.animate) { sheet.close(); return; }
+      closing = true; sheet.scrollTop = 0;
+      sheet.animate([{ transform: "none", opacity: 1 }, { transform: from(), opacity: .3 }], { duration: 380, easing: ease })
+        .finished.then(() => { sheet.close(); closing = false; });
+    };
+    $("[data-letter-close]", sheet).addEventListener("click", close);
+    sheet.addEventListener("click", e => { if (e.target === sheet) close(); });
+    sheet.addEventListener("cancel", e => { e.preventDefault(); close(); });
+    sheet.addEventListener("close", () => { card.classList.remove("away"); card.focus({ preventScroll: true }); });
+    const commit = $("[data-commit]", sheet), then = $(".commit-then", sheet);
+    if (commit && then) commit.addEventListener("click", () => {
+      commit.hidden = true; then.hidden = false;
+      const input = then.querySelector("input[type=email]"); if (input) input.focus();
+    });
+  });
+  /* end Letter */
+
   /* Dates */
   const d = $("#today-date");
   if (d && !d.dataset.fixed) d.textContent = new Date().toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric" });

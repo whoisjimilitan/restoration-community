@@ -17,23 +17,22 @@
       "Bash(python after-launch/go-live.py*)",
       "Bash(cp *)",
       "Bash(sed *)",
-      "Bash(tee *)"
+      "Bash(tee *)",
+      "Bash(rsync *)"
     ],
     "deny": [
-      "Edit(./brotherjimi.html)",
-      "Write(./brotherjimi.html)",
       "Edit(./HANDOFF.md)",
       "Write(./HANDOFF.md)",
       "Edit(./LETTER-STYLE.md)",
       "Write(./LETTER-STYLE.md)",
       "Edit(./CLAUDE.md)",
       "Write(./CLAUDE.md)",
+      "Edit(./UPDATE.md)",
+      "Write(./UPDATE.md)",
       "Edit(./site/assets/styles.css)",
       "Write(./site/assets/styles.css)",
       "Edit(./site/assets/site.js)",
       "Write(./site/assets/site.js)",
-      "Edit(./site/index.html)",
-      "Write(./site/index.html)",
       "Edit(./site/start/index.html)",
       "Write(./site/start/index.html)",
       "Edit(./site/welcome/index.html)",
@@ -44,16 +43,20 @@
       "Write(./site/partner/index.html)",
       "Edit(./site/images/**)",
       "Write(./site/images/**)",
+      "Edit(./site/assets/fonts/**)",
+      "Write(./site/assets/fonts/**)",
       "Edit(./site/verify.py)",
       "Write(./site/verify.py)",
       "Edit(./site/design-lock.json)",
       "Write(./site/design-lock.json)",
+      "Edit(./after-launch/**)",
+      "Write(./after-launch/**)",
       "Bash(python3 site/verify.py --lock*)",
       "Bash(python site/verify.py --lock*)",
       "Bash(python3 verify.py --lock*)",
       "Bash(python verify.py --lock*)",
-      "Edit(./after-launch/**)",
-      "Write(./after-launch/**)"
+      "Edit(./site/index.html)",
+      "Write(./site/index.html)"
     ]
   }
 }

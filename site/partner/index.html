@@ -5,50 +5,49 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Partner · Brother Jimi</title>
 <meta name="description" content="Partners help these letters reach someone new each morning.">
+<link rel="preload" href="/assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/styles.css">
 </head>
 <body>
 
 <header class="nav">
   <div class="wrap">
-    <a class="brand" href="/"><span class="wm-q">Brother</span> Jimi</a>
-    <div class="links">
-      <a class="txt hide-sm" href="/today">Today’s Counsel</a>
-      <a class="txt" href="/start">Start Here</a>
-      <a class="pill-sm" href="/#start">Start Day 1</a>
-    </div>
+    <a class="brand" href="/">Brother Jimi</a>
+    <a class="txt" href="/today">Today’s Counsel</a>
   </div>
 </header>
 
 <main>
-  <section class="wrap solo center">
-    <p class="eyebrow">Partner</p>
-    <h1>Keep it free for everyone.</h1>
-    <p class="lede">Partners help these letters reach someone new each morning. Pray, share, or give. Each one matters.</p>
-    <form id="give" novalidate>
-      <div class="amounts" role="group" aria-label="Monthly amount">
-        <button type="button" data-amt="10" aria-pressed="false">$10</button>
-        <button type="button" data-amt="25" aria-pressed="true">$25</button>
-        <button type="button" data-amt="50" aria-pressed="false">$50</button>
-        <button type="button" data-amt="100" aria-pressed="false">$100</button>
-        <button type="button" data-amt="custom" aria-pressed="false">Other</button>
-      </div>
-      <div class="custom" hidden>
-        <label class="sr" for="custom-amt">Monthly amount in dollars</label>
-        <input id="custom-amt" type="number" min="1" inputmode="numeric" placeholder="Amount per month, in dollars">
-      </div>
-      <button class="btn give" type="submit" id="give-btn">Give $25 a month</button>
-      <p class="note" role="status" aria-live="polite"></p>
-      <p class="fine">Secure checkout by Stripe. Change or cancel anytime.</p>
-    </form>
-    <p class="alt">Can’t give right now? Pray for this work, or <a href="/today">send today’s counsel</a> to one person.</p>
+<section class="open page-end">
+    <div class="wrap">
+      <p class="when">Partner</p>
+      <h1 class="mid">Keep it free for everyone.</h1>
+      <p class="lede">Partners help these letters reach someone new each morning. Pray, share, or give. Each one matters.</p>
+      <form id="give" novalidate>
+        <div class="amounts" role="group" aria-label="Monthly amount">
+          <button type="button" data-amt="10" aria-pressed="false">$10</button>
+          <button type="button" data-amt="25" aria-pressed="true">$25</button>
+          <button type="button" data-amt="50" aria-pressed="false">$50</button>
+          <button type="button" data-amt="100" aria-pressed="false">$100</button>
+          <button type="button" data-amt="custom" aria-pressed="false">Other</button>
+        </div>
+        <div class="custom" hidden>
+          <label class="sr" for="custom-amt">Monthly amount in dollars</label>
+          <input id="custom-amt" type="number" min="1" inputmode="numeric" placeholder="Amount per month, in dollars">
+        </div>
+        <button class="btn give" type="submit" id="give-btn">Give $25 a month</button>
+        <p class="note" role="status" aria-live="polite"></p>
+        <p class="fine">Secure checkout by Stripe. Change or cancel anytime.</p>
+      </form>
+      <p class="alt">Can’t give right now? Pray for this work, or <a href="/today">send today’s counsel</a> to one person.</p>
+    </div>
   </section>
 </main>
 
 <footer>
-  <div class="wrap row">
-    <span class="fine">© <span id="yr">2026</span> Brother Jimi · Your email is used only for the daily letters. Never sold or shared.</span>
-    <nav><a href="/today">Today’s Counsel</a><a href="/today">All Counsel</a><a href="/start">Start Here</a><a href="/partner">Partner</a><a href="/privacy">Privacy</a><a href="/contact">Contact</a></nav>
+  <div class="wrap">
+    <span>© <span id="yr">2026</span> Brother Jimi · Your email is never shared.</span>
+    <nav><a href="/today">Today’s Counsel</a><a href="/start">Start Here</a><a href="/partner">Partner</a><a href="/privacy">Privacy</a><a href="mailto:jimi@brotherjimi.com">Contact</a></nav>
   </div>
 </footer>
 

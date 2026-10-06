@@ -1,12 +1,10 @@
 # brotherjimi.com — Build Handoff for Claude Code
 
-> **Status:** the front end is finished and locked in `site/` (pixel-checked against `brotherjimi.html`).
-> Build only the back end described below. Run `python3 site/verify.py` after every step. See `CLAUDE.md`.
-> Topic pages (section 9a) and language pages need an approved design before they are built.
-
-`brotherjimi.html` is the design source of truth: layout, copy, colors, type and spacing.
-It contains five views that become five routes. Before shipping, remove the dark
-"Preview" switcher and set `PREVIEW = false`.
+> **Status (6 Oct 2026):** the front end is the **lean design**, finished and locked in `site/`.
+> `site/` itself is the design source of truth: layout, copy, colours, type and spacing. There is no
+> separate design file any more. Build only the back end described below. Run `python3 site/verify.py`
+> after every step. See `CLAUDE.md`. Topic pages (section 9a) and language pages need an approved
+> design before they are built.
 
 ---
 
@@ -15,11 +13,12 @@ It contains five views that become five routes. Before shipping, remove the dark
 | Topic | Decision | Why |
 |---|---|---|
 | Purpose | A counsel and discipleship space where people who want to hear from God draw nearer to Him. | Every page and message serves this. |
-| Hero | Kicker "The 90-Day Journey". Headline "Draw near to God." (James 4:8, NKJV) Subline "Daily counsel from Scripture, shared by Brother Jimi." Then "Free. One letter each morning for 90 days." Never tie "free" to a time limit; it reads as a trial. | Answers what this is, what you get, and who shares it, without overclaiming. |
-| Hero image | Hands holding a burgundy Bible open at James 4, verse 8 "Draw near to God and He will draw near to you" highlighted in yellow. Contained (max 860px), soft fade at the bottom and sides so the arms melt into the white page. The signup bar sits below it, never over it. | The headline is the highlighted verse. The image is AI-generated; two garbled lines were re-set in clean type. If it is ever regenerated, check every line of print before use. |
+| Hero | Type only, no image. Eyebrow "90 Days of Counsel", headline "Will you receive it?", then "To help you draw near to God." / "Free, from Brother Jimi.", the email box ("Start Day 1") and "Your first letter arrives tomorrow at 6:00 AM." "It" means the counsel, so the eyebrow must always sit directly above the headline. Never tie "free" to a time limit. | The question asks for an answer, and the email box is the answer. It means receiving the letters, receiving the word (James 1:21), and for some, receiving Christ (made explicit on /start). The purpose (drawing near to God) is on the first screen; the whole verse closes the page. |
+| Hero image | **Removed** (6 Oct 2026). Do not bring it back or add any other image to the hero. | It repeated the headline less clearly and pushed the signup below the fold. |
 | "Receive Jesus" | Lives on its own page, /start. Never above the signup form. | Subscribing is not salvation. Believers who want to go deeper must also feel invited. |
 | Source wording | "Counsel from Scripture", never "counsel from Jesus". | A message about Scripture is a brother's counsel, not God's voice. |
-| Daily content | One short letter each morning from Version C of /teach, written like a mentor typing to one person, with its proof text. | The homepage shows a real letter in a mail app. |
+| Daily content | One short letter each morning from Version C of /teach, written like a mentor typing to one person, with its proof text. | The homepage shows a real letter, set as a letter at reading size. |
+| Homepage letter | Fixed sample: "The wall you didn't see". It is hidden behind a 6:00 AM notification ("Mail · Brother Jimi · The wall you didn't see"). Tapping it grows the notification into the full letter, labelled "Sample letter · 90 Days of Counsel"; Close shrinks it back. "I'll do this today" at the end reveals "Amen. Your first letter can be waiting tomorrow at 6:00 AM." with the email box. It never changes daily. | The page stays clean, visitors feel the morning instead of reading about it, and the moment of commitment is the moment of signup. |
 | Stages | **Internal only.** Readers never see stages or phases. The team groups readers by engagement. | Avoids a self-help feel. Growth is God's work. The team watches and responds. |
 | Money | Stripe monthly partnership only. Never on the homepage. Asked once in the Day 30 email. | No funnel on the spiritual journey. |
 | Two tracks | The Journey: 90 days of Version C, each reader starting at their own Day 1. Today: one public letter per day at /today, feeding videos. | Each track does one job. |
@@ -29,24 +28,24 @@ It contains five views that become five routes. Before shipping, remove the dark
 
 ## 2. Brand mark
 
-- **Wordmark:** option C. "Brother" in quiet grey (#86868b), "Jimi" in ink (#1d1d1f), system font,
-  semibold, on one line. Stacked version ("Brother" over "Jimi") for square spaces such as video corners and profile images.
-- **Signature:** pending. Jimi will supply his real handwritten signature; it goes under "Your brother," on /today. Until then the sign-off is typed.
+- **Wordmark:** "Brother Jimi" in solid ink (#1d1d1f), Inter bold (700), letter-spacing -0.025em, one line. No full stop, no icon. (Chosen 6 Oct 2026.)
+- **Signature:** pending. Jimi may supply his real handwritten signature later; that is a design change he must approve. Until then the sign-off is typed.
 - **Icon / favicon:** "BJ" in a dark circle.
 - **Jimi's photo** (`jimi-avatar.jpg`, circle-cropped, facing the camera, not mirrored) is used only
-  where a person is speaking: the email sender avatar and the byline on /today.
+  where a person is speaking: the email sender avatar and the "Brother Jimi" byline under each letter's title.
 
 ## 2b. Routes
 
 | Route | Contents |
 |---|---|
-| `/` | Hero with the held Bible and signup → "Counsel for the day ahead" (the letter "The wall you didn't see", shown in a mail-app mockup) → "You're not alone." (Reply to any morning letter. A real person reads it, prays for you, and writes back.) (a reply window addressed to Brother Jimi) + "Never received Jesus? Start here" → closing promise: eyebrow "His promise to you", headline "He will draw near to you." (the second half of James 4:8, NKJV, which the hero headline opens; never label it "Jesus says", because James wrote it) with signup. Naming rule: "counsel" is what Jimi gives (nav, page names, headings: "Today's Counsel"); "letter" is how it arrives (delivery lines: "Your first letter arrives tomorrow"). |
-| `/today` | **Dynamic:** today's approved letter shown in the same mail window as the homepage (avatar, sender, subject, body, P.S.), at real email size. Then share (WhatsApp + copy link) and signup. Where every video, quote card and share link points. |
+| `/` | One story on a white page. (1) The question: "90 Days of Counsel / Will you receive it? / To help you draw near to God. / Free, from Brother Jimi." with signup. (2) "Every morning / Counsel for the day ahead. / A short letter at 6:00 AM, backed with Scripture." then "Tomorrow 6:00" and the notification that opens the sample letter (see Homepage letter). (3) The commitment: "Ninety mornings. / Starting at your own Day 1. Read it slowly. Do what it says. Don't skip a morning." with 90 dots, Day 1 (tomorrow) in wine. No stages or phases. (4) The person: Jimi's photo, "You're not alone. / Reply to any morning letter. A real person reads it, prays for you, and writes back." and "Never received Jesus? Start here ›". (5) The promise: "Your part. His promise. / Draw near to God and He will draw near to you. / James 4:8" with signup and "Always free, for everyone…". Naming rule: "counsel" is what Jimi gives; "letter" is how it arrives. |
+| `/today` | **Dynamic:** "Today's Counsel · {date}", today's approved letter set as a letter (subject, photo and name, body, P.S.), then "Who needs this today?" (copy link + WhatsApp) and signup. Where every video, quote card and share link points. |
 | `/start` | Receive Jesus: four short steps with Scripture, a prayer, then "Did you pray this today?" with email. Tag these signups `received` and notify the team immediately. **Have a pastor review the wording before launch.** |
 | `/welcome?received` | Shown only after "I prayed today" on /start. "Welcome to the family." plus a letter from Jimi ("Before your first letter"), which is also sent immediately as their first email. Jimi's direct address is jimi@brotherjimi.com (set up this mailbox before launch). |
-| `/welcome` | After signup: "Check your inbox", private prayer request box, "Who else needs this?" WhatsApp share. |
+| `/welcome` | After signup: "Check your inbox", then two quiet asks in one column: a private prayer request box, and "Who else needs this?" (WhatsApp + copy link). |
 | `/partner` | From the Day 30 email and footer only. $10 / $25 / $50 / $100 / Other monthly via Stripe Checkout (`mode: subscription`). Pray and share offered as equal alternatives. |
-| `/privacy`, `/contact` | Plain pages in the same style. Include the NIV and NKJV copyright notices. **James 4:8 on the homepage (hero, headline, closer) is NKJV. Every other Scripture on the site and in every letter is NIV**, the Bible Jimi reads. |
+| `/privacy` | A plain page in the same style. Include the NIV and NKJV copyright notices and the contact address jimi@brotherjimi.com. **James 4:8 on the homepage is NKJV. Every other Scripture on the site and in every letter is NIV**, the Bible Jimi reads. |
+| Contact | No page. The footer link "Contact" opens an email to jimi@brotherjimi.com. |
 
 Support `?ref=<code>` on every route and save it with the signup.
 
@@ -67,7 +66,8 @@ Stripe webhooks → add/remove tag: partner
 
 Use a platform with per-subscriber sequences, tags, engagement data and webhooks
 (e.g. Kit, MailerLite, Beehiiv). **Confirm current features before choosing.** Substack can't run per-subscriber sequences.
-Authenticate the sending domain (SPF, DKIM, DMARC) before the first send.
+**Platform chosen: MailerLite.** Authenticate the sending domain (SPF, DKIM, DMARC) **before building the
+sequences**, so no letter is ever sent from an unauthenticated domain. It is a DNS change: Jimi says yes first.
 
 ---
 
@@ -103,6 +103,11 @@ Build this as tags plus a simple weekly report (CSV or Notion view) the team rev
 | Reel | VERSION B link |
 | Status | Draft / Approved / Published |
 
+### Prayers (Notion, private)
+A second Notion database, **Prayers**, shared with no one but Jimi: Prayer (text), Received (date and time),
+Email (if known), Status (New / Prayed / Replied). `/api/prayer` saves each request there and emails it to
+Jimi straight away. No Supabase, Firebase or other database: Notion is already the back office.
+
 Notion file URLs expire after about an hour. Copy images to the site's own storage and
 cache content (static build or ISR). Never read Notion live on each page view.
 
@@ -115,34 +120,43 @@ Every Journey letter is written to `LETTER-STYLE.md` before it reaches Jimi for 
 
 Source → /preach → /teach (Version A letter for /today, Version B reel, Version C counsel)
 → approval email to whoisjimi.today@gmail.com → **nothing publishes without approval** →
-Notion → site rebuild + email send. Verify each social platform's publishing access before
+Notion → site rebuild (/today slots) + email send. Verify each social platform's publishing access before
 automating. Where it isn't available, the approval email includes the reel, card and caption ready to post by hand.
 
 ---
 
 ## 7. Build order
 
-1. Choose the email platform (sequences, tags, engagement data, webhooks).
-2. Produce and approve Journey Days 1–30 before launch. Keep a two-week buffer after that.
-3. Notion database.
-4. Site routes from `brotherjimi.html`.
-5. Email automation + domain authentication.
-6. Stripe Checkout + webhooks.
-7. Engagement tags + weekly report.
-8. End-to-end test: sign up, run Days 1, 30 and 90 by hand, give $1, cancel, sign up from /start.
-9. Launch with the first video pointing to /today.
+Done: MailerLite chosen, Notion letters database, `/api/subscribe`, Stripe `checkout.session.completed`.
+
+1. Install the lean front end (UPDATE.md). Lock passes; Jimi approves screenshots; deploy on his yes.
+2. Daily fill: the /today slots from the approved Today letter.
+3. `/api/prayer`: save to the Notion Prayers database + email Jimi.
+4. Sending domain in MailerLite (SPF, DKIM, DMARC). DNS change: Jimi's yes first.
+5. Journey sequence Days 1–90 in MailerLite, built from approved Notion letters only. Missing days are
+   TODO placeholders, set **not to send**, and listed for Jimi. Claude Code never writes a letter.
+   Day 30 ask, and graduation to Today after Day 90.
+6. `/api/checkout` returns `{url}`; Stripe webhooks for `customer.subscription.updated` and `.deleted`
+   (remove tag `partner` when a subscription ends).
+7. `received` alert to Jimi within minutes of an "I prayed today" signup.
+8. Engagement tags + weekly report.
+9. End-to-end test: sign up, run Days 1, 30 and 90 by hand, give $1, cancel, sign up from /start, send a prayer.
+
+Not built: an admin dashboard. Notion is where letters and prayers are managed; MailerLite is where subscribers are seen.
 
 ---
 
 ## 8. Details to keep exactly
 
-- Wine (#8b2332, hover #9c2a3b) is the only accent color, taken from the burgundy cover of the Bible in the hero. It is used for buttons, links and focus rings. No Apple blue, no gold. Scripture references are set in slate grey. The only yellow is the highlighter mark inside the hero photo.
-- One typeface: the Apple system font on every page. The only serif is the printed text inside the hero Bible image.
-- Emails are plain, personal letters (one letter per morning, typed like a mentor to one person), not designed newsletters. Keep the mail-app mockup on `/` showing exactly what arrives.
+- Wine (#8b2332, hover #9c2a3b) is the only accent colour. It is used for buttons, links and focus rings. No Apple blue, no gold, no yellow. Scripture references are small grey capitals.
+- One typeface on every device: Inter, self-hosted in `site/assets/fonts/` (OFL licence) and preloaded. It comes first in the font list because Android and Chrome replace the system-font names with their own fonts. No other fonts.
+- One white background on every page. No grey bands, no app mockups, no images except Jimi's photo. The only raised objects are the homepage notification and the letter sheet it opens.
+- Stripe Checkout branding (Stripe → Settings → Branding): brand colour and accent colour both `#8B2332`, background white.
+- Footer: "© {year} Brother Jimi · Your email is never shared." then Today's Counsel, Start Here, Partner, Privacy, Contact.
+- Every page was checked at 320, 360, 375, 390, 414, 768, 1024, 1280, 1440 and 1920px wide and with a phone held sideways: no sideways scroll, no text under 12px, tap targets at least 40px.
+- Emails are plain, personal letters (one letter per morning, typed like a mentor to one person), not designed newsletters.
 - Mobile first. Test at 375, 768 and 1440px. No horizontal scroll. Lighthouse Accessibility ≥ 95.
-- Replace sample content: the letter on `/today`, the sender name/address/avatar in the mail mockup.
-- In `brotherjimi.html` the Start Here view is named `start-here` (because `#start` is the hero anchor). On the live site its route is `/start`.
-- The hero is `bible-hero.jpg` (1672×941). Keep it contained (max 860px, so headline, Bible and signup all fit on the first screen of a 1440×900 laptop) with the soft edge fade from `.photo` in `brotherjimi.html`. Do not make it full-bleed, and keep the signup bar below it.
+- The letter on `/today` is sample content until the first daily fill. The homepage letter is fixed.
 - Not legal advice: confirm how gifts should be received, receipted and reported where the ministry is based.
 
 ## 9. Generated pages (the "Cities we serve" pattern)
@@ -152,9 +166,9 @@ One template, many pages, generated from Notion. Every generated page must be tr
 ### 9a. Topic pages: build now
 - Route: `/counsel/<slug>` (e.g. `/counsel/forgiveness`). One page per topic that has **at least one approved letter**.
 - Source: a `Topic` field (multi-select) on every Notion letter row. Starting topics, from Jimi's quote sets: Forgiveness, Hearing God's voice, Faith over fear, The power of your words, Spiritual battles, Character, Your thoughts, Purpose, Prayer, Freedom from sin.
-- Page template (same design system as /today): eyebrow "Counsel on", headline the topic name, one sentence in Jimi's voice, the best letter on that topic shown in the mail window, 2 to 4 key verses for the topic (quoted exactly, one translation), other letters on the topic as short links, then "A letter like this, every morning." signup.
+- Page template (same design system as /today): eyebrow "Counsel on", headline the topic name, one sentence in Jimi's voice, the best letter on that topic set as a letter, 2 to 4 key verses for the topic (quoted exactly, one translation), other letters on the topic as short links, then "A letter like this, every morning." signup.
 - SEO: unique `<title>` ("Bible verses and counsel on forgiveness | Brother Jimi"), meta description, canonical URL, Open Graph image = the letter's quote card, included in the sitemap.
-- **Discovery is through search, not the homepage.** Topic pages are not listed on the homepage or in the footer (they will grow into the hundreds). The footer has one link, "All Counsel", to `/counsel`: a simple index of every published topic, alphabetical, with search once it passes ~30 topics. Every topic page is in the sitemap.
+- **Discovery is through search, not the homepage.** Topic pages are not listed on the homepage or in the footer (they will grow into the hundreds). When `/counsel` exists, the footer gets one link, "All Counsel" (a design change Jimi approves), to `/counsel`: a simple index of every published topic, alphabetical, with search once it passes ~30 topics. Every topic page is in the sitemap.
 - Never generate filler copy. If a topic has no approved letter, it has no page.
 
 ### 9b. Language pages: only when a language's letters exist

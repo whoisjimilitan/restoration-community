@@ -13,9 +13,12 @@ critique when they help.
 4. Commit each approved change separately, so any change can be undone.
 
 ## The design system (keep new work consistent with it)
-- One accent colour: wine `#8b2332` (hover `#9c2a3b`), from the burgundy Bible in the hero.
+- One accent colour: wine `#8b2332` (hover `#9c2a3b`).
   No other accent colours.
-- One typeface: the Apple system font stack already in `site/assets/styles.css`.
+- One typeface on every device: Inter, self-hosted (the stack in `site/assets/styles.css`). No other fonts.
+- The hero question "Will you receive it?" always sits directly under its eyebrow "90 Days of Counsel".
+- Less is more: one white background, no cards, no grey bands, no app mockups, no stock images.
+  Only what the page needs. Letters are always set as letters, at reading size.
 - Neutrals: ink `#1d1d1f`, slate `#6e6e73`, mist `#f5f5f7`, hairline `#d2d2d7`, white.
 - Generous spacing, one idea per section, centred headlines ending with a full stop.
 - Reuse the existing CSS classes and components before creating new ones.
@@ -27,4 +30,4 @@ critique when they help.
 ## Reference
 - `HANDOFF.md`: the plan and decisions behind the site.
 - `LETTER-STYLE.md`: how every letter is written.
-- `brotherjimi.html`: the original design file.
+- `site/`: the approved lean design (6 Oct 2026). It is the reference for any new page.

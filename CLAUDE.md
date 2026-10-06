@@ -1,12 +1,11 @@
 # CLAUDE.md: brotherjimi.com build rules (non-negotiable)
 
-**The front end of this website is finished.** Every page, word, style, image and front-end
-script in `site/` is final, approved, and locked. It was checked pixel by pixel against the
-design.
+**The front end of this website is finished.** It is the lean design Jimi approved on 6 October 2026.
+Every page, word, style, font, image and front-end script in `site/` is final, approved, and locked.
 
 **Your job is the back end only:** the endpoints the forms call, the email automation, Notion,
-Stripe, and filling Today's counsel each day. You do not design, restyle, rewrite or "improve"
-anything. If a task seems to need a front-end change, **stop and ask Jimi**.
+Stripe, and filling Today's Counsel each day. You do not design,
+restyle, rewrite or "improve" anything. If a task seems to need a front-end change, **stop and ask Jimi**.
 
 Read this whole file before every task. If anything here conflicts with your own judgement,
 this file wins.
@@ -17,13 +16,13 @@ this file wins.
 
 | Path | What it is | What you may do |
 |---|---|---|
-| `site/` | The finished website (static HTML, CSS, JS, images) | Serve it exactly as is. **Do not edit locked files.** |
+| `site/` | The finished website (static HTML, CSS, JS, fonts, one photo). It is also the design source of truth. | Serve it exactly as is. **Do not edit locked files.** |
 | `site/assets/config.js` | The three endpoint URLs the forms call | The **only** front-end file you may edit |
 | `site/today/index.html` | Today's Counsel | Fill **only** the contents of the `data-slot` elements (see 3) |
 | `site/verify.py`, `site/design-lock.json` | The design lock | Run `python3 site/verify.py`. **Never** run `--lock`, never edit either file |
-| `HANDOFF.md` | The plan: email automation, Stripe, Notion, engagement groups | Implement exactly as written |
-| `LETTER-STYLE.md` | How letters are written | Follow exactly when producing letters |
-| `brotherjimi.html` | The original design file, for reference only | Never edit, never serve |
+| `HANDOFF.md` | The plan: email automation, Stripe, Notion, engagement groups, build order | Implement exactly as written |
+| `LETTER-STYLE.md` | How letters are written | Read it so you know the format. You never write letters. |
+| `UPDATE.md` | How to install this lean front end over the live one | Follow once, exactly |
 
 If two files disagree, **stop and ask**. Do not choose.
 
@@ -31,46 +30,61 @@ If two files disagree, **stop and ask**. Do not choose.
 
 ## 2. The design lock
 
-`python3 site/verify.py` checks the stylesheet, the script, the images and every page against
+`python3 site/verify.py` checks the stylesheet, the script, the fonts, the photo and every page against
 the approved design. It fails if **one character** changes outside the allowed slots.
 
 - Run it **before you report any step as done**, and paste its output in your report.
 - If it fails, undo your change. Do not "fix" the lock. Do not run `--lock`.
 - Only Jimi re-locks, and only after he approves a design change.
+- If the server copies `site/` somewhere else to serve it (for example `public/`), that copy must be
+  byte-for-byte identical, and you run `verify.py` on the copy too.
 
 ---
 
 ## 3. What you build
 
 1. **The three endpoints** in `site/assets/config.js`, behaving exactly as its comments say:
-   - `POST /api/subscribe {email, ref, source}` → add to the email platform with the tags in
-     HANDOFF.md section 3 (`source: "received"` also tags `received` and alerts the team).
-   - `POST /api/prayer {prayer}` → store privately, notify Jimi. Never public.
+   - `POST /api/subscribe {email, ref, source}` → add to MailerLite with the tags in
+     HANDOFF.md section 3 (`source: "received"` also tags `received` and emails Jimi straight away).
+   - `POST /api/prayer {prayer}` → save to the private Notion **Prayers** database (HANDOFF.md
+     section 5) and email the prayer to Jimi straight away. Never public. **No Supabase, Firebase
+     or any other database.**
    - `POST /api/checkout {amount}` → create a Stripe Checkout session (monthly) and return
      `{ "url": "..." }`.
    The front-end script already calls these and handles success and errors. Do not touch it.
-2. **Email automation, Notion, Stripe webhooks, engagement groups:** HANDOFF.md sections 3 to 6.
-3. **Today's Counsel, daily:** fill `site/today/index.html` from the approved Notion letter
-   (Track = Today, Publish date = today). Change **only** the inner content of:
-   - `data-slot="subject"` (subject line text)
-   - `data-slot="body"` (the letter's `<p>` paragraphs, using exactly the same markup pattern as
-     the current body: `<p>`, `<p class="vs">` for the verse, the sign-off, and the P.S.)
-   - `data-slot="share"`: only its `data-wa` attribute (the shareable line)
-   The date is filled by the page itself. Leave `data-slot="date"` alone.
-4. **Hosting, `/privacy`, `/contact`, sitemap, redirects:** propose how, wait for Jimi's go.
-   `/privacy` and `/contact` copy an existing page's `<head>`, header and footer exactly, with
-   plain text supplied by Jimi.
-5. **Topic pages (`/counsel/...`) and language pages:** **not yet.** They need a design Jimi
-   has not approved. Ask before starting.
+2. **Email automation, Notion, Stripe webhooks, engagement groups:** HANDOFF.md sections 3 to 6,
+   in the build order of section 7. Two rules from Jimi:
+   - **Sending domain first.** Authenticate the MailerLite sending domain (SPF, DKIM, DMARC)
+     before you build any sequence. It is a DNS change, so it needs Jimi's yes in this session.
+   - **You never write letters.** Sequences use only letters Jimi approved in Notion. Any missing
+     day becomes a TODO placeholder that is set **not to send**, and you list the missing days for Jimi.
+3. **Today's Counsel, every day,** from the approved Notion letter (Track = Today, Publish date =
+   today). In `site/today/index.html` change only the inner content of `data-slot="subject"` and
+   `data-slot="body"`, and the `data-wa` attribute of `data-slot="share"` (the shareable line).
+   The homepage letter is fixed. Never change it.
+   The date on /today is filled by the page itself. Leave `data-slot="date"` alone.
+   The body uses exactly this markup and nothing else:
+   ```html
+   <p>A paragraph.</p>
+   <p class="vs">“The verse, word for word.” <cite>Book 1:1</cite></p>
+   <p class="sign">Your brother,<br>Jimi</p>
+   <p class="ps">P.S. …</p>
+   ```
+   If there is no approved letter for today, leave yesterday's letter in place and tell Jimi.
+4. **Hosting, `/privacy`, sitemap, redirects:** propose how, wait for Jimi's go.
+   `/privacy` copies an existing page's `<head>`, header and footer exactly, with plain text
+   supplied by Jimi. There is no `/contact` page: the footer's Contact link is an email link.
+5. **Not built:** an admin dashboard (Notion holds letters and prayers; MailerLite holds subscribers),
+   topic pages (`/counsel/...`) and language pages. Ask before starting any of them.
 
 ---
 
 ## 4. What you must never do
 
-1. Never edit a locked file (`site/verify.py` lists them), the lock, or `brotherjimi.html`,
-   `HANDOFF.md`, `LETTER-STYLE.md`, `CLAUDE.md`.
+1. Never edit a locked file (`site/verify.py` lists them), the lock, `HANDOFF.md`,
+   `LETTER-STYLE.md`, `UPDATE.md` or `CLAUDE.md`.
 2. Never add anything to the website: no scripts, analytics, cookie bars, chat widgets,
-   translate widgets, pop-ups, fonts, frameworks, build tools that rewrite the HTML or CSS,
+   translate widgets, pop-ups, fonts, images, frameworks, build tools that rewrite the HTML or CSS,
    minifiers, or "optimisers".
 3. Never invent content: no letters, Scripture, prayers, testimonials or numbers. Missing
    content becomes a `TODO` and a note to Jimi.
@@ -83,9 +97,9 @@ the approved design. It fails if **one character** changes outside the allowed s
 
 1. **Before any code,** reply with a short plan: the exact files you'll create or change and
    which item in section 3 they serve. Wait for Jimi's "go".
-2. Work one step at a time (HANDOFF.md build order). Stop after each.
+2. Work one step at a time (HANDOFF.md section 7). Stop after each.
 3. After each step, report what you did file by file, every TODO for Jimi, and the output of
-   `python3 site/verify.py`.
+   `python3 site/verify.py`. Keep it short and plain; Jimi is not technical.
 4. When unsure, ask. Never guess.
 5. Commit after each approved step.
 
@@ -96,8 +110,8 @@ I changed", "I took the liberty", "modernised" or "cleaned up", stop, undo it, a
 
 ## 6. Going live (the switch to full access)
 
-When, and only when, Jimi tells you **in his own words in this session** that the site is live
-and asks you to switch to after-launch mode:
+When, and only when, Jimi tells you **in his own words in this session** that he wants to
+switch to after-launch mode:
 
 1. Run `python3 after-launch/go-live.py`. Claude Code will ask Jimi for permission; that prompt
    is his confirmation.

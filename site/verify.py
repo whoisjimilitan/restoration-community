@@ -4,7 +4,7 @@
 Run:  python3 verify.py          -> checks every locked file; exits 1 on ANY change.
       python3 verify.py --lock   -> (Jimi only) re-records the lock after an approved design change.
 
-What is locked: the stylesheet, the front-end script, the images, and every page's HTML.
+What is locked: the stylesheet, the front-end script, the fonts, the images, and every page's HTML.
 What may change: assets/config.js (endpoints) and the content inside elements marked
 data-slot="..." on /today (date, subject, body, share text), which the back end fills daily.
 """
@@ -14,7 +14,8 @@ ROOT = pathlib.Path(__file__).resolve().parent
 LOCK = ROOT / "design-lock.json"
 FILES = [
     "assets/styles.css", "assets/site.js",
-    "images/bible-hero.jpg", "images/jimi-avatar.jpg",
+    "assets/fonts/inter-latin-wght-normal.woff2", "assets/fonts/inter-latin-wght-italic.woff2",
+    "images/jimi-avatar.jpg",
     "index.html", "today/index.html", "start/index.html",
     "welcome/index.html", "welcome/received/index.html", "partner/index.html",
 ]

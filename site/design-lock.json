@@ -1,12 +1,13 @@
 {
-  "assets/styles.css": "3b2d8e6ad3efb74c48e2380d2e70858cca2ba4448de42712614b55bb333c1f21",
-  "assets/site.js": "c491dbcbf969d832b92cfc6710b2d54b2ce9f4e5812b6f7a14e0d53e2a45fb9c",
-  "images/bible-hero.jpg": "5e52a726c4dfd380a98b2b1b44a40186253e992f47d22f59cd970596fa147c76",
+  "assets/styles.css": "7c45b9541833babffff80e6cb1667da2bb86cd0c9b533db42ed3406e3e0a4976",
+  "assets/site.js": "35d47a97ba7e9a1c0e34b7fe2138e4ed48f0e117f3d77961574f4de26854f680",
+  "assets/fonts/inter-latin-wght-normal.woff2": "3100e775e8616cd2611beecfa23a4263d7037586789b43f035236a2e6fbd4c62",
+  "assets/fonts/inter-latin-wght-italic.woff2": "7291b5970da2237441273c03b424a504b70b18f09791473fab99687dcc314720",
   "images/jimi-avatar.jpg": "d797d165d0c9fdba46f56d7ca8af04367f2dff2bcf0c3a5dd6c71e30b9a21336",
-  "index.html": "efc0e02dedd76c932fb168b1ec0a6da9314fd911f9db2fbd8934f63d66f93deb",
-  "today/index.html": "717d8ac6c5594393d14fa4763ad0910f495cb605a24465353e505607c2d1eade",
-  "start/index.html": "d7dc72733175e0f457a176cc31540505641d5f983f3ca83629bc1cec6b66b5b6",
-  "welcome/index.html": "61bcddb98c46f508cdde7c01226ecefa6219e09eeff2c0a3e86387faecfdc8f6",
-  "welcome/received/index.html": "3f3642b87561e403c4310c4256a96d475ddc33d3a61b1df606dffd47733d1c83",
-  "partner/index.html": "35382fb5e97776571ccabd58b087c3f670736d89a96301f97e43b2f161f015eb"
+  "index.html": "cea2b3527c9a5866018c13afdfacb4bd15ec905d34822b519ba640450b9a7549",
+  "today/index.html": "f2f48bb6806e2a8e883f24e6febed2643825faefd9a7fa4ca16170ea019f5777",
+  "start/index.html": "f970c083e912661ab6342097d4f7670fc96dffe863b8274a25b4b2ca2f957ef2",
+  "welcome/index.html": "d96b5aa54b12c8c6bbc66cc5acbea68c0135e6d6d1f489d19eaedf02eab2798e",
+  "welcome/received/index.html": "cefbe6308cf9cf88ca86c15652d6c4364a04a0903ca6376e29e1a7a562761293",
+  "partner/index.html": "5527c0f38777d5d09660a09140e4a0974b34eb1f0561065cad7f40aec4ac3cfe"
 }
