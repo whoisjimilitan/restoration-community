@@ -16,9 +16,10 @@ this file wins.
 
 | Path | What it is | What you may do |
 |---|---|---|
-| `site/` | The finished website (static HTML, CSS, JS, fonts, one photo). It is also the design source of truth. | Serve it exactly as is. **Do not edit locked files.** |
+| `site/` | The finished website (static HTML, CSS, JS, fonts, images). It is also the design source of truth. | Serve it exactly as is. **Do not edit locked files.** |
 | `site/assets/config.js` | The three endpoint URLs the forms call | The **only** front-end file you may edit |
 | `site/today/index.html` | Today's Counsel | Fill **only** the contents of the `data-slot` elements (see 3) |
+| `site/today/today.json` | Today's title, line, link and video, read by every page | Rewrite each morning (see 3) |
 | `site/verify.py`, `site/design-lock.json` | The design lock | Run `python3 site/verify.py`. **Never** run `--lock`, never edit either file |
 | `HANDOFF.md` | The plan: email automation, Stripe, Notion, engagement groups, build order | Implement exactly as written |
 | `LETTER-STYLE.md` | How letters are written | Read it so you know the format. You never write letters. |
@@ -59,22 +60,45 @@ the approved design. It fails if **one character** changes outside the allowed s
    - **You never write letters.** Sequences use only letters Jimi approved in Notion. Any missing
      day becomes a TODO placeholder that is set **not to send**, and you list the missing days for Jimi.
 3. **Today's Counsel, every day,** from the approved Notion letter (Track = Today, Publish date =
-   today). In `site/today/index.html` change only the inner content of `data-slot="subject"` and
-   `data-slot="body"`, and the `data-wa` attribute of `data-slot="share"` (the shareable line).
-   The homepage letter is fixed. Never change it.
-   The date on /today is filled by the page itself. Leave `data-slot="date"` alone.
-   The body uses exactly this markup and nothing else:
-   ```html
-   <p>A paragraph.</p>
-   <p class="vs">“The verse, word for word.” <cite>Book 1:1</cite></p>
-   <p class="sign">Your brother,<br>Jimi</p>
-   <p class="ps">P.S. …</p>
-   ```
-   If there is no approved letter for today, leave yesterday's letter in place and tell Jimi.
+   today, Status = Approved). Each morning, before 6:00 AM Ghana time:
+   - In `site/today/index.html` change only the inner content of `data-slot="subject"`,
+     `data-slot="body"` and `data-slot="date"` (the letter's date, e.g. `Tuesday 6 October`).
+     The homepage letter is fixed. Never change it.
+   - The body uses exactly this markup and nothing else:
+     ```html
+     <p>A paragraph.</p>
+     <p class="vs">“The verse, word for word.” <cite>Book 1:1</cite></p>
+     <p class="sign">Your brother,<br>Jimi</p>
+     <p class="ps">P.S. …</p>
+     ```
+   - Write `site/today/today.json` (the only other file you fill daily) with exactly these keys:
+     `date` (YYYY-MM-DD), `dateLabel` ("Tuesday 6 October"), `subject`, `line` (the shareable line),
+     `url` (`/today/YYYY-MM-DD`), `video` (path to today's video, or `""` if there is none),
+     `poster` (path to the video's still image, or `/images/jimi-avatar.jpg`).
+     `card`: today's WhatsApp Status card (see below), or `""`.
+     `startedThisMonth`: the real number of new subscribers this calendar month, read from
+     MailerLite (a whole number), or `null`. The homepage shows it only from 50 up. **Never
+     estimate, round up, seed or invent it.**
+     With `video` empty the Today bubble and the video simply don't show. That is correct.
+   - Save the filled page as a permanent copy at `/today/YYYY-MM-DD/index.html`. In that copy only,
+     set `og:title` to the subject, `og:description` to the shareable line and `og:url` to the
+     permanent address. Never delete or change a past day's copy.
+   - Today's video (uploaded by Jimi in Notion): make it square, 480×480, H.264 MP4, no larger
+     than 3 MB, with a still image (`.jpg`) from its first second as the poster. Never add music,
+     text or effects.
+   - Today's Status card: render `site/design/status-card.html` with only `{{dateLabel}}` and
+     `{{line}}` replaced (HTML-escaped) at exactly 1080×1920, save it as
+     `/today/YYYY-MM-DD/card.png`, and put that path in `today.json` → `card`. Change nothing else
+     in the template. Show Jimi the first one before publishing it.
+   - Run `python3 site/verify.py` before publishing. If there is no approved letter for today,
+     leave yesterday's in place and email Jimi.
 4. **Hosting, `/privacy`, sitemap, redirects:** propose how, wait for Jimi's go.
    `/privacy` copies an existing page's `<head>`, header and footer exactly, with plain text
    supplied by Jimi. There is no `/contact` page: the footer's Contact link is an email link.
-5. **Not built:** an admin dashboard (Notion holds letters and prayers; MailerLite holds subscribers),
+5. **Measure, weekly, in plain words for Jimi:** visitors, signups (and visitors → signups),
+   arrivals from shared links (`?ref=share`), prayers received. No analytics scripts on the site:
+   read these from the server logs, MailerLite and Notion.
+6. **Not built:** an admin dashboard (Notion holds letters and prayers; MailerLite holds subscribers),
    topic pages (`/counsel/...`) and language pages. Ask before starting any of them.
 
 ---
