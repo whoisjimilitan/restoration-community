@@ -39,7 +39,7 @@ h1,h2,h3{text-wrap:balance}
 .pill-sm:hover{background:var(--wine-hover);text-decoration:none}
 .hide-sm{display:none} @media (min-width:735px){ .hide-sm{display:inline} }
 .brand{display:inline-flex;align-items:center;gap:10px;font-size:15px;font-weight:600;color:var(--ink);letter-spacing:-0.01em;padding:10px 12px 10px 0}
-.brand img{width:28px;height:28px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 1px rgba(0,0,0,.06)} .brand:hover{text-decoration:none}
+.brand img{width:28px;height:28px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 2px #fff,0 0 0 3.5px var(--wine)} .brand:hover{text-decoration:none}
 
 .nav a.txt{font-size:13px;color:var(--ink);opacity:.8;padding:13px 0} .nav a.txt:hover{opacity:1;text-decoration:none}
 
