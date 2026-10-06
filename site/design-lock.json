@@ -1,5 +1,5 @@
 {
-  "assets/styles.css": "ae283aeda40bb695a46a2aca9151d80f169bd0abbd68e7475db42f618f5efba0",
+  "assets/styles.css": "f0e5758cac9db8340c01f7ecd02d001c335e521a3b9f12462774c9547ac34ced",
   "assets/site.js": "4f7e109bfe66b9bfb3f1aac51ec28746c7525f9aed8a08180da7998e3df41eed",
   "assets/fonts/inter-latin-wght-normal.woff2": "3100e775e8616cd2611beecfa23a4263d7037586789b43f035236a2e6fbd4c62",
   "assets/fonts/inter-latin-wght-italic.woff2": "7291b5970da2237441273c03b424a504b70b18f09791473fab99687dcc314720",
@@ -9,11 +9,11 @@
   "images/og.jpg": "b8312493419165104df82d69d33fe061c21744e12a1378a7751d874ac535a73b",
   "images/favicon.png": "1de169c1b920e812420e067c856fba35ac3251cd15398d38c7e9db59016546f3",
   "images/apple-touch-icon.png": "9053c6be5ead96fd01d84ff9ab75a7e10b3a49e1c3482c5213a4236f4903e904",
-  "index.html": "1b2902126eeb0748fcb97530dabbe2f2a02f21a9082470da0aba2ab18263f586",
+  "index.html": "9e37ef3b9b4805a5a5901da4c514bb69f18234c3b3395dcd765045124ae42157",
   "today/index.html": "b62abb8bf0828e30691d5618e9479881706b8fefa68772e181c95218a658cc04",
-  "start/index.html": "8a2069ba8c8a61abced1ab69c52873872cf35259fc18965a5b75597ec5cb65e8",
+  "start/index.html": "1b9c7efc7be93844c219ef244753abe35a36195e9dad04a22bcd461620006bda",
   "welcome/index.html": "3c78205c7df74da52f17a1f33ba81b6fb53164d791bc6e909df035029424f690",
-  "welcome/received/index.html": "f42b064feab6d7ec694f76bc72ecec666bddacadffd70963a6c4182620369f2d",
+  "welcome/received/index.html": "60c03eccb5c6038ca34242db571a996c160fd366e102c5c545d5acfcc968c7ea",
   "partner/index.html": "1c28045e5039920ce83c216d043a4e24eca4841fbe3b50d14f294452becc6157",
   "404.html": "dc796778b0f2eab60d5d3ae43725c0b36eb6ca5b01dd5784fece463050c0c3bc",
   "design/status-card.html": "01b4e7001869cba7371ac1a66987872adba860508058d3f560cff0e3a74a4a4f"

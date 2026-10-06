@@ -12,13 +12,9 @@ KIT = ROOT / "after-launch"
 shutil.copyfile(KIT / "CLAUDE.md", ROOT / "CLAUDE.md")
 (ROOT / ".claude").mkdir(exist_ok=True)
 shutil.copyfile(KIT / "settings.json", ROOT / ".claude" / "settings.json")
-for f in ("site/verify.py", "site/design-lock.json"):
-    p = ROOT / f
-    if p.exists():
-        p.unlink()
 
 print("Switched to after-launch mode:")
 print("  - CLAUDE.md replaced with the after-launch version")
-print("  - .claude/settings.json replaced: design locks removed")
-print("  - design lock removed (site/verify.py, site/design-lock.json)")
+print("  - .claude/settings.json replaced: you may now edit the whole site with Jimi")
+print("  - the design lock stays as a check (python3 site/verify.py); re-lock only after Jimi approves a change")
 print("Start a new Claude Code session so the new CLAUDE.md is loaded.")

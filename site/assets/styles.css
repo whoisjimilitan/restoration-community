@@ -380,17 +380,39 @@ footer a{color:var(--slate)}
 /* Start Here: one truth at a time, on one path down to the prayer */
 .s-open{text-align:center;padding-block:120px 0}
 @media (min-width:735px){ .s-open{padding-top:168px} }
-.tag{display:inline-block;font-size:13px;font-weight:600;color:var(--wine);background:rgba(139,35,50,.08);border-radius:999px;padding:6px 14px;margin-bottom:18px}
+/* Start Here: one truth per screen, joined by one wine path. Only the reference shows; tap it to read the verse. */
+.s-first{min-height:calc(100svh - 52px);display:flex;flex-direction:column;padding:0}
+.s-first::before{content:"";flex:1}
+.s-first::after{content:"";flex:1;min-height:96px;width:1px;margin:40px auto 0;background:linear-gradient(transparent,#b8b8bd)}
+.s-first .lede{margin-top:18px}
 .truths{list-style:none;text-align:center;padding:0 var(--gutter)}
-.truths li{position:relative;padding-top:168px}
-.truths li::before{content:"";position:absolute;left:50%;top:40px;width:1px;height:88px;background:linear-gradient(var(--hair),var(--wine))}
-.truths li::after{content:"";position:absolute;left:50%;top:128px;width:9px;height:9px;margin-left:-4px;border-radius:50%;background:var(--wine)}
+.truths li{min-height:max(540px,88svh);display:flex;flex-direction:column;align-items:center}
+.truths li::before{content:"";flex:1;width:9px;min-height:120px;margin-bottom:40px;
+  background:radial-gradient(circle at 50% calc(100% - 4.5px),var(--wine) 4px,transparent 4.6px),linear-gradient(var(--hair),var(--wine)) 50% 0/1px calc(100% - 9px) no-repeat}
+.truths li::after{content:"";flex:.8;width:1px;min-height:80px;margin-top:40px;background:var(--hair)}
+.truths li:last-child::after{background:linear-gradient(var(--hair),#0a0a0c 140%)}
 .truths h2{max-width:14ch;margin:0 auto}
-.truths blockquote{max-width:30ch;margin:18px auto 0;font-size:19px;line-height:1.5;color:var(--slate);text-wrap:balance}
-.truths cite{display:block;font-style:normal;margin-top:10px}
-.prayer-band{position:relative;margin-top:168px;text-align:center;padding-block:var(--gap);color:#fff;
+.vref{margin-top:22px}
+.vref summary{display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 16px;border-radius:999px;cursor:pointer;list-style:none;
+  font-size:14px;font-weight:600;letter-spacing:.02em;color:var(--wine);background:rgba(139,35,50,.08);transition:background .2s}
+.vref summary::-webkit-details-marker{display:none}
+.vref summary::after{content:"";width:7px;height:7px;border:solid currentColor;border-width:0 1.5px 1.5px 0;transform:translateY(-2px) rotate(45deg);transition:transform .25s}
+.vref[open] summary::after{transform:translateY(1px) rotate(-135deg)}
+.vref summary:hover{background:rgba(139,35,50,.13)}
+.vref summary:focus-visible{outline:2px solid var(--wine);outline-offset:3px}
+.vref p{max-width:30ch;margin:18px auto 0;font-size:19px;line-height:1.5;color:var(--slate);text-wrap:balance}
+@media (prefers-reduced-motion:no-preference){
+  .vref[open] p{animation:fadein .35s ease-out}
+  @supports (animation-timeline:view()){
+    .truths h2,.truths .vref{animation:rise linear both;animation-timeline:view();animation-range:entry 0% cover 28%}
+    .s-first .wrap{animation:drift linear both;animation-timeline:scroll();animation-range:0 60svh}
+  }
+}
+@keyframes fadein{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
+@keyframes rise{from{opacity:0;transform:translateY(48px)}to{opacity:1;transform:none}}
+@keyframes drift{to{opacity:.15;transform:translateY(-40px)}}
+.prayer-band{position:relative;margin-top:0;text-align:center;padding-block:var(--gap);color:#fff;
   background:radial-gradient(120% 80% at 50% 120%,rgba(139,35,50,.6) 0%,transparent 65%),linear-gradient(#0a0a0c,#18171a)}
-.prayer-band::before{content:"";position:absolute;left:50%;top:-168px;width:1px;height:168px;background:linear-gradient(var(--hair),#0a0a0c)}
 .prayer-band .when{color:#a1a1a6}
 .prayer-band .said{color:#fff}
 
@@ -414,3 +436,8 @@ footer a{color:var(--slate)}
 footer{padding-bottom:calc(96px + env(safe-area-inset-bottom,0px))}
 
 @media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto} }
+.prayer-band .vref{margin-top:36px}
+.prayer-band .vref summary{color:#fff;background:rgba(255,255,255,.12)}
+.prayer-band .vref summary:hover{background:rgba(255,255,255,.2)}
+.prayer-band .vref summary:focus-visible{outline-color:#fff}
+.prayer-band .vref p{color:#c7c7cc;margin-inline:auto}

@@ -1,50 +1,42 @@
-# UPDATE.md: install the final homepage design (approved by Jimi, 6 Oct 2026)
+# UPDATE.md: Start Here and small text fixes (approved by Jimi, 6 Oct 2026)
 
-This replaces the lean design that is live now. It adds the moment of receiving (the phone at
-6:00), the Today bubble with Jimi's daily video, sharing, a page for every day, and link-preview
-cards. Do these steps once, in order, exactly as written. Change, merge or "adapt" nothing. If a
-step doesn't fit how the project is set up, **stop and ask Jimi**.
+What changes on the site:
+- **Home:** "Ninety mornings." now reads "Read it. Do what it says." ("Don't skip a day." removed).
+- **Start Here:** "Receive Jesus." / "It's the most important decision you'll ever make." (the tag
+  "If you haven't yet" is removed). One truth per screen; each shows only its reference, and
+  tapping it opens the verse. The fourth truth is now John 1:12. Romans 10:9 sits under the prayer.
+- **Welcome (after praying):** "Give it the next 30 days and don't skip a morning." becomes
+  "Give God ninety mornings." (the journey is 90 days).
+- The after-launch kit is updated to match the live site (only used when Jimi asks to switch).
+
+Do these steps once, in order, exactly as written. Change, merge or "adapt" nothing.
 
 ## Step 1. Save the current state
-`git status`. Commit any uncommitted work first: `Before final homepage design`.
+`git status`. Commit any uncommitted work first (including today's daily fill):
+`Before Start Here update`.
 
-## Step 2. Replace the front end
-1. Copy every file in this update's `site/` folder over the project's `site/` folder, **except
-   `site/assets/config.js`** (keep the project's own).
-2. `site/today/today.json` is new. Copy it as it is; from tomorrow you fill it each morning
-   (CLAUDE.md section 3.3). Its `video` is empty, so the face in the dock simply links to /today
-   until Jimi's first video. That is correct.
-3. Images: `site/images/bible-hero.jpg` is **replaced** by the new one (Jimi's hands, Bible open at James 1:21), and `site/images/bible-hero-2x.jpg` is its sharper copy for large screens. New: `site/images/og.jpg` (link-preview card), `site/images/favicon.png` and `site/images/apple-touch-icon.png` (Jimi's face as the site icon). Delete `site/images/icon.svg` if it exists.
-4. Keep all back-end code. Keep the `prebuild` copy of `site/` into `public/` and run it now.
-5. Serve `site/404.html` as the site's not-found page (in Next.js: copy it to `public/404.html`, which the `prebuild` copy already does, or add `pages/404.js` that returns that file unchanged). Then in `next.config.js`, add one rewrite to the existing list so each day's permanent page works:
-   `/today/:date` → `/today/:date/index.html`. Change nothing else.
+## Step 2. Copy exactly these files from `brotherjimi-lean/` over the project's own
+- `site/index.html`
+- `site/start/index.html`
+- `site/welcome/received/index.html`
+- `site/assets/styles.css`
+- `site/design-lock.json`
+- `after-launch/` (the whole folder)
+- `HANDOFF.md` and `UPDATE.md`
 
-## Step 3. Replace the rule files
-Copy `CLAUDE.md`, `HANDOFF.md`, `LETTER-STYLE.md`, `UPDATE.md`, `.claude/settings.json` and the
-`after-launch/` folder into the project root, replacing the old ones.
+**Do not copy anything else.** In particular, keep the project's own `site/today/index.html`,
+`site/today/today.json`, `site/today/YYYY-MM-DD/` pages and `site/assets/config.js`: they hold
+today's letter and your settings. Then run the `prebuild` copy so `public/` matches `site/`.
 
-## Step 4. Check (send nothing to real people; test data only)
-1. `python3 site/verify.py` must print: `Design lock OK: all 18 files match the approved design.`
-2. Each of `/`, `/today`, `/start`, `/welcome`, `/welcome/received`, `/partner` sends byte for byte
-   the HTML in `site/`. `/today/today.json`, `/images/bible-hero.jpg`, `/images/bible-hero-2x.jpg`, `/images/og.jpg`, `/images/favicon.png` and `/images/apple-touch-icon.png` return 200.
-3. Screenshots of all six pages at 390px and 1440px wide, and no page scrolls sideways at 320px.
-4. On `/` at 390px:
-   - the hero shows Jimi's hands holding the open Bible; about one second after load a yellow highlighter sweeps across James 1:21, line by line; the line "90 days of counsel from the Bible." (no "Free."), and the signup bar resting on the photo;
-   - scrolling down, in the dark section, the phone shows 5:59, the dawn rises, it turns 6:00 and the notification arrives (about 3 s);
-   - tapping the notification opens the letter; "I'll do this today" shows "Amen", **Send this to
-     someone** and the email box;
-   - the email box in the floating bar posts to `/api/subscribe` and goes to `/welcome`.
-5. Test the dock locally only: on `/` it is hidden at the top and rises once the signup bar has
-   scrolled away. Put any short MP4 path in a local copy of `today.json`: the face gets a wine
-   ring and tapping it plays the round video. Then put
-   `today.json` back exactly as shipped.
-6. On `/today`: "Write to Jimi" posts to `/api/prayer`; "I'll do this today" shows the share button.
-7. Show Jimi the `verify.py` output and the screenshots. Wait for his yes.
+## Step 3. Check
+1. `python3 site/verify.py` must print `Design lock OK: all 18 files match the approved design.`
+2. Screenshots at 390px for Jimi:
+   - `/start`: the first screen ("Receive Jesus." and the decision line, nothing above it);
+     the "God loves you." screen with the John 3:16 pill tapped open; the prayer with the
+     Romans 10:9 pill under it.
+   - `/`: the "Ninety mornings." section.
+3. On `/start`, "I prayed today" still posts to `/api/subscribe` with `source: "received"`.
+4. Wait for Jimi's yes. Then commit (`Start Here: one truth per screen, John 1:12, Romans 10:9`),
+   push and deploy the way the site is already deployed.
 
-## Step 5. Go live
-On Jimi's yes in this session: commit (`Final homepage design, approved by Jimi 6 Oct 2026`),
-push and deploy the way the site is already deployed. Open the live `/` and `/today` and confirm
-they match the screenshots.
-
-## Step 6. Tell Jimi to start a new Claude Code session
-Then continue with HANDOFF.md section 7, step 2 (the daily fill), with a short plan first.
+Do not switch to after-launch mode. Jimi has asked to keep the design lock on for now.

@@ -7,8 +7,8 @@
 
 1. Replace `CLAUDE.md` (in the main project folder) with `after-launch/CLAUDE.md`.
 2. Replace `.claude/settings.json` with `after-launch/settings.json`.
-3. Optional: delete `site/verify.py` and `site/design-lock.json`. The lock is no longer needed.
-4. Start a new Claude Code session so it reads the new rules.
+3. Start a new Claude Code session so it reads the new rules.
 
-Claude Code can then edit anything on the site with you. It will still ask before pushing
-to GitHub or deploying.
+Claude Code can then edit anything on the site with you. The design lock stays as a check:
+it shows you what changed, and Claude Code re-locks only after you approve a change. It will
+still ask before pushing to GitHub or deploying.
