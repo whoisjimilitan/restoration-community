@@ -5,6 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Today’s Counsel · Brother Jimi</title>
 <meta name="description" content="Today’s counsel from Scripture, shared by Brother Jimi.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Brother Jimi">
+<meta property="og:title" content="Today’s Counsel">
+<meta property="og:description" content="Today’s counsel from Scripture, shared by Brother Jimi.">
+<meta property="og:url" content="https://brotherjimi.com/today">
+<meta property="og:image" content="https://brotherjimi.com/images/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="/images/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
 <link rel="preload" href="/assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/styles.css">
 </head>
@@ -12,19 +24,30 @@
 
 <header class="nav">
   <div class="wrap">
-    <a class="brand" href="/">Brother Jimi</a>
+    <a class="brand" href="/"><img src="/images/jimi-avatar.jpg" alt="" width="28" height="28">Brother Jimi</a>
     <a class="txt" href="/today">Today’s Counsel</a>
   </div>
 </header>
 
 <main>
 <div class="wrap">
-    <article class="letter col open" aria-label="Today’s counsel from Brother Jimi">
+    <div class="day open">
+      <!-- Today's short video from Brother Jimi (from /today/today.json). Hidden when there is none. -->
+      <div class="vid vid-inline" data-vid hidden>
+        <svg class="vid-ring" viewBox="0 0 100 100" aria-hidden="true"><circle class="trk" cx="50" cy="50" r="48"/><circle class="prg" cx="50" cy="50" r="48"/></svg>
+        <video playsinline preload="none" poster="/images/jimi-avatar.jpg"></video>
+        <button class="vid-play" type="button" aria-label="Play today’s video"></button>
+      </div>
       <p class="when">Today’s Counsel · <span id="today-date" data-slot="date">Today</span></p>
-      <h1 class="subject" data-slot="subject">The voice you’ll hear first</h1>
-      <p class="from"><img src="/images/jimi-avatar.jpg" alt="" width="32" height="32">Brother Jimi</p>
       <!-- Filled daily from Notion (Track = Today, Publish date = today). Only the data-slot contents change. -->
-      <div class="text" data-slot="body">
+      <article class="email" aria-label="Today’s counsel from Brother Jimi">
+        <h1 class="em-subj" data-slot="subject">The voice you’ll hear first</h1>
+        <div class="em-from">
+          <img src="/images/jimi-avatar.jpg" alt="" width="40" height="40">
+          <p><b>Brother Jimi</b> <span class="em-addr">&lt;jimi@brotherjimi.com&gt;</span><span class="em-to">to me</span></p>
+          <time>6:00&nbsp;AM</time>
+        </div>
+        <div class="text em-body" data-slot="body">
         <p>When something goes wrong, whose voice do you hear first?</p>
         <p>It’s not always the one you say you believe. It’s usually the one you’ve been listening to the most.</p>
         <p>If you’ve been taking in the news, fear, and everyone else’s opinions, that’s what you’ll hear. Before you know it, you’re panicking, complaining, or doing things your own way.</p>
@@ -36,12 +59,18 @@
         <p class="sign">Your brother,<br>Jimi</p>
         <p class="ps">P.S. If God spoke to you through this, or you need prayer for anything today, just hit reply and tell me.</p>
       </div>
-      <div class="pass">
-        <span>Who needs this today?</span>
-        <div><button class="btn sm ghost" type="button" data-copy>Copy link</button>
-          <a class="btn sm" data-wa="What you hear first will depend on what you’ve been listening to." data-slot="share" href="#">Send on WhatsApp</a></div>
-      </div>
-    </article>
+        <div class="em-acts">
+          <button class="em-btn" type="button" data-reply><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M8 5 3 10l5 5M3 10h9a5 5 0 0 1 5 5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Reply</button><button class="em-btn" type="button" data-share><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M12 5l5 5-5 5M17 10H8a5 5 0 0 0-5 5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Forward</button>
+        </div>
+        <form class="em-reply" id="prayer-form" novalidate hidden>
+          <p class="em-rhead"><span>To:</span> Brother Jimi<br><span>Re:</span> <span data-t="subject">The voice you’ll hear first</span></p>
+          <label class="sr" for="prayer">Your reply</label>
+          <textarea id="prayer" name="prayer" placeholder="Write what’s on your heart…"></textarea>
+          <div class="row"><button class="btn sm" type="submit">Send</button></div>
+          <p class="note" role="status" aria-live="polite"></p>
+        </form>
+      </article>
+    </div>
   </div>
 
   <section class="next">
@@ -58,6 +87,26 @@
     </div>
   </section>
 </main>
+
+<!-- The dock: one floating glass bar for moving around. Jimi's face is Today (his morning video when there is one). -->
+<nav class="dock" aria-label="Main" data-dock>
+  <a class="dk-face on" href="/today" data-today-face><img src="/images/jimi-avatar.jpg" alt="" width="34" height="34"><span>Today</span></a>
+  <a class="dk-link dk-home" href="/">Home</a>
+  <a class="dk-link" href="/start">Start Here</a>
+  <a class="dk-cta" href="/#start">Start Day 1</a>
+</nav>
+<dialog class="vid-d" id="today-sheet" aria-labelledby="vid-title">
+  <button class="sheet-x vid-x" type="button" data-vid-close aria-label="Close the video">Close</button>
+  <div class="vid" data-vid>
+    <svg class="vid-ring" viewBox="0 0 100 100" aria-hidden="true"><circle class="trk" cx="50" cy="50" r="48"/><circle class="prg" cx="50" cy="50" r="48"/></svg>
+    <video playsinline preload="none" poster="/images/jimi-avatar.jpg"></video>
+    <button class="vid-play" type="button" aria-label="Play today’s video"></button>
+  </div>
+  <p class="when">Today’s Counsel · <span data-t="dateLabel">Today</span></p>
+  <h3 id="vid-title" data-t="subject">Today’s counsel</h3>
+  <p class="vid-line" data-t="line"></p>
+  <div class="vid-acts"><a class="btn" href="/today" data-t-href="url">Read today’s letter</a><button class="btn ghost" type="button" data-share>Send to someone</button></div>
+</dialog>
 
 <footer>
   <div class="wrap">

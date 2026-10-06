@@ -1,13 +1,18 @@
 {
-  "assets/styles.css": "7c45b9541833babffff80e6cb1667da2bb86cd0c9b533db42ed3406e3e0a4976",
-  "assets/site.js": "35d47a97ba7e9a1c0e34b7fe2138e4ed48f0e117f3d77961574f4de26854f680",
+  "assets/styles.css": "5b76fe9022c4805314f6f5d77b8803806098a0eaa941dc01a4e183e210ea8a07",
+  "assets/site.js": "4f7e109bfe66b9bfb3f1aac51ec28746c7525f9aed8a08180da7998e3df41eed",
   "assets/fonts/inter-latin-wght-normal.woff2": "3100e775e8616cd2611beecfa23a4263d7037586789b43f035236a2e6fbd4c62",
   "assets/fonts/inter-latin-wght-italic.woff2": "7291b5970da2237441273c03b424a504b70b18f09791473fab99687dcc314720",
-  "images/jimi-avatar.jpg": "d797d165d0c9fdba46f56d7ca8af04367f2dff2bcf0c3a5dd6c71e30b9a21336",
-  "index.html": "cea2b3527c9a5866018c13afdfacb4bd15ec905d34822b519ba640450b9a7549",
-  "today/index.html": "f2f48bb6806e2a8e883f24e6febed2643825faefd9a7fa4ca16170ea019f5777",
-  "start/index.html": "f970c083e912661ab6342097d4f7670fc96dffe863b8274a25b4b2ca2f957ef2",
-  "welcome/index.html": "d96b5aa54b12c8c6bbc66cc5acbea68c0135e6d6d1f489d19eaedf02eab2798e",
-  "welcome/received/index.html": "cefbe6308cf9cf88ca86c15652d6c4364a04a0903ca6376e29e1a7a562761293",
-  "partner/index.html": "5527c0f38777d5d09660a09140e4a0974b34eb1f0561065cad7f40aec4ac3cfe"
+  "images/jimi-avatar.jpg": "d404c3b92bf30743117aba60384fcd9d5d14fd5def6bc6e207fe0bb8c125da38",
+  "images/og.jpg": "b8312493419165104df82d69d33fe061c21744e12a1378a7751d874ac535a73b",
+  "images/favicon.png": "1de169c1b920e812420e067c856fba35ac3251cd15398d38c7e9db59016546f3",
+  "images/apple-touch-icon.png": "9053c6be5ead96fd01d84ff9ab75a7e10b3a49e1c3482c5213a4236f4903e904",
+  "index.html": "27c573e85a1ea1402bf86e3448f6ebfb9d30326da69b31d7546a8f94d714a3fc",
+  "today/index.html": "b62abb8bf0828e30691d5618e9479881706b8fefa68772e181c95218a658cc04",
+  "start/index.html": "8a2069ba8c8a61abced1ab69c52873872cf35259fc18965a5b75597ec5cb65e8",
+  "welcome/index.html": "3c78205c7df74da52f17a1f33ba81b6fb53164d791bc6e909df035029424f690",
+  "welcome/received/index.html": "f42b064feab6d7ec694f76bc72ecec666bddacadffd70963a6c4182620369f2d",
+  "partner/index.html": "1c28045e5039920ce83c216d043a4e24eca4841fbe3b50d14f294452becc6157",
+  "404.html": "dc796778b0f2eab60d5d3ae43725c0b36eb6ca5b01dd5784fece463050c0c3bc",
+  "design/status-card.html": "01b4e7001869cba7371ac1a66987872adba860508058d3f560cff0e3a74a4a4f"
 }

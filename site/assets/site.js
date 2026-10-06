@@ -118,16 +118,105 @@
     sheet.addEventListener("click", e => { if (e.target === sheet) close(); });
     sheet.addEventListener("cancel", e => { e.preventDefault(); close(); });
     sheet.addEventListener("close", () => { card.classList.remove("away"); card.focus({ preventScroll: true }); });
-    const commit = $("[data-commit]", sheet), then = $(".commit-then", sheet);
-    if (commit && then) commit.addEventListener("click", () => {
-      commit.hidden = true; then.hidden = false;
-      const input = then.querySelector("input[type=email]"); if (input) input.focus();
-    });
   });
   /* end Letter */
 
+  /* Reply: opens a real reply under the letter (it goes to Jimi through the prayer form) */
+  $$("[data-reply]").forEach(b => b.addEventListener("click", () => {
+    const f = b.closest(".email") && b.closest(".email").querySelector(".em-reply");
+    if (!f) return;
+    f.hidden = false;
+    const t = f.querySelector("textarea"); if (t) t.focus();
+  }));
+
+  /* "I'll do this today": the commitment opens the next step (share, and on the homepage the signup) */
+  $$("[data-commit]").forEach(commit => {
+    const then = commit.closest(".commit") && commit.closest(".commit").querySelector(".commit-then");
+    if (then) commit.addEventListener("click", () => {
+      commit.hidden = true; then.hidden = false;
+      const first = then.querySelector("button, input[type=email]"); if (first) first.focus({ preventScroll: true });
+    });
+  });
+
+  /* Scene: the moment of receiving plays once, when the phone comes into view */
+  $$("[data-scene]").forEach(sc => {
+    if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const t = $("[data-time]", sc); if (!t) return;
+    sc.classList.add("pre"); t.textContent = "5:59";
+    const run = () => {
+      setTimeout(() => sc.classList.add("warm"), 300);
+      setTimeout(() => { t.textContent = "6:00"; sc.classList.add("tick"); }, 2100);
+      setTimeout(() => sc.classList.remove("pre", "warm"), 2600);
+    };
+    if ("IntersectionObserver" in window) {
+      const io = new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)) { io.disconnect(); run(); } }, { threshold: 0.35 });
+      io.observe(sc);
+    } else run();
+  });
+  /* end Scene */
+
+  /* Dock: hidden on the homepage while the hero signup bar is on screen, so they never stack */
+  const dock = $("[data-dock]"), heroBar = $(".hero .bar");
+  if (dock && heroBar && "IntersectionObserver" in window) {
+    dock.classList.add("away");
+    new IntersectionObserver(es => es.forEach(e => dock.classList.toggle("away", e.isIntersecting))).observe(heroBar);
+  }
+
   /* Dates */
-  const d = $("#today-date");
-  if (d && !d.dataset.fixed) d.textContent = new Date().toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric" });
+  /* Today: the day's video, title, line and link come from /today/today.json (filled each morning) */
+  let todayCard = "";
+  const shareTo = async (path) => {
+    const url = SITE + (path || "/today") + ((path || "").includes("?") ? "&" : "?") + "ref=share";
+    const text = "This was for me today. I thought of you.";
+    /* Where the phone can share images, today's Status card goes with the link (ready for WhatsApp Status) */
+    if (todayCard && path !== "/" && navigator.canShare) {
+      try {
+        const blob = await (await fetch(todayCard)).blob();
+        const file = new File([blob], "brother-jimi-today.png", { type: blob.type || "image/png" });
+        if (navigator.canShare({ files: [file] })) { await navigator.share({ files: [file], text: text + " " + url }); return; }
+      } catch (err) { if (err && err.name === "AbortError") return; }
+    }
+    if (navigator.share) navigator.share({ text, url }).catch(() => {});
+    else window.open("https://wa.me/?text=" + encodeURIComponent(text + " " + url), "_blank", "noopener");
+  };
+  let todayUrl = "/today";
+  $$("[data-share]").forEach(b => b.addEventListener("click", () => shareTo(b.dataset.shareUrl || todayUrl)));
+
+  const ring = 301.6;
+  const wireVideo = (box, src, poster) => {
+    const v = $("video", box), play = $(".vid-play", box), prg = $(".prg", box);
+    if (poster) v.poster = poster;
+    v.src = src;
+    play.addEventListener("click", () => { v.paused ? v.play() : v.pause(); });
+    v.addEventListener("play", () => box.classList.add("playing"));
+    v.addEventListener("pause", () => box.classList.remove("playing"));
+    v.addEventListener("ended", () => { box.classList.remove("playing"); prg.style.strokeDashoffset = ring; });
+    v.addEventListener("timeupdate", () => { if (v.duration) prg.style.strokeDashoffset = ring * (1 - v.currentTime / v.duration); });
+    return v;
+  };
+
+  const loadToday = () => window.BJ_TODAY ? Promise.resolve(window.BJ_TODAY)
+    : fetch("/today/today.json", { cache: "no-cache" }).then(r => r.ok ? r.json() : null).catch(() => null);
+  loadToday().then(T => {
+    if (!T) return;
+    if (T.url) todayUrl = T.url;
+    if (T.card) todayCard = T.card;
+    $$("[data-t]").forEach(el => { if (T[el.dataset.t]) el.textContent = T[el.dataset.t]; });
+    $$("[data-t-href]").forEach(el => { if (T[el.dataset.tHref]) el.href = T[el.dataset.tHref]; });
+    const d = $("#today-date"); if (d && T.dateLabel) d.textContent = T.dateLabel;
+    /* The real number of people who started this month. Shown only from 50 up; never estimated. */
+    const c = $("[data-count]"), n = Number(T.startedThisMonth);
+    if (c && Number.isInteger(n) && n >= 50) { $("[data-count-n]", c).textContent = n.toLocaleString("en-US"); c.hidden = false; }
+    if (!T.video) return;
+    const inline = $(".vid-inline"); if (inline) { inline.hidden = false; wireVideo(inline, T.video, T.poster); }
+    const face = $("[data-today-face]"), sheet = $("#today-sheet");
+    if (!face || !sheet || !sheet.showModal) return;
+    const v = wireVideo($("[data-vid]", sheet), T.video, T.poster);
+    face.classList.add("live");
+    face.addEventListener("click", e => { e.preventDefault(); sheet.showModal(); v.play().catch(() => {}); });
+    $("[data-vid-close]", sheet).addEventListener("click", () => sheet.close());
+    sheet.addEventListener("click", e => { if (e.target === sheet) sheet.close(); });
+    sheet.addEventListener("close", () => v.pause());
+  });
   const y = $("#yr"); if (y) y.textContent = new Date().getFullYear();
 })();

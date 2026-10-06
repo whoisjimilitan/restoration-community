@@ -5,6 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Partner · Brother Jimi</title>
 <meta name="description" content="Partners help these letters reach someone new each morning.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Brother Jimi">
+<meta property="og:title" content="Partner">
+<meta property="og:description" content="Partners help these letters reach someone new each morning.">
+<meta property="og:url" content="https://brotherjimi.com/partner">
+<meta property="og:image" content="https://brotherjimi.com/images/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="/images/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
 <link rel="preload" href="/assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/styles.css">
 </head>
@@ -12,7 +24,7 @@
 
 <header class="nav">
   <div class="wrap">
-    <a class="brand" href="/">Brother Jimi</a>
+    <a class="brand" href="/"><img src="/images/jimi-avatar.jpg" alt="" width="28" height="28">Brother Jimi</a>
     <a class="txt" href="/today">Today’s Counsel</a>
   </div>
 </header>
@@ -43,6 +55,26 @@
     </div>
   </section>
 </main>
+
+<!-- The dock: one floating glass bar for moving around. Jimi's face is Today (his morning video when there is one). -->
+<nav class="dock" aria-label="Main" data-dock>
+  <a class="dk-face" href="/today" data-today-face><img src="/images/jimi-avatar.jpg" alt="" width="34" height="34"><span>Today</span></a>
+  <a class="dk-link dk-home" href="/">Home</a>
+  <a class="dk-link" href="/start">Start Here</a>
+  <a class="dk-cta" href="/#start">Start Day 1</a>
+</nav>
+<dialog class="vid-d" id="today-sheet" aria-labelledby="vid-title">
+  <button class="sheet-x vid-x" type="button" data-vid-close aria-label="Close the video">Close</button>
+  <div class="vid" data-vid>
+    <svg class="vid-ring" viewBox="0 0 100 100" aria-hidden="true"><circle class="trk" cx="50" cy="50" r="48"/><circle class="prg" cx="50" cy="50" r="48"/></svg>
+    <video playsinline preload="none" poster="/images/jimi-avatar.jpg"></video>
+    <button class="vid-play" type="button" aria-label="Play today’s video"></button>
+  </div>
+  <p class="when">Today’s Counsel · <span data-t="dateLabel">Today</span></p>
+  <h3 id="vid-title" data-t="subject">Today’s counsel</h3>
+  <p class="vid-line" data-t="line"></p>
+  <div class="vid-acts"><a class="btn" href="/today" data-t-href="url">Read today’s letter</a><button class="btn ghost" type="button" data-share>Send to someone</button></div>
+</dialog>
 
 <footer>
   <div class="wrap">

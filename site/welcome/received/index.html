@@ -6,6 +6,18 @@
 <title>Welcome to the family · Brother Jimi</title>
 <meta name="description" content="A letter from Brother Jimi, before your first letter.">
 <meta name="robots" content="noindex">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Brother Jimi">
+<meta property="og:title" content="Welcome to the family">
+<meta property="og:description" content="A letter from Brother Jimi, before your first letter.">
+<meta property="og:url" content="https://brotherjimi.com/welcome/received">
+<meta property="og:image" content="https://brotherjimi.com/images/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="/images/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
 <link rel="preload" href="/assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/styles.css">
 </head>
@@ -13,7 +25,7 @@
 
 <header class="nav">
   <div class="wrap">
-    <a class="brand" href="/">Brother Jimi</a>
+    <a class="brand" href="/"><img src="/images/jimi-avatar.jpg" alt="" width="28" height="28">Brother Jimi</a>
     <a class="txt" href="/today">Today’s Counsel</a>
   </div>
 </header>
@@ -29,10 +41,14 @@
 
   <div class="wrap section page-end">
     <!-- Written to LETTER-STYLE.md from Jimi's brief and edits. Proof text: Philippians 1:6 (NIV). No P.S.: the body already offers prayer. -->
-    <article class="letter col" aria-label="A letter from Brother Jimi">
-      <h2>Before your first letter</h2>
-      <p class="from"><img src="/images/jimi-avatar.jpg" alt="" width="32" height="32">Brother Jimi</p>
-      <div class="text">
+    <article class="email" aria-label="A letter from Brother Jimi">
+        <h2 class="em-subj">Before your first letter</h2>
+        <div class="em-from">
+          <img src="/images/jimi-avatar.jpg" alt="" width="40" height="40">
+          <p><b>Brother Jimi</b> <span class="em-addr">&lt;jimi@brotherjimi.com&gt;</span><span class="em-to">to me</span></p>
+          <time>Just now</time>
+        </div>
+        <div class="text em-body">
         <p>You made a heart decision to follow Jesus today. It’s the most important decision you’ll ever make, and you chose right. So take it seriously.</p>
         <p>Starting tomorrow morning, you’ll get a letter from me every day. Think of each one as time at Jesus’ feet. Read it slowly, then do what it says, even when it seems small. Give it the next 30 days and don’t skip a morning.</p>
         <p>You won’t be left alone. I’m your prayer partner from today. If you need counsel about anything, write to me directly at jimi@brotherjimi.com. I read every message.</p>
@@ -40,10 +56,40 @@
         <p class="vs">“…he who began a good work in you will carry it on to completion until the day of Christ Jesus.” <cite>Philippians 1:6</cite></p>
         <p>Jesus is planting the seeds of who you’re becoming, and we’re excited to see who you become in Him, by His grace.</p>
         <p class="sign">Your brother,<br>Jimi</p>
-      </div>
-    </article>
+</div>
+        <div class="em-acts">
+          <button class="em-btn" type="button" data-reply><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M8 5 3 10l5 5M3 10h9a5 5 0 0 1 5 5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Reply</button>
+        </div>
+        <form class="em-reply" id="prayer-form" novalidate hidden>
+          <p class="em-rhead"><span>To:</span> Brother Jimi<br><span>Re:</span> Before your first letter</p>
+          <label class="sr" for="prayer">Your reply</label>
+          <textarea id="prayer" name="prayer" placeholder="Write what’s on your heart…"></textarea>
+          <div class="row"><button class="btn sm" type="submit">Send</button></div>
+          <p class="note" role="status" aria-live="polite"></p>
+        </form>
+      </article>
   </div>
 </main>
+
+<!-- The dock: one floating glass bar for moving around. Jimi's face is Today (his morning video when there is one). -->
+<nav class="dock" aria-label="Main" data-dock>
+  <a class="dk-face" href="/today" data-today-face><img src="/images/jimi-avatar.jpg" alt="" width="34" height="34"><span>Today</span></a>
+  <a class="dk-link dk-home" href="/">Home</a>
+  <a class="dk-link" href="/start">Start Here</a>
+  <a class="dk-cta" href="/#start">Start Day 1</a>
+</nav>
+<dialog class="vid-d" id="today-sheet" aria-labelledby="vid-title">
+  <button class="sheet-x vid-x" type="button" data-vid-close aria-label="Close the video">Close</button>
+  <div class="vid" data-vid>
+    <svg class="vid-ring" viewBox="0 0 100 100" aria-hidden="true"><circle class="trk" cx="50" cy="50" r="48"/><circle class="prg" cx="50" cy="50" r="48"/></svg>
+    <video playsinline preload="none" poster="/images/jimi-avatar.jpg"></video>
+    <button class="vid-play" type="button" aria-label="Play today’s video"></button>
+  </div>
+  <p class="when">Today’s Counsel · <span data-t="dateLabel">Today</span></p>
+  <h3 id="vid-title" data-t="subject">Today’s counsel</h3>
+  <p class="vid-line" data-t="line"></p>
+  <div class="vid-acts"><a class="btn" href="/today" data-t-href="url">Read today’s letter</a><button class="btn ghost" type="button" data-share>Send to someone</button></div>
+</dialog>
 
 <footer>
   <div class="wrap">

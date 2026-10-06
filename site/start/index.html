@@ -5,6 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Receive Jesus · Brother Jimi</title>
 <meta name="description" content="It’s the most important decision you’ll ever make.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Brother Jimi">
+<meta property="og:title" content="Receive Jesus">
+<meta property="og:description" content="It’s the most important decision you’ll ever make.">
+<meta property="og:url" content="https://brotherjimi.com/start">
+<meta property="og:image" content="https://brotherjimi.com/images/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="/images/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
 <link rel="preload" href="/assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/styles.css">
 </head>
@@ -12,46 +24,42 @@
 
 <header class="nav">
   <div class="wrap">
-    <a class="brand" href="/">Brother Jimi</a>
+    <a class="brand" href="/"><img src="/images/jimi-avatar.jpg" alt="" width="28" height="28">Brother Jimi</a>
     <a class="txt" href="/today">Today’s Counsel</a>
   </div>
 </header>
 
 <main>
-<section class="open">
+<section class="s-open">
     <div class="wrap">
-      <p class="when">Start here</p>
+      <p class="tag">If you haven’t yet</p>
       <h1 class="big">Receive Jesus.</h1>
-      <p class="lede">It’s the most important decision you’ll ever make.</p>
     </div>
   </section>
 
-  <section class="section">
-    <div class="wrap">
-      <ol class="steps">
-        <li><h2 class="mid">God loves you.</h2>
-          <blockquote>“For God so loved the world that he gave his one and only Son…”<cite class="ref">John 3:16</cite></blockquote></li>
-        <li><h2 class="mid">Sin keeps you from Him.</h2>
-          <blockquote>“For all have sinned and fall short of the glory of God.”<cite class="ref">Romans 3:23</cite></blockquote></li>
-        <li><h2 class="mid">Jesus paid the price.</h2>
-          <blockquote>“While we were still sinners, Christ died for us.”<cite class="ref">Romans 5:8</cite></blockquote></li>
-        <li><h2 class="mid">Receive Him by faith.</h2>
-          <blockquote>“Everyone who calls on the name of the Lord will be saved.”<cite class="ref">Romans 10:13</cite></blockquote></li>
-      </ol>
-    </div>
-  </section>
+  <!-- Four truths on one path down to the prayer. One statement each, its verse beneath. -->
+  <ol class="truths">
+    <li><h2 class="big">God loves you.</h2>
+      <blockquote>“For God so loved the world that he gave his one and only Son…”<cite class="ref">John 3:16</cite></blockquote></li>
+    <li><h2 class="big">Sin keeps you from Him.</h2>
+      <blockquote>“For all have sinned and fall short of the glory of God.”<cite class="ref">Romans 3:23</cite></blockquote></li>
+    <li><h2 class="big">Jesus paid the price.</h2>
+      <blockquote>“While we were still sinners, Christ died for us.”<cite class="ref">Romans 5:8</cite></blockquote></li>
+    <li><h2 class="big">Receive Him by faith.</h2>
+      <blockquote>“Everyone who calls on the name of the Lord will be saved.”<cite class="ref">Romans 10:13</cite></blockquote></li>
+  </ol>
 
-  <section class="section center">
+  <section class="prayer-band">
     <div class="wrap">
       <p class="when">If you’re ready, pray this</p>
       <p class="said"><span>Jesus, I believe You died for my sins</span><span>and rose again.</span><span>I turn from my sin</span><span>and receive You as my Lord and Saviour.</span><span>Thank You for loving me.</span><span>Amen.</span></p>
     </div>
   </section>
 
-  <section class="section center page-end">
+  <section class="close">
     <div class="wrap">
-      <h2 class="mid">Did you pray this today?</h2>
-      <p class="lede">Tell us. We’d love to pray for you and walk with you.</p>
+      <h2 class="big">Did you pray this today?</h2>
+      <p class="lede">Tell us. We’ll pray for you and walk with you.</p>
       <form class="signup" data-signup data-source="received" novalidate>
         <label class="sr" for="email-received">Email address</label>
         <input id="email-received" name="email" type="email" inputmode="email" autocomplete="email" placeholder="Your email">
@@ -62,6 +70,26 @@
     </div>
   </section>
 </main>
+
+<!-- The dock: one floating glass bar for moving around. Jimi's face is Today (his morning video when there is one). -->
+<nav class="dock" aria-label="Main" data-dock>
+  <a class="dk-face" href="/today" data-today-face><img src="/images/jimi-avatar.jpg" alt="" width="34" height="34"><span>Today</span></a>
+  <a class="dk-link dk-home" href="/">Home</a>
+  <a class="dk-link on" href="/start">Start Here</a>
+  <a class="dk-cta" href="/#start">Start Day 1</a>
+</nav>
+<dialog class="vid-d" id="today-sheet" aria-labelledby="vid-title">
+  <button class="sheet-x vid-x" type="button" data-vid-close aria-label="Close the video">Close</button>
+  <div class="vid" data-vid>
+    <svg class="vid-ring" viewBox="0 0 100 100" aria-hidden="true"><circle class="trk" cx="50" cy="50" r="48"/><circle class="prg" cx="50" cy="50" r="48"/></svg>
+    <video playsinline preload="none" poster="/images/jimi-avatar.jpg"></video>
+    <button class="vid-play" type="button" aria-label="Play today’s video"></button>
+  </div>
+  <p class="when">Today’s Counsel · <span data-t="dateLabel">Today</span></p>
+  <h3 id="vid-title" data-t="subject">Today’s counsel</h3>
+  <p class="vid-line" data-t="line"></p>
+  <div class="vid-acts"><a class="btn" href="/today" data-t-href="url">Read today’s letter</a><button class="btn ghost" type="button" data-share>Send to someone</button></div>
+</dialog>
 
 <footer>
   <div class="wrap">

@@ -30,12 +30,18 @@ h1,h2,h3{text-wrap:balance}
 :focus-visible{outline:3px solid rgba(139,35,50,.35);outline-offset:2px;border-radius:6px}
 
 /* Header: the name, and the one page video viewers look for */
-.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:rgba(255,255,255,.86);
-     backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px)}
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:rgba(255,255,255,.72);
+     backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);
+     border-bottom:1px solid rgba(0,0,0,.08)}
 .nav .wrap{height:52px;display:flex;align-items:center;justify-content:space-between}
-.brand{font-size:16px;font-weight:700;color:var(--ink);letter-spacing:-0.025em;padding:12px 12px 12px 0} .brand:hover{text-decoration:none}
+.nav .links{display:flex;align-items:center;gap:22px}
+.pill-sm{font-size:13px;font-weight:500;color:var(--white);background:var(--wine);padding:6px 14px;border-radius:980px;white-space:nowrap}
+.pill-sm:hover{background:var(--wine-hover);text-decoration:none}
+.hide-sm{display:none} @media (min-width:735px){ .hide-sm{display:inline} }
+.brand{display:inline-flex;align-items:center;gap:10px;font-size:15px;font-weight:600;color:var(--ink);letter-spacing:-0.01em;padding:10px 12px 10px 0}
+.brand img{width:28px;height:28px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 1px rgba(0,0,0,.06)} .brand:hover{text-decoration:none}
 
-.nav a.txt{font-size:13px;color:var(--ink);opacity:.8;padding:13px 0 13px 12px} .nav a.txt:hover{opacity:1;text-decoration:none}
+.nav a.txt{font-size:13px;color:var(--ink);opacity:.8;padding:13px 0} .nav a.txt:hover{opacity:1;text-decoration:none}
 
 /* Type scale */
 .ref{display:block;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--quiet)}
@@ -64,17 +70,17 @@ h3{font-size:24px;font-weight:700;letter-spacing:-0.02em;line-height:1.2}
 .note.err{color:var(--err)}
 
 /* 1. Hero: the first half of the verse */
-.hero{text-align:center;padding-block:96px var(--gap)}
-@media (min-width:735px){ .hero{padding-top:168px} }
+.hero{text-align:center;padding-block:72px var(--gap)}
+@media (min-width:735px){ .hero{padding-top:72px} }
 .hero .ref{margin-bottom:20px}
-.hero .lede{margin-bottom:40px;max-width:40ch}
+.hero .lede{max-width:40ch}
 
 .kicker{font-size:19px;font-weight:600;line-height:1.2;margin-bottom:10px}
 @media (min-width:735px){ .kicker{font-size:21px} }
 .lede span{display:block}
 
 /* 2. The commitment: ninety mornings, Day 1 tomorrow */
-.journey{text-align:center;padding-bottom:var(--gap)}
+.journey{text-align:center;padding-block:var(--gap)}
 .days{display:grid;grid-template-columns:repeat(15,1fr);gap:10px;max-width:520px;margin:56px auto 0}
 @media (min-width:735px){ .days{grid-template-columns:repeat(30,1fr);gap:8px;max-width:620px} }
 .days i{display:block;aspect-ratio:1;border-radius:50%;background:var(--hair)}
@@ -91,27 +97,33 @@ h3{font-size:24px;font-weight:700;letter-spacing:-0.02em;line-height:1.2}
 @media (min-width:735px){ .sheet{max-width:720px;padding:72px 56px 60px} }
 
 /* Counsel for the day: the 6:00 AM moment, a notification that opens into the letter */
-.counsel{text-align:center;padding-bottom:var(--gap)}
-.morning{margin-top:64px;font-size:clamp(76px,20vw,124px);font-weight:300;letter-spacing:-0.04em;line-height:1;color:var(--ink);font-variant-numeric:tabular-nums}
-.morning span{display:block;font-size:15px;font-weight:600;letter-spacing:-0.01em;color:var(--slate);margin-bottom:6px}
+.counsel{text-align:center;padding-block:var(--gap);color:#f5f5f7;
+         background:radial-gradient(120% 70% at 50% 118%,rgba(139,35,50,.62) 0%,rgba(139,35,50,.18) 45%,transparent 70%),
+                    linear-gradient(#0a0a0c,#17171a 55%,#1f1416)}
+.counsel .when{color:#a1a1a6}
+.counsel .lede{color:#a1a1a6}
+.morning{margin-top:72px;font-size:clamp(84px,22vw,136px);font-weight:200;letter-spacing:-0.04em;line-height:1;color:#ffffff;font-variant-numeric:tabular-nums}
+.morning span{display:block;font-size:15px;font-weight:600;letter-spacing:-0.01em;color:#a1a1a6;margin-bottom:8px}
 .lcard{display:block;width:100%;max-width:420px;margin:28px auto 0;padding:12px 16px 14px;text-align:left;font:inherit;color:var(--ink);cursor:pointer;
-       background:rgba(245,245,247,.92);border:0;border-radius:24px;
-       box-shadow:0 1px 2px rgba(0,0,0,.05),0 22px 44px -18px rgba(0,0,0,.25);transition:transform .3s cubic-bezier(.3,.7,.2,1),box-shadow .3s}
-.lcard:hover{transform:translateY(-3px);box-shadow:0 1px 2px rgba(0,0,0,.05),0 30px 54px -18px rgba(0,0,0,.3)}
+       background:rgba(255,255,255,.14);border:0;border-radius:24px;color:#fff;
+       backdrop-filter:blur(24px) saturate(160%);-webkit-backdrop-filter:blur(24px) saturate(160%);
+       box-shadow:inset 0 0 0 1px rgba(255,255,255,.08),0 22px 44px -18px rgba(0,0,0,.5);transition:transform .3s cubic-bezier(.3,.7,.2,1),box-shadow .3s}
+.lcard:hover{transform:translateY(-3px);background:rgba(255,255,255,.18)}
 .lcard:active{transform:scale(.98)}
-.lc-app{display:flex;justify-content:space-between;font-size:12px;font-weight:600;letter-spacing:.02em;text-transform:uppercase;color:var(--slate)}
+.lc-app{display:flex;justify-content:space-between;font-size:12px;font-weight:600;letter-spacing:.02em;text-transform:uppercase;color:rgba(255,255,255,.62)}
 .lc-app time{font-weight:500;text-transform:none;letter-spacing:0}
 .lc-main{display:grid;grid-template-columns:38px 1fr;gap:12px;align-items:start;margin-top:10px}
 .lc-main img{width:38px;height:38px;border-radius:50%;object-fit:cover}
+.counsel :focus-visible{outline-color:rgba(255,255,255,.6)}
 .lc-main b{display:block;font-size:15px;font-weight:600}
 .lc-subj{display:block;font-size:15px}
-.lc-prev{display:block;font-size:15px;color:var(--slate);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lc-prev{display:block;font-size:15px;color:rgba(255,255,255,.7);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .lc-main>span{min-width:0}
 .lcard.away{visibility:hidden}
 @media (prefers-reduced-motion:no-preference){ .lcard:not(.away){animation:nudge 5s ease-in-out 1.2s infinite} }
 @keyframes nudge{0%,86%,100%{transform:none}90%{transform:translateY(-4px)}94%{transform:none}}
-.lc-hint{margin-top:22px;font-size:15px;color:var(--ink)}
-.lc-hint span{display:block;font-size:14px;color:var(--slate);margin-top:2px}
+.lc-hint{margin-top:24px;font-size:15px;color:#f5f5f7}
+.lc-hint span{display:block;font-size:14px;color:#a1a1a6;margin-top:2px}
 
 /* The reading sheet */
 .sheet-d{width:min(680px,calc(100% - 24px));max-width:none;max-height:calc(100dvh - 24px);margin:auto;padding:0;border:0;border-radius:24px;
@@ -140,9 +152,57 @@ h3{font-size:24px;font-weight:700;letter-spacing:-0.02em;line-height:1.2}
 .commit-p{color:var(--slate);margin-top:4px}
 .commit .signup{margin-top:22px}
 
+/* The moment of receiving: tomorrow at 6:00, on their phone, at dawn */
+.device{position:relative;width:min(290px,76vw);margin:36px auto 0;height:calc(min(290px,76vw) * 1.5);overflow:hidden;
+        -webkit-mask-image:linear-gradient(to bottom,#000 72%,transparent 100%);mask-image:linear-gradient(to bottom,#000 72%,transparent 100%)}
+@media (min-width:735px){ .device{width:320px;height:470px;margin-top:44px} }
+.phone{border-radius:54px;padding:10px;background:#1d1d1f;box-shadow:inset 0 0 0 1.5px #48484c,0 50px 90px -40px rgba(0,0,0,.5)}
+.screen{position:relative;border-radius:45px;overflow:hidden;aspect-ratio:9/19.5;padding:64px 12px 0;text-align:center;
+        background:linear-gradient(#07070a,#121216 55%,#1a1418)}
+.dawn{position:absolute;inset:0;pointer-events:none;
+      background:radial-gradient(150% 46% at 50% 64%,rgba(194,58,79,.85) 0%,rgba(139,35,50,.45) 34%,rgba(139,35,50,.1) 62%,transparent 80%);
+      transition:opacity 2.2s ease}
+.cam{position:absolute;top:14px;left:50%;width:12px;height:12px;margin-left:-6px;border-radius:50%;background:#000;box-shadow:inset 0 0 0 2px #1c1c22}
+.ls-date,.ls-time,.screen .lcard,.ls-hint{position:relative}
+.ls-date{font-size:15px;font-weight:600;color:rgba(255,255,255,.82)}
+.ls-time{font-size:clamp(66px,20vw,86px);font-weight:300;letter-spacing:-0.035em;line-height:1;color:#fff;font-variant-numeric:tabular-nums}
+.screen .lcard{margin-top:36px;padding:10px 12px 12px;border-radius:20px;transition:opacity .6s ease,transform .7s cubic-bezier(.2,.9,.25,1.15)}
+.screen .lc-app{font-size:12px}
+.screen .lc-main{grid-template-columns:32px 1fr;gap:10px;margin-top:8px}
+.screen .lc-main img{width:32px;height:32px}
+.screen .lc-main b,.screen .lc-subj,.screen .lc-prev{font-size:13px}
+.ls-hint{margin-top:12px;font-size:12px;font-weight:600;color:rgba(255,255,255,.6);transition:opacity .6s ease .5s}
+/* Before the moment (set by site.js only when motion is allowed) */
+.device.pre .dawn{opacity:0}
+.device.pre.warm .dawn{opacity:1}
+.device.pre .lcard{opacity:0;transform:translateY(-18px) scale(.96)}
+.device.pre .ls-hint{opacity:0}
+.device.tick .ls-time{animation:tick .5s ease}
+@keyframes tick{40%{transform:scale(1.04)}}
+
+/* The floating bar under the phone, as on Apple's product pages */
+.bar{position:relative;z-index:2;max-width:700px;margin:-72px auto 0;background:rgba(245,245,247,.9);
+     backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);
+     border-radius:26px;padding:16px;display:flex;flex-direction:column;gap:12px;text-align:left;box-shadow:0 2px 24px rgba(0,0,0,.08)}
+.bar p{font-size:14px;line-height:1.35;font-weight:600}
+.bar p span{display:block;font-weight:400;color:var(--slate)}
+.bar .signup{max-width:none;margin:0}
+@media (min-width:735px){
+  .bar{flex-direction:row;align-items:center;justify-content:space-between;border-radius:980px;padding:10px 10px 10px 28px}
+  .bar .signup{max-width:360px}
+}
+.hero .bar+.note{min-height:20px}
+
+/* Ninety mornings: the journey begins at dawn */
+.journey{background:radial-gradient(120% 80% at 50% 120%,rgba(139,35,50,.55) 0%,transparent 65%),linear-gradient(#0a0a0c,#18171a);color:#f5f5f7}
+.journey .lede{color:#a1a1a6}
+.journey .days i{background:rgba(255,255,255,.16)}
+.journey .days i.d1{background:#c23a4f}
+.journey .days-key{color:#a1a1a6} .journey .days-key b{color:#fff}
+
 /* 4. The person behind the letters */
-.person{text-align:center;padding-bottom:var(--gap)}
-.face{display:block;width:88px;height:88px;border-radius:50%;object-fit:cover;margin:0 auto 28px}
+.person{text-align:center;padding-block:var(--gap);background:#f5f5f7}
+.face{display:block;width:128px;height:128px;box-shadow:0 0 0 6px #fff,0 20px 40px -16px rgba(0,0,0,.3);border-radius:50%;object-fit:cover;margin:0 auto 28px}
 .person .door{margin-top:56px}
 .close .when{margin-bottom:10px}
 
@@ -167,7 +227,7 @@ h3{font-size:24px;font-weight:700;letter-spacing:-0.02em;line-height:1.2}
 .pass div{display:flex;gap:8px}
 
 /* 3. Close: the second half of the verse */
-.close{text-align:center;padding-bottom:var(--gap)}
+.close{text-align:center;padding-block:var(--gap)}
 .close .ref{margin-top:18px}
 .close .signup{margin-top:48px}
 .close .fine{margin-top:6px}
@@ -220,5 +280,119 @@ footer{border-top:1px solid var(--hair);padding-block:22px 36px}
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 24px;font-size:12px;color:var(--slate)}
 footer nav{display:flex;flex-wrap:wrap;gap:8px 20px}
 footer a{color:var(--slate)}
+
+
+/* The round video (opened from the dock's face, and at the top of /today) */
+.vid{position:relative;width:min(260px,70vw);aspect-ratio:1;margin:0 auto;border-radius:50%}
+.vid video{position:absolute;inset:8px;width:calc(100% - 16px);height:calc(100% - 16px);border-radius:50%;object-fit:cover;background:#111}
+.vid-ring{position:absolute;inset:0;transform:rotate(-90deg)}
+.vid-ring circle{fill:none;stroke-width:2.4}
+.vid-ring .trk{stroke:var(--hair)}
+.vid-ring .prg{stroke:var(--wine);stroke-linecap:round;stroke-dasharray:301.6;stroke-dashoffset:301.6;transition:stroke-dashoffset .25s linear}
+.vid-play{position:absolute;inset:8px;border:0;border-radius:50%;cursor:pointer;background:rgba(0,0,0,.18);display:grid;place-items:center}
+.vid-play::before{content:"";width:0;height:0;border-left:22px solid #fff;border-top:14px solid transparent;border-bottom:14px solid transparent;margin-left:6px;filter:drop-shadow(0 2px 6px rgba(0,0,0,.35))}
+.vid.playing .vid-play{background:transparent}
+.vid.playing .vid-play::before{opacity:0}
+.vid-inline{width:132px;margin-bottom:28px}
+.vid-inline .vid-play::before{border-left-width:16px;border-top-width:10px;border-bottom-width:10px;margin-left:4px}
+.vid-d{width:min(420px,calc(100% - 24px));max-width:none;max-height:calc(100dvh - 24px);margin:auto;padding:52px 24px 28px;border:0;border-radius:28px;
+       background:var(--white);color:var(--ink);text-align:center;overflow:auto;box-shadow:0 40px 80px -20px rgba(0,0,0,.35)}
+.vid-d::backdrop{background:rgba(29,29,31,.42);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.vid-x{position:absolute;top:10px;right:10px}
+.vid-d .when{margin-top:22px}
+.vid-d h3{margin-top:6px;font-size:24px;font-weight:700;letter-spacing:-0.02em;line-height:1.2}
+.vid-line{margin-top:10px;color:var(--slate)}
+.vid-acts{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:22px}
+
+/* Letter endings: commitment, then share */
+.commit-row{display:flex;justify-content:center;margin-top:14px}
+.commit-sep{margin-top:28px}
+.write{margin-top:56px;padding-top:28px;border-top:1px solid var(--hair);text-align:left}
+.write label{display:block;font-size:17px;font-weight:600}
+.write textarea{display:block;width:100%;margin-top:12px;font:inherit;font-size:16px;min-height:96px;resize:vertical;border-radius:18px;
+                border:1px solid var(--field);padding:14px 16px;background:var(--white);color:var(--ink)}
+.write .row{display:flex;justify-content:flex-end;margin-top:10px}
+.write .note{margin-top:8px}
+
+/* A letter shown exactly as it arrives: a real email, real sizes, no magazine styling */
+.email{max-width:680px;margin:0 auto;background:var(--white);border:1px solid var(--hair);border-radius:18px;padding:22px 18px 18px;text-align:left;
+       box-shadow:0 1px 2px rgba(0,0,0,.03),0 18px 40px -24px rgba(0,0,0,.18)}
+@media (min-width:735px){ .email{padding:30px 36px 24px} }
+.em-subj{font-size:22px;font-weight:600;letter-spacing:-0.015em;line-height:1.25;text-align:left;margin:0}
+@media (min-width:735px){ .em-subj{font-size:24px} }
+.em-from{display:grid;grid-template-columns:40px 1fr auto;gap:12px;align-items:center;margin-top:18px}
+.em-from img{width:40px;height:40px;border-radius:50%;object-fit:cover}
+.em-from p{font-size:15px;line-height:1.3;min-width:0}
+.em-from b{font-weight:600}
+.em-addr{display:none;color:var(--slate);font-size:13px}
+@media (min-width:735px){ .em-addr{display:inline} }
+.em-to{display:block;font-size:13px;color:var(--slate)}
+.em-from time{font-size:13px;color:var(--slate);align-self:start;margin-top:2px;white-space:nowrap}
+.email .em-body{margin-top:22px;font-size:16px;line-height:1.55;letter-spacing:-0.005em;color:var(--ink)}
+.email .em-body p{margin:0}
+.email .em-body p+p{margin-top:1em}
+.email .em-body .vs{font-style:italic;color:var(--ink);padding:0;border:0;margin-block:1em 0}
+.email .em-body .vs cite{display:inline;font-style:normal;font-size:inherit;font-weight:400;letter-spacing:0;text-transform:none;color:inherit;margin:0}
+.email .em-body .vs+p{margin-top:1em}
+.email .em-body .sign,.email .em-body .ps{margin-top:1em;font-size:inherit;color:inherit}
+.em-acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+.em-btn{display:inline-flex;align-items:center;gap:8px;font:inherit;font-size:14px;font-weight:500;color:var(--ink);background:var(--white);
+        border:1px solid var(--field);border-radius:999px;padding:10px 18px;cursor:pointer}
+.em-btn:hover{background:#f5f5f7}
+.em-btn svg{width:17px;height:17px}
+.em-reply{margin-top:16px;border:1px solid var(--field);border-radius:14px;overflow:hidden}
+.em-rhead{font-size:13px;line-height:1.7;color:var(--ink);padding:10px 14px;border-bottom:1px solid var(--hair);background:#fbfbfd}
+.em-rhead span{color:var(--slate);display:inline-block;min-width:32px}
+.em-reply textarea{display:block;width:100%;min-height:120px;border:0;padding:12px 14px;font:inherit;font-size:16px;resize:vertical;color:var(--ink);background:var(--white)}
+.em-reply textarea:focus{outline:none}
+.em-reply:focus-within{border-color:var(--wine);box-shadow:0 0 0 3px rgba(139,35,50,.14)}
+.em-reply .row{display:flex;justify-content:flex-end;padding:0 10px 10px}
+.em-reply .note{margin:0;padding:0 14px 10px;min-height:0}
+.em-reply .note:empty{display:none}
+/* Inside the sample-letter sheet the sheet itself is the window */
+.sheet-body .email{border:0;box-shadow:none;padding:0;max-width:none}
+/* Today's Counsel page */
+.day{max-width:680px;margin:0 auto;text-align:center}
+.day .when{margin-bottom:16px}
+
+.count{margin-top:22px;font-size:15px;color:var(--slate)}
+.count b{color:var(--ink);font-weight:600;font-variant-numeric:tabular-nums}
+.close .signup{margin-top:28px}
+
+/* Start Here: one truth at a time, on one path down to the prayer */
+.s-open{text-align:center;padding-block:120px 0}
+@media (min-width:735px){ .s-open{padding-top:168px} }
+.tag{display:inline-block;font-size:13px;font-weight:600;color:var(--wine);background:rgba(139,35,50,.08);border-radius:999px;padding:6px 14px;margin-bottom:18px}
+.truths{list-style:none;text-align:center;padding:0 var(--gutter)}
+.truths li{position:relative;padding-top:168px}
+.truths li::before{content:"";position:absolute;left:50%;top:40px;width:1px;height:88px;background:linear-gradient(var(--hair),var(--wine))}
+.truths li::after{content:"";position:absolute;left:50%;top:128px;width:9px;height:9px;margin-left:-4px;border-radius:50%;background:var(--wine)}
+.truths h2{max-width:14ch;margin:0 auto}
+.truths blockquote{max-width:30ch;margin:18px auto 0;font-size:19px;line-height:1.5;color:var(--slate);text-wrap:balance}
+.truths cite{display:block;font-style:normal;margin-top:10px}
+.prayer-band{position:relative;margin-top:168px;text-align:center;padding-block:var(--gap);color:#fff;
+  background:radial-gradient(120% 80% at 50% 120%,rgba(139,35,50,.6) 0%,transparent 65%),linear-gradient(#0a0a0c,#18171a)}
+.prayer-band::before{content:"";position:absolute;left:50%;top:-168px;width:1px;height:168px;background:linear-gradient(var(--hair),#0a0a0c)}
+.prayer-band .when{color:#a1a1a6}
+.prayer-band .said{color:#fff}
+
+.s-open.page-end{padding-bottom:var(--gap)}
+.nf-acts{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:36px}
+
+/* The dock: one floating glass bar for moving around (the "remote") */
+.dock{position:fixed;left:50%;bottom:calc(14px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:40;
+      display:flex;align-items:center;gap:2px;padding:5px;border-radius:999px;white-space:nowrap;
+      background:rgba(29,29,31,.84);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);
+      box-shadow:0 14px 34px -12px rgba(0,0,0,.45);transition:opacity .35s ease,transform .45s cubic-bezier(.2,.9,.25,1.1)}
+.dock.away{opacity:0;transform:translate(-50%,28px);pointer-events:none}
+.dock a{color:#f5f5f7;font-size:13px;line-height:1;border-radius:999px} .dock a:hover{text-decoration:none}
+.dk-face{display:flex;align-items:center;gap:8px;padding:4px 12px 4px 4px}
+.dk-face img{width:34px;height:34px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 2px rgba(255,255,255,.22)}
+.dk-face.live img{box-shadow:0 0 0 2px #1d1d1f,0 0 0 4px #c23a4f}
+.dk-link{padding:14px 12px;opacity:.78} .dk-link:hover{opacity:1}
+.dock .on{background:rgba(255,255,255,.16);opacity:1}
+.dk-cta{margin-left:4px;padding:14px 15px;font-weight:600;background:var(--wine)} .dk-cta:hover{background:var(--wine-hover)}
+@media (max-width:359px){ .dk-home{display:none} }
+footer{padding-bottom:calc(96px + env(safe-area-inset-bottom,0px))}
 
 @media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto} }
