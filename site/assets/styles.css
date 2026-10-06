@@ -152,6 +152,31 @@ h3{font-size:24px;font-weight:700;letter-spacing:-0.02em;line-height:1.2}
 .commit-p{color:var(--slate);margin-top:4px}
 .commit .signup{margin-top:22px}
 
+/* Hero: Jimi's hands holding out the Bible, open at James 1:21. White studio background: it sits on the page. */
+.stage{position:relative;margin-top:28px}
+.photo{position:relative;width:min(1120px,calc(100vw - 32px),max(760px,calc((100svh - 420px) * 1.777)));margin-left:50%;transform:translateX(-50%);aspect-ratio:1672/941;
+  -webkit-mask-image:linear-gradient(to bottom,#000 82%,transparent),linear-gradient(to right,transparent,#000 8%,#000 92%,transparent);-webkit-mask-composite:source-in;
+  mask-image:linear-gradient(to bottom,#000 82%,transparent),linear-gradient(to right,transparent,#000 8%,#000 92%,transparent);mask-composite:intersect}
+.photo img{display:block;width:100%;height:auto}
+@media (max-width:734px){ .stage{overflow:hidden;margin-inline:calc(var(--gutter) * -1)} .photo{width:112%;margin-left:-6%;transform:none} .hero .bar{margin-top:-28px} }
+/* The highlighter on James 1:21: translucent, slightly uneven, like a real marker on paper. */
+.hl{position:absolute;pointer-events:none;mix-blend-mode:multiply;transform-origin:left center;
+  border-radius:3px 7px 4px 6px / 45% 60% 50% 40%;transform:rotate(-.25deg);
+  background:linear-gradient(180deg,rgba(255,212,0,.74),rgba(255,224,50,.62) 45%,rgba(255,212,0,.76))}
+.hl:nth-of-type(1){left:43.806%;top:71.359%;width:5.357%;height:2.019%;animation-delay:1.00s}
+.hl:nth-of-type(2){left:36.184%;top:73.303%;width:12.978%;height:2.019%;animation-delay:1.38s}
+.hl:nth-of-type(3){left:36.184%;top:75.247%;width:12.978%;height:2.019%;animation-delay:1.76s}
+@media (prefers-reduced-motion:no-preference){ .hl{animation:mark .42s cubic-bezier(.4,0,.3,1) both} }
+@keyframes mark{from{transform:rotate(-.25deg) scaleX(0)}to{transform:rotate(-.25deg) scaleX(1)}}
+@media (prefers-reduced-motion:no-preference){ .photo{animation:offer 1.4s cubic-bezier(.2,.7,.2,1) both} }
+@keyframes offer{from{translate:0 16px;opacity:.5}to{translate:0 0;opacity:1}}
+
+/* Every morning at 6:00: the moment of receiving, at dawn */
+.morning-band{text-align:center;padding-block:var(--gap);color:#f5f5f7;
+  background:radial-gradient(120% 70% at 50% 118%,rgba(139,35,50,.6) 0%,rgba(139,35,50,.18) 45%,transparent 70%),linear-gradient(#0a0a0c,#17171a 55%,#1f1416)}
+.morning-band .phone{box-shadow:inset 0 0 0 1.5px #5a5a60,0 50px 90px -40px rgba(0,0,0,.8)}
+.journey{padding-block:var(--gap)}
+
 /* The moment of receiving: tomorrow at 6:00, on their phone, at dawn */
 .device{position:relative;width:min(290px,76vw);margin:36px auto 0;height:calc(min(290px,76vw) * 1.5);overflow:hidden;
         -webkit-mask-image:linear-gradient(to bottom,#000 72%,transparent 100%);mask-image:linear-gradient(to bottom,#000 72%,transparent 100%)}
@@ -181,7 +206,7 @@ h3{font-size:24px;font-weight:700;letter-spacing:-0.02em;line-height:1.2}
 @keyframes tick{40%{transform:scale(1.04)}}
 
 /* The floating bar under the phone, as on Apple's product pages */
-.bar{position:relative;z-index:2;max-width:700px;margin:-72px auto 0;background:rgba(245,245,247,.9);
+.bar{position:relative;z-index:2;max-width:700px;margin:-40px auto 0;background:rgba(245,245,247,.9);
      backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);
      border-radius:26px;padding:16px;display:flex;flex-direction:column;gap:12px;text-align:left;box-shadow:0 2px 24px rgba(0,0,0,.08)}
 .bar p{font-size:14px;line-height:1.35;font-weight:600}
@@ -192,13 +217,6 @@ h3{font-size:24px;font-weight:700;letter-spacing:-0.02em;line-height:1.2}
   .bar .signup{max-width:360px}
 }
 .hero .bar+.note{min-height:20px}
-
-/* Ninety mornings: the journey begins at dawn */
-.journey{background:radial-gradient(120% 80% at 50% 120%,rgba(139,35,50,.55) 0%,transparent 65%),linear-gradient(#0a0a0c,#18171a);color:#f5f5f7}
-.journey .lede{color:#a1a1a6}
-.journey .days i{background:rgba(255,255,255,.16)}
-.journey .days i.d1{background:#c23a4f}
-.journey .days-key{color:#a1a1a6} .journey .days-key b{color:#fff}
 
 /* 4. The person behind the letters */
 .person{text-align:center;padding-block:var(--gap);background:#f5f5f7}

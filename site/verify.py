@@ -16,7 +16,7 @@ LOCK = ROOT / "design-lock.json"
 FILES = [
     "assets/styles.css", "assets/site.js",
     "assets/fonts/inter-latin-wght-normal.woff2", "assets/fonts/inter-latin-wght-italic.woff2",
-    "images/jimi-avatar.jpg", "images/og.jpg", "images/favicon.png", "images/apple-touch-icon.png",
+    "images/bible-hero.jpg", "images/bible-hero-2x.jpg", "images/jimi-avatar.jpg", "images/og.jpg", "images/favicon.png", "images/apple-touch-icon.png",
     "index.html", "today/index.html", "start/index.html",
     "welcome/index.html", "welcome/received/index.html", "partner/index.html", "404.html", "design/status-card.html",
 ]

@@ -33,8 +33,32 @@
 <section class="hero" id="start">
     <div class="wrap">
       <h1 class="big">Will you receive it?</h1>
-      <p class="lede">90 days of counsel from the Bible. Free.</p>
+      <p class="lede">90 days of counsel from the Bible.</p>
 
+      <!-- Jimi's own hands holding out the Bible. The pages are re-set in exact KJV (public domain),
+           open at James 1. The highlighter on verse 21 ("receive with meekness the engrafted word") is three
+           spans drawn over the photo; it sweeps across once on load, or is simply there with reduced motion. -->
+      <div class="stage">
+        <div class="photo"><img src="/images/bible-hero.jpg" srcset="/images/bible-hero.jpg 1672w, /images/bible-hero-2x.jpg 3344w" sizes="(max-width: 734px) 136vw, min(1120px, 100vw - 32px)" width="1672" height="941" fetchpriority="high" alt="Brother Jimi’s hands holding out an open Bible at James 1, with verse 21 highlighted: receive with meekness the engrafted word, which is able to save your souls."><span class="hl"></span><span class="hl"></span><span class="hl"></span></div>
+      </div>
+
+      <div class="bar">
+        <p>Your first letter arrives tomorrow at 6:00&nbsp;AM.<span>From Brother Jimi.</span></p>
+        <form class="signup" data-signup novalidate>
+        <label class="sr" for="email-hero">Email address</label>
+        <input id="email-hero" name="email" type="email" inputmode="email" autocomplete="email" placeholder="Your email">
+        <input id="hp-hero" name="company" type="text" tabindex="-1" autocomplete="off" class="sr" aria-hidden="true">
+        <button class="btn" type="submit">Start Day 1</button>
+      </form>
+      </div>
+      <p class="note" role="status" aria-live="polite"></p>
+    </div>
+  </section>
+
+  <!-- How it reaches you: the moment of receiving at dawn. Tap the notification to read the sample letter. -->
+  <section class="morning-band">
+    <div class="wrap">
+      <h2 class="big">Every morning at 6:00.</h2>
       <!-- The moment of receiving: 5:59 becomes 6:00 at dawn and the letter arrives. The finished
            scene is the default; site.js plays the arrival once when motion is allowed. -->
       <div class="device" data-scene>
@@ -56,17 +80,6 @@
           </div>
         </div>
       </div>
-
-      <div class="bar">
-        <p>Your first letter arrives tomorrow at 6:00&nbsp;AM.<span>From Brother Jimi.</span></p>
-        <form class="signup" data-signup novalidate>
-        <label class="sr" for="email-hero">Email address</label>
-        <input id="email-hero" name="email" type="email" inputmode="email" autocomplete="email" placeholder="Your email">
-        <input id="hp-hero" name="company" type="text" tabindex="-1" autocomplete="off" class="sr" aria-hidden="true">
-        <button class="btn" type="submit">Start Day 1</button>
-      </form>
-      </div>
-      <p class="note" role="status" aria-live="polite"></p>
 
       <dialog class="sheet-d" id="letter-sheet" aria-labelledby="sheet-title">
         <div class="sheet-bar">
