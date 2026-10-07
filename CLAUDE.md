@@ -61,6 +61,10 @@ the approved design. It fails if **one character** changes outside the allowed s
      day becomes a TODO placeholder that is set **not to send**, and you list the missing days for Jimi.
 3. **Today's Counsel, every day,** from the approved Notion letter (Track = Today, Publish date =
    today, Status = Approved). Each morning, before 6:00 AM Ghana time:
+   - **Upload media to Notion (when you have them):** In the same Notion record as today's letter,
+     attach the `statusVideo` (9:16 MP4) and `voice` (m4a recording of you reading the letter) to
+     the corresponding attachment fields. If you don't have them, leave those fields empty — the
+     daily fill will use `""` and those items won't appear on the site. This is correct.
    - In `site/today/index.html` change only the inner content of `data-slot="subject"`,
      `data-slot="body"` and `data-slot="date"` (the letter's date, e.g. `Tuesday 6 October`).
      The homepage letter is fixed. Never change it.
