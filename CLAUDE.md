@@ -1,6 +1,6 @@
 # CLAUDE.md: brotherjimi.com build rules (non-negotiable)
 
-**The front end of this website is finished.** It is the lean design Jimi approved on 6 October 2026.
+**The front end of this website is finished.** It is the design Jimi approved on 7 October 2026.
 Every page, word, style, font, image and front-end script in `site/` is final, approved, and locked.
 
 **Your job is the back end only:** the endpoints the forms call, the email automation, Notion,
@@ -76,16 +76,26 @@ the approved design. It fails if **one character** changes outside the allowed s
      `url` (`/today/YYYY-MM-DD`), `video` (path to today's video, or `""` if there is none),
      `poster` (path to the video's still image, or `/images/jimi-avatar.jpg`).
      `card`: today's WhatsApp Status card (see below), or `""`.
-     `startedThisMonth`: the real number of new subscribers this calendar month, read from
-     MailerLite (a whole number), or `null`. The homepage shows it only from 50 up. **Never
-     estimate, round up, seed or invent it.**
-     With `video` empty the Today bubble and the video simply don't show. That is correct.
+     `statusVideo`: today's Status video (see below), or `""`.
+     `voice`: today's voice note of Jimi reading the letter (see below), or `""`.
+     Any key left `""` simply hides that item on the site (the Today bubble, the "Post to your
+     Status" choices, the "Listen to Jimi read it" player). That is correct. Never fill one with
+     anything Jimi didn't give you.
    - Save the filled page as a permanent copy at `/today/YYYY-MM-DD/index.html`. In that copy only,
      set `og:title` to the subject, `og:description` to the shareable line and `og:url` to the
      permanent address. Never delete or change a past day's copy.
    - Today's video (uploaded by Jimi in Notion): make it square, 480×480, H.264 MP4, no larger
      than 3 MB, with a still image (`.jpg`) from its first second as the poster. Never add music,
-     text or effects.
+     text or effects to this round version.
+   - Today's Status video, made from the same video as Jimi uploaded it (vertical 9:16):
+     scale to 576×1024, H.264 MP4, no larger than 3 MB. Lay `site/design/status-nametag.html`
+     (rendered as a transparent PNG) over the whole video, and add `site/design/status-endcard.html`
+     (rendered as a PNG) as the last 3 seconds, silent. Nothing else: no music, effects or other
+     text. Captions only when Jimi supplies the exact words in Notion. Save it as
+     `/today/YYYY-MM-DD/status.mp4` and put that path in `today.json` → `statusVideo`.
+   - Today's voice note (uploaded by Jimi in Notion, him reading the letter): AAC `.m4a`, mono,
+     64 kbps, no larger than 3 MB, never edited beyond trimming silence at the start and end. Save it
+     as `/today/YYYY-MM-DD/voice.m4a` and put that path in `today.json` → `voice`.
    - Today's Status card: render `site/design/status-card.html` with only `{{dateLabel}}` and
      `{{line}}` replaced (HTML-escaped) at exactly 1080×1920, save it as
      `/today/YYYY-MM-DD/card.png`, and put that path in `today.json` → `card`. Change nothing else

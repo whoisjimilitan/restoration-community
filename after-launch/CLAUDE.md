@@ -28,19 +28,21 @@ Jimi exactly what changed.
 ## 3. The design system (keep every change consistent with it)
 - Read `site/` first. It is the reference for any new page: reuse its CSS classes and
   components before creating new ones.
-- One accent colour: wine `#8b2332` (hover `#9c2a3b`). Neutrals: ink `#1d1d1f`, slate
-  `#6e6e73`, mist `#f5f5f7`, hairline `#d2d2d7`, white. No other colours.
+- One accent colour: wine `#8b2332` (hover `#9c2a3b`) on a warm "morning paper" ground: paper
+  `#fbf7f0`, band `#f3ece1`, ink `#231b17`, slate `#6d625b`, hairline `#e9e0d3`. Letters sit on
+  white, like paper. No other colours.
 - One typeface on every device: Inter, self-hosted (`site/assets/fonts`). No other fonts.
 - Less is more: one idea per section, generous spacing, short lines. Never add scripts,
   analytics, cookie bars, chat or translate widgets, pop-ups, frameworks or minifiers.
-- The homepage story is fixed, in this order: the question ("Will you receive it?", Jimi's
-  hands holding the Bible with the highlighter on James 1:21) → how it arrives (dark dawn band,
-  the phone at 6:00, the sample letter) → "Ninety mornings." → "You'll have a brother." (grey
-  band) → "Your Day 1 is tomorrow. / Give God ninety mornings." Don't add, remove or reorder
-  sections without Jimi.
+- The homepage story is fixed, in this order: Jimi's intro video and the question "What's heavy on
+  your heart?" → the reader's own six questions → Jimi's hands holding the Bible (highlighter on
+  Matthew 11:28) with "It's all in here." → how it arrives (dawn band, the phone at 6:00, the sample
+  letter) → "Ninety mornings." → "You'll have a brother." (with "My story") → "Pass it on." →
+  "Are you in? / Commit to ninety mornings of counsel." Don't add, remove or reorder sections
+  without Jimi.
 - The hero photo is Jimi's own hands. Never crop, compress, retouch or replace
   `images/bible-hero.jpg` or `images/bible-hero-2x.jpg`.
-- Scripture: NIV everywhere, except the printed pages in the hero photo, which are KJV.
+- Scripture: NIV everywhere, except the printed pages in the hands photo, which are KJV.
 - Letters are always shown as real emails, at reading size, and follow `LETTER-STYLE.md`.
 - Naming: "counsel" is what Jimi gives (nav, page names, headings); "letter" is how it arrives.
   Always "Brother Jimi", never "BJ".
@@ -65,16 +67,26 @@ Jimi exactly what changed.
      `url` (`/today/YYYY-MM-DD`), `video` (path to today's video, or `""` if there is none),
      `poster` (path to the video's still image, or `/images/jimi-avatar.jpg`).
      `card`: today's WhatsApp Status card (see below), or `""`.
-     `startedThisMonth`: the real number of new subscribers this calendar month, read from
-     MailerLite (a whole number), or `null`. The homepage shows it only from 50 up. **Never
-     estimate, round up, seed or invent it.**
-     With `video` empty the Today bubble and the video simply don't show. That is correct.
+     `statusVideo`: today's Status video (see below), or `""`.
+     `voice`: today's voice note of Jimi reading the letter (see below), or `""`.
+     Any key left `""` simply hides that item on the site (the Today bubble, the "Post to your
+     Status" choices, the "Listen to Jimi read it" player). That is correct. Never fill one with
+     anything Jimi didn't give you.
    - Save the filled page as a permanent copy at `/today/YYYY-MM-DD/index.html`. In that copy only,
      set `og:title` to the subject, `og:description` to the shareable line and `og:url` to the
      permanent address. Never delete or change a past day's copy.
    - Today's video (uploaded by Jimi in Notion): make it square, 480×480, H.264 MP4, no larger
      than 3 MB, with a still image (`.jpg`) from its first second as the poster. Never add music,
-     text or effects.
+     text or effects to this round version.
+   - Today's Status video, made from the same video as Jimi uploaded it (vertical 9:16):
+     scale to 576×1024, H.264 MP4, no larger than 3 MB. Lay `site/design/status-nametag.html`
+     (rendered as a transparent PNG) over the whole video, and add `site/design/status-endcard.html`
+     (rendered as a PNG) as the last 3 seconds, silent. Nothing else: no music, effects or other
+     text. Captions only when Jimi supplies the exact words in Notion. Save it as
+     `/today/YYYY-MM-DD/status.mp4` and put that path in `today.json` → `statusVideo`.
+   - Today's voice note (uploaded by Jimi in Notion, him reading the letter): AAC `.m4a`, mono,
+     64 kbps, no larger than 3 MB, never edited beyond trimming silence at the start and end. Save it
+     as `/today/YYYY-MM-DD/voice.m4a` and put that path in `today.json` → `voice`.
    - Today's Status card: render `site/design/status-card.html` with only `{{dateLabel}}` and
      `{{line}}` replaced (HTML-escaped) at exactly 1080×1920, save it as
      `/today/YYYY-MM-DD/card.png`, and put that path in `today.json` → `card`. Change nothing else

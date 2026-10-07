@@ -30,18 +30,15 @@
 </header>
 
 <main>
-<section class="hero" id="start">
+<section class="hero hero2" id="start">
     <div class="wrap">
-      <h1 class="big">Will you receive it?</h1>
-      <p class="lede">90 days of counsel from the Bible.</p>
-
-      <!-- Jimi's own hands holding out the Bible. The pages are re-set in exact KJV (public domain),
-           open at James 1. The highlighter on verse 21 ("receive with meekness the engrafted word") is three
-           spans drawn over the photo; it sweeps across once on load, or is simply there with reduced motion. -->
-      <div class="stage">
-        <div class="photo"><img src="/images/bible-hero.jpg" srcset="/images/bible-hero.jpg 1672w, /images/bible-hero-2x.jpg 3344w" sizes="(max-width: 734px) 136vw, min(1120px, 100vw - 32px)" width="1672" height="941" fetchpriority="high" alt="Brother Jimi’s hands holding out an open Bible at James 1, with verse 21 highlighted: receive with meekness the engrafted word, which is able to save your souls."><span class="hl"></span><span class="hl"></span><span class="hl"></span></div>
-      </div>
-
+      <!-- Jimi asks the visitor's own question. Muted, captioned, tap for sound. (Stand-in clip until his video.) -->
+      <button class="face-vid" type="button" data-hplay aria-label="Play Brother Jimi’s welcome">
+        <img class="fv-thumb" src="/images/jimi-avatar.jpg" alt="">
+        <video playsinline preload="none" poster="/images/jimi-avatar.jpg" src="/images/jimi-intro.mp4"></video><span class="cbub-snd" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span>
+      </button>
+      <h1 class="big">What’s heavy on your heart?</h1>
+      <p class="lede"><span>Receive a letter of counsel from the Bible, every morning for 90&nbsp;days.</span></p>
       <div class="bar">
         <p>Your first letter arrives tomorrow at 6:00&nbsp;AM.<span>From Brother Jimi.</span></p>
         <form class="signup" data-signup novalidate>
@@ -52,6 +49,20 @@
       </form>
       </div>
       <p class="note" role="status" aria-live="polite"></p>
+    </div>
+  </section>
+
+  <!-- The answer: Jimi's hands hold out the Book where the answers are. The highlighter plays when it comes into view. -->
+  <section class="answer">
+    <div class="wrap">
+      <ul class="asklist"><li style="--i:0">Can I forgive the one who hurt me?</li><li style="--i:1">Is God speaking to me?</li><li style="--i:2">Will fear always hold me back?</li><li style="--i:3">Why can’t I quiet my mind?</li><li style="--i:4">What is my life really for?</li><li style="--i:5">How do I find victory over lust?</li></ul>
+      <!-- Jimi's own hands holding out the Bible. The pages are re-set in exact KJV (public domain),
+           open at Matthew 11. The highlighter on verse 28 ("Come unto me, all ye that labour and are heavy laden") is three
+           spans drawn over the photo; it sweeps across once on load, or is simply there with reduced motion. -->
+      <div class="stage">
+        <div class="photo"><img src="/images/bible-hero.jpg" srcset="/images/bible-hero.jpg 1672w, /images/bible-hero-2x.jpg 3344w" sizes="(max-width: 734px) 136vw, min(1120px, 100vw - 32px)" width="1672" height="941" fetchpriority="high" alt="Brother Jimi’s hands holding out an open Bible at Matthew 11, with verse 28 highlighted: Come unto me, all ye that labour and are heavy laden, and I will give you rest."><span class="hl"></span><span class="hl"></span><span class="hl"></span></div>
+      </div>
+      <h2 class="big answer-h">It’s all in here.</h2>
     </div>
   </section>
 
@@ -128,31 +139,43 @@
   </section>
 
   <!-- The commitment: ninety mornings, each reader from their own Day 1. No stages or phases (internal only). -->
-  <section class="journey">
+  <section class="journey threaded">
+    <div class="thread" aria-hidden="true"><i></i></div>
     <div class="wrap col">
       <h2 class="big">Ninety mornings.</h2>
       <p class="lede">Read it. Do what it says.</p>
       <div class="days" role="img" aria-label="Ninety mornings, from Day 1 tomorrow to Day 90"><i class="d1"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-      <div class="days-key"><span><b>Day 1</b> Tomorrow, 6:00&nbsp;AM</span><span>Day 90</span></div>
+      <div class="days-key"><span><b>Day 1</b> Tomorrow</span><span>Day 90</span></div>
+      <div class="titles" aria-label="Some of the letters"><div class="trk"><span class="chip">The wall between you and God</span><span class="chip">The voice you’ll hear first</span><span class="chip">What makes you suitable for God?</span><span aria-hidden="true" class="dup"><span class="chip">The wall between you and God</span><span class="chip">The voice you’ll hear first</span><span class="chip">What makes you suitable for God?</span></span></div></div>
     </div>
   </section>
 
   <!-- The human element: a real person reads every reply. -->
-  <section class="person">
+  <section class="person threaded">
+    <div class="thread" aria-hidden="true"><i></i></div>
     <div class="wrap col">
       <img class="face" src="/images/jimi-avatar.jpg" alt="Brother Jimi" width="128" height="128">
       <h2 class="big">You’ll have a brother.</h2>
       <p class="lede">Reply to any letter. I read it, pray for you, and write back.</p>
-      <p class="door">Never received Jesus? <a href="/start">Start here ›</a></p>
+      <details class="c-story"><summary>My story</summary><p>I was once like you, in need of blessing, healing, deliverance and salvation. I found Jesus Christ to be the giver of them all.</p></details>
+      <p class="door">Never received Jesus? <a class="door-pill" href="/start">Start here ›</a></p>
     </div>
   </section>
 
-  <section class="close">
+
+  <section class="passon threaded">
+    <div class="thread" aria-hidden="true"><i></i></div>
+    <div class="wrap col">
+      <h2 class="big">Pass it on.</h2>
+      <p class="lede">Someone you know needs today’s counsel too.</p>
+      <div class="srow" role="group" aria-label="Share"><span class="sr-l">Share</span><div class="sr-list"><button class="sr-b wa" type="button" data-wa-choose aria-expanded="false">WhatsApp</button><a class="sr-b " href="https://www.facebook.com/sharer/sharer.php?u=https%3A//brotherjimi.com/%3Fref%3Dshare" target="_blank" rel="noopener">Facebook</a><a class="sr-b " href="https://twitter.com/intent/tweet?text=A%20letter%20of%20counsel%20from%20the%20Bible%2C%20every%20morning%2C%20from%20Brother%20Jimi.%20Start%20your%2090%20mornings%3A&url=https%3A//brotherjimi.com/%3Fref%3Dshare" target="_blank" rel="noopener">X</a><a class="sr-b " href="https://t.me/share/url?url=https%3A//brotherjimi.com/%3Fref%3Dshare&text=A%20letter%20of%20counsel%20from%20the%20Bible%2C%20every%20morning%2C%20from%20Brother%20Jimi.%20Start%20your%2090%20mornings%3A" target="_blank" rel="noopener">Telegram</a><button class="sr-b" type="button" data-sr-copy="https://brotherjimi.com/?ref=share">Copy link</button><button class="sr-b" type="button" data-sr-more data-text="A letter of counsel from the Bible, every morning, from Brother Jimi. Start your 90 mornings:" data-url="https://brotherjimi.com/?ref=share">More…</button></div></div><div class="wa-choose" hidden><a class="wc-o" href="https://wa.me/?text=A%20letter%20of%20counsel%20from%20the%20Bible%2C%20every%20morning%2C%20from%20Brother%20Jimi.%20Start%20your%2090%20mornings%3A%20https%3A//brotherjimi.com/%3Fref%3Dshare" target="_blank" rel="noopener"><b>Send to a chat</b><span>Pick a person or group</span></a><button class="wc-o" type="button" data-sr-vid="" hidden><b>Post today’s video to your Status</b><span>Jimi’s short message</span></button><button class="wc-o" type="button" data-pass-img="" hidden><b>Post today’s card to your Status</b><span>Today’s line, as a picture</span></button></div>
+    </div>
+  </section>
+  <section class="close threaded">
+    <div class="thread" aria-hidden="true"><i></i></div>
     <div class="wrap">
-      <h2 class="big">Your Day 1 is tomorrow.</h2>
-      <p class="lede">Give God ninety mornings.</p>
-      <!-- Real count of people who started this month (from /today/today.json "startedThisMonth"). Hidden below 50. Never estimated. -->
-      <p class="count" data-count hidden><b data-count-n></b> people started their ninety mornings this month.</p>
+      <h2 class="big">Are you in?</h2>
+      <p class="lede">Commit to ninety mornings of counsel.<br>Your Day 1 is tomorrow.</p>
       <form class="signup" data-signup novalidate>
         <label class="sr" for="email-close">Email address</label>
         <input id="email-close" name="email" type="email" inputmode="email" autocomplete="email" placeholder="Your email">

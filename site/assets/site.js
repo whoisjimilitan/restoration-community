@@ -220,3 +220,180 @@
   });
   const y = $("#yr"); if (y) y.textContent = new Date().getFullYear();
 })();
+
+/* ===== Concept: One morning ===== */
+(function(){
+  const $=(q,r=document)=>r.querySelector(q), $$=(q,r=document)=>[...r.querySelectorAll(q)];
+  const calm=matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const clamp=(v,a=0,b=1)=>Math.min(b,Math.max(a,v));
+
+  /* 1. Bubble: tap for sound, tap again to mute */
+  const bub=$("[data-cbub]");
+  if(bub){ const v=$("video",bub);
+    if(calm){ v.removeAttribute("autoplay"); v.pause(); }
+    bub.addEventListener("click",()=>{
+      if(v.muted){ v.muted=false; v.currentTime=0; v.play().catch(()=>{}); bub.classList.add("sound"); bub.setAttribute("aria-label","Mute Brother Jimi’s welcome"); }
+      else { v.muted=true; bub.classList.remove("sound"); bub.setAttribute("aria-label","Play Brother Jimi’s welcome with sound"); }
+    });
+  }
+
+  /* 2. The letter opens itself as you scroll */
+  const sc=$("[data-cscene]");
+  if(sc){
+    const dev=$(".cdev",sc), t=$("[data-time]",sc), body=$(".mv-body",sc), win=$(".mv-win",sc), vs=$(".mv-body .vs",sc);
+    const dawn=$(".dawn",sc);
+    if(calm){ sc.classList.add("still","done"); dev.classList.add("notif","open"); }
+    else {
+      const frame=()=>{
+        const r=sc.getBoundingClientRect(), span=r.height-innerHeight;
+        const p=clamp(-r.top/span);
+        sc.style.setProperty("--p",p.toFixed(3));
+        dawn.style.opacity=clamp(p/0.12);
+        t.textContent=p<0.12?"5:59":"6:00";
+        dev.classList.toggle("notif",p>=0.14);
+        dev.classList.toggle("open",p>=0.30);
+        const q=clamp((p-0.36)/0.5), max=Math.max(0,body.scrollHeight-win.clientHeight+90);
+        body.style.transform=`translateY(${-q*max}px)`;
+        if(vs){ const vr=vs.getBoundingClientRect(), wr=win.getBoundingClientRect(); vs.classList.toggle("lit", p>0.3 && vr.top < wr.bottom-30); }
+        sc.classList.toggle("done",p>=0.9);
+      };
+      let raf=0; const on=()=>{ if(!raf) raf=requestAnimationFrame(()=>{raf=0;frame();}); };
+      addEventListener("scroll",on,{passive:true}); addEventListener("resize",on); frame();
+    }
+    const commit=$("[data-cs-commit]",sc), read=$(".cs-read",sc);
+    if(commit&&read) commit.addEventListener("click",()=>{ read.click(); const c=$("[data-commit]"); if(c&&!c.hidden) setTimeout(()=>{ c.click(); const sh=$("#letter-sheet"); if(sh) sh.scrollTop=sh.scrollHeight; },60); });
+  }
+
+  /* 3. Ninety mornings: dots fill as the section comes up */
+  const days=$(".days");
+  if(days){ const dots=$$("i",days);
+    if(calm) dots.forEach(d=>d.classList.add("on"));
+    else { const f=()=>{ const r=days.getBoundingClientRect(); const p=clamp((innerHeight*0.92-r.top)/(innerHeight*0.6)); const n=Math.round(p*dots.length); dots.forEach((d,i)=>d.classList.toggle("on",i<n)); };
+      addEventListener("scroll",f,{passive:true}); f(); }
+  }
+
+  /* 4. The thread draws itself into each section */
+  const th=$$(".thread");
+  if("IntersectionObserver" in window){ const io=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add("drawn"); io.unobserve(e.target);} }),{threshold:.6}); th.forEach(x=>io.observe(x)); }
+  else th.forEach(x=>x.classList.add("drawn"));
+})();
+
+/* ===== Concept: Pass it on ===== */
+(function(){
+  const msgEl=document.querySelector("[data-pass-msg]");
+  const msg=msgEl?msgEl.textContent:"Start your 90 mornings with Brother Jimi: https://brotherjimi.com/?ref=share";
+  document.querySelectorAll("[data-pass]").forEach(b=>b.addEventListener("click",async()=>{
+    const src=b.getAttribute("data-pass")||b.closest(".pc").querySelector("img").src;
+    try{
+      const img=b.closest(".pc").querySelector("img"); const r=await fetch(img.currentSrc||img.src); const blob=await r.blob();
+      const file=new File([blob],"brotherjimi-today.jpg",{type:"image/jpeg"});
+      if(navigator.canShare&&navigator.canShare({files:[file]})){ await navigator.share({files:[file],text:msg}); return; }
+    }catch(e){ if(e&&e.name==="AbortError") return; }
+    open("https://wa.me/?text="+encodeURIComponent(msg),"_blank","noopener");
+  }));
+  const copy=(t,btn)=>{ (navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(()=>{ const o=btn.textContent; btn.textContent="Copied"; setTimeout(()=>btn.textContent=o,1600); }).catch(()=>{}); };
+  document.querySelectorAll("[data-pass-copy]").forEach(b=>b.addEventListener("click",()=>copy(msg,b)));
+  document.querySelectorAll("[data-pass-copy-link]").forEach(b=>b.addEventListener("click",()=>copy("https://brotherjimi.com/?ref=share",b)));
+})();
+
+/* ===== Concept 2 ===== */
+(function(){
+  const ph=document.querySelector(".answer .photo");
+  if(ph&&"IntersectionObserver" in window){ const io=new IntersectionObserver(es=>{ if(es.some(e=>e.isIntersecting)){ ph.classList.add("go"); io.disconnect(); } },{threshold:.45}); io.observe(ph); }
+  else if(ph) ph.classList.add("go");
+})();
+
+/* Concept 2: share today's video as a file (WhatsApp Status), else open WhatsApp with the message */
+(function(){
+  const msgEl=document.querySelector("[data-pass-msg]");
+  const msg=msgEl?msgEl.textContent:"Start your 90 mornings with Brother Jimi: https://brotherjimi.com/?ref=share";
+  document.querySelectorAll("[data-pass-vid]").forEach(b=>b.addEventListener("click",async()=>{
+    try{
+      const v=b.closest(".pc").querySelector("video"); const r=await fetch(v.currentSrc||v.src); const blob=await r.blob();
+      const file=new File([blob],"brotherjimi-today.mp4",{type:"video/mp4"});
+      if(navigator.canShare&&navigator.canShare({files:[file]})){ await navigator.share({files:[file],text:msg}); return; }
+    }catch(e){ if(e&&e.name==="AbortError") return; }
+    open("https://wa.me/?text="+encodeURIComponent(msg),"_blank","noopener");
+  }));
+})();
+
+/* ===== Concept 2: hero shows Jimi's photo until tapped, then plays with sound ===== */
+(function(){
+  const b=document.querySelector("[data-hplay]"); if(!b) return; const v=b.querySelector("video");
+  b.addEventListener("click",()=>{ if(v.paused) v.play().catch(()=>{}); else v.pause(); });
+  v.addEventListener("play",()=>b.classList.add("playing","seen"));
+  v.addEventListener("pause",()=>b.classList.remove("playing"));
+  v.addEventListener("ended",()=>{ b.classList.remove("playing"); v.currentTime=0; });
+})();
+/* ===== Concept 2: one-tap share row ===== */
+(function(){
+  document.querySelectorAll("[data-wa-choose]").forEach(b=>{
+    const box=b.closest(".srow").nextElementSibling;
+    b.addEventListener("click",()=>{ const open=box.hidden; box.hidden=!open; b.setAttribute("aria-expanded",open); });
+  });
+  const flash=(b,t)=>{ const o=b.textContent; b.textContent=t; setTimeout(()=>b.textContent=o,1600); };
+  document.querySelectorAll("[data-sr-copy]").forEach(b=>b.addEventListener("click",()=>{
+    (navigator.clipboard?navigator.clipboard.writeText(b.dataset.srCopy):Promise.reject()).then(()=>flash(b,"Copied")).catch(()=>{});
+  }));
+  document.querySelectorAll("[data-sr-more]").forEach(b=>b.addEventListener("click",()=>{
+    if(navigator.share) navigator.share({text:b.dataset.text,url:b.dataset.url}).catch(()=>{});
+    else open("https://wa.me/?text="+encodeURIComponent(b.dataset.text+" "+b.dataset.url),"_blank","noopener");
+  }));
+  const shareFile=async(src,name,type)=>{
+    const msgB=document.querySelector("[data-sr-more]"); const text=msgB?msgB.dataset.text+" "+msgB.dataset.url:"";
+    try{ const r=await fetch(src); const blob=await r.blob(); const f=new File([blob],name,{type});
+      if(navigator.canShare&&navigator.canShare({files:[f]})){ await navigator.share({files:[f],text}); return; } }catch(e){ if(e&&e.name==="AbortError") return; }
+    open("https://wa.me/?text="+encodeURIComponent(text),"_blank","noopener");
+  };
+  document.querySelectorAll("[data-pass-img]").forEach(b=>b.addEventListener("click",()=>shareFile(b.dataset.passImg,"brotherjimi-today.jpg","image/jpeg")));
+  document.querySelectorAll("[data-sr-vid]").forEach(b=>b.addEventListener("click",()=>shareFile(b.dataset.srVid,"brotherjimi-today.mp4","video/mp4")));
+})();
+
+/* Voice note: Jimi reads today's letter */
+(function(){
+  const l=document.querySelector("[data-listen]"); if(!l) return;
+  const a=l.querySelector("audio"), b=l.querySelector(".ls-btn"), bar=l.querySelector(".ls-bar i"), t=l.querySelector("[data-ls-time]");
+  const fmt=s=>Math.floor(s/60)+":"+String(Math.floor(s%60)).padStart(2,"0");
+  b.addEventListener("click",()=>{ a.paused?a.play().catch(()=>{}):a.pause(); });
+  a.addEventListener("play",()=>l.classList.add("on")); a.addEventListener("pause",()=>l.classList.remove("on"));
+  a.addEventListener("timeupdate",()=>{ if(a.duration){ bar.style.width=(a.currentTime/a.duration*100)+"%"; t.textContent=fmt(a.currentTime)+" / "+fmt(a.duration);} });
+  a.addEventListener("ended",()=>{ l.classList.remove("on"); bar.style.width="0"; });
+})();
+
+/* ===== Final: the Word rises toward the reader, then the highlighter; questions one at a time ===== */
+(function(){
+  const st=document.querySelector(".answer .stage"), ph=st&&st.querySelector(".photo");
+  if(st&&"IntersectionObserver" in window){
+    const io=new IntersectionObserver(es=>{ if(es.some(e=>e.isIntersecting)){ st.classList.add("up"); setTimeout(()=>ph&&ph.classList.add("go"),900); io.disconnect(); } },{threshold:.3});
+    io.observe(st);
+  } else if(st){ st.classList.add("up"); ph&&ph.classList.add("go"); }
+  const ql=document.querySelector(".asklist");
+  if(ql&&"IntersectionObserver" in window){ const io2=new IntersectionObserver(es=>{ if(es.some(e=>e.isIntersecting)){ ql.classList.add("in"); io2.disconnect(); } },{threshold:.15}); io2.observe(ql); }
+  else if(ql) ql.classList.add("in");
+})();
+
+/* ===== Daily: share text, Status video and card, voice note (all from /today/today.json) ===== */
+(function(){
+  const get = () => window.BJ_TODAY ? Promise.resolve(window.BJ_TODAY)
+    : fetch("/today/today.json",{cache:"no-cache"}).then(r=>r.ok?r.json():null).catch(()=>null);
+  get().then(T=>{
+    if(!T) return;
+    if(T.line){
+      const msg="This morning’s letter from Brother Jimi: “"+T.line+"” Start your 90 mornings:";
+      document.querySelectorAll(".srow").forEach(row=>{
+        const more=row.querySelector("[data-sr-more]"); if(!more) return;
+        const url=more.dataset.url, q=encodeURIComponent; more.dataset.text=msg;
+        const box=row.nextElementSibling;
+        const wa=box&&box.querySelector("a.wc-o"); if(wa) wa.href="https://wa.me/?text="+q(msg+" "+url);
+        row.querySelectorAll("a.sr-b").forEach(a=>{
+          if(a.href.includes("twitter.com")) a.href="https://twitter.com/intent/tweet?text="+q(msg)+"&url="+q(url);
+          if(a.href.includes("t.me")) a.href="https://t.me/share/url?url="+q(url)+"&text="+q(msg);
+        });
+      });
+    }
+    document.querySelectorAll("[data-sr-vid]").forEach(b=>{ if(T.statusVideo){ b.dataset.srVid=T.statusVideo; b.hidden=false; } });
+    document.querySelectorAll("[data-pass-img]").forEach(b=>{ if(T.card){ b.dataset.passImg=T.card; b.hidden=false; } });
+    const l=document.querySelector("[data-listen]");
+    if(l&&T.voice){ l.querySelector("audio").src=T.voice; l.hidden=false; }
+  });
+})();

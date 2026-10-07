@@ -16,9 +16,9 @@ LOCK = ROOT / "design-lock.json"
 FILES = [
     "assets/styles.css", "assets/site.js",
     "assets/fonts/inter-latin-wght-normal.woff2", "assets/fonts/inter-latin-wght-italic.woff2",
-    "images/bible-hero.jpg", "images/bible-hero-2x.jpg", "images/jimi-avatar.jpg", "images/og.jpg", "images/favicon.png", "images/apple-touch-icon.png",
+    "images/bible-hero.jpg", "images/jimi-intro.mp4", "images/bible-hero-2x.jpg", "images/jimi-avatar.jpg", "images/og.jpg", "images/favicon.png", "images/apple-touch-icon.png",
     "index.html", "today/index.html", "start/index.html",
-    "welcome/index.html", "welcome/received/index.html", "partner/index.html", "404.html", "design/status-card.html",
+    "welcome/index.html", "welcome/received/index.html", "partner/index.html", "404.html", "design/status-card.html", "design/status-nametag.html", "design/status-endcard.html",
 ]
 SLOT = re.compile(r'<(\w+)([^>]*?)\sdata-slot="(\w+)"([^>]*)>(.*?)</\1>', re.S)
 
