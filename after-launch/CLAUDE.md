@@ -37,7 +37,7 @@ Jimi exactly what changed.
 - The homepage story is fixed, in this order: Jimi's intro video and the question "What's heavy on
   your heart?" → the reader's own six questions → Jimi's hands holding the Bible (highlighter on
   Matthew 11:28) with "It's all in here." → how it arrives (dawn band, the phone at 6:00, the sample
-  letter) → "Ninety mornings." → "You'll have a brother." (with "My story") → "Pass it on." →
+  letter) → "Ninety mornings." → "You'll have a brother." → "Pass it on." →
   "Are you in? / Commit to ninety mornings of counsel." Don't add, remove or reorder sections
   without Jimi.
 - The hero photo is Jimi's own hands. Never crop, compress, retouch or replace

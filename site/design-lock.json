@@ -1,6 +1,6 @@
 {
-  "assets/styles.css": "381bcf6d37b780eb2feecd7a571d2904262c0efe25ab0c368a9b089e5483aaff",
-  "assets/site.js": "dbbeea6280e7ea29b083dc049c58bd4af6d8e2c19a7e61a299f608edb7dae274",
+  "assets/styles.css": "8960dcf7cf9ca2ce251743d8b28dbf2ac1d8278dd8405e61b2d5828c28c608f1",
+  "assets/site.js": "60820eac8941f9c7e444d1be9a7d64f5597702cb26004305041d566a490ce783",
   "assets/fonts/inter-latin-wght-normal.woff2": "3100e775e8616cd2611beecfa23a4263d7037586789b43f035236a2e6fbd4c62",
   "assets/fonts/inter-latin-wght-italic.woff2": "7291b5970da2237441273c03b424a504b70b18f09791473fab99687dcc314720",
   "images/bible-hero.jpg": "cc527f2156c9274289a817e79b1ae4b34c59a4032170551e47199a5589688d32",
@@ -10,7 +10,7 @@
   "images/og.jpg": "b8312493419165104df82d69d33fe061c21744e12a1378a7751d874ac535a73b",
   "images/favicon.png": "1de169c1b920e812420e067c856fba35ac3251cd15398d38c7e9db59016546f3",
   "images/apple-touch-icon.png": "9053c6be5ead96fd01d84ff9ab75a7e10b3a49e1c3482c5213a4236f4903e904",
-  "index.html": "45f412f1957e971530d36e35bbf06de58b68f851eedfbf0723de9e97a3e182ca",
+  "index.html": "b7d0b458bc43e55f159888e217f244ac3aa7eed591f4d484d44a49d0b4263bff",
   "today/index.html": "d316153cc20e7047147520c2229d120266cd6a10946c82bdd6f291251608e007",
   "start/index.html": "47d2dcdd5486e2d3d86b417492d34c7f2accf8650ec30c6a14c89966a11652b5",
   "welcome/index.html": "ae7299458c833ab26f0bed8358b660cce52a864b53c94fe65d8010f81833661a",

@@ -10,6 +10,8 @@ This replaces the whole front end. What's new:
 - **Receive Jesus:** "So Jesus paid the price." now uses 1 Peter 3:18; "Tell me. I'd love to welcome
   you to the family of God."
 - **Welcome pages:** "Who came to mind?"; one voice ("I") throughout.
+- **Home, calmer:** quiet questions (each becomes a link once its topic page exists), no lines between
+  sections, an icon share row, and a hidden "From readers" section (see CLAUDE.md 3b).
 - **Daily data:** `today.json` gains `statusVideo` and `voice`; `startedThisMonth` is gone.
 
 Do these steps once, in order, exactly as written. Change, merge or "adapt" nothing. If a step
@@ -40,7 +42,7 @@ Note today's letter: the inner content of the `data-slot` elements in `site/toda
 1. `python3 site/verify.py` must print `Design lock OK: all 21 files match the approved design.`
    Run it on the `public/` copy too.
 2. `/images/jimi-intro.mp4`, `/images/bible-hero.jpg`, `/images/bible-hero-2x.jpg`,
-   `/today/today.json` return 200. No page scrolls sideways at 320px.
+   `/today/today.json`, `/voices.json` return 200 (`/counsel/index.json` may be 404 until a topic page exists; that is fine). No page scrolls sideways at 320px.
 3. Screenshots at 390px for Jimi: the top of `/`; the six questions and "It's all in here.";
    "Are you in?"; `/today` with the WhatsApp choices open; `/welcome`.
 4. On `/`: tapping the video circle plays Jimi with sound; pausing shows his photo again. The

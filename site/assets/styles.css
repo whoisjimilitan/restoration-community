@@ -694,3 +694,45 @@ body{background:var(--white)}
 .hl:nth-of-type(1){left:57.912%;top:59.503%;width:8.236%;height:2.019%}
 .hl:nth-of-type(2){left:52.751%;top:61.447%;width:13.397%;height:2.019%}
 .hl:nth-of-type(3){left:52.751%;top:63.392%;width:7.303%;height:2.019%}
+
+/* ===== Breathing pass ===== */
+/* the questions: quiet inner thoughts, not a form */
+.asklist li{border:0!important;padding:9px 4px;font-weight:400;color:var(--slate);font-size:clamp(16px,4.5vw,19px);letter-spacing:-0.01em}
+.asklist{margin-top:8px}
+/* ninety mornings: light dots, only Day 1 in wine */
+.days{gap:9px}
+.days i{background:#e7ddcf}
+.days i.on:not(.d1){background:rgba(139,35,50,.22);opacity:1}
+/* more air between the big moments */
+.journey,.person,.passon,.close{padding-bottom:calc(var(--gap) * 1.1)}
+.hero .bar p{font-weight:500}
+
+/* ===== Clean pass ===== */
+/* 1. no connector threads on Home: plain, generous section spacing */
+.threaded{padding-top:var(--gap)}
+/* 2. one loud moment: the question and the close; the rest speak more quietly */
+.journey .big,.passon .big,.answer-h,.quiet-h{font-size:clamp(32px,8vw,52px)}
+.person .big{font-size:clamp(36px,9vw,60px)}
+/* 3. icon share row */
+.sr-icons{margin-top:30px}
+.sr-icons .sr-list{gap:10px;justify-content:center;flex-wrap:nowrap;overflow:visible}
+.ic{flex:none;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;border:1.5px solid var(--hair);background:#fffdf9;color:var(--ink);cursor:pointer;padding:0;text-decoration:none;transition:transform .2s,background .2s}
+.ic:hover{background:#f6efe4;text-decoration:none;transform:translateY(-2px)}
+.ic-wa{background:var(--wine);border-color:var(--wine);color:#fff}
+.ic-wa:hover{background:var(--wine-hover)}
+@media (max-width:374px){ .sr-icons .sr-list{gap:6px} .ic{width:41px;height:41px} }
+/* the questions deepen in tone as they go down, into the answer */
+.asklist li{color:var(--ink)!important}
+.asklist li:nth-child(1){opacity:.42}.asklist li:nth-child(2){opacity:.52}.asklist li:nth-child(3){opacity:.62}
+.asklist li:nth-child(4){opacity:.72}.asklist li:nth-child(5){opacity:.84}.asklist li:nth-child(6){opacity:1;font-weight:500}
+@media (prefers-reduced-motion:no-preference){ .asklist:not(.in) li{opacity:0!important} }
+/* 4. questions that open a topic page */
+.asklist a{color:inherit;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+.asklist a::after{content:"›";color:var(--wine);font-weight:600}
+.asklist a:hover{color:var(--ink)}
+/* 5. from readers */
+.voices{text-align:center;padding-block:var(--gap) 0}
+.vq{display:grid;gap:26px;max-width:520px;margin:30px auto 0}
+.vq figure{margin:0}
+.vq blockquote{font-size:19px;line-height:1.5;color:var(--ink)}
+.vq figcaption{margin-top:8px;font-size:14px;color:var(--slate)}

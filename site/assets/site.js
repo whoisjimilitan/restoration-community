@@ -372,6 +372,23 @@
   else if(ql) ql.classList.add("in");
 })();
 
+/* ===== Questions become doorways; readers' words appear only when real ===== */
+(function(){
+  const esc=t=>String(t).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+  fetch("/counsel/index.json",{cache:"no-cache"}).then(r=>r.ok?r.json():[]).catch(()=>[]).then(slugs=>{
+    if(!Array.isArray(slugs)) return;
+    document.querySelectorAll(".asklist li[data-topic]").forEach(li=>{
+      if(slugs.includes(li.dataset.topic)){ const a=document.createElement("a"); a.href="/counsel/"+li.dataset.topic; a.textContent=li.textContent; li.textContent=""; li.appendChild(a); }
+    });
+  });
+  const box=document.querySelector("[data-voices]");
+  if(box) fetch("/voices.json",{cache:"no-cache"}).then(r=>r.ok?r.json():[]).catch(()=>[]).then(v=>{
+    if(!Array.isArray(v)||!v.length) return;
+    box.querySelector("[data-voices-list]").innerHTML=v.slice(0,3).map(x=>"<figure><blockquote>“"+esc(x.words)+"”</blockquote><figcaption>"+esc(x.from||"A reader")+"</figcaption></figure>").join("");
+    box.hidden=false;
+  });
+})();
+
 /* ===== Daily: share text, Status video and card, voice note (all from /today/today.json) ===== */
 (function(){
   const get = () => window.BJ_TODAY ? Promise.resolve(window.BJ_TODAY)
