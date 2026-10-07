@@ -59,53 +59,30 @@ the approved design. It fails if **one character** changes outside the allowed s
      before you build any sequence. It is a DNS change, so it needs Jimi's yes in this session.
    - **You never write letters.** Sequences use only letters Jimi approved in Notion. Any missing
      day becomes a TODO placeholder that is set **not to send**, and you list the missing days for Jimi.
-3. **Today's Counsel, every day,** from the approved Notion letter (Track = Today, Publish date =
-   today, Status = Approved). Each morning, before 6:00 AM Ghana time:
-   - **Upload media to Notion (when you have them):** In the same Notion record as today's letter,
-     attach the `statusVideo` (9:16 MP4) and `voice` (m4a recording of you reading the letter) to
-     the corresponding attachment fields. If you don't have them, leave those fields empty — the
-     daily fill will use `""` and those items won't appear on the site. This is correct.
-   - In `site/today/index.html` change only the inner content of `data-slot="subject"`,
-     `data-slot="body"` and `data-slot="date"` (the letter's date, e.g. `Tuesday 6 October`).
-     The homepage letter is fixed. Never change it.
-   - The body uses exactly this markup and nothing else:
-     ```html
-     <p>A paragraph.</p>
-     <p class="vs">“The verse, word for word.” <cite>Book 1:1</cite></p>
-     <p class="sign">Your brother,<br>Jimi</p>
-     <p class="ps">P.S. …</p>
-     ```
-   - Write `site/today/today.json` (the only other file you fill daily) with exactly these keys:
-     `date` (YYYY-MM-DD), `dateLabel` ("Tuesday 6 October"), `subject`, `line` (the shareable line),
-     `url` (`/today/YYYY-MM-DD`), `video` (path to today's video, or `""` if there is none),
-     `poster` (path to the video's still image, or `/images/jimi-avatar.jpg`).
-     `card`: today's WhatsApp Status card (see below), or `""`.
-     `statusVideo`: today's Status video (see below), or `""`.
-     `voice`: today's voice note of Jimi reading the letter (see below), or `""`.
-     Any key left `""` simply hides that item on the site (the Today bubble, the "Post to your
-     Status" choices, the "Listen to Jimi read it" player). That is correct. Never fill one with
-     anything Jimi didn't give you.
-   - Save the filled page as a permanent copy at `/today/YYYY-MM-DD/index.html`. In that copy only,
-     set `og:title` to the subject, `og:description` to the shareable line and `og:url` to the
-     permanent address. Never delete or change a past day's copy.
-   - Today's video (uploaded by Jimi in Notion): make it square, 480×480, H.264 MP4, no larger
-     than 3 MB, with a still image (`.jpg`) from its first second as the poster. Never add music,
-     text or effects to this round version.
-   - Today's Status video, made from the same video as Jimi uploaded it (vertical 9:16):
-     scale to 576×1024, H.264 MP4, no larger than 3 MB. Lay `site/design/status-nametag.html`
-     (rendered as a transparent PNG) over the whole video, and add `site/design/status-endcard.html`
-     (rendered as a PNG) as the last 3 seconds, silent. Nothing else: no music, effects or other
-     text. Captions only when Jimi supplies the exact words in Notion. Save it as
-     `/today/YYYY-MM-DD/status.mp4` and put that path in `today.json` → `statusVideo`.
-   - Today's voice note (uploaded by Jimi in Notion, him reading the letter): AAC `.m4a`, mono,
-     64 kbps, no larger than 3 MB, never edited beyond trimming silence at the start and end. Save it
-     as `/today/YYYY-MM-DD/voice.m4a` and put that path in `today.json` → `voice`.
-   - Today's Status card: render `site/design/status-card.html` with only `{{dateLabel}}` and
-     `{{line}}` replaced (HTML-escaped) at exactly 1080×1920, save it as
-     `/today/YYYY-MM-DD/card.png`, and put that path in `today.json` → `card`. Change nothing else
-     in the template. Show Jimi the first one before publishing it.
-   - Run `python3 site/verify.py` before publishing. If there is no approved letter for today,
-     leave yesterday's in place and email Jimi.
+3. **Today's Counsel, every day** — end-to-end workflow, automated and simple.
+
+   **Phase 1: Quote → Approval (Boba to email approval)**
+   - Boba sends three quote sets daily (around 6:00 PM Ghana time).
+   - Run `/preach` on each quote (5 phases, full evidence documented).
+   - Run `/teach` on each refined quote (VERSION A extracted, VERSION B built HIDE-first). Output:
+     full `/preach` work, VERSION A (40-sec reel), VERSION B (40-sec reel).
+   - Email approval to whoisjimi.today@gmail.com with all evidence.
+   - Jimi reviews and approves one. (Optional: if inspired, record yourself reading it as an m4a file.)
+   - Reply “Approved” or push to Notion manually with Status = Approved, Track = Today, Publish date = today.
+
+   **Phase 2: Notion → Daily Fill (approved letter to 6:00 AM publish)**
+   - Before 6:00 AM Ghana time, the daily fill automatically:
+     1. Fetches the approved letter from Notion (Track = Today, Status = Approved, Publish date = today).
+     2. **Voice note:** If you recorded and uploaded m4a to the `voice` field in Notion, uses your real voice. Otherwise, auto-generates voice using text-to-speech (TTS) reading the letter aloud. Saves as `/today/YYYY-MM-DD/voice.m4a` in `today.json` → `voice`.
+     3. **Status video:** Auto-generates a 576×1024 video (9:16 vertical) with your circular photo, key verse/line text overlay, and the voice note playing. Adds `site/design/status-nametag.html` and `site/design/status-endcard.html`. Saves as `/today/YYYY-MM-DD/status.mp4` in `today.json` → `statusVideo`.
+     4. **Status card:** Renders `site/design/status-card.html` with `{{dateLabel}}` and `{{line}}` replaced (HTML-escaped) at 1080×1920. Saves as `/today/YYYY-MM-DD/card.png` in `today.json` → `card`.
+     5. Fills `site/today/index.html` data-slots: `subject`, `body`, `date` from the Notion letter.
+     6. Fills `site/today/today.json` with: `date`, `dateLabel`, `subject`, `line`, `url`, `video` (if any), `poster`, `card`, `statusVideo`, `voice`.
+     7. Saves permanent copy at `/today/YYYY-MM-DD/index.html` with og:title, og:description, og:url set.
+     8. Runs `python3 site/verify.py` to confirm lock.
+     9. Publishes at 6:00 AM.
+
+   **That's it.** You choose to record voice or let it auto-generate. You don't pick status videos or cards — they're automatic. Never miss a day.
 4. **Hosting, `/privacy`, sitemap, redirects:** propose how, wait for Jimi's go.
    `/privacy` copies an existing page's `<head>`, header and footer exactly, with plain text
    supplied by Jimi. There is no `/contact` page: the footer's Contact link is an email link.
