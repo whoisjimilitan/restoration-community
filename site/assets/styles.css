@@ -736,3 +736,63 @@ body{background:var(--white)}
 .vq figure{margin:0}
 .vq blockquote{font-size:19px;line-height:1.5;color:var(--ink)}
 .vq figcaption{margin-top:8px;font-size:14px;color:var(--slate)}
+
+/* ===== Bring it to Jesus: the burdens as cards, in rows of three ===== */
+.hero2 h1.big{font-size:clamp(46px,13vw,84px)}
+.burdens{list-style:none;margin:0 auto;padding:0;max-width:720px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.bcard{display:flex;align-items:center;justify-content:center;min-height:112px;padding:14px 10px;background:#fff;border-radius:14px;
+  box-shadow:0 0 0 1px var(--hair),0 14px 30px -22px rgba(60,35,20,.5);
+  font-size:14px;line-height:1.32;font-weight:500;color:var(--ink);text-align:center;text-wrap:balance}
+.bcard a{color:inherit;text-decoration:none}
+.bcard a::after{content:" ›";color:var(--wine);font-weight:600}
+@media (min-width:735px){ .burdens{gap:16px} .bcard{min-height:140px;padding:22px 20px;font-size:18px;border-radius:18px} }
+@media (prefers-reduced-motion:no-preference){
+  .bcard{opacity:0;transform:translateY(14px);transition:opacity .7s ease,transform .7s ease;transition-delay:calc(var(--i) * 120ms)}
+  .burdens.in .bcard{opacity:1;transform:none}
+}
+.answer .stage{margin-top:48px}
+.answer .photo{background:var(--white)}
+
+/* ===== The burdens: folded notes, carried into the Word ===== */
+.burdens{gap:12px}
+.bcard{position:relative;border-radius:3px;box-shadow:none;background:linear-gradient(225deg,transparent 13px,#fffdf9 13px);
+  filter:drop-shadow(0 1px 1px rgba(70,45,25,.07)) drop-shadow(0 10px 14px rgba(70,45,25,.13));
+  font-size:14.5px;font-weight:500;letter-spacing:-.01em;padding:18px 12px 16px;min-height:122px;transform:rotate(var(--r,0deg))}
+.bcard::after{content:"";position:absolute;top:0;right:0;width:18px;height:18px;border-bottom-left-radius:3px;
+  background:linear-gradient(225deg,transparent 50%,#efe6d8 50%,#f6efe4 100%)}
+.bcard:nth-child(1){--r:-1.2deg}.bcard:nth-child(2){--r:.8deg}.bcard:nth-child(3){--r:-.5deg}
+.bcard:nth-child(4){--r:1deg}.bcard:nth-child(5){--r:-.8deg}.bcard:nth-child(6){--r:1.3deg}
+@media (min-width:735px){ .bcard{font-size:18px;min-height:150px;padding:26px 22px} .bcard::after{width:22px;height:22px} .bcard{background:linear-gradient(225deg,transparent 16px,#fffdf9 16px)} }
+@media (prefers-reduced-motion:no-preference){ .burdens.in .bcard{transform:rotate(var(--r))} }
+/* flow mode (set by script only when motion is welcome) */
+.answer.flow .flow-track{height:calc(100vh + 1100px)}
+.answer.flow .flow-pin{position:sticky;top:var(--pin-top,64px)}
+.answer.flow .bcard{opacity:1;transition:none;will-change:transform,opacity}
+.answer.flow .stage{transform:none!important;opacity:var(--st,.6)!important;transition:opacity .3s linear;margin-top:40px}
+.answer.flow .hl{animation-play-state:paused!important}
+.answer.flow.absorbed .hl{animation-play-state:running!important}
+.answer.flow .hl:nth-of-type(1){animation-delay:.15s}.answer.flow .hl:nth-of-type(2){animation-delay:.53s}.answer.flow .hl:nth-of-type(3){animation-delay:.91s}
+.answer.flow .answer-h{opacity:0;transform:translateY(12px);transition:opacity .8s ease .9s,transform .8s ease .9s}
+.answer.flow.absorbed .answer-h{opacity:1;transform:none}
+/* laptops: the notes, the Word and the answer must all fit on one screen while pinned */
+@media (min-width:735px){
+  .answer.flow .bcard{min-height:108px;padding:18px 18px;font-size:16.5px}
+  .answer.flow .burdens{max-width:640px;gap:14px}
+  .answer.flow .stage{margin-top:28px}
+  .answer.flow .photo{width:min(1120px,calc(100vw - 32px),max(420px,calc((100svh - 470px) * 1.777)))}
+  .answer.flow .answer-h{margin-top:8px}
+}
+
+/* question notes: a touch smaller so each reads in about three lines on a phone */
+@media (max-width:734px){ .bcard{font-size:13.5px;padding:16px 9px 14px;min-height:108px;text-wrap:pretty} }
+
+/* ===== Notes on the same ivory paper as the Bible's pages ===== */
+.bcard{background:linear-gradient(225deg,transparent 13px,#f7efe4 13px);
+  filter:drop-shadow(0 1px 1px rgba(70,45,25,.09)) drop-shadow(0 10px 14px rgba(70,45,25,.15))}
+.bcard::after{background:linear-gradient(225deg,transparent 50%,#e4d6c3 50%,#efe4d4 100%)}
+@media (min-width:735px){ .bcard{background:linear-gradient(225deg,transparent 16px,#f7efe4 16px)} }
+
+/* ===== Breathing: Welcome gets space under its opening; the prayer box sits centred like the rest ===== */
+.open + .three{margin-top:56px}
+.asks{text-align:center}
+.ask .row{justify-content:center}

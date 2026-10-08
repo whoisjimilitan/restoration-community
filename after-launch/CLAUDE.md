@@ -34,11 +34,11 @@ Jimi exactly what changed.
 - One typeface on every device: Inter, self-hosted (`site/assets/fonts`). No other fonts.
 - Less is more: one idea per section, generous spacing, short lines. Never add scripts,
   analytics, cookie bars, chat or translate widgets, pop-ups, frameworks or minifiers.
-- The homepage story is fixed, in this order: Jimi's intro video and the question "What's heavy on
-  your heart?" → the reader's own six questions → Jimi's hands holding the Bible (highlighter on
-  Matthew 11:28) with "It's all in here." → how it arrives (dawn band, the phone at 6:00, the sample
-  letter) → "Ninety mornings." → "You'll have a brother." → "Pass it on." →
-  "Are you in? / Commit to ninety mornings of counsel." Don't add, remove or reorder sections
+- The homepage story is fixed, in this order: Jimi's intro video and "Bring it to Jesus." (the hero
+  does only this) → the reader's six questions as notes, carried into Jimi's hands holding the Bible
+  (highlighter on Matthew 11:28) → "It's all in here." → "Every morning at dawn." (the phone and the
+  sample letter) → "Ninety mornings. / Read it. Do what it says." → "You'll have a brother." →
+  "Pass it on." → "Are you in? / Your Day 1 is tomorrow." Never promise a clock time in the wording. Don't add, remove or reorder sections
   without Jimi.
 - The hero photo is Jimi's own hands. Never crop, compress, retouch or replace
   `images/bible-hero.jpg` or `images/bible-hero-2x.jpg`.

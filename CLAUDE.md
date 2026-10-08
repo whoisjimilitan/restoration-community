@@ -108,9 +108,9 @@ the approved design. It fails if **one character** changes outside the allowed s
      reworded), first name and city only or "A reader". Only Jimi decides which ones. While it is `[]`
      the section stays hidden. That is correct.
    - `site/counsel/index.json` lists the topic pages that are published, e.g. `["forgiveness"]`. The
-     six homepage questions link to `/counsel/<slug>` only when their slug is listed (slugs:
-     forgiveness, hearing-gods-voice, faith-over-fear, your-thoughts-and-mind, your-purpose,
-     freedom-from-lust). Topic pages need a design Jimi approves first (section 6). Never list a
+     six homepage questions link to `/counsel/<slug>` only when their slug is listed (slugs, in
+     order: forgiveness, faith-over-fear, breaking-cycles, freedom-from-lust, hearing-gods-voice,
+     your-purpose). Topic pages need a design Jimi approves first (section 6). Never list a
      page that doesn't exist.
 4. **Hosting, `/privacy`, sitemap, redirects:** propose how, wait for Jimi's go.
    `/privacy` copies an existing page's `<head>`, header and footer exactly, with plain text

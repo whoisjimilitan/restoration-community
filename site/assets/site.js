@@ -389,6 +389,54 @@
   });
 })();
 
+/* ===== Burden cards: settle into view; a card links once its topic page is published ===== */
+(function(){
+  const box=document.querySelector(".burdens"); if(!box) return;
+  if("IntersectionObserver" in window){ const io=new IntersectionObserver(es=>{ if(es.some(e=>e.isIntersecting)){ box.classList.add("in"); io.disconnect(); } },{threshold:.2}); io.observe(box); } else box.classList.add("in");
+  fetch("/counsel/index.json",{cache:"no-cache"}).then(r=>r.ok?r.json():[]).catch(()=>[]).then(sl=>{
+    if(!Array.isArray(sl)) return;
+    box.querySelectorAll(".bcard[data-topic]").forEach(c=>{ if(sl.includes(c.dataset.topic)){ const a=document.createElement("a"); a.href="/counsel/"+c.dataset.topic; a.textContent=c.textContent; c.textContent=""; c.appendChild(a);} });
+  });
+})();
+
+/* ===== Flow: the notes are carried into the Word (scroll-linked; off for reduced motion) ===== */
+(function(){
+  const sec=document.querySelector(".answer"), track=sec&&sec.querySelector(".flow-track");
+  if(!track||matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const pin=track.querySelector(".flow-pin"), cards=[...pin.querySelectorAll(".bcard")], st=pin.querySelector(".stage"), target=pin.querySelector(".hl:nth-of-type(2)");
+  sec.classList.add("flow");
+  let rel=[], lift=0; const hd=pin.querySelector(".answer-h"), bx=pin.querySelector(".burdens");
+  const measure=()=>{
+    const hdr=document.querySelector("header"); const h=hdr?hdr.getBoundingClientRect().height:56;
+    pin.style.setProperty("--pin-top",Math.max(h+8,Math.min((innerHeight-pin.offsetHeight)/2+h/2,innerHeight-pin.offsetHeight-84))+"px");
+    cards.forEach(c=>c.style.transform="none"); st.style.translate=""; hd.style.translate="";
+    const pr=pin.getBoundingClientRect();
+    rel=cards.map(c=>{ const r=c.getBoundingClientRect(); return [r.left+r.width/2-pr.left, r.top+r.height/2-pr.top]; });
+    lift=bx.offsetHeight*.8;
+    tick();
+  };
+  const ease=x=>x<.5?2*x*x:1-Math.pow(-2*x+2,2)/2, cl=x=>Math.max(0,Math.min(1,x));
+  const tick=()=>{
+    const r=track.getBoundingClientRect(), range=track.offsetHeight-innerHeight;
+    const p=cl(-r.top/Math.max(1,range));
+    const up=-lift*ease(cl((p-.62)/.3)); st.style.translate=`0 ${up}px`; hd.style.translate=`0 ${up}px`;
+    const pr=pin.getBoundingClientRect(), t0=target.getBoundingClientRect(), tx=t0.left+t0.width/2, ty=t0.top+t0.height/2;
+    cards.forEach((c,i)=>{
+      const o=[3,4,5,0,1,2].indexOf(i), t=ease(cl((p-(.16+o*.07))/.32));
+      const dx=tx-(pr.left+rel[i][0]), dy=ty-(pr.top+rel[i][1]);
+      c.style.zIndex=t>0?String(10+o):"";
+      const rot=getComputedStyle(c).getPropertyValue("--r")||"0deg";
+      c.style.transform=`translate(${dx*t}px,${dy*t}px) scale(${1-.82*t}) rotate(calc(${rot} * ${1-t}))`;
+      c.style.opacity=String(1-Math.pow(t,3));
+    });
+    st.style.setProperty("--st",String(.6+.4*cl((p-.1)/.5)));
+    sec.classList.toggle("absorbed",p>.88);
+  };
+  addEventListener("scroll",()=>requestAnimationFrame(tick),{passive:true});
+  addEventListener("resize",measure);
+  addEventListener("load",measure); measure();
+})();
+
 /* ===== Daily: share text, Status video and card, voice note (all from /today/today.json) ===== */
 (function(){
   const get = () => window.BJ_TODAY ? Promise.resolve(window.BJ_TODAY)
