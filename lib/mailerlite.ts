@@ -10,7 +10,7 @@ export async function addSubscriber(email: string, tags: string[], ref?: string,
   try {
     const payload: any = {
       email,
-      groups: tags.map(tag => ({ id: GROUP_IDS[tag] || tag })),
+      groups: tags.map(tag => GROUP_IDS[tag] || tag),
     };
 
     if (ref) {
