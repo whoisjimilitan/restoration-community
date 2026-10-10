@@ -22,7 +22,11 @@ export async function addSubscriber(email: string, tags: string[], ref?: string,
     });
 
     if (!response.ok) {
-      throw new Error(`MailerLite error: ${response.status}`);
+      const errorBody = await response.text();
+      const errorMsg = `MailerLite ${response.status}: ${errorBody}`;
+      console.error("MailerLite API error:", errorMsg);
+      console.error("Request payload:", JSON.stringify(payload));
+      throw new Error(errorMsg);
     }
 
     return { success: true, subscriber: await response.json() };
