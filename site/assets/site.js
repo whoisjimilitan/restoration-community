@@ -411,32 +411,37 @@
   if(!track||matchMedia("(prefers-reduced-motion: reduce)").matches) return;
   const pin=track.querySelector(".flow-pin"), cards=[...pin.querySelectorAll(".bcard")], st=pin.querySelector(".stage"), target=pin.querySelector(".hl:nth-of-type(2)");
   sec.classList.add("flow");
-  let rel=[], lift=0; const hd=pin.querySelector(".answer-h"), bx=pin.querySelector(".burdens");
+  let rel=[], lift=0, nShift=0, sDrop=0; const hd=pin.querySelector(".answer-h"), bx=pin.querySelector(".burdens");
   const measure=()=>{
     const hdr=document.querySelector("header"); const h=hdr?hdr.getBoundingClientRect().height:56;
     pin.style.setProperty("--pin-top",Math.max(h+8,Math.min((innerHeight-pin.offsetHeight)/2+h/2,innerHeight-pin.offsetHeight-84))+"px");
-    cards.forEach(c=>c.style.transform="none"); st.style.translate=""; hd.style.translate="";
+    cards.forEach(c=>c.style.transform="none"); st.style.translate=""; hd.style.translate=""; bx.style.translate="";
     const pr=pin.getBoundingClientRect();
     rel=cards.map(c=>{ const r=c.getBoundingClientRect(); return [r.left+r.width/2-pr.left, r.top+r.height/2-pr.top]; });
     lift=(()=>{ const pt=parseFloat(pin.style.getPropertyValue("--pin-top"))||h+8, a0=st.getBoundingClientRect().top-pr.top, z0=hd.getBoundingClientRect().bottom-pr.top; return Math.max(0, pt+(a0+z0)/2-(innerHeight+h)/2); })();
+    { const pt=parseFloat(pin.style.getPropertyValue("--pin-top"))||h+8, b=bx.getBoundingClientRect(), s0=st.getBoundingClientRect();
+      nShift=Math.max(0,(innerHeight+h)/2-(pt+(b.top-pr.top)+b.height/2));      /* beat 1: the notes alone, centred */
+      sDrop=Math.max(0,innerHeight-(pt+(s0.top-pr.top))+24); }                     /* the Bible waits just below the screen */
     tick();
   };
   const ease=x=>x<.5?2*x*x:1-Math.pow(-2*x+2,2)/2, cl=x=>Math.max(0,Math.min(1,x));
   const tick=()=>{
     const r=track.getBoundingClientRect(), range=track.offsetHeight-innerHeight;
     const p=cl(-r.top/Math.max(1,range));
-    const up=-lift*ease(cl((p-.62)/.3)); st.style.translate=`0 ${up}px`; hd.style.translate=`0 ${up}px`;
+    const rise=ease(cl((p-.06)/.26)), up=-lift*ease(cl((p-.74)/.22)), drop=sDrop*(1-rise);
+    bx.style.translate=`0 ${nShift*(1-ease(cl((p-.06)/.24)))}px`;
+    st.style.translate=`0 ${drop+up}px`; hd.style.translate=`0 ${drop+up}px`;
     const pr=pin.getBoundingClientRect(), t0=target.getBoundingClientRect(), tx=t0.left+t0.width/2, ty=t0.top+t0.height/2;
     cards.forEach((c,i)=>{
-      const o=i<6?[3,4,5,0,1,2].indexOf(i):6, t=ease(cl((p-(.16+o*.07))/.32));
+      const o=i<6?[3,4,5,0,1,2].indexOf(i):6, t=ease(cl((p-(.32+o*.055))/.26));
       const dx=tx-(pr.left+rel[i][0]), dy=ty-(pr.top+rel[i][1]);
       c.style.zIndex=t>0?String(10+o):"";
       const rot=getComputedStyle(c).getPropertyValue("--r")||"0deg";
       c.style.transform=`translate(${dx*t}px,${dy*t}px) scale(${1-.82*t}) rotate(calc(${rot} * ${1-t}))`;
       c.style.opacity=String(1-Math.pow(t,3));
     });
-    st.style.setProperty("--st",String(.6+.4*cl((p-.1)/.5)));
-    sec.classList.toggle("absorbed",p>.88);
+    st.style.setProperty("--st",String(rise));
+    sec.classList.toggle("absorbed",p>.86);
   };
   addEventListener("scroll",()=>requestAnimationFrame(tick),{passive:true});
   addEventListener("resize",measure);

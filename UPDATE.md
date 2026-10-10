@@ -35,7 +35,7 @@ What's new:
   believe" opens with Jesus; Receive Jesus ends "I'd love to rejoice with you, and walk with you for 90 mornings."
 - **Less is more (10 October):** one menu at a time (the dock steps aside while reading down and at the
   footer); a two-line centred footer (Prayer · What I believe · Partner · Privacy); no label over the six notes,
-  which drift in; a shorter Bible scene; one thin line from Day 1 to Day 90 instead of ninety dots; one photo
+  which drift in; the Bible scene in three beats (notes alone, the Bible rises and takes them in, "It's all in here." centred); one thin line from Day 1 to Day 90 instead of ninety dots; one photo
   of Jimi; headlines rise gently into place. Receive Jesus: one truth per screen with its reference (tap to read
   the verse), "But / So / Now" in wine, four quiet steps on the edge, no verse after the prayer; "I'd love to rejoice with you, and walk with you for 90 mornings."
 - **New file `PIPELINE.md`:** the weekly counsel pipeline. Read it fully, but **do not build it yet** (Step 7).

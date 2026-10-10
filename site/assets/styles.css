@@ -1093,3 +1093,7 @@ footer nav{justify-content:center;gap:8px 22px}
 
 /* Receive Jesus: the long truth in two weights, same words */
 .rj-sub{max-width:24ch;margin:14px auto 0;font-size:var(--t-sub);line-height:1.4;font-weight:500;color:var(--ink);text-wrap:balance}
+
+/* the notes scene in three beats: a little more room to breathe between them */
+.answer.flow .flow-track{height:calc(100vh + 980px)}
+.answer.flow .stage{transition:none}
