@@ -1130,3 +1130,11 @@ main > section.morning-band > .wrap{width:100%}
 .pg-pips.dark i{background:rgba(255,255,255,.28)}
 .pg-pips.dark i.done{background:rgba(255,255,255,.5)}
 .pg-pips.dark i.now{background:#fff}
+
+/* ===== Ninety mornings: ninety quiet dots, one screen to themselves ===== */
+.journey .days{display:grid;grid-template-columns:repeat(10,1fr);gap:14px;max-width:296px;margin:52px auto 0}
+.journey .days i{width:100%;aspect-ratio:1;border-radius:50%}
+.journey .days + .days-key{max-width:296px;margin-top:18px}
+@media (min-width:735px){ .journey .days{grid-template-columns:repeat(15,1fr);max-width:460px;gap:16px} .journey .days + .days-key{max-width:460px} }
+/* the door to Receive Jesus: its own quiet place at the foot of the brother screen */
+.person .door{margin-top:clamp(80px,16vh,150px)}
