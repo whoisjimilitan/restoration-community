@@ -1043,3 +1043,53 @@ main > section.open,main > section.s-open.page-end{padding-top:80px}
 
 /* the small grey label above a page title: identical on every page */
 .prose p.when{font-size:14px;font-weight:600;color:var(--slate);margin:0 0 6px;line-height:1.4}
+
+/* ===== Less is more (10 Oct) ===== */
+/* footer: two quiet centred lines */
+footer{padding-block:28px calc(36px + env(safe-area-inset-bottom,0px))}
+footer .wrap{flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:12px;font-size:13px}
+footer nav{justify-content:center;gap:8px 22px}
+/* dock: steps aside while reading down, comes back on the way up, never sits on the footer */
+.dock{transition:opacity .35s ease,transform .45s cubic-bezier(.2,.8,.2,1)}
+/* home: the notes drift in one by one, like notes set down on a table */
+@media (prefers-reduced-motion:no-preference){
+  .burdens.pre .bcard{filter:opacity(0)}
+  .burdens.drift .bcard{animation:drift .8s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i,0) * 110ms)}
+}
+@keyframes drift{from{filter:opacity(0);translate:0 22px}to{filter:opacity(1);translate:0 0}}
+/* the scene with the Bible: less empty scrolling */
+.answer.flow .flow-track{height:calc(100vh + 760px)}
+.morning-band{padding-bottom:64px}
+.device{height:440px}
+/* ninety mornings: one thin line that draws itself as you scroll */
+.days-line{position:relative;height:2px;max-width:520px;margin:56px auto 0;background:var(--hair);border-radius:2px}
+.dl-fill{position:absolute;inset:0;transform-origin:left center;transform:scaleX(var(--dl,1));background:linear-gradient(90deg,var(--wine),rgba(139,35,50,.35));border-radius:2px}
+.dl-start,.dl-end{position:absolute;top:50%;width:12px;height:12px;margin-top:-6px;border-radius:50%}
+.dl-start{left:-1px;background:var(--wine);animation:dawn 2.6s ease-out infinite}
+.dl-end{right:-1px;background:var(--paper);box-shadow:inset 0 0 0 2px #d9cbbb}
+.days-line + .days-key{max-width:520px}
+/* the brother section: words only, the door has room */
+.person .door{margin-top:40px}
+/* headlines rise gently into place (a quarter second, no bounce) */
+@media (prefers-reduced-motion:no-preference){
+  .rise{opacity:0;translate:0 16px;transition:opacity .6s ease,translate .7s cubic-bezier(.2,.8,.2,1)}
+  .rise.in{opacity:1;translate:0 0}
+  .rise.lag{transition-delay:.12s}
+}
+/* Receive Jesus: one truth per screen; the joining word shows each truth leads to the next */
+.rj-join{color:var(--wine)}
+.rj-truths .rj-ref{margin:22px auto 0;padding:10px 14px;border:0;background:none;font:inherit;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--wine);cursor:pointer;display:inline-flex;align-items:center;gap:8px;border-radius:999px}
+.rj-truths .rj-ref::after{content:"";width:7px;height:7px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:translateY(-2px) rotate(45deg);transition:transform .3s ease}
+.rj-truths .rj-ref[aria-expanded="true"]::after{transform:translateY(2px) rotate(-135deg)}
+.rj-truths .rj-ref:focus-visible{outline:2px solid var(--wine);outline-offset:2px}
+.rj-truths .rj-verse{margin-top:6px;animation:vin .45s ease both}
+@keyframes vin{from{opacity:0;translate:0 -6px}to{opacity:1;translate:0 0}}
+.rj-pips{position:fixed;left:max(10px,env(safe-area-inset-left,0px));top:50%;z-index:5;display:flex;flex-direction:column;gap:8px;transform:translateY(-50%);opacity:0;transition:opacity .4s ease;pointer-events:none}
+.rj-pips.on{opacity:1}
+.rj-pips i{display:block;width:4px;height:4px;border-radius:4px;background:#d9cbbb;transition:height .35s ease,background-color .35s ease}
+.rj-pips i.done{background:rgba(139,35,50,.45)}
+.rj-pips i.now{height:18px;background:var(--wine)}
+@media (min-width:735px){ .rj-pips{left:28px} }
+
+/* Receive Jesus: the long truth in two weights, same words */
+.rj-sub{max-width:24ch;margin:14px auto 0;font-size:var(--t-sub);line-height:1.4;font-weight:500;color:var(--ink);text-wrap:balance}

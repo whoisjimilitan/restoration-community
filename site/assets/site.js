@@ -155,11 +155,17 @@
   });
   /* end Scene */
 
-  /* Dock: hidden on the homepage while the hero signup bar is on screen, so they never stack */
-  const dock = $("[data-dock]"), heroBar = $(".hero .bar");
-  if (dock && heroBar && "IntersectionObserver" in window) {
-    dock.classList.add("away");
-    new IntersectionObserver(es => es.forEach(e => dock.classList.toggle("away", e.isIntersecting))).observe(heroBar);
+  /* Dock: one menu at a time. It steps aside while the hero signup is on screen, while reading down,
+     and at the footer; it comes back as soon as you scroll up. */
+  const dock = $("[data-dock]"), heroBar = $(".hero .bar"), foot = $("footer");
+  if (dock && "IntersectionObserver" in window) {
+    let inHero = false, atFoot = false, down = false, lastY = scrollY;
+    const set = () => dock.classList.toggle("away", inHero || atFoot || down);
+    if (heroBar) { inHero = true; new IntersectionObserver(es => es.forEach(e => { inHero = e.isIntersecting; set(); })).observe(heroBar); }
+    if (foot) new IntersectionObserver(es => es.forEach(e => { atFoot = e.isIntersecting; set(); })).observe(foot);
+    addEventListener("scroll", () => { const y = scrollY, d = y - lastY;
+      if (Math.abs(d) > 8) { down = d > 0 && y > 120; lastY = y; set(); } }, { passive: true });
+    set();
   }
 
   /* Dates */
@@ -412,7 +418,7 @@
     cards.forEach(c=>c.style.transform="none"); st.style.translate=""; hd.style.translate="";
     const pr=pin.getBoundingClientRect();
     rel=cards.map(c=>{ const r=c.getBoundingClientRect(); return [r.left+r.width/2-pr.left, r.top+r.height/2-pr.top]; });
-    lift=bx.offsetHeight*.8;
+    lift=(()=>{ const pt=parseFloat(pin.style.getPropertyValue("--pin-top"))||h+8, a0=st.getBoundingClientRect().top-pr.top, z0=hd.getBoundingClientRect().bottom-pr.top; return Math.max(0, pt+(a0+z0)/2-(innerHeight+h)/2); })();
     tick();
   };
   const ease=x=>x<.5?2*x*x:1-Math.pow(-2*x+2,2)/2, cl=x=>Math.max(0,Math.min(1,x));
@@ -422,7 +428,7 @@
     const up=-lift*ease(cl((p-.62)/.3)); st.style.translate=`0 ${up}px`; hd.style.translate=`0 ${up}px`;
     const pr=pin.getBoundingClientRect(), t0=target.getBoundingClientRect(), tx=t0.left+t0.width/2, ty=t0.top+t0.height/2;
     cards.forEach((c,i)=>{
-      const o=[3,4,5,0,1,2].indexOf(i), t=ease(cl((p-(.16+o*.07))/.32));
+      const o=i<6?[3,4,5,0,1,2].indexOf(i):6, t=ease(cl((p-(.16+o*.07))/.32));
       const dx=tx-(pr.left+rel[i][0]), dy=ty-(pr.top+rel[i][1]);
       c.style.zIndex=t>0?String(10+o):"";
       const rot=getComputedStyle(c).getPropertyValue("--r")||"0deg";
@@ -563,6 +569,41 @@
       n.className="note"; n.textContent=wa?"Thank you. I’ll call you on WhatsApp.":"Thank you. I’ll call you."; }
     catch(_){ n.className="note err"; n.textContent="That didn’t go through. Try again."; btn.disabled=false; }
   });
+})();
+
+/* ===== Less is more (10 Oct): notes drift in, the ninety-mornings line draws, headlines rise, Receive Jesus steps ===== */
+(function(){
+  const calm = matchMedia("(prefers-reduced-motion: reduce)").matches, io = "IntersectionObserver" in window;
+  /* the notes are set down one by one when they come into view */
+  const bx = document.querySelector(".burdens");
+  if (bx && !calm && io) { bx.classList.add("pre");
+    const o = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { bx.classList.add("drift"); bx.classList.remove("pre"); o.disconnect(); } }), { threshold: .2 });
+    o.observe(bx); }
+  /* one line from Day 1 to Day 90, drawn as the section comes up */
+  const ln = document.querySelector(".days-line");
+  if (ln && !calm) { const f = () => { const r = ln.getBoundingClientRect(); const p = Math.max(.02, Math.min(1, (innerHeight * .9 - r.top) / (innerHeight * .55)));
+      ln.style.setProperty("--dl", p.toFixed(3)); };
+    addEventListener("scroll", () => requestAnimationFrame(f), { passive: true }); f(); }
+  /* headlines rise into place as they reach the screen (not the ones that already move with the scroll) */
+  if (!calm && io) {
+    const hs = [...document.querySelectorAll("main h2.big")].filter(h => !h.closest("[data-focus], .flow-pin, [hidden], dialog"));
+    const els = []; hs.forEach(h => { els.push(h); const n = h.nextElementSibling; if (n && n.classList.contains("lede")) { n.classList.add("lag"); els.push(n); } });
+    els.forEach(e => e.classList.add("rise"));
+    const o = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); o.unobserve(e.target); } }), { rootMargin: "0px 0px -8% 0px" });
+    els.forEach(e => o.observe(e));
+  }
+  /* Receive Jesus: tap a reference to read the verse */
+  document.querySelectorAll(".rj-truths .rj-ref").forEach(b => b.addEventListener("click", () => {
+    const v = b.nextElementSibling, open = b.getAttribute("aria-expanded") === "true";
+    b.setAttribute("aria-expanded", String(!open)); if (v) v.hidden = open; }));
+  /* Receive Jesus: four quiet steps on the edge, the current truth marked */
+  const pips = document.querySelector(".rj-pips"), truths = [...document.querySelectorAll(".rj-truths > li")];
+  if (pips && truths.length) { const dots = [...pips.children];
+    const f = () => { const mid = innerHeight / 2; let cur = -1;
+      truths.forEach((t, i) => { const r = t.getBoundingClientRect(); if (r.top <= mid && r.bottom >= mid) cur = i; });
+      pips.classList.toggle("on", cur >= 0);
+      dots.forEach((d, i) => { d.classList.toggle("now", i === cur); d.classList.toggle("done", cur >= 0 && i < cur); }); };
+    addEventListener("scroll", () => requestAnimationFrame(f), { passive: true }); addEventListener("resize", f); f(); }
 })();
 
 /* ===== Daily: share text, Status video and card, voice note (all from /today/today.json) ===== */
