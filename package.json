@@ -1,27 +1,27 @@
 {
-  "name": "restoration-community",
-  "version": "0.1.0",
-  "description": "Restoration Community Platform",
-  "private": true,
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ],
+  "name": "brotherjimi",
+  "version": "1.0.0",
+  "description": "Brother Jimi - Daily counsel from Scripture",
   "scripts": {
-    "dev": "turbo run dev",
-    "build": "turbo run build",
-    "test": "turbo run test",
-    "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,json,md}\"",
-    "format:check": "prettier --check \"**/*.{ts,tsx,json,md}\""
+    "prebuild": "cp -R site/. public/",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@notionhq/client": "^2.2.0",
+    "next": "^15.0.0",
+    "nodemailer": "^6.9.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "stripe": "^14.0.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.63.0",
     "@types/node": "^20.0.0",
-    "@types/react": "^18.0.0",
-    "@types/react-dom": "^18.0.0",
-    "prettier": "^3.0.0",
-    "ts-node": "^10.9.2",
-    "turbo": "^1.10.0",
+    "@types/nodemailer": "^6.4.0",
+    "@types/react": "^19.0.0",
     "typescript": "^5.0.0"
   }
 }

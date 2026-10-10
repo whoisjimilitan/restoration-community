@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Receive Jesus · Brother Jimi</title>
+<meta name="description" content="It’s the most important decision you’ll ever make.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Brother Jimi">
+<meta property="og:title" content="Receive Jesus">
+<meta property="og:description" content="It’s the most important decision you’ll ever make.">
+<meta property="og:url" content="https://brotherjimi.com/start">
+<meta property="og:image" content="https://brotherjimi.com/images/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="/images/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="preload" href="/assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/images/jimi-avatar.jpg" alt="" width="28" height="28">Brother Jimi</a>
+    <a class="txt" href="/today">Today’s Counsel</a>
+  </div>
+</header>
+
+<main>
+<section class="s-open s-first">
+    <div class="wrap">
+      <h1 class="big">Receive Jesus.</h1>
+      <p class="lede">It’s the most important decision you’ll ever make.</p>
+    </div>
+  </section>
+
+  <!-- Four truths, one per screen, on one path down to the prayer. Each shows only its reference;
+       tap the reference to read the verse (NIV). Each truth rises in as it scrolls into view. -->
+  <ol class="truths">
+    <li><h2 class="big">God loves you.</h2>
+      <details class="vref"><summary>John 3:16</summary><p>“For God so loved the world that he gave his one and only Son, that whoever believes in him shall not perish but have eternal life.”</p></details></li>
+    <li><h2 class="big">But sin keeps you from Him.</h2>
+      <details class="vref"><summary>Romans 3:23</summary><p>“For all have sinned and fall short of the glory of God.”</p></details></li>
+    <li><h2 class="big">So Jesus paid the price.</h2>
+      <details class="vref"><summary>1 Peter 3:18</summary><p>“For Christ also suffered once for sins, the righteous for the unrighteous, to bring you to God.”</p></details></li>
+    <li><h2 class="big">Now receive Him by faith.</h2>
+      <details class="vref"><summary>John 1:12</summary><p>“Yet to all who did receive him, to those who believed in his name, he gave the right to become children of God.”</p></details></li>
+  </ol>
+
+  <section class="prayer-band">
+    <div class="wrap">
+      <p class="when">If you’re ready, pray this</p>
+      <p class="said"><span>Jesus, I believe You died for my sins</span><span>and rose again.</span><span>I turn from my sin</span><span>and receive You as my Lord and Saviour.</span><span>Thank You for loving me.</span><span>Amen.</span></p>
+      <details class="vref"><summary>Romans 10:9</summary><p>“If you declare with your mouth, ‘Jesus is Lord,’ and believe in your heart that God raised him from the dead, you will be saved.”</p></details>
+    </div>
+  </section>
+
+  <section class="close">
+    <div class="wrap">
+      <h2 class="big">Did you pray this today?</h2>
+      <p class="lede">Tell me. I’d love to welcome you to the family of God.</p>
+      <form class="signup" data-signup data-source="received" novalidate>
+        <label class="sr" for="email-received">Email address</label>
+        <input id="email-received" name="email" type="email" inputmode="email" autocomplete="email" placeholder="Your email">
+        <input id="hp-received" name="company" type="text" tabindex="-1" autocomplete="off" class="sr" aria-hidden="true">
+        <button class="btn" type="submit">I prayed today</button>
+      </form>
+      <p class="note" role="status" aria-live="polite"></p>
+    </div>
+  </section>
+</main>
+
+<!-- The dock: one floating glass bar for moving around. Jimi's face is Today (his morning video when there is one). -->
+<nav class="dock" aria-label="Main" data-dock>
+  <a class="dk-face" href="/today" data-today-face><img src="/images/jimi-avatar.jpg" alt="" width="34" height="34"><span>Today</span></a>
+  <a class="dk-link dk-home" href="/">Home</a>
+  <a class="dk-link on" href="/start">Receive Jesus</a>
+  <a class="dk-cta" href="/#start">Start Day 1</a>
+</nav>
+<dialog class="vid-d" id="today-sheet" aria-labelledby="vid-title">
+  <button class="sheet-x vid-x" type="button" data-vid-close aria-label="Close the video">Close</button>
+  <div class="vid" data-vid>
+    <svg class="vid-ring" viewBox="0 0 100 100" aria-hidden="true"><circle class="trk" cx="50" cy="50" r="48"/><circle class="prg" cx="50" cy="50" r="48"/></svg>
+    <video playsinline preload="none" poster="/images/jimi-avatar.jpg"></video>
+    <button class="vid-play" type="button" aria-label="Play today’s video"></button>
+  </div>
+  <p class="when">Today’s Counsel · <span data-t="dateLabel">Today</span></p>
+  <h3 id="vid-title" data-t="subject">Today’s counsel</h3>
+  <p class="vid-line" data-t="line"></p>
+  <div class="vid-acts"><a class="btn" href="/today" data-t-href="url">Read today’s letter</a><button class="btn ghost" type="button" data-share>Send to someone</button></div>
+</dialog>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="yr">2026</span> Brother Jimi · Your email is never shared.</span>
+    <nav><a href="/today">Today’s Counsel</a><a href="/start">Receive Jesus</a><a href="/partner">Partner</a><a href="/privacy">Privacy</a><a href="mailto:jimi@brotherjimi.com">Contact</a></nav>
+  </div>
+</footer>
+
+<script src="/assets/config.js"></script>
+<script src="/assets/site.js"></script>
+</body>
+</html>

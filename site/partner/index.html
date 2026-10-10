@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Partner · Brother Jimi</title>
+<meta name="description" content="Partners help these letters reach someone new each morning.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Brother Jimi">
+<meta property="og:title" content="Partner">
+<meta property="og:description" content="Partners help these letters reach someone new each morning.">
+<meta property="og:url" content="https://brotherjimi.com/partner">
+<meta property="og:image" content="https://brotherjimi.com/images/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="/images/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="preload" href="/assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/"><img src="/images/jimi-avatar.jpg" alt="" width="28" height="28">Brother Jimi</a>
+    <a class="txt" href="/today">Today’s Counsel</a>
+  </div>
+</header>
+
+<main>
+<section class="open page-end">
+    <div class="wrap">
+      <p class="when">Partner</p>
+      <h1 class="mid">Keep it free for everyone.</h1>
+      <p class="lede">Partners help these letters reach someone new each morning. Pray, share, or give. Each one matters.</p>
+      <form id="give" novalidate>
+        <div class="amounts" role="group" aria-label="Monthly amount">
+          <button type="button" data-amt="10" aria-pressed="false">$10</button>
+          <button type="button" data-amt="25" aria-pressed="true">$25</button>
+          <button type="button" data-amt="50" aria-pressed="false">$50</button>
+          <button type="button" data-amt="100" aria-pressed="false">$100</button>
+          <button type="button" data-amt="custom" aria-pressed="false">Other</button>
+        </div>
+        <div class="custom" hidden>
+          <label class="sr" for="custom-amt">Monthly amount in dollars</label>
+          <input id="custom-amt" type="number" min="1" inputmode="numeric" placeholder="Amount per month, in dollars">
+        </div>
+        <button class="btn give" type="submit" id="give-btn">Give $25 a month</button>
+        <p class="note" role="status" aria-live="polite"></p>
+        <p class="fine">Secure checkout by Stripe. Change or cancel anytime.</p>
+      </form>
+      <p class="alt">Can’t give right now? Pray for this work, or <a href="/today">send today’s counsel</a> to one person.</p>
+    </div>
+  </section>
+</main>
+
+<!-- The dock: one floating glass bar for moving around. Jimi's face is Today (his morning video when there is one). -->
+<nav class="dock" aria-label="Main" data-dock>
+  <a class="dk-face" href="/today" data-today-face><img src="/images/jimi-avatar.jpg" alt="" width="34" height="34"><span>Today</span></a>
+  <a class="dk-link dk-home" href="/">Home</a>
+  <a class="dk-link" href="/start">Receive Jesus</a>
+  <a class="dk-cta" href="/#start">Start Day 1</a>
+</nav>
+<dialog class="vid-d" id="today-sheet" aria-labelledby="vid-title">
+  <button class="sheet-x vid-x" type="button" data-vid-close aria-label="Close the video">Close</button>
+  <div class="vid" data-vid>
+    <svg class="vid-ring" viewBox="0 0 100 100" aria-hidden="true"><circle class="trk" cx="50" cy="50" r="48"/><circle class="prg" cx="50" cy="50" r="48"/></svg>
+    <video playsinline preload="none" poster="/images/jimi-avatar.jpg"></video>
+    <button class="vid-play" type="button" aria-label="Play today’s video"></button>
+  </div>
+  <p class="when">Today’s Counsel · <span data-t="dateLabel">Today</span></p>
+  <h3 id="vid-title" data-t="subject">Today’s counsel</h3>
+  <p class="vid-line" data-t="line"></p>
+  <div class="vid-acts"><a class="btn" href="/today" data-t-href="url">Read today’s letter</a><button class="btn ghost" type="button" data-share>Send to someone</button></div>
+</dialog>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="yr">2026</span> Brother Jimi · Your email is never shared.</span>
+    <nav><a href="/today">Today’s Counsel</a><a href="/start">Receive Jesus</a><a href="/partner">Partner</a><a href="/privacy">Privacy</a><a href="mailto:jimi@brotherjimi.com">Contact</a></nav>
+  </div>
+</footer>
+
+<script src="/assets/config.js"></script>
+<script src="/assets/site.js"></script>
+</body>
+</html>

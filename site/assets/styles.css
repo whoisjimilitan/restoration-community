@@ -1,0 +1,798 @@
+/* brotherjimi.com, lean design (approved by Jimi, 6 Oct 2026). Locked: do not edit.
+   A letter, not a landing page: type and white space only, one white ground, one accent.
+   One typeface on every device: Inter, self-hosted. Android and Chrome map the system-font
+   names to their own fonts, so Inter comes first; the system font only shows while it loads. */
+@font-face{font-family:"Inter BJ";font-style:normal;font-weight:100 900;font-display:swap;
+  src:url("/assets/fonts/inter-latin-wght-normal.woff2") format("woff2")}
+@font-face{font-family:"Inter BJ";font-style:italic;font-weight:100 900;font-display:swap;
+  src:url("/assets/fonts/inter-latin-wght-italic.woff2") format("woff2")}
+
+:root{
+  --ink:#1d1d1f; --slate:#6e6e73; --quiet:#86868b; --hair:#e3e3e8; --field:#d2d2d7;
+  --white:#ffffff; --wine:#8b2332; --wine-hover:#9c2a3b; --err:#c4161c;
+  --sans:"Inter BJ",-apple-system,BlinkMacSystemFont,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  --gap:120px; --gutter:20px;
+  color-scheme:light;
+}
+@media (min-width:735px){ :root{ --gap:160px } }
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--white);color:var(--ink);font-size:17px;line-height:1.47;
+     letter-spacing:-0.022em;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:var(--wine);text-decoration:none} a:hover{text-decoration:underline}
+h1,h2,h3{text-wrap:balance}
+.wrap{max-width:980px;margin:0 auto;padding-inline:var(--gutter)}
+.col{max-width:620px;margin:0 auto}
+.center{text-align:center}
+[hidden]{display:none!important}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+:focus-visible{outline:3px solid rgba(139,35,50,.35);outline-offset:2px;border-radius:6px}
+
+/* Header: the name, and the one page video viewers look for */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:rgba(255,255,255,.72);
+     backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);
+     border-bottom:1px solid rgba(0,0,0,.08)}
+.nav .wrap{height:52px;display:flex;align-items:center;justify-content:space-between}
+.nav .links{display:flex;align-items:center;gap:22px}
+.pill-sm{font-size:13px;font-weight:500;color:var(--white);background:var(--wine);padding:6px 14px;border-radius:980px;white-space:nowrap}
+.pill-sm:hover{background:var(--wine-hover);text-decoration:none}
+.hide-sm{display:none} @media (min-width:735px){ .hide-sm{display:inline} }
+.brand{display:inline-flex;align-items:center;gap:10px;font-size:15px;font-weight:600;color:var(--ink);letter-spacing:-0.01em;padding:10px 12px 10px 0}
+.brand img{width:28px;height:28px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 2px #fff,0 0 0 3.5px var(--wine)} .brand:hover{text-decoration:none}
+
+.nav a.txt{font-size:13px;color:var(--ink);opacity:.8;padding:13px 0} .nav a.txt:hover{opacity:1;text-decoration:none}
+
+/* Type scale */
+.ref{display:block;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--quiet)}
+.when{font-size:14px;font-weight:600;color:var(--slate)}
+.lede{font-size:19px;line-height:1.45;color:var(--slate);max-width:32ch;margin:20px auto 0;text-wrap:balance}
+@media (min-width:735px){ .lede{font-size:21px} }
+.fine{font-size:13px;color:var(--slate)}
+h1.big{font-size:clamp(56px,11vw,112px);font-weight:700;letter-spacing:-0.04em;line-height:1}
+h1.mid,h2.big{font-size:clamp(40px,7vw,72px);font-weight:700;letter-spacing:-0.035em;line-height:1.04}
+h2.mid{font-size:clamp(32px,5vw,44px);font-weight:700;letter-spacing:-0.03em;line-height:1.1}
+h3{font-size:24px;font-weight:700;letter-spacing:-0.02em;line-height:1.2}
+
+/* Buttons and forms */
+.btn{font:inherit;font-size:16px;font-weight:500;letter-spacing:-0.01em;color:var(--white);background:var(--wine);
+     border:0;border-radius:980px;padding:12px 22px;cursor:pointer;white-space:nowrap;display:inline-block}
+.btn:hover{background:var(--wine-hover);text-decoration:none}
+.btn[disabled]{opacity:.6;cursor:default}
+.btn.ghost{background:transparent;color:var(--wine);border:1px solid var(--wine);padding:11px 21px}
+.btn.ghost:hover{background:transparent}
+.btn.sm{font-size:14px;padding:12px 18px} .btn.ghost.sm{padding:11px 17px}
+.signup{display:flex;gap:8px;max-width:420px;margin:0 auto}
+.signup input,.field{flex:1;min-width:0;font:inherit;font-size:16px;padding:12px 18px;border-radius:980px;
+     border:1px solid var(--field);background:var(--white);color:var(--ink)}
+.signup input:focus,.field:focus,textarea:focus{outline:none;border-color:var(--wine);box-shadow:0 0 0 3px rgba(139,35,50,.16)}
+.note{font-size:14px;color:var(--slate);margin-top:14px;min-height:20px}
+.note.err{color:var(--err)}
+
+/* 1. Hero: the first half of the verse */
+.hero{text-align:center;padding-block:72px var(--gap)}
+@media (min-width:735px){ .hero{padding-top:72px} }
+.hero .ref{margin-bottom:20px}
+.hero .lede{max-width:40ch}
+
+.kicker{font-size:19px;font-weight:600;line-height:1.2;margin-bottom:10px}
+@media (min-width:735px){ .kicker{font-size:21px} }
+.lede span{display:block}
+
+/* 2. The commitment: ninety mornings, Day 1 tomorrow */
+.journey{text-align:center;padding-block:var(--gap)}
+.days{display:grid;grid-template-columns:repeat(15,1fr);gap:10px;max-width:520px;margin:56px auto 0}
+@media (min-width:735px){ .days{grid-template-columns:repeat(30,1fr);gap:8px;max-width:620px} }
+.days i{display:block;aspect-ratio:1;border-radius:50%;background:var(--hair)}
+.days i.d1{background:var(--wine);box-shadow:0 0 0 0 rgba(139,35,50,.35)}
+@media (prefers-reduced-motion:no-preference){ .days i.d1{animation:dawn 2.6s ease-out infinite} }
+@keyframes dawn{0%{box-shadow:0 0 0 0 rgba(139,35,50,.35)}70%,100%{box-shadow:0 0 0 9px rgba(139,35,50,0)}}
+.days-key{display:flex;justify-content:space-between;gap:12px;max-width:520px;margin:16px auto 0;font-size:14px;color:var(--slate)}
+@media (min-width:735px){ .days-key{max-width:620px} }
+.days-key b{color:var(--ink);font-weight:600;margin-right:4px}
+
+/* 3. What arrives: the one object on the page, a letter on a sheet */
+.arrives{padding-bottom:var(--gap)}
+.sheet{background:#f5f5f7;border-radius:28px;padding:56px 22px 48px}
+@media (min-width:735px){ .sheet{max-width:720px;padding:72px 56px 60px} }
+
+/* Counsel for the day: the 6:00 AM moment, a notification that opens into the letter */
+.counsel{text-align:center;padding-block:var(--gap);color:#f5f5f7;
+         background:radial-gradient(120% 70% at 50% 118%,rgba(139,35,50,.62) 0%,rgba(139,35,50,.18) 45%,transparent 70%),
+                    linear-gradient(#0a0a0c,#17171a 55%,#1f1416)}
+.counsel .when{color:#a1a1a6}
+.counsel .lede{color:#a1a1a6}
+.morning{margin-top:72px;font-size:clamp(84px,22vw,136px);font-weight:200;letter-spacing:-0.04em;line-height:1;color:#ffffff;font-variant-numeric:tabular-nums}
+.morning span{display:block;font-size:15px;font-weight:600;letter-spacing:-0.01em;color:#a1a1a6;margin-bottom:8px}
+.lcard{display:block;width:100%;max-width:420px;margin:28px auto 0;padding:12px 16px 14px;text-align:left;font:inherit;color:var(--ink);cursor:pointer;
+       background:rgba(255,255,255,.14);border:0;border-radius:24px;color:#fff;
+       backdrop-filter:blur(24px) saturate(160%);-webkit-backdrop-filter:blur(24px) saturate(160%);
+       box-shadow:inset 0 0 0 1px rgba(255,255,255,.08),0 22px 44px -18px rgba(0,0,0,.5);transition:transform .3s cubic-bezier(.3,.7,.2,1),box-shadow .3s}
+.lcard:hover{transform:translateY(-3px);background:rgba(255,255,255,.18)}
+.lcard:active{transform:scale(.98)}
+.lc-app{display:flex;justify-content:space-between;font-size:12px;font-weight:600;letter-spacing:.02em;text-transform:uppercase;color:rgba(255,255,255,.62)}
+.lc-app time{font-weight:500;text-transform:none;letter-spacing:0}
+.lc-main{display:grid;grid-template-columns:38px 1fr;gap:12px;align-items:start;margin-top:10px}
+.lc-main img{width:38px;height:38px;border-radius:50%;object-fit:cover}
+.counsel :focus-visible{outline-color:rgba(255,255,255,.6)}
+.lc-main b{display:block;font-size:15px;font-weight:600}
+.lc-subj{display:block;font-size:15px}
+.lc-prev{display:block;font-size:15px;color:rgba(255,255,255,.7);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lc-main>span{min-width:0}
+.lcard.away{visibility:hidden}
+@media (prefers-reduced-motion:no-preference){ .lcard:not(.away){animation:nudge 5s ease-in-out 1.2s infinite} }
+@keyframes nudge{0%,86%,100%{transform:none}90%{transform:translateY(-4px)}94%{transform:none}}
+.lc-hint{margin-top:24px;font-size:15px;color:#f5f5f7}
+.lc-hint span{display:block;font-size:14px;color:#a1a1a6;margin-top:2px}
+
+/* The reading sheet */
+.sheet-d{width:min(680px,calc(100% - 24px));max-width:none;max-height:calc(100dvh - 24px);margin:auto;padding:0;border:0;border-radius:24px;
+         background:var(--white);color:var(--ink);text-align:left;overflow:auto;overscroll-behavior:contain;
+         box-shadow:0 40px 80px -20px rgba(0,0,0,.35)}
+.sheet-d::backdrop{background:rgba(29,29,31,.42);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.sheet-bar{position:sticky;top:0;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 14px 12px 22px;
+           background:rgba(255,255,255,.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--hair);font-size:13px;color:var(--slate)}
+.sheet-x{font:inherit;font-size:15px;font-weight:500;color:var(--wine);background:none;border:0;padding:8px 10px;border-radius:10px;cursor:pointer}
+.sheet-body{padding:30px 22px 40px}
+@media (min-width:735px){ .sheet-body{padding:40px 52px 52px} }
+.sheet-body h3{font-size:clamp(26px,4vw,32px);font-weight:700;letter-spacing:-0.025em;line-height:1.15}
+.mb-from{display:grid;grid-template-columns:40px 1fr auto;gap:12px;align-items:center;margin-top:18px;padding-bottom:18px;border-bottom:1px solid var(--hair)}
+.mb-from img{width:40px;height:40px;border-radius:50%;object-fit:cover}
+.mb-from b{display:block;font-size:15px;font-weight:600}
+.mb-from span span{display:block;font-size:13px;color:var(--slate)}
+.mb-from time{font-size:13px;color:var(--slate);align-self:start;margin-top:3px}
+.sheet-body .text{margin-top:26px;font-size:17px;line-height:1.65}
+@media (min-width:735px){ .sheet-body .text{font-size:18px} }
+.sheet-body .text p+p{margin-top:18px}
+.sheet-body .text .vs{margin-block:26px}
+.sheet-body .text .sign{margin-top:28px}
+.sheet-body .text .ps{margin-top:22px;font-size:16px}
+.commit{margin-top:40px;padding-top:32px;border-top:1px solid var(--hair);text-align:center}
+.commit-h{font-size:24px;font-weight:700;letter-spacing:-0.02em}
+.commit-p{color:var(--slate);margin-top:4px}
+.commit .signup{margin-top:22px}
+
+/* Hero: Jimi's hands holding out the Bible, open at James 1:21. White studio background: it sits on the page. */
+.stage{position:relative;margin-top:28px}
+.photo{position:relative;width:min(1120px,calc(100vw - 32px),max(760px,calc((100svh - 420px) * 1.777)));margin-left:50%;transform:translateX(-50%);aspect-ratio:1672/941;
+  -webkit-mask-image:linear-gradient(to bottom,#000 82%,transparent),linear-gradient(to right,transparent,#000 8%,#000 92%,transparent);-webkit-mask-composite:source-in;
+  mask-image:linear-gradient(to bottom,#000 82%,transparent),linear-gradient(to right,transparent,#000 8%,#000 92%,transparent);mask-composite:intersect}
+.photo img{display:block;width:100%;height:auto}
+@media (max-width:734px){ .stage{overflow:hidden;margin-inline:calc(var(--gutter) * -1)} .photo{width:112%;margin-left:-6%;transform:none} .hero .bar{margin-top:-28px} }
+/* The highlighter on James 1:21: translucent, slightly uneven, like a real marker on paper. */
+.hl{position:absolute;pointer-events:none;mix-blend-mode:multiply;transform-origin:left center;
+  border-radius:3px 7px 4px 6px / 45% 60% 50% 40%;transform:rotate(-.25deg);
+  background:linear-gradient(180deg,rgba(255,212,0,.74),rgba(255,224,50,.62) 45%,rgba(255,212,0,.76))}
+.hl:nth-of-type(1){left:43.806%;top:71.359%;width:5.357%;height:2.019%;animation-delay:1.00s}
+.hl:nth-of-type(2){left:36.184%;top:73.303%;width:12.978%;height:2.019%;animation-delay:1.38s}
+.hl:nth-of-type(3){left:36.184%;top:75.247%;width:12.978%;height:2.019%;animation-delay:1.76s}
+@media (prefers-reduced-motion:no-preference){ .hl{animation:mark .42s cubic-bezier(.4,0,.3,1) both} }
+@keyframes mark{from{transform:rotate(-.25deg) scaleX(0)}to{transform:rotate(-.25deg) scaleX(1)}}
+@media (prefers-reduced-motion:no-preference){ .photo{animation:offer 1.4s cubic-bezier(.2,.7,.2,1) both} }
+@keyframes offer{from{translate:0 16px;opacity:.5}to{translate:0 0;opacity:1}}
+
+/* Every morning at 6:00: the moment of receiving, at dawn */
+.morning-band{text-align:center;padding-block:var(--gap);color:#f5f5f7;
+  background:radial-gradient(120% 70% at 50% 118%,rgba(139,35,50,.6) 0%,rgba(139,35,50,.18) 45%,transparent 70%),linear-gradient(#0a0a0c,#17171a 55%,#1f1416)}
+.morning-band .phone{box-shadow:inset 0 0 0 1.5px #5a5a60,0 50px 90px -40px rgba(0,0,0,.8)}
+.journey{padding-block:var(--gap)}
+
+/* The moment of receiving: tomorrow at 6:00, on their phone, at dawn */
+.device{position:relative;width:min(290px,76vw);margin:36px auto 0;height:calc(min(290px,76vw) * 1.5);overflow:hidden;
+        -webkit-mask-image:linear-gradient(to bottom,#000 72%,transparent 100%);mask-image:linear-gradient(to bottom,#000 72%,transparent 100%)}
+@media (min-width:735px){ .device{width:320px;height:470px;margin-top:44px} }
+.phone{border-radius:54px;padding:10px;background:#1d1d1f;box-shadow:inset 0 0 0 1.5px #48484c,0 50px 90px -40px rgba(0,0,0,.5)}
+.screen{position:relative;border-radius:45px;overflow:hidden;aspect-ratio:9/19.5;padding:64px 12px 0;text-align:center;
+        background:linear-gradient(#07070a,#121216 55%,#1a1418)}
+.dawn{position:absolute;inset:0;pointer-events:none;
+      background:radial-gradient(150% 46% at 50% 64%,rgba(194,58,79,.85) 0%,rgba(139,35,50,.45) 34%,rgba(139,35,50,.1) 62%,transparent 80%);
+      transition:opacity 2.2s ease}
+.cam{position:absolute;top:14px;left:50%;width:12px;height:12px;margin-left:-6px;border-radius:50%;background:#000;box-shadow:inset 0 0 0 2px #1c1c22}
+.ls-date,.ls-time,.screen .lcard,.ls-hint{position:relative}
+.ls-date{font-size:15px;font-weight:600;color:rgba(255,255,255,.82)}
+.ls-time{font-size:clamp(66px,20vw,86px);font-weight:300;letter-spacing:-0.035em;line-height:1;color:#fff;font-variant-numeric:tabular-nums}
+.screen .lcard{margin-top:36px;padding:10px 12px 12px;border-radius:20px;transition:opacity .6s ease,transform .7s cubic-bezier(.2,.9,.25,1.15)}
+.screen .lc-app{font-size:12px}
+.screen .lc-main{grid-template-columns:32px 1fr;gap:10px;margin-top:8px}
+.screen .lc-main img{width:32px;height:32px}
+.screen .lc-main b,.screen .lc-subj,.screen .lc-prev{font-size:13px}
+.ls-hint{margin-top:12px;font-size:12px;font-weight:600;color:rgba(255,255,255,.6);transition:opacity .6s ease .5s}
+/* Before the moment (set by site.js only when motion is allowed) */
+.device.pre .dawn{opacity:0}
+.device.pre.warm .dawn{opacity:1}
+.device.pre .lcard{opacity:0;transform:translateY(-18px) scale(.96)}
+.device.pre .ls-hint{opacity:0}
+.device.tick .ls-time{animation:tick .5s ease}
+@keyframes tick{40%{transform:scale(1.04)}}
+
+/* The floating bar under the phone, as on Apple's product pages */
+.bar{position:relative;z-index:2;max-width:700px;margin:-40px auto 0;background:rgba(245,245,247,.9);
+     backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);
+     border-radius:26px;padding:16px;display:flex;flex-direction:column;gap:12px;text-align:left;box-shadow:0 2px 24px rgba(0,0,0,.08)}
+.bar p{font-size:14px;line-height:1.35;font-weight:600}
+.bar p span{display:block;font-weight:400;color:var(--slate)}
+.bar .signup{max-width:none;margin:0}
+@media (min-width:735px){
+  .bar{flex-direction:row;align-items:center;justify-content:space-between;border-radius:980px;padding:10px 10px 10px 28px}
+  .bar .signup{max-width:360px}
+}
+.hero .bar+.note{min-height:20px}
+
+/* 4. The person behind the letters */
+.person{text-align:center;padding-block:var(--gap);background:#f5f5f7}
+.face{display:block;width:128px;height:128px;box-shadow:0 0 0 6px #fff,0 20px 40px -16px rgba(0,0,0,.3);border-radius:50%;object-fit:cover;margin:0 auto 28px}
+.person .door{margin-top:56px}
+.close .when{margin-bottom:10px}
+
+/* The letter, set as a letter (home, /today, /welcome/received) */
+.letter .when{text-align:center}
+.letter h2,.letter h1.subject{font-size:clamp(36px,6vw,52px);font-weight:700;letter-spacing:-0.03em;line-height:1.08;text-align:center;margin-top:10px}
+.from{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:20px;font-size:15px;color:var(--slate)}
+.from img{width:32px;height:32px;border-radius:50%;object-fit:cover}
+.text{text-align:left;margin-top:52px;font-size:19px;line-height:1.7;letter-spacing:-0.012em}
+@media (min-width:735px){ .text{font-size:20px} }
+.text p+p{margin-top:24px}
+.text .vs{font-style:italic;color:var(--slate);padding-left:22px;border-left:2px solid var(--field);margin-block:36px}
+.text .vs cite{display:block;font-style:normal;margin-top:8px;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--quiet)}
+.text .sign{margin-top:40px}
+.text .ps{margin-top:32px;font-size:17px;color:var(--slate)}
+.reply{margin-top:80px;font-size:19px;font-weight:600;text-align:center}
+.reply span{display:block;font-size:17px;font-weight:400;color:var(--slate);margin-top:4px}
+
+/* Share row under a letter */
+.pass{margin-top:64px;padding-top:24px;border-top:1px solid var(--hair);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px}
+.pass span{font-size:15px;color:var(--slate)}
+.pass div{display:flex;gap:8px}
+
+/* 3. Close: the second half of the verse */
+.close{text-align:center;padding-block:var(--gap)}
+.close .ref{margin-top:18px}
+.close .signup{margin-top:48px}
+.close .fine{margin-top:6px}
+.door{margin-top:96px;font-size:17px;color:var(--slate)}
+.door a,.alt a{display:inline-block;padding-block:12px}
+
+/* Page openers (/start, /welcome, /partner, /welcome/received) */
+.open{text-align:center;padding-block:96px 0}
+@media (min-width:735px){ .open{padding-top:136px} }
+.open .when{margin-bottom:10px}
+.page-end{padding-bottom:var(--gap)}
+.section{padding-top:var(--gap)}
+.section .lede{margin-top:14px}
+.section .signup{margin-top:36px}
+
+/* /today: after the letter */
+.next{text-align:center;padding-block:var(--gap)}
+.next .lede{margin-top:14px}
+.next .signup{margin-top:36px}
+
+/* /start: four steps, then the prayer */
+.steps{list-style:none;display:flex;flex-direction:column;gap:96px;text-align:center}
+@media (min-width:735px){ .steps{gap:128px} }
+.steps blockquote{max-width:440px;margin:18px auto 0;font-size:19px;line-height:1.5;color:var(--slate)}
+.steps cite{display:block;font-style:normal;margin-top:10px}
+.said{font-size:clamp(22px,3.4vw,30px);font-weight:600;letter-spacing:-0.025em;line-height:1.45;max-width:720px;margin:24px auto 0}
+.said span{display:block;text-wrap:balance}
+@media (max-width:480px){ .said span+span{margin-top:4px} }
+
+/* /welcome: two quiet asks, no boxes */
+.asks{display:flex;flex-direction:column;gap:80px;text-align:left}
+.ask p{color:var(--slate);margin-top:8px}
+.ask textarea{display:block;width:100%;margin-top:20px;font:inherit;font-size:16px;min-height:120px;resize:vertical;border-radius:18px;
+              border:1px solid var(--field);padding:14px 16px;background:var(--white);color:var(--ink)}
+.ask .row{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.ask .note{margin-top:10px}
+
+/* /partner */
+.amounts{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;max-width:520px;margin:48px auto 0}
+.amounts button{font:inherit;font-size:17px;font-weight:600;padding:16px 0;border-radius:16px;cursor:pointer;
+                background:var(--white);color:var(--ink);border:1px solid var(--field);font-variant-numeric:tabular-nums}
+.amounts button[aria-pressed="true"]{border:2px solid var(--wine);padding:15px 0}
+.custom{max-width:520px;margin:10px auto 0}
+.custom input{width:100%;font:inherit;font-size:16px;padding:14px 16px;border-radius:16px;border:1px solid var(--field);color:var(--ink);background:var(--white)}
+.give{margin-top:28px}
+.alt{margin-top:96px;font-size:17px;color:var(--slate)}
+
+/* Footer: quiet, one line */
+footer{border-top:1px solid var(--hair);padding-block:22px 36px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 24px;font-size:12px;color:var(--slate)}
+footer nav{display:flex;flex-wrap:wrap;gap:8px 20px}
+footer a{color:var(--slate)}
+
+
+/* The round video (opened from the dock's face, and at the top of /today) */
+.vid{position:relative;width:min(260px,70vw);aspect-ratio:1;margin:0 auto;border-radius:50%}
+.vid video{position:absolute;inset:8px;width:calc(100% - 16px);height:calc(100% - 16px);border-radius:50%;object-fit:cover;background:#111}
+.vid-ring{position:absolute;inset:0;transform:rotate(-90deg)}
+.vid-ring circle{fill:none;stroke-width:2.4}
+.vid-ring .trk{stroke:var(--hair)}
+.vid-ring .prg{stroke:var(--wine);stroke-linecap:round;stroke-dasharray:301.6;stroke-dashoffset:301.6;transition:stroke-dashoffset .25s linear}
+.vid-play{position:absolute;inset:8px;border:0;border-radius:50%;cursor:pointer;background:rgba(0,0,0,.18);display:grid;place-items:center}
+.vid-play::before{content:"";width:0;height:0;border-left:22px solid #fff;border-top:14px solid transparent;border-bottom:14px solid transparent;margin-left:6px;filter:drop-shadow(0 2px 6px rgba(0,0,0,.35))}
+.vid.playing .vid-play{background:transparent}
+.vid.playing .vid-play::before{opacity:0}
+.vid-inline{width:132px;margin-bottom:28px}
+.vid-inline .vid-play::before{border-left-width:16px;border-top-width:10px;border-bottom-width:10px;margin-left:4px}
+.vid-d{width:min(420px,calc(100% - 24px));max-width:none;max-height:calc(100dvh - 24px);margin:auto;padding:52px 24px 28px;border:0;border-radius:28px;
+       background:var(--white);color:var(--ink);text-align:center;overflow:auto;box-shadow:0 40px 80px -20px rgba(0,0,0,.35)}
+.vid-d::backdrop{background:rgba(29,29,31,.42);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.vid-x{position:absolute;top:10px;right:10px}
+.vid-d .when{margin-top:22px}
+.vid-d h3{margin-top:6px;font-size:24px;font-weight:700;letter-spacing:-0.02em;line-height:1.2}
+.vid-line{margin-top:10px;color:var(--slate)}
+.vid-acts{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:22px}
+
+/* Letter endings: commitment, then share */
+.commit-row{display:flex;justify-content:center;margin-top:14px}
+.commit-sep{margin-top:28px}
+.write{margin-top:56px;padding-top:28px;border-top:1px solid var(--hair);text-align:left}
+.write label{display:block;font-size:17px;font-weight:600}
+.write textarea{display:block;width:100%;margin-top:12px;font:inherit;font-size:16px;min-height:96px;resize:vertical;border-radius:18px;
+                border:1px solid var(--field);padding:14px 16px;background:var(--white);color:var(--ink)}
+.write .row{display:flex;justify-content:flex-end;margin-top:10px}
+.write .note{margin-top:8px}
+
+/* A letter shown exactly as it arrives: a real email, real sizes, no magazine styling */
+.email{max-width:680px;margin:0 auto;background:var(--white);border:1px solid var(--hair);border-radius:18px;padding:22px 18px 18px;text-align:left;
+       box-shadow:0 1px 2px rgba(0,0,0,.03),0 18px 40px -24px rgba(0,0,0,.18)}
+@media (min-width:735px){ .email{padding:30px 36px 24px} }
+.em-subj{font-size:22px;font-weight:600;letter-spacing:-0.015em;line-height:1.25;text-align:left;margin:0}
+@media (min-width:735px){ .em-subj{font-size:24px} }
+.em-from{display:grid;grid-template-columns:40px 1fr auto;gap:12px;align-items:center;margin-top:18px}
+.em-from img{width:40px;height:40px;border-radius:50%;object-fit:cover}
+.em-from p{font-size:15px;line-height:1.3;min-width:0}
+.em-from b{font-weight:600}
+.em-addr{display:none;color:var(--slate);font-size:13px}
+@media (min-width:735px){ .em-addr{display:inline} }
+.em-to{display:block;font-size:13px;color:var(--slate)}
+.em-from time{font-size:13px;color:var(--slate);align-self:start;margin-top:2px;white-space:nowrap}
+.email .em-body{margin-top:22px;font-size:16px;line-height:1.55;letter-spacing:-0.005em;color:var(--ink)}
+.email .em-body p{margin:0}
+.email .em-body p+p{margin-top:1em}
+.email .em-body .vs{font-style:italic;color:var(--ink);padding:0;border:0;margin-block:1em 0}
+.email .em-body .vs cite{display:inline;font-style:normal;font-size:inherit;font-weight:400;letter-spacing:0;text-transform:none;color:inherit;margin:0}
+.email .em-body .vs+p{margin-top:1em}
+.email .em-body .sign,.email .em-body .ps{margin-top:1em;font-size:inherit;color:inherit}
+.em-acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+.em-btn{display:inline-flex;align-items:center;gap:8px;font:inherit;font-size:14px;font-weight:500;color:var(--ink);background:var(--white);
+        border:1px solid var(--field);border-radius:999px;padding:10px 18px;cursor:pointer}
+.em-btn:hover{background:#f5f5f7}
+.em-btn svg{width:17px;height:17px}
+.em-reply{margin-top:16px;border:1px solid var(--field);border-radius:14px;overflow:hidden}
+.em-rhead{font-size:13px;line-height:1.7;color:var(--ink);padding:10px 14px;border-bottom:1px solid var(--hair);background:#fbfbfd}
+.em-rhead span{color:var(--slate);display:inline-block;min-width:32px}
+.em-reply textarea{display:block;width:100%;min-height:120px;border:0;padding:12px 14px;font:inherit;font-size:16px;resize:vertical;color:var(--ink);background:var(--white)}
+.em-reply textarea:focus{outline:none}
+.em-reply:focus-within{border-color:var(--wine);box-shadow:0 0 0 3px rgba(139,35,50,.14)}
+.em-reply .row{display:flex;justify-content:flex-end;padding:0 10px 10px}
+.em-reply .note{margin:0;padding:0 14px 10px;min-height:0}
+.em-reply .note:empty{display:none}
+/* Inside the sample-letter sheet the sheet itself is the window */
+.sheet-body .email{border:0;box-shadow:none;padding:0;max-width:none}
+/* Today's Counsel page */
+.day{max-width:680px;margin:0 auto;text-align:center}
+.day .when{margin-bottom:16px}
+
+.count{margin-top:22px;font-size:15px;color:var(--slate)}
+.count b{color:var(--ink);font-weight:600;font-variant-numeric:tabular-nums}
+.close .signup{margin-top:28px}
+
+/* Start Here: one truth at a time, on one path down to the prayer */
+.s-open{text-align:center;padding-block:120px 0}
+@media (min-width:735px){ .s-open{padding-top:168px} }
+/* Start Here: one truth per screen, joined by one wine path. Only the reference shows; tap it to read the verse. */
+.s-first{min-height:calc(100svh - 52px);display:flex;flex-direction:column;padding:0}
+.s-first::before{content:"";flex:1}
+.s-first::after{content:"";flex:1;min-height:96px;width:1px;margin:40px auto 0;background:linear-gradient(transparent,#b8b8bd)}
+.s-first .lede{margin-top:18px}
+.truths{list-style:none;text-align:center;padding:0 var(--gutter)}
+.truths li{min-height:max(540px,88svh);display:flex;flex-direction:column;align-items:center}
+.truths li::before{content:"";flex:1;width:9px;min-height:120px;margin-bottom:40px;
+  background:radial-gradient(circle at 50% calc(100% - 4.5px),var(--wine) 4px,transparent 4.6px),linear-gradient(var(--hair),var(--wine)) 50% 0/1px calc(100% - 9px) no-repeat}
+.truths li::after{content:"";flex:.8;width:1px;min-height:80px;margin-top:40px;background:var(--hair)}
+.truths li:last-child::after{background:linear-gradient(var(--hair),#0a0a0c 140%)}
+.truths h2{max-width:14ch;margin:0 auto}
+.vref{margin-top:22px}
+.vref summary{display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 16px;border-radius:999px;cursor:pointer;list-style:none;
+  font-size:14px;font-weight:600;letter-spacing:.02em;color:var(--wine);background:rgba(139,35,50,.08);transition:background .2s}
+.vref summary::-webkit-details-marker{display:none}
+.vref summary::after{content:"";width:7px;height:7px;border:solid currentColor;border-width:0 1.5px 1.5px 0;transform:translateY(-2px) rotate(45deg);transition:transform .25s}
+.vref[open] summary::after{transform:translateY(1px) rotate(-135deg)}
+.vref summary:hover{background:rgba(139,35,50,.13)}
+.vref summary:focus-visible{outline:2px solid var(--wine);outline-offset:3px}
+.vref p{max-width:30ch;margin:18px auto 0;font-size:19px;line-height:1.5;color:var(--slate);text-wrap:balance}
+@media (prefers-reduced-motion:no-preference){
+  .vref[open] p{animation:fadein .35s ease-out}
+  @supports (animation-timeline:view()){
+    .truths h2,.truths .vref{animation:rise linear both;animation-timeline:view();animation-range:entry 0% cover 28%}
+    .s-first .wrap{animation:drift linear both;animation-timeline:scroll();animation-range:0 60svh}
+  }
+}
+@keyframes fadein{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
+@keyframes rise{from{opacity:0;transform:translateY(48px)}to{opacity:1;transform:none}}
+@keyframes drift{to{opacity:.15;transform:translateY(-40px)}}
+.prayer-band{position:relative;margin-top:0;text-align:center;padding-block:var(--gap);color:#fff;
+  background:radial-gradient(120% 80% at 50% 120%,rgba(139,35,50,.6) 0%,transparent 65%),linear-gradient(#0a0a0c,#18171a)}
+.prayer-band .when{color:#a1a1a6}
+.prayer-band .said{color:#fff}
+
+.s-open.page-end{padding-bottom:var(--gap)}
+.nf-acts{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:36px}
+
+/* The dock: one floating glass bar for moving around (the "remote") */
+.dock{position:fixed;left:50%;bottom:calc(14px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:40;
+      display:flex;align-items:center;gap:2px;padding:5px;border-radius:999px;white-space:nowrap;
+      background:rgba(29,29,31,.84);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);
+      box-shadow:0 14px 34px -12px rgba(0,0,0,.45);transition:opacity .35s ease,transform .45s cubic-bezier(.2,.9,.25,1.1)}
+.dock.away{opacity:0;transform:translate(-50%,28px);pointer-events:none}
+.dock a{color:#f5f5f7;font-size:13px;line-height:1;border-radius:999px} .dock a:hover{text-decoration:none}
+.dk-face{display:flex;align-items:center;gap:8px;padding:4px 12px 4px 4px}
+.dk-face img{width:34px;height:34px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 2px rgba(255,255,255,.22)}
+.dk-face.live img{box-shadow:0 0 0 2px #1d1d1f,0 0 0 4px #c23a4f}
+.dk-link{padding:14px 12px;opacity:.78} .dk-link:hover{opacity:1}
+.dock .on{background:rgba(255,255,255,.16);opacity:1}
+.dk-cta{margin-left:4px;padding:14px 15px;font-weight:600;background:var(--wine)} .dk-cta:hover{background:var(--wine-hover)}
+@media (max-width:399px){ .dk-home{display:none} }
+footer{padding-bottom:calc(96px + env(safe-area-inset-bottom,0px))}
+
+@media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto} }
+.prayer-band .vref{margin-top:36px}
+.prayer-band .vref summary{color:#fff;background:rgba(255,255,255,.12)}
+.prayer-band .vref summary:hover{background:rgba(255,255,255,.2)}
+.prayer-band .vref summary:focus-visible{outline-color:#fff}
+.prayer-band .vref p{color:#c7c7cc;margin-inline:auto}
+
+/* ===== Concept: One morning ===== */
+.ph{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:#b58a00;border-radius:4px;padding:2px 5px;margin-right:6px;vertical-align:2px}
+
+/* 1. Bubble: Jimi on the corner of the Bible */
+.photo{-webkit-mask-image:none;mask-image:none}
+.photo img{-webkit-mask-image:linear-gradient(to bottom,#000 82%,transparent),linear-gradient(to right,transparent,#000 8%,#000 92%,transparent);-webkit-mask-composite:source-in;
+  mask-image:linear-gradient(to bottom,#000 82%,transparent),linear-gradient(to right,transparent,#000 8%,#000 92%,transparent);mask-composite:intersect}
+.cbub{position:absolute;z-index:3;right:13.5%;top:1%;width:clamp(76px,9.5vw,124px);aspect-ratio:1;border-radius:50%;padding:0;border:0;cursor:pointer;background:#1d1d1f;
+  box-shadow:0 0 0 3px #fff,0 0 0 5.5px var(--wine),0 22px 44px -14px rgba(0,0,0,.5)}
+.cbub video{display:block;width:100%;height:100%;border-radius:50%;object-fit:cover}
+.cbub-snd{position:absolute;right:-3px;bottom:-3px;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;color:#fff;background:var(--wine);box-shadow:0 0 0 3px #fff}
+.cbub.sound .cbub-snd{background:#1d1d1f}
+.cbub-cap{position:absolute;z-index:3;top:3%;right:calc(13.5% + clamp(76px,9.5vw,124px) + 14px);max-width:230px;margin:0;text-align:left;
+  font-size:14px;line-height:1.35;color:var(--ink);background:#fff;border-radius:16px 16px 4px 16px;padding:10px 13px;box-shadow:0 12px 32px -12px rgba(0,0,0,.35)}
+@media (max-width:734px){ .cbub{right:15%;top:2%} .cbub-cap{max-width:170px;font-size:13px;right:calc(15% + 86px)} }
+@media (prefers-reduced-motion:no-preference){
+  .cbub,.cbub-cap{animation:pop .6s cubic-bezier(.2,.9,.25,1.2) 1.9s both}
+  .cbub-cap{animation-delay:2.3s}
+}
+@keyframes pop{from{opacity:0;transform:scale(.6) translateY(10px)}to{opacity:1;transform:none}}
+
+/* 2. The letter opens itself as you scroll */
+.cscene{height:330vh;padding:0;background:#0a0a0c;--p:0}
+.cscene>.wrap{position:sticky;top:52px;height:calc(100svh - 52px);display:flex;flex-direction:column;align-items:center;justify-content:flex-start;max-width:none;padding:clamp(16px,4svh,40px) var(--gutter) 84px;
+  background:radial-gradient(120% 70% at 50% 118%,rgba(139,35,50,calc(.15 + .5*var(--p))) 0%,rgba(139,35,50,calc(.05 + .15*var(--p))) 45%,transparent 70%),linear-gradient(#0a0a0c,#17171a 55%,#1f1416)}
+.cscene h2{margin:0}
+.cs-hint{margin-top:6px;font-size:14px;color:#a1a1a6;transition:opacity .4s}
+.cdev{height:auto;margin-top:18px;width:min(262px,64vw,calc((100svh - 330px) / 2.17));-webkit-mask-image:none;mask-image:none;overflow:visible}
+@media (min-width:735px){ .cdev{height:auto;width:min(290px,calc((100svh - 300px) / 2.17))} }
+.cdev .screen{padding-top:56px}
+.cdev .ls-time{font-size:clamp(54px,17vw,72px)}
+.cdev .lcard{opacity:0;transform:translateY(-16px) scale(.96)}
+.cdev.notif .lcard{opacity:1;transform:none}
+.cdev .ls-hint{opacity:0}
+.mailv{position:absolute;inset:0;z-index:4;display:flex;flex-direction:column;background:#fff;color:var(--ink);text-align:left;padding:46px 15px 0;
+  opacity:0;transform:translateY(30px);transition:opacity .45s ease,transform .55s cubic-bezier(.2,.8,.2,1);pointer-events:none}
+.cdev.open .mailv{opacity:1;transform:none}
+.mv-top{font-size:12px;color:var(--wine);font-weight:600}
+.mv-subj{margin-top:8px;font-size:16px;font-weight:700;letter-spacing:-.01em;line-height:1.25}
+.mv-from{display:flex;align-items:center;gap:8px;margin:10px 0 10px;font-size:12px;padding-bottom:10px;border-bottom:1px solid var(--hair)}
+.mv-from img{width:26px;height:26px;border-radius:50%;object-fit:cover}
+.mv-from time{margin-left:auto;color:var(--slate)}
+.mv-win{position:relative;flex:1;overflow:hidden;-webkit-mask-image:linear-gradient(#000 85%,transparent);mask-image:linear-gradient(#000 85%,transparent)}
+.mv-body{font-size:12.5px;line-height:1.55;will-change:transform}
+.mv-body p+p{margin-top:9px}
+.mv-body .vs{font-style:italic;background:linear-gradient(rgba(255,214,10,.55),rgba(255,214,10,.55)) no-repeat 0 0/0% 100%;transition:background-size .9s ease;border-radius:3px}
+.mv-body .vs.lit{background-size:100% 100%}
+.mv-body cite{display:block;font-style:normal;font-weight:600;font-size:11px;margin-top:3px;color:var(--slate)}
+.mv-body .sign{margin-top:12px}
+.mv-body .ps{color:var(--slate);font-size:11.5px;padding-bottom:30px}
+.cs-end{position:absolute;left:0;right:0;bottom:0;display:flex;flex-direction:column;align-items:center;gap:0;padding:28px 12px 18px;background:linear-gradient(transparent,#fff 30%);opacity:0;transform:translateY(12px);transition:opacity .5s,transform .5s;pointer-events:none}
+.cs-end .btn{font-size:14px;padding:12px 18px;min-height:0}
+.cscene.done .cs-end{opacity:1;transform:none;pointer-events:auto}
+.cscene.done .cs-hint{opacity:0}
+.cs-read{font:inherit;font-size:12px;color:var(--slate);background:none;border:0;padding:10px;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+/* Still version: everything shown, the letter scrolls by hand */
+.cscene.still{height:auto}
+.cscene.still>.wrap{position:static;height:auto;padding-block:var(--gap)}
+.cscene.still .cdev .lcard{display:none}
+.cscene.still .mailv{position:absolute;opacity:1;transform:none;pointer-events:auto}
+.cscene.still .mv-win{overflow:auto}
+.cscene.still .cs-end{opacity:1;transform:none;pointer-events:auto}
+.cscene.still .cs-hint{display:none}
+
+/* 3. Ninety mornings that move */
+.days i{transition:background-color .35s ease,transform .35s ease}
+.days i.on{background:var(--wine)}
+.days i.on:not(.d1){opacity:.8}
+.titles{max-width:760px;margin:44px auto 0;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.trk{display:flex;width:max-content;gap:10px}
+.trk .dup{display:flex;gap:10px}
+.chip{flex:none;font-size:14px;padding:10px 16px;border-radius:999px;background:#fff;border:1px solid var(--hair);color:var(--ink);white-space:nowrap}
+.ph-chip{border-style:dashed;color:#9a7b16;background:#fffaf0}
+@media (prefers-reduced-motion:no-preference){ .trk{animation:drift 38s linear infinite} .titles:hover .trk{animation-play-state:paused} }
+@media (prefers-reduced-motion:reduce){ .trk{flex-wrap:wrap;justify-content:center;width:auto} .trk .dup{display:none} }
+@keyframes drift{to{transform:translateX(-50%)}}
+.trk .dup{margin-left:0}
+
+/* 4. One thread through the page */
+.threaded{padding-top:0}
+.thread{height:var(--gap);display:flex;justify-content:center;align-items:flex-end;padding-bottom:28px}
+.thread i{position:relative;display:block;width:1px;height:100%;background:linear-gradient(var(--hair),var(--wine));transform:scaleY(0);transform-origin:top;transition:transform 1.1s cubic-bezier(.4,0,.2,1)}
+.thread i::after{content:"";position:absolute;left:-4px;bottom:-4px;width:9px;height:9px;border-radius:50%;background:var(--wine);transform:scale(0);transition:transform .4s ease 1s}
+.thread.drawn i{transform:scaleY(1)}
+.thread.drawn i::after{transform:scale(1)}
+@media (prefers-reduced-motion:reduce){ .thread i,.thread i::after{transform:none;transition:none} }
+.person .face{margin-top:8px}
+
+/* Full morning at the end: a warm sunrise behind Day 1 */
+.close{background:radial-gradient(120% 75% at 50% 120%,rgba(255,186,120,.32),rgba(255,214,170,.12) 45%,transparent 70%)}
+.c-story{max-width:34ch;margin:22px auto 0;font-size:16px;line-height:1.5;color:var(--slate);border:1.5px dashed #d9c27a;border-radius:14px;padding:14px 16px;background:#fffdf6}
+
+/* ===== Concept: Pass it on (one-tap sharing) ===== */
+.btn.sm{font-size:15px;padding:11px 18px;min-height:44px;display:inline-flex;align-items:center;gap:7px}
+.passon{text-align:center;padding-bottom:var(--gap)}
+.passon .lede{margin-top:10px}
+.cards{display:flex;justify-content:center;align-items:flex-end;gap:22px;margin-top:40px}
+.pc{margin:0;display:flex;flex-direction:column;align-items:center}
+.pc img{display:block;border-radius:18px;box-shadow:0 24px 50px -22px rgba(0,0,0,.45);height:auto}
+.pc-story img{width:min(190px,34vw)}
+.pc-sq img{width:min(230px,46vw)}
+.pc figcaption{margin-top:12px;font-size:14px;font-weight:600}
+.pc-acts{display:flex;gap:8px;justify-content:center;margin-top:10px;flex-wrap:wrap}
+.pmsg{max-width:520px;margin:44px auto 0;padding:20px;border-radius:20px;background:#f5f5f7;text-align:left}
+.pmsg-l{font-size:13px;font-weight:600;color:var(--slate)}
+.pmsg-t{margin-top:8px;font-size:16px;line-height:1.5}
+.pmsg .pc-acts{justify-content:flex-start;margin-top:14px}
+@media (max-width:520px){ .cards{gap:12px} .pc-acts{gap:6px} .pc-acts .btn.sm{padding:9px 12px;font-size:13px;min-height:40px} }
+.three{text-align:center;padding-block:var(--gap);background:#f5f5f7}
+.three .lede{margin-top:10px}
+.plink{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:10px;margin:32px auto 18px;padding:12px 14px;max-width:480px;background:#fff;border-radius:16px;border:1.5px dashed #d9c27a}
+.plink code{font:600 15px/1.3 "Inter BJ",system-ui,sans-serif;color:var(--ink)}
+.pcount{margin-top:18px;font-size:15px;color:var(--slate)}
+
+/* ===== Concept 2: the question first ===== */
+.hero2{padding-top:56px}
+@media (min-width:735px){ .hero2{padding-top:72px} }
+.face-vid{position:relative;display:block;margin:0 auto 26px;width:clamp(128px,30vw,168px);aspect-ratio:1;border-radius:50%;border:0;padding:0;cursor:pointer;background:#1d1d1f;
+  box-shadow:0 0 0 4px #fff,0 0 0 7px var(--wine),0 26px 50px -20px rgba(0,0,0,.45)}
+.face-vid video{display:block;width:100%;height:100%;border-radius:50%;object-fit:cover}
+.face-vid .cbub-snd{right:2px;bottom:2px;width:36px;height:36px}
+.face-vid.sound .cbub-snd{background:#1d1d1f}
+.fv-cap{margin:-8px auto 26px;font-size:13px;color:var(--slate)}
+.hero2 .lede{max-width:none}
+.hero2 .lede span{display:block;text-wrap:balance}
+.hero2 .bar{margin-top:40px}
+@media (max-width:734px){ .hero2 .bar{margin-top:32px} }
+.answer{text-align:center;padding-block:var(--gap) calc(var(--gap) * .8)}
+.answer .stage{margin-top:28px}
+.topics{margin-top:30px}
+.topics .chip{font-weight:500}
+/* the hands only animate once they're on screen */
+/* The 6:00 notification: a soft tap ripple shows it can be opened */
+.screen .lcard{position:relative;overflow:visible}
+.screen .lcard::after{content:"";position:absolute;right:16%;top:50%;width:46px;height:46px;margin:-23px 0 0;border-radius:50%;
+  background:radial-gradient(circle,rgba(255,255,255,.55) 0 22%,transparent 24%);box-shadow:0 0 0 2px rgba(255,255,255,.7);opacity:0;pointer-events:none}
+@media (prefers-reduced-motion:no-preference){ .device:not(.pre) .screen .lcard:not(.away)::after{animation:tap 3.2s ease-out 1.4s infinite} }
+@keyframes tap{0%{opacity:0;transform:scale(.5)}12%{opacity:1;transform:scale(.8)}22%{opacity:.9;transform:scale(.72)}60%,100%{opacity:0;transform:scale(1.7)}}
+.ls-hint{font-size:13px;color:rgba(255,255,255,.75)}
+.answer .photo,.answer .hl{animation-play-state:paused}
+.answer .photo.go,.answer .photo.go .hl{animation-play-state:running}
+
+/* Concept 2 media */
+.pc-vid video{display:block;width:min(190px,34vw);aspect-ratio:9/16;border-radius:18px;object-fit:cover;background:#111;box-shadow:0 24px 50px -22px rgba(0,0,0,.45)}
+.fv-cap{font-weight:500}
+.plink{border-style:solid;border-color:var(--hair)}
+.c-story{border:0;background:none;padding:0;margin-top:20px;max-width:34ch}
+.c-story summary{display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 16px;border-radius:999px;cursor:pointer;list-style:none;font-size:14px;font-weight:600;color:var(--wine);background:rgba(139,35,50,.08)}
+.c-story summary::-webkit-details-marker{display:none}
+.c-story summary::after{content:"";width:7px;height:7px;border:solid currentColor;border-width:0 1.5px 1.5px 0;transform:translateY(-2px) rotate(45deg);transition:transform .25s}
+.c-story[open] summary::after{transform:translateY(1px) rotate(-135deg)}
+.c-story p{margin-top:16px;font-size:17px;line-height:1.5;color:var(--ink)}
+
+/* ===== Concept 2: tighter hero + one-tap share row ===== */
+[data-hplay] .cbub-snd svg{display:none}
+[data-hplay]::before{content:"";position:absolute;inset:-7px;border-radius:50%;border:2px solid var(--wine);opacity:0;pointer-events:none}
+@media (prefers-reduced-motion:no-preference){ [data-hplay]:not(.seen)::before{animation:live 2.8s ease-out 1s infinite} }
+@keyframes live{0%{opacity:.7;transform:scale(1)}70%,100%{opacity:0;transform:scale(1.22)}}
+.fv-thumb{position:absolute;inset:0;z-index:1;width:100%;height:100%;border-radius:50%;object-fit:cover;transition:opacity .25s}
+[data-hplay].playing .fv-thumb{opacity:0}
+[data-hplay] .cbub-snd{z-index:2}
+[data-hplay] .cbub-snd::before{content:"";width:0;height:0;border-style:solid;border-width:7px 0 7px 11px;border-color:transparent transparent transparent #fff;margin-left:3px}
+[data-hplay].playing .cbub-snd::before{width:10px;height:12px;border:0;border-left:3.5px solid #fff;border-right:3.5px solid #fff;margin-left:0}
+.hero2{padding-top:44px}
+.face-vid{width:clamp(112px,27vw,148px);margin-bottom:22px}
+@media (max-width:734px){ .hero2 .big{font-size:clamp(40px,11.5vw,52px)} .hero2 .bar{margin-top:26px} }
+.srow{display:flex;align-items:center;gap:10px;max-width:100%;margin:28px auto 0;justify-content:center}
+.sr-l{flex:none;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--slate)}
+.sr-list{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding:2px}
+.sr-list::-webkit-scrollbar{display:none}
+.sr-b{flex:none;font:inherit;font-size:15px;font-weight:600;color:var(--ink);background:none;border:0;border-radius:12px;padding:11px 14px;cursor:pointer;white-space:nowrap;text-decoration:none}
+.sr-b:hover{background:#f0f0f2;text-decoration:none}
+.sr-b.wa{background:var(--wine);color:#fff}
+.sr-b.wa:hover{background:var(--wine-hover)}
+@media (max-width:734px){ .passon .srow{flex-direction:column;gap:8px} .passon .sr-list{flex-wrap:wrap;justify-content:center;overflow:visible} }
+.wa-choose{max-width:360px;margin:12px auto 0;padding:6px;border-radius:20px;background:#fff;box-shadow:0 18px 44px -18px rgba(0,0,0,.35),0 0 0 1px var(--hair);text-align:left}
+.wa-choose[hidden]{display:none}
+.wc-o{display:block;width:100%;font:inherit;text-align:left;background:none;border:0;border-radius:14px;padding:12px 14px;cursor:pointer;color:var(--ink);text-decoration:none}
+.wc-o:hover{background:#f6efe4;text-decoration:none}
+.wc-o b{display:block;font-size:16px;font-weight:600}.wc-o span{display:block;font-size:13px;color:var(--slate);margin-top:1px}
+.sr-top .wa-choose{margin-left:0}
+.sr-status{margin-top:22px;font-size:14px;color:var(--slate)}
+.sr-status span{display:block;margin-bottom:2px}
+.sr-status i{font-style:normal;margin:0 6px;color:var(--hair)}
+.sr-status button{font:inherit;font-weight:600;color:var(--wine);background:none;border:0;padding:10px 2px;cursor:pointer}
+.sr-top{padding-top:10px}
+.sr-top + .wrap .day.open{padding-top:28px}
+@media (min-width:735px){ .sr-top + .wrap .day.open{padding-top:56px} }
+.sr-top .sr-list{mask-image:linear-gradient(90deg,#000 85%,transparent);-webkit-mask-image:linear-gradient(90deg,#000 85%,transparent)}
+.sr-top .srow{justify-content:flex-start;margin:6px 0 0}
+@media (max-width:734px){ .sr-top .sr-l{display:none} }
+
+/* ===== Review pass ===== */
+.door-pill{display:inline-flex;align-items:center;min-height:40px;padding:0 16px;margin-left:4px;border-radius:999px;background:var(--wine);color:#fff;font-weight:600}
+.door-pill:hover{background:var(--wine-hover);text-decoration:none}
+.door{margin-top:40px}
+.listen{display:flex;align-items:center;gap:12px;margin:4px 0 18px;padding:10px 14px 10px 10px;border-radius:999px;background:#f6efe4}
+.ls-btn{flex:none;width:40px;height:40px;border-radius:50%;border:0;background:var(--wine);cursor:pointer;display:grid;place-items:center}
+.ls-btn::before{content:"";border-style:solid;border-width:7px 0 7px 11px;border-color:transparent transparent transparent #fff;margin-left:3px}
+.listen.on .ls-btn::before{width:10px;height:12px;border:0;border-left:3.5px solid #fff;border-right:3.5px solid #fff;margin-left:0}
+.ls-txt{display:flex;flex-direction:column;line-height:1.25;text-align:left}
+.ls-txt b{font-size:15px;font-weight:600}.ls-txt span{font-size:13px;color:var(--slate)}
+.ls-bar{flex:1;height:3px;border-radius:2px;background:var(--hair);overflow:hidden;min-width:40px}
+.ls-bar i{display:block;height:100%;width:0;background:var(--wine)}
+.alt-wa{margin-top:18px;font-size:15px;color:var(--slate)}
+.alt-wa a{font-weight:600}
+.hero2{padding-bottom:24px}
+.answer{padding-top:72px}
+@media (min-width:735px){ .answer{padding-top:104px} }
+
+/* Warm 'morning paper' palette: the page is a letter, not a screen */
+:root{ --white:#fbf7f0; --ink:#231b17; --slate:#6d625b; --quiet:#8c8078; --hair:#e9e0d3; --field:#d9cdbd }
+body{background:var(--white)}
+.nav{background:rgba(251,247,240,.82)!important}
+.bar{background:rgba(243,236,225,.92)}
+.person,.three,.sheet,.pmsg{background:#f3ece1}
+.chip{background:#fffdf9}
+.photo img{mix-blend-mode:multiply}
+.email,.em,.letter{background:#fff}
+/* the 6:00 band: night at the top, dawn breaking at the bottom */
+.morning-band{background:radial-gradient(130% 75% at 50% 122%,rgba(233,160,96,.55) 0%,rgba(194,58,79,.45) 30%,rgba(139,35,50,.16) 55%,transparent 75%),linear-gradient(#0d0a0d,#17121a 50%,#241519)}
+.close{background:radial-gradient(120% 80% at 50% 125%,rgba(240,176,112,.38),rgba(245,205,160,.16) 45%,transparent 72%)}
+
+/* ===== Final: the Word held out, one question at a time ===== */
+.answer .photo,.answer .hl{animation-play-state:running}
+.answer .photo{animation:none}
+.answer .stage{background:var(--white)}
+.answer .hl{animation-play-state:paused}
+.answer .photo.go .hl{animation-play-state:running}
+@media (prefers-reduced-motion:no-preference){
+  .answer .stage{transform:translateY(56px) scale(.94);opacity:.35;transition:transform 1.2s cubic-bezier(.2,.75,.2,1),opacity .9s ease}
+  .answer .stage.up{transform:none;opacity:1}
+}
+.asklist{list-style:none;max-width:420px;margin:0 auto;padding:0}
+.answer .stage{margin-top:44px}
+.answer-h{margin-top:20px}
+@media (prefers-reduced-motion:no-preference){ .answer-h{opacity:0;transform:translateY(12px);transition:opacity .8s ease .5s,transform .8s ease .5s} .stage.up + .answer-h{opacity:1;transform:none} }
+.asklist li{padding:13px 4px;font-size:clamp(15px,4.3vw,17px);white-space:nowrap;font-weight:500;line-height:1.35;color:var(--ink);border-top:1px solid var(--hair);text-wrap:balance}
+.asklist li:last-child{border-bottom:1px solid var(--hair)}
+@media (prefers-reduced-motion:no-preference){
+  .asklist li{opacity:0;transform:translateY(10px);transition:opacity .6s ease,transform .6s ease;transition-delay:calc(var(--i) * 110ms)}
+  .asklist.in li{opacity:1;transform:none}
+}
+.askq{position:relative;max-width:30ch;margin:34px auto 0;min-height:3.2em;display:grid}
+.askq .q{grid-area:1/1;align-self:center;font-size:clamp(21px,5.6vw,28px);font-weight:600;letter-spacing:-0.02em;line-height:1.25;color:var(--ink);
+  opacity:0;transform:translateY(8px);transition:opacity .7s ease,transform .7s ease;text-wrap:balance}
+.askq .q.on{opacity:1;transform:none}
+
+/* Highlighter on Matthew 11:28 */
+.hl:nth-of-type(1){left:57.912%;top:59.503%;width:8.236%;height:2.019%}
+.hl:nth-of-type(2){left:52.751%;top:61.447%;width:13.397%;height:2.019%}
+.hl:nth-of-type(3){left:52.751%;top:63.392%;width:7.303%;height:2.019%}
+
+/* ===== Breathing pass ===== */
+/* the questions: quiet inner thoughts, not a form */
+.asklist li{border:0!important;padding:9px 4px;font-weight:400;color:var(--slate);font-size:clamp(16px,4.5vw,19px);letter-spacing:-0.01em}
+.asklist{margin-top:8px}
+/* ninety mornings: light dots, only Day 1 in wine */
+.days{gap:9px}
+.days i{background:#e7ddcf}
+.days i.on:not(.d1){background:rgba(139,35,50,.22);opacity:1}
+/* more air between the big moments */
+.journey,.person,.passon,.close{padding-bottom:calc(var(--gap) * 1.1)}
+.hero .bar p{font-weight:500}
+
+/* ===== Clean pass ===== */
+/* 1. no connector threads on Home: plain, generous section spacing */
+.threaded{padding-top:var(--gap)}
+/* 2. one loud moment: the question and the close; the rest speak more quietly */
+.journey .big,.passon .big,.answer-h,.quiet-h{font-size:clamp(32px,8vw,52px)}
+.person .big{font-size:clamp(36px,9vw,60px)}
+/* 3. icon share row */
+.sr-icons{margin-top:30px}
+.sr-icons .sr-list{gap:10px;justify-content:center;flex-wrap:nowrap;overflow:visible}
+.ic{flex:none;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;border:1.5px solid var(--hair);background:#fffdf9;color:var(--ink);cursor:pointer;padding:0;text-decoration:none;transition:transform .2s,background .2s}
+.ic:hover{background:#f6efe4;text-decoration:none;transform:translateY(-2px)}
+.ic-wa{background:var(--wine);border-color:var(--wine);color:#fff}
+.ic-wa:hover{background:var(--wine-hover)}
+@media (max-width:374px){ .sr-icons .sr-list{gap:6px} .ic{width:41px;height:41px} }
+/* the questions deepen in tone as they go down, into the answer */
+.asklist li{color:var(--ink)!important}
+.asklist li:nth-child(1){opacity:.42}.asklist li:nth-child(2){opacity:.52}.asklist li:nth-child(3){opacity:.62}
+.asklist li:nth-child(4){opacity:.72}.asklist li:nth-child(5){opacity:.84}.asklist li:nth-child(6){opacity:1;font-weight:500}
+@media (prefers-reduced-motion:no-preference){ .asklist:not(.in) li{opacity:0!important} }
+/* 4. questions that open a topic page */
+.asklist a{color:inherit;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+.asklist a::after{content:"›";color:var(--wine);font-weight:600}
+.asklist a:hover{color:var(--ink)}
+/* 5. from readers */
+.voices{text-align:center;padding-block:var(--gap) 0}
+.vq{display:grid;gap:26px;max-width:520px;margin:30px auto 0}
+.vq figure{margin:0}
+.vq blockquote{font-size:19px;line-height:1.5;color:var(--ink)}
+.vq figcaption{margin-top:8px;font-size:14px;color:var(--slate)}
+
+/* ===== Bring it to Jesus: the burdens as cards, in rows of three ===== */
+.hero2 h1.big{font-size:clamp(46px,13vw,84px)}
+.burdens{list-style:none;margin:0 auto;padding:0;max-width:720px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.bcard{display:flex;align-items:center;justify-content:center;min-height:112px;padding:14px 10px;background:#fff;border-radius:14px;
+  box-shadow:0 0 0 1px var(--hair),0 14px 30px -22px rgba(60,35,20,.5);
+  font-size:14px;line-height:1.32;font-weight:500;color:var(--ink);text-align:center;text-wrap:balance}
+.bcard a{color:inherit;text-decoration:none}
+.bcard a::after{content:" ›";color:var(--wine);font-weight:600}
+@media (min-width:735px){ .burdens{gap:16px} .bcard{min-height:140px;padding:22px 20px;font-size:18px;border-radius:18px} }
+@media (prefers-reduced-motion:no-preference){
+  .bcard{opacity:0;transform:translateY(14px);transition:opacity .7s ease,transform .7s ease;transition-delay:calc(var(--i) * 120ms)}
+  .burdens.in .bcard{opacity:1;transform:none}
+}
+.answer .stage{margin-top:48px}
+.answer .photo{background:var(--white)}
+
+/* ===== The burdens: folded notes, carried into the Word ===== */
+.burdens{gap:12px}
+.bcard{position:relative;border-radius:3px;box-shadow:none;background:linear-gradient(225deg,transparent 13px,#fffdf9 13px);
+  filter:drop-shadow(0 1px 1px rgba(70,45,25,.07)) drop-shadow(0 10px 14px rgba(70,45,25,.13));
+  font-size:14.5px;font-weight:500;letter-spacing:-.01em;padding:18px 12px 16px;min-height:122px;transform:rotate(var(--r,0deg))}
+.bcard::after{content:"";position:absolute;top:0;right:0;width:18px;height:18px;border-bottom-left-radius:3px;
+  background:linear-gradient(225deg,transparent 50%,#efe6d8 50%,#f6efe4 100%)}
+.bcard:nth-child(1){--r:-1.2deg}.bcard:nth-child(2){--r:.8deg}.bcard:nth-child(3){--r:-.5deg}
+.bcard:nth-child(4){--r:1deg}.bcard:nth-child(5){--r:-.8deg}.bcard:nth-child(6){--r:1.3deg}
+@media (min-width:735px){ .bcard{font-size:18px;min-height:150px;padding:26px 22px} .bcard::after{width:22px;height:22px} .bcard{background:linear-gradient(225deg,transparent 16px,#fffdf9 16px)} }
+@media (prefers-reduced-motion:no-preference){ .burdens.in .bcard{transform:rotate(var(--r))} }
+/* flow mode (set by script only when motion is welcome) */
+.answer.flow .flow-track{height:calc(100vh + 1100px)}
+.answer.flow .flow-pin{position:sticky;top:var(--pin-top,64px)}
+.answer.flow .bcard{opacity:1;transition:none;will-change:transform,opacity}
+.answer.flow .stage{transform:none!important;opacity:var(--st,.6)!important;transition:opacity .3s linear;margin-top:40px}
+.answer.flow .hl{animation-play-state:paused!important}
+.answer.flow.absorbed .hl{animation-play-state:running!important}
+.answer.flow .hl:nth-of-type(1){animation-delay:.15s}.answer.flow .hl:nth-of-type(2){animation-delay:.53s}.answer.flow .hl:nth-of-type(3){animation-delay:.91s}
+.answer.flow .answer-h{opacity:0;transform:translateY(12px);transition:opacity .8s ease .9s,transform .8s ease .9s}
+.answer.flow.absorbed .answer-h{opacity:1;transform:none}
+/* laptops: the notes, the Word and the answer must all fit on one screen while pinned */
+@media (min-width:735px){
+  .answer.flow .bcard{min-height:108px;padding:18px 18px;font-size:16.5px}
+  .answer.flow .burdens{max-width:640px;gap:14px}
+  .answer.flow .stage{margin-top:28px}
+  .answer.flow .photo{width:min(1120px,calc(100vw - 32px),max(420px,calc((100svh - 470px) * 1.777)))}
+  .answer.flow .answer-h{margin-top:8px}
+}
+
+/* question notes: a touch smaller so each reads in about three lines on a phone */
+@media (max-width:734px){ .bcard{font-size:13.5px;padding:16px 9px 14px;min-height:108px;text-wrap:pretty} }
+
+/* ===== Notes on the same ivory paper as the Bible's pages ===== */
+.bcard{background:linear-gradient(225deg,transparent 13px,#f7efe4 13px);
+  filter:drop-shadow(0 1px 1px rgba(70,45,25,.09)) drop-shadow(0 10px 14px rgba(70,45,25,.15))}
+.bcard::after{background:linear-gradient(225deg,transparent 50%,#e4d6c3 50%,#efe4d4 100%)}
+@media (min-width:735px){ .bcard{background:linear-gradient(225deg,transparent 16px,#f7efe4 16px)} }
+
+/* ===== Breathing: Welcome gets space under its opening; the prayer box sits centred like the rest ===== */
+.open + .three{margin-top:56px}
+.asks{text-align:center}
+.ask .row{justify-content:center}

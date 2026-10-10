@@ -1,49 +1,7 @@
-# Dependencies
-node_modules/
-/.pnp
-.pnp.js
-
-# Production
-/build
-/dist
-/.next
-/out
-
-# Environment variables
-.env
 .env.local
-.env.*.local
-
-# IDE and editor
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
-.DS_Store
-*.sublime-project
-*.sublime-workspace
-
-# OS
-Thumbs.db
-.DS_Store
-
-# Logs
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-lerna-debug.log*
-
-# Temporary files
-*.tmp
-.cache/
-
-# OS-specific
-.AppleDouble
-.LSOverride
-
-# Local Netlify folder
-.netlify
-
-# Vercel deployment config (local cache, should not be committed)
 .vercel
+.env*
+node_modules/
+.next/
+public/
+next-env.d.ts
