@@ -1,11 +1,16 @@
 const MAILERLITE_API_KEY = process.env.MAILERLITE_API_KEY;
 const MAILERLITE_BASE_URL = "https://connect.mailerlite.com/api";
 
+const GROUP_IDS: Record<string, string> = {
+  "journey": "200521180101215690",
+  "received": "200521181048080072",
+};
+
 export async function addSubscriber(email: string, tags: string[], ref?: string, source?: string) {
   try {
     const payload: any = {
       email,
-      groups: tags.map(tag => ({ name: tag })),
+      groups: tags.map(tag => ({ id: GROUP_IDS[tag] || tag })),
     };
 
     if (ref) {
