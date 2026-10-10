@@ -952,6 +952,7 @@ main .tease-h,main .ask h3{font-size:var(--t-sub)!important;line-height:1.2;lett
 main > section.open,main > section.s-open.page-end{padding-top:80px}
 @media (min-width:735px){ main > section.open,main > section.s-open.page-end{padding-top:120px} }
 
+
 /* ===== Breathing pass 2 ===== */
 /* Receive Jesus: the opening gets its own quiet screen; truths are words on the page, not boxes */
 .rj-open{min-height:calc(72svh - 52px);display:flex;flex-direction:column;justify-content:center;padding:48px 0 40px}
@@ -1097,3 +1098,35 @@ footer nav{justify-content:center;gap:8px 22px}
 /* the notes scene in three beats: a little more room to breathe between them */
 .answer.flow .flow-track{height:calc(100vh + 980px)}
 .answer.flow .stage{transition:none}
+
+/* ===== One screen, one idea (no snapping: the reader's thumb stays in charge) ===== */
+main > section.journey, main > section.person, main > section.close{min-height:calc(100svh - 52px);display:flex;flex-direction:column;justify-content:center;padding-block:72px}
+main > section.journey > .wrap, main > section.person > .wrap, main > section.close > .wrap{width:100%}
+@media (min-width:735px){ main > section.journey, main > section.person, main > section.close{min-height:min(calc(100svh - 52px),900px)} }
+
+/* ===== Type (10 Oct): two voices. Albert Sans for every word Jimi says; Libre Caslon Text italic for Scripture only ===== */
+@font-face{font-family:"Albert Sans";font-style:normal;font-weight:300 900;font-display:swap;src:url("/assets/fonts/albert-sans-latin-wght-normal.woff2") format("woff2")}
+@font-face{font-family:"Albert Sans";font-style:italic;font-weight:300 900;font-display:swap;src:url("/assets/fonts/albert-sans-latin-wght-italic.woff2") format("woff2")}
+@font-face{font-family:"Libre Caslon Text";font-style:italic;font-weight:400;font-display:swap;src:url("/assets/fonts/libre-caslon-text-latin-400-italic.woff2") format("woff2")}
+:root{--sans:"Albert Sans","Inter BJ",-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;--word:"Libre Caslon Text",Georgia,"Times New Roman",serif}
+body{font-family:var(--sans);font-feature-settings:"kern" 1;text-rendering:optimizeLegibility}
+/* Jimi's voice */
+h1.big,h2.big,.answer-h,main h1.mid,main h1.cq,.prose h1,.prose h2{font-family:var(--sans);font-weight:700;letter-spacing:-0.032em;line-height:1.03}
+.lede{letter-spacing:-0.005em;line-height:1.5;text-wrap:balance}
+.em-body p,.text p,.prose p,.prose li{line-height:1.62;letter-spacing:-0.003em}
+.btn,.dk-cta,.door-pill{font-weight:600;letter-spacing:-0.005em}
+/* the Word, set apart: one face, used nowhere else */
+p.vs,.rj-verse,.email .em-body p.vs,.text p.vs,.mv-body p.vs{font-family:var(--word);font-style:italic;font-weight:400;font-size:1.08em;line-height:1.55;letter-spacing:0;color:var(--ink)}
+.email .em-body .vs cite,.text .vs cite{display:block;font-family:var(--sans);font-style:normal;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--wine);margin-top:8px}
+.rj-sub{font-weight:600}
+.plink code{font-family:var(--sans)}
+
+/* ===== Home: six screens, one thing each, with the marks on the left ===== */
+main > section.hero2{min-height:calc(100svh - 52px);display:flex;flex-direction:column;justify-content:center;padding-block:40px 56px}
+main > section.hero2 > .wrap{width:100%}
+main > section.morning-band{min-height:calc(100svh - 52px);display:flex;flex-direction:column;justify-content:center}
+main > section.morning-band > .wrap{width:100%}
+@media (min-width:735px){ main > section.hero2, main > section.morning-band{min-height:min(calc(100svh - 52px),900px)} }
+.pg-pips.dark i{background:rgba(255,255,255,.28)}
+.pg-pips.dark i.done{background:rgba(255,255,255,.5)}
+.pg-pips.dark i.now{background:#fff}

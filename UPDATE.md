@@ -36,8 +36,10 @@ What's new:
 - **Less is more (10 October):** one menu at a time (the dock steps aside while reading down and at the
   footer); a two-line centred footer (Prayer · What I believe · Partner · Privacy); no label over the six notes,
   which drift in; the Bible scene in three beats (notes alone, the Bible rises and takes them in, "It's all in here." centred); one thin line from Day 1 to Day 90 instead of ninety dots; one photo
-  of Jimi; headlines rise gently into place. Receive Jesus: one truth per screen with its reference (tap to read
+  of Jimi; headlines rise gently into place; the homepage is six full screens with quiet marks on the left showing where you are; "Ninety mornings.", "You'll have a brother." and "Are you in?" each fill one screen (no snapping). Receive Jesus: one truth per screen with its reference (tap to read
   the verse), "But / So / Now" in wine, four quiet steps on the edge, no verse after the prayer; "I'd love to rejoice with you, and walk with you for 90 mornings."
+- **Type (10 October): two voices.** Albert Sans for every word Jimi says; Libre Caslon Text italic for Scripture
+  only. Three new font files in `site/assets/fonts/`; the lock now covers 28 files.
 - **New file `PIPELINE.md`:** the weekly counsel pipeline. Read it fully, but **do not build it yet** (Step 7).
 
 Do these steps once, in order, exactly as written. Change, merge or "adapt" nothing. If a step
@@ -71,7 +73,7 @@ made from `site/images/favicon.png` (32×32 and 16×16, image unchanged). If the
 same way. Touch no HTML.
 
 ## Step 5. Check (test data only; send nothing to real people)
-1. `python3 site/verify.py` must print `Design lock OK: all 25 files match the approved design.`
+1. `python3 site/verify.py` must print `Design lock OK: all 28 files match the approved design.`
    Run it on the `public/` copy too.
 2. No page scrolls sideways at 320px. `/today/archive.json` `/privacy`, `/beliefs` and `/pray` return 200. A test prayer
    from `/pray` reaches the Notion Prayers database (test text only), then a

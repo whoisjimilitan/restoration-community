@@ -611,6 +611,21 @@
     addEventListener("scroll", () => requestAnimationFrame(f), { passive: true }); addEventListener("resize", f); f(); }
 })();
 
+/* ===== Home: where you are among the six screens ===== */
+(function(){
+  const pips = document.querySelector(".pg-pips"); if (!pips) return;
+  const secs = [...document.querySelectorAll("main > section")].filter(s => !s.hidden);
+  secs.forEach(() => pips.appendChild(document.createElement("i")));
+  const dots = [...pips.children];
+  const f = () => { const mid = innerHeight / 2; let cur = -1;
+    secs.forEach((s, i) => { const r = s.getBoundingClientRect(); if (r.top <= mid && r.bottom > mid) cur = i; });
+    const foot = document.querySelector("footer"), atFoot = foot && foot.getBoundingClientRect().top < innerHeight * .75;
+    pips.classList.toggle("on", cur >= 0 && !atFoot);
+    pips.classList.toggle("dark", cur >= 0 && secs[cur].classList.contains("morning-band"));
+    dots.forEach((d, i) => { d.classList.toggle("now", i === cur); d.classList.toggle("done", cur >= 0 && i < cur); }); };
+  addEventListener("scroll", () => requestAnimationFrame(f), { passive: true }); addEventListener("resize", f); f();
+})();
+
 /* ===== Daily: share text, Status video and card, voice note (all from /today/today.json) ===== */
 (function(){
   const get = () => window.BJ_TODAY ? Promise.resolve(window.BJ_TODAY)
