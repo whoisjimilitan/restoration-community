@@ -1,12 +1,15 @@
 {
   "date": "2026-10-06",
-  "dateLabel": "Tuesday 6 October",
-  "subject": "The voice you'll hear first",
-  "line": "What you hear first will depend on what you've been listening to.",
+  "dateLabel": "6 October 2026",
+  "subject": "The voice you’ll hear first",
+  "line": "What you hear first will depend on what you’ve been listening to.",
   "url": "/today",
   "video": "",
   "poster": "/images/jimi-avatar.jpg",
   "card": "",
   "statusVideo": "",
-  "voice": ""
+  "voice": "",
+  "question": "Whose voice do I hear first?",
+  "topic": "hearing-gods-voice",
+  "topicLabel": "Hearing God’s voice"
 }

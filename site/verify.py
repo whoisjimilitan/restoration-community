@@ -6,7 +6,7 @@ Run:  python3 verify.py          -> checks every locked file; exits 1 on ANY cha
 
 What is locked: the stylesheet, the front-end script, the fonts, the images, and every page's HTML.
 What may change: assets/config.js (endpoints) and the content inside elements marked
-data-slot="..." on /today (date, subject, body), which the back end fills daily, and the daily
+data-slot="..." on /today (topic, date, question, subject, body, action), which the back end fills daily, and the daily
 data file today/today.json (not locked).
 """
 import hashlib, json, re, sys, pathlib
@@ -18,7 +18,7 @@ FILES = [
     "assets/fonts/inter-latin-wght-normal.woff2", "assets/fonts/inter-latin-wght-italic.woff2",
     "images/bible-hero.jpg", "images/jimi-intro.mp4", "images/bible-hero-2x.jpg", "images/jimi-avatar.jpg", "images/og.jpg", "images/favicon.png", "images/apple-touch-icon.png",
     "index.html", "today/index.html", "start/index.html",
-    "welcome/index.html", "welcome/received/index.html", "partner/index.html", "404.html", "design/status-card.html", "design/status-nametag.html", "design/status-endcard.html",
+    "welcome/index.html", "welcome/received/index.html", "partner/index.html", "privacy/index.html", "beliefs/index.html", "pray/index.html", "404.html", "design/status-card.html", "design/status-nametag.html", "design/status-endcard.html", "design/status-captions.html",
 ]
 SLOT = re.compile(r'<(\w+)([^>]*?)\sdata-slot="(\w+)"([^>]*)>(.*?)</\1>', re.S)
 
@@ -30,6 +30,7 @@ def normalise(path: str, data: bytes) -> bytes:
         tag, pre, name, post, _inner = m.groups()
         attrs = (pre + post)
         attrs = re.sub(r'\sdata-wa="[^"]*"', ' data-wa=""', attrs)
+        attrs = re.sub(r'\s(data-topic|href)="[^"]*"', r' \1=""', attrs)
         return f'<{tag}{attrs} data-slot="{name}"></{tag}>'
     text = SLOT.sub(blank, text)
     text = re.sub(r'(<a[^>]*?)\sdata-wa="[^"]*"([^>]*data-slot="share")', r'\1 data-wa=""\2', text)

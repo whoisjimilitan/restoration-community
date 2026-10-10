@@ -3,14 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Page not found · Brother Jimi</title>
-<meta name="description" content="This page isn’t here. Today’s counsel is.">
-<meta name="robots" content="noindex">
+<title>Prayer · Brother Jimi</title>
+<meta name="description" content="Tell Brother Jimi what you need prayer for.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Brother Jimi">
-<meta property="og:title" content="Page not found">
-<meta property="og:description" content="This page isn’t here. Today’s counsel is.">
-<meta property="og:url" content="https://brotherjimi.com/404.html">
+<meta property="og:title" content="Let’s pray.">
+<meta property="og:description" content="Tell Brother Jimi what you need prayer for.">
+<meta property="og:url" content="https://brotherjimi.com/pray">
 <meta property="og:image" content="https://brotherjimi.com/images/og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -31,12 +30,29 @@
 </header>
 
 <main>
-<section class="s-open page-end">
-    <div class="wrap">
-      <p class="when">Page not found</p>
-      <h1 class="big">This page isn’t here.</h1>
-      <p class="lede">Today’s counsel is.</p>
-      <div class="nf-acts"><a class="btn" href="/today">Read today’s counsel</a><a class="btn ghost" href="/#start">Start Day 1</a></div>
+<section class="open page-end">
+    <div class="wrap col">
+      <p class="when">Prayer</p>
+      <h1 class="mid">Let’s pray.</h1>
+      <p class="lede">Whatever it is, I’ll pray with you in Jesus’ name.</p>
+      <div class="asks pray-page">
+        <form class="ask" id="prayer-form" novalidate>
+          <label class="sr" for="prayer">Prayer request</label>
+          <textarea id="prayer" name="prayer" placeholder="Tell me what you need prayer for"></textarea>
+          <div class="row"><button class="btn" type="submit">Send</button></div>
+          <p class="note" role="status" aria-live="polite"></p>
+        
+          <div class="call-step" data-call hidden>
+            <p class="call-h">Received. I’m praying for you.</p>
+            <p class="call-p">If it’s urgent, leave your number and I’ll call you.</p>
+            <label class="sr" for="call-phone">Phone number</label>
+            <input id="call-phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="Phone number, with country code">
+            <label class="call-wa"><input type="checkbox" id="call-wa" checked> This number is on WhatsApp</label>
+            <div class="row"><button class="btn" type="button" data-call-send>Call me</button></div>
+            <p class="note" role="status" aria-live="polite"></p>
+          </div>
+        </form>
+      </div>
     </div>
   </section>
 </main>
