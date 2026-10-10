@@ -796,3 +796,250 @@ body{background:var(--white)}
 .open + .three{margin-top:56px}
 .asks{text-align:center}
 .ask .row{justify-content:center}
+
+/* ===== Today opens quieter: round icons centred above the date ===== */
+.sr-top .sr-icons{justify-content:center;margin:14px auto 0}
+.sr-top .sr-icons .sr-list{mask-image:none;-webkit-mask-image:none}
+.sr-top .wa-choose{margin-left:auto}
+
+/* ===== Today's recording: one at a time, video first ===== */
+.watch{margin:6px auto 30px;width:min(270px,70vw);text-align:center}
+.watch[hidden]{display:none}
+.w-frame{position:relative;aspect-ratio:9/16;border-radius:22px;overflow:hidden;background:#1d1714;box-shadow:0 24px 48px -26px rgba(40,20,10,.55),0 0 0 1px rgba(0,0,0,.04)}
+.w-frame video{display:block;width:100%;height:100%;object-fit:cover}
+.w-play{position:absolute;inset:0;border:0;padding:0;background:radial-gradient(circle at 50% 50%,rgba(0,0,0,.0) 0 30%,rgba(0,0,0,.18));cursor:pointer}
+.w-play::before{content:"";position:absolute;left:50%;top:50%;width:64px;height:64px;margin:-32px 0 0 -32px;border-radius:50%;background:var(--wine);box-shadow:0 0 0 6px rgba(255,255,255,.35)}
+.w-play::after{content:"";position:absolute;left:50%;top:50%;margin:-11px 0 0 -6px;border-style:solid;border-width:11px 0 11px 17px;border-color:transparent transparent transparent #fff}
+.watch.on .w-play{display:none}
+.watch figcaption{margin-top:14px}
+.w-wa{display:inline-flex;align-items:center;gap:8px;font:inherit;font-size:15px;font-weight:600;color:var(--wine);background:none;border:0;padding:10px 6px;cursor:pointer}
+.w-wa[hidden]{display:none}
+.listen[hidden]{display:none}
+/* full screen buttons on the round videos */
+.fv-wrap{position:relative;width:fit-content;margin:0 auto}
+.fv-x{position:absolute;top:4px;right:-2px;z-index:3;width:36px;height:36px;border-radius:50%;border:0;padding:0;cursor:pointer;
+  background:rgba(35,27,23,.78) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7'/%3E%3C/svg%3E") center/16px no-repeat;
+  opacity:0;pointer-events:none;transition:opacity .25s}
+.fv-wrap.playing .fv-x,.vid.playing .fv-x{opacity:1;pointer-events:auto}
+.vid .fv-x{top:6%;right:6%}
+
+/* ===== A counsel page: one question, answered ===== */
+.cq-head{text-align:center;margin:8px auto 30px;max-width:640px}
+.cq-head .when{margin:0}
+.cq-head .when i{font-style:normal;color:var(--hair)}
+.cq-topic{color:var(--wine);font-weight:600}
+.cq-topic a{color:inherit;text-decoration:none}
+.cq{margin:10px auto 0;font-size:clamp(34px,9.4vw,58px);line-height:1.04;letter-spacing:-.035em;font-weight:700;color:var(--ink);text-wrap:balance}
+.email .em-subj{font-size:22px}
+.doit{text-align:center;padding-block:72px 24px}
+.doit .when{margin:0}
+.doit-t{max-width:26ch;margin:12px auto 26px;font-size:clamp(21px,5.6vw,26px);line-height:1.32;font-weight:600;letter-spacing:-.02em;color:var(--ink);text-wrap:balance}
+.doit-then{margin-top:6px}
+.doit-then[hidden]{display:none}
+.doit .sr-icons{margin-top:22px}
+.more{padding-block:56px 0;text-align:center}
+.more .when{margin:0}
+.more-l{list-style:none;margin:18px auto 0;padding:0;max-width:460px;text-align:left}
+.more-l li{border-top:1px solid var(--hair)}
+.more-l li:last-child{border-bottom:1px solid var(--hair)}
+.more-l a{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:16px 2px;color:var(--ink);text-decoration:none;font-weight:500;font-size:17px}
+.more-l a span{flex:none;font-size:13px;font-weight:400;color:var(--slate)}
+.more-l a:hover{color:var(--wine)}
+
+/* ===== The video as the counsel's cover ===== */
+.watch.cover{width:min(340px,86vw)}
+.watch.cover .w-frame::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(180deg,rgba(20,12,8,.55) 0%,rgba(20,12,8,0) 30%,rgba(20,12,8,0) 48%,rgba(20,12,8,.82) 100%);transition:opacity .5s}
+.watch.cover .cq-head{position:absolute;left:0;right:0;bottom:0;z-index:2;margin:0;padding:0 22px 26px;text-align:left;pointer-events:none;transition:opacity .5s,transform .5s}
+.watch.cover .cover-top{position:absolute;z-index:2;top:20px;left:22px;right:22px;margin:0;text-align:left;color:rgba(255,255,255,.85);pointer-events:none;transition:opacity .5s}
+.watch.cover.on .cover-top{opacity:0}
+.watch.cover .cq-topic{color:#fff;font-weight:700;letter-spacing:.06em;text-transform:uppercase;font-size:12px}
+.watch.cover .cover-top i{color:rgba(255,255,255,.5)}
+.day.open:has(.watch.cover){padding-top:20px}
+.watch.cover .cq{margin:0;color:#fff;font-size:clamp(28px,8vw,36px);line-height:1.06;text-shadow:0 2px 24px rgba(0,0,0,.35)}
+.watch.cover .w-play::before{top:42%}
+.watch.cover .w-play::after{top:42%}
+.watch.cover.on .cq-head,.watch.cover.on .w-frame::after{opacity:0;transform:translateY(8px)}
+.watch.cover .w-frame{border-radius:26px}
+
+/* ===== One-tap sharing right under the video (or the question) ===== */
+.cq-share{margin:-8px auto 34px}
+.cq-share .sr-icons{margin-top:0}
+.cq-share .wa-choose{margin-top:12px}
+.cq-head + .cq-share,.cq-head ~ .watch[hidden] + .cq-share{margin-top:4px}
+
+/* ===== Today: the letter begins, then rests behind the signup ===== */
+.email.tease{position:relative;overflow:hidden}
+.email.tease .em-body{max-height:300px;overflow:hidden;position:relative}
+.email.tease .em-body p:nth-child(n+3){filter:blur(4px);user-select:none;-webkit-user-select:none}
+.email.tease .em-body::after{content:"";position:absolute;left:0;right:0;bottom:0;height:200px;pointer-events:none;
+  background:linear-gradient(180deg,rgba(255,255,255,0),#fff 85%)}
+.tease-cta{position:relative;margin-top:-6px;padding:4px 0 6px;text-align:center}
+.tease-h{font-size:19px;font-weight:700;letter-spacing:-.02em;color:var(--ink);margin:0 0 14px}
+.tease-cta .signup{margin:0 auto}
+.tease-cta .note{margin-top:8px}
+.email.tease .em-addr,.email.tease .em-to{display:none}
+.doit{padding-top:56px;padding-bottom:64px}
+
+/* ===== Counsel page rhythm: 48 above, 24 between cover and share, 40 to the letter, 96 before the footer ===== */
+.day.open,.day.open:has(.watch.cover){padding-top:48px}
+.day.open:has(.watch.cover){padding-top:24px}
+.cq-head{margin:0 auto 28px}
+.watch.cover{margin:0 auto 24px}
+.cq-share{margin:0 auto 40px}
+.cq-share .sr-icons{margin:0}
+.email.tease{margin-bottom:96px}
+.email.tease .em-from{align-items:center}
+.email.tease .em-from time{align-self:center;margin-top:0}
+.email.tease .em-from p{display:flex;align-items:center;min-height:40px}
+.email.tease .listen{margin:16px 0 4px}
+.tease-cta{padding-bottom:8px}
+.more{padding-block:0 96px}
+@media (min-width:735px){ .day.open{padding-top:64px} .day.open:has(.watch.cover){padding-top:40px} }
+
+/* ===== Receive Jesus: five cards, one message each ===== */
+.rj-open{padding-block:28px 22px}
+.rj-open .big{font-size:clamp(40px,11.5vw,72px)}
+@media (min-width:735px){ .rj-open{padding-top:88px} }
+.rj-open .lede{margin-top:14px}
+.rj-steps{max-width:560px;margin:0 auto;padding:0 var(--gutter) 8px}
+.st-bars{display:flex;gap:6px;margin:0 6px 14px}
+.st-bars i{flex:1;height:3px;border-radius:2px;background:var(--hair);transition:background .3s}
+.st-bars i.on{background:var(--wine)}
+.st-track{display:flex;flex-direction:column;gap:16px;list-style:none;margin:0;padding:0 0 18px}
+.st{min-height:min(42svh,400px);display:flex;flex-direction:column;justify-content:center;align-items:center;
+  text-align:center;padding:36px 24px;border-radius:28px;background:#fff;box-shadow:0 0 0 1px var(--hair),0 22px 44px -30px rgba(60,35,20,.45)}
+.st h2{max-width:12ch;margin:0 auto}
+.st .vref{margin-top:26px}
+.st .vref p{font-size:18px}
+.st-pray{color:#fff;background:radial-gradient(120% 80% at 50% 120%,rgba(139,35,50,.6) 0%,transparent 65%),linear-gradient(#0a0a0c,#18171a);box-shadow:0 22px 44px -26px rgba(10,10,12,.6)}
+.st-pray .when{color:#a1a1a6;margin:0}
+.st-pray .said{color:#fff;font-size:clamp(19px,5vw,25px);line-height:1.38;margin-top:14px}
+.st-pray .vref summary{color:#fff;background:rgba(255,255,255,.12)}
+.st-pray .vref p{color:#c7c7cc}
+.rj-steps:not(.v) .st-ctl{display:none}
+.st-ctl{display:flex;justify-content:center;align-items:center;gap:12px;margin-top:2px;padding-bottom:96px}
+.st-back{width:48px;height:48px;border-radius:50%;border:1.5px solid var(--hair);background:#fffdf9 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23231b17' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M15 18l-6-6 6-6'/%3E%3C/svg%3E") center/20px no-repeat;cursor:pointer;padding:0}
+.st-back:disabled{opacity:.35;cursor:default}
+.st-next{min-width:180px}
+.close{padding-top:8px}
+.rj-steps.v{height:calc(100svh + 4 * 62svh)}
+.rj-steps.v .rj-pin{position:sticky;top:var(--rj-top,64px)}
+.rj-steps.v .st-track{display:grid;gap:0}
+.rj-steps.v .st{grid-area:1/1;opacity:0;transform:translateY(40px) scale(.98);transition:opacity .45s ease,transform .5s cubic-bezier(.2,.8,.2,1);pointer-events:none}
+.rj-steps.v .st.on{opacity:1;transform:none;pointer-events:auto}
+.rj-steps.v .st.past{transform:translateY(-40px) scale(.98)}
+/* ===== Hero video: a ripple that says "tap me", until it has been played ===== */
+[data-hplay]::before,[data-hplay]::after{content:"";position:absolute;inset:-7px;border-radius:50%;border:0;background:rgba(139,35,50,.28);opacity:0;pointer-events:none;z-index:-1}
+@media (prefers-reduced-motion:no-preference){
+  [data-hplay]:not(.seen)::before{animation:ripple 2.6s ease-out .8s infinite}
+  [data-hplay]:not(.seen)::after{animation:ripple 2.6s ease-out 2.1s infinite}
+  [data-hplay]:not(.seen) .cbub-snd{animation:breathe 2.6s ease-in-out .8s infinite}
+}
+@keyframes ripple{0%{opacity:.75;transform:scale(1)}100%{opacity:0;transform:scale(1.42)}}
+@keyframes breathe{0%,100%{transform:scale(1)}45%{transform:scale(1.12)}}
+
+/* ===== The type scale (8 Oct): every size has one job ===== */
+:root{--t-display:clamp(48px,13.4vw,88px);--t-title:clamp(40px,11vw,64px);--t-section:clamp(32px,9vw,56px);--t-sub:clamp(20px,5.4vw,24px)}
+.hero2 h1.big{font-size:var(--t-display)!important}
+main h1.big,main h1.mid,main h1.cq{font-size:var(--t-title)!important;line-height:1.04}
+main section.close h2.big{font-size:var(--t-title)!important}
+main h2.big{font-size:var(--t-section)!important;line-height:1.06}
+main .st h2{max-width:13ch}
+main .tease-h,main .ask h3{font-size:var(--t-sub)!important;line-height:1.2;letter-spacing:-.02em}
+.watch.cover h1.cq{font-size:clamp(28px,8vw,36px)!important}
+/* page openings: the same distance from the top bar on every secondary page */
+main > section.open,main > section.s-open.page-end{padding-top:80px}
+@media (min-width:735px){ main > section.open,main > section.s-open.page-end{padding-top:120px} }
+
+/* ===== Breathing pass 2 ===== */
+/* Receive Jesus: the opening gets its own quiet screen; truths are words on the page, not boxes */
+.rj-open{min-height:calc(72svh - 52px);display:flex;flex-direction:column;justify-content:center;padding:48px 0 40px}
+.rj-open .lede{margin-top:18px}
+.rj-steps .st:not(.st-pray){background:transparent;box-shadow:none;border-radius:0}
+.st{min-height:min(48svh,440px);padding:40px 12px}
+.st h2{max-width:11ch}
+.st .vref{margin-top:30px}
+.st-bars{margin:0 auto 8px;max-width:240px;gap:8px}
+.st-bars i{height:2px}
+.st-pray{padding:44px 26px}
+.st-ctl{gap:16px;margin-top:8px}
+.rj-steps.v{height:calc(100svh + 4 * 70svh)}
+.close{padding-top:56px}
+/* Today: more air around each piece */
+.day.open:has(.watch.cover){padding-top:40px}
+.watch.cover{width:min(320px,80vw);margin-bottom:28px}
+.cq-share{margin-bottom:72px}
+.cq-head{margin-bottom:36px}
+.email.tease{margin-bottom:128px}
+@media (min-width:735px){ .day.open:has(.watch.cover){padding-top:64px} }
+
+/* ===== Receive Jesus: one message per screen, in focus as you scroll ===== */
+.rj-hero{position:relative;min-height:calc(100svh - 52px);display:flex;flex-direction:column;justify-content:center;padding:0 0 72px}
+.rj-hero .lede{margin-top:18px}
+.rj-cue{position:absolute;left:50%;bottom:118px;width:1px;height:56px;margin-left:-.5px;overflow:hidden}
+.rj-cue::after{content:"";position:absolute;left:0;top:-56px;width:1px;height:56px;background:linear-gradient(transparent,var(--wine))}
+@media (prefers-reduced-motion:no-preference){ .rj-cue::after{animation:cue 2.4s cubic-bezier(.5,0,.3,1) 1s infinite} }
+@keyframes cue{0%{top:-56px;opacity:0}30%{opacity:1}100%{top:56px;opacity:0}}
+.rj-truths{list-style:none;margin:0;padding:0 var(--gutter);text-align:center}
+.rj-truths li{min-height:88svh;display:flex;flex-direction:column;justify-content:center;align-items:center}
+.rj-truths h2{max-width:12ch;margin:0 auto}
+.rj-verse{max-width:30ch;margin:22px auto 0;font-size:clamp(17px,4.6vw,20px);line-height:1.5;color:var(--slate);text-wrap:balance}
+.rj-ref{display:block;margin-top:12px;font-style:normal;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--wine)}
+.prayer-band .rj-verse{color:#c7c7cc;margin-top:34px;font-size:clamp(16px,4.2vw,18px)}
+.prayer-band .rj-ref{color:#e6a3ae}
+.rj-next{position:absolute;left:0;right:0;bottom:186px;margin:0;text-align:center;font-size:15px;font-weight:500;color:var(--slate)}
+[data-focus]{will-change:opacity,transform}
+.prayer-band .wrap{min-height:72svh;display:flex;flex-direction:column;justify-content:center}
+.close{padding-top:var(--gap)}
+/* home: the label above the notes */
+.burdens-h{margin:0 0 18px;text-align:center;transition:opacity .3s}
+
+/* ===== One-tap share rows wherever sharing happens ===== */
+.commit-share{margin:18px auto 4px}
+.commit-share .sr-icons{margin:0}
+.three .commit-share{margin-top:28px}
+
+/* ===== The doorway to Receive Jesus: same on every phone, quieter than Start Day 1 ===== */
+.door{display:flex;flex-direction:column;align-items:center;gap:14px;margin-top:48px;font-size:16px;color:var(--slate)}
+.door .door-pill{display:inline-flex;align-items:center;min-height:46px;padding:0 22px;border-radius:999px;font-weight:600;font-size:16px;
+  margin-left:0;color:var(--wine);background:transparent;border:1.5px solid var(--wine);text-decoration:none;transition:background .2s,color .2s}
+.door .door-pill:hover{background:var(--wine);color:#fff;text-decoration:none}
+
+/* ===== Need prayer today? (no signup needed) ===== */
+.pray-now{margin:30px auto 0;max-width:420px}
+.pray-now summary{list-style:none;cursor:pointer;font-size:16px;color:var(--slate);display:inline-block;padding:10px 4px}
+.pray-now summary::-webkit-details-marker{display:none}
+.pray-now summary span{color:var(--wine);font-weight:600;margin-left:4px}
+.pray-now[open] summary span{opacity:.6}
+.pray-now .ask{text-align:center;margin-top:8px}
+.pray-now textarea{min-height:110px}
+.pray-now .row{justify-content:center}
+@media (prefers-reduced-motion:no-preference){ .pray-now[open] .ask{animation:fadein .35s ease-out} }
+/* ===== Privacy: plain reading ===== */
+.prose{text-align:left}
+.prose .when,.prose h1,.prose .lede{text-align:center}
+.prose h2{font-size:var(--t-sub);font-weight:700;letter-spacing:-.02em;margin:44px 0 10px;color:var(--ink)}
+.prose p{font-size:17px;line-height:1.6;color:var(--ink);margin:0 0 12px}
+.prose .lede{color:var(--slate);margin:16px auto 8px}
+.prose .small{font-size:14px;color:var(--slate)}
+
+/* ===== Prayer: an urgent request can leave a number ===== */
+.call-step{margin-top:6px;text-align:center}
+.call-step[hidden]{display:none}
+.call-h{font-size:var(--t-sub);font-weight:700;letter-spacing:-.02em;color:var(--ink);margin:0}
+.call-p{color:var(--slate);margin:6px auto 16px;max-width:30ch;text-wrap:balance}
+.call-step input[type=tel]{display:block;width:100%;font:inherit;font-size:16px;padding:14px 18px;border-radius:999px;border:1.5px solid var(--hair);background:#fffdf9;color:var(--ink)}
+.call-wa{display:inline-flex;align-items:center;gap:8px;margin:14px 0 4px;font-size:15px;color:var(--ink);cursor:pointer}
+.call-wa input{width:18px;height:18px;accent-color:var(--wine)}
+.ask.sent > textarea,.ask.sent > .row,.ask.sent > .note:not(.call-step .note),.ask.sent > h3,.ask.sent > p:not(.note){display:none}
+/* ===== Partner: the mission ===== */
+.mission{max-width:30ch;margin:28px auto 34px;font-size:clamp(19px,5vw,22px);line-height:1.4;font-weight:600;letter-spacing:-.015em;color:var(--ink);text-wrap:balance}
+.mission span{display:block;margin-bottom:8px;font-size:14px;font-weight:600;letter-spacing:0;color:var(--slate)}
+
+/* Partner's last line: one balanced sentence, no orphan, normal line height */
+.alt{max-width:32ch;margin-inline:auto;line-height:1.55;text-wrap:balance}
+.alt a{display:inline;padding-block:0}
+
+/* the small grey label above a page title: identical on every page */
+.prose p.when{font-size:14px;font-weight:600;color:var(--slate);margin:0 0 6px;line-height:1.4}

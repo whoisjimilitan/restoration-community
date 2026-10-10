@@ -25,43 +25,45 @@
 <header class="nav">
   <div class="wrap">
     <a class="brand" href="/"><img src="/images/jimi-avatar.jpg" alt="" width="28" height="28">Brother Jimi</a>
-    <a class="txt" href="/today">Today’s Counsel</a>
+    <a class="txt" href="/today">Today</a>
   </div>
 </header>
 
 <main>
-<section class="s-open s-first">
+<section class="s-open rj-hero">
     <div class="wrap">
       <h1 class="big">Receive Jesus.</h1>
       <p class="lede">It’s the most important decision you’ll ever make.</p>
     </div>
+    <p class="rj-next">Before you decide, know this.</p>
+    <span class="rj-cue" aria-hidden="true"></span>
   </section>
 
-  <!-- Four truths, one per screen, on one path down to the prayer. Each shows only its reference;
-       tap the reference to read the verse (NIV). Each truth rises in as it scrolls into view. -->
-  <ol class="truths">
-    <li><h2 class="big">God loves you.</h2>
-      <details class="vref"><summary>John 3:16</summary><p>“For God so loved the world that he gave his one and only Son, that whoever believes in him shall not perish but have eternal life.”</p></details></li>
-    <li><h2 class="big">But sin keeps you from Him.</h2>
-      <details class="vref"><summary>Romans 3:23</summary><p>“For all have sinned and fall short of the glory of God.”</p></details></li>
-    <li><h2 class="big">So Jesus paid the price.</h2>
-      <details class="vref"><summary>1 Peter 3:18</summary><p>“For Christ also suffered once for sins, the righteous for the unrighteous, to bring you to God.”</p></details></li>
-    <li><h2 class="big">Now receive Him by faith.</h2>
-      <details class="vref"><summary>John 1:12</summary><p>“Yet to all who did receive him, to those who believed in his name, he gave the right to become children of God.”</p></details></li>
+  <!-- Four truths, one per screen. As each reaches the middle of the screen it comes into focus and the others fade back.
+       Each shows only its reference; tap it to read the verse (NIV). -->
+  <ol class="rj-truths">
+    <li data-focus><h2 class="big">God loves you.</h2>
+      <p class="rj-verse">“For God so loved the world that he gave his one and only Son, that whoever believes in him shall not perish but have eternal life.”</p><cite class="rj-ref">John 3:16</cite></li>
+    <li data-focus><h2 class="big">But sin keeps you from Him.</h2>
+      <p class="rj-verse">“For all have sinned and fall short of the glory of God.”</p><cite class="rj-ref">Romans 3:23</cite></li>
+    <li data-focus><h2 class="big">So Jesus paid the price for your sin by His death on the cross, and rose again.</h2>
+      <p class="rj-verse">“…Christ died for our sins according to the Scriptures, that he was buried, that he was raised on the third day according to the Scriptures.”</p><cite class="rj-ref">1 Corinthians 15:3–4</cite></li>
+    <li data-focus><h2 class="big">Now receive Him by faith.</h2>
+      <p class="rj-verse">“Yet to all who did receive him, to those who believed in his name, he gave the right to become children of God.”</p><cite class="rj-ref">John 1:12</cite></li>
   </ol>
 
   <section class="prayer-band">
-    <div class="wrap">
-      <p class="when">If you’re ready, pray this</p>
-      <p class="said"><span>Jesus, I believe You died for my sins</span><span>and rose again.</span><span>I turn from my sin</span><span>and receive You as my Lord and Saviour.</span><span>Thank You for loving me.</span><span>Amen.</span></p>
-      <details class="vref"><summary>Romans 10:9</summary><p>“If you declare with your mouth, ‘Jesus is Lord,’ and believe in your heart that God raised him from the dead, you will be saved.”</p></details>
+    <div class="wrap" data-focus>
+      <p class="when">If you believe this, pray this with me</p>
+        <p class="said"><span>Jesus, I believe You died for my sins</span><span>and rose again.</span><span>I turn from my sin</span><span>and receive You as my Lord and Saviour.</span><span>Thank You for loving me.</span><span>Amen.</span></p>
+        <p class="rj-verse">“If you declare with your mouth, ‘Jesus is Lord,’ and believe in your heart that God raised him from the dead, you will be saved.”</p><cite class="rj-ref">Romans 10:9</cite>
     </div>
   </section>
 
   <section class="close">
     <div class="wrap">
       <h2 class="big">Did you pray this today?</h2>
-      <p class="lede">Tell me. I’d love to welcome you to the family of God.</p>
+      <p class="lede">Tell me, and I’ll walk with you for the next 90 mornings.</p>
       <form class="signup" data-signup data-source="received" novalidate>
         <label class="sr" for="email-received">Email address</label>
         <input id="email-received" name="email" type="email" inputmode="email" autocomplete="email" placeholder="Your email">
@@ -86,17 +88,18 @@
     <svg class="vid-ring" viewBox="0 0 100 100" aria-hidden="true"><circle class="trk" cx="50" cy="50" r="48"/><circle class="prg" cx="50" cy="50" r="48"/></svg>
     <video playsinline preload="none" poster="/images/jimi-avatar.jpg"></video>
     <button class="vid-play" type="button" aria-label="Play today’s video"></button>
+    <button class="fv-x" type="button" data-fullscreen aria-label="Watch full screen"></button>
   </div>
-  <p class="when">Today’s Counsel · <span data-t="dateLabel">Today</span></p>
+  <p class="when"><span data-t="dateLabel">Today</span></p>
   <h3 id="vid-title" data-t="subject">Today’s counsel</h3>
   <p class="vid-line" data-t="line"></p>
-  <div class="vid-acts"><a class="btn" href="/today" data-t-href="url">Read today’s letter</a><button class="btn ghost" type="button" data-share>Send to someone</button></div>
+  <div class="vid-acts"><a class="btn" href="/today" data-t-href="url">Open today’s counsel</a><button class="btn ghost" type="button" data-share>Send to someone</button></div>
 </dialog>
 
 <footer>
   <div class="wrap">
-    <span>© <span id="yr">2026</span> Brother Jimi · Your email is never shared.</span>
-    <nav><a href="/today">Today’s Counsel</a><a href="/start">Receive Jesus</a><a href="/partner">Partner</a><a href="/privacy">Privacy</a><a href="mailto:jimi@brotherjimi.com">Contact</a></nav>
+    <span>© <span id="yr">2026</span> Brother Jimi, a servant of Jesus Christ</span>
+    <nav><a href="/today">Today</a><a href="/start">Receive Jesus</a><a href="/pray">Prayer</a><a href="/beliefs">What I believe</a><a href="/partner">Partner</a><a href="/privacy">Privacy</a><a href="mailto:jimi@brotherjimi.com">Contact</a></nav>
   </div>
 </footer>
 

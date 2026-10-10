@@ -22,7 +22,7 @@
         const ref = new URLSearchParams(location.search).get("ref");
         const res = await post(C.subscribe, { email, ref, source: form.dataset.source || location.pathname });
         if (!res.ok) throw new Error(res.status);
-        location.href = form.dataset.source === "received" ? "/welcome/received" : "/welcome";
+        location.href = form.dataset.source === "received" ? "/welcome/received" : (form.closest(".tease") ? "/welcome?letter" : "/welcome");
       } catch (err) {
         note.className = "note err"; note.textContent = "That didn’t go through. Try again.";
         btn.disabled = false;
@@ -52,7 +52,7 @@
     try {
       const res = await post(C.prayer, { prayer });
       if (!res.ok) throw new Error(res.status);
-      pf.prayer.value = ""; note.className = "note"; note.textContent = "Received. We’re praying for you.";
+      pf.prayer.value = ""; note.className = "note"; note.textContent = "Received. I’m praying for you.";
     } catch (err) {
       note.className = "note err"; note.textContent = "That didn’t go through. Try again.";
     }
@@ -437,6 +437,134 @@
   addEventListener("load",measure); measure();
 })();
 
+/* ===== Today's recording (video first, else voice; the letter always) and full screen for every video ===== */
+(function(){
+  const full=v=>{ if(!v) return; if(v.requestFullscreen) v.requestFullscreen().catch(()=>{}); else if(v.webkitEnterFullscreen) v.webkitEnterFullscreen(); if(v.paused) v.play().catch(()=>{}); };
+  document.querySelectorAll("[data-fullscreen]").forEach(b=>b.addEventListener("click",e=>{ e.stopPropagation(); full(b.parentElement.querySelector("video")); }));
+  const hw=document.querySelector(".fv-wrap"), hv=hw&&hw.querySelector("video");
+  if(hv){ hv.addEventListener("play",()=>hw.classList.add("playing")); hv.addEventListener("pause",()=>hw.classList.remove("playing")); }
+  const w=document.querySelector("[data-watch]"); if(!w) return;
+  const get=()=>window.BJ_TODAY?Promise.resolve(window.BJ_TODAY):fetch("/today/today.json",{cache:"no-cache"}).then(r=>r.ok?r.json():null).catch(()=>null);
+  get().then(T=>{
+    if(!T) return;
+    const src=T.statusVideo||T.video; if(!src) return;
+    const v=w.querySelector("video"); v.src=src; if(T.poster) v.poster=T.poster;
+    const wa=w.querySelector(".w-wa"); if(wa){ if(T.statusVideo){ wa.dataset.srVid=T.statusVideo; wa.hidden=false; } else wa.hidden=true; }
+    w.hidden=false;
+    const l=document.querySelector("[data-listen]"); if(l){ l.hidden=true; setTimeout(()=>l.hidden=true,0); }
+    w.querySelector(".w-play").addEventListener("click",()=>{ v.controls=true; v.play().catch(()=>{}); });
+    v.addEventListener("play",()=>w.classList.add("on"));
+  });
+})();
+
+/* ===== A counsel page: Do this today -> Amen -> share; more on the same burden; the topic links once its page exists ===== */
+(function(){
+  const b=document.querySelector("[data-doit]");
+  if(b) b.addEventListener("click",()=>{ const t=b.nextElementSibling; b.hidden=true; t.hidden=false; });
+  const box=document.querySelector("[data-more]"), tag=document.querySelector(".cq-topic[data-topic]");
+  if(!box||!tag) return;
+  const esc=t=>String(t).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+  const here=location.pathname.replace(/\/$/,"");
+  fetch("/counsel/index.json",{cache:"no-cache"}).then(r=>r.ok?r.json():[]).catch(()=>[]).then(sl=>{
+    if(Array.isArray(sl)&&sl.includes(tag.dataset.topic)){ const a=document.createElement("a"); a.href="/counsel/"+tag.dataset.topic; a.textContent=tag.textContent; tag.textContent=""; tag.appendChild(a); }
+  });
+  fetch("/today/archive.json",{cache:"no-cache"}).then(r=>r.ok?r.json():[]).catch(()=>[]).then(all=>{
+    if(!Array.isArray(all)) return;
+    const cur=document.querySelector("#today-date"), list=all.filter(x=>x.topic===tag.dataset.topic&&x.url!==here&&!(cur&&x.dateLabel===cur.textContent)).slice(0,3);
+    if(!list.length) return;
+    box.querySelector("[data-more-topic]").textContent=tag.textContent;
+    box.querySelector("[data-more-list]").innerHTML=list.map(x=>'<li><a href="'+esc(x.url)+'">'+esc(x.question)+'<span>'+esc(x.dateLabel)+'</span></a></li>').join("");
+    box.hidden=false;
+  });
+})();
+
+/* ===== The video as the counsel's cover: move the topic and question onto it ===== */
+(function(){
+  const w=document.querySelector("[data-watch]"), h=document.querySelector(".cq-head"); if(!w||!h) return;
+  const go=()=>{ if(w.hidden||w.classList.contains("cover")) return;
+    const f=w.querySelector(".w-frame"), t=h.querySelector(".when");
+    w.classList.add("cover");
+    if(t){ t.classList.add("cover-top"); f.appendChild(t); }
+    f.appendChild(h); };
+  new MutationObserver(go).observe(w,{attributes:true,attributeFilter:["hidden"]}); go();
+})();
+
+/* ===== The letter carries the same date as the page ===== */
+(function(){ const d=document.querySelector("#today-date"); document.querySelectorAll("[data-copy-date]").forEach(t=>{ const f=()=>t.textContent=d?d.textContent:""; f(); if(d) new MutationObserver(f).observe(d,{childList:true,characterData:true,subtree:true}); }); })();
+/* ===== Welcome, after "Send it" on a counsel page: the letter is on its way now; Day 1 is tomorrow ===== */
+(function(){
+  if(location.pathname.replace(/\/$/,"")!=="/welcome"||!/(^|[?&])letter\b/.test(location.search.slice(1))) return;
+  const l=document.querySelector(".open .lede"); if(l) l.textContent="Tap the link in the email to confirm. Today’s letter follows straight away, and Day 1 tomorrow morning.";
+})();
+
+/* ===== Receive Jesus: scrolling down brings up the next card (same direction as Home); Next/Back scroll for you ===== */
+(function(){
+  const sec=document.querySelector("[data-steps]"); if(!sec) return;
+  if(matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const pin=sec.querySelector(".rj-pin"), cards=[...sec.querySelectorAll(".st")], bars=[...sec.querySelectorAll(".st-bars i")],
+        next=sec.querySelector(".st-next"), back=sec.querySelector(".st-back"), N=cards.length;
+  sec.classList.add("v");
+  let i=-1;
+  const range=()=>sec.offsetHeight-innerHeight;
+  const place=()=>{ const h=document.querySelector("header"), t=(h?h.getBoundingClientRect().height:52)+10;
+    pin.style.setProperty("--rj-top",Math.max(t,Math.min((innerHeight-pin.offsetHeight)/2+t/2,innerHeight-pin.offsetHeight-90))+"px"); };
+  const show=n=>{ if(n===i) return; i=n;
+    cards.forEach((c,k)=>{ c.classList.toggle("on",k===i); c.classList.toggle("past",k<i); c.setAttribute("aria-hidden",k===i?"false":"true"); });
+    bars.forEach((b,k)=>b.classList.toggle("on",k<=i)); back.disabled=i===0; next.textContent=i===N-1?"I prayed this":"Next"; };
+  const tick=()=>{ const p=Math.min(1,Math.max(0,-sec.getBoundingClientRect().top/Math.max(1,range()))); show(Math.min(N-1,Math.round(p*(N-1)))); };
+  const top=()=>sec.getBoundingClientRect().top+scrollY;
+  const go=n=>scrollTo({top:top()+range()*Math.max(0,Math.min(N-1,n))/(N-1),behavior:"smooth"});
+  next.addEventListener("click",()=>{ if(i<N-1) go(i+1); else { const c=document.querySelector(".close"); if(c){ c.scrollIntoView({behavior:"smooth",block:"center"}); setTimeout(()=>{ const e=c.querySelector("input[type=email]"); e&&e.focus({preventScroll:true}); },700); } } });
+  back.addEventListener("click",()=>go(i-1));
+  addEventListener("scroll",()=>requestAnimationFrame(tick),{passive:true});
+  addEventListener("resize",()=>{ place(); tick(); });
+  place(); tick();
+})();
+
+/* ===== Focus: the message nearest the middle of the screen is clear; the others rest faintly ===== */
+(function(){
+  const els=[...document.querySelectorAll("[data-focus]")]; if(!els.length) return;
+  if(matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const tick=()=>{ const mid=innerHeight/2;
+    els.forEach(e=>{ const r=e.getBoundingClientRect(), c=r.top+r.height/2, d=Math.min(1,Math.abs(c-mid)/(innerHeight*.55));
+      e.style.opacity=String(Math.max(.08,1-d*d*1.15)); e.style.transform=`translateY(${(c-mid)*.06}px)`; }); };
+  addEventListener("scroll",()=>requestAnimationFrame(tick),{passive:true}); addEventListener("resize",tick); tick();
+})();
+/* ===== Home: "Maybe you're asking" fades as the notes go into the Word ===== */
+(function(){
+  const h=document.querySelector(".burdens-h"), tr=document.querySelector(".flow-track"); if(!h||!tr) return;
+  if(matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const tick=()=>{ if(!document.querySelector(".answer.flow")) return; const r=tr.getBoundingClientRect(), p=Math.max(0,Math.min(1,-r.top/Math.max(1,tr.offsetHeight-innerHeight)));
+    h.style.opacity=String(Math.max(0,1-Math.max(0,(p-.12)/.3))); };
+  addEventListener("scroll",()=>requestAnimationFrame(tick),{passive:true}); tick();
+})();
+
+/* ===== Prayer requests: send, then offer a call (number + WhatsApp, both optional) ===== */
+(function(){
+  const f=document.getElementById("prayer-form"); if(!f) return;
+  const step=f.querySelector("[data-call]"); if(!step) return;
+  const C=window.BJ_CONFIG||{prayer:"/api/prayer"};
+  const send=body=>fetch(C.prayer,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(body)});
+  let lastId=null, lastText="";
+  f.addEventListener("submit",async e=>{
+    e.preventDefault(); e.stopImmediatePropagation();
+    const note=f.querySelector(":scope > .note"), t=f.prayer.value.trim();
+    if(!t){ note.className="note err"; note.textContent="Write your request first."; return; }
+    const b=f.querySelector(":scope > .row button"); b.disabled=true;
+    try{ const r=await send({prayer:t}); if(!r.ok) throw 0; try{ const j=await r.clone().json(); lastId=j&&j.id||null; }catch(_){}
+      lastText=t; f.classList.add("sent"); step.hidden=false; step.querySelector("input[type=tel]").focus({preventScroll:true}); }
+    catch(_){ note.className="note err"; note.textContent="That didn’t go through. Try again."; b.disabled=false; }
+  },true);
+  step.querySelector("[data-call-send]").addEventListener("click",async()=>{
+    const n=step.querySelector(".note"), ph=step.querySelector("input[type=tel]").value.trim(), wa=step.querySelector("#call-wa").checked;
+    if(!/^\+?[\d\s()-]{7,}$/.test(ph)){ n.className="note err"; n.textContent="Enter a number with its country code, like +233 24 123 4567."; return; }
+    const btn=step.querySelector("[data-call-send]"); btn.disabled=true;
+    try{ const r=await send(lastId?{id:lastId,phone:ph,whatsapp:wa}:{prayer:lastText,phone:ph,whatsapp:wa}); if(!r.ok) throw 0;
+      n.className="note"; n.textContent=wa?"Thank you. I’ll call you on WhatsApp.":"Thank you. I’ll call you."; }
+    catch(_){ n.className="note err"; n.textContent="That didn’t go through. Try again."; btn.disabled=false; }
+  });
+})();
+
 /* ===== Daily: share text, Status video and card, voice note (all from /today/today.json) ===== */
 (function(){
   const get = () => window.BJ_TODAY ? Promise.resolve(window.BJ_TODAY)
@@ -459,6 +587,6 @@
     document.querySelectorAll("[data-sr-vid]").forEach(b=>{ if(T.statusVideo){ b.dataset.srVid=T.statusVideo; b.hidden=false; } });
     document.querySelectorAll("[data-pass-img]").forEach(b=>{ if(T.card){ b.dataset.passImg=T.card; b.hidden=false; } });
     const l=document.querySelector("[data-listen]");
-    if(l&&T.voice){ l.querySelector("audio").src=T.voice; l.hidden=false; }
+    if(l&&T.voice&&!(T.statusVideo||T.video)){ l.querySelector("audio").src=T.voice; l.hidden=false; }
   });
 })();
