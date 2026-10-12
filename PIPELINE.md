@@ -13,7 +13,7 @@ Read CLAUDE.md first. This file adds to it; where they seem to disagree, stop an
 |---|---|
 | **Boba** (Jimi's research assistant) | Emails raw material (quotes, notes, Scripture) to `whoisjimi.today@gmail.com`. |
 | **Claude Code** | Reads Boba's emails, drafts the week with `/teach`, sends Jimi one approval email, publishes each approved counsel at dawn, makes the videos small, sends the Today email. |
-| **Jimi** | Replies to approve (or asks for a change). Records a video or voice note for each day, if he can. |
+| **Jimi** | Replies to approve (or asks for a change). Records a **voice note every day** (the site's default) and, when he can, **videos in one weekly sitting** (start with 3 a week, his strongest letters). A day with a video uses the video; a day without one uses the voice note. |
 
 ---
 
@@ -81,7 +81,7 @@ Read CLAUDE.md first. This file adds to it; where they seem to disagree, stop an
    Notion). A video becomes the day's video and Status video; a voice note becomes the day's voice.
    Make them exactly as CLAUDE.md section 3.3 says, and nothing more. Every video gets captions of his
    exact spoken words (CLAUDE.md section 3.3); if any word is uncertain, ask him in the same thread. A day with no recording is
-   fine: the page simply starts with the letter.
+   fine: the page simply starts with the letter. Every video, post and Status links to that day's own page (`/today/YYYY-MM-DD?ref=share`), never the homepage.
 5. Reply to Jimi in the same thread, in one line: what is approved, what is waiting.
 
 ## 5. The publish run (Monday to Friday, 05:30)

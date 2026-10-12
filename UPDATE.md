@@ -1,4 +1,29 @@
-# UPDATE.md: install the design approved by Jimi on 10 October 2026 (counsel pages + pipeline)
+# UPDATE.md: install the design approved by Jimi on 12 October 2026
+
+This package replaces the whole front end. It includes everything from the 10 October install (described
+further down), so install it whether or not 10 October is already live. Run `python3 site/verify.py` first.
+
+New on 12 October:
+- **Hero voice note** (HANDOFF section 1, Hero). Jimi's photo in the wine ring now plays a short voice note,
+  not a video: a light travels round the ring until it is first played, a pill shows ▶ and the length, and
+  while it plays the ring fills and bars round it move with his voice. `site/images/jimi-intro.*` and the
+  hero video are gone. The clip in the package is a **placeholder** (an older voice note). When Jimi sends his
+  15–20 second welcome, run `python3 tools/set-welcome-voice.py <file>` and then `python3 site/verify.py`.
+  Tell Jimi before launch if the placeholder is still there.
+- **The answer**: "It's all in here." is now **"I will give you rest."** with JESUS • MATTHEW 11:28 under it,
+  and the yellow marker sweeps "rest." after verse 28 is marked in the Bible.
+- **Brother screen**: "I'm your brother, not a brand."
+- **Under both homepage signups**: "Free · 90 letters of counsel · Leave anytime".
+- **Partner**: "The harvest is the Lord's." on its own line under the mission sentence.
+- **HANDOFF** has new sections 7b (promises the site makes, each to be made true and tested) and 7c (the 90-day
+  arc, inside the letters only), plus question-led titles for topic pages (9a) and "every video links to its
+  own day's page" (9-pre). **PIPELINE**: a voice note every day; video when Jimi can, batched weekly.
+
+Deploy only after Jimi says yes in your session and has seen screenshots.
+
+---
+
+## Earlier: the 10 October install (still included)
 
 This replaces the whole front end again. It includes everything since the last install, so it
 replaces `brotherjimi-title.zip` and `brotherjimi-today.zip` (if you already installed either, that's
@@ -38,8 +63,11 @@ What's new:
   which drift in; ninety quiet dots on their own screen; the Bible scene in three beats (notes alone, the Bible rises and takes them in, "It's all in here." centred); one thin line from Day 1 to Day 90 instead of ninety dots; one photo
   of Jimi; headlines rise gently into place; the homepage is six full screens with quiet marks on the left showing where you are; "Ninety mornings.", "You'll have a brother." and "Are you in?" each fill one screen (no snapping). Receive Jesus: one truth per screen with its reference (tap to read
   the verse), "But / So / Now" in wine, four quiet steps on the edge, no verse after the prayer; "I'd love to rejoice with you, and walk with you for 90 mornings."
+- **Hero video (10 October):** Jimi's own recording, colour-matched to his photo, replaces the stand-in (`site/images/jimi-intro.webm`, with `jimi-intro.mp4` as the fallback).
+- **"Today" dot (10 October):** a small wine dot beside "Today" in the top bar when there is counsel the visitor
+  hasn't opened; opening /today clears it until the next one (remembered only in the visitor's browser).
 - **Type (10 October): two voices.** Albert Sans for every word Jimi says; Libre Caslon Text italic for Scripture
-  only. Three new font files in `site/assets/fonts/`; the lock now covers 28 files.
+  only. Three new font files in `site/assets/fonts/`; the lock now covers 29 files.
 - **New file `PIPELINE.md`:** the weekly counsel pipeline. Read it fully, but **do not build it yet** (Step 7).
 
 Do these steps once, in order, exactly as written. Change, merge or "adapt" nothing. If a step
@@ -73,7 +101,7 @@ made from `site/images/favicon.png` (32×32 and 16×16, image unchanged). If the
 same way. Touch no HTML.
 
 ## Step 5. Check (test data only; send nothing to real people)
-1. `python3 site/verify.py` must print `Design lock OK: all 28 files match the approved design.`
+1. `python3 site/verify.py` must print `Design lock OK: all 29 files match the approved design.`
    Run it on the `public/` copy too.
 2. No page scrolls sideways at 320px. `/today/archive.json` `/privacy`, `/beliefs` and `/pray` return 200. A test prayer
    from `/pray` reaches the Notion Prayers database (test text only), then a

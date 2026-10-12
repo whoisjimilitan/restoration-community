@@ -626,6 +626,60 @@
   addEventListener("scroll", () => requestAnimationFrame(f), { passive: true }); addEventListener("resize", f); f();
 })();
 
+/* ===== "Today": the unread dot ===== */
+(function(){
+  const link = document.querySelector(".nav a.txt[href='/today']"); if (!link) return;
+  const KEY = "bj_today_seen", onToday = /^\/today(\/|$)/.test(location.pathname);
+  const get = () => { try { return localStorage.getItem(KEY); } catch (e) { return null; } };
+  const set = v => { try { localStorage.setItem(KEY, v); } catch (e) {} };
+  const load = window.BJ_TODAY ? Promise.resolve(window.BJ_TODAY)
+    : fetch("/today/today.json", { cache: "no-cache" }).then(r => r.ok ? r.json() : null).catch(() => null);
+  load.then(t => {
+    if (!t || !t.date) return;
+    if (onToday) { set(t.date); return; }
+    if (get() !== t.date) {
+      link.classList.add("new");
+      const s = document.createElement("span"); s.className = "sr"; s.textContent = " (new counsel)"; link.appendChild(s);
+    }
+  });
+})();
+
+/* ===== Hero voice note: tap to play or pause; the ring fills; the waveform is his voice, drawn around his face ===== */
+(function(){
+  const b=document.querySelector("[data-vnote]"); if(!b) return;
+  const a=b.querySelector("audio"), cv=b.querySelector(".vn-wave"), prog=b.querySelector(".vn-prog"), t=b.querySelector(".vn-pill b");
+  const env=(a.dataset.env||"").split(",").map(Number).map(x=>x/99), full=b.dataset.len||""; t.textContent=full;
+  const still=matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const fmt=s=>Math.floor(s/60)+":"+String(Math.max(0,Math.ceil(s%60))).padStart(2,"0");
+  const ctx=cv.getContext("2d"); let raf=0, lv=new Array(64).fill(0);
+  const size=()=>{ const r=cv.getBoundingClientRect(), d=devicePixelRatio||1; cv.width=r.width*d; cv.height=r.height*d; };
+  const at=x=>{ const i=Math.max(0,Math.min(env.length-1,Math.floor(x*20))); return env.length?env[i]:.5; };
+  const draw=()=>{
+    const W=cv.width, H=cv.height, cx=W/2, cy=H/2, R=W/1.7/2+W*0.012, N=lv.length, now=a.currentTime;
+    ctx.clearRect(0,0,W,H); ctx.lineCap="round"; ctx.lineWidth=W*0.011; ctx.strokeStyle="#8b2332";
+    for(let i=0;i<N;i++){
+      const k=Math.abs(((i/N)*2+.25)%2-1), target=a.paused?0:at(now-k*0.35)*(0.55+0.45*Math.sin(i*2.1+now*3)**2);
+      lv[i]+= (target-lv[i])*0.35;
+      const ang=i/N*Math.PI*2-Math.PI/2, len=W*0.012+lv[i]*W*0.085;
+      ctx.globalAlpha=.35+.65*Math.min(1,lv[i]*1.6);
+      ctx.beginPath(); ctx.moveTo(cx+Math.cos(ang)*R,cy+Math.sin(ang)*R); ctx.lineTo(cx+Math.cos(ang)*(R+len),cy+Math.sin(ang)*(R+len)); ctx.stroke();
+    }
+    ctx.globalAlpha=1;
+  };
+  const tick=()=>{
+    const d=a.duration||env.length/20||1;
+    prog.style.strokeDasharray=(a.currentTime/d*100)+" 100";
+    t.textContent=fmt(d-a.currentTime);
+    if(!still) draw();
+    if(!a.paused) raf=requestAnimationFrame(tick);
+  };
+  b.addEventListener("click",()=>{ if(a.paused){ size(); a.play().catch(()=>{}); } else a.pause(); });
+  a.addEventListener("play",()=>{ b.classList.add("on","seen"); b.classList.remove("paused"); b.setAttribute("aria-pressed","true"); cancelAnimationFrame(raf); tick(); });
+  a.addEventListener("pause",()=>{ b.classList.remove("on"); b.classList.add("paused"); b.setAttribute("aria-pressed","false"); });
+  a.addEventListener("ended",()=>{ b.classList.remove("on","paused"); a.currentTime=0; prog.style.strokeDasharray="0 100"; t.textContent=full; ctx.clearRect(0,0,cv.width,cv.height); });
+  addEventListener("resize",size);
+})();
+
 /* ===== Daily: share text, Status video and card, voice note (all from /today/today.json) ===== */
 (function(){
   const get = () => window.BJ_TODAY ? Promise.resolve(window.BJ_TODAY)

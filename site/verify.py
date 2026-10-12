@@ -16,7 +16,7 @@ LOCK = ROOT / "design-lock.json"
 FILES = [
     "assets/styles.css", "assets/site.js",
     "assets/fonts/inter-latin-wght-normal.woff2", "assets/fonts/inter-latin-wght-italic.woff2", "assets/fonts/albert-sans-latin-wght-normal.woff2", "assets/fonts/albert-sans-latin-wght-italic.woff2", "assets/fonts/libre-caslon-text-latin-400-italic.woff2",
-    "images/bible-hero.jpg", "images/jimi-intro.mp4", "images/bible-hero-2x.jpg", "images/jimi-avatar.jpg", "images/og.jpg", "images/favicon.png", "images/apple-touch-icon.png",
+    "images/bible-hero.jpg", "images/bible-hero-2x.jpg", "images/jimi-avatar.jpg", "images/og.jpg", "images/favicon.png", "images/apple-touch-icon.png",
     "index.html", "today/index.html", "start/index.html",
     "welcome/index.html", "welcome/received/index.html", "partner/index.html", "privacy/index.html", "beliefs/index.html", "pray/index.html", "404.html", "design/status-card.html", "design/status-nametag.html", "design/status-endcard.html", "design/status-captions.html",
 ]
@@ -34,6 +34,7 @@ def normalise(path: str, data: bytes) -> bytes:
         return f'<{tag}{attrs} data-slot="{name}"></{tag}>'
     text = SLOT.sub(blank, text)
     text = re.sub(r'(<a[^>]*?)\sdata-wa="[^"]*"([^>]*data-slot="share")', r'\1 data-wa=""\2', text)
+    text = re.sub(r'\s(data-env|data-len)="[^"]*"', r' \1=""', text)  # the welcome voice note (tools/set-welcome-voice.py)
     return text.encode("utf-8")
 
 def digest(path: str) -> str:
