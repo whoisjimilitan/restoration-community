@@ -10,10 +10,12 @@ New on 12 October:
   hero video are gone. The clip in the package is a **placeholder** (an older voice note). When Jimi sends his
   15–20 second welcome, run `python3 tools/set-welcome-voice.py <file>` and then `python3 site/verify.py`.
   Tell Jimi before launch if the placeholder is still there.
-- **The answer**: "It's all in here." is now **"I will give you rest."** with JESUS • MATTHEW 11:28 under it,
+- **The answer**: "It's all in here." is now **Jesus said, "I will give you rest."** with MATTHEW 11:28 under it,
   and the yellow marker sweeps "rest." after verse 28 is marked in the Bible.
 - **Brother screen**: "A brother, not a brand."
-- **Under both homepage signups**: "Free · 90 letters of counsel · Leave anytime".
+- **Under the hero signup**: "Free · Leave anytime".
+- **Dawn screen**: "In your inbox when you wake." **Ninety mornings**: "Read it. Do what it says. Watch what changes." **Brother screen**: "Walk it with me. Reply to any letter. I'll write back." **Brother screen door**: "Have you received Jesus? Receive Him ›".
+- **Welcome page** rebuilt: one job (confirm), the reader's own address, an Open-mailbox button, then Day 1 in the 90 dots. No share or prayer form there. The dock drops "Start Day 1" on both welcome pages.
 - **Partner**: "The harvest is the Lord's." on its own line under the mission sentence.
 - **HANDOFF** has new sections 7b (promises the site makes, each to be made true and tested) and 7c (the 90-day
   arc, inside the letters only), plus question-led titles for topic pages (9a) and "every video links to its
@@ -67,7 +69,7 @@ What's new:
 - **"Today" dot (10 October):** a small wine dot beside "Today" in the top bar when there is counsel the visitor
   hasn't opened; opening /today clears it until the next one (remembered only in the visitor's browser).
 - **Type (10 October): two voices.** Albert Sans for every word Jimi says; Libre Caslon Text italic for Scripture
-  only. Three new font files in `site/assets/fonts/`; the lock now covers 29 files.
+  only. Three new font files in `site/assets/fonts/`; the lock now covers 27 files (12 October).
 - **New file `PIPELINE.md`:** the weekly counsel pipeline. Read it fully, but **do not build it yet** (Step 7).
 
 Do these steps once, in order, exactly as written. Change, merge or "adapt" nothing. If a step
@@ -101,7 +103,7 @@ made from `site/images/favicon.png` (32×32 and 16×16, image unchanged). If the
 same way. Touch no HTML.
 
 ## Step 5. Check (test data only; send nothing to real people)
-1. `python3 site/verify.py` must print `Design lock OK: all 29 files match the approved design.`
+1. `python3 site/verify.py` must print `Design lock OK: all 27 files match the approved design.`
    Run it on the `public/` copy too.
 2. No page scrolls sideways at 320px. `/today/archive.json` `/privacy`, `/beliefs` and `/pray` return 200. A test prayer
    from `/pray` reaches the Notion Prayers database (test text only), then a
