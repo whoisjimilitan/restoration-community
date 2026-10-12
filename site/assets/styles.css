@@ -952,6 +952,7 @@ main .tease-h,main .ask h3{font-size:var(--t-sub)!important;line-height:1.2;lett
 main > section.open,main > section.s-open.page-end{padding-top:80px}
 @media (min-width:735px){ main > section.open,main > section.s-open.page-end{padding-top:120px} }
 
+
 /* ===== Breathing pass 2 ===== */
 /* Receive Jesus: the opening gets its own quiet screen; truths are words on the page, not boxes */
 .rj-open{min-height:calc(72svh - 52px);display:flex;flex-direction:column;justify-content:center;padding:48px 0 40px}
@@ -1043,3 +1044,143 @@ main > section.open,main > section.s-open.page-end{padding-top:80px}
 
 /* the small grey label above a page title: identical on every page */
 .prose p.when{font-size:14px;font-weight:600;color:var(--slate);margin:0 0 6px;line-height:1.4}
+
+/* ===== Less is more (10 Oct) ===== */
+/* footer: two quiet centred lines */
+footer{padding-block:28px calc(36px + env(safe-area-inset-bottom,0px))}
+footer .wrap{flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:12px;font-size:13px}
+footer nav{justify-content:center;gap:8px 22px}
+/* dock: steps aside while reading down, comes back on the way up, never sits on the footer */
+.dock{transition:opacity .35s ease,transform .45s cubic-bezier(.2,.8,.2,1)}
+/* home: the notes drift in one by one, like notes set down on a table */
+@media (prefers-reduced-motion:no-preference){
+  .burdens.pre .bcard{filter:opacity(0)}
+  .burdens.drift .bcard{animation:drift .8s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i,0) * 110ms)}
+}
+@keyframes drift{from{filter:opacity(0);translate:0 22px}to{filter:opacity(1);translate:0 0}}
+/* the scene with the Bible: less empty scrolling */
+.answer.flow .flow-track{height:calc(100vh + 760px)}
+.morning-band{padding-bottom:64px}
+.device{height:440px}
+/* ninety mornings: one thin line that draws itself as you scroll */
+.days-line{position:relative;height:2px;max-width:520px;margin:56px auto 0;background:var(--hair);border-radius:2px}
+.dl-fill{position:absolute;inset:0;transform-origin:left center;transform:scaleX(var(--dl,1));background:linear-gradient(90deg,var(--wine),rgba(139,35,50,.35));border-radius:2px}
+.dl-start,.dl-end{position:absolute;top:50%;width:12px;height:12px;margin-top:-6px;border-radius:50%}
+.dl-start{left:-1px;background:var(--wine);animation:dawn 2.6s ease-out infinite}
+.dl-end{right:-1px;background:var(--paper);box-shadow:inset 0 0 0 2px #d9cbbb}
+.days-line + .days-key{max-width:520px}
+/* the brother section: words only, the door has room */
+.person .door{margin-top:40px}
+/* headlines rise gently into place (a quarter second, no bounce) */
+@media (prefers-reduced-motion:no-preference){
+  .rise{opacity:0;translate:0 16px;transition:opacity .6s ease,translate .7s cubic-bezier(.2,.8,.2,1)}
+  .rise.in{opacity:1;translate:0 0}
+  .rise.lag{transition-delay:.12s}
+}
+/* Receive Jesus: one truth per screen; the joining word shows each truth leads to the next */
+.rj-join{color:var(--wine)}
+.rj-truths .rj-ref{margin:22px auto 0;padding:10px 14px;border:0;background:none;font:inherit;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--wine);cursor:pointer;display:inline-flex;align-items:center;gap:8px;border-radius:999px}
+.rj-truths .rj-ref::after{content:"";width:7px;height:7px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:translateY(-2px) rotate(45deg);transition:transform .3s ease}
+.rj-truths .rj-ref[aria-expanded="true"]::after{transform:translateY(2px) rotate(-135deg)}
+.rj-truths .rj-ref:focus-visible{outline:2px solid var(--wine);outline-offset:2px}
+.rj-truths .rj-verse{margin-top:6px;animation:vin .45s ease both}
+@keyframes vin{from{opacity:0;translate:0 -6px}to{opacity:1;translate:0 0}}
+.rj-pips{position:fixed;left:max(10px,env(safe-area-inset-left,0px));top:50%;z-index:5;display:flex;flex-direction:column;gap:8px;transform:translateY(-50%);opacity:0;transition:opacity .4s ease;pointer-events:none}
+.rj-pips.on{opacity:1}
+.rj-pips i{display:block;width:4px;height:4px;border-radius:4px;background:#d9cbbb;transition:height .35s ease,background-color .35s ease}
+.rj-pips i.done{background:rgba(139,35,50,.45)}
+.rj-pips i.now{height:18px;background:var(--wine)}
+@media (min-width:735px){ .rj-pips{left:28px} }
+
+/* Receive Jesus: the long truth in two weights, same words */
+.rj-sub{max-width:24ch;margin:14px auto 0;font-size:var(--t-sub);line-height:1.4;font-weight:500;color:var(--ink);text-wrap:balance}
+
+/* the notes scene in three beats: a little more room to breathe between them */
+.answer.flow .flow-track{height:calc(100vh + 980px)}
+.answer.flow .stage{transition:none}
+
+/* ===== One screen, one idea (no snapping: the reader's thumb stays in charge) ===== */
+main > section.journey, main > section.person, main > section.close{min-height:calc(100svh - 52px);display:flex;flex-direction:column;justify-content:center;padding-block:72px}
+main > section.journey > .wrap, main > section.person > .wrap, main > section.close > .wrap{width:100%}
+@media (min-width:735px){ main > section.journey, main > section.person, main > section.close{min-height:min(calc(100svh - 52px),900px)} }
+
+/* ===== Type (10 Oct): two voices. Albert Sans for every word Jimi says; Libre Caslon Text italic for Scripture only ===== */
+@font-face{font-family:"Albert Sans";font-style:normal;font-weight:300 900;font-display:swap;src:url("/assets/fonts/albert-sans-latin-wght-normal.woff2") format("woff2")}
+@font-face{font-family:"Albert Sans";font-style:italic;font-weight:300 900;font-display:swap;src:url("/assets/fonts/albert-sans-latin-wght-italic.woff2") format("woff2")}
+@font-face{font-family:"Libre Caslon Text";font-style:italic;font-weight:400;font-display:swap;src:url("/assets/fonts/libre-caslon-text-latin-400-italic.woff2") format("woff2")}
+:root{--sans:"Albert Sans","Inter BJ",-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;--word:"Libre Caslon Text",Georgia,"Times New Roman",serif}
+body{font-family:var(--sans);font-feature-settings:"kern" 1;text-rendering:optimizeLegibility}
+/* Jimi's voice */
+h1.big,h2.big,.answer-h,main h1.mid,main h1.cq,.prose h1,.prose h2{font-family:var(--sans);font-weight:700;letter-spacing:-0.032em;line-height:1.03}
+.lede{letter-spacing:-0.005em;line-height:1.5;text-wrap:balance}
+.em-body p,.text p,.prose p,.prose li{line-height:1.62;letter-spacing:-0.003em}
+.btn,.dk-cta,.door-pill{font-weight:600;letter-spacing:-0.005em}
+/* the Word, set apart: one face, used nowhere else */
+p.vs,.rj-verse,.email .em-body p.vs,.text p.vs,.mv-body p.vs{font-family:var(--word);font-style:italic;font-weight:400;font-size:1.08em;line-height:1.55;letter-spacing:0;color:var(--ink)}
+.email .em-body .vs cite,.text .vs cite{display:block;font-family:var(--sans);font-style:normal;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--wine);margin-top:8px}
+.rj-sub{font-weight:600}
+.plink code{font-family:var(--sans)}
+
+/* ===== Home: six screens, one thing each, with the marks on the left ===== */
+main > section.hero2{min-height:calc(100svh - 52px);display:flex;flex-direction:column;justify-content:center;padding-block:40px 56px}
+main > section.hero2 > .wrap{width:100%}
+main > section.morning-band{min-height:calc(100svh - 52px);display:flex;flex-direction:column;justify-content:center}
+main > section.morning-band > .wrap{width:100%}
+@media (min-width:735px){ main > section.hero2, main > section.morning-band{min-height:min(calc(100svh - 52px),900px)} }
+.pg-pips.dark i{background:rgba(255,255,255,.28)}
+.pg-pips.dark i.done{background:rgba(255,255,255,.5)}
+.pg-pips.dark i.now{background:#fff}
+
+/* ===== Ninety mornings: ninety quiet dots, one screen to themselves ===== */
+.journey .days{display:grid;grid-template-columns:repeat(10,1fr);gap:14px;max-width:296px;margin:52px auto 0}
+.journey .days i{width:100%;aspect-ratio:1;border-radius:50%}
+.journey .days + .days-key{max-width:296px;margin-top:18px}
+@media (min-width:735px){ .journey .days{grid-template-columns:repeat(15,1fr);max-width:460px;gap:16px} .journey .days + .days-key{max-width:460px} }
+/* the door to Receive Jesus: its own quiet place at the foot of the brother screen */
+.person .door{margin-top:clamp(80px,16vh,150px)}
+
+/* ===== "Today": a quiet dot when there is counsel you haven't opened ===== */
+.nav a.txt{position:relative}
+.nav a.txt.new::after{content:"";position:absolute;top:50%;right:-11px;width:6px;height:6px;margin-top:-3px;border-radius:50%;background:var(--wine)}
+@media (prefers-reduced-motion:no-preference){ .nav a.txt.new::after{animation:newdot 2.8s ease-in-out infinite} }
+@keyframes newdot{0%,100%{opacity:1}50%{opacity:.45}}
+
+/* ===== Partner (11 Oct): God's part, in one line ===== */
+.lede .harvest{display:block;margin-top:10px;color:var(--ink)}
+
+/* ===== The answer (12 Oct): the highlighted verse, lifted off the page. Same headline voice as every screen;
+   the marker that swept verse 28 in the book sweeps "rest" here, so the line visibly comes from the page above. ===== */
+.rest-h .mk{position:relative;display:inline-block;isolation:isolate}
+.rest-h .mk::before{content:"";position:absolute;z-index:-1;left:-.08em;right:-.03em;top:.5em;bottom:.02em;
+  border-radius:3px 9px 5px 7px / 45% 60% 50% 40%;transform:rotate(-.6deg);transform-origin:left center;
+  background:linear-gradient(180deg,rgba(255,212,0,.62),rgba(255,224,50,.5) 45%,rgba(255,212,0,.64));mix-blend-mode:multiply}
+@media (prefers-reduced-motion:no-preference){
+  .answer.flow .rest-h .mk::before{transform:rotate(-.6deg) scaleX(0);transition:transform .5s cubic-bezier(.4,0,.3,1) 1.7s}
+  .answer.flow.absorbed .rest-h .mk::before{transform:rotate(-.6deg) scaleX(1)}
+}
+.rest-h .ref{display:block;margin-top:18px;font-size:12px;font-weight:600;line-height:1;letter-spacing:.14em;text-transform:uppercase;color:var(--slate)}
+
+/* ===== Hero voice note (12 Oct): his face, a ring that invites the tap, then the ring becomes his voice ===== */
+.vn-wrap{position:relative;width:fit-content;margin:0 auto 26px}
+.vnote{position:relative;display:block;width:clamp(112px,27vw,148px);aspect-ratio:1;border:0;padding:0;background:none;cursor:pointer;border-radius:50%;-webkit-tap-highlight-color:transparent}
+.vn-face{position:absolute;inset:8px;width:calc(100% - 16px);height:calc(100% - 16px);border-radius:50%;object-fit:cover;box-shadow:0 26px 50px -20px rgba(0,0,0,.45)}
+.vn-ring{position:absolute;inset:0;width:100%;height:100%;transform:rotate(-90deg);overflow:visible}
+.vn-ring circle{fill:none;stroke-width:3.2}
+.vn-track{stroke:var(--wine);transition:stroke .4s}
+.vn-prog{stroke:var(--wine);stroke-dasharray:0 100;stroke-linecap:round}
+.vn-glint{stroke:#fff;stroke-width:3.6;stroke-linecap:round;stroke-dasharray:9 91;opacity:0;filter:drop-shadow(0 0 3px rgba(255,214,214,.95)) drop-shadow(0 0 7px rgba(139,35,50,.7))}
+@media (prefers-reduced-motion:no-preference){ .vnote:not(.seen) .vn-glint{animation:glint 4.2s cubic-bezier(.45,.05,.35,1) 1s infinite} }
+@keyframes glint{0%{stroke-dashoffset:9;opacity:0}8%{opacity:1}52%{opacity:1}62%,100%{stroke-dashoffset:-91;opacity:0}}
+.vnote.on .vn-track,.vnote.paused .vn-track{stroke:rgba(139,35,50,.2)}
+.vn-wave{position:absolute;left:50%;top:50%;width:170%;height:170%;transform:translate(-50%,-50%);pointer-events:none;opacity:0;transition:opacity .35s}
+.vnote.on .vn-wave{opacity:1}
+.vn-pill{position:absolute;right:-14px;bottom:4px;z-index:2;display:inline-flex;align-items:center;gap:6px;height:30px;padding:0 11px 0 10px;border-radius:999px;background:var(--wine);color:#fff;
+  font:600 13px/1 var(--sans);font-variant-numeric:tabular-nums;box-shadow:0 0 0 3px var(--white),0 8px 18px -8px rgba(139,35,50,.6)}
+.vn-pill i{width:0;height:0;border-style:solid;border-width:5.5px 0 5.5px 8.5px;border-color:transparent transparent transparent #fff}
+.vnote.on .vn-pill i{width:8px;height:10px;border:0;border-left:3px solid #fff;border-right:3px solid #fff}
+.vnote:focus-visible{outline:2px solid var(--wine);outline-offset:6px}
+.rest-h .ref i{display:inline-block;width:3px;height:3px;border-radius:50%;background:currentColor;vertical-align:middle;margin:0 10px 2px;opacity:.8}
+
+/* ===== What you get, said once at each signup (12 Oct) ===== */
+.fine{margin:14px auto 0;font-size:13px;line-height:1.4;color:var(--slate);text-align:center}
+.fine i{font-style:normal;margin:0 6px;opacity:.6}
