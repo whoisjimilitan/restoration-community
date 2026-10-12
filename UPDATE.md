@@ -3,23 +3,13 @@
 This package replaces the whole front end. It includes everything from the 10 October install (described
 further down), so install it whether or not 10 October is already live. Run `python3 site/verify.py` first.
 
-New on 12 October:
-- **Hero voice note** (HANDOFF section 1, Hero). Jimi's photo in the wine ring now plays a short voice note,
-  not a video: a light travels round the ring until it is first played, a pill shows ▶ and the length, and
-  while it plays the ring fills and bars round it move with his voice. `site/images/jimi-intro.*` and the
-  hero video are gone. The clip in the package is a **placeholder** (an older voice note). When Jimi sends his
-  15–20 second welcome, run `python3 tools/set-welcome-voice.py <file>` and then `python3 site/verify.py`.
-  Tell Jimi before launch if the placeholder is still there.
-- **The answer**: "It's all in here." is now **Jesus said, "I will give you rest."** with MATTHEW 11:28 under it,
-  and the yellow marker sweeps "rest." after verse 28 is marked in the Bible.
-- **Brother screen**: "A brother, not a brand."
-- **Under the hero signup**: "Free · Leave anytime".
-- **Dawn screen**: "In your inbox when you wake." **Ninety mornings**: "Read it. Do what it says. Watch what changes." **Brother screen**: "Walk it with me. Reply to any letter. I'll write back." **Brother screen door**: "Have you received Jesus? Receive Him ›".
-- **Welcome page** rebuilt: one job (confirm), the reader's own address, an Open-mailbox button, then Day 1 in the 90 dots. No share or prayer form there. The dock drops "Start Day 1" on both welcome pages.
-- **Partner**: "The harvest is the Lord's." on its own line under the mission sentence.
-- **HANDOFF** has new sections 7b (promises the site makes, each to be made true and tested) and 7c (the 90-day
-  arc, inside the letters only), plus question-led titles for topic pages (9a) and "every video links to its
-  own day's page" (9-pre). **PIPELINE**: a voice note every day; video when Jimi can, batched weekly.
+New on 12 October (final):
+- **Homepage rewritten in Jimi's voice, seven screens** (HANDOFF section 2b, `/`): Bring it to Jesus (voice note, no form) → Your hard questions → Jesus answers, "I will give you rest." → A letter in your inbox when you wake → Read it. Do what it says. → A brother, not a brand. → Before you start, have you received Jesus? → See you tomorrow morning (the form, `#join`).
+- **Hero voice note** replaces the hero video. The clip is a **placeholder**; when Jimi sends his 15–20 second welcome, run `python3 tools/set-welcome-voice.py <file>` then `python3 site/verify.py`. Tell Jimi before launch if the placeholder is still there.
+- **Every "Start Day 1" link now goes to `/#join`** (the closing form), on every page.
+- **Welcome page** rebuilt: One last step (their address, Open-mailbox button), then See you tomorrow morning with the 90 dots. **Welcome to the family**: "I'm so glad. Read this, then tap the link in your inbox to confirm." **Today**: "I'll send you the rest." / Send it to me / "It's free. You can stop anytime."
+- **Partner**: "The harvest is the Lord's." under the mission sentence.
+- **HANDOFF**: sections 7b (promises, each made true and tested; one send at 05:00 UTC) and 7c (the 90-day arc inside the letters), question-led topic pages (9a), every video links to its own day's page (9-pre). **PIPELINE**: a voice note every day; video when Jimi can, batched weekly.
 
 Deploy only after Jimi says yes in your session and has seen screenshots.
 

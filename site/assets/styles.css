@@ -1197,3 +1197,46 @@ main > section.wl-next{min-height:calc(100svh - 52px);display:flex;flex-directio
 main > section.wl-next > .wrap{width:100%}
 @media (min-width:735px){ main > section.wl-next{min-height:min(calc(100svh - 52px),900px)} }
 .wl-next .door{margin-top:56px}
+
+/* ===== Ninety mornings: what the 90 dots lead to (12 Oct) ===== */
+.days-promise{max-width:296px;margin:22px auto 0;font-size:17px;line-height:1.45;font-weight:600;color:var(--ink);text-wrap:balance}
+@media (min-width:735px){ .days-promise{max-width:460px;font-size:19px} }
+
+/* ===== Jimi's own words (12 Oct): the page reads as one person talking ===== */
+.why-h{max-width:17ch;margin-inline:auto;font-size:clamp(28px,7.2vw,46px)!important;text-wrap:balance}
+.why-h .sub{display:block;margin-top:16px;font-size:clamp(18px,4.6vw,22px);font-weight:500;letter-spacing:-0.005em;line-height:1.35;color:var(--ink)}
+.why-h .sub .mk::before{top:.55em}
+.morning-band .when{color:rgba(255,255,255,.7);margin-bottom:10px}
+.morning-band h2.big{max-width:15ch;margin-inline:auto;text-wrap:balance}
+
+/* ===== Spirit in the headlines, clarity beneath (12 Oct) ===== */
+.ask-lead{margin:0 auto 26px;font-size:clamp(20px,5vw,26px);font-weight:600;letter-spacing:-0.01em;color:var(--ink);text-align:center}
+.dawn-sub{color:rgba(255,255,255,.8)!important;max-width:26ch;margin:34px auto 0;text-wrap:balance}
+.journey .days i:last-child{background:transparent!important;box-shadow:inset 0 0 0 2px var(--wine)}
+.br-face{display:block;width:76px;height:76px;margin:0 auto 22px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 3px var(--white),0 0 0 5px var(--wine),0 16px 30px -16px rgba(0,0,0,.4)}
+.person .door{margin-top:36px!important}
+
+/* ===== One voice, one scale (12 Oct). Headlines: one size per level. Every supporting line: the lede style.
+   Spacing: headline to line 20px; picture to line 32px; a new moment 56px. ===== */
+.ask-lead{margin:0 auto 32px;font-size:19px;font-weight:400;line-height:1.45;letter-spacing:0;color:var(--slate)}
+.days-promise{margin:32px auto 0;font-size:19px!important;font-weight:400;line-height:1.45;color:var(--slate);max-width:32ch}
+.dawn-sub{margin:32px auto 0!important}
+@media (min-width:735px){ .ask-lead,.days-promise{font-size:21px!important} }
+.br-face{margin-bottom:24px}
+.person .door{margin-top:56px!important}
+.tease-sub{margin:10px auto 18px;font-size:16px;line-height:1.45;color:var(--slate);max-width:34ch;text-align:center;text-wrap:balance}
+
+main section.close h2.big{font-size:var(--t-section)!important}
+
+/* lead-in sits with the cards and steps back as they fall into the Bible */
+.flow-pin .ask-lead{margin:0 auto 22px;max-height:3em;overflow:hidden;transition:opacity .4s ease,max-height .6s ease,margin .6s ease}
+.answer.flow.absorbed .ask-lead{opacity:0;max-height:0;margin-bottom:0}
+/* reassurance always sits under the button it reassures */
+.close .fine,.tease-cta .fine{margin-top:14px}
+
+/* ===== Before you start: the gospel question on its own screen ===== */
+main > section.door-screen{min-height:calc(100svh - 52px);display:flex;flex-direction:column;justify-content:center;padding-block:72px;text-align:center}
+main > section.door-screen > .wrap{width:100%}
+@media (min-width:735px){ main > section.door-screen{min-height:min(calc(100svh - 52px),900px)} }
+.door-screen .first{margin:0 auto 12px}
+.door-screen .door{margin-top:32px}
