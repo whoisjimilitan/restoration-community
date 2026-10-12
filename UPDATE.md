@@ -12,7 +12,7 @@ New on 12 October:
   Tell Jimi before launch if the placeholder is still there.
 - **The answer**: "It's all in here." is now **"I will give you rest."** with JESUS • MATTHEW 11:28 under it,
   and the yellow marker sweeps "rest." after verse 28 is marked in the Bible.
-- **Brother screen**: "I'm your brother, not a brand."
+- **Brother screen**: "A brother, not a brand."
 - **Under both homepage signups**: "Free · 90 letters of counsel · Leave anytime".
 - **Partner**: "The harvest is the Lord's." on its own line under the mission sentence.
 - **HANDOFF** has new sections 7b (promises the site makes, each to be made true and tested) and 7c (the 90-day
