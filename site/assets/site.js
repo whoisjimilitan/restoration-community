@@ -22,6 +22,7 @@
         const ref = new URLSearchParams(location.search).get("ref");
         const res = await post(C.subscribe, { email, ref, source: form.dataset.source || location.pathname });
         if (!res.ok) throw new Error(res.status);
+        try { sessionStorage.setItem("bj_email", email); } catch (e) {}
         location.href = form.dataset.source === "received" ? "/welcome/received" : (form.closest(".tease") ? "/welcome?letter" : "/welcome");
       } catch (err) {
         note.className = "note err"; note.textContent = "That didn’t go through. Try again.";
@@ -505,7 +506,7 @@
 /* ===== Welcome, after "Send it" on a counsel page: the letter is on its way now; Day 1 is tomorrow ===== */
 (function(){
   if(location.pathname.replace(/\/$/,"")!=="/welcome"||!/(^|[?&])letter\b/.test(location.search.slice(1))) return;
-  const l=document.querySelector(".open .lede"); if(l) l.textContent="Tap the link in the email to confirm. Today’s letter follows straight away, and Day 1 tomorrow morning.";
+  const l=document.querySelector("[data-next]"); if(l) l.textContent="Today’s letter comes as soon as you confirm.";
 })();
 
 /* ===== Receive Jesus: scrolling down brings up the next card (same direction as Home); Next/Back scroll for you ===== */
@@ -678,6 +679,20 @@
   a.addEventListener("pause",()=>{ b.classList.remove("on"); b.classList.add("paused"); b.setAttribute("aria-pressed","false"); });
   a.addEventListener("ended",()=>{ b.classList.remove("on","paused"); a.currentTime=0; prog.style.strokeDasharray="0 100"; t.textContent=full; ctx.clearRect(0,0,cv.width,cv.height); });
   addEventListener("resize",size);
+})();
+
+/* ===== Welcome: show the address the link went to, and open the right mailbox ===== */
+(function(){
+  const b=document.querySelector("[data-email]"); if(!b) return;
+  let e=""; try{ e=sessionStorage.getItem("bj_email")||""; }catch(x){}
+  if(!e) return;
+  b.textContent=e;
+  const d=e.split("@")[1].toLowerCase(), m=document.querySelector("[data-mail]");
+  const box=/^(gmail|googlemail)\.com$/.test(d)?["Open Gmail","https://mail.google.com/mail/u/0/#search/from%3Abrotherjimi.com"]
+    :/^(outlook|hotmail|live|msn)\./.test(d)?["Open Outlook","https://outlook.live.com/mail/"]
+    :/^(yahoo|ymail)\./.test(d)?["Open Yahoo Mail","https://mail.yahoo.com/"]
+    :/^(icloud|me|mac)\.com$/.test(d)?["Open iCloud Mail","https://www.icloud.com/mail/"]:null;
+  if(box&&m){ m.textContent=box[0]; m.href=box[1]; m.hidden=false; }
 })();
 
 /* ===== Daily: share text, Status video and card, voice note (all from /today/today.json) ===== */

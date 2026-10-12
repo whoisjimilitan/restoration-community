@@ -1184,3 +1184,16 @@ main > section.morning-band > .wrap{width:100%}
 /* ===== What you get, said once at each signup (12 Oct) ===== */
 .fine{margin:14px auto 0;font-size:13px;line-height:1.4;color:var(--slate);text-align:center}
 .fine i{font-style:normal;margin:0 6px;opacity:.6}
+
+/* ===== Welcome (12 Oct): one job, confirm; then Day 1 in the homepage's own picture ===== */
+main > section.wl-confirm{min-height:calc(100svh - 52px);display:flex;flex-direction:column;justify-content:center;padding-block:56px 72px;text-align:center}
+main > section.wl-confirm > .wrap{width:100%}
+@media (min-width:735px){ main > section.wl-confirm{min-height:min(calc(100svh - 52px),860px)} }
+.wl-face{display:block;width:clamp(96px,24vw,120px);height:auto;aspect-ratio:1;margin:0 auto 26px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 4px var(--white),0 0 0 7px var(--wine),0 22px 44px -20px rgba(0,0,0,.4)}
+.wl-confirm .lede b{display:block;margin:4px 0;font-weight:600;color:var(--ink);overflow-wrap:anywhere}
+.wl-mail{margin-top:30px}
+.wl-confirm .fine a{color:var(--wine);margin-left:4px}
+main > section.wl-next{min-height:calc(100svh - 52px);display:flex;flex-direction:column;justify-content:center;padding-block:72px;text-align:center}
+main > section.wl-next > .wrap{width:100%}
+@media (min-width:735px){ main > section.wl-next{min-height:min(calc(100svh - 52px),900px)} }
+.wl-next .door{margin-top:56px}
