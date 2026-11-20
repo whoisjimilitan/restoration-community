@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Counsel · Brother Jimi</title>
+<meta name="description" content="Daily wisdom. Scripture and insight to transform your day.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Brother Jimi">
+<meta property="og:title" content="Daily Counsel">
+<meta property="og:description" content="Daily wisdom. Scripture and insight from Brother Jimi.">
+<meta property="og:url" content="https://brotherjimi.com/counsel">
+<meta property="og:image" content="https://brotherjimi.com/images/og.jpg">
+<meta name="theme-color" content="#faf8f4">
+<link rel="icon" href="/images/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="preload" href="/assets/fonts/albert-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:"Albert Sans";src:url(/assets/fonts/albert-sans-latin-wght-normal.woff2) format("woff2");font-weight:100 900;font-display:swap}
+:root{--bg:#faf8f4;--text:#15120f;--dim:#857d71;--line:#e4dfd6;--wine:#8b2332;--wine-hi:#a1293c}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--text);-webkit-text-size-adjust:100%}
+body{font:400 18px/1.8 "Albert Sans",system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--text);outline-offset:3px}
+p{margin:0}
+
+main{max-width:50em;margin:0 auto;padding:0 20px;display:flex;flex-direction:column;min-height:100vh}
+.content{flex:1;display:flex;flex-direction:column;justify-content:center;padding:60px 0}
+
+.date{font:600 11px/1.3 "Albert Sans";letter-spacing:.24em;text-transform:uppercase;color:var(--dim);margin-bottom:48px;text-align:center}
+
+.quote{font:300 clamp(32px,6vw,52px)/1.3 "Albert Sans";letter-spacing:-.02em;text-align:center;text-wrap:balance;margin:0 0 48px}
+
+.scripture{text-align:center;font:500 16px/1.6 "Albert Sans";color:var(--dim);margin:0 0 56px}
+.scripture cite{font:400 14px/1 "Albert Sans"}
+
+.insight{font:400 18px/1.7 "Albert Sans";color:var(--dim);text-align:center;max-width:36em;margin:0 auto 64px;line-height:1.75}
+.insight p{margin-bottom:16px}
+
+.signup{text-align:center;padding:48px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.signup .intro{color:var(--dim);font:500 15px/1.6 "Albert Sans";margin-bottom:24px}
+form{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+input[type="email"]{width:260px;height:48px;border:1px solid var(--line);border-radius:4px;background:#fff;color:var(--text);font:400 15px "Albert Sans";padding:0 14px}
+input[type="email"]:focus{outline:none;border-color:var(--text)}
+.btn{height:48px;padding:0 24px;border:0;border-radius:4px;background:var(--wine);color:#fff;font:600 15px "Albert Sans";letter-spacing:.01em;cursor:pointer;white-space:nowrap;transition:.15s}
+.btn:hover{background:var(--wine-hi)}
+.note{font-size:13px;color:var(--dim);margin-top:12px;min-height:1.4em}
+
+footer{border-top:1px solid var(--line);padding:40px 20px calc(40px + env(safe-area-inset-bottom));text-align:center;font-size:13px;color:var(--dim);margin-top:auto}
+footer p{margin:0}
+footer nav{display:flex;gap:20px;justify-content:center;margin-top:12px}
+footer nav a{text-decoration:none;color:var(--dim)}
+footer nav a:hover{color:var(--text)}
+
+@media (max-width:480px){
+  .content{padding:40px 0}
+  .quote{font-size:clamp(28px,6vw,48px);margin-bottom:32px}
+  .scripture{margin-bottom:40px}
+  .insight{margin-bottom:48px}
+  form{flex-direction:column;align-items:stretch}
+  input[type="email"],.btn{width:100%}
+}
+</style>
+</head>
+<body>
+
+<main>
+  <article class="content">
+    <p class="date" data-slot="date">6 October 2026</p>
+
+    <blockquote class="quote" data-slot="quote">Before you check your phone, open your Bible. Take in one verse and say it out loud.</blockquote>
+
+    <p class="scripture"><cite data-slot="ref">Joshua 1:8</cite></p>
+
+    <div class="insight" data-slot="insight">
+      <p>When something goes wrong, whose voice do you hear first? It's usually the one you've been listening to the most.</p>
+      <p>If you've filled your mind with fear and noise, that's what rises up. But if you've been taking in God's Word day after day, you'll hear Him first.</p>
+      <p>So start today. Before anything else, open your Bible. One verse. Say it out loud. Tonight, meditate on it again.</p>
+      <p>What you hear first tomorrow depends on what you listen to today.</p>
+    </div>
+
+    <div class="signup">
+      <p class="intro">Get daily wisdom like this, free.</p>
+      <form data-signup novalidate>
+        <label class="sr" for="email-counsel">Email address</label>
+        <input id="email-counsel" type="email" name="email" inputmode="email" autocomplete="email" placeholder="Your email">
+        <input name="company" type="text" tabindex="-1" autocomplete="off" class="sr" aria-hidden="true">
+        <button class="btn" type="submit">Send it to me</button>
+      </form>
+      <p class="note" role="status" aria-live="polite"></p>
+    </div>
+  </article>
+</main>
+
+<footer>
+  <p>&copy; <span id="yr">2026</span> Brother Jimi, a servant of Jesus Christ</p>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/privacy">Privacy</a>
+  </nav>
+</footer>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+(function(){
+  var form = document.querySelector('[data-signup]');
+  var note = form.querySelector('[role="status"]');
+  if(!form) return;
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var email = form.querySelector('input[name="email"]').value.trim();
+    if(!email){
+      note.textContent = 'Please enter your email.';
+      return;
+    }
+    note.textContent = 'Sending...';
+    fetch('/api/subscribe',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,ref:'counsel',source:'counsel'})})
+      .then(function(r){return r.json()})
+      .then(function(data){
+        form.reset();
+        note.textContent = 'Check your inbox for your first counsel.';
+      })
+      .catch(function(){note.textContent = 'Something went wrong. Try again?'});
+  });
+})();
+</script>
+</body>
+</html>

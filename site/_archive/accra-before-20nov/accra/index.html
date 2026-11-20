@@ -4,48 +4,39 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Accra Encounters Christ · Brother Jimi</title>
-<meta name="description" content="Accra Encounters Christ, with Brother Jimi. Friday 11 December 2026, The Patmos Christian Retreat, Accra. Entry is free.">
+<meta name="description" content="Accra Encounters Christ, with Brother Jimi. Friday 11 December 2026.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Brother Jimi">
 <meta property="og:title" content="Accra Encounters Christ">
-<meta property="og:description" content="With Brother Jimi. Friday 11 December 2026, The Patmos Christian Retreat, Accra. Entry is free.">
+<meta property="og:description" content="With Brother Jimi. Friday 11 December 2026, The Patmos Christian Retreat, Accra.">
 <meta property="og:url" content="https://brotherjimi.com/accra">
 <meta property="og:image" content="https://brotherjimi.com/images/film/og-accra.jpg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#fbfaf7">
+<meta name="theme-color" content="#faf8f4">
 <link rel="icon" href="/images/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
 <link rel="preload" href="/assets/fonts/albert-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 
 <script>
-/* ============================================================
-   CITY CONFIG. A new city is a copy of this file with this block changed.
-   All times are ISO 8601 with an explicit zone. Accra is UTC+0.
-   ============================================================ */
 window.CITY = {
   title:        "Accra Encounters Christ",
-  withLine:     "With Brother Jimi",
+  withLine:     "with Brother Jimi",
   url:          "https://brotherjimi.com/accra",
   dateLong:     "Friday 11 December 2026",
   dateShort:    "Fri Dec 11",
   venue:        "The Patmos Christian Retreat, Accra",
   host:         "Hosted by The Patmos Church, Accra",
-  hostName:     "The Patmos Church, Accra",
   regLabel:     "1 to 7 December 2026",
+  dateShortPromise: "11 December",
   regOpens:     "2026-12-01T00:00:00Z",
-  regCloses:    "2026-12-08T00:00:00Z",   /* end of 7 December */
-  eventStarts:  "2026-12-11T00:00:00Z",   /* countdown target; midnight until a start hour is set */
+  regCloses:    "2026-12-08T00:00:00Z",
+  eventStarts:  "2026-12-11T00:00:00Z",
   eventEnds:    "2026-12-12T00:00:00Z",
   ground:       "the Prayer Line Registration ground",
-  whatsapp:     "447471605871",           /* registration inbox. Never appears in share texts. */
+  whatsapp:     "447471605871",
   regions: ["Ahafo","Ashanti","Bono","Bono East","Central","Eastern","Greater Accra","North East","Northern","Oti","Savannah","Upper East","Upper West","Volta","Western","Western North"],
-
-  /* Locked texts. [link] becomes url. [name] [region] [N] fill from the form. */
-  submission:   "I'm planning to attend Accra Encounters Christ. Name: [name]. Region: [region]. How sure: [N]/10. Friday 11 December 2026 at The Patmos Christian Retreat, Accra.",
-  invite:       "Come with me to Accra Encounters Christ, with Brother Jimi. Prayer Line Registration is 1 to 7 December 2026. The gathering is on Friday 11 December 2026 at The Patmos Christian Retreat, Accra. Entry is free. Start here: [link]",
-  xLine:        "Accra Encounters Christ with Brother Jimi. Friday 11 December 2026, The Patmos Christian Retreat, Accra. Entry is free. Come with me: [link]",
+  submission:   "Coming - Accra Encounters Christ, Fri Dec 11, The Patmos Christian Retreat, Accra. Name: [name]. Region: [region]. How sure: [N]/10.",
+  invite:       "Come with me to Accra Encounters Christ, with Brother Jimi. The Prayer Line is 1 to 7 December 2026. The gathering is Friday 11 December at The Patmos Christian Retreat, Accra. Entry is free. Start here: [link]",
+  xLine:        "Accra Encounters Christ with Brother Jimi. Friday 11 December 2026, The Patmos Christian Retreat, Accra. Entry is free. [link]",
   emailSubject: "Accra Encounters Christ",
   pastor:       "I thought this might be for you. [link]"
 };
@@ -54,330 +45,170 @@ window.CITY = {
 <style>
 @font-face{font-family:"Albert Sans";src:url(/assets/fonts/albert-sans-latin-wght-normal.woff2) format("woff2");font-weight:100 900;font-display:swap}
 @view-transition{navigation:auto}
-/* UNIFIED DESIGN SYSTEM: Warm cream background, Albert Sans only, wine accents */
-:root{--bg:#faf8f4;--text:#15120f;--dim:#857d71;--line:#e4dfd6;--wine:#8b2332;--wine-hi:#a1293c;--err:#a3352a;--gut:20px}
+:root{--bg:#faf8f4;--text:#15120f;--dim:#857d71;--line:#e4dfd6;--wine:#8b2332;--wine-hi:#a1293c;--sans:"Albert Sans"}
 *{box-sizing:border-box}
 html,body{margin:0;background:var(--bg);color:var(--text);-webkit-text-size-adjust:100%}
-body{font:400 17px/1.6 "Albert Sans",system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
-a{color:inherit;text-decoration:none}
-:focus-visible{outline:2px solid var(--text);outline-offset:3px;border-radius:2px}
-p{margin:0}
-.wrap{max-width:600px;margin:0 auto;padding:0 var(--gut)}
-.label{font:600 11px/1.3 "Albert Sans";letter-spacing:.24em;text-transform:uppercase;color:var(--dim)}
-h1{margin:12px 0 0;font:300 clamp(32px,8vw,56px)/1.04 "Albert Sans";letter-spacing:-.02em;text-wrap:balance}
-h2{margin:0;font:500 20px/1.3 "Albert Sans";text-wrap:balance}
-.top{padding:16px var(--gut) 0;border-bottom:1px solid var(--line)}
-.top a{display:inline-flex;align-items:center;gap:8px;font:600 11px/1 "Albert Sans";letter-spacing:.24em;text-transform:uppercase;color:var(--dim)}
-.top a:hover{color:var(--text)}
-.photo{margin:0 auto;max-width:100%}
-.photo img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;display:block}
-.hero{padding:28px var(--gut)}
-.hero .wrap{padding:0}
-.facts{margin:16px 0 0;padding:0;list-style:none;color:var(--text);font-size:15px;line-height:1.65}
-.free{margin:12px 0 0;font-weight:600}
-.clock{margin:24px 0 0;padding:16px 0 0;border-top:1px solid var(--line);display:flex;gap:16px;align-items:flex-start}
-.cd{display:flex;gap:16px;font-variant-numeric:tabular-nums}
-.cd b{font:300 24px/1 "Albert Sans"}
-.cd span{font-size:12px;color:var(--dim)}
-.state{margin:16px 0 0;font-weight:600}
-.state:empty{display:none}
-section{border-top:1px solid var(--line)}
-section .wrap{padding:40px var(--gut)}
-.stack{display:flex;flex-direction:column;gap:14px}
-.plain{color:var(--text);font-size:15px}
-form{display:flex;flex-direction:column;gap:24px;margin:20px 0 0}
-fieldset{border:0;margin:0;padding:0}
-legend,.l{display:block;font:600 15px/1.3 "Albert Sans";margin:0 0 12px;padding:0}
-.chips{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
-.chips input{position:absolute;opacity:0}
-.chips label{display:grid;place-items:center;height:48px;border:1px solid var(--line);border-radius:4px;background:#fff;font:500 15px/1 "Albert Sans";color:var(--text);cursor:pointer;transition:.15s}
+body{font:400 17px/1.6 var(--sans),system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--text);outline-offset:3px}
+p,h1,h2{margin:0}
+
+main{max-width:640px;margin:auto;padding:80px 20px 32px}
+
+/* Hero */
+.hero{text-align:center}
+h1{font:500 clamp(42px,10vw,60px)/1.1 var(--sans);letter-spacing:-.02em;margin-bottom:8px}
+.subtitle{font:500 18px/1.4 var(--sans);color:var(--dim);margin-bottom:28px}
+.date{font:500 16px/1.6 var(--sans);margin-bottom:4px}
+.venue{font:500 16px/1.6 var(--sans);margin-bottom:4px}
+.host{font:400 14px/1.6 var(--sans);color:var(--dim)}
+.entry{font:600 16px/1.6 var(--sans);color:var(--wine);margin-top:20px}
+
+/* Countdown */
+.clock{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;max-width:400px;margin:32px auto 0}
+.clock div{text-align:center}
+.clock b{display:block;font:500 36px/1.2 var(--sans);letter-spacing:-.01em;margin-bottom:4px}
+.clock span{display:block;font:600 10px/1.2 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--dim)}
+
+/* Threshold */
+.threshold{width:36px;height:1px;background:var(--wine);margin:48px auto;opacity:.4}
+
+/* Prayer Line */
+.prayer{text-align:center;max-width:520px;margin:0 auto}
+.prayer p.intro{font:400 16px/1.6 var(--sans);color:var(--dim);margin-bottom:16px}
+.prayer h2{font:600 14px/1.3 var(--sans);letter-spacing:.18em;text-transform:uppercase;margin-bottom:4px;color:var(--text)}
+.prayer .dates{font:500 20px/1.4 var(--sans);letter-spacing:-.01em;margin-bottom:16px}
+.prayer .details{font:400 15px/1.6 var(--sans);color:var(--dim);margin-bottom:20px}
+.prayer .promise{font:500 16px/1.6 var(--sans);color:var(--text)}
+
+/* Form */
+form{max-width:560px;margin:auto;text-align:left}
+.question{font:500 18px/1.4 var(--sans);margin-bottom:20px}
+
+.chips{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.chips input{position:absolute;opacity:0;pointer-events:none}
+.chips label{display:flex;align-items:center;justify-content:center;width:48px;height:48px;border:1px solid var(--line);border-radius:50%;background:#fff;font:500 15px/1 var(--sans);color:var(--dim);cursor:pointer;margin:0 auto;transition:.15s}
 .chips label:hover{border-color:var(--text)}
 .chips input:checked+label{background:var(--wine);border-color:var(--wine);color:#fff}
-.chips input:focus-visible+label{outline:2px solid var(--text);outline-offset:2px}
-.ends{display:flex;justify-content:space-between;margin:8px 0 0;font-size:13px;color:var(--dim)}
-input[type=text],select{width:100%;height:50px;border:1px solid var(--line);border-radius:4px;background:#fff;color:var(--text);font:400 15px "Albert Sans";padding:0 14px}
-input[type=text]::placeholder{color:var(--dim)}
-input[type=text]:focus,select:focus{outline:none;border-color:var(--text)}
-select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--text) 50%),linear-gradient(135deg,var(--text) 50%,transparent 50%);background-position:calc(100% - 14px) 50%,calc(100% - 10px) 50%;background-size:4px 4px;background-repeat:no-repeat;padding-right:32px}
-.err{color:var(--err);font-size:13px;margin:6px 0 0}
-.err:empty{display:none}
-.queue{color:var(--text);font-size:14px;margin:0}
-.btn{display:flex;align-items:center;justify-content:center;width:100%;height:52px;border:0;border-radius:4px;background:var(--wine);color:#fff;font:600 15px "Albert Sans";letter-spacing:.01em;cursor:pointer;transition:.15s}
+.chips-labels{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:10px}
+.chips-labels span{font:500 12px/1 var(--sans);color:var(--dim);text-align:center}
+.chips-labels span:first-child{text-align:left}
+.chips-labels span:last-child{text-align:right}
+
+label.field{display:block;font:600 14px/1.3 var(--sans);margin:28px 0 8px}
+input,select{display:block;width:100%;height:48px;border:1px solid var(--line);border-radius:4px;background:#fff;color:var(--text);font:400 15px var(--sans);padding:0 14px}
+input:focus,select:focus{outline:none;border-color:var(--text)}
+select{appearance:none;-webkit-appearance:none;padding-right:30px;background-image:linear-gradient(45deg,transparent 50%,var(--dim) 50%),linear-gradient(135deg,var(--dim) 50%,transparent 50%);background-position:calc(100% - 14px) 22px,calc(100% - 10px) 22px;background-size:4px 4px;background-repeat:no-repeat}
+
+.queue{font:400 14px/1.6 var(--sans);color:var(--dim);margin:20px 0}
+.btn{display:block;width:100%;height:50px;border:0;border-radius:4px;background:var(--wine);color:#fff;font:600 15px/1 var(--sans);letter-spacing:.01em;cursor:pointer;margin-top:20px}
 .btn:hover{background:var(--wine-hi)}
-.link{align-self:flex-start;background:none;border:0;padding:10px 0;color:var(--wine);font:500 14px "Albert Sans";text-decoration:underline;cursor:pointer}
-.share{display:grid;grid-template-columns:repeat(4,1fr);gap:16px 12px;margin:20px 0 0}
-.share a,.share button{display:flex;flex-direction:column;align-items:center;gap:8px;background:none;border:0;padding:0;color:var(--text);font:500 12px "Albert Sans";cursor:pointer;text-align:center}
-.share i{display:grid;place-items:center;width:48px;height:48px;border-radius:50%;background:#fff;border:1px solid var(--line);color:var(--text);transition:.15s}
-.share a:hover i,.share button:hover i{border-color:var(--text);background:var(--line)}
-.share svg{width:20px;height:20px}
-.copied{min-height:1.4em;font-size:13px;color:var(--dim);text-align:center;margin:8px 0 0}
-footer{border-top:1px solid var(--line);padding:28px var(--gut) calc(28px + env(safe-area-inset-bottom));font-size:13px;color:var(--dim)}
-.flyer{display:none}
-@media print{
-  @page{size:A4 portrait;margin:0}
-  body{background:#fff;color:#111}
-  body>*:not(.flyer){display:none!important}
-  .flyer{display:flex;flex-direction:column;justify-content:space-between;width:210mm;height:297mm;padding:26mm 22mm;font-family:"Albert Sans"}
-  .flyer h1{font:300 44pt/1.04 "Albert Sans";margin:5mm 0 0}
-  .flyer dl{margin:14mm 0 0;display:grid;grid-template-columns:44mm 1fr;gap:5mm 6mm;font-size:12pt}
-  .flyer dt{font-size:9pt;text-transform:uppercase;letter-spacing:.14em;color:#666}
-  .flyer dd{margin:0}
-}
-@media (max-width:480px){
-  :root{--gut:16px}
-  .hero{padding:20px 0}
-  section .wrap{padding:28px 16px}
-  .clock{margin:16px 0 0;gap:12px}
-  .cd{gap:12px}
-  .cd b{font-size:20px}
-  .chips{gap:6px;grid-template-columns:repeat(5,1fr)}
-  .chips label{height:44px;font-size:13px}
-  input[type=text],select{height:48px;font-size:16px;padding:0 12px}
-  .btn{height:48px;font-size:14px}
-  .share{grid-template-columns:repeat(3,1fr);gap:12px 8px}
-  .share i{width:44px;height:44px}
-  .share svg{width:18px;height:18px}
-}
-@media (min-width:720px){
-  :root{--gut:32px}
-  section .wrap{padding:56px 32px}
+.helper{font:400 13px/1.5 var(--sans);color:var(--dim);margin-top:10px}
+
+/* Steps */
+[data-step]{display:none}
+[data-step]:not([hidden]){display:block}
+
+.saved h2{font:500 24px/1.3 var(--sans);margin-bottom:16px}
+.saved-text{font:400 15px/1.6 var(--sans);color:var(--dim)}
+
+/* Share */
+.share-block{margin-top:48px}
+.share-lead{font:400 15px/1.6 var(--sans);color:var(--dim);margin-bottom:24px}
+.shares{display:grid;grid-template-columns:repeat(3,1fr);gap:20px 12px}
+.share{display:flex;flex-direction:column;align-items:center;gap:8px;background:none;border:0;color:var(--text);font:500 12px/1.2 var(--sans);text-decoration:none;cursor:pointer;padding:0}
+.circle{display:flex;align-items:center;justify-content:center;width:50px;height:50px;border:1px solid var(--line);border-radius:50%}
+.circle svg{width:20px;height:20px;stroke:currentColor;stroke-width:1.5;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.copied{font:400 13px var(--sans);color:var(--dim);margin-top:12px}
+
+footer{text-align:center;font:400 12px/1.6 var(--sans);color:var(--dim);margin-top:72px;padding-top:48px;border-top:1px solid var(--line)}
+
+@media (min-width:640px){
+  main{padding:100px 28px 32px}
+  .clock{gap:16px}
+  .threshold{margin:64px auto}
   .chips{grid-template-columns:repeat(10,1fr)}
-  .share{grid-template-columns:repeat(8,1fr);gap:16px}
+  .shares{grid-template-columns:repeat(6,1fr)}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>
 <body>
 
-<header class="top">
-  <div class="wrap" style="display: flex; justify-content: space-between; align-items: center;">
-    <a href="/"><svg viewBox="0 0 24 24" aria-hidden="true" style="width: 14px; height: 14px; margin-right: 8px; vertical-align: middle;"><path d="M19 12H6M11 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Home</a>
-    <a href="/counsel" style="text-decoration: none; font-size: 11px; font-weight: 600; letter-spacing: .24em; text-transform: uppercase; color: #857d71;">Counsel</a>
-  </div>
-</header>
-
 <main>
-  <div class="hero">
-    <figure class="photo" style="margin-block:0">
-      <img src="/images/film/accra-hero.jpg" alt="Brother Jimi preaching" width="1232" height="924" fetchpriority="high">
-    </figure>
-    <div class="wrap">
-      <p class="label" data-c="withLine">With Brother Jimi</p>
+  <section id="one">
+    <header class="hero">
       <h1 data-c="title">Accra Encounters Christ</h1>
-      <ul class="facts">
-        <li data-c="dateLong">Friday 11 December 2026</li>
-        <li data-c="venue">The Patmos Christian Retreat, Accra</li>
-        <li data-c="host">Hosted by The Patmos Church, Accra</li>
-      </ul>
-      <p class="free">Entry is FREE</p>
-      <div class="clock" data-clock>
-        <span class="label">Until the gathering</span>
-        <div class="cd" role="timer" aria-live="off">
-          <div><b data-d>00</b><span>d</span></div>
-          <div><b data-h>00</b><span>h</span></div>
-          <div><b data-m>00</b><span>m</span></div>
-        </div>
-      </div>
-      <p class="state" data-state></p>
-    </div>
-  </div>
+      <p class="subtitle" data-c="withLine">With Brother Jimi</p>
+      <p class="date">Friday</p>
+      <p class="date">11 December 2026</p>
+      <p class="venue"><span data-c="venue">The Patmos Christian Retreat, Accra</span></p>
+      <p class="host"><span data-c="host">Hosted by The Patmos Church, Accra</span></p>
+      <p class="entry">Entry is FREE</p>
 
-  <section aria-labelledby="pl-title" data-when="before during">
-    <div class="wrap stack">
-      <p class="label" id="pl-title">Prayer Line Registration</p>
-      <p class="dates" data-c="regLabel">1 to 7 December 2026</p>
-      <p class="plain">For the sick and anyone needing deliverance. Bring your medical report if you have one.</p>
-      <p class="plain">A divine encounter with God waits on those days and on <span data-c="dateLong">Friday 11 December 2026</span>, through His Servant, Brother Jimi.</p>
-    </div>
+      <div class="clock" role="timer" aria-label="Countdown" data-clock>
+        <div><b data-d>00</b><span>Days</span></div>
+        <div><b data-h>00</b><span>Hours</span></div>
+        <div><b data-m>00</b><span>Minutes</span></div>
+        <div><b data-s>00</b><span>Seconds</span></div>
+      </div>
+      <p class="state" data-state style="margin-top:12px;font-weight:500"></p>
+    </header>
+
+    <div class="threshold" aria-hidden="true"></div>
+
+    <section class="prayer">
+      <p class="intro">For those who are sick, and anyone who needs deliverance,</p>
+      <h2>THE PRAYER LINE REGISTRATION HOLDS</h2>
+      <p class="dates"><span data-c="regLabel">1 to 7 December 2026</span></p>
+      <p class="details">Don't forget to bring your medical report along if you have one.</p>
+      <p class="promise">A divine encounter with God waits on those days and on <span data-c="dateShortPromise">11 December</span>, through His Servant, Brother Jimi.</p>
+    </section>
+
+    <div class="threshold" aria-hidden="true"></div>
+
+    <form id="coming" novalidate>
+      <h2 class="question" id="sure">Coming for the Prayer Line Registration?</h2>
+
+      <div class="chips" role="group" aria-labelledby="sure" data-chips></div>
+      <div class="chips-labels">
+        <span>I think so</span>
+        <span>I am.</span>
+      </div>
+
+      <label class="field" for="name">Your name</label>
+      <input id="name" name="name" autocomplete="name" type="text">
+
+      <label class="field" for="region">Your region</label>
+      <select id="region" name="region"><option value="">Select region</option></select>
+
+      <p class="queue">Your name goes ahead of you. It skips the queue at <span data-c="ground">the Prayer Line Registration ground</span>.</p>
+
+      <button class="btn" type="submit">Save My Place</button>
+      <p class="helper">Opens WhatsApp with everything typed. Just press send.</p>
+    </form>
   </section>
 
-  <section aria-labelledby="form-title" data-when="before during">
-    <div class="wrap">
-      <div data-step="form">
-        <h2 id="form-title">Coming for the Prayer Line Registration?</h2>
-        <form novalidate data-form>
-          <fieldset>
-            <legend>How sure are you?</legend>
-            <div class="chips" data-chips></div>
-            <div class="ends" aria-hidden="true"><span>I think so</span><span>I am.</span></div>
-            <p class="err" data-err="sure"></p>
-          </fieldset>
-          <div>
-            <label class="l" for="f-name">Your name</label>
-            <input type="text" id="f-name" name="name" autocomplete="name" placeholder="As you want it called out">
-            <p class="err" data-err="name"></p>
-          </div>
-          <div>
-            <label class="l" for="f-region">Your region</label>
-            <select id="f-region" name="region"><option value="">Choose your region</option></select>
-            <p class="err" data-err="region"></p>
-          </div>
-          <p class="queue">Your name goes ahead of you. It skips the queue at the Prayer Line Registration ground.</p>
-          <button class="btn" type="submit">Save My Place</button>
-          <p class="helper">Opens your WhatsApp with everything typed. Just press send.</p>
-        </form>
-      </div>
-
-      <div data-step="sent" hidden>
-        <div class="stack">
-          <h2 tabindex="-1" data-focus>One last step.</h2>
-          <p class="plain">Press send in WhatsApp. Your message is your place in the line.</p>
-          <button class="btn" type="button" data-confirm>I pressed send</button>
-          <button class="link" type="button" data-retry>WhatsApp did not open? Try again</button>
-        </div>
-      </div>
-
-      <div data-step="saved" hidden>
-        <div class="stack">
-          <h2 tabindex="-1" data-focus>Your place is saved.</h2>
-          <p class="plain">Come to <span data-c="ground">the Prayer Line Registration ground</span> during Prayer Line Registration, <span data-c="regLabel">1 to 7 December 2026</span>, and give your name. Bring your medical report if you have one.</p>
-        </div>
-      </div>
+  <section id="two" hidden>
+    <div class="saved">
+      <h2 tabindex="-1" data-focus>Your place is saved.</h2>
+      <p class="saved-text">Go to <span data-c="ground">the Prayer Line Registration ground</span> between <span data-c="regLabel">1 to 7 December 2026</span> to be there on <span data-c="dateShortPromise">11 December</span>.</p>
     </div>
-  </section>
 
-  <section aria-labelledby="bring-title" data-bring hidden>
-    <div class="wrap stack">
-      <h2 id="bring-title">Don't come alone.</h2>
-      <p class="plain">Help someone else encounter Jesus in the power of the Holy Spirit.</p>
-      <div class="share">
-        <a class="main" data-share="whatsapp" target="_blank" rel="noopener"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 19.5l1.2-3.6A7.8 7.8 0 1 1 8.4 18.5z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></i>WhatsApp</a>
-        <a data-share="facebook" target="_blank" rel="noopener"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8.5h2V5h-2.4C11 5 10 6.6 10 8.8V10.5H8V14h2v6h3.5v-6H16l.5-3.5h-3V9.3c0-.5.3-.8.5-.8z" fill="currentColor"/></svg></i>Facebook</a>
-        <a data-share="telegram" target="_blank" rel="noopener"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 4.5L3.5 11.3l5.3 1.9m11.7-8.7l-3 14.5-6.2-4.6m9.2-9.9L8.8 13.2l1.5 5.3 2-3.4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/></svg></i>Telegram</a>
-        <a data-share="x" target="_blank" rel="noopener"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></i>X</a>
-        <a data-share="email"><i><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="6" width="17" height="12" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M4 7l8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></i>Email</a>
-        <button type="button" data-copy><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></i>Copy link</button>
-        <button type="button" data-pastor><i><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M5 20c.8-3.6 3.6-5.5 7-5.5s6.2 1.9 7 5.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></i>My pastor</button>
-        <button type="button" data-print><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 9V3.5h10V9M7 17H4.5v-7.5h15V17H17M7 14h10v6.5H7z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></i>A4 flyer</button>
-      </div>
-      <p class="copied" data-copied aria-live="polite"></p>
+    <div class="share-block">
+      <p class="share-lead">Don't come alone. Help someone else encounter Jesus.</p>
+      <nav class="shares" id="shares" aria-label="Share"></nav>
     </div>
+
+    <div class="copied" data-copied></div>
   </section>
 </main>
 
 <footer>
-  <div class="wrap" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
-    <p style="margin: 0;">&copy; 2026 Brother Jimi, a servant of Jesus Christ</p>
-    <nav style="display: flex; gap: 20px; font-size: 14px; color: #857d71;">
-      <a href="/privacy" style="text-decoration: none; color: inherit;">Privacy</a>
-    </nav>
-  </div>
+  <p>Brother Jimi is a servant of God, calling people out of darkness into the light of Jesus Christ.</p>
 </footer>
 
-<!-- A4 flyer: built from the same CONFIG, shown only when printing -->
-<div class="flyer" aria-hidden="true">
-  <div>
-    <div class="k" data-c="withLine">With Brother Jimi</div>
-    <h1 data-c="title">Accra Encounters Christ</h1>
-    <dl>
-      <dt>Gathering</dt><dd data-c="dateLong"></dd>
-      <dt>Prayer Line Registration</dt><dd data-c="regLabel"></dd>
-      <dt>Venue</dt><dd data-c="venue"></dd>
-      <dt>Host</dt><dd data-c="hostName"></dd>
-      <dt>Entry</dt><dd><b>FREE</b></dd>
-    </dl>
-    <p class="q">Your name goes ahead of you. It skips the queue at the Prayer Line Registration ground.</p>
-  </div>
-  <div>
-    <div class="k" style="margin-bottom:3mm">Start here</div>
-    <div class="u" data-c="urlShort"></div>
-  </div>
-</div>
-
-<script>
-(function(){
-  var C=window.CITY, $=function(s,r){return (r||document).querySelector(s)}, $$=function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
-  C.urlShort=C.url.replace(/^https?:\/\//,'');
-  function fill(t,o){ return t.replace(/\[link\]/g,C.url).replace(/\[(\w+)\]/g,function(m,k){return (o&&o[k]!=null)?o[k]:m}); }
-
-  /* Text from CONFIG */
-  $$('[data-c]').forEach(function(el){ var v=C[el.getAttribute('data-c')]; if(v) el.textContent=v; });
-
-  /* Chips 1 to 10 */
-  var chips=$('[data-chips]');
-  for(var i=1;i<=10;i++){
-    var id='sure-'+i, lab=i===1?'1, I think so':i===10?'10, I am':String(i);
-    chips.insertAdjacentHTML('beforeend','<input type="radio" name="sure" id="'+id+'" value="'+i+'"><label for="'+id+'" aria-label="'+lab+'">'+i+'</label>');
-  }
-  var sel=$('#f-region');
-  C.regions.forEach(function(r){ var o=document.createElement('option'); o.value=r; o.textContent=r; sel.appendChild(o); });
-
-  /* Honest states across time. Override for review with ?state= or #state-NAME */
-  var t={opens:Date.parse(C.regOpens),closes:Date.parse(C.regCloses),start:Date.parse(C.eventStarts),end:Date.parse(C.eventEnds)};
-  function forced(){ var m=(location.search+location.hash).match(/state[=-](before|during|gap|today|after)/); return m&&m[1]; }
-  function stateAt(n){ return n<t.opens?'before':n<t.closes?'during':n<t.start?'gap':n<t.end?'today':'after'; }
-  var STATE=forced()||stateAt(Date.now());
-  var msg={
-    before:'',
-    during:'Prayer Line Registration is open now.',
-    gap:'Prayer Line Registration has closed. The gathering is open to all. Entry is free.',
-    today:'Today. Entry is free.',
-    after:C.title+' took place on '+C.dateLong+'.'
-  };
-  $('[data-state]').textContent=msg[STATE];
-  $$('[data-when]').forEach(function(el){ el.hidden=el.getAttribute('data-when').split(' ').indexOf(STATE)<0; });
-  if(STATE==='today'||STATE==='after') $('[data-clock]').hidden=true;
-  /* Bring someone: after a saved place, or on its own once the form has closed */
-  if(STATE==='gap'||STATE==='today') $('[data-bring]').hidden=false;
-
-  /* Countdown */
-  var D=$('[data-d]'),H=$('[data-h]'),M=$('[data-m]');
-  function two(n){return (n<10?'0':'')+n}
-  function tick(){
-    var s=Math.floor(Math.max(0,t.start-Date.now())/1000);
-    D.textContent=two(Math.floor(s/86400)); H.textContent=two(Math.floor(s%86400/3600)); M.textContent=two(Math.floor(s%3600/60));
-  }
-  tick(); setInterval(tick,15000);
-
-  /* Steps */
-  function step(name){
-    $$('[data-step]').forEach(function(el){ el.hidden=el.getAttribute('data-step')!==name; });
-    var f=$('[data-step="'+name+'"] [data-focus]'); if(f){ f.focus({preventScroll:true}); f.scrollIntoView({behavior:'smooth',block:'start'}); }
-  }
-  var lastWa='';
-  function openWa(){ var w=window.open(lastWa,'_blank'); if(w){ try{w.opener=null}catch(e){} } else { window.location.href=lastWa; } }
-
-  var form=$('[data-form]');
-  form.addEventListener('submit',function(e){
-    e.preventDefault();
-    var sure=(form.querySelector('input[name=sure]:checked')||{}).value, name=$('#f-name').value.trim(), region=sel.value, ok=true;
-    function err(k,m){ $('[data-err="'+k+'"]').textContent=m; if(m) ok=false; }
-    err('sure',sure?'':'Choose how sure you are, from 1 to 10.');
-    err('name',name?'':'Write your name, so it can go ahead of you.');
-    err('region',region?'':'Choose your region.');
-    if(!ok){ var first=!sure?$('#sure-1'):!name?$('#f-name'):sel; first.focus(); return; }
-    lastWa='https://wa.me/'+C.whatsapp+'?text='+encodeURIComponent(fill(C.submission,{name:name,region:region,N:sure}));
-    step('sent'); openWa();
-  });
-  $('[data-retry]').addEventListener('click',openWa);
-  $('[data-confirm]').addEventListener('click',function(){ $('[data-bring]').hidden=false; step('saved'); });
-
-  /* Share: no phone number ever appears here */
-  var inv=fill(C.invite), x=fill(C.xLine), enc=encodeURIComponent;
-  var links={
-    whatsapp:'https://wa.me/?text='+enc(inv),
-    facebook:'https://www.facebook.com/sharer/sharer.php?u='+enc(C.url),
-    telegram:'https://t.me/share/url?url='+enc(C.url)+'&text='+enc(inv.replace(C.url,'').trim()),
-    x:'https://twitter.com/intent/tweet?text='+enc(x),
-    email:'mailto:?subject='+enc(C.emailSubject)+'&body='+enc(inv)
-  };
-  $$('[data-share]').forEach(function(a){ a.href=links[a.getAttribute('data-share')]; });
-  var copied=$('[data-copied]');
-  $('[data-copy]').addEventListener('click',function(){
-    function done(){ copied.textContent='Link copied'; }
-    if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(C.url).then(done,function(){ copied.textContent=C.url; }); }
-    else copied.textContent=C.url;
-  });
-
-  /* Involve my pastor: the message only, never the pastor's role */
-  var pastorText=fill(C.pastor);
-  $('[data-pastor]').addEventListener('click',function(){
-    if(navigator.share){ navigator.share({text:pastorText}).catch(function(){}); }
-    else window.open('https://wa.me/?text='+enc(pastorText),'_blank','noopener');
-  });
-
-  $('[data-print]').addEventListener('click',function(){ window.print(); });
-})();
-</script>
+<script src="/assets/config.js"></script>
+<script src="/assets/site.js"></script>
 </body>
 </html>

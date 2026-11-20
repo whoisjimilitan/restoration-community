@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Brother Jimi · A documentary</title>
-<meta name="description" content="Brother Jimi. A documentary. His mother died praying for him. For years he lived as someone else. Then one night in May 2015, alone in front of a television, Jesus found him.">
+<meta name="description" content="Brother Jimi. A documentary. His mother died praying for him. For years he lived as someone else. Then one night in May 2015, alone in front of a television, Jesus Christ met him.">
 <meta property="og:type" content="video.movie">
 <meta property="og:site_name" content="Brother Jimi">
 <meta property="og:title" content="Brother Jimi">
@@ -63,7 +63,7 @@ h1{margin:0;font:300 clamp(34px,9.2vw,76px)/1 var(--sans);letter-spacing:.2em;ma
 .logline{margin:26px 0 0;color:var(--soft);font-size:16px;line-height:1.65;max-width:34em}
 
 /* ---------- Next ---------- */
-.next{padding:56px var(--gut) 72px;border-top:1px solid var(--line);max-width:1200px;margin:0 auto}
+.next{padding:56px var(--gut) 64px;border-top:1px solid var(--line);max-width:1200px;margin:0 auto}
 .next .kicker{color:var(--dim)}
 .card{display:block;text-decoration:none;border-left:2px solid var(--wine);padding:4px 0 4px 20px}
 .card h2{margin:0;font:300 clamp(28px,7.4vw,42px)/1.1 var(--sans);letter-spacing:-.02em;color:var(--bone)}
@@ -73,6 +73,18 @@ h1{margin:0;font:300 clamp(34px,9.2vw,76px)/1 var(--sans);letter-spacing:.2em;ma
 .card:hover .go{border-color:var(--bone)}
 .card .go svg{width:16px;height:16px;transition:transform .2s}
 .card:hover .go svg{transform:translateX(3px)}
+.alt{margin:28px 0 0;padding-left:22px;color:var(--dim);font-size:15px;line-height:1.6}
+.alt a{color:var(--soft);text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--line)}
+.alt a:hover{color:var(--bone);text-decoration-color:var(--soft)}
+
+/* ---------- Share dock ---------- */
+.dock{padding:56px var(--gut) 64px;border-top:1px solid var(--line);max-width:1200px;margin:0 auto}
+.dock .kicker{color:var(--dim)}
+.icons{display:flex;flex-wrap:wrap;gap:12px}
+.icons a,.icons button{display:grid;place-items:center;width:48px;height:48px;border-radius:50%;border:1px solid var(--line);background:none;color:var(--bone);cursor:pointer;transition:border-color .2s}
+.icons a:hover,.icons button:hover{border-color:var(--bone)}
+.icons svg{width:20px;height:20px}
+.copied{margin:12px 0 0;min-height:1.4em;font-size:14px;color:var(--soft)}
 
 /* ---------- Footer ---------- */
 footer{padding:36px var(--gut) calc(40px + env(safe-area-inset-bottom));border-top:1px solid var(--line);color:var(--dim);font-size:14px;line-height:1.6;max-width:1200px;margin:0 auto}
@@ -99,7 +111,9 @@ footer nav a:hover{color:var(--bone)}
     linear-gradient(180deg,rgba(11,10,9,0) 70%,var(--ink) 100%)}
   .title{justify-content:center}
   .copy{padding-bottom:0}
-  .next{display:grid;grid-template-columns:240px 1fr;gap:40px;padding-top:72px;padding-bottom:96px}
+  .dock{display:grid;grid-template-columns:240px 1fr;gap:40px;align-items:center;padding-top:72px;padding-bottom:80px}
+  .dock .kicker{margin:0}
+  .next{display:grid;grid-template-columns:240px 1fr;gap:40px;padding-top:72px;padding-bottom:80px}
   .next .kicker{margin-top:10px}
   .card{max-width:640px}
   footer{display:flex;justify-content:space-between;align-items:center;gap:40px}
@@ -122,29 +136,42 @@ footer nav a:hover{color:var(--bone)}
     <div class="copy">
       <p class="kicker">A documentary</p>
       <h1 id="film-title">BROTHER JIMI</h1>
-      <figure class="tag"><blockquote>&ldquo;I just want you to be the child that God wants you to be.&rdquo;</blockquote><figcaption>A mother&rsquo;s last words</figcaption></figure>
+      <figure class="tag"><blockquote>&ldquo;I just want you to be the child that God wants you to be.&rdquo;</blockquote><figcaption>My mother&rsquo;s last words</figcaption></figure>
       <button class="play" type="button" data-play aria-haspopup="dialog">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12.5-7.5a1 1 0 0 0 0-1.72L8.5 3.64A1 1 0 0 0 7 4.5z" fill="currentColor"/></svg>
         Play trailer
       </button>
-      <p class="logline">His mother died praying for him. For years after she was gone, he lived as someone else. Then one night in May 2015, alone in front of a television, Jesus Christ met him. Leaving his old life cost him almost everything. But he gained the salvation of his soul.</p>
+      <p class="logline">His mother died praying for him. For years after she was gone, he lived as someone else. Then one night in May 2015, alone in front of a television, Jesus Christ met him. Now he goes from city to city, so others can meet Him too.</p>
     </div>
   </section>
 
   <section class="next" aria-labelledby="next-title">
-    <p class="kicker">Now the story continues</p>
-    <a class="card" href="/accra">
-      <h2 id="next-title">Accra Encounters Christ</h2>
-      <p>Friday 11 December 2026<br>The Patmos Christian Retreat, Accra<br>Entry is free</p>
-      <span class="go">Continue<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-    </a>
+    <p class="kicker">The story continues</p>
+    <div>
+      <a class="card" href="/accra">
+        <h2 id="next-title">Accra Encounters Christ</h2>
+        <p>Friday 11 December 2026<br>The Patmos Christian Retreat, Accra<br>Entry is free</p>
+        <span class="go">Continue<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+    </div>
+  </section>
+  <section class="dock" aria-labelledby="dock-title">
+    <p class="kicker" id="dock-title">Share the story</p>
+    <div class="icons">
+      <a data-share="whatsapp" target="_blank" rel="noopener" aria-label="Share on WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 19.5l1.2-3.6A7.8 7.8 0 1 1 8.4 18.5z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></a>
+      <a data-share="facebook" target="_blank" rel="noopener" aria-label="Share on Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8.5h2V5h-2.4C11 5 10 6.6 10 8.8V10.5H8V14h2v6h3.5v-6H16l.5-3.5h-3V9.3c0-.5.3-.8.5-.8z" fill="currentColor"/></svg></a>
+      <a data-share="telegram" target="_blank" rel="noopener" aria-label="Share on Telegram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 4.5L3.5 11.3l5.3 1.9m11.7-8.7l-3 14.5-6.2-4.6m9.2-9.9L8.8 13.2l1.5 5.3 2-3.4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/></svg></a>
+      <a data-share="x" target="_blank" rel="noopener" aria-label="Share on X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></a>
+      <a data-share="email" aria-label="Share by email"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="6" width="17" height="12" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M4 7l8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></a>
+      <button type="button" data-copy aria-label="Copy link"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+    </div>
+    <p class="copied" data-copied aria-live="polite"></p>
   </section>
 </main>
 
 <footer>
   <p>&copy; 2026 Brother Jimi, a servant of Jesus Christ</p>
   <nav aria-label="More">
-    <a href="/counsel">Get counsel</a>
     <a href="/privacy">Privacy</a>
   </nav>
 </footer>
@@ -171,6 +198,23 @@ footer nav a:hover{color:var(--bone)}
     v.pause(); p.classList.remove('on'); p.hidden=true; document.body.style.overflow=''; btn.focus();
   }
   btn.addEventListener('click',open);
+
+  /* Share dock. No phone number ever appears in a share text. */
+  var url='https://brotherjimi.com', enc=encodeURIComponent,
+      text='Brother Jimi. A documentary. His mother died praying for him. Watch the trailer: '+url;
+  var links={
+    whatsapp:'https://wa.me/?text='+enc(text),
+    facebook:'https://www.facebook.com/sharer/sharer.php?u='+enc(url),
+    telegram:'https://t.me/share/url?url='+enc(url)+'&text='+enc(text.replace(url,'').trim()),
+    x:'https://twitter.com/intent/tweet?text='+enc(text),
+    email:'mailto:?subject='+enc('Brother Jimi, a documentary')+'&body='+enc(text)
+  };
+  Array.prototype.forEach.call(document.querySelectorAll('[data-share]'),function(a){ a.href=links[a.getAttribute('data-share')]; });
+  var copied=document.querySelector('[data-copied]');
+  document.querySelector('[data-copy]').addEventListener('click',function(){
+    if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(url).then(function(){ copied.textContent='Link copied'; },function(){ copied.textContent=url; }); }
+    else copied.textContent=url;
+  });
   x.addEventListener('click',close);
   v.addEventListener('ended',close);
   document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&!p.hidden) close(); });
