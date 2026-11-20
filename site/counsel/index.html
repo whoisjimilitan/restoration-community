@@ -44,6 +44,24 @@ a { color: inherit; }
 .dk-link { color: var(--counsel-dim); }
 .dk-link:hover, .dk-link.on { color: var(--counsel-text); }
 .dk-footer { display: none; }
+
+/* Mobile optimizations (390px) */
+@media (max-width: 480px) {
+  .wrap { max-width: 100%; padding-left: 16px; padding-right: 16px; }
+  .cq-head { margin: 12px 0; }
+  .cq-head h1 { font-size: clamp(24px, 7vw, 32px); line-height: 1.2; }
+  .when { font-size: 13px; }
+  .cq-share { margin: 20px 0; }
+  .sr-icons { gap: 4px 0; }
+  .ic { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; }
+  .ic svg { width: 18px; height: 18px; }
+  .text { font-size: 15px; line-height: 1.6; }
+  .text p { margin-bottom: 12px; }
+  .signup { gap: 12px; }
+  input[type="email"] { height: 48px; font-size: 16px; padding: 0 12px; }
+  .btn { height: 48px; font-size: 15px; }
+}
+
 @media (min-width: 720px) { .dk-footer { display: inline; } }
 </style>
 </head>
