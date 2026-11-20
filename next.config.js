@@ -12,6 +12,7 @@ const nextConfig = {
         { source: '/welcome', destination: '/welcome/index.html' },
         { source: '/welcome/received', destination: '/welcome/received/index.html' },
         { source: '/partner', destination: '/partner/index.html' },
+        { source: '/accra', destination: '/accra/index.html' },
       ],
     }
   },
