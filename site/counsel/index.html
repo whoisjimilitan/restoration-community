@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Counsel · Brother Jimi</title>
-<meta name="description" content="Daily counsel from Scripture, shared by Brother Jimi.">
+<meta name="description" content="Daily Scripture. Answers to the questions you're asking. From Brother Jimi.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Brother Jimi">
 <meta property="og:title" content="Counsel">
-<meta property="og:description" content="Daily counsel from Scripture, shared by Brother Jimi.">
+<meta property="og:description" content="Daily Scripture. Answers to the questions you're asking.">
 <meta property="og:url" content="https://brotherjimi.com/counsel">
 <meta property="og:image" content="https://brotherjimi.com/images/og.jpg">
 <meta name="theme-color" content="#faf8f4">
@@ -20,72 +20,87 @@
 :root{--bg:#faf8f4;--text:#15120f;--dim:#857d71;--line:#e4dfd6;--wine:#8b2332;--wine-hi:#a1293c;--gut:20px}
 *{box-sizing:border-box}
 html,body{margin:0;background:var(--bg);color:var(--text);-webkit-text-size-adjust:100%}
-body{font:400 18px/1.7 "Albert Sans",system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+body{font:400 18px/1.8 "Albert Sans",system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
 a{color:inherit}
 :focus-visible{outline:2px solid var(--text);outline-offset:3px}
 p{margin:0}
-.wrap{max-width:34em;margin:0 auto;padding:0 var(--gut)}
-.date{font:600 11px/1.3 "Albert Sans";letter-spacing:.24em;text-transform:uppercase;color:var(--dim);margin:60px var(--gut) 0}
-h1{margin:12px var(--gut) 0;font:300 clamp(32px,8vw,56px)/1.04 "Albert Sans";letter-spacing:-.02em}
-.letter{margin:40px var(--gut) 0;line-height:1.75;color:var(--text);max-width:34em}
-.letter p{margin-bottom:16px}
-.letter p.vs{font:500 17px/1.6 "Albert Sans";color:var(--dim);margin-left:20px;margin-bottom:16px}
+
+/* Layout */
+main{max-width:40em;margin:0 auto;padding:0 var(--gut)}
+
+/* Header spacing */
+.date{font:600 11px/1.3 "Albert Sans";letter-spacing:.24em;text-transform:uppercase;color:var(--dim);margin:60px 0 0}
+h1{margin:16px 0 0;font:300 clamp(32px,8vw,56px)/1.04 "Albert Sans";letter-spacing:-.02em}
+
+/* Letter section - centered, premium spacing */
+.letter{margin:56px 0 0}
+.letter p{margin:0 0 20px}
+.letter p:last-child{margin-bottom:0}
+.letter p.vs{font:500 17px/1.6 "Albert Sans";color:var(--dim);margin-left:24px;margin-top:24px;margin-bottom:24px}
 .letter p.vs cite{font:400 14px/1 "Albert Sans";color:var(--dim)}
-.letter p.sign{margin-top:24px;font-weight:600;margin-bottom:0}
-.letter p.ps{font:500 16px/1.6 "Albert Sans";color:var(--dim);margin-top:16px}
-.cta{margin:48px var(--gut);display:flex;flex-direction:column;gap:14px}
-.cta p{color:var(--dim);font-size:15px;line-height:1.6;margin-bottom:12px}
+.letter p.sign{margin-top:28px;font-weight:600}
+.letter p.ps{font:500 16px/1.6 "Albert Sans";color:var(--dim);margin-top:24px}
+
+/* CTA section */
+.signup{margin:80px 0 0;padding:60px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.signup .intro{color:var(--dim);font:500 16px/1.6 "Albert Sans";margin-bottom:32px}
 form{display:flex;gap:8px;align-items:flex-end}
 input[type="email"]{flex:1;height:50px;border:1px solid var(--line);border-radius:4px;background:#fff;color:var(--text);font:400 15px "Albert Sans";padding:0 14px}
 input[type="email"]:focus{outline:none;border-color:var(--text)}
 .btn{height:50px;padding:0 24px;border:0;border-radius:4px;background:var(--wine);color:#fff;font:600 15px "Albert Sans";letter-spacing:.01em;cursor:pointer;white-space:nowrap;transition:.15s}
 .btn:hover{background:var(--wine-hi)}
 .note{font-size:13px;color:var(--dim);margin-top:8px}
-footer{border-top:1px solid var(--line);padding:40px var(--gut) calc(40px + env(safe-area-inset-bottom));text-align:center;font-size:13px;color:var(--dim)}
-footer nav{display:flex;gap:16px;justify-content:center;margin-top:12px}
+
+/* Footer */
+footer{border-top:1px solid var(--line);padding:40px 0 calc(40px + env(safe-area-inset-bottom));text-align:center;font-size:13px;color:var(--dim);margin-top:80px}
+footer p{margin:0}
+footer nav{display:flex;gap:20px;justify-content:center;margin-top:12px}
 footer nav a{text-decoration:none;color:var(--dim)}
 footer nav a:hover{color:var(--text)}
+
 @media (max-width:480px){
-  .date{margin:40px 16px 0}
-  h1{margin:12px 16px 0;font-size:clamp(28px,8vw,48px)}
-  .letter{margin:32px 16px 0}
-  .cta{margin:32px 16px}
+  :root{--gut:16px}
+  .date{margin:40px 0 0}
+  h1{font-size:clamp(28px,8vw,48px)}
+  .letter{margin:40px 0 0}
+  .signup{margin:60px 0 0;padding:40px 0}
   form{flex-direction:column;align-items:stretch}
   input[type="email"],.btn{width:100%}
-  .btn{text-align:center}
 }
 </style>
 </head>
 <body>
 
-<article>
-  <p class="date" data-slot="date">6 October 2026</p>
-  <h1 data-slot="question">Whose voice do I hear first?</h1>
+<main>
+  <article>
+    <p class="date" data-slot="date">6 October 2026</p>
+    <h1 data-slot="question">Whose voice do I hear first?</h1>
 
-  <div class="letter" data-slot="body">
-    <p>When something goes wrong, whose voice do you hear first?</p>
-    <p>It's not always the one you say you believe. It's usually the one you've been listening to the most.</p>
-    <p>If you've been taking in the news, fear, and everyone else's opinions, that's what you'll hear. Before you know it, you're panicking, complaining, or doing things your own way.</p>
-    <p>But if you've been taking in God's Word day after day, you'll hear Him first. Instead of panicking, you'll stop and ask, "What is God saying about this?"</p>
-    <p>This is what God told Joshua just before he led Israel into the Promised Land:</p>
-    <p class="vs">"Keep this Book of the Law always on your lips; meditate on it day and night." <cite>Joshua 1:8</cite></p>
-    <p>So start today. Before you check your phone, open your Bible. Take in one verse and say it out loud. Meditate on it again tonight.</p>
-    <p>Hard days will come. When they do, what you hear first will depend on what you've been listening to.</p>
-    <p class="sign">Your brother,<br>Jimi</p>
-    <p class="ps">P.S. If God spoke to you through this, or you need prayer for anything today, just hit reply and tell me.</p>
-  </div>
+    <div class="letter" data-slot="body">
+      <p>When something goes wrong, whose voice do you hear first?</p>
+      <p>It's not always the one you say you believe. It's usually the one you've been listening to the most.</p>
+      <p>If you've been taking in the news, fear, and everyone else's opinions, that's what you'll hear. Before you know it, you're panicking, complaining, or doing things your own way.</p>
+      <p>But if you've been taking in God's Word day after day, you'll hear Him first. Instead of panicking, you'll stop and ask, "What is God saying about this?"</p>
+      <p>This is what God told Joshua just before he led Israel into the Promised Land:</p>
+      <p class="vs">"Keep this Book of the Law always on your lips; meditate on it day and night." <cite>Joshua 1:8</cite></p>
+      <p>So start today. Before you check your phone, open your Bible. Take in one verse and say it out loud. Meditate on it again tonight.</p>
+      <p>Hard days will come. When they do, what you hear first will depend on what you've been listening to.</p>
+      <p class="sign">Your brother,<br>Jimi</p>
+      <p class="ps">P.S. If God spoke to you through this, or you need prayer for anything today, just hit reply and tell me.</p>
+    </div>
 
-  <div class="cta">
-    <p>Get tomorrow's counsel at 5 a.m., free. Stop any time.</p>
-    <form data-signup novalidate>
-      <label class="sr" for="email-counsel">Email address</label>
-      <input id="email-counsel" type="email" name="email" inputmode="email" autocomplete="email" placeholder="Your email">
-      <input name="company" type="text" tabindex="-1" autocomplete="off" class="sr" aria-hidden="true">
-      <button class="btn" type="submit">Send it to me</button>
-    </form>
-    <p class="note" role="status" aria-live="polite"></p>
-  </div>
-</article>
+    <div class="signup">
+      <p class="intro">Encounter Christ's answer to your question. Daily, free.</p>
+      <form data-signup novalidate>
+        <label class="sr" for="email-counsel">Email address</label>
+        <input id="email-counsel" type="email" name="email" inputmode="email" autocomplete="email" placeholder="Your email">
+        <input name="company" type="text" tabindex="-1" autocomplete="off" class="sr" aria-hidden="true">
+        <button class="btn" type="submit">Send it to me</button>
+      </form>
+      <p class="note" role="status" aria-live="polite"></p>
+    </div>
+  </article>
+</main>
 
 <footer>
   <p>&copy; <span id="yr">2026</span> Brother Jimi, a servant of Jesus Christ</p>
