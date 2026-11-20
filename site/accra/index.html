@@ -77,8 +77,15 @@ p{margin:0}
 h2{margin:0;font:500 26px/1.2 var(--sans);letter-spacing:-.015em;text-wrap:balance}
 
 /* ---------- Hero ---------- */
-.hero{background:#0b0a09;color:#ece5d8}
+.hero{background:linear-gradient(180deg,#0b0a09 0%,#0b0a09 70%,#faf8f4 100%);color:#ece5d8;position:relative}
 .hero .wrap{padding-top:calc(48px + env(safe-area-inset-top));padding-bottom:40px}
+.hero h1{color:#ece5d8}
+.hero .with{color:#ece5d8}
+.hero .free{display:inline-block;margin-top:28px;padding:9px 14px;border-radius:999px;background:var(--wine);color:#ece5d8;font:700 12px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase}
+.hero .when{margin-top:28px}
+.hero .date{color:#ece5d8;font:500 26px/1.2 var(--sans);letter-spacing:-.015em}
+.hero .where{margin-top:8px;line-height:1.55;color:#ece5d8;opacity:.85}
+.hero .where .host{font-size:15px;opacity:.8}
 h1{margin:0;font:600 clamp(44px,12.5vw,72px)/.98 var(--sans);letter-spacing:-.035em;text-wrap:balance}
 .with{margin-top:12px;font:400 20px/1.3 var(--sans);opacity:.85}
 .free{display:inline-block;margin-top:28px;padding:9px 14px;border-radius:999px;background:var(--wine);color:#ece5d8;font:700 12px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase}
@@ -86,20 +93,20 @@ h1{margin:0;font:600 clamp(44px,12.5vw,72px)/.98 var(--sans);letter-spacing:-.03
 .date{font:500 26px/1.2 var(--sans);letter-spacing:-.015em}
 .where{margin-top:8px;line-height:1.55;opacity:.85}
 .where .host{font-size:15px;opacity:.8}
-.clock{margin-top:32px;padding-top:22px;border-top:1px solid rgba(236,229,216,.16)}
-.cdl{margin:0 0 14px;font:600 11px/1.3 var(--sans);letter-spacing:.16em;text-transform:uppercase;opacity:.7}
-.cd{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;font-variant-numeric:tabular-nums}
-.cd div{display:flex;flex-direction:column;gap:6px}
-.cd b{font:500 34px/1 var(--sans);letter-spacing:-.02em}
-.cd span{font:600 11px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;opacity:.7}
-.state{margin-top:18px;font-weight:600}
 .map{display:inline-flex;align-items:flex-start;gap:6px;color:inherit;text-decoration:underline;text-underline-offset:4px;text-decoration-color:currentColor;text-decoration-thickness:1px}
 .map svg{width:16px;height:16px;flex:none;margin-top:4px;opacity:.75}
 .hero .map{text-decoration-color:rgba(236,229,216,.35)}
 .hours{margin-top:-12px;color:var(--ink-2)}
 .at{margin-top:-8px;font-size:17px;color:var(--ink-2)}
 .at .map{text-decoration-color:var(--line-2)}
+.state{margin-top:18px;font-weight:600}
 .state:empty{display:none}
+.clock{display:none}
+.cdl{margin:0 0 14px;font:600 11px/1.3 var(--sans);letter-spacing:.16em;text-transform:uppercase;opacity:.7}
+.cd{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;font-variant-numeric:tabular-nums}
+.cd div{display:flex;flex-direction:column;gap:6px}
+.cd b{font:500 34px/1 var(--sans);letter-spacing:-.02em}
+.cd span{font:600 11px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;opacity:.7}
 
 /* ---------- Sections ---------- */
 section{border-top:1px solid var(--line)}
@@ -216,6 +223,15 @@ footer .wrap{padding-top:28px;padding-bottom:calc(36px + env(safe-area-inset-bot
       <p class="hours" data-c="regHours">Daily, 10 a.m. to 4 p.m.</p>
       <p class="plain">Don&rsquo;t forget to bring your medical report and any medical aids you use.</p>
       <p class="promise">A divine encounter with God waits on those days and on <span data-c="dateShortPromise">11 December</span>, through His Servant, Brother Jimi.</p>
+      <div class="clock" data-clock style="margin-top:28px">
+        <p class="cdl" data-cdl>Registration opens in</p>
+        <div class="cd" role="timer" aria-live="off">
+          <div><b data-d>00</b><span>Days</span></div>
+          <div><b data-h>00</b><span>Hours</span></div>
+          <div><b data-m>00</b><span>Minutes</span></div>
+          <div><b data-s>00</b><span>Seconds</span></div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -267,7 +283,7 @@ footer .wrap{padding-top:28px;padding-bottom:calc(36px + env(safe-area-inset-bot
 
   <section aria-labelledby="bring-title" data-bring hidden>
     <div class="wrap stack">
-      <h2 id="bring-title">Don't come alone.</h2>
+      <h2 id="bring-title">Be an evangelist.</h2>
       <p class="plain">Help someone else encounter Jesus in the power of the Holy Spirit.</p>
       <div class="share">
         <a class="main" data-share="whatsapp" target="_blank" rel="noopener"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 19.5l1.2-3.6A7.8 7.8 0 1 1 8.4 18.5z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></i>WhatsApp</a>
