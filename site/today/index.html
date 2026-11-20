@@ -14,11 +14,38 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#ffffff">
+<meta name="theme-color" content="#faf8f4">
 <link rel="icon" href="/images/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
 <link rel="preload" href="/assets/fonts/albert-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/styles.css">
+<style>
+/* Warm counsel page theme */
+:root {
+  --counsel-bg: #faf8f4;
+  --counsel-text: #15120f;
+  --counsel-dim: #857d71;
+}
+html { background: var(--counsel-bg); }
+body { background: var(--counsel-bg); color: var(--counsel-text); }
+.wrap { background: var(--counsel-bg); }
+a { color: inherit; }
+/* Event banner styling */
+[data-event-banner] {
+  background: #8b2332;
+  color: #faf8f4;
+  padding: 12px 20px;
+  border-radius: 4px;
+  margin: 20px 0;
+  font-size: 14px;
+}
+[data-event-banner] a { color: #faf8f4; text-decoration: underline; }
+/* Updated dock styling */
+.dk-link { color: var(--counsel-dim); }
+.dk-link:hover, .dk-link.on { color: var(--counsel-text); }
+.dk-footer { display: none; }
+@media (min-width: 720px) { .dk-footer { display: inline; } }
+</style>
 </head>
 <body>
 
@@ -31,6 +58,10 @@
 
 <main>
 <div class="wrap">
+    <!-- Smart event banner: only shows within 30 days of event -->
+    <div data-event-banner hidden>
+      <strong>Accra Encounters Christ is coming Dec 11.</strong> <a href="/accra">Save your place →</a>
+    </div>
     <div class="day open">
       <header class="cq-head">
         <p class="when"><span class="cq-topic" data-slot="topic" data-topic="hearing-gods-voice">Hearing God’s voice</span><i aria-hidden="true"> · </i><span id="today-date" data-slot="date">6 October 2026</span></p>
@@ -89,12 +120,15 @@
   </section>
 </main>
 
-<!-- The dock: one floating glass bar for moving around. Jimi's face is Today (his morning video when there is one). -->
+<!-- Navigation: unified across all pages -->
 <nav class="dock" aria-label="Main" data-dock>
-  <a class="dk-face on" href="/today" data-today-face><img src="/images/jimi-avatar.jpg" alt="" width="34" height="34"><span>Today</span></a>
-  <a class="dk-link dk-home" href="/">Home</a>
-  <a class="dk-link" href="/start">Receive Jesus</a>
-  <a class="dk-cta" href="/#join">Start Day 1</a>
+  <a class="dk-link" href="/">Home</a>
+  <a class="dk-link on" href="/today">Today</a>
+  <a class="dk-link" href="/accra">Accra</a>
+  <a class="dk-link" href="/records">Records</a>
+  <a class="dk-link dk-footer" href="/beliefs">Beliefs</a>
+  <a class="dk-link dk-footer" href="/partner">Partner</a>
+  <a class="dk-link dk-footer" href="/privacy">Privacy</a>
 </nav>
 <dialog class="vid-d" id="today-sheet" aria-labelledby="vid-title">
   <button class="sheet-x vid-x" type="button" data-vid-close aria-label="Close the video">Close</button>
@@ -117,6 +151,17 @@
   </div>
 </footer>
 
+<script>
+// Smart event banner: show only within 30 days of Accra event
+(function(){
+  var eventDate = new Date('2026-12-11T00:00:00Z').getTime();
+  var now = Date.now();
+  var daysUntil = Math.floor((eventDate - now) / (1000 * 60 * 60 * 24));
+  if (daysUntil > 0 && daysUntil <= 30) {
+    document.querySelector('[data-event-banner]').hidden = false;
+  }
+})();
+</script>
 <script src="/assets/config.js"></script>
 <script src="/assets/site.js"></script>
 </body>
