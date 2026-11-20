@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Accra Encounters Christ · Brother Jimi</title>
-<meta name="description" content="A revival. Accra Encounters Christ, with Brother Jimi. Friday 11 December 2026, The Patmos Christian Retreat, Accra.">
+<meta name="description" content="Accra Encounters Christ, with Brother Jimi. Friday 11 December 2026.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Brother Jimi">
 <meta property="og:title" content="Accra Encounters Christ">
-<meta property="og:description" content="A revival, with Brother Jimi. Friday 11 December 2026, The Patmos Christian Retreat, Accra.">
+<meta property="og:description" content="With Brother Jimi. Friday 11 December 2026, The Patmos Christian Retreat, Accra.">
 <meta property="og:url" content="https://brotherjimi.com/accra">
 <meta property="og:image" content="https://brotherjimi.com/images/film/og-accra.jpg">
 <meta property="og:image:width" content="1200">
@@ -90,42 +90,42 @@ h2{margin:0;font:500 clamp(24px,6vw,36px)/1.2 var(--sans);letter-spacing:-.01em;
 .prose p:last-child{margin-bottom:0}
 
 /* Form */
-form{display:flex;flex-direction:column;gap:24px;margin-top:24px}
+form{display:flex;flex-direction:column;gap:28px;margin-top:28px}
 fieldset{border:0;margin:0;padding:0;min-width:0}
 legend{display:block;font:600 15px/1.3 var(--sans);margin:0 0 12px}
 .chips{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
-.chips input{position:absolute;opacity:0}
-.chips label{display:grid;place-items:center;height:48px;border:1px solid var(--line);border-radius:4px;background:#fff;font:500 16px/1 var(--sans);color:var(--dim);cursor:pointer;transition:background .15s,border .15s}
+.chips input{position:absolute;opacity:0;pointer-events:none}
+.chips label{display:grid;place-items:center;height:48px;border:1px solid var(--line);border-radius:4px;background:#fff;font:500 16px/1 var(--sans);font-variant-numeric:tabular-nums;color:var(--dim);cursor:pointer;transition:background .15s,border .15s,color .15s}
 .chips label:hover{border-color:var(--ink)}
 .chips input:checked+label{background:var(--wine);border-color:var(--wine);color:#fff}
-.ends{display:flex;justify-content:space-between;margin-top:8px;font:500 13px/1 var(--sans);color:var(--dim)}
-input[type=text],select{width:100%;height:50px;border:1px solid var(--line);border-radius:4px;background:#fff;color:var(--ink);font:400 16px var(--sans);padding:0 14px}
+.ends{display:flex;justify-content:space-between;margin-top:10px;font:500 13px/1 var(--sans);color:var(--dim)}
+input[type=text],select{width:100%;height:54px;border:1px solid var(--line);border-radius:4px;background:#fff;color:var(--ink);font:400 16px var(--sans);padding:0 16px}
 input[type=text]::placeholder{color:var(--dim)}
 input[type=text]:focus,select:focus{outline:none;border-color:var(--ink)}
-select{appearance:none;-webkit-appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--dim) 50%),linear-gradient(135deg,var(--dim) 50%,transparent 50%);background-position:calc(100% - 18px) 22px,calc(100% - 14px) 22px;background-size:4px 4px;background-repeat:no-repeat;padding-right:36px}
-.err{color:#a3352a;font-size:14px;margin-top:6px}
+select{appearance:none;-webkit-appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--dim) 50%),linear-gradient(135deg,var(--dim) 50%,transparent 50%);background-position:calc(100% - 22px) 24px,calc(100% - 17px) 24px;background-size:5px 5px;background-repeat:no-repeat;padding-right:36px}
+.err{color:#a3352a;font-size:14px;margin-top:8px}
 .err:empty{display:none}
-.btn{width:100%;height:50px;border:0;border-radius:4px;background:var(--wine);color:#fff;font:600 15px/1 var(--sans);letter-spacing:.01em;cursor:pointer}
+.btn{display:flex;align-items:center;justify-content:center;width:100%;height:56px;border:0;border-radius:4px;background:var(--wine);color:#fff;font:600 16px/1 var(--sans);letter-spacing:.01em;cursor:pointer}
 .btn:hover{background:var(--wine-hi)}
-.helper{margin-top:-16px;font-size:14px;color:var(--dim);text-align:center}
+.helper{margin-top:-16px;font-size:15px;color:var(--dim);text-align:center}
 
 /* Steps */
 [data-step]{display:none}
 [data-step]:not([hidden]){display:block}
 
 /* Share */
-.share{display:grid;grid-template-columns:repeat(4,1fr);gap:16px 8px;margin-top:28px}
+.share{display:grid;grid-template-columns:repeat(4,1fr);gap:20px 8px;margin-top:12px}
 .share a,.share button{display:flex;flex-direction:column;align-items:center;gap:8px;background:none;border:0;padding:0;color:var(--dim);font:500 12px/1.2 var(--sans);text-decoration:none;cursor:pointer}
-.share i{display:grid;place-items:center;width:52px;height:52px;border-radius:50%;background:#fff;border:1px solid var(--line);color:var(--ink);transition:.15s}
+.share i{display:grid;place-items:center;width:56px;height:56px;border-radius:50%;background:#fff;border:1px solid var(--line);color:var(--ink);transition:.15s}
 .share a:hover i,.share button:hover i{border-color:var(--dim)}
-.share svg{width:20px;height:20px}
-.copied{min-height:1.4em;font-size:14px;color:var(--dim)}
+.share svg{width:22px;height:22px}
+.copied{min-height:1.4em;font-size:14px;color:var(--dim);text-align:center}
 
 /* Footer */
 footer{border-top:1px solid var(--line)}
-footer .wrap{padding-top:32px;padding-bottom:calc(32px + env(safe-area-inset-bottom));font-size:14px;color:var(--dim)}
+footer .wrap{padding-top:28px;padding-bottom:calc(36px + env(safe-area-inset-bottom));font-size:14px;color:var(--dim)}
 
-@media (min-width:640px){
+@media (min-width:720px){
   :root{--gut:32px}
   .chips{grid-template-columns:repeat(10,1fr)}
   .share{grid-template-columns:repeat(6,1fr)}
@@ -136,21 +136,16 @@ footer .wrap{padding-top:32px;padding-bottom:calc(32px + env(safe-area-inset-bot
 <body>
 
 <main>
-  <!-- HERO: Clear, tight positioning -->
   <div class="hero">
     <div class="wrap">
       <h1 data-c="title">Accra Encounters Christ</h1>
       <p class="with" data-c="withLine">with Brother Jimi</p>
-
       <div class="when">
         <p class="label">Friday</p>
         <p class="date">11 December 2026</p>
       </div>
-
       <p class="venue"><span data-c="venue">The Patmos Christian Retreat, Accra</span></p>
       <p class="free">Entry is FREE</p>
-
-      <!-- Countdown -->
       <div class="clock" data-clock>
         <div class="cd" role="timer" aria-live="off" aria-label="Time until the gathering">
           <div><b data-d>00</b><span>Days</span></div>
@@ -163,61 +158,59 @@ footer .wrap{padding-top:32px;padding-bottom:calc(32px + env(safe-area-inset-bot
     </div>
   </div>
 
-  <!-- JIMi'S INVITATION -->
-  <section aria-labelledby="invitation-title">
+  <section aria-labelledby="pl-title" data-when="before during">
     <div class="wrap">
-      <h2 id="invitation-title">What to expect</h2>
       <div class="prose">
-        <p>I and God's Own team will be in Accra to encounter Christ together—a divine gathering for those who seek Him.</p>
-        <p><strong>The Prayer Line Registration:</strong> <span data-c="regLabel">1 to 7 December 2026</span>. If you are sick or need deliverance, bring your medical report and register. During these days and on December 11, through His Servant, you will encounter that which you have been seeking from Jesus Christ.</p>
-        <p>Your brother,<br>Jimi</p>
+        <p>I and God&rsquo;s Own team will be in Accra to fulfil the will of God.</p>
+        <p><strong>For those who are sick, and anyone who needs deliverance:</strong></p>
+        <p class="label" id="pl-title">The Prayer Line Registration holds</p>
+        <p class="label" style="font-size:24px;font-weight:500;text-transform:none;letter-spacing:0;color:var(--ink);margin-top:4px" data-c="regLabel">1 to 7 December 2026</p>
+        <p style="margin-top:16px">Don&rsquo;t forget to bring your medical report along if you have one.</p>
+        <p style="margin-top:16px"><strong>A divine encounter with God waits on those days and on <span data-c="dateShortPromise">11 December</span>, through His Servant, Brother Jimi.</strong></p>
+        <p style="margin-top:20px;font-weight:600">Your brother,<br>Jimi</p>
       </div>
     </div>
   </section>
 
-  <!-- REGISTRATION FORM -->
   <section aria-labelledby="form-title" data-when="before during">
     <div class="wrap">
       <div data-step="form">
-        <h2 id="form-title">Save your place</h2>
+        <h2 id="form-title">Coming for the Prayer Line Registration?</h2>
         <form novalidate data-form>
           <fieldset>
             <legend>How sure are you?</legend>
             <div class="chips" data-chips></div>
-            <div class="ends"><span>Not sure</span><span>Absolutely</span></div>
+            <div class="ends" aria-hidden="true"><span>I think so</span><span>I am.</span></div>
             <p class="err" data-err="sure"></p>
           </fieldset>
           <div>
-            <label for="f-name" style="font:600 15px var(--sans);display:block;margin-bottom:8px">Your name</label>
-            <input type="text" id="f-name" name="name" autocomplete="name" placeholder="Your name">
+            <label class="l" for="f-name" style="font:600 15px var(--sans);display:block;margin-bottom:8px">Your name</label>
+            <input type="text" id="f-name" name="name" autocomplete="name" placeholder="As you want it called out">
             <p class="err" data-err="name"></p>
           </div>
           <div>
-            <label for="f-region" style="font:600 15px var(--sans);display:block;margin-bottom:8px">Your region</label>
+            <label class="l" for="f-region" style="font:600 15px var(--sans);display:block;margin-bottom:8px">Your region</label>
             <select id="f-region" name="region"><option value="">Choose your region</option></select>
             <p class="err" data-err="region"></p>
           </div>
+          <p style="color:var(--dim);font-size:15px;line-height:1.6">Your name goes ahead of you. It skips the queue at the Prayer Line Registration ground.</p>
           <button class="btn" type="submit">Save My Place</button>
-          <p class="helper">Opens WhatsApp. Press send to confirm.</p>
+          <p class="helper">Opens your WhatsApp with everything typed. Just press send.</p>
         </form>
       </div>
 
       <div data-step="sent" hidden>
-        <h2 tabindex="-1" data-focus>One more step</h2>
-        <p class="prose" style="margin-top:16px">Press send in WhatsApp. Your message confirms your place.</p>
+        <h2 tabindex="-1" data-focus>One last step.</h2>
+        <p class="prose">Press send in WhatsApp. Your message is your place in the line.</p>
         <button class="btn" style="margin-top:20px" type="button" data-confirm>I pressed send</button>
-        <button style="align-self:flex-start;background:none;border:0;padding:12px 0;color:var(--dim);font:500 15px var(--sans);text-decoration:underline;text-underline-offset:4px;cursor:pointer;margin-top:12px" type="button" data-retry>WhatsApp didn't open? Try again</button>
+        <button style="align-self:flex-start;background:none;border:0;padding:12px 0;color:var(--dim);font:500 15px var(--sans);text-decoration:underline;text-underline-offset:4px;cursor:pointer;margin-top:12px" type="button" data-retry>WhatsApp did not open? Try again</button>
       </div>
 
       <div data-step="saved" hidden>
-        <h2 tabindex="-1" data-focus>Your place is saved</h2>
-        <p class="prose" style="margin-top:16px">Come to <span data-c="ground">the Prayer Line Registration ground</span> during <span data-c="regLabel">1 to 7 December 2026</span> and give your name. Bring your medical report if you have one.</p>
-        <div style="margin-top:40px;padding:40px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
-          <p style="color:var(--dim);font-size:15px;margin:0 0 12px">While you wait for Accra:</p>
-          <p style="font-size:18px;line-height:1.6;margin:0"><a href="/counsel" style="color:var(--wine);text-decoration:none;font-weight:600">Daily counsel is Christ talking to you.</a></p>
-        </div>
-        <div style="margin-top:36px;padding-top:36px;border-top:1px solid var(--line)">
-          <p style="font:600 15px var(--sans);margin-bottom:12px">Share this gathering</p>
+        <h2 tabindex="-1" data-focus>Your place is saved.</h2>
+        <p class="prose" style="margin-top:16px">Come to <span data-c="ground">the Prayer Line Registration ground</span> during <span data-c="regLabel">1 to 7 December 2026</span>, and give your name. Bring your medical report if you have one.</p>
+        <div style="margin-top:36px;padding:36px 0;border-top:1px solid var(--line)">
+          <p style="margin:0 0 20px;font:600 15px var(--sans)">Share this gathering</p>
           <div class="share">
             <a data-share="whatsapp" target="_blank" rel="noopener" aria-label="Share on WhatsApp"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 19.5l1.2-3.6A7.8 7.8 0 1 1 8.4 18.5z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></i>WhatsApp</a>
             <a data-share="facebook" target="_blank" rel="noopener" aria-label="Share on Facebook"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8.5h2V5h-2.4C11 5 10 6.6 10 8.8V10.5H8V14h2v6h3.5v-6H16l.5-3.5h-3V9.3c0-.5.3-.8.5-.8z" fill="currentColor"/></svg></i>Facebook</a>
@@ -232,6 +225,11 @@ footer .wrap{padding-top:32px;padding-bottom:calc(32px + env(safe-area-inset-bot
     </div>
   </section>
 
+  <section>
+    <div class="wrap">
+      <p style="color:var(--dim);font-size:15px;line-height:1.6">While you wait for Accra: <a href="/counsel" style="color:var(--wine);font-weight:600;text-decoration:none">Daily counsel is Christ talking to you.</a></p>
+    </div>
+  </section>
 </main>
 
 <footer>
