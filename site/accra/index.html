@@ -11,9 +11,6 @@
 <meta property="og:description" content="With Brother Jimi. Friday 11 December 2026, The Patmos Christian Retreat, Accra.">
 <meta property="og:url" content="https://brotherjimi.com/accra">
 <meta property="og:image" content="https://brotherjimi.com/images/film/og-accra.jpg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#faf8f4">
 <link rel="icon" href="/images/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
@@ -28,7 +25,6 @@ window.CITY = {
   dateShort:    "Fri Dec 11",
   venue:        "The Patmos Christian Retreat, Accra",
   host:         "Hosted by The Patmos Church, Accra",
-  hostName:     "The Patmos Church, Accra",
   regLabel:     "1 to 7 December 2026",
   dateShortPromise: "11 December",
   regOpens:     "2026-12-01T00:00:00Z",
@@ -49,82 +45,90 @@ window.CITY = {
 <style>
 @font-face{font-family:"Albert Sans";src:url(/assets/fonts/albert-sans-latin-wght-normal.woff2) format("woff2");font-weight:100 900;font-display:swap}
 @view-transition{navigation:auto}
-:root{--paper:#faf8f4;--ink:#15120f;--dim:#857d71;--line:#e4dfd6;--wine:#8b2332;--wine-hi:#a1293c;--sans:"Albert Sans",system-ui,-apple-system,"Segoe UI",sans-serif;--gut:20px}
+:root{--bg:#faf8f4;--text:#15120f;--dim:#857d71;--line:#e4dfd6;--wine:#8b2332;--wine-hi:#a1293c;--sans:"Albert Sans"}
 *{box-sizing:border-box}
-html,body{margin:0;background:var(--paper);color:var(--ink);-webkit-text-size-adjust:100%}
-body{font:400 17px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
+html,body{margin:0;background:var(--bg);color:var(--text);-webkit-text-size-adjust:100%}
+body{font:400 17px/1.6 var(--sans),system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
 a{color:inherit}
-:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
-p{margin:0}
-.wrap{max-width:600px;margin:0 auto;padding:0 var(--gut)}
+:focus-visible{outline:2px solid var(--text);outline-offset:3px}
+p,h1,h2{margin:0}
+
+main{max-width:640px;margin:auto;padding:80px 20px 32px}
 
 /* Hero */
-.hero{padding:calc(50px + env(safe-area-inset-top)) var(--gut) 50px}
-h1{margin:0;font:500 clamp(42px,10vw,60px)/1.1 var(--sans);letter-spacing:-.02em}
-.with{margin-top:8px;font:500 18px/1.4 var(--sans);color:var(--dim)}
-
-.when{margin-top:36px;padding-top:16px;border-top:1px solid var(--line)}
-.label{font:600 11px/1.3 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--dim);margin:0}
-.date-val{margin-top:3px;font:500 24px/1.2 var(--sans);letter-spacing:-.01em;margin:0}
-.venue{margin-top:12px;font-size:16px;color:var(--dim);margin:0}
-.free{margin-top:16px;font:600 16px/1.4 var(--sans);color:var(--wine);margin:0}
+.hero{text-align:center}
+h1{font:500 clamp(42px,10vw,60px)/1.1 var(--sans);letter-spacing:-.02em;margin-bottom:8px}
+.subtitle{font:500 18px/1.4 var(--sans);color:var(--dim);margin-bottom:28px}
+.date{font:500 16px/1.6 var(--sans);margin-bottom:4px}
+.venue{font:500 16px/1.6 var(--sans);margin-bottom:4px}
+.host{font:400 14px/1.6 var(--sans);color:var(--dim)}
+.entry{font:600 16px/1.6 var(--sans);color:var(--wine);margin-top:20px}
 
 /* Countdown */
-.clock{margin-top:32px;padding-top:16px;border-top:1px solid var(--line)}
-.cd{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;font-variant-numeric:tabular-nums;margin-top:12px}
-.cd div{text-align:center}
-.cd b{display:block;font:500 36px/1 var(--sans);letter-spacing:-.01em;margin-bottom:4px}
-.cd span{display:block;font:600 10px/1.2 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--dim)}
-.state{margin-top:12px;font-weight:500;font-size:15px}
+.clock{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;max-width:400px;margin:32px auto 0}
+.clock div{text-align:center}
+.clock b{display:block;font:500 36px/1.2 var(--sans);letter-spacing:-.01em;margin-bottom:4px}
+.clock span{display:block;font:600 10px/1.2 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--dim)}
 
-/* Sections */
-section{border-top:1px solid var(--line)}
-section .wrap{padding:40px var(--gut)}
-h2{margin:0;font:500 clamp(22px,6vw,32px)/1.2 var(--sans);letter-spacing:-.01em}
+/* Threshold */
+.threshold{width:36px;height:1px;background:var(--wine);margin:48px auto;opacity:.4}
+
+/* Prayer Line */
+.prayer{text-align:center;max-width:520px;margin:0 auto}
+.prayer p.intro{font:400 16px/1.6 var(--sans);color:var(--dim);margin-bottom:16px}
+.prayer h2{font:600 14px/1.3 var(--sans);letter-spacing:.18em;text-transform:uppercase;margin-bottom:4px;color:var(--text)}
+.prayer .dates{font:500 20px/1.4 var(--sans);letter-spacing:-.01em;margin-bottom:16px}
+.prayer .details{font:400 15px/1.6 var(--sans);color:var(--dim);margin-bottom:20px}
+.prayer .promise{font:500 16px/1.6 var(--sans);color:var(--text)}
 
 /* Form */
-form{display:flex;flex-direction:column;gap:20px;margin-top:20px}
-fieldset{border:0;margin:0;padding:0;min-width:0}
-legend{font:600 14px/1.3 var(--sans);margin:0 0 10px}
-.chips{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+form{max-width:560px;margin:auto;text-align:left}
+.question{font:500 18px/1.4 var(--sans);margin-bottom:20px}
+
+.chips{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
 .chips input{position:absolute;opacity:0;pointer-events:none}
-.chips label{display:grid;place-items:center;height:44px;border:1px solid var(--line);border-radius:4px;background:#fff;font:500 15px/1 var(--sans);color:var(--dim);cursor:pointer;transition:.15s}
-.chips label:hover{border-color:var(--ink)}
+.chips label{display:flex;align-items:center;justify-content:center;width:48px;height:48px;border:1px solid var(--line);border-radius:50%;background:#fff;font:500 15px/1 var(--sans);color:var(--dim);cursor:pointer;margin:0 auto;transition:.15s}
+.chips label:hover{border-color:var(--text)}
 .chips input:checked+label{background:var(--wine);border-color:var(--wine);color:#fff}
-.ends{display:flex;justify-content:space-between;margin-top:6px;font:500 12px/1 var(--sans);color:var(--dim)}
+.chips-labels{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:10px}
+.chips-labels span{font:500 12px/1 var(--sans);color:var(--dim);text-align:center}
+.chips-labels span:first-child{text-align:left}
+.chips-labels span:last-child{text-align:right}
 
-input[type=text],select{width:100%;height:48px;border:1px solid var(--line);border-radius:4px;background:#fff;color:var(--ink);font:400 15px var(--sans);padding:0 14px}
-input[type=text]::placeholder{color:var(--dim)}
-input[type=text]:focus,select:focus{outline:none;border-color:var(--ink)}
-select{appearance:none;-webkit-appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--dim) 50%),linear-gradient(135deg,var(--dim) 50%,transparent 50%);background-position:calc(100% - 18px) 22px,calc(100% - 14px) 22px;background-size:4px 4px;background-repeat:no-repeat;padding-right:30px}
-label.l{display:block;font:600 14px/1.3 var(--sans);margin:0 0 8px}
-.err{color:#a3352a;font-size:13px;margin-top:6px}
-.err:empty{display:none}
-.helper{font-size:13px;color:var(--dim);text-align:center}
+label.field{display:block;font:600 14px/1.3 var(--sans);margin:28px 0 8px}
+input,select{display:block;width:100%;height:48px;border:1px solid var(--line);border-radius:4px;background:#fff;color:var(--text);font:400 15px var(--sans);padding:0 14px}
+input:focus,select:focus{outline:none;border-color:var(--text)}
+select{appearance:none;-webkit-appearance:none;padding-right:30px;background-image:linear-gradient(45deg,transparent 50%,var(--dim) 50%),linear-gradient(135deg,var(--dim) 50%,transparent 50%);background-position:calc(100% - 14px) 22px,calc(100% - 10px) 22px;background-size:4px 4px;background-repeat:no-repeat}
 
-.btn{width:100%;height:48px;border:0;border-radius:4px;background:var(--wine);color:#fff;font:600 15px/1 var(--sans);letter-spacing:.01em;cursor:pointer;transition:.2s}
+.queue{font:400 14px/1.6 var(--sans);color:var(--dim);margin:20px 0}
+.btn{display:block;width:100%;height:50px;border:0;border-radius:4px;background:var(--wine);color:#fff;font:600 15px/1 var(--sans);letter-spacing:.01em;cursor:pointer;margin-top:20px}
 .btn:hover{background:var(--wine-hi)}
+.helper{font:400 13px/1.5 var(--sans);color:var(--dim);margin-top:10px}
 
 /* Steps */
 [data-step]{display:none}
 [data-step]:not([hidden]){display:block}
-h2 + p{margin-top:12px}
+
+.saved h2{font:500 24px/1.3 var(--sans);margin-bottom:16px}
+.saved-text{font:400 15px/1.6 var(--sans);color:var(--dim)}
 
 /* Share */
-.share{display:grid;grid-template-columns:repeat(4,1fr);gap:16px 8px;margin-top:16px}
-.share a,.share button{display:flex;flex-direction:column;align-items:center;gap:6px;background:none;border:0;padding:0;color:var(--dim);font:500 11px/1.2 var(--sans);text-decoration:none;cursor:pointer}
-.share i{display:grid;place-items:center;width:48px;height:48px;border-radius:50%;background:#fff;border:1px solid var(--line);color:var(--ink);transition:.15s}
-.share a:hover i,.share button:hover i{border-color:var(--dim)}
-.share svg{width:18px;height:18px}
-.copied{min-height:1.3em;font-size:12px;color:var(--dim);margin-top:8px}
+.share-block{margin-top:48px}
+.share-lead{font:400 15px/1.6 var(--sans);color:var(--dim);margin-bottom:24px}
+.shares{display:grid;grid-template-columns:repeat(3,1fr);gap:20px 12px}
+.share{display:flex;flex-direction:column;align-items:center;gap:8px;background:none;border:0;color:var(--text);font:500 12px/1.2 var(--sans);text-decoration:none;cursor:pointer;padding:0}
+.circle{display:flex;align-items:center;justify-content:center;width:50px;height:50px;border:1px solid var(--line);border-radius:50%}
+.circle svg{width:20px;height:20px;stroke:currentColor;stroke-width:1.5;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.copied{font:400 13px var(--sans);color:var(--dim);margin-top:12px}
 
-footer{border-top:1px solid var(--line);padding:28px var(--gut) calc(28px + env(safe-area-inset-bottom));text-align:center;font-size:13px;color:var(--dim)}
-footer p{margin:0}
+footer{text-align:center;font:400 12px/1.6 var(--sans);color:var(--dim);margin-top:72px;padding-top:48px;border-top:1px solid var(--line)}
 
 @media (min-width:640px){
-  :root{--gut:28px}
+  main{padding:100px 28px 32px}
+  .clock{gap:16px}
+  .threshold{margin:64px auto}
   .chips{grid-template-columns:repeat(10,1fr)}
-  .share{grid-template-columns:repeat(6,1fr)}
+  .shares{grid-template-columns:repeat(6,1fr)}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
@@ -132,99 +136,76 @@ footer p{margin:0}
 <body>
 
 <main>
-  <div class="hero">
-    <div class="wrap">
+  <section id="one">
+    <header class="hero">
       <h1 data-c="title">Accra Encounters Christ</h1>
-      <p class="with" data-c="withLine">with Brother Jimi</p>
-
-      <div class="when">
-        <p class="label">Friday</p>
-        <p class="date-val">11 December 2026</p>
-      </div>
+      <p class="subtitle" data-c="withLine">With Brother Jimi</p>
+      <p class="date">Friday</p>
+      <p class="date">11 December 2026</p>
       <p class="venue"><span data-c="venue">The Patmos Christian Retreat, Accra</span></p>
-      <p class="free">Entry is FREE</p>
+      <p class="host"><span data-c="host">Hosted by The Patmos Church, Accra</span></p>
+      <p class="entry">Entry is FREE</p>
 
-      <div class="clock" data-clock>
-        <div class="cd" role="timer" aria-live="off">
-          <div><b data-d>00</b><span>Days</span></div>
-          <div><b data-h>00</b><span>Hours</span></div>
-          <div><b data-m>00</b><span>Minutes</span></div>
-          <div><b data-s>00</b><span>Seconds</span></div>
-        </div>
-        <p class="state" data-state></p>
+      <div class="clock" role="timer" aria-label="Countdown" data-clock>
+        <div><b data-d>00</b><span>Days</span></div>
+        <div><b data-h>00</b><span>Hours</span></div>
+        <div><b data-m>00</b><span>Minutes</span></div>
+        <div><b data-s>00</b><span>Seconds</span></div>
       </div>
-    </div>
-  </div>
+      <p class="state" data-state style="margin-top:12px;font-weight:500"></p>
+    </header>
 
-  <section>
-    <div class="wrap">
-      <h2>Your path</h2>
-      <p style="margin:16px 0 0;color:var(--dim);font-size:15px;line-height:1.6">Save your place through this form. During <span data-c="regLabel">1 to 7 December 2026</span>, come to <span data-c="ground">the Prayer Line Registration ground</span> with your saved information. Bring your medical aids and doctors' reports if you have any. Then December 11 is Accra Encounters Christ.</p>
-    </div>
+    <div class="threshold" aria-hidden="true"></div>
+
+    <section class="prayer">
+      <p class="intro">For those who are sick, and anyone who needs deliverance,</p>
+      <h2>THE PRAYER LINE REGISTRATION HOLDS</h2>
+      <p class="dates"><span data-c="regLabel">1 to 7 December 2026</span></p>
+      <p class="details">Don't forget to bring your medical report along if you have one.</p>
+      <p class="promise">A divine encounter with God waits on those days and on <span data-c="dateShortPromise">11 December</span>, through His Servant, Brother Jimi.</p>
+    </section>
+
+    <div class="threshold" aria-hidden="true"></div>
+
+    <form id="coming" novalidate>
+      <h2 class="question" id="sure">Coming for the Prayer Line Registration?</h2>
+
+      <div class="chips" role="group" aria-labelledby="sure" data-chips></div>
+      <div class="chips-labels">
+        <span>I think so</span>
+        <span>I am.</span>
+      </div>
+
+      <label class="field" for="name">Your name</label>
+      <input id="name" name="name" autocomplete="name" type="text">
+
+      <label class="field" for="region">Your region</label>
+      <select id="region" name="region"><option value="">Select region</option></select>
+
+      <p class="queue">Your name goes ahead of you. It skips the queue at <span data-c="ground">the Prayer Line Registration ground</span>.</p>
+
+      <button class="btn" type="submit">Save My Place</button>
+      <p class="helper">Opens WhatsApp with everything typed. Just press send.</p>
+    </form>
   </section>
 
-  <section>
-    <div class="wrap">
-      <div data-step="form">
-        <h2>Save Your Place</h2>
-        <form novalidate data-form>
-          <fieldset>
-            <legend>How sure are you?</legend>
-            <div class="chips" data-chips></div>
-            <div class="ends"><span>Not sure</span><span>Absolutely</span></div>
-            <p class="err" data-err="sure"></p>
-          </fieldset>
-          <div>
-            <label class="l" for="f-name">Your name</label>
-            <input type="text" id="f-name" name="name" autocomplete="name" placeholder="Your name">
-            <p class="err" data-err="name"></p>
-          </div>
-          <div>
-            <label class="l" for="f-region">Your region</label>
-            <select id="f-region" name="region"><option value="">Choose region</option></select>
-            <p class="err" data-err="region"></p>
-          </div>
-          <button class="btn" type="submit">Save My Place</button>
-          <p class="helper">Opens WhatsApp. Press send to confirm.</p>
-        </form>
-      </div>
-
-      <div data-step="sent" hidden>
-        <h2 tabindex="-1" data-focus>One more step</h2>
-        <p style="color:var(--dim);font-size:15px;line-height:1.6;margin-top:12px">Press send in WhatsApp. Your message confirms your place.</p>
-        <button class="btn" style="margin-top:16px" type="button" data-confirm>I pressed send</button>
-        <button style="align-self:flex-start;background:none;border:0;padding:8px 0;color:var(--dim);font:500 14px var(--sans);text-decoration:underline;text-underline-offset:3px;cursor:pointer;margin-top:10px" type="button" data-retry>WhatsApp didn't open? Try again</button>
-      </div>
-
-      <div data-step="saved" hidden>
-        <h2 tabindex="-1" data-focus>Your place is saved</h2>
-        <p style="color:var(--dim);font-size:15px;line-height:1.6;margin-top:12px">Come to <span data-c="ground">the Prayer Line Registration ground</span> during <span data-c="regLabel">1 to 7 December 2026</span> and give your name.</p>
-
-        <div style="margin-top:28px;padding-top:28px;border-top:1px solid var(--line)">
-          <p style="font:600 14px var(--sans);margin:0 0 12px">Share this</p>
-          <div class="share">
-            <a data-share="whatsapp" target="_blank" rel="noopener" aria-label="WhatsApp"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 19.5l1.2-3.6A7.8 7.8 0 1 1 8.4 18.5z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></i>WhatsApp</a>
-            <a data-share="facebook" target="_blank" rel="noopener" aria-label="Facebook"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8.5h2V5h-2.4C11 5 10 6.6 10 8.8V10.5H8V14h2v6h3.5v-6H16l.5-3.5h-3V9.3c0-.5.3-.8.5-.8z" fill="currentColor"/></svg></i>Facebook</a>
-            <a data-share="telegram" target="_blank" rel="noopener" aria-label="Telegram"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 4.5L3.5 11.3l5.3 1.9m11.7-8.7l-3 14.5-6.2-4.6m9.2-9.9L8.8 13.2l1.5 5.3 2-3.4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/></svg></i>Telegram</a>
-            <a data-share="x" target="_blank" rel="noopener" aria-label="X"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></i>X</a>
-            <a data-share="email" aria-label="Email"><i><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="6" width="17" height="12" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M4 7l8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></i>Email</a>
-            <button type="button" data-copy aria-label="Copy"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></i>Copy</button>
-          </div>
-          <p class="copied" data-copied></p>
-        </div>
-      </div>
+  <section id="two" hidden>
+    <div class="saved">
+      <h2 tabindex="-1" data-focus>Your place is saved.</h2>
+      <p class="saved-text">Go to <span data-c="ground">the Prayer Line Registration ground</span> between <span data-c="regLabel">1 to 7 December 2026</span> to be there on <span data-c="dateShortPromise">11 December</span>.</p>
     </div>
-  </section>
 
-  <section>
-    <div class="wrap">
-      <p style="color:var(--dim);font-size:14px;line-height:1.6">While you wait: <a href="/counsel" style="color:var(--wine);font-weight:600;text-decoration:none">Daily counsel is Christ talking to you.</a></p>
+    <div class="share-block">
+      <p class="share-lead">Don't come alone. Help someone else encounter Jesus.</p>
+      <nav class="shares" id="shares" aria-label="Share"></nav>
     </div>
+
+    <div class="copied" data-copied></div>
   </section>
 </main>
 
 <footer>
-  <p>&copy; 2026 Brother Jimi, a servant of Jesus Christ</p>
+  <p>Brother Jimi is a servant of God, calling people out of darkness into the light of Jesus Christ.</p>
 </footer>
 
 <script src="/assets/config.js"></script>
