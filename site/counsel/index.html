@@ -3,181 +3,121 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Today’s Counsel · Brother Jimi</title>
-<meta name="description" content="Today’s counsel from Scripture, shared by Brother Jimi.">
+<title>Counsel · Brother Jimi</title>
+<meta name="description" content="Daily counsel from Scripture, shared by Brother Jimi.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Brother Jimi">
-<meta property="og:title" content="Today’s Counsel">
-<meta property="og:description" content="Today’s counsel from Scripture, shared by Brother Jimi.">
+<meta property="og:title" content="Counsel">
+<meta property="og:description" content="Daily counsel from Scripture, shared by Brother Jimi.">
 <meta property="og:url" content="https://brotherjimi.com/counsel">
 <meta property="og:image" content="https://brotherjimi.com/images/og.jpg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#faf8f4">
 <link rel="icon" href="/images/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
 <link rel="preload" href="/assets/fonts/albert-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/styles.css">
 <style>
-/* Warm counsel page theme */
-:root {
-  --counsel-bg: #faf8f4;
-  --counsel-text: #15120f;
-  --counsel-dim: #857d71;
+@font-face{font-family:"Albert Sans";src:url(/assets/fonts/albert-sans-latin-wght-normal.woff2) format("woff2");font-weight:100 900;font-display:swap}
+:root{--bg:#faf8f4;--text:#15120f;--dim:#857d71;--line:#e4dfd6;--wine:#8b2332;--wine-hi:#a1293c;--gut:20px}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--text);-webkit-text-size-adjust:100%}
+body{font:400 18px/1.7 "Albert Sans",system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--text);outline-offset:3px}
+p{margin:0}
+.wrap{max-width:34em;margin:0 auto;padding:0 var(--gut)}
+.date{font:600 11px/1.3 "Albert Sans";letter-spacing:.24em;text-transform:uppercase;color:var(--dim);margin:60px var(--gut) 0}
+h1{margin:12px var(--gut) 0;font:300 clamp(32px,8vw,56px)/1.04 "Albert Sans";letter-spacing:-.02em}
+.letter{margin:40px var(--gut) 0;line-height:1.75;color:var(--text);max-width:34em}
+.letter p{margin-bottom:16px}
+.letter p.vs{font:500 17px/1.6 "Albert Sans";color:var(--dim);margin-left:20px;margin-bottom:16px}
+.letter p.vs cite{font:400 14px/1 "Albert Sans";color:var(--dim)}
+.letter p.sign{margin-top:24px;font-weight:600;margin-bottom:0}
+.letter p.ps{font:500 16px/1.6 "Albert Sans";color:var(--dim);margin-top:16px}
+.cta{margin:48px var(--gut);display:flex;flex-direction:column;gap:14px}
+.cta p{color:var(--dim);font-size:15px;line-height:1.6;margin-bottom:12px}
+form{display:flex;gap:8px;align-items:flex-end}
+input[type="email"]{flex:1;height:50px;border:1px solid var(--line);border-radius:4px;background:#fff;color:var(--text);font:400 15px "Albert Sans";padding:0 14px}
+input[type="email"]:focus{outline:none;border-color:var(--text)}
+.btn{height:50px;padding:0 24px;border:0;border-radius:4px;background:var(--wine);color:#fff;font:600 15px "Albert Sans";letter-spacing:.01em;cursor:pointer;white-space:nowrap;transition:.15s}
+.btn:hover{background:var(--wine-hi)}
+.note{font-size:13px;color:var(--dim);margin-top:8px}
+footer{border-top:1px solid var(--line);padding:40px var(--gut) calc(40px + env(safe-area-inset-bottom));text-align:center;font-size:13px;color:var(--dim)}
+footer nav{display:flex;gap:16px;justify-content:center;margin-top:12px}
+footer nav a{text-decoration:none;color:var(--dim)}
+footer nav a:hover{color:var(--text)}
+@media (max-width:480px){
+  .date{margin:40px 16px 0}
+  h1{margin:12px 16px 0;font-size:clamp(28px,8vw,48px)}
+  .letter{margin:32px 16px 0}
+  .cta{margin:32px 16px}
+  form{flex-direction:column;align-items:stretch}
+  input[type="email"],.btn{width:100%}
+  .btn{text-align:center}
 }
-html { background: var(--counsel-bg); }
-body { background: var(--counsel-bg); color: var(--counsel-text); }
-.wrap { background: var(--counsel-bg); }
-a { color: inherit; }
-/* Event banner styling */
-[data-event-banner] {
-  background: #8b2332;
-  color: #faf8f4;
-  padding: 12px 20px;
-  border-radius: 4px;
-  margin: 20px 0;
-  font-size: 14px;
-}
-[data-event-banner] a { color: #faf8f4; text-decoration: underline; }
-/* Updated dock styling */
-.dk-link { color: var(--counsel-dim); }
-.dk-link:hover, .dk-link.on { color: var(--counsel-text); }
-.dk-footer { display: none; }
-
-/* Mobile optimizations (390px) */
-@media (max-width: 480px) {
-  .wrap { max-width: 100%; padding-left: 16px; padding-right: 16px; }
-  .cq-head { margin: 12px 0; }
-  .cq-head h1 { font-size: clamp(24px, 7vw, 32px); line-height: 1.2; }
-  .when { font-size: 13px; }
-  .cq-share { margin: 20px 0; }
-  .sr-icons { gap: 4px 0; }
-  .ic { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; }
-  .ic svg { width: 18px; height: 18px; }
-  .text { font-size: 15px; line-height: 1.6; }
-  .text p { margin-bottom: 12px; }
-  .signup { gap: 12px; }
-  input[type="email"] { height: 48px; font-size: 16px; padding: 0 12px; }
-  .btn { height: 48px; font-size: 15px; }
-}
-
-@media (min-width: 720px) { .dk-footer { display: inline; } }
 </style>
 </head>
 <body>
 
-<header class="nav">
-  <div class="wrap">
-    <a class="brand" href="/"><img src="/images/jimi-avatar.jpg" alt="" width="28" height="28">Brother Jimi</a>
-    <a class="txt" href="/counsel">Today</a>
-  </div>
-</header>
+<article>
+  <p class="date" data-slot="date">6 October 2026</p>
+  <h1 data-slot="question">Whose voice do I hear first?</h1>
 
-<main>
-<div class="wrap">
-    <!-- Smart event banner: only shows within 30 days of event -->
-    <div data-event-banner hidden>
-      <strong>Accra Encounters Christ is coming Dec 11.</strong> <a href="/accra">Save your place →</a>
-    </div>
-    <div class="day open">
-      <header class="cq-head">
-        <p class="when"><span class="cq-topic" data-slot="topic" data-topic="hearing-gods-voice">Hearing God’s voice</span><i aria-hidden="true"> · </i><span id="today-date" data-slot="date">6 October 2026</span></p>
-        <h1 class="cq" data-slot="question">Whose voice do I hear first?</h1>
-      </header>
-      <!-- Today's recording: Jimi's video (upright, like a Status), shown only when today.json has one. -->
-      <figure class="watch" data-watch hidden>
-        <div class="w-frame"><video playsinline preload="none"></video><button class="w-play" type="button" aria-label="Watch Jimi"></button></div>
-      </figure>
-      <div class="cq-share"><div class="srow sr-icons" role="group" aria-label="Share"><div class="sr-list"><button class="ic ic-wa" type="button" data-wa-choose aria-expanded="false" aria-label="Share on WhatsApp"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2s-1 .3-3.4-.7c-2.9-1.2-4.7-4.1-4.8-4.3-.1-.2-1.2-1.6-1.2-3s.8-2.2 1-2.5c.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.7-.1l1-1.2c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.5.4.1.1.1.7-.1 1.3Z"/></svg></button><a class="ic" href="https://www.facebook.com/sharer/sharer.php?u=https%3A//brotherjimi.com/counsel%3Fref%3Dshare" target="_blank" rel="noopener" aria-label="Share on Facebook"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M14 8.5V6.8c0-.8.5-1 .9-1H17V2.1L14.1 2C10.9 2 10.2 4.4 10.2 6v2.5H8v3.8h2.2V22H14v-9.7h2.8l.4-3.8H14Z"/></svg></a><a class="ic sr-b" href="https://twitter.com/intent/tweet?text=A%20letter%20of%20counsel%20from%20the%20Bible%2C%20every%20morning%2C%20from%20Brother%20Jimi.%20Start%20your%2090%20mornings%3A&amp;url=https%3A//brotherjimi.com/counsel%3Fref%3Dshare" target="_blank" rel="noopener" aria-label="Share on X"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M17.8 3h3.1l-6.8 7.7L22 21h-6.2l-4.9-6.4L5.3 21H2.2l7.2-8.3L1.8 3h6.4l4.4 5.8L17.8 3Zm-1.1 16.2h1.7L7.4 4.7H5.6l11.1 14.5Z"/></svg></a><a class="ic sr-b" href="https://t.me/share/url?url=https%3A//brotherjimi.com/counsel%3Fref%3Dshare&amp;text=A%20letter%20of%20counsel%20from%20the%20Bible%2C%20every%20morning%2C%20from%20Brother%20Jimi.%20Start%20your%2090%20mornings%3A" target="_blank" rel="noopener" aria-label="Share on Telegram"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M21.5 3.6 2.9 10.8c-1.3.5-1.2 1.2-.2 1.5l4.8 1.5 1.8 5.6c.2.6.4.8.8.8.4 0 .6-.2.9-.4l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8l3.1-14.7c.3-1.3-.5-1.9-1.4-1.5ZM9.6 13.6l8.6-5.4c.4-.3.8-.1.5.2l-7.3 6.6-.3 3.2-1.5-4.6Z"/></svg></a><button class="ic" type="button" data-sr-copy="https://brotherjimi.com/counsel?ref=share" aria-label="Copy link"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1 1M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1-1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button><button class="ic" type="button" data-sr-more data-text="A letter of counsel from the Bible, every morning, from Brother Jimi. Start your 90 mornings:" data-url="https://brotherjimi.com/counsel?ref=share" aria-label="More ways to share"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M12 3v12M7.5 7.5 12 3l4.5 4.5M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div></div><div class="wa-choose" hidden><a class="wc-o" href="https://wa.me/?text=A%20letter%20of%20counsel%20from%20the%20Bible%2C%20every%20morning%2C%20from%20Brother%20Jimi.%20Start%20your%2090%20mornings%3A%20https%3A//brotherjimi.com/counsel%3Fref%3Dshare" target="_blank" rel="noopener"><b>Send to a chat</b><span>Pick a person or group</span></a><button class="wc-o" type="button" data-sr-vid="" hidden><b>Post today’s video to your Status</b><span>Jimi’s short message</span></button><button class="wc-o" type="button" data-pass-img="" hidden><b>Post today’s card to your Status</b><span>Today’s line, as a picture</span></button></div></div>
-      
-      <!-- Filled daily from Notion (Track = Today, Publish date = today). Only the data-slot contents change. -->
-      <article class="email tease" aria-label="Today’s letter from Brother Jimi">
-        <h2 class="em-subj" data-slot="subject">The voice you’ll hear first</h2>
-        <div class="em-from">
-          <img src="/images/jimi-avatar.jpg" alt="" width="40" height="40">
-          <p><b>Brother Jimi</b> <span class="em-addr">&lt;jimi@brotherjimi.com&gt;</span><span class="em-to">to me</span></p>
-          <time class="em-date" data-copy-date></time>
-        </div>
-        <div class="listen" data-listen hidden><button class="ls-btn" type="button" aria-label="Listen to Jimi"></button><div class="ls-txt"><b>Listen to Jimi</b><span data-ls-time>Voice note</span></div><div class="ls-bar"><i></i></div><audio preload="none"></audio></div>
-        <div class="text em-body" data-slot="body">
-        <p>When something goes wrong, whose voice do you hear first?</p>
-        <p>It’s not always the one you say you believe. It’s usually the one you’ve been listening to the most.</p>
-        <p>If you’ve been taking in the news, fear, and everyone else’s opinions, that’s what you’ll hear. Before you know it, you’re panicking, complaining, or doing things your own way.</p>
-        <p>But if you’ve been taking in God’s Word day after day, you’ll hear Him first. Instead of panicking, you’ll stop and ask, “What is God saying about this?”</p>
-        <p>This is what God told Joshua just before he led Israel into the Promised Land:</p>
-        <p class="vs">“Keep this Book of the Law always on your lips; meditate on it day and night.” <cite>Joshua 1:8</cite></p>
-        <p>So start today. Before you check your phone, open your Bible. Take in one verse and say it out loud. Meditate on it again tonight.</p>
-        <p>Hard days will come. When they do, what you hear first will depend on what you’ve been listening to.</p>
-        <p class="sign">Your brother,<br>Jimi</p>
-        <p class="ps">P.S. If God spoke to you through this, or you need prayer for anything today, just hit reply and tell me.</p>
-      </div>
-        <div class="tease-cta">
-          <p class="tease-h">I’ll send you the rest.</p>
-          <p class="tease-sub">Then a letter like this every morning for 90 days.</p>
-          <form class="signup" data-signup novalidate>
-            <label class="sr" for="email-letter">Email address</label>
-            <input id="email-letter" name="email" type="email" inputmode="email" autocomplete="email" placeholder="Your email">
-            <input id="hp-letter" name="company" type="text" tabindex="-1" autocomplete="off" class="sr" aria-hidden="true">
-            <button class="btn" type="submit">Send it to me</button>
-          </form>
-          <p class="fine">It’s free. You can stop anytime.</p>
-          <p class="note" role="status" aria-live="polite"></p>
-        </div>
-      </article>
-    </div>
+  <div class="letter" data-slot="body">
+    <p>When something goes wrong, whose voice do you hear first?</p>
+    <p>It's not always the one you say you believe. It's usually the one you've been listening to the most.</p>
+    <p>If you've been taking in the news, fear, and everyone else's opinions, that's what you'll hear. Before you know it, you're panicking, complaining, or doing things your own way.</p>
+    <p>But if you've been taking in God's Word day after day, you'll hear Him first. Instead of panicking, you'll stop and ask, "What is God saying about this?"</p>
+    <p>This is what God told Joshua just before he led Israel into the Promised Land:</p>
+    <p class="vs">"Keep this Book of the Law always on your lips; meditate on it day and night." <cite>Joshua 1:8</cite></p>
+    <p>So start today. Before you check your phone, open your Bible. Take in one verse and say it out loud. Meditate on it again tonight.</p>
+    <p>Hard days will come. When they do, what you hear first will depend on what you've been listening to.</p>
+    <p class="sign">Your brother,<br>Jimi</p>
+    <p class="ps">P.S. If God spoke to you through this, or you need prayer for anything today, just hit reply and tell me.</p>
   </div>
 
-
-  <!-- More counsel on the same burden, from /counsel/archive.json. Hidden until there is at least one. -->
-  <section class="more" data-more hidden>
-    <div class="wrap col">
-      <p class="when">More counsel on <span data-more-topic></span></p>
-      <ul class="more-l" data-more-list></ul>
-    </div>
-  </section>
-</main>
-
-<!-- Minimal navigation -->
-<nav class="dock" aria-label="Main" data-dock style="text-align: center; padding: 24px 20px; border-top: 1px solid rgba(0,0,0,.1); display: flex; gap: 20px; justify-content: center;">
-  <a href="/" style="text-decoration: none; color: inherit;">Home</a>
-  <span style="color: #ccc;">•</span>
-  <a href="/accra" style="text-decoration: none; color: inherit;">Accra</a>
-  <span style="color: #ccc;">•</span>
-  <a href="/privacy" style="text-decoration: none; color: inherit; font-size: 13px;">Privacy</a>
-</nav>
-<dialog class="vid-d" id="today-sheet" aria-labelledby="vid-title">
-  <button class="sheet-x vid-x" type="button" data-vid-close aria-label="Close the video">Close</button>
-  <div class="vid" data-vid>
-    <svg class="vid-ring" viewBox="0 0 100 100" aria-hidden="true"><circle class="trk" cx="50" cy="50" r="48"/><circle class="prg" cx="50" cy="50" r="48"/></svg>
-    <video playsinline preload="none" poster="/images/jimi-avatar.jpg"></video>
-    <button class="vid-play" type="button" aria-label="Play today’s video"></button>
-    <button class="fv-x" type="button" data-fullscreen aria-label="Watch full screen"></button>
+  <div class="cta">
+    <p>Get tomorrow's counsel at 5 a.m., free. Stop any time.</p>
+    <form data-signup novalidate>
+      <label class="sr" for="email-counsel">Email address</label>
+      <input id="email-counsel" type="email" name="email" inputmode="email" autocomplete="email" placeholder="Your email">
+      <input name="company" type="text" tabindex="-1" autocomplete="off" class="sr" aria-hidden="true">
+      <button class="btn" type="submit">Send it to me</button>
+    </form>
+    <p class="note" role="status" aria-live="polite"></p>
   </div>
-  <p class="when"><span data-t="dateLabel">Today</span></p>
-  <h3 id="vid-title" data-t="subject">Today’s counsel</h3>
-  <p class="vid-line" data-t="line"></p>
-  <div class="vid-acts"><a class="btn" href="/counsel" data-t-href="url">Open today’s counsel</a><button class="btn ghost" type="button" data-share>Send to someone</button></div>
-</dialog>
+</article>
 
 <footer>
-  <div class="wrap">
-    <span>© <span id="yr">2026</span> Brother Jimi, a servant of Jesus Christ</span>
-  </div>
+  <p>&copy; <span id="yr">2026</span> Brother Jimi, a servant of Jesus Christ</p>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/privacy">Privacy</a>
+  </nav>
 </footer>
 
 <script>
-// Smart event banner: show only within 30 days of Accra event
+document.getElementById('yr').textContent = new Date().getFullYear();
 (function(){
-  var eventDate = new Date('2026-12-11T00:00:00Z').getTime();
-  var now = Date.now();
-  var daysUntil = Math.floor((eventDate - now) / (1000 * 60 * 60 * 24));
-  if (daysUntil > 0 && daysUntil <= 30) {
-    document.querySelector('[data-event-banner]').hidden = false;
-  }
+  var form = document.querySelector('[data-signup]');
+  var note = form.querySelector('[role="status"]');
+  if(!form) return;
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var email = form.querySelector('input[name="email"]').value.trim();
+    if(!email){
+      note.textContent = 'Please enter your email.';
+      return;
+    }
+    note.textContent = 'Sending...';
+    fetch('/api/subscribe',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,ref:'counsel',source:'counsel'})})
+      .then(function(r){return r.json()})
+      .then(function(data){
+        form.reset();
+        note.textContent = 'Check your inbox for a welcome letter.';
+      })
+      .catch(function(){note.textContent = 'Something went wrong. Try again?'});
+  });
 })();
 </script>
-<script src="/assets/config.js"></script>
-<script src="/assets/site.js"></script>
 </body>
 </html>
