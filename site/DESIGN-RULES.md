@@ -30,6 +30,7 @@ Colour carries the story. It is never decoration.
 - **Wine marks one thing per screen: the action.**
   - On /accra, that is Save My Place and the selected chip.
   - It never colours a label, a heading, a link, a badge or a decorative rule.
+  - **Exception: Give on /partner** is styled like Play trailer on the homepage (bone on night, night on daylight), not wine. Giving should feel like the film, never like a checkout.
 - **Never use pure black or pure white.** Grey text on a coloured background takes a shade of that background's own hue.
 - **No gradients that are only decoration.** A transition between night and day must look like light, using the film's own dust and grain, not a CSS fade.
 
