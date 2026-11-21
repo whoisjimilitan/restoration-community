@@ -49,28 +49,24 @@ a{color:inherit}
 .wrap{max-width:600px;margin:0 auto;padding-left:max(var(--gut),env(safe-area-inset-left));padding-right:max(var(--gut),env(safe-area-inset-right))}
 .arrow{width:16px;height:16px;flex:none}
 
-/* ---------- 1. The invitation ----------
-   The night seen from above: one city lit, the others still dark, waiting.
-   Accra is the light; every faint point is a city the gospel has not reached yet. */
-.title{position:relative;overflow:hidden;background:var(--night);color:var(--bone);isolation:isolate}
+/* ---------- 1. The invitation, built like the homepage title: the photo is the key art ----------
+   One real moment of the work, falling into the night; the words stand in the dark beneath it. */
+.title{position:relative;overflow:hidden;background:var(--night);color:var(--bone);isolation:isolate;display:flex;flex-direction:column}
 .title :focus-visible{outline-color:var(--bone)}
-.lights{position:absolute;inset:0;z-index:-1;pointer-events:none}
-.lights i{position:absolute;display:block;border-radius:50%;background:var(--bone);transform:translate(-50%,-50%)}
-/* the lit city: a point, a warm glow, a wide soft halo */
-.lights .lit{width:7px;height:7px;box-shadow:0 0 10px 3px rgba(236,229,216,.55),0 0 60px 18px rgba(236,229,216,.10),0 0 180px 70px rgba(236,229,216,.05)}
-/* cities still in the dark */
-.lights .dark{width:3px;height:3px;opacity:.38}
-.lights .far{width:2px;height:2px;opacity:.2}
-.title .wrap{padding-top:calc(56px + env(safe-area-inset-top));padding-bottom:8px}
-/* Who is asking: small, like the signature on a letter. Links to the film. */
-.by{display:inline-flex;align-items:center;gap:12px;margin-bottom:28px;color:var(--bone);font:600 15px/1 var(--sans);text-decoration:none}
-.by img{width:44px;height:44px;border-radius:50%;object-fit:cover;display:block}
-.by span{border-bottom:1px solid rgba(236,229,216,.3);padding-bottom:3px}
-.by:hover span{border-color:var(--bone)}
-h1{margin:0;font:300 clamp(42px,11.5vw,68px)/1.02 var(--sans);letter-spacing:-.02em;max-width:9em;text-wrap:balance}
+.art{position:relative;z-index:-1;overflow:hidden}
+.art img{display:block;width:100%;max-width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;animation:drift 28s ease-out both}
+.art::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(11,10,9,.45) 0%,rgba(11,10,9,0) 18%,rgba(11,10,9,0) 55%,rgba(11,10,9,.75) 82%,var(--night) 100%)}
+@keyframes drift{from{transform:scale(1.06)}to{transform:scale(1)}}
+.copy{margin-top:20px;padding:0 max(var(--gut),env(safe-area-inset-right)) 8px max(var(--gut),env(safe-area-inset-left))}
+/* The caption sits at the foot of the photo, in the dark of its fade, led by a point of light. */
+.cap{position:absolute;z-index:1;left:max(var(--gut),env(safe-area-inset-left));right:var(--gut);bottom:14px;display:flex;align-items:center;gap:12px;margin:0;font:500 14px/1.35 var(--sans);color:var(--soft)}
+.cap::before{content:"";flex:none;width:6px;height:6px;border-radius:50%;background:var(--bone);
+  box-shadow:0 0 10px 3px rgba(236,229,216,.5),0 0 36px 10px rgba(236,229,216,.08)}
+h1{margin:0;font:300 clamp(42px,11.5vw,72px)/1.02 var(--sans);letter-spacing:-.02em;max-width:9em;text-wrap:balance}
 .give{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:56px;padding:0 34px;border-radius:6px;background:var(--wine);color:var(--bone);font:600 16px/1 var(--sans);letter-spacing:.01em;text-decoration:none;transition:background .2s}
 .give:hover{background:var(--wine-hi)}
-.title .give{margin-top:36px}
+.title .give{margin-top:32px}
 .how{margin-top:12px;font-size:14px;color:var(--soft)}
 .dust{display:block;width:100%;max-width:100%;height:clamp(140px,18vw,300px);object-fit:cover;object-position:50% 0;margin-top:-1px;background:var(--night)}
 
@@ -83,11 +79,6 @@ h1{margin:0;font:300 clamp(42px,11.5vw,68px)/1.02 var(--sans);letter-spacing:-.0
 .city a{text-decoration:none;color:var(--ink)}
 .city .arrow{width:24px;height:24px;margin-left:10px;color:var(--dim);vertical-align:middle;transition:transform .2s,color .2s}
 .city a:hover .arrow{transform:translateX(3px);color:var(--ink)}
-/* The photo: full width under the dust, so the night opens onto a real moment of the work, not a picture dropped into the text */
-.proof{margin:0;padding-top:20px;padding-bottom:8px;background:var(--night)}
-.proof img{display:block;width:100%;max-width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;background:var(--night);
-  -webkit-mask-image:linear-gradient(180deg,transparent 0,#000 24%,#000 74%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0,#000 24%,#000 74%,transparent 100%)}
-.proof figcaption{margin-top:-6px;font-size:14px;color:var(--dim)}
 .facts{margin-top:14px;color:var(--ink-2)}
 .free .wrap{padding-top:0;padding-bottom:88px}
 .list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
@@ -104,7 +95,7 @@ h1{margin:0;font:300 clamp(42px,11.5vw,68px)/1.02 var(--sans);letter-spacing:-.0
 .verse figcaption{margin-top:10px;font-size:14px;color:var(--dim)}
 .acts{display:flex;flex-direction:column;gap:10px;margin-top:32px}
 .acts .give{width:100%}
-.alt{margin-top:24px;color:var(--ink-2);font-size:15px;line-height:1.6;max-width:30em}
+.alt{margin-top:48px;color:var(--ink-2);font-size:15px;line-height:1.6;max-width:30em}
 .alt a{color:var(--ink-2);text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--line-2)}
 
 /* ---------- Footer ---------- */
@@ -115,47 +106,41 @@ h1{margin:0;font:300 clamp(42px,11.5vw,68px)/1.02 var(--sans);letter-spacing:-.0
 
 @media (min-width:720px){
   :root{--gut:32px}
-  .proof img{aspect-ratio:auto;height:min(72vh,680px);object-position:35% 40%}
   .goes .wrap{padding-top:96px}
   .row{grid-template-columns:102px minmax(0,1fr)}
   .acts{flex-direction:row}
   .acts .give{width:auto;padding:0 34px}
   .foot{flex-direction:row;justify-content:space-between;align-items:center}
 }
-@media (prefers-reduced-motion:reduce){*{transition:none!important}@view-transition{navigation:none}}
+@media (min-width:900px){
+  .title{min-height:100svh;justify-content:center}
+  .art{position:absolute;inset:0 0 0 auto;width:min(64vw,1100px)}
+  .art img{height:100%;aspect-ratio:auto;object-position:30% 40%}
+  .art::after{background:linear-gradient(90deg,var(--night) 0%,rgba(11,10,9,.7) 18%,rgba(11,10,9,0) 48%),linear-gradient(180deg,rgba(11,10,9,0) 70%,var(--night) 100%)}
+  .copy{margin:0;padding:0 56px;max-width:620px}
+  .cap{left:auto;right:56px;bottom:48px}
+}
+@media (prefers-reduced-motion:reduce){.art img{animation:none}*{transition:none!important}@view-transition{navigation:none}}
 </style>
 </head>
 <body>
 
 <main>
   <section class="title" aria-labelledby="p-title">
-    <div class="lights" aria-hidden="true">
-      <i class="lit"  style="left:82%;top:76%"></i>
-      <i class="dark" style="left:88%;top:22%"></i>
-      <i class="dark" style="left:61%;top:36%"></i>
-      <i class="dark" style="left:93%;top:47%"></i>
-      <i class="dark" style="left:82%;top:84%"></i>
-      <i class="far"  style="left:69%;top:12%"></i>
-      <i class="far"  style="left:96%;top:72%"></i>
-      <i class="far"  style="left:54%;top:90%"></i>
-      <i class="far"  style="left:79%;top:40%"></i>
+    <div class="art">
+      <picture>
+        <source media="(min-width:900px)" srcset="/images/partner/listening-wide.jpg" width="1535" height="1024">
+        <img src="/images/partner/listening-phone.jpg" alt="Brother Jimi listens to a man at a prayer line registration." width="1200" height="900" fetchpriority="high">
+      </picture>
+      <p class="cap">At a previous prayer line registration</p>
     </div>
-    <div class="wrap">
-      <a class="by" href="/"><img src="/images/film/jimi-face.jpg" alt="" width="96" height="96"><span>Brother Jimi</span></a>
+    <div class="copy">
       <h1 id="p-title">Help the next city encounter Christ.</h1>
       <a class="give" data-give target="_blank" rel="noopener">Give<svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-      <p class="how">Any amount, through my Accrue page.</p>
+      <p class="how">Any amount, through Accrue.</p>
     </div>
   </section>
-  <!-- The one photo lives in the night, like the key art on the homepage: it rises out of the dark, then the dust breaks into daylight. -->
-  <figure class="proof">
-    <picture>
-      <source media="(min-width:720px)" srcset="/images/partner/listening-wide.jpg" width="1535" height="1024">
-      <img src="/images/partner/listening-phone.jpg" alt="Brother Jimi listens to a man at a prayer line registration." width="1200" height="900" loading="lazy">
-    </picture>
-    <figcaption class="wrap">At a previous prayer line registration.</figcaption>
-  </figure>
-  <img class="dust" src="/images/film/dust-edge.jpg" alt="" width="2400" height="560">
+<img class="dust" src="/images/film/dust-edge.jpg" alt="" width="2400" height="560">
 
 
   <section class="goes" aria-labelledby="g-city">

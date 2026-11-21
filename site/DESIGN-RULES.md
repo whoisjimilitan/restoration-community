@@ -24,6 +24,7 @@ Colour carries the story. It is never decoration.
 | ink-2 | `#4a443c` | secondary text on paper |
 | dim | `#8f8678` | footnotes on both |
 | line | `#e2dacd` | form borders only |
+| band | `#ebe3d5` | one full-width ground for the giving moment on /partner only |
 | wine | `#8b2332` | see below |
 
 - **Wine marks one thing per screen: the action.**
