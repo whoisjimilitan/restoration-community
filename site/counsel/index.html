@@ -3,96 +3,93 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Counsel · Brother Jimi</title>
-<meta name="description" content="Daily counsel from Scripture, delivered on WhatsApp. From Brother Jimi.">
-<meta property="og:type" content="website">
+<title>There is value in challenges · Brother Jimi</title>
+<meta name="description" content="You see that situation that looks impossible? There is value in it. Counsel from Brother Jimi.">
+<meta property="og:type" content="article">
 <meta property="og:site_name" content="Brother Jimi">
-<meta property="og:title" content="Counsel">
-<meta property="og:description" content="Daily Scripture counsel from Brother Jimi on WhatsApp.">
+<meta property="og:title" content="There is value in challenges">
+<meta property="og:description" content="You see that situation that looks impossible? There is value in it.">
 <meta property="og:url" content="https://brotherjimi.com/counsel">
-<meta property="og:image" content="https://brotherjimi.com/images/og.jpg">
+<meta property="og:image" content="https://brotherjimi.com/images/counsel/value-in-challenges-og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#f4efe6">
 <link rel="icon" href="/images/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
 <link rel="preload" href="/assets/fonts/albert-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <style>
 @font-face{font-family:"Albert Sans";src:url(/assets/fonts/albert-sans-latin-wght-normal.woff2) format("woff2");font-weight:100 900;font-display:swap}
-:root{--night:#0b0a09;--bone:#ece5d8;--soft:#c9c0b1;--paper:#f4efe6;--field:#fbf8f2;--ink-2:#4a443c;--dim:#8f8678;--line:#e2dacd;--wine:#8b2332}
-*{box-sizing:border-box}
-html,body{margin:0;background:var(--paper);color:var(--night);-webkit-text-size-adjust:100%}
-body{font:400 17px/1.75 "Albert Sans",system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
-a{color:inherit}
-:focus-visible{outline:2px solid var(--night);outline-offset:3px}
-p{margin:0}
-
-main{max-width:34em;margin:0 auto;padding:60px 20px}
-
-.date{font:500 11px/1.3 "Albert Sans";letter-spacing:.32em;text-transform:uppercase;color:var(--dim);margin-bottom:16px}
-
-h1{margin:0 0 56px;font:300 clamp(32px,8vw,56px)/1.04 "Albert Sans";letter-spacing:-.02em}
-
-.letter{margin:0 0 80px;line-height:1.75}
-.letter p{margin-bottom:20px}
-.letter p.vs{font:500 17px/1.6 "Albert Sans";color:var(--dim);margin-left:24px;margin-top:24px;margin-bottom:24px}
-.letter p.vs cite{font:400 14px/1 "Albert Sans";color:var(--dim)}
-.letter p.sign{margin-top:28px;font-weight:600}
-.letter p.ps{font:500 16px/1.6 "Albert Sans";color:var(--dim);margin-top:24px}
-
-.cta{padding:60px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.cta-text{color:var(--dim);font:500 16px/1.6 "Albert Sans";margin-bottom:32px}
-
-.btn{display:inline-block;height:50px;padding:0 24px;border:0;border-radius:4px;background:var(--wine);color:#fff;font:600 15px "Albert Sans";letter-spacing:.01em;cursor:pointer;white-space:nowrap;transition:.15s}
-.btn:hover{background:#a1293c}
-
-footer{border-top:1px solid var(--line);padding:40px 0 calc(40px + env(safe-area-inset-bottom));margin-top:80px;text-align:center;font-size:13px;color:var(--dim)}
-footer p{margin:0}
-footer nav{display:flex;gap:20px;justify-content:center;margin-top:12px}
-footer nav a{text-decoration:none;color:var(--dim)}
-footer nav a:hover{color:var(--night)}
-
-@media (max-width:480px){
-  main{padding:40px 16px}
-  h1{margin-bottom:40px}
-  .letter{margin-bottom:60px}
-  .cta{padding:40px 0}
+@view-transition{navigation:auto}
+/* Counsel, built to DESIGN-RULES.md. The page is the morning's message exactly as it lands on the phone:
+   the letter's image first, then the words, then one way to receive tomorrow's. Daylight throughout. */
+:root{
+  --bone:#ece5d8; --paper:#f4efe6; --ink:#0b0a09; --ink-2:#4a443c; --dim:#8f8678;
+  --line-2:#cdc4b5; --wine:#8b2332; --wine-hi:#a1293c;
+  --sans:"Albert Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --gut:20px; color-scheme:light;
 }
+*{box-sizing:border-box}
+html{background:var(--paper);-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 18px/1.65 var(--sans);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--ink);outline-offset:3px;border-radius:2px}
+p{margin:0}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.col{max-width:560px;margin:0 auto}
+.wrap{padding-left:max(var(--gut),env(safe-area-inset-left));padding-right:max(var(--gut),env(safe-area-inset-right))}
+
+/* The image is the title, as it arrives on WhatsApp. It sits on paper with a hairline edge, like the photo in a message. */
+.post{display:block;width:100%;max-width:100%;height:auto;aspect-ratio:4/5;background:#0b0a09}
+
+.letter{display:flex;flex-direction:column;gap:20px;padding-top:36px;padding-bottom:64px}
+.verse{font-size:20px;line-height:1.5}
+.ref{display:block;margin-top:8px;font-size:15px;color:var(--dim)}
+.today b{font-weight:600}
+
+.next{padding-bottom:72px}
+.btn{display:flex;align-items:center;justify-content:center;width:100%;height:56px;border-radius:6px;background:var(--wine);color:var(--bone);font:600 16px/1 var(--sans);text-decoration:none}
+.btn:hover{background:var(--wine-hi)}
+.note{margin-top:12px;font-size:15px;color:var(--dim);text-align:center}
+
+footer{padding-bottom:calc(36px + env(safe-area-inset-bottom));display:flex;flex-wrap:wrap;gap:6px 24px;font-size:14px;color:var(--dim)}
+footer a{text-underline-offset:3px;text-decoration-color:var(--line-2)}
+
+@media (min-width:600px){
+  :root{--gut:0px}
+  .col{padding-top:56px}
+}
+@media (prefers-reduced-motion:reduce){@view-transition{navigation:none}}
 </style>
 </head>
 <body>
 
-<main>
-  <article>
-    <p class="date" data-slot="date">6 October 2026</p>
-    <h1 data-slot="question">Whose voice do I hear first?</h1>
-
-    <div class="letter" data-slot="body">
-      <p>When something goes wrong, whose voice do you hear first?</p>
-      <p>It's not always the one you say you believe. It's usually the one you've been listening to the most.</p>
-      <p>If you've been taking in the news, fear, and everyone else's opinions, that's what you'll hear. Before you know it, you're panicking, complaining, or doing things your own way.</p>
-      <p>But if you've been taking in God's Word day after day, you'll hear Him first. Instead of panicking, you'll stop and ask, "What is God saying about this?"</p>
-      <p>This is what God told Joshua just before he led Israel into the Promised Land:</p>
-      <p class="vs">"Keep this Book of the Law always on your lips; meditate on it day and night." <cite>Joshua 1:8</cite></p>
-      <p>So start today. Before you check your phone, open your Bible. Take in one verse and say it out loud. Meditate on it again tonight.</p>
-      <p>Hard days will come. When they do, what you hear first will depend on what you've been listening to.</p>
-      <p class="sign">Your brother,<br>Jimi</p>
-    </div>
-
-    <div class="cta">
-      <p class="cta-text">Get tomorrow's counsel on WhatsApp, free.</p>
-      <a href="https://whatsapp.com/channel/0029VbCgjedBA1f6YQ0DvB3s" class="btn" target="_blank" rel="noopener">Follow on WhatsApp</a>
+<main class="col">
+  <article aria-labelledby="t">
+    <h1 class="vh" id="t">There is value in challenges</h1>
+    <img class="post" src="/images/counsel/value-in-challenges-post.jpg" alt="There is value in challenges. Brother Jimi. James 1:2-3." width="1080" height="1350">
+    <div class="letter wrap">
+      <p>You see that situation that looks impossible? I assure you there is value in it.</p>
+      <p>Anything close to Jesus receives attack. Your challenge may be sickness or poverty. And the devil will ask where your God is.</p>
+      <p>But when the sea is calm, no one is really tested. It is only when challenges come that we know whether truly you are a Christian. That is how the devil gets many to his side: they measure God&rsquo;s presence by their circumstances.</p>
+      <p class="verse">&ldquo;Consider it pure joy, my brothers and sisters, whenever you face trials of many kinds, because you know that the testing of your faith produces perseverance.&rdquo;<span class="ref">James 1:2-3</span></p>
+      <p>Your challenge is meant to improve you, not to impair you.</p>
+      <p>So do not listen to the panic of the moment. Watch and pray. Be still, and hear what the Holy Spirit is saying. God has not abandoned you.</p>
+      <p>True believers welcome adversity as a friend. Match your actions with your words, for action is of the heart, and words are of the mouth.</p>
+      <p class="today"><b>Today, say:</b> Lord, release my spirit to follow You. I have surrendered everything to You. Give me the grace to overcome my pain, in Jesus&rsquo; name. Amen.</p>
     </div>
   </article>
+
+  <div class="next wrap">
+    <a class="btn" href="https://whatsapp.com/channel/0029VbCgjedBA1f6YQ0DvB3s" target="_blank" rel="noopener">Get tomorrow&rsquo;s message on WhatsApp</a>
+    <p class="note">Every morning. Free.</p>
+  </div>
+
+  <footer class="wrap">
+    <p>&copy; 2026 <a href="/">Brother Jimi</a>, a servant of Jesus Christ</p>
+    <a href="/privacy">Privacy</a>
+  </footer>
 </main>
 
-<footer>
-  <p>&copy; <span id="yr">2026</span> <a href="/" style="text-decoration:none;color:inherit">Brother Jimi</a>, a servant of Jesus Christ</p>
-  <nav>
-    <a href="/privacy">Privacy</a>
-  </nav>
-</footer>
-
-<script>
-document.getElementById('yr').textContent = new Date().getFullYear();
-</script>
 </body>
 </html>

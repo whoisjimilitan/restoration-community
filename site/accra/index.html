@@ -58,8 +58,8 @@ window.CITY = {
 <style>
 @font-face{font-family:"Albert Sans";src:url(/assets/fonts/albert-sans-latin-wght-normal.woff2) format("woff2");font-weight:100 900;font-display:swap}
 @view-transition{navigation:auto}
-/* A live flyer. The film is night; the revival is daylight. One column, left-aligned, no pictures.
-   What a flyer shouts: the name, the date, FREE and the clock. Albert Sans only. Wine marks the action. */
+/* A live flyer, built to DESIGN-RULES.md. The film's night breaks into daylight through its own dust.
+   One column, left-aligned, no lines between sections. Wine marks only the action on each screen. */
 :root{
   /* One palette for the whole site: the film's night and bone, and a daylight paper of the same warm hue */
   --night:#0b0a09; --bone:#ece5d8; --soft:#c9c0b1;
@@ -75,48 +75,39 @@ a{color:inherit}
 :focus-visible{outline:2px solid var(--ink);outline-offset:3px;border-radius:2px}
 p{margin:0}
 .wrap{max-width:600px;margin:0 auto;padding-left:max(var(--gut),env(safe-area-inset-left));padding-right:max(var(--gut),env(safe-area-inset-right))}
-.label{font:500 11px/1.3 var(--sans);letter-spacing:.32em;text-transform:uppercase;color:var(--dim)}
 h2{margin:0;font:400 26px/1.2 var(--sans);letter-spacing:-.015em;text-wrap:balance}
 
-/* ---------- Hero ---------- */
-.hero{background:var(--night);background-image:linear-gradient(180deg,rgba(11,10,9,.2) 0%,rgba(11,10,9,0) 50%,rgba(11,10,9,.4) 100%);color:var(--bone)}
-.hero .wrap{padding-top:calc(48px + env(safe-area-inset-top));padding-bottom:140px}
+/* ---------- Hero: the film's night, breaking into daylight through its own dust ---------- */
+.hero{background:var(--night);color:var(--bone)}
+.hero .wrap{padding-top:calc(56px + env(safe-area-inset-top));padding-bottom:8px}
 h1{margin:0;font:300 clamp(44px,12.5vw,72px)/1 var(--sans);letter-spacing:-.02em;text-wrap:balance}
 .with{margin-top:12px;font:400 20px/1.3 var(--sans);color:var(--soft)}
-.free{display:inline-block;margin-top:28px;padding:9px 14px;border-radius:999px;background:var(--wine);color:var(--bone);font:600 11px/1 var(--sans);letter-spacing:.32em;text-transform:uppercase}
-.when{margin-top:28px}
-.date{font:400 26px/1.2 var(--sans);letter-spacing:-.015em}
-.where{margin-top:8px;line-height:1.55;color:var(--soft)}
-.where .host{font-size:15px;color:var(--dim)}
-.clock{margin-top:12px;padding:20px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.cdl{margin:0 0 14px;font:500 11px/1.3 var(--sans);letter-spacing:.32em;text-transform:uppercase;color:var(--wine)}
-.cd{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;font-variant-numeric:tabular-nums}
-.cd div{display:flex;flex-direction:column;gap:6px}
-.cd b{font:300 36px/1 var(--sans);letter-spacing:-.02em}
-.cd span{font:500 11px/1 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--dim)}
-.state{margin-top:18px;font-weight:600}
-.map{display:inline-flex;align-items:flex-start;gap:6px;color:inherit;text-decoration:underline;text-underline-offset:4px;text-decoration-color:currentColor;text-decoration-thickness:1px}
-.map svg{width:16px;height:16px;flex:none;margin-top:4px;opacity:.75}
-.hero .map{text-decoration-color:rgba(236,229,216,.35)}
-.hours{margin-top:-12px;color:var(--ink-2)}
-.at{margin-top:-8px;font-size:17px;color:var(--ink-2)}
-.at .map{text-decoration-color:var(--line-2)}
+.date{margin-top:40px;font:400 26px/1.2 var(--sans);letter-spacing:-.015em}
+.where{margin-top:10px;color:var(--soft)}
+.host{margin-top:2px;font-size:15px;color:var(--dim)}
+.free{margin-top:22px;font:600 17px/1.3 var(--sans);color:var(--bone)}
+.state{margin-top:12px;font-weight:600}
 .state:empty{display:none}
+.dust{display:block;width:100%;height:clamp(150px,24vw,280px);object-fit:cover;object-position:50% 40%;margin-top:-1px}
+.map{display:inline-flex;align-items:flex-start;gap:6px;color:inherit;text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px;text-decoration-color:var(--line-2)}
+.map svg{width:16px;height:16px;flex:none;margin-top:4px;opacity:.7}
+.hero .map{text-decoration-color:rgba(236,229,216,.3)}
 
-/* ---------- Sections ---------- */
-section{border-top:1px solid var(--line)}
-section.first{border-top:0}
-section.first .wrap{padding-top:8px}
-section .wrap{padding-top:48px;padding-bottom:52px}
+/* ---------- Sections: separated by space, never by lines ---------- */
+section .wrap{padding-top:56px;padding-bottom:56px}
+section.first .wrap{padding-top:4px;padding-bottom:72px}
 .stack{display:flex;flex-direction:column;gap:16px}
-.dates{margin-top:-8px;font:400 26px/1.2 var(--sans);letter-spacing:-.015em}
+.who{font:400 20px/1.45 var(--sans);letter-spacing:-.01em;max-width:24em}
+.dates{font:400 26px/1.2 var(--sans);letter-spacing:-.015em}
+.place{color:var(--ink-2)}
+.hours{margin-top:2px}
+.soon{margin-top:8px;font:500 20px/1.35 var(--sans);letter-spacing:-.01em;color:var(--ink)}
+.soon:empty{display:none}
 .plain{color:var(--ink-2)}
-.letter{font:400 21px/1.5 var(--sans);letter-spacing:-.01em;color:var(--ink);max-width:28em}
-.sign{margin-top:14px;font-weight:600}
-.story{display:inline-flex;align-items:center;gap:8px;align-self:flex-start;margin-top:4px;padding:10px 0;color:var(--dim);font:400 15px var(--sans);text-decoration:none;border-bottom:1px solid var(--line-2)}
+.promise{margin-top:16px;font:400 20px/1.45 var(--sans);letter-spacing:-.01em;color:var(--ink);max-width:24em}
+.story{display:inline-flex;align-items:center;gap:8px;align-self:flex-start;margin-top:8px;padding:10px 0;color:var(--ink);font:600 15px var(--sans);text-decoration:none;border-bottom:1px solid var(--line-2)}
+.story:hover{border-color:var(--ink)}
 .story svg{width:16px;height:16px}
-.who{font:400 20px/1.45 var(--sans);letter-spacing:-.01em;margin-bottom:12px}
-.promise{margin-top:12px;padding-left:16px;border-left:2px solid var(--wine);font:400 20px/1.45 var(--sans);letter-spacing:-.01em;color:var(--ink)}
 
 /* ---------- Form ---------- */
 form{display:flex;flex-direction:column;gap:28px;margin-top:28px}
@@ -144,20 +135,17 @@ input[type=text]:focus,select:focus{outline:none;border-color:var(--ink)}
 .ghost svg{width:20px;height:20px}
 .link{align-self:flex-start;background:none;border:0;padding:12px 0;color:var(--ink-2);font:500 15px var(--sans);text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--line-2);cursor:pointer}
 
-/* ---------- Share ---------- */
-.share{display:grid;grid-template-columns:repeat(3,1fr);gap:20px 8px;margin-top:12px}
-.share a,.share button{display:flex;flex-direction:column;align-items:center;gap:8px;background:none;border:0;padding:0;color:var(--ink-2);font:500 12px/1.2 var(--sans);text-decoration:none;cursor:pointer;text-align:center}
-.share i{display:grid;place-items:center;width:56px;height:56px;border-radius:50%;background:var(--field);border:1px solid var(--line);color:var(--ink);transition:border-color .15s,background .15s}
-.share a:hover i,.share button:hover i{border-color:var(--ink-2)}
-.share svg{width:22px;height:22px}
-.share .main i{background:var(--wine);border-color:var(--wine);color:var(--bone)}
-.alt{margin-top:8px;color:var(--dim);font-size:15px;line-height:1.6}
+/* ---------- Share: the phone's own share sheet, not a row of logos ---------- */
+.acts{display:flex;flex-direction:column;gap:10px;margin-top:8px}
+.copied{min-height:1.4em;font-size:14px;color:var(--dim)}
+.copied:empty{min-height:0}
+.more{display:flex;flex-wrap:wrap;gap:0 24px}
+.alt{margin-top:16px;color:var(--dim);font-size:15px;line-height:1.6}
 .alt a{color:var(--ink-2);text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--line-2)}
 .alt a:hover{color:var(--ink)}
-.copied{min-height:1.4em;font-size:14px;color:var(--dim);text-align:center}
 
 /* ---------- Footer ---------- */
-footer{border-top:1px solid var(--line)}
+footer{}
 footer a{color:inherit;text-underline-offset:3px;text-decoration-color:var(--line-2)}
 footer .wrap{padding-top:28px;padding-bottom:calc(36px + env(safe-area-inset-bottom));font-size:14px;color:var(--dim)}
 
@@ -180,8 +168,9 @@ footer .wrap{padding-top:28px;padding-bottom:calc(36px + env(safe-area-inset-bot
 @media (min-width:720px){
   :root{--gut:32px}
   .chips{grid-template-columns:repeat(10,1fr)}
-  .share{grid-template-columns:repeat(9,1fr)}
-  section .wrap{padding-top:64px;padding-bottom:68px}
+  section .wrap{padding-top:72px;padding-bottom:72px}
+  .acts{flex-direction:row}
+  .acts .btn,.acts .ghost{width:auto;padding:0 28px}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}@view-transition{navigation:none}}
 </style>
@@ -193,34 +182,27 @@ footer .wrap{padding-top:28px;padding-bottom:calc(36px + env(safe-area-inset-bot
     <div class="wrap">
       <h1 data-c="title">Accra Encounters Christ</h1>
       <p class="with" data-c="withLine">with Brother Jimi</p>
-      <p class="free">Entry is FREE</p>
-      <div class="when">
-        <p class="date" data-c="dateLong">Friday 11 December 2026</p>
-        <p class="where"><a class="map" data-map="venue" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0C18.5 15.4 12 21 12 21z" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="10" r="2.3" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><span data-c="venue">The Patmos Christian Retreat, Accra</span></a><br><span class="host" data-c="host">Hosted by The Patmos Church</span></p>
-      </div>
+      <p class="date" data-c="dateLong">Friday 11 December 2026</p>
+      <p class="where"><a class="map" data-map="venue" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0C18.5 15.4 12 21 12 21z" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="10" r="2.3" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><span data-c="venue">The Patmos Christian Retreat, Accra</span></a></p>
+      <p class="host" data-c="host">Hosted by The Patmos Church</p>
+      <p class="free">Entry is free.</p>
       <p class="state" data-state></p>
     </div>
   </div>
+  <img class="dust" src="/images/film/dust-edge.jpg" alt="" width="1600" height="520">
 
-  <section class="note first" aria-labelledby="pl-title" data-when="before during">
+  <section class="first" aria-labelledby="pl-title" data-when="before during">
     <div class="wrap stack">
-      <p class="who">For those who are sick, and anyone who needs deliverance,</p>
-      <p class="label" id="pl-title">The Prayer Line Registration holds</p>
+      <p class="who" id="pl-title">For those who are sick, and anyone who needs deliverance, the Prayer Line Registration holds</p>
       <p class="dates" data-c="regLabel">1 to 7 December 2026</p>
-      <p class="at"><a class="map" data-map="ground" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0C18.5 15.4 12 21 12 21z" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="10" r="2.3" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><span>at <span data-c="ground">Skylight Town Hall, Accra</span></span></a></p>
-      <p class="hours" data-c="regHours">Daily, 10 a.m. to 4 p.m.</p>
-      <div class="clock" data-clock>
-        <p class="cdl" data-cdl>Registration opens in</p>
-        <div class="cd" role="timer" aria-live="off">
-          <div><b data-d>00</b><span>Days</span></div>
-          <div><b data-h>00</b><span>Hours</span></div>
-          <div><b data-m>00</b><span>Minutes</span></div>
-          <div><b data-s>00</b><span>Seconds</span></div>
-        </div>
+      <div class="place">
+        <p><a class="map" data-map="ground" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0C18.5 15.4 12 21 12 21z" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="10" r="2.3" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><span>at <span data-c="ground">Skylight Town Hall, Accra</span></span></a></p>
+        <p class="hours" data-c="regHours">Daily, 10 a.m. to 4 p.m.</p>
       </div>
+      <p class="soon" data-soon role="status"></p>
       <p class="plain">Don&rsquo;t forget to bring your medical report and any medical aids you use.</p>
       <p class="promise">A divine encounter with God waits on those days and on <span data-c="dateShortPromise">11 December</span>, through His Servant, Brother Jimi.</p>
-      <a class="story" href="/">Who is Brother Jimi? Watch his story<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a class="story" href="/">Who is Brother Jimi?<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
     </div>
   </section>
 
@@ -274,19 +256,13 @@ footer .wrap{padding-top:28px;padding-bottom:calc(36px + env(safe-area-inset-bot
     <div class="wrap stack">
       <h2 id="bring-title">Be an evangelist.</h2>
       <p class="plain">Help someone else encounter Jesus in the power of the Holy Spirit.</p>
-      <div class="share">
-        <a class="main" data-share="whatsapp" target="_blank" rel="noopener"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 19.5l1.2-3.6A7.8 7.8 0 1 1 8.4 18.5z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></i>WhatsApp</a>
-        <button type="button" data-status><i><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-dasharray="4.2 2.4"/><circle cx="12" cy="12" r="3.4" fill="currentColor"/></svg></i>Status</button>
-        <a data-share="facebook" target="_blank" rel="noopener"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8.5h2V5h-2.4C11 5 10 6.6 10 8.8V10.5H8V14h2v6h3.5v-6H16l.5-3.5h-3V9.3c0-.5.3-.8.5-.8z" fill="currentColor"/></svg></i>Facebook</a>
-        <a data-share="telegram" target="_blank" rel="noopener"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 4.5L3.5 11.3l5.3 1.9m11.7-8.7l-3 14.5-6.2-4.6m9.2-9.9L8.8 13.2l1.5 5.3 2-3.4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/></svg></i>Telegram</a>
-        <a data-share="x" target="_blank" rel="noopener"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></i>X</a>
-        <a data-share="email"><i><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="6" width="17" height="12" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M4 7l8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></i>Email</a>
-        <button type="button" data-copy><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></i>Copy link</button>
-        <button type="button" data-pastor><i><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M5 20c.8-3.6 3.6-5.5 7-5.5s6.2 1.9 7 5.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></i>My pastor</button>
-        <button type="button" data-print><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 9V3.5h10V9M7 17H4.5v-7.5h15V17H17M7 14h10v6.5H7z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></i>A4 flyer</button>
+      <div class="acts">
+        <button class="btn" type="button" data-invite>Share the invitation</button>
+        <button class="ghost" type="button" data-status>Post it to my WhatsApp Status</button>
       </div>
       <p class="copied" data-copied aria-live="polite"></p>
-      <p class="alt" data-wait>While you wait for the 11th, <a href="https://whatsapp.com/channel/0029VbCgjedBA1f6YQ0DvB3s" target="_blank" rel="noopener">receive daily counsel on WhatsApp</a></p>
+      <p class="more"><button class="link" type="button" data-pastor>Send it to my pastor</button><button class="link" type="button" data-print>Print the A4 flyer</button></p>
+      <p class="alt" data-wait>While you wait for the 11th, <a href="https://whatsapp.com/channel/0029VbCgjedBA1f6YQ0DvB3s" target="_blank" rel="noopener">receive daily counsel on WhatsApp</a>.</p>
     </div>
   </section>
 </main>
@@ -341,30 +317,26 @@ footer .wrap{padding-top:28px;padding-bottom:calc(36px + env(safe-area-inset-bot
   var STATE=forced()||stateAt(Date.now());
   var msg={
     before:'',
-    during:'Prayer Line Registration is open now.',
+    during:'',
     gap:'Prayer Line Registration has closed. The gathering is open to all. Entry is free.',
     today:'Today. Entry is free.',
     after:C.title+' took place on '+C.dateLong+'.'
   };
   $('[data-state]').textContent=msg[STATE];
   $$('[data-when]').forEach(function(el){ el.hidden=el.getAttribute('data-when').split(' ').indexOf(STATE)<0; });
-  if(STATE==='today'||STATE==='after') $('[data-clock]').hidden=true;
   /* Bring someone: after a saved place, or on its own once the form has closed */
   if(STATE==='gap'||STATE==='today') $('[data-bring]').hidden=false;
   if(STATE==='today') $('[data-wait]').hidden=true;
 
-  /* Countdown */
-  var D=$('[data-d]'),H=$('[data-h]'),M=$('[data-m]'),S=$('[data-s]');
-  function two(n){return (n<10?'0':'')+n}
-  var CDL=$('[data-cdl]');
-  function tick(){
-    /* The clock serves the registration window: it counts to the first day, then to the last */
-    var now=Date.now(), before=now<t.opens, target=before?t.opens:t.closes;
-    CDL.textContent=before?'Registration opens in':'Registration closes in';
-    var s=Math.floor(Math.max(0,target-now)/1000);
-    D.textContent=two(Math.floor(s/86400)); H.textContent=two(Math.floor(s%86400/3600)); M.textContent=two(Math.floor(s%3600/60)); S.textContent=two(s%60);
+  /* The registration clock, said as a sentence. Days only: no ticking seconds. */
+  var SOON=$('[data-soon]');
+  function soon(){
+    var now=Date.now(), DAY=86400000, n;
+    if(now<t.opens){ n=Math.ceil((t.opens-now)/DAY); SOON.textContent=n>1?'Registration opens in '+n+' days.':'Registration opens tomorrow at 10 a.m.'; }
+    else if(now<t.closes){ n=Math.ceil((t.closes-now)/DAY); SOON.textContent=n>1?'Registration closes in '+n+' days.':'Today is the last day of registration, until 4 p.m.'; }
+    else SOON.textContent='';
   }
-  tick(); setInterval(tick,1000);
+  soon(); setInterval(soon,60000);
 
   /* Steps */
   function step(name){
@@ -389,25 +361,19 @@ footer .wrap{padding-top:28px;padding-bottom:calc(36px + env(safe-area-inset-bot
   $('[data-retry]').addEventListener('click',openWa);
   $('[data-confirm]').addEventListener('click',function(){ $('[data-bring]').hidden=false; step('saved'); });
 
-  /* Share: no phone number ever appears here */
-  var inv=fill(C.invite), x=fill(C.xLine), enc=encodeURIComponent;
-  var links={
-    whatsapp:'https://wa.me/?text='+enc(inv),
-    facebook:'https://www.facebook.com/sharer/sharer.php?u='+enc(C.url),
-    telegram:'https://t.me/share/url?url='+enc(C.url)+'&text='+enc(inv.replace(C.url,'').trim()),
-    x:'https://twitter.com/intent/tweet?text='+enc(x),
-    email:'mailto:?subject='+enc(C.emailSubject)+'&body='+enc(inv)
-  };
-  $$('[data-share]').forEach(function(a){ a.href=links[a.getAttribute('data-share')]; });
+  /* Share: the phone's own share sheet. No phone number ever appears here. */
+  var inv=fill(C.invite), enc=encodeURIComponent, copied=$('[data-copied]');
+  function copy(text,done){
+    if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(text).then(function(){ copied.textContent=done; },function(){ copied.textContent=text; }); }
+    else copied.textContent=text;
+  }
+  $('[data-invite]').addEventListener('click',function(){
+    if(navigator.share){ navigator.share({title:C.title,text:inv}).catch(function(){}); }
+    else copy(inv,'Invitation copied. Paste it anywhere.');
+  });
 
   /* Map links open the visitor's own maps app. Nothing loads until tapped. */
   $$('[data-map]').forEach(function(a){ a.href='https://www.google.com/maps/search/?api=1&query='+enc(C[a.getAttribute('data-map')]); });
-  var copied=$('[data-copied]');
-  $('[data-copy]').addEventListener('click',function(){
-    function done(){ copied.textContent='Link copied'; }
-    if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(C.url).then(done,function(){ copied.textContent=C.url; }); }
-    else copied.textContent=C.url;
-  });
 
   /* Involve my pastor: the message only, never the pastor's role */
   var pastorText=fill(C.pastor);

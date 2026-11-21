@@ -1,0 +1,92 @@
+# Brother Jimi: design rules (the anti-slop rulebook)
+
+Every page, every change. If a choice can't be defended with a reason specific to *this* ministry, it doesn't ship.
+
+## 1. The idea everything serves
+
+The site moves from darkness into light, the way Jimi's life did.
+
+- **The film (/)** is night.
+- **The event (/accra)** begins in night and opens into daylight.
+- **Daily counsel and the rest** are daylight.
+
+Colour carries the story. It is never decoration.
+
+## 2. Colour
+
+| Name | Value | Use |
+|---|---|---|
+| night | `#0b0a09` | dark backgrounds, and text on light pages |
+| bone | `#ece5d8` | text on night |
+| soft | `#c9c0b1` | secondary text on night |
+| paper | `#f4efe6` | daylight background |
+| field | `#fbf8f2` | form fields |
+| ink-2 | `#4a443c` | secondary text on paper |
+| dim | `#8f8678` | footnotes on both |
+| line | `#e2dacd` | form borders only |
+| wine | `#8b2332` | see below |
+
+- **Wine marks one thing per screen: the action.**
+  - On /accra, that is Save My Place and the selected chip.
+  - It never colours a label, a heading, a link, a badge or a decorative rule.
+- **Never use pure black or pure white.** Grey text on a coloured background takes a shade of that background's own hue.
+- **No gradients that are only decoration.** A transition between night and day must look like light, using the film's own dust and grain, not a CSS fade.
+
+## 3. Type
+
+- **Albert Sans for everything.** Libre Caslon italic appears in one role only: a quotation from a real person, such as his mother's words.
+- **Four levels, separated by weight and space, not size alone:**
+
+  | Level | Weight | Size |
+  |---|---|---|
+  | Title | 300 | large |
+  | Heading | 400 | 26px |
+  | Body | 400 | 17px |
+  | Small | — | 14 to 15px |
+
+- **Uppercase tracked labels are rationed: at most one per screen.** A label must name something the heading can't. If the heading already says it, delete the label.
+- **No word in a heading may be styled differently "for taste".**
+
+## 4. Layout
+
+- **Left-aligned, one column, asymmetric.** Nothing is centred except a full-screen title card.
+- **No cards, boxes or bordered containers,** except form fields. To test: remove the border. If nothing breaks, it wasn't a card.
+- **No decorative left stripes.**
+- **No hairline rules between sections.** Sections are separated by space, and the space varies with meaning: a big pause before a new chapter, a small one inside a thought.
+- **The primary element on each screen is bigger and heavier.** Everything else recedes.
+
+## 5. Copy
+
+- **Say each thing once per page.** If a heading says it, the line under it doesn't.
+- **The 30% test:** cut 30% of the words. If the page improves, keep the cut.
+- **Every line has to pass three tests:**
+  - Would Jimi say it out loud, in his own words?
+  - Is it in plain English?
+  - Does it name Christ, not the ministry, as the one who acts?
+- **No marketing verbs** (unlock, discover, transform, journey, elevate). **No section titles that merely describe** ("Share the story", "Learn more").
+
+## 6. Images and media
+
+- **Only real images of Jimi.** No stock crowds, no generated miracles, no invented testimonies, and no illustration pretending to be photography.
+- **One signature image: the key art** (the shadow dissolving into light). It is the brand mark, and every page has at most one image.
+- **Image test:** if the first screen works without the image, either make the image dominant or remove it.
+
+## 7. Motion
+
+- **One moment per page, and it must mean something.** Animate transform and opacity only, with slow deceleration, never bounce. Respect reduced motion.
+- **No fade-ins on scroll, no ticking for drama, no parallax.**
+- **A countdown shows days.** Seconds appear only on the final day.
+
+## 8. Controls
+
+- **One primary button per screen.** Everything else is a text link or a native control.
+- **Sharing uses the phone's own share sheet,** with a copy-link fallback. Never a row of six brand icons.
+- **Design the unhappy paths:** errors, "WhatsApp didn't open", "registration has closed", "the event has passed". Each gets one plain sentence.
+
+## 9. Litmus tests before anything ships
+
+1. **Identity:** could this screen belong to another church or another event? If so, add the one detail only Jimi has.
+2. **Squint:** blur your eyes. Exactly one thing should stand out per screen.
+3. **Phone:** check it at 390px, outdoors brightness, one thumb.
+4. **Read-aloud:** read every line aloud. Anything that sounds like an app or an ad is rewritten.
+5. **Removal:** for every element, ask whether anyone would miss it. If no one would, it goes.
