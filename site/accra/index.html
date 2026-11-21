@@ -97,12 +97,13 @@ h1{margin:0;font:300 clamp(44px,12.5vw,72px)/1 var(--sans);letter-spacing:-.02em
 section .wrap{padding-top:56px;padding-bottom:56px}
 section.first .wrap{padding-top:4px;padding-bottom:72px}
 .stack{display:flex;flex-direction:column;gap:16px}
-.who{font:400 20px/1.45 var(--sans);letter-spacing:-.01em;max-width:24em}
+.who{font:400 22px/1.4 var(--sans);letter-spacing:-.015em;max-width:22em}
 .dates{font:400 26px/1.2 var(--sans);letter-spacing:-.015em}
 .place{color:var(--ink-2)}
 .hours{margin-top:2px}
 .soon{margin-top:8px;font:500 20px/1.35 var(--sans);letter-spacing:-.01em;color:var(--ink)}
 .soon:empty{display:none}
+.pause{height:28px}
 .plain{color:var(--ink-2)}
 .promise{margin-top:16px;font:400 20px/1.45 var(--sans);letter-spacing:-.01em;color:var(--ink);max-width:24em}
 .story{display:inline-flex;align-items:center;gap:8px;align-self:flex-start;margin-top:8px;padding:10px 0;color:var(--ink);font:600 15px var(--sans);text-decoration:none;border-bottom:1px solid var(--line-2)}
@@ -200,6 +201,7 @@ footer .wrap{padding-top:28px;padding-bottom:calc(36px + env(safe-area-inset-bot
         <p class="hours" data-c="regHours">Daily, 10 a.m. to 4 p.m.</p>
       </div>
       <p class="soon" data-soon role="status"></p>
+      <div class="pause" aria-hidden="true"></div>
       <p class="plain">Don&rsquo;t forget to bring your medical report and any medical aids you use.</p>
       <p class="promise">A divine encounter with God waits on those days and on <span data-c="dateShortPromise">11 December</span>, through His Servant, Brother Jimi.</p>
       <a class="story" href="/">Who is Brother Jimi?<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
