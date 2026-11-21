@@ -32,6 +32,7 @@
 }
 @view-transition{navigation:auto}
 *{box-sizing:border-box}
+[hidden]{display:none!important}
 html{background:var(--ink);-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--ink);color:var(--bone);font:400 17px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
 a{color:inherit}
@@ -147,12 +148,12 @@ footer nav a:hover{color:var(--bone)}
   </section>
 
   <section class="next" aria-labelledby="next-title">
-    <p class="kicker">The story continues</p>
+    <p class="kicker" data-n="label">The story continues</p>
     <div>
-      <a class="card" href="/accra">
-        <h2 id="next-title">Accra Encounters Christ</h2>
-        <p>Friday 11 December 2026<br>The Patmos Christian Retreat, Accra<br>Entry is free</p>
-        <span class="go">Continue<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <a class="card" href="/accra" data-n="link">
+        <h2 id="next-title" data-n="title">Accra Encounters Christ</h2>
+        <p data-n="facts">Friday 11 December 2026<br>The Patmos Christian Retreat, Accra<br>Entry is free</p>
+        <span class="go"><span data-n="go">Continue</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
       </a>
     </div>
   </section>
@@ -175,6 +176,28 @@ footer nav a:hover{color:var(--bone)}
   </button>
 </div>
 
+<script src="/assets/cities.js"></script>
+<script>
+/* "The story continues" always points forward. The next city that has not ended is shown.
+   If none is announced yet, the last city is shown as a record of what God did there. */
+(function(){
+  var list=(window.CITIES||[]).slice(), now=Date.now(); if(!list.length) return;
+  function q(k){ return document.querySelector('[data-n="'+k+'"]'); }
+  function esc(t){ var d=document.createElement('div'); d.textContent=t; return d.innerHTML; }
+  var next=list.filter(function(c){ return now<Date.parse(c.eventEnds); })[0];
+  var c=next||list[list.length-1];
+  q('link').href='/'+c.slug; q('title').textContent=c.title;
+  if(next){
+    q('label').textContent='The story continues';
+    q('facts').innerHTML=esc(c.dateLong)+'<br>'+esc(c.venue)+'<br>Entry is free';
+    q('go').textContent='Continue';
+  } else {
+    q('label').textContent='The story so far';
+    q('facts').innerHTML=esc(c.dateLong)+'<br>Thank you, '+esc(c.city)+'.';
+    q('go').textContent='See the day';
+  }
+})();
+</script>
 <script>
 (function(){
   var btn=document.querySelector('[data-play]'), p=document.querySelector('[data-player]'),

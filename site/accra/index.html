@@ -51,7 +51,16 @@ window.CITY = {
   invite:       "Come with me to Accra Encounters Christ, with Brother Jimi. Prayer Line Registration is 1 to 7 December 2026. The gathering is on Friday 11 December 2026 at The Patmos Christian Retreat, Accra. Entry is free. Start here: [link]",
   xLine:        "Accra Encounters Christ with Brother Jimi. Friday 11 December 2026, The Patmos Christian Retreat, Accra. Entry is free. Come with me: [link]",
   emailSubject: "Accra Encounters Christ",
-  pastor:       "I thought this might be for you. [link]"
+  pastor:       "I thought this might be for you. [link]",
+
+  /* After the event this page becomes the record of the day.
+     records: photos gathered from the build-up to the day, shown once the event has ended.
+       Each: { src: "/images/accra/records/001.jpg", group: "The prayer line" | "The people" | "The day", alt: "..." }
+       Visitors can open and download any photo.
+     next: the next city once announced, e.g. { title: "Kumasi Encounters Christ", dateLong: "...", url: "/kumasi" } */
+  records: [],
+  next: null,
+  channel: "https://whatsapp.com/channel/0029VbCgjedBA1f6YQ0DvB3s"
 };
 </script>
 
@@ -69,6 +78,7 @@ window.CITY = {
   --gut:20px; color-scheme:light;
 }
 *{box-sizing:border-box}
+[hidden]{display:none!important}
 html{background:var(--paper);-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
 a{color:inherit}
@@ -89,8 +99,7 @@ h1{margin:0;font:300 clamp(44px,12.5vw,72px)/1 var(--sans);letter-spacing:-.02em
 .state{margin-top:12px;font-weight:600}
 .state:empty{display:none}
 .dust{display:block;width:100%;height:clamp(150px,24vw,280px);object-fit:cover;object-position:50% 40%;margin-top:-1px}
-.map{display:inline-flex;align-items:flex-start;gap:6px;color:inherit;text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px;text-decoration-color:var(--line-2)}
-.map svg{width:16px;height:16px;flex:none;margin-top:4px;opacity:.7}
+.map{color:inherit;text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1px;text-decoration-color:var(--line-2)}
 .hero .map{text-decoration-color:rgba(236,229,216,.3)}
 
 /* ---------- Sections: separated by space, never by lines ---------- */
@@ -99,13 +108,22 @@ section.first .wrap{padding-top:4px;padding-bottom:72px}
 .stack{display:flex;flex-direction:column;gap:16px}
 .who{font:400 22px/1.4 var(--sans);letter-spacing:-.015em;max-width:22em}
 .dates{font:400 26px/1.2 var(--sans);letter-spacing:-.015em}
-.place{color:var(--ink-2)}
+.place{color:var(--ink)}
+.place .hours{color:var(--ink-2)}
 .hours{margin-top:2px}
-.soon{margin-top:8px;font:500 20px/1.35 var(--sans);letter-spacing:-.01em;color:var(--ink)}
+.soon{margin-top:4px;font-weight:600;color:var(--ink)}
 .soon:empty{display:none}
 .pause{height:28px}
+
+/* ---------- The record of the day ---------- */
+.records{display:flex;flex-direction:column;gap:40px;padding-top:12px}
+.records h3{margin:0 0 14px;font:400 22px/1.3 var(--sans);letter-spacing:-.015em}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+.grid figure{margin:0}
+.grid img{display:block;width:100%;max-width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;background:var(--field)}
+.grid a.dl{display:inline-block;margin-top:6px;padding:4px 0;font-size:14px;color:var(--ink-2);text-underline-offset:3px;text-decoration-color:var(--line-2)}
 .plain{color:var(--ink-2)}
-.promise{margin-top:16px;font:400 20px/1.45 var(--sans);letter-spacing:-.01em;color:var(--ink);max-width:24em}
+.promise{margin-top:8px;font:400 22px/1.4 var(--sans);letter-spacing:-.015em;color:var(--ink);max-width:22em}
 .story{display:inline-flex;align-items:center;gap:8px;align-self:flex-start;margin-top:8px;padding:10px 0;color:var(--ink);font:600 15px var(--sans);text-decoration:none;border-bottom:1px solid var(--line-2)}
 .story:hover{border-color:var(--ink)}
 .story svg{width:16px;height:16px}
@@ -171,6 +189,7 @@ footer .wrap{padding-top:28px;padding-bottom:calc(36px + env(safe-area-inset-bot
   .chips{grid-template-columns:repeat(10,1fr)}
   section .wrap{padding-top:72px;padding-bottom:72px}
   .acts{flex-direction:row}
+  .grid{grid-template-columns:repeat(3,minmax(0,1fr))}
   .acts .btn,.acts .ghost{width:auto;padding:0 28px}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}@view-transition{navigation:none}}
@@ -184,9 +203,9 @@ footer .wrap{padding-top:28px;padding-bottom:calc(36px + env(safe-area-inset-bot
       <h1 data-c="title">Accra Encounters Christ</h1>
       <p class="with" data-c="withLine">with Brother Jimi</p>
       <p class="date" data-c="dateLong">Friday 11 December 2026</p>
-      <p class="where"><a class="map" data-map="venue" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0C18.5 15.4 12 21 12 21z" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="10" r="2.3" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><span data-c="venue">The Patmos Christian Retreat, Accra</span></a></p>
+      <p class="where"><a class="map" data-map="venue" target="_blank" rel="noopener"><span data-c="venue">The Patmos Christian Retreat, Accra</span></a></p>
       <p class="host" data-c="host">Hosted by The Patmos Church</p>
-      <p class="free">Entry is free.</p>
+      <p class="free" data-when="before during gap today">Entry is free.</p>
       <p class="state" data-state></p>
     </div>
   </div>
@@ -197,7 +216,7 @@ footer .wrap{padding-top:28px;padding-bottom:calc(36px + env(safe-area-inset-bot
       <p class="who" id="pl-title">For those who are sick, and anyone who needs deliverance, the Prayer Line Registration holds</p>
       <p class="dates" data-c="regLabel">1 to 7 December 2026</p>
       <div class="place">
-        <p><a class="map" data-map="ground" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0C18.5 15.4 12 21 12 21z" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="10" r="2.3" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><span>at <span data-c="ground">Skylight Town Hall, Accra</span></span></a></p>
+        <p><a class="map" data-map="ground" target="_blank" rel="noopener"><span data-c="ground">Skylight Town Hall, Accra</span></a></p>
         <p class="hours" data-c="regHours">Daily, 10 a.m. to 4 p.m.</p>
       </div>
       <p class="soon" data-soon role="status"></p>
@@ -205,6 +224,23 @@ footer .wrap{padding-top:28px;padding-bottom:calc(36px + env(safe-area-inset-bot
       <p class="plain">Don&rsquo;t forget to bring your medical report and any medical aids you use.</p>
       <p class="promise">A divine encounter with God waits on those days and on <span data-c="dateShortPromise">11 December</span>, through His Servant, Brother Jimi.</p>
       <a class="story" href="/">Who is Brother Jimi?<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+  </section>
+
+  <section class="first" aria-labelledby="rec-title" data-when="after">
+    <div class="wrap stack">
+      <h2 id="rec-title">Thank you, Accra.</h2>
+      <p class="plain">Thank you to everyone who came, prayed and served. These are the photos from the prayer line and the day. Find yourself, and keep your picture.</p>
+      <p class="plain" data-rec-empty>The photos are being gathered. They will be here soon.</p>
+    </div>
+    <div class="records" data-records></div>
+  </section>
+
+  <section aria-labelledby="after-next" data-when="after">
+    <div class="wrap stack">
+      <p class="who" id="after-next" data-next-label>The story continues.</p>
+      <a class="story" data-next-link href="#">See the next city<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <p class="plain" data-next-none>The next city will be announced soon. <a href="" data-channel target="_blank" rel="noopener">Hear it first on WhatsApp</a>.</p>
     </div>
   </section>
 
@@ -322,7 +358,7 @@ footer .wrap{padding-top:28px;padding-bottom:calc(36px + env(safe-area-inset-bot
     during:'',
     gap:'Prayer Line Registration has closed. The gathering is open to all. Entry is free.',
     today:'Today. Entry is free.',
-    after:C.title+' took place on '+C.dateLong+'.'
+    after:''
   };
   $('[data-state]').textContent=msg[STATE];
   $$('[data-when]').forEach(function(el){ el.hidden=el.getAttribute('data-when').split(' ').indexOf(STATE)<0; });
@@ -362,6 +398,31 @@ footer .wrap{padding-top:28px;padding-bottom:calc(36px + env(safe-area-inset-bot
   });
   $('[data-retry]').addEventListener('click',openWa);
   $('[data-confirm]').addEventListener('click',function(){ $('[data-bring]').hidden=false; step('saved'); });
+
+  /* After the event: the record of the day, and where the story goes next */
+  if(STATE==='after'){
+    var recs=C.records||[], box=$('[data-records]');
+    if(recs.length){
+      $('[data-rec-empty]').hidden=true;
+      var groups=[]; recs.forEach(function(r){ if(groups.indexOf(r.group)<0) groups.push(r.group); });
+      groups.forEach(function(g){
+        var sec=document.createElement('div'); sec.className='wrap';
+        var h=document.createElement('h3'); h.textContent=g; sec.appendChild(h);
+        var grid=document.createElement('div'); grid.className='grid';
+        recs.filter(function(r){ return r.group===g; }).forEach(function(r){
+          var f=document.createElement('figure');
+          f.innerHTML='<a href="'+r.src+'" target="_blank" rel="noopener"><img loading="lazy" alt=""></a><a class="dl" download>Download</a>';
+          f.querySelector('img').src=r.src; f.querySelector('img').alt=r.alt||g; f.querySelector('.dl').href=r.src;
+          grid.appendChild(f);
+        });
+        sec.appendChild(grid); box.appendChild(sec);
+      });
+    }
+    var nx=C.next, link=$('[data-next-link]');
+    if(nx){ link.href=nx.url; link.firstChild.textContent=nx.title+' \u00b7 '+nx.dateLong+' '; $('[data-next-none]').hidden=true; }
+    else { link.hidden=true; $('[data-next-label]').hidden=true; }
+    $('[data-channel]').href=C.channel;
+  }
 
   /* Share: the phone's own share sheet. No phone number ever appears here. */
   var inv=fill(C.invite), enc=encodeURIComponent, copied=$('[data-copied]');
