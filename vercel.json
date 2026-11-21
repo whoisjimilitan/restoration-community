@@ -1,4 +1,13 @@
 {
+  "redirects": [
+    { "source": "/today", "destination": "/counsel", "permanent": true },
+    { "source": "/welcome", "destination": "/counsel", "permanent": true },
+    { "source": "/welcome/received", "destination": "/counsel", "permanent": true },
+    { "source": "/pray", "destination": "/counsel", "permanent": true },
+    { "source": "/start", "destination": "/", "permanent": true },
+    { "source": "/beliefs", "destination": "/", "permanent": true },
+    { "source": "/trailer", "destination": "/", "permanent": true }
+  ],
   "headers": [
     {
       "source": "/partner",

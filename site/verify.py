@@ -14,11 +14,14 @@ import hashlib, json, re, sys, pathlib
 ROOT = pathlib.Path(__file__).resolve().parent
 LOCK = ROOT / "design-lock.json"
 FILES = [
-    "assets/styles.css", "assets/site.js",
-    "assets/fonts/inter-latin-wght-normal.woff2", "assets/fonts/inter-latin-wght-italic.woff2", "assets/fonts/albert-sans-latin-wght-normal.woff2", "assets/fonts/albert-sans-latin-wght-italic.woff2", "assets/fonts/libre-caslon-text-latin-400-italic.woff2",
-    "images/bible-hero.jpg", "images/bible-hero-2x.jpg", "images/jimi-avatar.jpg", "images/og.jpg", "images/favicon.png", "images/apple-touch-icon.png",
-    "index.html", "today/index.html", "start/index.html",
-    "welcome/index.html", "welcome/received/index.html", "partner/index.html", "privacy/index.html", "beliefs/index.html", "pray/index.html", "404.html", "design/status-card.html", "design/status-nametag.html", "design/status-endcard.html", "design/status-captions.html",
+    "assets/cities.js",
+    "assets/fonts/albert-sans-latin-wght-normal.woff2", "assets/fonts/libre-caslon-text-latin-400-italic.woff2",
+    "images/favicon.png", "images/apple-touch-icon.png",
+    "images/film/dust-edge.jpg", "images/film/jimi-face.jpg", "images/film/key-art-760.jpg", "images/film/key-art-1200.jpg", "images/film/og.jpg", "images/film/og-accra.jpg", "images/film/og-partner.jpg", "images/film/trailer-poster.jpg",
+    "images/counsel/value-in-challenges-og.jpg", "images/counsel/value-in-challenges-post.jpg",
+    "images/partner/listening-phone.jpg", "images/partner/listening-wide.jpg",
+    "index.html", "accra/index.html", "counsel/index.html", "privacy/index.html", "partner/index.html", "404.html",
+    "video/hero-loop.mp4", "video/brother-jimi-trailer.mp4",
 ]
 SLOT = re.compile(r'<(\w+)([^>]*?)\sdata-slot="(\w+)"([^>]*)>(.*?)</\1>', re.S)
 
