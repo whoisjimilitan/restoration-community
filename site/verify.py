@@ -17,7 +17,7 @@ FILES = [
     "assets/cities.js",
     "assets/fonts/albert-sans-latin-wght-normal.woff2", "assets/fonts/libre-caslon-text-latin-400-italic.woff2",
     "images/favicon.png", "images/apple-touch-icon.png",
-    "images/film/dust-edge.jpg", "images/film/jimi-face.jpg", "images/film/key-art-760.jpg", "images/film/key-art-1200.jpg", "images/film/og.jpg", "images/film/og-accra-2.jpg", "images/film/og-partner.jpg", "images/film/trailer-poster.jpg",
+    "images/film/dust-edge.jpg", "images/film/jimi-face.jpg", "images/film/key-art-760.jpg", "images/film/key-art-1200.jpg", "images/film/og-2.jpg", "images/film/og-accra-2.jpg", "images/film/og-partner.jpg", "images/film/trailer-poster.jpg",
     "images/counsel/value-in-challenges-og.jpg", "images/counsel/value-in-challenges-post.jpg",
     "images/partner/listening-phone.jpg", "images/partner/listening-wide.jpg",
     "index.html", "accra/index.html", "counsel/index.html", "privacy/index.html", "partner/index.html", "404.html",
