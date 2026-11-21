@@ -34,7 +34,7 @@ window.CITY = {
   host:         "Hosted by The Patmos Church",
   hostName:     "The Patmos Church, Accra",
   regLabel:     "1 to 7 December 2026",
-  dateShortPromise: "11 December",
+  dateShortPromise: "11\u00a0December",
   regOpens:     "2026-12-01T00:00:00Z",
   regCloses:    "2026-12-08T00:00:00Z",   /* end of 7 December */
   eventStarts:  "2026-12-11T00:00:00Z",   /* countdown target; midnight until a start hour is set */
@@ -47,7 +47,8 @@ window.CITY = {
   regions: ["Ahafo","Ashanti","Bono","Bono East","Central","Eastern","Greater Accra","North East","Northern","Oti","Savannah","Upper East","Upper West","Volta","Western","Western North"],
 
   /* Locked texts. [link] becomes url. [name] [region] [N] fill from the form. */
-  submission:   "[coming] for Prayer Line Registration. Name: [name]. Region: [region]. Skylight Town Hall, Accra. Dec 1-7.",
+  /* The opening changes with how sure they are: 1 to 5 "I think I'm coming", 6 to 10 "I'm coming". The fields after it stay fixed. */
+  submission:   "[lead] for Prayer Line Registration. Accra Encounters Christ, Skylight Town Hall, 1 to 7 Dec. Name: [name]. Region: [region]. How sure: [N]/10.",
   invite:       "Come with me to Accra Encounters Christ, with Brother Jimi. Prayer Line Registration is 1 to 7 December 2026. The gathering is on Friday 11 December 2026 at The Patmos Christian Retreat, Accra. Entry is free. Start here: [link]",
   xLine:        "Accra Encounters Christ with Brother Jimi. Friday 11 December 2026, The Patmos Christian Retreat, Accra. Entry is free. Come with me: [link]",
   emailSubject: "Accra Encounters Christ",
@@ -106,7 +107,7 @@ h1{margin:0;font:300 clamp(44px,12.5vw,72px)/1 var(--sans);letter-spacing:-.02em
 
 /* ---------- Sections: separated by space, never by lines ---------- */
 section .wrap{padding-top:56px;padding-bottom:56px}
-section.first .wrap{padding-top:4px;padding-bottom:72px}
+section.first .wrap{padding-top:4px;padding-bottom:96px}
 .stack{display:flex;flex-direction:column;gap:16px}
 .who{font:400 22px/1.4 var(--sans);letter-spacing:-.015em;max-width:22em}
 .dates{font:400 26px/1.2 var(--sans);letter-spacing:-.015em}
@@ -115,7 +116,17 @@ section.first .wrap{padding-top:4px;padding-bottom:72px}
 .hours{margin-top:2px}
 .soon{margin-top:4px;font-weight:600;color:var(--ink)}
 .soon:empty{display:none}
-.pause{height:28px}
+.big{margin:20px 0 0;font:300 clamp(64px,19vw,104px)/.95 var(--sans);letter-spacing:-.04em;color:var(--ink)}
+.big span{display:block;font-size:.42em;letter-spacing:-.02em;margin-top:6px}
+.facts{margin-top:28px;display:flex;flex-direction:column;gap:2px;color:var(--ink-2)}
+.facts p:first-child{color:var(--ink)}
+.facts p:last-child{margin-top:12px}
+.first .soon{margin-top:24px}
+.who-link{display:inline-flex;align-items:center;gap:14px;margin-top:28px;color:var(--ink);font:600 15px var(--sans);text-decoration:none}
+.who-link img{width:48px;height:48px;border-radius:50%;object-fit:cover;display:block}
+.who-link span{border-bottom:1px solid var(--line-2);padding-bottom:2px}
+.who-link:hover span{border-color:var(--ink)}
+.who-link svg{width:16px;height:16px}
 
 /* ---------- The record of the day ---------- */
 .records{display:flex;flex-direction:column;gap:40px;padding-top:12px}
@@ -125,7 +136,7 @@ section.first .wrap{padding-top:4px;padding-bottom:72px}
 .grid img{display:block;width:100%;max-width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;background:var(--field)}
 .grid a.dl{display:inline-block;margin-top:6px;padding:4px 0;font-size:14px;color:var(--ink-2);text-underline-offset:3px;text-decoration-color:var(--line-2)}
 .plain{color:var(--ink-2)}
-.promise{margin-top:8px;font:400 22px/1.4 var(--sans);letter-spacing:-.015em;color:var(--ink);max-width:22em}
+.promise{margin-top:72px;font:400 clamp(24px,6.4vw,30px)/1.35 var(--sans);letter-spacing:-.02em;color:var(--ink);max-width:20em}
 .story{display:inline-flex;align-items:center;gap:8px;align-self:flex-start;margin-top:8px;padding:10px 0;color:var(--ink);font:600 15px var(--sans);text-decoration:none;border-bottom:1px solid var(--line-2)}
 .story:hover{border-color:var(--ink)}
 .story svg{width:16px;height:16px}
@@ -157,6 +168,7 @@ input[type=text]:focus,select:focus{outline:none;border-color:var(--ink)}
 .link{align-self:flex-start;background:none;border:0;padding:12px 0;color:var(--ink-2);font:500 15px var(--sans);text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--line-2);cursor:pointer}
 
 /* ---------- Share: the phone's own share sheet, not a row of logos ---------- */
+@media (max-width:719px){.lk{display:none}}
 .flag{margin:0 0 10px;font:600 12px/1 var(--sans);letter-spacing:.32em;text-transform:uppercase;color:var(--ink)}
 .acts{display:flex;flex-direction:column;gap:10px;margin-top:12px}
 .acts .ghost{margin-top:0}
@@ -202,7 +214,8 @@ input[type=text]:focus,select:focus{outline:none;border-color:var(--ink)}
   :root{--gut:32px}
   .chips{grid-template-columns:repeat(10,1fr)}
   section .wrap{padding-top:72px;padding-bottom:72px}
-  .flag{margin:0 0 10px;font:600 12px/1 var(--sans);letter-spacing:.32em;text-transform:uppercase;color:var(--ink)}
+  @media (max-width:719px){.lk{display:none}}
+.flag{margin:0 0 10px;font:600 12px/1 var(--sans);letter-spacing:.32em;text-transform:uppercase;color:var(--ink)}
 .acts{flex-direction:row}
   .grid{grid-template-columns:repeat(3,minmax(0,1fr))}
   .acts .btn,.acts .ghost{width:auto;padding:0 28px}
@@ -227,18 +240,17 @@ input[type=text]:focus,select:focus{outline:none;border-color:var(--ink)}
   <img class="dust" src="/images/film/dust-edge.jpg" alt="" width="2400" height="560">
 
   <section class="first" aria-labelledby="pl-title" data-when="before during">
-    <div class="wrap stack">
+    <div class="wrap">
       <p class="who" id="pl-title">For those who are sick, and anyone who needs deliverance, the Prayer Line Registration holds</p>
-      <p class="dates" data-c="regLabel">1 to 7 December 2026</p>
-      <div class="place">
+      <p class="big">1 to 7 <span>December</span></p>
+      <div class="facts">
         <p><a class="map" data-map="ground" target="_blank" rel="noopener"><span data-c="ground">Skylight Town Hall, Accra</span></a></p>
-        <p class="hours" data-c="regHours">Daily, 10 a.m. to 4 p.m.</p>
+        <p data-c="regHours">Daily, 10 a.m. to 4 p.m.</p>
+        <p>Don&rsquo;t forget to bring your medical report and any medical aids you use.</p>
       </div>
       <p class="soon" data-soon role="status"></p>
-      <div class="pause" aria-hidden="true"></div>
-      <p class="plain">Don&rsquo;t forget to bring your medical report and any medical aids you use.</p>
       <p class="promise">A divine encounter with God waits on those days and on <span data-c="dateShortPromise">11 December</span>, through His Servant, Brother Jimi.</p>
-      <a class="story" href="/">Who is Brother Jimi?<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a class="who-link" href="/"><img src="/images/film/jimi-face.jpg" alt="" width="96" height="96"><span>Who is Brother Jimi?</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
     </div>
   </section>
 
@@ -263,7 +275,7 @@ input[type=text]:focus,select:focus{outline:none;border-color:var(--ink)}
     <div class="wrap">
       <div data-step="form">
         <p class="flag">Important</p>
-        <h2 id="form-title">Coming for registration?</h2>
+        <h2 id="form-title">Coming for registration?<span class="lk"> Let us know.</span></h2>
         <p class="queue">Your name goes ahead of you and skips the queue.</p>
         <form novalidate data-form>
           <fieldset>
@@ -313,7 +325,7 @@ input[type=text]:focus,select:focus{outline:none;border-color:var(--ink)}
         <button class="btn" type="button" data-invite>Share the invitation</button>
         <button class="ghost" type="button" data-status>Post it to my WhatsApp Status</button>
       </div>
-      <p class="more"><button class="link" type="button" data-pastor>Send it to my pastor</button><button class="link" type="button" data-print>Print the A4 flyer</button></p>
+      <p class="more"><button class="link" type="button" data-pastor>Send it to my pastor</button><button class="link" type="button" data-print>Print flyers to hand out</button></p>
       <div class="icons">
         <a data-share="whatsapp" target="_blank" rel="noopener" aria-label="Share on WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 19.5l1.2-3.6A7.8 7.8 0 1 1 8.4 18.5z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></a>
         <a data-share="facebook" target="_blank" rel="noopener" aria-label="Share on Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8.5h2V5h-2.4C11 5 10 6.6 10 8.8V10.5H8V14h2v6h3.5v-6H16l.5-3.5h-3V9.3c0-.5.3-.8.5-.8z" fill="currentColor"/></svg></a>
@@ -329,7 +341,7 @@ input[type=text]:focus,select:focus{outline:none;border-color:var(--ink)}
 </main>
 
 <footer>
-  <div class="wrap foot"><p>&copy; 2026 <a href="/">Brother Jimi</a>, a servant of Jesus Christ</p><nav aria-label="More"><a href="/counsel">Counsel</a><a href="/privacy">Privacy</a></nav></div>
+  <div class="wrap foot"><p>&copy; 2026 Brother Jimi, a servant of Jesus Christ</p><nav aria-label="More"><a href="/privacy">Privacy</a></nav></div>
 </footer>
 
 <!-- A4 flyer: built from the same CONFIG, shown only when printing -->
@@ -422,8 +434,7 @@ input[type=text]:focus,select:focus{outline:none;border-color:var(--ink)}
     err('name',name?'':'Write your name, so it can go ahead of you.');
     err('region',region?'':'Choose your region.');
     if(!ok){ var first=!sure?$('#sure-1'):!name?$('#f-name'):sel; first.focus(); return; }
-    var coming=parseInt(sure)>=6?'I\'m coming':'I think I\'m coming';
-    lastWa='https://wa.me/'+C.whatsapp+'?text='+encodeURIComponent(fill(C.submission,{coming:coming,name:name,region:region,N:sure}));
+    lastWa='https://wa.me/'+C.whatsapp+'?text='+encodeURIComponent(fill(C.submission,{lead:(+sure<=5?'I think I\u2019m coming':'I\u2019m coming'),name:name,region:region,N:sure}));
     step('sent'); openWa();
   });
   $('[data-retry]').addEventListener('click',openWa);
