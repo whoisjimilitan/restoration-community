@@ -61,8 +61,10 @@ window.CITY = {
 /* A live flyer. The film is night; the revival is daylight. One column, left-aligned, no pictures.
    What a flyer shouts: the name, the date, FREE and the clock. Albert Sans only. Wine marks the action. */
 :root{
-  --paper:#faf8f4; --paper-2:#f2efe9; --ink:#15120f; --ink-2:#4a443c; --dim:#857d71;
-  --line:#e4dfd6; --line-2:#cfc8bc; --wine:#8b2332; --wine-hi:#a1293c; --err:#a3352a;
+  /* One palette for the whole site: the film's night and bone, and a daylight paper of the same warm hue */
+  --night:#0b0a09; --bone:#ece5d8; --soft:#c9c0b1;
+  --paper:#f4efe6; --field:#fbf8f2; --ink:#0b0a09; --ink-2:#4a443c; --dim:#8f8678;
+  --line:#e2dacd; --line-2:#cdc4b5; --wine:#8b2332; --wine-hi:#a1293c; --err:#a3352a;
   --sans:"Albert Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
   --gut:20px; color-scheme:light;
 }
@@ -73,46 +75,41 @@ a{color:inherit}
 :focus-visible{outline:2px solid var(--ink);outline-offset:3px;border-radius:2px}
 p{margin:0}
 .wrap{max-width:600px;margin:0 auto;padding-left:max(var(--gut),env(safe-area-inset-left));padding-right:max(var(--gut),env(safe-area-inset-right))}
-.label{font:600 11px/1.3 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--dim)}
-h2{margin:0;font:500 26px/1.2 var(--sans);letter-spacing:-.015em;text-wrap:balance}
+.label{font:500 11px/1.3 var(--sans);letter-spacing:.32em;text-transform:uppercase;color:var(--dim)}
+h2{margin:0;font:400 26px/1.2 var(--sans);letter-spacing:-.015em;text-wrap:balance}
 
 /* ---------- Hero ---------- */
-.hero{background:linear-gradient(90deg,#0b0a09 0%,#0b0a09 95%,#1a1815 100%);color:#ece5d8;position:relative}
-.hero .wrap{padding-top:calc(48px + env(safe-area-inset-top));padding-bottom:40px}
-.hero h1{color:#ece5d8}
-.hero .with{color:#ece5d8}
-.hero .free{display:inline-block;margin-top:28px;padding:9px 14px;border-radius:999px;background:var(--wine);color:#ece5d8;font:700 12px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase}
-.hero .when{margin-top:28px}
-.hero .date{color:#ece5d8;font:500 26px/1.2 var(--sans);letter-spacing:-.015em}
-.hero .where{margin-top:8px;line-height:1.55;color:#ece5d8;opacity:.85}
-.hero .where .host{font-size:15px;opacity:.8}
-h1{margin:0;font:600 clamp(44px,12.5vw,72px)/.98 var(--sans);letter-spacing:-.035em;text-wrap:balance}
-.with{margin-top:12px;font:400 20px/1.3 var(--sans);opacity:.85}
-.free{display:inline-block;margin-top:28px;padding:9px 14px;border-radius:999px;background:var(--wine);color:#ece5d8;font:700 12px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase}
+.hero{background:linear-gradient(180deg,var(--night) 0%,var(--night) 72%,var(--paper) 100%);color:var(--bone)}
+.hero .wrap{padding-top:calc(48px + env(safe-area-inset-top));padding-bottom:140px}
+h1{margin:0;font:300 clamp(44px,12.5vw,72px)/1 var(--sans);letter-spacing:-.02em;text-wrap:balance}
+.with{margin-top:12px;font:400 20px/1.3 var(--sans);color:var(--soft)}
+.free{display:inline-block;margin-top:28px;padding:9px 14px;border-radius:999px;background:var(--wine);color:var(--bone);font:600 11px/1 var(--sans);letter-spacing:.32em;text-transform:uppercase}
 .when{margin-top:28px}
-.date{font:500 26px/1.2 var(--sans);letter-spacing:-.015em}
-.where{margin-top:8px;line-height:1.55;opacity:.85}
-.where .host{font-size:15px;opacity:.8}
+.date{font:400 26px/1.2 var(--sans);letter-spacing:-.015em}
+.where{margin-top:8px;line-height:1.55;color:var(--soft)}
+.where .host{font-size:15px;color:var(--dim)}
+.clock{margin-top:12px;padding:20px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.cdl{margin:0 0 14px;font:500 11px/1.3 var(--sans);letter-spacing:.32em;text-transform:uppercase;color:var(--wine)}
+.cd{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;font-variant-numeric:tabular-nums}
+.cd div{display:flex;flex-direction:column;gap:6px}
+.cd b{font:300 36px/1 var(--sans);letter-spacing:-.02em}
+.cd span{font:500 11px/1 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--dim)}
+.state{margin-top:18px;font-weight:600}
 .map{display:inline-flex;align-items:flex-start;gap:6px;color:inherit;text-decoration:underline;text-underline-offset:4px;text-decoration-color:currentColor;text-decoration-thickness:1px}
 .map svg{width:16px;height:16px;flex:none;margin-top:4px;opacity:.75}
 .hero .map{text-decoration-color:rgba(236,229,216,.35)}
 .hours{margin-top:-12px;color:var(--ink-2)}
 .at{margin-top:-8px;font-size:17px;color:var(--ink-2)}
 .at .map{text-decoration-color:var(--line-2)}
-.state{margin-top:18px;font-weight:600}
 .state:empty{display:none}
-.clock{display:none}
-.cdl{margin:0 0 12px;font:500 10px/1.2 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--dim);opacity:.5}
-.cd{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;font-variant-numeric:tabular-nums;opacity:.6}
-.cd div{display:flex;flex-direction:column;gap:4px}
-.cd b{font:400 24px/1 var(--sans);letter-spacing:-.01em;color:var(--dim)}
-.cd span{font:500 10px/1.2 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--dim);opacity:.6}
 
 /* ---------- Sections ---------- */
 section{border-top:1px solid var(--line)}
+section.first{border-top:0}
+section.first .wrap{padding-top:8px}
 section .wrap{padding-top:48px;padding-bottom:52px}
 .stack{display:flex;flex-direction:column;gap:16px}
-.dates{margin-top:-8px;font:500 26px/1.2 var(--sans);letter-spacing:-.015em}
+.dates{margin-top:-8px;font:400 26px/1.2 var(--sans);letter-spacing:-.015em}
 .plain{color:var(--ink-2)}
 .letter{font:400 21px/1.5 var(--sans);letter-spacing:-.01em;color:var(--ink);max-width:28em}
 .sign{margin-top:14px;font-weight:600}
@@ -127,22 +124,22 @@ fieldset{border:0;margin:0;padding:0;min-width:0}
 legend,.l{display:block;font:600 15px/1.3 var(--sans);margin:0 0 12px;padding:0}
 .chips{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
 .chips input{position:absolute;opacity:0;pointer-events:none}
-.chips label{display:grid;place-items:center;height:48px;border:1px solid var(--line-2);border-radius:6px;background:#fff;font:500 17px/1 var(--sans);font-variant-numeric:tabular-nums;color:var(--ink-2);cursor:pointer;transition:background .15s,border-color .15s,color .15s}
+.chips label{display:grid;place-items:center;height:48px;border:1px solid var(--line-2);border-radius:6px;background:var(--field);font:500 17px/1 var(--sans);font-variant-numeric:tabular-nums;color:var(--ink-2);cursor:pointer;transition:background .15s,border-color .15s,color .15s}
 .chips label:hover{border-color:var(--ink-2)}
-.chips input:checked+label{background:var(--wine);border-color:var(--wine);color:#fff}
+.chips input:checked+label{background:var(--wine);border-color:var(--wine);color:var(--bone)}
 .chips input:focus-visible+label{outline:2px solid var(--ink);outline-offset:2px}
 .ends{display:flex;justify-content:space-between;margin-top:10px;font-size:14px;color:var(--dim)}
-input[type=text],select{width:100%;height:54px;border:1px solid var(--line-2);border-radius:6px;background:#fff;color:var(--ink);font:400 17px var(--sans);padding:0 16px}
+input[type=text],select{width:100%;height:54px;border:1px solid var(--line-2);border-radius:6px;background:var(--field);color:var(--ink);font:400 17px var(--sans);padding:0 16px}
 select{appearance:none;-webkit-appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--ink-2) 50%),linear-gradient(135deg,var(--ink-2) 50%,transparent 50%);background-position:calc(100% - 22px) 24px,calc(100% - 17px) 24px;background-size:5px 5px;background-repeat:no-repeat}
 input[type=text]::placeholder{color:var(--dim)}
 input[type=text]:focus,select:focus{outline:none;border-color:var(--ink)}
 .err{color:var(--err);font-size:14px;margin-top:8px}
 .err:empty{display:none}
 .queue{margin-top:12px;color:var(--ink-2)}
-.btn{display:flex;align-items:center;justify-content:center;width:100%;height:56px;border:0;border-radius:6px;background:var(--wine);color:#fff;font:600 16px/1 var(--sans);letter-spacing:.01em;cursor:pointer}
+.btn{display:flex;align-items:center;justify-content:center;width:100%;height:56px;border:0;border-radius:6px;background:var(--wine);color:var(--bone);font:600 16px/1 var(--sans);letter-spacing:.01em;cursor:pointer}
 .btn:hover{background:var(--wine-hi)}
 .helper{margin-top:-16px;font-size:15px;color:var(--dim);text-align:center}
-.ghost{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;height:52px;margin-top:4px;border:1px solid var(--line-2);border-radius:6px;background:#fff;color:var(--ink);font:600 15px/1 var(--sans);cursor:pointer}
+.ghost{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;height:52px;margin-top:4px;border:1px solid var(--line-2);border-radius:6px;background:var(--field);color:var(--ink);font:600 15px/1 var(--sans);cursor:pointer}
 .ghost:hover{border-color:var(--ink-2)}
 .ghost svg{width:20px;height:20px}
 .link{align-self:flex-start;background:none;border:0;padding:12px 0;color:var(--ink-2);font:500 15px var(--sans);text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--line-2);cursor:pointer}
@@ -150,10 +147,10 @@ input[type=text]:focus,select:focus{outline:none;border-color:var(--ink)}
 /* ---------- Share ---------- */
 .share{display:grid;grid-template-columns:repeat(3,1fr);gap:20px 8px;margin-top:12px}
 .share a,.share button{display:flex;flex-direction:column;align-items:center;gap:8px;background:none;border:0;padding:0;color:var(--ink-2);font:500 12px/1.2 var(--sans);text-decoration:none;cursor:pointer;text-align:center}
-.share i{display:grid;place-items:center;width:56px;height:56px;border-radius:50%;background:#fff;border:1px solid var(--line);color:var(--ink);transition:border-color .15s,background .15s}
+.share i{display:grid;place-items:center;width:56px;height:56px;border-radius:50%;background:var(--field);border:1px solid var(--line);color:var(--ink);transition:border-color .15s,background .15s}
 .share a:hover i,.share button:hover i{border-color:var(--ink-2)}
 .share svg{width:22px;height:22px}
-.share .main i{background:var(--wine);border-color:var(--wine);color:#fff}
+.share .main i{background:var(--wine);border-color:var(--wine);color:var(--bone)}
 .alt{margin-top:8px;color:var(--dim);font-size:15px;line-height:1.6}
 .alt a{color:var(--ink-2);text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--line-2)}
 .alt a:hover{color:var(--ink)}
@@ -170,7 +167,7 @@ footer .wrap{padding-top:28px;padding-bottom:calc(36px + env(safe-area-inset-bot
   @page{size:A4 portrait;margin:0}
   body{background:#fff}
   body>*:not(.flyer){display:none!important}
-  .flyer{display:flex;flex-direction:column;justify-content:space-between;width:210mm;height:297mm;padding:26mm 22mm 22mm;color:#15120f;background:#fff;font-family:var(--sans)}
+  .flyer{display:flex;flex-direction:column;justify-content:space-between;width:210mm;height:297mm;padding:26mm 22mm 22mm;color:#15120f;background:var(--field);font-family:var(--sans)}
   .flyer .k{font:600 9pt/1 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:#857d71}
   .flyer h1{margin:5mm 0 0;font:300 44pt/1.04 var(--sans);letter-spacing:-.02em}
   .flyer dl{margin:16mm 0 0;display:grid;grid-template-columns:46mm 1fr;gap:5mm 6mm;font-size:13pt;line-height:1.4}
@@ -201,29 +198,18 @@ footer .wrap{padding-top:28px;padding-bottom:calc(36px + env(safe-area-inset-bot
         <p class="date" data-c="dateLong">Friday 11 December 2026</p>
         <p class="where"><a class="map" data-map="venue" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0C18.5 15.4 12 21 12 21z" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="10" r="2.3" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><span data-c="venue">The Patmos Christian Retreat, Accra</span></a><br><span class="host" data-c="host">Hosted by The Patmos Church</span></p>
       </div>
-      <div class="clock" data-clock>
-        <p class="cdl" data-cdl>The gathering begins in</p>
-        <div class="cd" role="timer" aria-live="off">
-          <div><b data-d>00</b><span>Days</span></div>
-          <div><b data-h>00</b><span>Hours</span></div>
-          <div><b data-m>00</b><span>Minutes</span></div>
-          <div><b data-s>00</b><span>Seconds</span></div>
-        </div>
-      </div>
       <p class="state" data-state></p>
     </div>
   </div>
 
-  <section class="note" aria-labelledby="pl-title" data-when="before during">
+  <section class="note first" aria-labelledby="pl-title" data-when="before during">
     <div class="wrap stack">
       <p class="who">For those who are sick, and anyone who needs deliverance,</p>
       <p class="label" id="pl-title">The Prayer Line Registration holds</p>
       <p class="dates" data-c="regLabel">1 to 7 December 2026</p>
       <p class="at"><a class="map" data-map="ground" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0C18.5 15.4 12 21 12 21z" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="10" r="2.3" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><span>at <span data-c="ground">Skylight Town Hall, Accra</span></span></a></p>
       <p class="hours" data-c="regHours">Daily, 10 a.m. to 4 p.m.</p>
-      <p class="plain">Don&rsquo;t forget to bring your medical report and any medical aids you use.</p>
-      <p class="promise">A divine encounter with God waits on those days and on <span data-c="dateShortPromise">11 December</span>, through His Servant, Brother Jimi.</p>
-      <div class="clock" data-clock style="margin-top:28px">
+      <div class="clock" data-clock>
         <p class="cdl" data-cdl>Registration opens in</p>
         <div class="cd" role="timer" aria-live="off">
           <div><b data-d>00</b><span>Days</span></div>
@@ -232,6 +218,9 @@ footer .wrap{padding-top:28px;padding-bottom:calc(36px + env(safe-area-inset-bot
           <div><b data-s>00</b><span>Seconds</span></div>
         </div>
       </div>
+      <p class="plain">Don&rsquo;t forget to bring your medical report and any medical aids you use.</p>
+      <p class="promise">A divine encounter with God waits on those days and on <span data-c="dateShortPromise">11 December</span>, through His Servant, Brother Jimi.</p>
+      <a class="story" href="/">Who is Brother Jimi? Watch his story<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
     </div>
   </section>
 
@@ -297,7 +286,7 @@ footer .wrap{padding-top:28px;padding-bottom:calc(36px + env(safe-area-inset-bot
         <button type="button" data-print><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 9V3.5h10V9M7 17H4.5v-7.5h15V17H17M7 14h10v6.5H7z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></i>A4 flyer</button>
       </div>
       <p class="copied" data-copied aria-live="polite"></p>
-      <p class="alt" data-wait>While you wait for the 11th, <a href="/counsel">encounter Christ today through His Word</a></p>
+      <p class="alt" data-wait>While you wait for the 11th, <a href="https://whatsapp.com/channel/0029VbCgjedBA1f6YQ0DvB3s" target="_blank" rel="noopener">receive daily counsel on WhatsApp</a></p>
     </div>
   </section>
 </main>
@@ -369,9 +358,9 @@ footer .wrap{padding-top:28px;padding-bottom:calc(36px + env(safe-area-inset-bot
   function two(n){return (n<10?'0':'')+n}
   var CDL=$('[data-cdl]');
   function tick(){
-    /* Before 1 December the clock counts to registration, then to the gathering */
-    var now=Date.now(), first=STATE==='before'&&now<t.opens, target=first?t.opens:t.start;
-    CDL.textContent=first?'Registration opens in':'The gathering begins in';
+    /* The clock serves the registration window: it counts to the first day, then to the last */
+    var now=Date.now(), before=now<t.opens, target=before?t.opens:t.closes;
+    CDL.textContent=before?'Registration opens in':'Registration closes in';
     var s=Math.floor(Math.max(0,target-now)/1000);
     D.textContent=two(Math.floor(s/86400)); H.textContent=two(Math.floor(s%86400/3600)); M.textContent=two(Math.floor(s%3600/60)); S.textContent=two(s%60);
   }
@@ -466,15 +455,15 @@ footer .wrap{padding-top:28px;padding-bottom:calc(36px + env(safe-area-inset-bot
       if(img.naturalWidth){ x.drawImage(img,0,-40,W,W*img.naturalHeight/img.naturalWidth); }
       var g=x.createLinearGradient(0,560,0,1080); g.addColorStop(0,'rgba(11,10,9,0)'); g.addColorStop(.65,'rgba(11,10,9,.9)'); g.addColorStop(1,'#0b0a09');
       x.fillStyle=g; x.fillRect(0,560,W,H-560); x.fillStyle='#0b0a09'; x.fillRect(0,1080,W,H-1080);
-      x.fillStyle=bone; x.font='600 118px '+F; ['Accra','Encounters','Christ'].forEach(function(w,i){ x.fillText(w,L,900+i*118); });
+      x.fillStyle=bone; x.font='300 118px '+F; ['Accra','Encounters','Christ'].forEach(function(w,i){ x.fillText(w,L,900+i*118); });
       x.font='400 46px '+F; x.fillStyle=soft; x.fillText(C.withLine,L,1200);
       var bw=380,bh=76,by=1250; x.fillStyle='#8b2332'; x.beginPath(); x.moveTo(L+bh/2,by); x.arcTo(L+bw,by,L+bw,by+bh,bh/2); x.arcTo(L+bw,by+bh,L,by+bh,bh/2); x.arcTo(L,by+bh,L,by,bh/2); x.arcTo(L,by,L+bw,by,bh/2); x.fill();
-      x.fillStyle=bone; x.font='700 30px '+F; x.letterSpacing='5px'; x.fillText('ENTRY IS FREE',L+36,by+50); x.letterSpacing='0px';
-      x.font='500 58px '+F; x.fillText(C.dateLong,L,1430);
+      x.fillStyle=bone; x.font='600 28px '+F; x.letterSpacing='8px'; x.fillText('ENTRY IS FREE',L+36,by+50); x.letterSpacing='0px';
+      x.font='400 58px '+F; x.fillText(C.dateLong,L,1430);
       x.fillStyle=soft; x.font='400 38px '+F; x.fillText(C.venue,L,1486);
       x.fillStyle='rgba(236,229,216,.18)'; x.fillRect(L,1540,W-2*L,2);
       x.fillStyle=soft; x.font='600 26px '+F; x.letterSpacing='6px'; x.fillText('PRAYER LINE REGISTRATION',L,1604); x.letterSpacing='0px';
-      x.fillStyle=bone; x.font='500 58px '+F; x.fillText(C.regLabel,L,1676);
+      x.fillStyle=bone; x.font='400 58px '+F; x.fillText(C.regLabel,L,1676);
       x.fillStyle=soft; x.font='400 38px '+F; x.fillText(C.ground+'  ·  '+C.regHours.replace('Daily, ',''),L,1732);
       x.fillStyle=bone; x.font='600 44px '+F; x.fillText(C.urlShort,L,1842);
       c.toBlob(cb,'image/png');
