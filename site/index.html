@@ -109,7 +109,10 @@ footer nav a:hover{color:var(--bone)}
   .copy{padding-bottom:0}
   h1{font-size:clamp(48px,5.3vw,76px)}
   .story{padding-top:96px}
-  .next{padding-top:72px;padding-bottom:96px}
+  /* One deliberate break of the grid: the story reads on the left, where the words stand in the hero;
+     where he goes next sits on the right, where he stands in the light. */
+  .story{padding-bottom:0}
+  .next{padding-top:56px;padding-bottom:120px;padding-left:max(var(--gut),52%)}
   .card{max-width:640px}
   footer{display:flex;justify-content:space-between;align-items:center;gap:40px}
   footer nav{margin-top:0}
