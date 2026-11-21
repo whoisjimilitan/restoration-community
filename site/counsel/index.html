@@ -30,6 +30,8 @@
   --gut:20px; color-scheme:light;
 }
 *{box-sizing:border-box}
+p{text-wrap:pretty}
+
 [hidden]{display:none!important}
 html{background:var(--paper);-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--paper);color:var(--ink);font:400 18px/1.65 var(--sans);-webkit-font-smoothing:antialiased}
@@ -54,8 +56,11 @@ p{margin:0}
 .btn:hover{background:var(--wine-hi)}
 .note{margin-top:12px;font-size:15px;color:var(--dim);text-align:center}
 
-footer{padding-bottom:calc(36px + env(safe-area-inset-bottom));display:flex;flex-wrap:wrap;gap:6px 24px;font-size:14px;color:var(--dim)}
-footer a{text-underline-offset:3px;text-decoration-color:var(--line-2)}
+.foot{display:flex;flex-direction:column;gap:10px;padding-top:32px;padding-bottom:calc(40px + env(safe-area-inset-bottom));font-size:14px;line-height:1.6;color:var(--dim)}
+.foot a{color:inherit;text-decoration:none}
+.foot a:hover{color:var(--ink)}
+.foot nav{display:flex;gap:22px}
+@media (min-width:720px){.foot{flex-direction:row;justify-content:space-between;align-items:center}}
 
 @media (min-width:600px){
   :root{--gut:0px}
@@ -87,9 +92,8 @@ footer a{text-underline-offset:3px;text-decoration-color:var(--line-2)}
     <p class="note">Every morning. Free.</p>
   </div>
 
-  <footer class="wrap">
-    <p>&copy; 2026 <a href="/">Brother Jimi</a>, a servant of Jesus Christ</p>
-    <a href="/privacy">Privacy</a>
+  <footer class="wrap foot">
+    <p>&copy; 2026 <a href="/">Brother Jimi</a>, a servant of Jesus Christ</p><nav aria-label="More"><a href="/counsel">Counsel</a><a href="/privacy">Privacy</a></nav>
   </footer>
 </main>
 
