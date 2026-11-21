@@ -155,10 +155,18 @@ input[type=text]:focus,select:focus{outline:none;border-color:var(--ink)}
 .link{align-self:flex-start;background:none;border:0;padding:12px 0;color:var(--ink-2);font:500 15px var(--sans);text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--line-2);cursor:pointer}
 
 /* ---------- Share: the phone's own share sheet, not a row of logos ---------- */
+.flag{margin:0 0 10px;font:600 12px/1 var(--sans);letter-spacing:.32em;text-transform:uppercase;color:var(--ink)}
 .acts{display:flex;flex-direction:column;gap:10px;margin-top:8px}
 .copied{min-height:1.4em;font-size:14px;color:var(--dim)}
 .copied:empty{min-height:0}
 .more{display:flex;flex-wrap:wrap;gap:0 24px}
+.icons{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.icons a,.icons button{display:grid;place-items:center;width:48px;height:48px;border-radius:50%;border:1px solid var(--line-2);background:var(--field);color:var(--ink);cursor:pointer;transition:border-color .15s}
+.icons a:hover,.icons button:hover{border-color:var(--ink)}
+.icons svg{width:20px;height:20px}
+.chan{display:inline-flex;align-items:center;gap:10px;align-self:flex-start;margin-top:20px;color:var(--ink-2);font:500 15px var(--sans);text-decoration:none}
+.chan svg{width:20px;height:20px}
+.chan:hover{color:var(--ink)}
 .alt{margin-top:16px;color:var(--dim);font-size:15px;line-height:1.6}
 .alt a{color:var(--ink-2);text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--line-2)}
 .alt a:hover{color:var(--ink)}
@@ -188,7 +196,8 @@ footer .wrap{padding-top:28px;padding-bottom:calc(36px + env(safe-area-inset-bot
   :root{--gut:32px}
   .chips{grid-template-columns:repeat(10,1fr)}
   section .wrap{padding-top:72px;padding-bottom:72px}
-  .acts{flex-direction:row}
+  .flag{margin:0 0 10px;font:600 12px/1 var(--sans);letter-spacing:.32em;text-transform:uppercase;color:var(--ink)}
+.acts{flex-direction:row}
   .grid{grid-template-columns:repeat(3,minmax(0,1fr))}
   .acts .btn,.acts .ghost{width:auto;padding:0 28px}
 }
@@ -247,6 +256,7 @@ footer .wrap{padding-top:28px;padding-bottom:calc(36px + env(safe-area-inset-bot
   <section aria-labelledby="form-title" data-when="before during">
     <div class="wrap">
       <div data-step="form">
+        <p class="flag">Important</p>
         <h2 id="form-title">Coming for registration? Let us know.</h2>
         <p class="queue">Your name goes ahead of you and skips the queue.</p>
         <form novalidate data-form>
@@ -294,13 +304,21 @@ footer .wrap{padding-top:28px;padding-bottom:calc(36px + env(safe-area-inset-bot
     <div class="wrap stack">
       <h2 id="bring-title">Be an evangelist.</h2>
       <p class="plain">Help someone else encounter Jesus in the power of the Holy Spirit.</p>
+      <div class="icons">
+        <a data-share="whatsapp" target="_blank" rel="noopener" aria-label="Share on WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 19.5l1.2-3.6A7.8 7.8 0 1 1 8.4 18.5z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></a>
+        <a data-share="facebook" target="_blank" rel="noopener" aria-label="Share on Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8.5h2V5h-2.4C11 5 10 6.6 10 8.8V10.5H8V14h2v6h3.5v-6H16l.5-3.5h-3V9.3c0-.5.3-.8.5-.8z" fill="currentColor"/></svg></a>
+        <a data-share="telegram" target="_blank" rel="noopener" aria-label="Share on Telegram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 4.5L3.5 11.3l5.3 1.9m11.7-8.7l-3 14.5-6.2-4.6m9.2-9.9L8.8 13.2l1.5 5.3 2-3.4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/></svg></a>
+        <a data-share="x" target="_blank" rel="noopener" aria-label="Share on X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></a>
+        <a data-share="email" target="_blank" rel="noopener" aria-label="Share on Email"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="6" width="17" height="12" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M4 7l8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></a>
+        <button type="button" data-copy aria-label="Copy link"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+      </div>
       <div class="acts">
         <button class="btn" type="button" data-invite>Share the invitation</button>
         <button class="ghost" type="button" data-status>Post it to my WhatsApp Status</button>
       </div>
       <p class="copied" data-copied aria-live="polite"></p>
       <p class="more"><button class="link" type="button" data-pastor>Send it to my pastor</button><button class="link" type="button" data-print>Print the A4 flyer</button></p>
-      <p class="alt" data-wait>While you wait for the 11th, <a href="https://whatsapp.com/channel/0029VbCgjedBA1f6YQ0DvB3s" target="_blank" rel="noopener">receive daily counsel on WhatsApp</a>.</p>
+      <a class="chan" data-wait href="https://whatsapp.com/channel/0029VbCgjedBA1f6YQ0DvB3s" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 19.5l1.2-3.6A7.8 7.8 0 1 1 8.4 18.5z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>Daily counsel</a>
     </div>
   </section>
 </main>
@@ -382,7 +400,13 @@ footer .wrap{padding-top:28px;padding-bottom:calc(36px + env(safe-area-inset-bot
     var f=$('[data-step="'+name+'"] [data-focus]'); if(f){ f.focus({preventScroll:true}); f.scrollIntoView({behavior:'smooth',block:'start'}); }
   }
   var lastWa='';
-  function openWa(){ var w=window.open(lastWa,'_blank'); if(w){ try{w.opener=null}catch(e){} } else { window.location.href=lastWa; } }
+  /* Open WhatsApp once. A single real link click: no window.open plus fallback, which opened it twice on phones. */
+  var waBusy=false;
+  function openWa(){
+    if(waBusy) return; waBusy=true; setTimeout(function(){ waBusy=false; },2500);
+    var a=document.createElement('a'); a.href=lastWa; a.target='_blank'; a.rel='noopener';
+    document.body.appendChild(a); a.click(); a.remove();
+  }
 
   var form=$('[data-form]');
   form.addEventListener('submit',function(e){
@@ -426,10 +450,19 @@ footer .wrap{padding-top:28px;padding-bottom:calc(36px + env(safe-area-inset-bot
 
   /* Share: the phone's own share sheet. No phone number ever appears here. */
   var inv=fill(C.invite), enc=encodeURIComponent, copied=$('[data-copied]');
+  var links={
+    whatsapp:'https://wa.me/?text='+enc(inv),
+    facebook:'https://www.facebook.com/sharer/sharer.php?u='+enc(C.url),
+    telegram:'https://t.me/share/url?url='+enc(C.url)+'&text='+enc(inv.replace(C.url,'').trim()),
+    x:'https://twitter.com/intent/tweet?text='+enc(fill(C.xLine)),
+    email:'mailto:?subject='+enc(C.emailSubject)+'&body='+enc(inv)
+  };
+  $$('[data-share]').forEach(function(a){ a.href=links[a.getAttribute('data-share')]; });
   function copy(text,done){
     if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(text).then(function(){ copied.textContent=done; },function(){ copied.textContent=text; }); }
     else copied.textContent=text;
   }
+  $('[data-copy]').addEventListener('click',function(){ copy(C.url,'Link copied.'); });
   $('[data-invite]').addEventListener('click',function(){
     if(navigator.share){ navigator.share({title:C.title,text:inv}).catch(function(){}); }
     else copy(inv,'Invitation copied. Paste it anywhere.');
