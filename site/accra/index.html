@@ -151,24 +151,26 @@ input[type=text]:focus,select:focus{outline:none;border-color:var(--ink)}
 .btn{display:flex;align-items:center;justify-content:center;width:100%;height:56px;border:0;border-radius:6px;background:var(--wine);color:var(--bone);font:600 16px/1 var(--sans);letter-spacing:.01em;cursor:pointer}
 .btn:hover{background:var(--wine-hi)}
 .helper{margin-top:-16px;font-size:15px;color:var(--dim);text-align:center}
-.ghost{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;height:52px;margin-top:4px;border:1px solid var(--line-2);border-radius:6px;background:var(--field);color:var(--ink);font:600 15px/1 var(--sans);cursor:pointer}
+.ghost{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;height:56px;margin-top:4px;border:1px solid var(--line-2);border-radius:6px;background:var(--field);color:var(--ink);font:600 15px/1 var(--sans);cursor:pointer}
 .ghost:hover{border-color:var(--ink-2)}
 .ghost svg{width:20px;height:20px}
 .link{align-self:flex-start;background:none;border:0;padding:12px 0;color:var(--ink-2);font:500 15px var(--sans);text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--line-2);cursor:pointer}
 
 /* ---------- Share: the phone's own share sheet, not a row of logos ---------- */
 .flag{margin:0 0 10px;font:600 12px/1 var(--sans);letter-spacing:.32em;text-transform:uppercase;color:var(--ink)}
-.acts{display:flex;flex-direction:column;gap:10px;margin-top:8px}
+.acts{display:flex;flex-direction:column;gap:10px;margin-top:12px}
+.acts .ghost{margin-top:0}
 .copied{min-height:1.4em;font-size:14px;color:var(--dim)}
 .copied:empty{min-height:0}
-.more{display:flex;flex-wrap:wrap;gap:0 24px}
-.icons{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
-.icons a,.icons button{display:grid;place-items:center;width:48px;height:48px;border-radius:50%;border:1px solid var(--line-2);background:var(--field);color:var(--ink);cursor:pointer;transition:border-color .15s}
+.more{display:flex;flex-wrap:wrap;gap:0 24px;margin-top:-4px}
+.icons{display:flex;flex-wrap:wrap;gap:5px;margin-top:4px}
+.icons a,.icons button{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;border:1px solid var(--line-2);background:var(--field);color:var(--ink);cursor:pointer;transition:border-color .15s}
 .icons a:hover,.icons button:hover{border-color:var(--ink)}
-.icons svg{width:20px;height:20px}
-.chan{display:inline-flex;align-items:center;gap:10px;align-self:flex-start;margin-top:20px;color:var(--ink-2);font:500 15px var(--sans);text-decoration:none}
-.chan svg{width:20px;height:20px}
-.chan:hover{color:var(--ink)}
+.icons .chan-i{margin-left:6px;background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.icons .chan-i:hover{background:var(--ink-2)}
+/* After "Your place is saved." the call to share follows closely: it is the same moment */
+.bring .wrap{padding-top:8px}
+.icons svg{width:18px;height:18px}
 .alt{margin-top:16px;color:var(--dim);font-size:15px;line-height:1.6}
 .alt a{color:var(--ink-2);text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--line-2)}
 .alt a:hover{color:var(--ink)}
@@ -281,14 +283,14 @@ input[type=text]:focus,select:focus{outline:none;border-color:var(--ink)}
             <p class="err" data-err="region"></p>
           </div>
           <button class="btn" type="submit">Save My Place</button>
-          <p class="helper">Opens your WhatsApp with everything typed. Just send.</p>
+          <p class="helper">Opens WhatsApp with your message ready.</p>
         </form>
       </div>
 
       <div data-step="sent" hidden>
         <div class="stack">
           <h2 tabindex="-1" data-focus>One last step.</h2>
-          <p class="plain">Press send in WhatsApp. Your message is your place in the line.</p>
+          <p class="plain">Press send in WhatsApp to save your place.</p>
           <button class="btn" type="button" data-confirm>I pressed send</button>
           <button class="link" type="button" data-retry>WhatsApp did not open? Try again</button>
         </div>
@@ -297,17 +299,21 @@ input[type=text]:focus,select:focus{outline:none;border-color:var(--ink)}
       <div data-step="saved" hidden>
         <div class="stack">
           <h2 tabindex="-1" data-focus>Your place is saved.</h2>
-          <p class="plain">Give your name at <span data-c="ground">Skylight Town Hall, Accra</span>, any day from <span data-c="regLabel">1 to 7 December 2026</span>, 10 a.m. to 4 p.m.</p>
+          <p class="plain">Give your name at Skylight Town Hall, any day from 1 to 7 December, 10 a.m. to 4 p.m.</p>
           <button class="ghost" type="button" data-cal><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5.5" width="16" height="14.5" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M4 10h16M8.5 3.5v4M15.5 3.5v4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>Remind me: add to my calendar</button>
         </div>
       </div>
     </div>
   </section>
 
-  <section aria-labelledby="bring-title" data-bring hidden>
+  <section class="bring" aria-labelledby="bring-title" data-bring hidden>
     <div class="wrap stack">
       <h2 id="bring-title">Be an evangelist.</h2>
-      <p class="plain">Help someone else encounter Jesus in the power of the Holy Spirit.</p>
+      <div class="acts">
+        <button class="btn" type="button" data-invite>Share the invitation</button>
+        <button class="ghost" type="button" data-status>Post it to my WhatsApp Status</button>
+      </div>
+      <p class="more"><button class="link" type="button" data-pastor>Send it to my pastor</button><button class="link" type="button" data-print>Print the A4 flyer</button></p>
       <div class="icons">
         <a data-share="whatsapp" target="_blank" rel="noopener" aria-label="Share on WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 19.5l1.2-3.6A7.8 7.8 0 1 1 8.4 18.5z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></a>
         <a data-share="facebook" target="_blank" rel="noopener" aria-label="Share on Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8.5h2V5h-2.4C11 5 10 6.6 10 8.8V10.5H8V14h2v6h3.5v-6H16l.5-3.5h-3V9.3c0-.5.3-.8.5-.8z" fill="currentColor"/></svg></a>
@@ -315,14 +321,9 @@ input[type=text]:focus,select:focus{outline:none;border-color:var(--ink)}
         <a data-share="x" target="_blank" rel="noopener" aria-label="Share on X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></a>
         <a data-share="email" target="_blank" rel="noopener" aria-label="Share on Email"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="6" width="17" height="12" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M4 7l8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></a>
         <button type="button" data-copy aria-label="Copy link"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
-      </div>
-      <div class="acts">
-        <button class="btn" type="button" data-invite>Share the invitation</button>
-        <button class="ghost" type="button" data-status>Post it to my WhatsApp Status</button>
+        <a class="chan-i" data-wait href="https://whatsapp.com/channel/0029VbCgjedBA1f6YQ0DvB3s" target="_blank" rel="noopener" aria-label="Daily counsel on WhatsApp" title="Daily counsel on WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="2.2" fill="currentColor"/><path d="M8 8a5.6 5.6 0 0 0 0 8M16 8a5.6 5.6 0 0 1 0 8M5.2 5.2a9.6 9.6 0 0 0 0 13.6M18.8 5.2a9.6 9.6 0 0 1 0 13.6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></a>
       </div>
       <p class="copied" data-copied aria-live="polite"></p>
-      <p class="more"><button class="link" type="button" data-pastor>Send it to my pastor</button><button class="link" type="button" data-print>Print the A4 flyer</button></p>
-      <a class="chan" data-wait href="https://whatsapp.com/channel/0029VbCgjedBA1f6YQ0DvB3s" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 19.5l1.2-3.6A7.8 7.8 0 1 1 8.4 18.5z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>Daily counsel</a>
     </div>
   </section>
 </main>
