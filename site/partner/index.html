@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Brother Jimi">
 <meta property="og:title" content="Help the next city encounter Christ.">
-<meta property="og:description" content="Your gift helps bring healing and deliverance through Jesus Christ.">
+<meta property="og:description" content="Partner with Brother Jimi. Any amount, given freely.">
 <meta property="og:url" content="https://brotherjimi.com/partner">
 <meta property="og:image" content="https://brotherjimi.com/images/film/og-partner.jpg">
 <meta property="og:image:width" content="1200">
@@ -34,7 +34,7 @@ window.PARTNER = {
 /* Partner, built to DESIGN-RULES.md. The invitation (night), what the gift does (daylight), the gift itself, given freely. */
 :root{
   --night:#0b0a09; --bone:#ece5d8; --soft:#c9c0b1;
-  --paper:#f4efe6; --field:#fbf8f2; --ink:#0b0a09; --ink-2:#4a443c; --dim:#8f8678;
+  --paper:#f4efe6; --band:#ebe3d5; --field:#fbf8f2; --ink:#0b0a09; --ink-2:#4a443c; --dim:#8f8678;
   --line-2:#cdc4b5; --wine:#8b2332; --wine-hi:#a1293c;
   --sans:"Albert Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
   --gut:20px; color-scheme:light;
@@ -61,7 +61,7 @@ a{color:inherit}
 /* cities still in the dark */
 .lights .dark{width:3px;height:3px;opacity:.38}
 .lights .far{width:2px;height:2px;opacity:.2}
-.title .wrap{padding-top:calc(56px + env(safe-area-inset-top));padding-bottom:16px}
+.title .wrap{padding-top:calc(56px + env(safe-area-inset-top));padding-bottom:8px}
 /* Who is asking: small, like the signature on a letter. Links to the film. */
 .by{display:inline-flex;align-items:center;gap:12px;margin-bottom:28px;color:var(--bone);font:600 15px/1 var(--sans);text-decoration:none}
 .by img{width:44px;height:44px;border-radius:50%;object-fit:cover;display:block}
@@ -71,33 +71,36 @@ h1{margin:0;font:300 clamp(42px,11.5vw,68px)/1.02 var(--sans);letter-spacing:-.0
 .give{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:56px;padding:0 34px;border-radius:6px;background:var(--wine);color:var(--bone);font:600 16px/1 var(--sans);letter-spacing:.01em;text-decoration:none;transition:background .2s}
 .give:hover{background:var(--wine-hi)}
 .title .give{margin-top:36px}
-.lede{margin-top:16px;font:400 clamp(19px,5vw,23px)/1.4 var(--sans);letter-spacing:-.01em;color:var(--soft);max-width:19em}
 .how{margin-top:12px;font-size:14px;color:var(--soft)}
 .dust{display:block;width:100%;max-width:100%;height:clamp(140px,18vw,300px);object-fit:cover;object-position:50% 0;margin-top:-1px;background:var(--night)}
 
 /* ---------- 2. What the gift does, set like a poster: a small left column, large type on the right ---------- */
-.goes .wrap{padding-top:8px;padding-bottom:88px}
-.row{display:grid;grid-template-columns:4.4em minmax(0,1fr);column-gap:14px;align-items:baseline}
+.goes .wrap{padding-top:72px;padding-bottom:44px}
+.row{display:grid;grid-template-columns:75px minmax(0,1fr);column-gap:14px;align-items:baseline}
+.list .when{padding-top:3px}
 .when{font:600 13px/1.25 var(--sans);letter-spacing:.06em;text-transform:uppercase;font-variant-numeric:tabular-nums;color:var(--ink-2)}
 .city{margin:0;font:300 clamp(40px,11.5vw,64px)/.98 var(--sans);letter-spacing:-.035em;text-wrap:balance}
 .city a{text-decoration:none;color:var(--ink)}
 .city .arrow{width:24px;height:24px;margin-left:10px;color:var(--dim);vertical-align:middle;transition:transform .2s,color .2s}
 .city a:hover .arrow{transform:translateX(3px);color:var(--ink)}
-/* One real photo: the work the gift makes possible */
-.proof{margin:48px 0 0}
-.proof img{display:block;width:100%;max-width:100%;height:auto;background:var(--field)}
-.proof figcaption{margin-top:10px;font-size:14px;color:var(--dim)}
+/* The photo: full width under the dust, so the night opens onto a real moment of the work, not a picture dropped into the text */
+.proof{margin:0;padding-top:20px;padding-bottom:8px;background:var(--night)}
+.proof img{display:block;width:100%;max-width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;background:var(--night);
+  -webkit-mask-image:linear-gradient(180deg,transparent 0,#000 24%,#000 74%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0,#000 24%,#000 74%,transparent 100%)}
+.proof figcaption{margin-top:-6px;font-size:14px;color:var(--dim)}
 .facts{margin-top:14px;color:var(--ink-2)}
 .free .wrap{padding-top:0;padding-bottom:88px}
-.list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px}
-.list a{font:300 clamp(30px,8.4vw,44px)/1.05 var(--sans);letter-spacing:-.03em;color:var(--ink);text-decoration:none}
+.list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.list a{font:400 21px/1.35 var(--sans);letter-spacing:-.015em;color:var(--ink);text-decoration:none}
 .list a:hover{text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:1px;text-decoration-color:var(--line-2)}
-.because{margin-top:30px;font:600 17px/1.4 var(--sans)}
+.because{margin-top:22px;font:400 21px/1.35 var(--sans);letter-spacing:-.015em;color:var(--ink-2)}
 
 /* ---------- 3. The gift: willing, never pressed ---------- */
-.gift .wrap{padding-top:0;padding-bottom:72px}
+/* The giving moment sits on its own ground: a deeper daylight, so the decision is a place, not more text */
+.gift{background:var(--band)}
+.gift .wrap{padding-top:72px;padding-bottom:80px}
 .verse{margin:0}
-.verse blockquote{margin:0;font:400 clamp(22px,6vw,28px)/1.35 var(--sans);letter-spacing:-.02em;color:var(--ink);max-width:21em}
+.verse blockquote{margin:0;font:400 clamp(21px,5.6vw,26px)/1.38 var(--sans);letter-spacing:-.02em;color:var(--ink);max-width:21em}
 .verse figcaption{margin-top:10px;font-size:14px;color:var(--dim)}
 .acts{display:flex;flex-direction:column;gap:10px;margin-top:32px}
 .acts .give{width:100%}
@@ -112,7 +115,9 @@ h1{margin:0;font:300 clamp(42px,11.5vw,68px)/1.02 var(--sans);letter-spacing:-.0
 
 @media (min-width:720px){
   :root{--gut:32px}
-  .row{grid-template-columns:6em minmax(0,1fr)}
+  .proof img{aspect-ratio:auto;height:min(72vh,680px);object-position:35% 40%}
+  .goes .wrap{padding-top:96px}
+  .row{grid-template-columns:102px minmax(0,1fr)}
   .acts{flex-direction:row}
   .acts .give{width:auto;padding:0 34px}
   .foot{flex-direction:row;justify-content:space-between;align-items:center}
@@ -138,12 +143,20 @@ h1{margin:0;font:300 clamp(42px,11.5vw,68px)/1.02 var(--sans);letter-spacing:-.0
     <div class="wrap">
       <a class="by" href="/"><img src="/images/film/jimi-face.jpg" alt="" width="96" height="96"><span>Brother Jimi</span></a>
       <h1 id="p-title">Help the next city encounter Christ.</h1>
-      <p class="lede">Your gift helps bring healing and deliverance through Jesus Christ.</p>
       <a class="give" data-give target="_blank" rel="noopener">Give<svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       <p class="how">Any amount, through my Accrue page.</p>
     </div>
   </section>
+  <!-- The one photo lives in the night, like the key art on the homepage: it rises out of the dark, then the dust breaks into daylight. -->
+  <figure class="proof">
+    <picture>
+      <source media="(min-width:720px)" srcset="/images/partner/listening-wide.jpg" width="1535" height="1024">
+      <img src="/images/partner/listening-phone.jpg" alt="Brother Jimi listens to a man at a prayer line registration." width="1200" height="900" loading="lazy">
+    </picture>
+    <figcaption class="wrap">At a previous prayer line registration.</figcaption>
+  </figure>
   <img class="dust" src="/images/film/dust-edge.jpg" alt="" width="2400" height="560">
+
 
   <section class="goes" aria-labelledby="g-city">
     <div class="wrap">
@@ -152,13 +165,6 @@ h1{margin:0;font:300 clamp(42px,11.5vw,68px)/1.02 var(--sans);letter-spacing:-.0
         <div><h2 class="city" id="g-city"><a data-g="link" href="/accra"><span data-g="title">Accra Encounters Christ</span><svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></h2>
         <p class="facts" data-g="facts" hidden></p></div>
       </div>
-      <figure class="proof">
-        <picture>
-          <source media="(min-width:720px)" srcset="/images/partner/listening-wide.jpg" width="1500" height="1000">
-          <img src="/images/partner/listening-phone.jpg" alt="Brother Jimi listens to a man at a prayer line." width="1200" height="900" loading="lazy">
-        </picture>
-        <figcaption>At a previous prayer line.</figcaption>
-      </figure>
     </div>
   </section>
 
@@ -169,7 +175,7 @@ h1{margin:0;font:300 clamp(42px,11.5vw,68px)/1.02 var(--sans);letter-spacing:-.0
         <li class="row"><span class="when">Free</span><a href="/counsel">The daily counsel</a></li>
         <li class="row"><span class="when">Free</span><a href="/">The film</a></li>
       </ul>
-      <p class="because">Your gift keeps it that way.</p>
+      <p class="row because"><span class="when" aria-hidden="true"></span><span>Your gift keeps them free.</span></p>
     </div>
   </section>
 
@@ -179,7 +185,7 @@ h1{margin:0;font:300 clamp(42px,11.5vw,68px)/1.02 var(--sans);letter-spacing:-.0
       <div class="acts">
         <a class="give" data-give target="_blank" rel="noopener">Give<svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </div>
-      <p class="alt">Can&rsquo;t give right now? Support me in prayer, or <a href="/accra" data-g="invite2">send the invitation</a> to someone who needs it. That&rsquo;s more than enough.</p>
+      <p class="alt">Can&rsquo;t give right now? Support me in prayer, or <a href="/accra" data-g="invite2">send the invitation</a>. That&rsquo;s more than enough.</p>
     </div>
   </section>
 </main>
