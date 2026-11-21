@@ -80,7 +80,7 @@ Colour carries the story. It is never decoration.
 ## 8. Controls
 
 - **One primary button per screen.** Everything else is a text link or a native control.
-- **Sharing uses the phone's own share sheet,** with a copy-link fallback. Never a row of six brand icons.
+- **Sharing uses the phone's own share sheet,** with a copy-link fallback. The one exception is the share row on /accra, where people share the invitation: one-tap icons are kept there by Jimi's choice. Nowhere else.
 - **Design the unhappy paths:** errors, "WhatsApp didn't open", "registration has closed", "the event has passed". Each gets one plain sentence.
 
 ## 9. Litmus tests before anything ships
