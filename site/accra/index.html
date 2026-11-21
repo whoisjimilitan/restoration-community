@@ -47,7 +47,7 @@ window.CITY = {
   regions: ["Ahafo","Ashanti","Bono","Bono East","Central","Eastern","Greater Accra","North East","Northern","Oti","Savannah","Upper East","Upper West","Volta","Western","Western North"],
 
   /* Locked texts. [link] becomes url. [name] [region] [N] fill from the form. */
-  submission:   "[coming] for Prayer Line Registration. Name: [name]. Region: [region]. Skylight Town Hall, Accra. Dec 1-7.",
+  submission:   "Coming - Accra Encounters Christ, Fri Dec 11, The Patmos Christian Retreat, Accra. Name: [name]. Region: [region]. How sure: [N]/10.",
   invite:       "Come with me to Accra Encounters Christ, with Brother Jimi. Prayer Line Registration is 1 to 7 December 2026. The gathering is on Friday 11 December 2026 at The Patmos Christian Retreat, Accra. Entry is free. Start here: [link]",
   xLine:        "Accra Encounters Christ with Brother Jimi. Friday 11 December 2026, The Patmos Christian Retreat, Accra. Entry is free. Come with me: [link]",
   emailSubject: "Accra Encounters Christ",
@@ -257,7 +257,7 @@ footer .wrap{padding-top:28px;padding-bottom:calc(36px + env(safe-area-inset-bot
     <div class="wrap">
       <div data-step="form">
         <p class="flag">Important</p>
-        <h2 id="form-title">Coming for registration?</h2>
+        <h2 id="form-title">Coming for registration? Let us know.</h2>
         <p class="queue">Your name goes ahead of you and skips the queue.</p>
         <form novalidate data-form>
           <fieldset>
@@ -277,7 +277,7 @@ footer .wrap{padding-top:28px;padding-bottom:calc(36px + env(safe-area-inset-bot
             <p class="err" data-err="region"></p>
           </div>
           <button class="btn" type="submit">Save My Place</button>
-          <p class="helper">Opens your WhatsApp with everything typed. Just send.</p>
+          <p class="helper">Opens your WhatsApp with everything typed. Just press send.</p>
         </form>
       </div>
 
@@ -303,11 +303,7 @@ footer .wrap{padding-top:28px;padding-bottom:calc(36px + env(safe-area-inset-bot
   <section aria-labelledby="bring-title" data-bring hidden>
     <div class="wrap stack">
       <h2 id="bring-title">Be an evangelist.</h2>
-      <div class="acts">
-        <button class="btn" type="button" data-invite>Share the invitation</button>
-        <button class="ghost" type="button" data-status>Post it to my WhatsApp Status</button>
-      </div>
-      <p class="more"><button class="link" type="button" data-pastor>Send it to my pastor</button><button class="link" type="button" data-print>Print the A4 flyer</button></p>
+      <p class="plain">Help someone else encounter Jesus in the power of the Holy Spirit.</p>
       <div class="icons">
         <a data-share="whatsapp" target="_blank" rel="noopener" aria-label="Share on WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 19.5l1.2-3.6A7.8 7.8 0 1 1 8.4 18.5z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></a>
         <a data-share="facebook" target="_blank" rel="noopener" aria-label="Share on Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8.5h2V5h-2.4C11 5 10 6.6 10 8.8V10.5H8V14h2v6h3.5v-6H16l.5-3.5h-3V9.3c0-.5.3-.8.5-.8z" fill="currentColor"/></svg></a>
@@ -315,9 +311,14 @@ footer .wrap{padding-top:28px;padding-bottom:calc(36px + env(safe-area-inset-bot
         <a data-share="x" target="_blank" rel="noopener" aria-label="Share on X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></a>
         <a data-share="email" target="_blank" rel="noopener" aria-label="Share on Email"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="6" width="17" height="12" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M4 7l8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></a>
         <button type="button" data-copy aria-label="Copy link"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
-        <a href="https://whatsapp.com/channel/0029VbCgjedBA1f6YQ0DvB3s" target="_blank" rel="noopener" aria-label="Daily counsel on WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 19.5l1.2-3.6A7.8 7.8 0 1 1 8.4 18.5z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></a>
+      </div>
+      <div class="acts">
+        <button class="btn" type="button" data-invite>Share the invitation</button>
+        <button class="ghost" type="button" data-status>Post it to my WhatsApp Status</button>
       </div>
       <p class="copied" data-copied aria-live="polite"></p>
+      <p class="more"><button class="link" type="button" data-pastor>Send it to my pastor</button><button class="link" type="button" data-print>Print the A4 flyer</button></p>
+      <a class="chan" data-wait href="https://whatsapp.com/channel/0029VbCgjedBA1f6YQ0DvB3s" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 19.5l1.2-3.6A7.8 7.8 0 1 1 8.4 18.5z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>Daily counsel</a>
     </div>
   </section>
 </main>
@@ -416,8 +417,7 @@ footer .wrap{padding-top:28px;padding-bottom:calc(36px + env(safe-area-inset-bot
     err('name',name?'':'Write your name, so it can go ahead of you.');
     err('region',region?'':'Choose your region.');
     if(!ok){ var first=!sure?$('#sure-1'):!name?$('#f-name'):sel; first.focus(); return; }
-    var coming=parseInt(sure)>=6?'I\'m coming':'I think I\'m coming';
-    lastWa='https://wa.me/'+C.whatsapp+'?text='+encodeURIComponent(fill(C.submission,{coming:coming,name:name,region:region,N:sure}));
+    lastWa='https://wa.me/'+C.whatsapp+'?text='+encodeURIComponent(fill(C.submission,{name:name,region:region,N:sure}));
     step('sent'); openWa();
   });
   $('[data-retry]').addEventListener('click',openWa);
