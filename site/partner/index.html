@@ -61,12 +61,7 @@ a{color:inherit}
 /* cities still in the dark */
 .lights .dark{width:3px;height:3px;opacity:.38}
 .lights .far{width:2px;height:2px;opacity:.2}
-.title .wrap{padding-top:calc(56px + env(safe-area-inset-top));padding-bottom:16px}
-/* Who is asking: small, like the signature on a letter. Links to the film. */
-.by{display:inline-flex;align-items:center;gap:12px;margin-bottom:28px;color:var(--bone);font:600 15px/1 var(--sans);text-decoration:none}
-.by img{width:44px;height:44px;border-radius:50%;object-fit:cover;display:block}
-.by span{border-bottom:1px solid rgba(236,229,216,.3);padding-bottom:3px}
-.by:hover span{border-color:var(--bone)}
+.title .wrap{padding-top:calc(56px + env(safe-area-inset-top));padding-bottom:88px}
 h1{margin:0;font:300 clamp(42px,11.5vw,68px)/1.02 var(--sans);letter-spacing:-.02em;max-width:9em;text-wrap:balance}
 .give{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:56px;padding:0 34px;border-radius:6px;background:var(--wine);color:var(--bone);font:600 16px/1 var(--sans);letter-spacing:.01em;text-decoration:none;transition:background .2s}
 .give:hover{background:var(--wine-hi)}
@@ -75,7 +70,7 @@ h1{margin:0;font:300 clamp(42px,11.5vw,68px)/1.02 var(--sans);letter-spacing:-.0
 .dust{display:block;width:100%;max-width:100%;height:clamp(140px,18vw,300px);object-fit:cover;object-position:50% 0;margin-top:-1px;background:var(--night)}
 
 /* ---------- 2. What the gift does, set like a poster: a small left column, large type on the right ---------- */
-.goes .wrap{padding-top:8px;padding-bottom:88px}
+.goes .wrap{padding-top:88px;padding-bottom:88px}
 .row{display:grid;grid-template-columns:4.4em minmax(0,1fr);column-gap:14px;align-items:baseline}
 .when{font:600 13px/1.25 var(--sans);letter-spacing:.06em;text-transform:uppercase;font-variant-numeric:tabular-nums;color:var(--ink-2)}
 .city{margin:0;font:300 clamp(40px,11.5vw,64px)/.98 var(--sans);letter-spacing:-.035em;text-wrap:balance}
@@ -83,14 +78,11 @@ h1{margin:0;font:300 clamp(42px,11.5vw,68px)/1.02 var(--sans);letter-spacing:-.0
 .city .arrow{width:24px;height:24px;margin-left:10px;color:var(--dim);vertical-align:middle;transition:transform .2s,color .2s}
 .city a:hover .arrow{transform:translateX(3px);color:var(--ink)}
 .facts{margin-top:14px;color:var(--ink-2)}
-.free .wrap{padding-top:0;padding-bottom:88px}
-.list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px}
-.list a{font:300 clamp(30px,8.4vw,44px)/1.05 var(--sans);letter-spacing:-.03em;color:var(--ink);text-decoration:none}
-.list a:hover{text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:1px;text-decoration-color:var(--line-2)}
-.because{margin-top:30px;font:600 17px/1.4 var(--sans)}
+.free .wrap{padding-top:88px;padding-bottom:88px}
+.because{margin:0;font:600 clamp(26px,7vw,36px)/1.35 var(--sans);letter-spacing:-.02em;color:var(--ink);max-width:18em}
 
 /* ---------- 3. The gift: willing, never pressed ---------- */
-.gift .wrap{padding-top:0;padding-bottom:72px}
+.gift .wrap{padding-top:88px;padding-bottom:88px}
 .verse{margin:0}
 .verse blockquote{margin:0;font:400 clamp(22px,6vw,28px)/1.35 var(--sans);letter-spacing:-.02em;color:var(--ink);max-width:21em}
 .verse figcaption{margin-top:10px;font-size:14px;color:var(--dim)}
@@ -131,7 +123,6 @@ h1{margin:0;font:300 clamp(42px,11.5vw,68px)/1.02 var(--sans);letter-spacing:-.0
       <i class="far"  style="left:79%;top:40%"></i>
     </div>
     <div class="wrap">
-      <a class="by" href="/"><img src="/images/film/jimi-face.jpg" alt="" width="96" height="96"><span>Brother Jimi</span></a>
       <h1 id="p-title">Help the next city encounter Christ.</h1>
       <a class="give" data-give target="_blank" rel="noopener">Give<svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       <p class="how">Any amount, through my Accrue page.</p>
@@ -151,12 +142,7 @@ h1{margin:0;font:300 clamp(42px,11.5vw,68px)/1.02 var(--sans);letter-spacing:-.0
 
   <section class="free" aria-label="Free to everyone">
     <div class="wrap">
-      <ul class="list">
-        <li class="row"><span class="when">Free</span><a href="/accra" data-g="invite">The gathering</a></li>
-        <li class="row"><span class="when">Free</span><a href="/counsel">The daily counsel</a></li>
-        <li class="row"><span class="when">Free</span><a href="/">The film</a></li>
-      </ul>
-      <p class="because">Your gift keeps it that way.</p>
+      <p class="because">Everything here is free.<br>Your gift keeps it that way.</p>
     </div>
   </section>
 
