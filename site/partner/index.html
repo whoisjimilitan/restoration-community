@@ -68,11 +68,26 @@ a{color:inherit}
 .by span{border-bottom:1px solid rgba(236,229,216,.3);padding-bottom:3px}
 .by:hover span{border-color:var(--bone)}
 h1{margin:0;font:300 clamp(42px,11.5vw,68px)/1.02 var(--sans);letter-spacing:-.02em;max-width:9em;text-wrap:balance}
-.give{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:56px;padding:0 34px;border-radius:6px;background:var(--wine);color:var(--bone);font:600 16px/1 var(--sans);letter-spacing:.01em;text-decoration:none;transition:background .2s}
-.give:hover{background:var(--wine-hi)}
+.give{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:56px;padding:0 34px;border-radius:6px;background:var(--wine);color:var(--bone);font:600 16px/1 var(--sans);letter-spacing:.01em;text-decoration:none;transition:all .2s}
+.give:hover{background:var(--wine-hi);transform:translateY(-2px)}
+.give-primary{width:100%;height:64px;font:600 18px/1 var(--sans)}
+.gift .wrap{padding-top:88px;padding-bottom:88px}
 .title .give{margin-top:36px}
 .how{margin-top:12px;font-size:14px;color:var(--soft)}
+.how-amount{font:600 18px/1 var(--sans);color:var(--bone);display:block;margin-bottom:4px}
 .dust{display:block;width:100%;max-width:100%;height:clamp(140px,18vw,300px);object-fit:cover;object-position:50% 0;margin-top:-1px;background:var(--night)}
+.momentum{margin-top:28px;font-size:15px;color:var(--dim);font-style:italic}
+.impact{background:var(--field)}
+.impact-img{display:block;width:100%;max-width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;background:#ddd}
+.why .wrap{padding-top:88px;padding-bottom:88px}
+.why-text{margin-top:20px;font:400 18px/1.65 var(--sans);color:var(--ink-2);max-width:28em}
+.free .wrap{padding-top:88px;padding-bottom:88px}
+.free-intro{margin:0;font:400 22px/1.3 var(--sans);letter-spacing:-.015em;color:var(--ink)}
+.free-cards{list-style:none;margin:28px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px}
+.card{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:24px;border-radius:8px;background:var(--field);color:var(--ink);text-decoration:none;transition:background .2s}
+.card:hover{background:#f0e8dc}
+.card-icon{font-size:32px;display:block}
+.card-title{font:500 15px/1.3 var(--sans);text-align:center}
 
 /* ---------- 2. What the gift does, set like a poster: a small left column, large type on the right ---------- */
 .goes .wrap{padding-top:8px;padding-bottom:88px}
@@ -134,7 +149,7 @@ h1{margin:0;font:300 clamp(42px,11.5vw,68px)/1.02 var(--sans);letter-spacing:-.0
       <a class="by" href="/"><img src="/images/film/jimi-face.jpg" alt="" width="96" height="96"><span>Brother Jimi</span></a>
       <h1 id="p-title">Help the next city encounter Christ.</h1>
       <a class="give" data-give target="_blank" rel="noopener">Give<svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-      <p class="how">Any amount, through my Accrue page.</p>
+      <p class="how"><span class="how-amount">Any amount.</span> Through my Accrue page.</p>
     </div>
   </section>
   <img class="dust" src="/images/film/dust-edge.jpg" alt="" width="2400" height="560">
@@ -146,25 +161,37 @@ h1{margin:0;font:300 clamp(42px,11.5vw,68px)/1.02 var(--sans);letter-spacing:-.0
         <div><h2 class="city" id="g-city"><a data-g="link" href="/accra"><span data-g="title">Accra Encounters Christ</span><svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></h2>
         <p class="facts" data-g="facts" hidden></p></div>
       </div>
+      <p class="momentum" data-momentum></p>
     </div>
   </section>
 
-  <section class="free" aria-label="Free to everyone">
-    <div class="wrap">
-      <ul class="list">
-        <li class="row"><span class="when">Free</span><a href="/accra" data-g="invite">The gathering</a></li>
-        <li class="row"><span class="when">Free</span><a href="/counsel">The daily counsel</a></li>
-        <li class="row"><span class="when">Free</span><a href="/">The film</a></li>
-      </ul>
-      <p class="because">Your gift keeps it that way.</p>
-    </div>
+  <section class="impact" aria-label="What your gift does">
+    <img class="impact-img" src="" alt="The gathering: encounter, prayer, deliverance" data-impact-src>
   </section>
 
-  <section class="gift" aria-labelledby="g-verse">
+  <section class="why" aria-labelledby="g-verse">
     <div class="wrap">
       <figure class="verse"><blockquote id="g-verse">&ldquo;Each of you should give what you have decided in your heart to give, not reluctantly or under compulsion.&rdquo;</blockquote><figcaption>2 Corinthians 9:7</figcaption></figure>
+      <p class="why-text">Your gift brings deliverance, healing, and encounter with Christ to those who need it most.</p>
+    </div>
+  </section>
+
+  <section class="free" aria-label="Everything stays free">
+    <div class="wrap">
+      <p class="free-intro">Everything stays free.</p>
+      <ul class="free-cards">
+        <li><a href="/accra" data-g="invite" class="card"><span class="card-icon">🙏</span><span class="card-title">The gathering</span></a></li>
+        <li><a href="/counsel" class="card"><span class="card-icon">📖</span><span class="card-title">Daily counsel</span></a></li>
+        <li><a href="/" class="card"><span class="card-icon">🎬</span><span class="card-title">The film</span></a></li>
+      </ul>
+      <p class="because">Your gift keeps it that way for the next city.</p>
+    </div>
+  </section>
+
+  <section class="gift" aria-label="Give now">
+    <div class="wrap">
       <div class="acts">
-        <a class="give" data-give target="_blank" rel="noopener">Give<svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a class="give give-primary" data-give target="_blank" rel="noopener">Give<svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </div>
       <p class="alt">Can&rsquo;t give right now? Support me in prayer, or <a href="/accra" data-g="invite2">send the invitation</a> to someone who needs it. That&rsquo;s more than enough.</p>
     </div>
@@ -184,6 +211,7 @@ h1{margin:0;font:300 clamp(42px,11.5vw,68px)/1.02 var(--sans);letter-spacing:-.0
   /* The next city that has not ended, from /assets/cities.js. If none is announced yet, the last one, as thanks. */
   var list=window.CITIES||[], now=Date.now();
   function g(k){ return document.querySelector('[data-g="'+k+'"]'); }
+  var momentum=document.querySelector('[data-momentum]');
   if(list.length){
     var next=list.filter(function(c){ return now<Date.parse(c.eventEnds); })[0], c=next||list[list.length-1];
     g('title').textContent=c.title; g('link').href=g('invite').href=g('invite2').href='/'+c.slug;
@@ -193,6 +221,8 @@ h1{margin:0;font:300 clamp(42px,11.5vw,68px)/1.02 var(--sans);letter-spacing:-.0
       /* No city to invite to yet: offer the daily counsel instead */
       var inv=g('invite2'); inv.textContent='send today\u2019s counsel'; inv.href='/counsel';
     }
+    /* Social proof: set the number of partners. Update this when you have new data. */
+    if(momentum && c.partners) momentum.textContent=c.partners+' people are already partnering to bring this to '+c.city+'.';
   }
 
 })();
