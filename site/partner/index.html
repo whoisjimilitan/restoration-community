@@ -35,7 +35,7 @@ window.PARTNER = {
 :root{
   --night:#0b0a09; --bone:#ece5d8; --soft:#c9c0b1;
   --paper:#f4efe6; --band:#ebe3d5; --field:#fbf8f2; --ink:#0b0a09; --ink-2:#4a443c; --dim:#8f8678;
-  --line-2:#cdc4b5; --wine:#8b2332; --wine-hi:#a1293c;
+  --line-2:#cdc4b5;
   --sans:"Albert Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
   --gut:20px; color-scheme:light;
 }
@@ -173,13 +173,13 @@ h1{margin:0;font:300 clamp(42px,11.5vw,72px)/1.02 var(--sans);letter-spacing:-.0
       <div class="acts">
         <a class="give" data-give target="_blank" rel="noopener">Give<svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </div>
-      <p class="alt">Can&rsquo;t give right now? Support me in prayer, or <a href="/accra" data-g="invite2">send the invitation</a>. That&rsquo;s more than enough.</p>
+      <p class="alt">Can&rsquo;t give right now? Your prayers are more than enough.</p>
     </div>
   </section>
 </main>
 
 <footer>
-  <div class="wrap foot"><p><a href="/">Brother Jimi</a>, a servant of Jesus Christ</p><nav aria-label="More"><a href="/counsel">Counsel</a><a href="/privacy">Privacy</a></nav></div>
+  <div class="wrap foot"><p><a href="/">Brother Jimi</a></p><nav aria-label="More"><a href="/counsel">Counsel</a><a href="/privacy">Privacy</a></nav></div>
 </footer>
 
 <script src="/assets/cities.js"></script>
@@ -193,13 +193,9 @@ h1{margin:0;font:300 clamp(42px,11.5vw,72px)/1.02 var(--sans);letter-spacing:-.0
   function g(k){ return document.querySelector('[data-g="'+k+'"]'); }
   if(list.length){
     var next=list.filter(function(c){ return now<Date.parse(c.eventEnds); })[0], c=next||list[list.length-1];
-    g('title').textContent=c.title; g('link').href=g('invite').href=g('invite2').href='/'+c.slug;
+    g('title').textContent=c.title; g('link').href=g('invite').href='/'+c.slug;
     var m=c.dateLong.match(/(\d{1,2}) (\w+) (\d{4})/); if(m) g('when').innerHTML=m[1]+' '+m[2].slice(0,3)+'<br>'+m[3];
-    else {
-      g('facts').textContent='Thank you, '+c.city+'.'; g('facts').hidden=false;
-      /* No city to invite to yet: offer the daily counsel instead */
-      var inv=g('invite2'); inv.textContent='send today\u2019s counsel'; inv.href='/counsel';
-    }
+    if(!next){ g('facts').textContent='Thank you, '+c.city+'.'; g('facts').hidden=false; }
   }
 
 })();

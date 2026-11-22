@@ -3,101 +3,61 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>There is value in challenges · Brother Jimi</title>
-<meta name="description" content="You see that situation that looks impossible? There is value in it. Counsel from Brother Jimi.">
-<meta property="og:type" content="article">
+<title>Counsel · Brother Jimi</title>
+<meta name="description" content="A word every morning from Brother Jimi. Free, on WhatsApp.">
+<meta property="og:type" content="website">
 <meta property="og:site_name" content="Brother Jimi">
-<meta property="og:title" content="There is value in challenges">
-<meta property="og:description" content="You see that situation that looks impossible? There is value in it.">
+<meta property="og:title" content="Today's counsel">
+<meta property="og:description" content="A word every morning from Brother Jimi. Free, on WhatsApp.">
 <meta property="og:url" content="https://brotherjimi.com/counsel">
-<meta property="og:image" content="https://brotherjimi.com/images/counsel/value-in-challenges-og.jpg">
+<meta property="og:image" content="https://brotherjimi.com/images/counsel/counsel-og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#f4efe6">
+<meta name="theme-color" content="#0b0a09">
 <link rel="icon" href="/images/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-<link rel="preload" href="/assets/fonts/albert-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<script src="/assets/letters.js"></script>
+<script>
+/* /counsel always opens today's letter, at its own permanent address */
+(function(){ var t=window.todaysLetter&&window.todaysLetter(); if(t) location.replace('/counsel/'+t.slug); })();
+</script>
 <style>
 @font-face{font-family:"Albert Sans";src:url(/assets/fonts/albert-sans-latin-wght-normal.woff2) format("woff2");font-weight:100 900;font-display:swap}
-@view-transition{navigation:auto}
-/* Counsel, built to DESIGN-RULES.md. The page is the morning's message exactly as it lands on the phone:
-   the letter's image first, then the words, then one way to receive tomorrow's. Daylight throughout. */
-:root{
-  --bone:#ece5d8; --paper:#f4efe6; --ink:#0b0a09; --ink-2:#4a443c; --dim:#8f8678;
-  --line-2:#cdc4b5; --wine:#8b2332; --wine-hi:#a1293c;
-  --sans:"Albert Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
-  --gut:20px; color-scheme:light;
-}
+/* Counsel: seen only for a moment, or without JavaScript. The film's night, and the letters so far. */
+:root{--night:#0b0a09;--bone:#ece5d8;--soft:#c9c0b1;--dim:#8f8678;--sans:"Albert Sans",system-ui,-apple-system,"Segoe UI",sans-serif;--gut:20px;color-scheme:dark}
 *{box-sizing:border-box}
-p{text-wrap:pretty}
-
-[hidden]{display:none!important}
-html{background:var(--paper);-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--paper);color:var(--ink);font:400 18px/1.65 var(--sans);-webkit-font-smoothing:antialiased}
+html{background:var(--night)}
+body{margin:0;min-height:100svh;display:flex;flex-direction:column;background:var(--night);color:var(--bone);font:400 17px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
 a{color:inherit}
-:focus-visible{outline:2px solid var(--ink);outline-offset:3px;border-radius:2px}
 p{margin:0}
-.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-.col{max-width:560px;margin:0 auto}
-.wrap{padding-left:max(var(--gut),env(safe-area-inset-left));padding-right:max(var(--gut),env(safe-area-inset-right))}
-
-/* The image is the title, as it arrives on WhatsApp. It sits on paper with a hairline edge, like the photo in a message. */
-.post{display:block;width:100%;max-width:100%;height:auto;aspect-ratio:4/5;background:#0b0a09}
-
-.letter{display:flex;flex-direction:column;gap:20px;padding-top:36px;padding-bottom:64px}
-.open{font:400 22px/1.45 var(--sans);letter-spacing:-.015em}
-.verse{font-size:20px;line-height:1.5}
-.ref{display:block;margin-top:8px;font-size:15px;color:var(--dim)}
-.today{margin-top:24px}
-.today b{font-weight:600}
-
-.next{padding-bottom:72px}
-.btn{display:flex;align-items:center;justify-content:center;width:100%;height:56px;border-radius:6px;background:var(--wine);color:var(--bone);font:600 16px/1 var(--sans);text-decoration:none}
-.btn:hover{background:var(--wine-hi)}
-.note{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:16px;font-size:15px;color:var(--dim)}
-.note img{width:32px;height:32px;border-radius:50%;display:block}
-
-.foot{display:flex;flex-direction:column;gap:10px;padding-top:32px;padding-bottom:calc(40px + env(safe-area-inset-bottom));font-size:14px;line-height:1.6;color:var(--dim)}
-.foot a{color:inherit;text-decoration:none}
-.foot a:hover{color:var(--ink)}
+.wrap{width:100%;max-width:600px;margin:0 auto;padding-left:max(var(--gut),env(safe-area-inset-left));padding-right:max(var(--gut),env(safe-area-inset-right))}
+main{flex:1}
+main .wrap{padding-top:calc(56px + env(safe-area-inset-top));padding-bottom:56px}
+.kicker{font:500 12px/1 var(--sans);letter-spacing:.32em;text-transform:uppercase;color:var(--soft)}
+h1{margin:18px 0 0;font:300 clamp(40px,11vw,64px)/1.02 var(--sans);letter-spacing:-.02em}
+ol{list-style:none;margin:32px 0 0;padding:0;display:flex;flex-direction:column;gap:14px}
+ol a{font:400 21px/1.3 var(--sans);text-decoration:none;border-bottom:1px solid rgba(236,229,216,.3)}
+ol a:hover{border-color:var(--bone)}
+ol span{display:block;margin-top:2px;font-size:14px;color:var(--dim)}
+.foot{display:flex;flex-direction:column;gap:10px;padding-top:32px;padding-bottom:calc(40px + env(safe-area-inset-bottom));font-size:14px;color:var(--dim)}
+.foot a{text-decoration:none}
 .foot nav{display:flex;gap:22px}
-@media (min-width:720px){.foot{flex-direction:row;justify-content:space-between;align-items:center}}
-
-@media (min-width:600px){
-  :root{--gut:0px}
-  .col{padding-top:56px}
-}
-@media (prefers-reduced-motion:reduce){@view-transition{navigation:none}}
+@media (min-width:720px){:root{--gut:32px}.foot{flex-direction:row;justify-content:space-between}}
 </style>
 </head>
 <body>
-
-<main class="col">
-  <article aria-labelledby="t">
-    <h1 class="vh" id="t">There is value in challenges</h1>
-    <img class="post" src="/images/counsel/value-in-challenges-post.jpg" alt="There is value in challenges. Brother Jimi. James 1:2-3." width="1080" height="1350">
-    <div class="letter wrap">
-      <p class="open">You see that situation that looks impossible? I assure you there is value in it.</p>
-      <p>Anything close to Jesus receives attack. Your challenge may be sickness or poverty. And the devil will ask where your God is.</p>
-      <p>But when the sea is calm, no one is really tested. It is only when challenges come that we know whether truly you are a Christian. That is how the devil gets many to his side: they measure God&rsquo;s presence by their circumstances.</p>
-      <p class="verse">&ldquo;Consider it pure joy, my brothers and sisters, whenever you face trials of many kinds, because you know that the testing of your faith produces perseverance.&rdquo;<span class="ref">James 1:2-3</span></p>
-      <p>Your challenge is meant to improve you, not to impair you.</p>
-      <p>So do not listen to the panic of the moment. Watch and pray. Be still, and hear what the Holy Spirit is saying. God has not abandoned you.</p>
-      <p>True believers welcome adversity as a friend. Match your actions with your words, for action is of the heart, and words are of the mouth.</p>
-      <p class="today"><b>Today, say:</b> Lord, release my spirit to follow You. I have surrendered everything to You. Give me the grace to overcome my pain, in Jesus&rsquo; name. Amen.</p>
-    </div>
-  </article>
-
-  <div class="next wrap">
-    <a class="btn" href="https://whatsapp.com/channel/0029VbCgjedBA1f6YQ0DvB3s" target="_blank" rel="noopener">Get tomorrow&rsquo;s message on WhatsApp</a>
-    <p class="note"><img src="/images/film/jimi-face.jpg" alt="" width="32" height="32">Every morning. Free.</p>
+<main>
+  <div class="wrap">
+    <p class="kicker">Every morning</p>
+    <h1>Counsel</h1>
+    <ol>
+      <li><a href="/counsel/value-in-challenges">There is value in challenges</a><span>21 November 2026</span></li>
+    </ol>
   </div>
-
-  <footer class="wrap foot">
-    <p><a href="/">Brother Jimi</a>, a servant of Jesus Christ</p><nav aria-label="More"><a href="/counsel">Counsel</a><a href="/privacy">Privacy</a></nav>
-  </footer>
 </main>
-
+<footer>
+  <div class="wrap foot"><p><a href="/">Brother Jimi</a></p><nav aria-label="More"><a href="/privacy">Privacy</a></nav></div>
+</footer>
 </body>
 </html>

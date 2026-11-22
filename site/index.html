@@ -25,7 +25,7 @@
 @font-face{font-family:"Libre Caslon Text";src:url(/assets/fonts/libre-caslon-text-latin-400-italic.woff2) format("woff2");font-style:italic;font-weight:400;font-display:swap}
 :root{
   --ink:#0b0a09; --ink-2:#14120f; --line:rgba(236,229,216,.14);
-  --bone:#ece5d8; --soft:#c9c0b1; --dim:#8f8678; --wine:#8b2332;
+  --bone:#ece5d8; --soft:#c9c0b1; --dim:#8f8678;
   --sans:"Albert Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
   --serif:"Libre Caslon Text",Georgia,serif;
   --gut:20px; color-scheme:dark;
@@ -43,7 +43,7 @@ a{color:inherit}
 
 /* ---------- Title (hero) ---------- */
 .title{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;isolation:isolate}
-.art{position:absolute;inset:0;z-index:-1}
+.art{position:absolute;inset:0;z-index:-1;overflow:hidden}
 .art img{width:100%;height:100%;object-fit:cover;object-position:50% 12%;display:block;animation:drift 28s ease-out both}
 /* The one motion on the site: the key art breathing, the dust drifting off the shadow. Muted, looping, skipped for reduced motion or data saver. */
 .art video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 12%;opacity:0;transition:opacity 1.2s ease}
@@ -86,6 +86,7 @@ h1{margin:0;font:300 clamp(34px,9.2vw,76px)/1 var(--sans);letter-spacing:.2em;ma
 .card:hover .go{border-color:var(--bone)}
 .card .go svg{width:16px;height:16px;transition:transform .2s}
 .card:hover .go svg{transform:translateX(3px)}
+.morning{padding-top:80px}
 
 
 /* ---------- Footer ---------- */
@@ -119,6 +120,7 @@ footer nav a:hover{color:var(--bone)}
      where he goes next sits on the right, where he stands in the light. */
   .story{padding-bottom:0}
   .next{padding-top:160px;padding-bottom:0;padding-left:max(var(--gut),52%)}
+  .morning{padding-top:96px}
   footer{padding-top:200px}
   .card{max-width:640px}
   footer{display:flex;justify-content:space-between;align-items:center;gap:40px}
@@ -163,15 +165,27 @@ footer nav a:hover{color:var(--bone)}
     <div>
       <a class="card" href="/accra" data-n="link">
         <h2 id="next-title" data-n="title">Accra Encounters Christ</h2>
-        <p data-n="facts">Friday 11 December 2026<br>The Patmos Christian Retreat, Accra<br>Entry is free</p>
+        <p data-n="facts">Friday 11 December 2026<br>The Patmos Christian Retreat, Accra<br>Entry is free.</p>
         <span class="go"><span data-n="go">Continue</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+    </div>
+  </section>
+
+  <!-- The story's second thread: between one city and the next, a word every morning. Set like the city above. -->
+  <section class="next morning" aria-labelledby="counsel-title">
+    <p class="kicker">Between cities</p>
+    <div>
+      <a class="card" href="/counsel" data-today>
+        <h2 id="counsel-title">A word every morning</h2>
+        <p>Counsel, free on WhatsApp.</p>
+        <span class="go"><span>Read today&rsquo;s</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
       </a>
     </div>
   </section>
 </main>
 
 <footer>
-  <p>Brother Jimi, a servant of Jesus Christ</p>
+  <p>Brother Jimi</p>
   <nav aria-label="More">
     <a href="/counsel">Counsel</a>
     <a href="/privacy">Privacy</a>
@@ -199,6 +213,7 @@ footer nav a:hover{color:var(--bone)}
 })();
 </script>
 <script src="/assets/cities.js"></script>
+<script src="/assets/letters.js"></script>
 <script>
 /* "The story continues" always points forward. The next city that has not ended is shown.
    If none is announced yet, the last city is shown as a record of what God did there. */
@@ -211,7 +226,7 @@ footer nav a:hover{color:var(--bone)}
   q('link').href='/'+c.slug; q('title').textContent=c.title;
   if(next){
     q('label').textContent='The story continues';
-    q('facts').innerHTML=esc(c.dateLong)+'<br>'+esc(c.venue)+'<br>Entry is free';
+    q('facts').innerHTML=esc(c.dateLong)+'<br>'+esc(c.venue)+'<br>Entry is free.';
     q('go').textContent='Continue';
   } else {
     q('label').textContent='The story so far';
@@ -247,6 +262,9 @@ footer nav a:hover{color:var(--bone)}
   v.addEventListener('ended',close);
   document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&!p.hidden) close(); });
 })();
+
+/* Between cities: the card opens today's letter at its own address */
+(function(){ var a=document.querySelector('[data-today]'), t=window.todaysLetter&&window.todaysLetter(); if(a&&t) a.href='/counsel/'+t.slug; })();
 </script>
 </body>
 </html>
