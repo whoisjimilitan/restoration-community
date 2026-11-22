@@ -83,7 +83,8 @@ h1{margin:0;font:300 clamp(42px,11.5vw,72px)/1.02 var(--sans);letter-spacing:-.0
 .city .arrow{width:24px;height:24px;margin-left:10px;color:var(--dim);vertical-align:middle;transition:transform .2s,color .2s}
 .city a:hover .arrow{transform:translateX(3px);color:var(--ink)}
 .facts{margin-top:14px;color:var(--ink-2)}
-.free .wrap{padding-top:0;padding-bottom:88px}
+.free .wrap{padding-top:16px;padding-bottom:96px}
+.one{font:300 clamp(28px,7.6vw,40px)/1.2 var(--sans);letter-spacing:-.02em;max-width:15em;text-wrap:balance}
 .list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
 .list a{font:400 21px/1.35 var(--sans);letter-spacing:-.015em;color:var(--ink);text-decoration:none}
 .list a:hover{text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:1px;text-decoration-color:var(--line-2)}
@@ -146,24 +147,9 @@ h1{margin:0;font:300 clamp(42px,11.5vw,72px)/1.02 var(--sans);letter-spacing:-.0
 <img class="dust" src="/images/film/dust-edge.jpg" alt="" width="2400" height="560">
 
 
-  <section class="goes" aria-labelledby="g-city">
-    <div class="wrap">
-      <div class="row">
-        <span class="when" data-g="when">11 Dec<br>2026</span>
-        <div><h2 class="city" id="g-city"><a data-g="link" href="/accra"><span data-g="title">Accra Encounters Christ</span><svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></h2>
-        <p class="facts" data-g="facts" hidden></p></div>
-      </div>
-    </div>
-  </section>
-
   <section class="free" aria-label="Free to everyone">
     <div class="wrap">
-      <ul class="list">
-        <li class="row"><span class="when">Free</span><a href="/accra" data-g="invite">The gathering</a></li>
-        <li class="row"><span class="when">Free</span><a href="/counsel">The daily counsel</a></li>
-        <li class="row"><span class="when">Free</span><a href="/">The film</a></li>
-      </ul>
-      <p class="row because"><span class="when" aria-hidden="true"></span><span>Your gift keeps them free.</span></p>
+      <p class="one">Everything here is free to everyone. Your gift keeps it that way.</p>
     </div>
   </section>
 
@@ -173,30 +159,20 @@ h1{margin:0;font:300 clamp(42px,11.5vw,72px)/1.02 var(--sans);letter-spacing:-.0
       <div class="acts">
         <a class="give" data-give target="_blank" rel="noopener">Give<svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
       </div>
-      <p class="alt">Can&rsquo;t give right now? Your prayers are more than enough.</p>
+      <p class="alt">Can&rsquo;t give now? Your prayer is more than enough.</p>
     </div>
   </section>
 </main>
 
 <footer>
-  <div class="wrap foot"><p><a href="/">Brother Jimi</a></p><nav aria-label="More"><a href="/counsel">Counsel</a><a href="/privacy">Privacy</a></nav></div>
+  <div class="wrap foot"><p><a href="/">Home</a></p><nav aria-label="More"><a href="/counsel">Counsel</a><a href="/privacy">Privacy</a></nav></div>
 </footer>
 
-<script src="/assets/cities.js"></script>
 <script>
 (function(){
   var P=window.PARTNER, $=function(s){return document.querySelector(s)};
   Array.prototype.forEach.call(document.querySelectorAll('[data-give]'),function(a){ a.href=P.give; });
 
-  /* The next city that has not ended, from /assets/cities.js. If none is announced yet, the last one, as thanks. */
-  var list=window.CITIES||[], now=Date.now();
-  function g(k){ return document.querySelector('[data-g="'+k+'"]'); }
-  if(list.length){
-    var next=list.filter(function(c){ return now<Date.parse(c.eventEnds); })[0], c=next||list[list.length-1];
-    g('title').textContent=c.title; g('link').href=g('invite').href='/'+c.slug;
-    var m=c.dateLong.match(/(\d{1,2}) (\w+) (\d{4})/); if(m) g('when').innerHTML=m[1]+' '+m[2].slice(0,3)+'<br>'+m[3];
-    if(!next){ g('facts').textContent='Thank you, '+c.city+'.'; g('facts').hidden=false; }
-  }
 
 })();
 </script>
