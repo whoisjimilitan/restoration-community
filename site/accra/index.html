@@ -146,7 +146,7 @@ section.first .wrap{padding-top:4px;padding-bottom:96px}
 /* ---------- His word: a night title card between the facts and the form, as on the homepage ---------- */
 .word{background:var(--night);color:var(--bone)}
 .word .wrap{padding-top:80px;padding-bottom:80px}
-.word blockquote{margin:0;font:italic 400 clamp(26px,7vw,38px)/1.3 "Libre Caslon",Georgia,serif;letter-spacing:-.005em;max-width:17em;text-wrap:balance}
+.word blockquote{margin:0;font:italic 400 clamp(28px,7.4vw,42px)/1.25 "Libre Caslon",Georgia,serif;letter-spacing:-.005em;max-width:16em;text-wrap:balance}
 .word figure{margin:0}
 .word figcaption{margin-top:22px}
 .by{display:inline-flex;align-items:center;gap:12px;color:var(--bone);font:600 15px/1 var(--sans);text-decoration:none}
@@ -187,12 +187,16 @@ input[type=text]:focus,select:focus{outline:none;border-color:var(--ink)}
 .link{align-self:flex-start;background:none;border:0;padding:12px 0;color:var(--ink-2);font:500 15px var(--sans);text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--line-2);cursor:pointer}
 
 /* ---------- Share: four ways, chosen like lines on a poster, then the networks ---------- */
-.ways{list-style:none;margin:8px 0 0;padding:0;display:flex;flex-direction:column}
-.ways button{display:grid;grid-template-columns:40px minmax(0,1fr) 20px;align-items:center;width:100%;padding:14px 0;border:0;background:none;color:var(--ink);text-align:left;cursor:pointer;font:400 21px/1.3 var(--sans);letter-spacing:-.015em}
-.ways .n{font:600 13px/1 var(--sans);letter-spacing:.06em;color:var(--dim);font-variant-numeric:tabular-nums}
-.ways svg{width:18px;height:18px;color:var(--dim);transition:transform .2s,color .2s}
-.ways button:hover svg{transform:translateX(3px);color:var(--ink)}
-.on{margin-top:20px;font-size:15px;color:var(--ink-2)}
+.ways{list-style:none;margin:8px 0 0;padding:0;display:flex;flex-direction:column;gap:10px}
+.ways button{display:grid;grid-template-columns:32px minmax(0,1fr) 20px;gap:14px;align-items:center;width:100%;min-height:60px;padding:12px 16px;border:1px solid var(--line-2);border-radius:4px;background:var(--field);color:var(--ink);text-align:left;cursor:pointer;font:500 17px/1.3 var(--sans);transition:border-color .2s,background .2s}
+.ways button:hover{border-color:var(--ink-2)}
+.ways .n{display:grid;place-items:center;width:32px;height:32px;border-radius:50%;border:1px solid var(--line-2);font:600 14px/1 var(--sans);color:var(--ink);font-variant-numeric:tabular-nums}
+.ways svg{width:18px;height:18px;color:var(--ink-2);transition:transform .2s}
+.ways button:hover svg{transform:translateX(3px)}
+.ways .done button{background:var(--paper)}
+.ways .done .n{background:var(--ink) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 12.5l4 4 8-9' fill='none' stroke='%23ece5d8' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/18px no-repeat;border-color:var(--ink);color:transparent}
+.tally{margin-top:2px;font-weight:600}
+.on{margin-top:16px;font-size:15px;color:var(--ink-2)}
 .acts{display:flex;flex-direction:column;gap:10px;margin-top:12px}
 .acts .ghost{margin-top:0}
 .copied{min-height:1.4em;font-size:14px;color:var(--dim)}
@@ -234,6 +238,7 @@ input[type=text]:focus,select:focus{outline:none;border-color:var(--ink)}
 @media (min-width:720px){
   :root{--gut:32px}
   .chips{grid-template-columns:repeat(10,1fr)}
+  .word blockquote{max-width:24em}
   section .wrap{padding-top:72px;padding-bottom:72px}
 .acts{flex-direction:row}
   .grid{grid-template-columns:repeat(3,minmax(0,1fr))}
@@ -274,7 +279,7 @@ input[type=text]:focus,select:focus{outline:none;border-color:var(--ink)}
   <section class="word" aria-label="Brother Jimi" data-when="before during">
     <div class="wrap">
       <figure>
-        <blockquote>&ldquo;I believe an encounter with God Himself awaits you on those days and on <span data-c="dateShortPromise">11 December</span>.&rdquo;</blockquote>
+        <blockquote>&ldquo;I believe an encounter with God Himself awaits you.&rdquo;</blockquote>
         <figcaption><a class="by" href="/"><img src="/images/film/jimi-face.jpg" alt="" width="96" height="96"><span>Brother Jimi</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></figcaption>
       </figure>
     </div>
@@ -327,10 +332,18 @@ input[type=text]:focus,select:focus{outline:none;border-color:var(--ink)}
 
       <div data-step="sent" hidden>
         <div class="stack">
-          <h2 tabindex="-1" data-focus>Press send in WhatsApp.</h2>
-          <p class="plain">That saves your place. Then give your name at Skylight Town Hall, any day from 1 to 7 December, 10 a.m. to 4 p.m.</p>
-          <button class="ghost" type="button" data-cal><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5.5" width="16" height="14.5" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M4 10h16M8.5 3.5v4M15.5 3.5v4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>Remind me: add to my calendar</button>
+          <h2 tabindex="-1" data-focus>One last step.</h2>
+          <p class="plain">Press send in WhatsApp to save your place.</p>
+          <button class="btn" type="button" data-confirm>I pressed send</button>
           <button class="link" type="button" data-retry>WhatsApp did not open? Try again</button>
+        </div>
+      </div>
+
+      <div data-step="saved" hidden>
+        <div class="stack">
+          <h2 tabindex="-1" data-focus>Your place is saved.</h2>
+          <p class="plain">Give your name at Skylight Town Hall, any day from 1 to 7 December, 10 a.m. to 4 p.m.</p>
+          <button class="ghost" type="button" data-cal><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5.5" width="16" height="14.5" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M4 10h16M8.5 3.5v4M15.5 3.5v4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>Remind me: add to my calendar</button>
         </div>
       </div>
     </div>
@@ -338,14 +351,16 @@ input[type=text]:focus,select:focus{outline:none;border-color:var(--ink)}
 
   <section class="bring" aria-labelledby="bring-title" data-bring hidden>
     <div class="wrap stack">
-      <h2 id="bring-title">Be an evangelist. Choose one.</h2>
+      <h2 id="bring-title">Become an evangelist.</h2>
+      <p class="plain">Do all four. Each one takes a moment.</p>
       <ol class="ways">
-        <li><button type="button" data-invite><span class="n">01</span><span>Share the invitation</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button></li>
-        <li><button type="button" data-status><span class="n">02</span><span>Post it to my WhatsApp Status</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button></li>
-        <li><button type="button" data-pastor><span class="n">03</span><span>Send it to my pastor</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button></li>
-        <li><button type="button" data-print><span class="n">04</span><span>Print flyers to hand out</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button></li>
+        <li><button type="button" data-invite><span class="n">1</span><span>Share the invitation</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button></li>
+        <li><button type="button" data-status><span class="n">2</span><span>Post it to my WhatsApp Status</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button></li>
+        <li><button type="button" data-pastor><span class="n">3</span><span>Send it to my pastor</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button></li>
+        <li><button type="button" data-print><span class="n">4</span><span>Print flyers to hand out</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button></li>
       </ol>
-      <p class="on">Or share it on</p>
+      <p class="tally" data-tally aria-live="polite">0 of 4 done</p>
+      <p class="on">Then share it everywhere else</p>
       <div class="icons">
         <a data-share="whatsapp" target="_blank" rel="noopener" aria-label="Share on WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 19.5l1.2-3.6A7.8 7.8 0 1 1 8.4 18.5z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></a>
         <a data-share="facebook" target="_blank" rel="noopener" aria-label="Share on Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8.5h2V5h-2.4C11 5 10 6.6 10 8.8V10.5H8V14h2v6h3.5v-6H16l.5-3.5h-3V9.3c0-.5.3-.8.5-.8z" fill="currentColor"/></svg></a>
@@ -453,9 +468,10 @@ input[type=text]:focus,select:focus{outline:none;border-color:var(--ink)}
     err('region',region?'':'Choose your region.');
     if(!ok){ var first=!sure?$('#sure-1'):!name?$('#f-name'):sel; first.focus(); return; }
     lastWa='https://wa.me/'+C.whatsapp+'?text='+encodeURIComponent(fill(C.submission,{lead:(+sure<=5?'I think I\u2019m coming':'I\u2019m coming'),name:name,region:region,N:sure}));
-    $('[data-bring]').hidden=false; step('sent'); openWa();
+    step('sent'); openWa();
   });
   $('[data-retry]').addEventListener('click',openWa);
+  $('[data-confirm]').addEventListener('click',function(){ $('[data-bring]').hidden=false; step('saved'); });
 
   /* After the event: the record of the day, and where the story goes next */
   if(STATE==='after'){
@@ -501,6 +517,14 @@ input[type=text]:focus,select:focus{outline:none;border-color:var(--ink)}
     if(navigator.share){ navigator.share({title:C.title,text:inv}).catch(function(){}); }
     else copy(inv,'Invitation copied. Paste it anywhere.');
   });
+
+  /* The four tasks tick off as they are done, so the visitor sees what is left */
+  var tally=$('[data-tally]');
+  $$('.ways button').forEach(function(b){ b.addEventListener('click',function(){
+    b.parentNode.classList.add('done');
+    var n=$$('.ways .done').length;
+    tally.textContent=n<4?n+' of 4 done':'All four done. Thank you, evangelist.';
+  }); });
 
   /* Map links open the visitor's own maps app. Nothing loads until tapped. */
   $$('[data-map]').forEach(function(a){ a.href='https://www.google.com/maps/search/?api=1&query='+enc(C[a.getAttribute('data-map')]); });
