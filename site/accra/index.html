@@ -342,7 +342,7 @@ input[type=text]:focus,select:focus{outline:none;border-color:var(--ink)}
       <div data-step="saved" hidden>
         <div class="stack">
           <h2 tabindex="-1" data-focus>Your place is saved.</h2>
-          <p class="plain">Give your name at Skylight Town Hall, any day from 1 to 7 December, 10 a.m. to 4 p.m.</p>
+          <p class="plain">Keep the chat you just sent. Show it at Skylight Town Hall, any day from 1 to 7 December, 10 a.m. to 4 p.m.</p>
           <button class="ghost" type="button" data-cal><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5.5" width="16" height="14.5" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M4 10h16M8.5 3.5v4M15.5 3.5v4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>Remind me: add to my calendar</button>
         </div>
       </div>
@@ -375,7 +375,7 @@ input[type=text]:focus,select:focus{outline:none;border-color:var(--ink)}
 </main>
 
 <footer>
-  <div class="wrap foot"><p>Brother Jimi</p><nav aria-label="More"><a href="/counsel">Counsel</a><a href="/privacy">Privacy</a></nav></div>
+  <div class="wrap foot"><p><a href="/">Home</a></p><nav aria-label="More"><a href="/counsel">Counsel</a><a href="/privacy">Privacy</a></nav></div>
 </footer>
 
 <!-- A4 flyer: built from the same CONFIG, shown only when printing -->
@@ -555,7 +555,7 @@ input[type=text]:focus,select:focus{outline:none;border-color:var(--ink)}
       'BEGIN:VEVENT','UID:reg-'+day+'@brotherjimi.com','DTSTAMP:'+stamp,
       'DTSTART:'+day+'T'+from+'Z','DTEND:'+day+'T'+to+'Z','RRULE:FREQ=DAILY;COUNT=7',
       'SUMMARY:'+esc('Prayer Line Registration, '+C.title),'LOCATION:'+esc(C.ground),
-      'DESCRIPTION:'+esc('Bring your medical report and any medical aids you use. '+C.url),
+      'DESCRIPTION:'+esc('Show the chat you sent us. Bring your medical report and any medical aids you use. '+C.url),
       'BEGIN:VALARM','ACTION:DISPLAY','DESCRIPTION:Prayer Line Registration','TRIGGER:-PT2H','END:VALARM','END:VEVENT',
       'BEGIN:VEVENT','UID:gathering-'+d(C.eventStarts)+'@brotherjimi.com','DTSTAMP:'+stamp,
       'DTSTART;VALUE=DATE:'+d(C.eventStarts),'DTEND;VALUE=DATE:'+nextDay,

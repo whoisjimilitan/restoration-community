@@ -1,0 +1,31 @@
+<!doctype html>
+<!-- WhatsApp Status card, 1080x1920. The back end renders this each morning by replacing ONLY
+     {{dateLabel}} and {{line}} (HTML-escaped), then saves a 1080x1920 PNG screenshot.
+     Paths are relative to this file. Locked: do not change anything else. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+@font-face{font-family:"Inter BJ";font-weight:100 900;src:url("../assets/fonts/inter-latin-wght-normal.woff2") format("woff2")}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px}
+body{font-family:"Inter BJ",-apple-system,Helvetica,Arial,sans-serif;color:#fff;-webkit-font-smoothing:antialiased;
+     display:flex;flex-direction:column;justify-content:space-between;padding:150px 110px 140px;
+     background:radial-gradient(130% 55% at 50% 108%,rgba(194,58,79,.9) 0%,rgba(139,35,50,.45) 32%,rgba(139,35,50,.1) 58%,transparent 76%),
+                linear-gradient(#07070a,#121216 52%,#1d1418)}
+.top{font-size:38px;font-weight:600;color:rgba(255,255,255,.62);letter-spacing:-0.01em}
+.top b{display:block;color:#fff;font-weight:600;margin-bottom:6px}
+.line{font-size:92px;font-weight:700;line-height:1.08;letter-spacing:-0.035em;text-wrap:balance}
+.line::before{content:"";display:block;width:96px;height:8px;border-radius:4px;background:#c23a4f;margin-bottom:56px}
+.from{display:flex;align-items:center;gap:30px}
+.from img{width:130px;height:130px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 5px #121216,0 0 0 10px #c23a4f}
+.from p{font-size:44px;font-weight:600;line-height:1.2}
+.from span{display:block;font-size:36px;font-weight:500;color:rgba(255,255,255,.7)}
+</style>
+</head>
+<body>
+  <p class="top"><b>Today’s Counsel</b>{{dateLabel}}</p>
+  <p class="line">{{line}}</p>
+  <div class="from"><img src="../images/jimi-avatar.jpg" alt=""><p>Brother Jimi<span>brotherjimi.com</span></p></div>
+</body>
+</html>

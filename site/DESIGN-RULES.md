@@ -24,19 +24,17 @@ Colour carries the story. It is never decoration.
 | ink-2 | `#4a443c` | secondary text on paper |
 | dim | `#8f8678` | footnotes on both |
 | line | `#e2dacd` | form borders only |
-| band | `#ebe3d5` | one full-width ground for the giving moment on /partner only |
-| wine | `#8b2332` | see below |
+| band | `#ebe3d5` | the ground where people act: the form on /accra, the giving on /partner |
 
-- **Wine marks one thing per screen: the action.**
-  - On /accra, that is Save My Place and the selected chip.
-  - It never colours a label, a heading, a link, a badge or a decorative rule.
-  - **Exception: Give on /partner** is styled like Play trailer on the homepage (bone on night, night on daylight), not wine. Giving should feel like the film, never like a checkout.
+- **No accent colour.** The site uses only the film's own colours. Buttons are the film's buttons, like Play trailer: bone on night, night on daylight. One button per screen is the primary.
+- **band** (`#ebe3d5`) is the ground for the place where people act: the form on /accra and the giving on /partner. Nowhere else.
 - **Never use pure black or pure white.** Grey text on a coloured background takes a shade of that background's own hue.
 - **No gradients that are only decoration.** A transition between night and day must look like light, using the film's own dust and grain, not a CSS fade.
 
 ## 3. Type
 
-- **Albert Sans for everything.** Libre Caslon italic appears in one role only: a quotation from a real person, such as his mother's words.
+- **Albert Sans for everything you read about or act on.** Libre Caslon is a real person speaking, and only that: his mother's words on /, Brother Jimi's own words on /accra, and each counsel letter (upright for his words, italic for the verse).
+- **Counsel pictures are type cards, not photos:** the night, the faint shaft of light, the title in Caslon, the dust edge, Brother Jimi and brotherjimi.com/counsel. Three per letter: post (1080x1350), status (1080x1920), og (1200x630). A real photo of his own may replace one on a day it belongs.
 - **Four levels, separated by weight and space, not size alone:**
 
   | Level | Weight | Size |

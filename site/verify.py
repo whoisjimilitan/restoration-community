@@ -15,12 +15,21 @@ ROOT = pathlib.Path(__file__).resolve().parent
 LOCK = ROOT / "design-lock.json"
 FILES = [
     "assets/cities.js", "assets/letters.js",
-    "assets/fonts/albert-sans-latin-wght-normal.woff2", "assets/fonts/libre-caslon-text-latin-400-italic.woff2",
+    "assets/fonts/albert-sans-latin-wght-normal.woff2", "assets/fonts/libre-caslon-text-latin-400-italic.woff2", "assets/fonts/libre-caslon-text-latin-400-normal.woff2",
     "images/favicon.png", "images/apple-touch-icon.png",
     "images/film/dust-edge.jpg", "images/film/jimi-face.jpg", "images/film/key-art-760.jpg", "images/film/key-art-1200.jpg", "images/film/og-2.jpg", "images/film/og-accra-2.jpg", "images/film/og-partner.jpg", "images/film/trailer-poster.jpg",
-    "images/counsel/counsel-og.jpg", "images/counsel/value-in-challenges-og.jpg", "images/counsel/value-in-challenges-post.jpg",
+    "images/counsel/counsel-og.jpg", "images/counsel/value-in-challenges-og.jpg", "images/counsel/value-in-challenges-post.jpg", "images/counsel/value-in-challenges-status.jpg",
+    "images/counsel/warfare-and-salvation-og.jpg", "images/counsel/warfare-and-salvation-post.jpg", "images/counsel/warfare-and-salvation-status.jpg",
+    "images/counsel/one-anothers-strength-og.jpg", "images/counsel/one-anothers-strength-post.jpg", "images/counsel/one-anothers-strength-status.jpg",
+    "images/counsel/jesus-is-a-tomorrow-thinker-og.jpg", "images/counsel/jesus-is-a-tomorrow-thinker-post.jpg", "images/counsel/jesus-is-a-tomorrow-thinker-status.jpg",
+    "images/counsel/do-you-want-to-speak-og.jpg", "images/counsel/do-you-want-to-speak-post.jpg", "images/counsel/do-you-want-to-speak-status.jpg",
+    "images/counsel/your-future-has-to-move-into-you-og.jpg", "images/counsel/your-future-has-to-move-into-you-post.jpg", "images/counsel/your-future-has-to-move-into-you-status.jpg",
+    "images/counsel/beyond-offence-there-god-is-og.jpg", "images/counsel/beyond-offence-there-god-is-post.jpg", "images/counsel/beyond-offence-there-god-is-status.jpg",
+    "images/counsel/meditation-is-a-visit-with-him-og.jpg", "images/counsel/meditation-is-a-visit-with-him-post.jpg", "images/counsel/meditation-is-a-visit-with-him-status.jpg",
+    "images/counsel/the-weapon-of-testimony-og.jpg", "images/counsel/the-weapon-of-testimony-post.jpg", "images/counsel/the-weapon-of-testimony-status.jpg",
+    "images/counsel/gods-time-is-the-best-og.jpg", "images/counsel/gods-time-is-the-best-post.jpg", "images/counsel/gods-time-is-the-best-status.jpg",
     "images/partner/listening-phone.jpg", "images/partner/listening-wide.jpg",
-    "index.html", "accra/index.html", "counsel/index.html", "counsel/value-in-challenges/index.html", "privacy/index.html", "partner/index.html", "404.html",
+    "index.html", "accra/index.html", "counsel/index.html", "counsel/value-in-challenges/index.html", "counsel/warfare-and-salvation/index.html", "counsel/one-anothers-strength/index.html", "counsel/jesus-is-a-tomorrow-thinker/index.html", "counsel/do-you-want-to-speak/index.html", "counsel/your-future-has-to-move-into-you/index.html", "counsel/beyond-offence-there-god-is/index.html", "counsel/meditation-is-a-visit-with-him/index.html", "counsel/the-weapon-of-testimony/index.html", "counsel/gods-time-is-the-best/index.html", "privacy/index.html", "partner/index.html", "404.html",
     "video/hero-loop.mp4", "video/brother-jimi-trailer.mp4",
 ]
 SLOT = re.compile(r'<(\w+)([^>]*?)\sdata-slot="(\w+)"([^>]*)>(.*?)</\1>', re.S)
