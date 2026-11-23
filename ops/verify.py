@@ -11,8 +11,8 @@ data file today/today.json (not locked).
 """
 import hashlib, json, re, sys, pathlib
 
-ROOT = pathlib.Path(__file__).resolve().parent
-LOCK = ROOT / "design-lock.json"
+ROOT = pathlib.Path(__file__).resolve().parent.parent / "site"
+LOCK = pathlib.Path(__file__).resolve().parent / "design-lock.json"
 FILES = [
     "assets/cities.js", "assets/letters.js",
     "assets/fonts/albert-sans-latin-wght-normal.woff2", "assets/fonts/libre-caslon-text-latin-400-italic.woff2", "assets/fonts/libre-caslon-text-latin-400-normal.woff2",
