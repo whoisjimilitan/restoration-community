@@ -28,7 +28,7 @@
    the letter's picture rises in the night, the dust breaks into daylight, and the words are read in the light. */
 :root{
   --bone:#ece5d8; --paper:#f4efe6; --ink:#0b0a09; --ink-2:#4a443c; --dim:#8f8678;
-  --night:#0b0a09; --band:#ebe3d5; --field:#fbf8f2; --band:#ebe3d5; --field:#fbf8f2; --band:#ebe3d5; --field:#fbf8f2; --band:#ebe3d5; --field:#fbf8f2; --band:#ebe3d5; --field:#fbf8f2; --soft:#c9c0b1; --line-2:#cdc4b5;
+  --night:#0b0a09; --band:#ebe3d5; --field:#fbf8f2; --soft:#c9c0b1; --line-2:#cdc4b5;
   --sans:"Albert Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
   --gut:20px; color-scheme:light;
 }
@@ -81,196 +81,12 @@ p{margin:0}
 .bring h2{margin:0;font:400 28px/1.2 var(--sans);letter-spacing:-.02em}
 .plain{color:var(--ink-2)}
 .ways{list-style:none;margin:8px 0 0;padding:0;display:flex;flex-direction:column;gap:10px}
-.ways button{display:grid;grid-template-columns:32px minmax(0,1fr) 20px;gap:14px;align-items:center;width:100%;min-height:60px;padding:12px 16px;border:1px solid var(--line-2);border-radius:4px;background:var(--field);color:var(--ink);text-align:left;cursor:pointer;font:500 17px/1.3 var(--sans);transition:border-color .2s,background .2s}
-.ways button:hover{border-color:var(--ink-2)}
-.ways .n{display:grid;place-items:center;width:32px;height:32px;border-radius:50%;border:1px solid var(--line-2);font:600 14px/1 var(--sans);color:var(--ink);font-variant-numeric:tabular-nums}
-.ways svg{width:18px;height:18px;color:var(--ink-2);transition:transform .2s}
+.ways button{display:grid;grid-template-columns:32px minmax(0,1fr) 20px;gap:14px;align-items:center;width:100%;min-height:64px;padding:12px 16px;border:1px solid var(--night);border-radius:6px;background:var(--night);color:var(--bone);text-align:left;cursor:pointer;font:500 17px/1.3 var(--sans);box-shadow:0 2px 0 rgba(11,10,9,.25);transition:transform .1s,background .2s}
+.ways button:hover{background:#1d1a16}.ways button:active{transform:translateY(1px);box-shadow:0 1px 0 rgba(11,10,9,.25)}
+.ways .n{display:grid;place-items:center;width:32px;height:32px;border-radius:50%;border:1px solid rgba(236,229,216,.55);font:600 14px/1 var(--sans);color:var(--bone);font-variant-numeric:tabular-nums}
+.ways svg{width:18px;height:18px;color:var(--bone);transition:transform .2s}
 .ways button:hover svg{transform:translateX(3px)}
-.ways .done button{background:var(--paper)}
-.ways .done .n{background:var(--ink) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 12.5l4 4 8-9' fill='none' stroke='%23ece5d8' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/18px no-repeat;border-color:var(--ink);color:transparent}
-.tally{margin-top:2px;font-weight:600}
-.on{margin-top:16px;font-size:15px;color:var(--ink-2)}
-.copied{min-height:1.4em;font-size:14px;color:var(--dim)}
-.copied:empty{min-height:0}
-.icons{display:flex;flex-wrap:wrap;gap:5px;margin-top:4px}
-.icons a,.icons button{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;border:1px solid var(--line-2);background:var(--field);color:var(--ink);cursor:pointer;transition:border-color .15s}
-.icons a:hover,.icons button:hover{border-color:var(--ink)}
-.icons svg{width:18px;height:18px}
-.next{padding-top:48px}
-/* The hero: no picture. The night with one faint shaft of light, crossed by a softer glow, as on /accra; the title in Caslon */
-.dark{position:relative;overflow:hidden;isolation:isolate}
-.dark::before{content:"";position:absolute;z-index:-1;pointer-events:none;inset:-10% -10% -40% auto;width:min(70vw,780px);
-  background:
-    radial-gradient(ellipse 46% 7% at 58% 38%,rgba(236,229,216,.10),rgba(236,229,216,0) 70%),
-    linear-gradient(90deg,rgba(236,229,216,0) 52%,rgba(236,229,216,.09) 57.5%,rgba(236,229,216,.13) 58%,rgba(236,229,216,.09) 58.5%,rgba(236,229,216,0) 64%);
-  -webkit-mask:linear-gradient(180deg,rgba(0,0,0,.2),#000 25%,#000 55%,rgba(0,0,0,0) 80%);mask:linear-gradient(180deg,rgba(0,0,0,.2),#000 25%,#000 55%,rgba(0,0,0,0) 80%);
-  transform:rotate(8deg);transform-origin:top right}
-.dark .kicker{padding-top:calc(48px + env(safe-area-inset-top))}
-.dark h1{margin:0;padding-top:min(28vh,200px);font:400 clamp(40px,11vw,60px)/1.1 "Caslon",Georgia,serif;letter-spacing:-.012em;color:var(--bone);text-wrap:balance}
-.dark .hr{margin:18px 0 0;padding-bottom:56px;font:400 18px/1 "Caslon",Georgia,serif;font-variant:small-caps;letter-spacing:.08em;color:var(--soft)}
-/* BOOK: Jimi's words are set in Caslon, the typeface the site already gives a real person speaking.
-   Everything you act on stays in Albert Sans. Only what a book does for reading: the serif, the indent, the quiet page. */
-@font-face{font-family:"Caslon";src:url(/assets/fonts/libre-caslon-text-latin-400-normal.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
-@font-face{font-family:"Caslon";src:url(/assets/fonts/libre-caslon-text-latin-400-italic.woff2) format("woff2");font-weight:400;font-style:italic;font-display:swap}
-.letter{display:block;font:400 19px/1.7 "Caslon",Georgia,serif;color:#1d1a16;padding-top:48px}
-.letter p{margin:0;text-indent:1.3em}
-.letter .open{font:400 21px/1.55 "Caslon",Georgia,serif;letter-spacing:0;text-indent:0;margin-bottom:6px}
-.letter .verse{font-style:italic;line-height:1.6;text-indent:0;margin:24px 0;padding:0 0 0 1.2em}
-.letter .verse+p{text-indent:0}
-.letter .ref{font-style:normal;font-variant:small-caps;letter-spacing:.06em;font-size:16px;margin-top:8px;color:var(--ink-2)}
-.letter .today{margin-top:28px;text-indent:0}
-.letter .today b{font-weight:400;font-variant:small-caps;letter-spacing:.06em;font-size:1.05em}
-
-/* Become an evangelist: the same three-step engine as /accra, on the band where readers act */
-.bring{background:var(--band)}
-.bring .in{display:flex;flex-direction:column;gap:16px;padding-top:56px;padding-bottom:56px}
-.bring h2{margin:0;font:400 28px/1.2 var(--sans);letter-spacing:-.02em}
-.plain{color:var(--ink-2)}
-.ways{list-style:none;margin:8px 0 0;padding:0;display:flex;flex-direction:column;gap:10px}
-.ways button{display:grid;grid-template-columns:32px minmax(0,1fr) 20px;gap:14px;align-items:center;width:100%;min-height:60px;padding:12px 16px;border:1px solid var(--line-2);border-radius:4px;background:var(--field);color:var(--ink);text-align:left;cursor:pointer;font:500 17px/1.3 var(--sans);transition:border-color .2s,background .2s}
-.ways button:hover{border-color:var(--ink-2)}
-.ways .n{display:grid;place-items:center;width:32px;height:32px;border-radius:50%;border:1px solid var(--line-2);font:600 14px/1 var(--sans);color:var(--ink);font-variant-numeric:tabular-nums}
-.ways svg{width:18px;height:18px;color:var(--ink-2);transition:transform .2s}
-.ways button:hover svg{transform:translateX(3px)}
-.ways .done button{background:var(--paper)}
-.ways .done .n{background:var(--ink) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 12.5l4 4 8-9' fill='none' stroke='%23ece5d8' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/18px no-repeat;border-color:var(--ink);color:transparent}
-.tally{margin-top:2px;font-weight:600}
-.on{margin-top:16px;font-size:15px;color:var(--ink-2)}
-.copied{min-height:1.4em;font-size:14px;color:var(--dim)}
-.copied:empty{min-height:0}
-.icons{display:flex;flex-wrap:wrap;gap:5px;margin-top:4px}
-.icons a,.icons button{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;border:1px solid var(--line-2);background:var(--field);color:var(--ink);cursor:pointer;transition:border-color .15s}
-.icons a:hover,.icons button:hover{border-color:var(--ink)}
-.icons svg{width:18px;height:18px}
-.next{padding-top:48px}
-/* The hero: no picture. The night with one faint shaft of light, crossed by a softer glow, as on /accra; the title in Caslon */
-.dark{position:relative;overflow:hidden;isolation:isolate}
-.dark::before{content:"";position:absolute;z-index:-1;pointer-events:none;inset:-10% -10% -40% auto;width:min(70vw,780px);
-  background:
-    radial-gradient(ellipse 46% 7% at 58% 38%,rgba(236,229,216,.10),rgba(236,229,216,0) 70%),
-    linear-gradient(90deg,rgba(236,229,216,0) 52%,rgba(236,229,216,.09) 57.5%,rgba(236,229,216,.13) 58%,rgba(236,229,216,.09) 58.5%,rgba(236,229,216,0) 64%);
-  -webkit-mask:linear-gradient(180deg,rgba(0,0,0,.2),#000 25%,#000 55%,rgba(0,0,0,0) 80%);mask:linear-gradient(180deg,rgba(0,0,0,.2),#000 25%,#000 55%,rgba(0,0,0,0) 80%);
-  transform:rotate(8deg);transform-origin:top right}
-.dark .kicker{padding-top:calc(48px + env(safe-area-inset-top))}
-.dark h1{margin:0;padding-top:min(28vh,200px);font:400 clamp(40px,11vw,60px)/1.1 "Caslon",Georgia,serif;letter-spacing:-.012em;color:var(--bone);text-wrap:balance}
-.dark .hr{margin:18px 0 0;padding-bottom:56px;font:400 18px/1 "Caslon",Georgia,serif;font-variant:small-caps;letter-spacing:.08em;color:var(--soft)}
-/* BOOK: Jimi's words are set in Caslon, the typeface the site already gives a real person speaking.
-   Everything you act on stays in Albert Sans. Only what a book does for reading: the serif, the indent, the quiet page. */
-@font-face{font-family:"Caslon";src:url(/assets/fonts/libre-caslon-text-latin-400-normal.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
-@font-face{font-family:"Caslon";src:url(/assets/fonts/libre-caslon-text-latin-400-italic.woff2) format("woff2");font-weight:400;font-style:italic;font-display:swap}
-.letter{display:block;font:400 19px/1.7 "Caslon",Georgia,serif;color:#1d1a16;padding-top:48px}
-.letter p{margin:0;text-indent:1.3em}
-.letter .open{font:400 21px/1.55 "Caslon",Georgia,serif;letter-spacing:0;text-indent:0;margin-bottom:6px}
-.letter .verse{font-style:italic;line-height:1.6;text-indent:0;margin:24px 0;padding:0 0 0 1.2em}
-.letter .verse+p{text-indent:0}
-.letter .ref{font-style:normal;font-variant:small-caps;letter-spacing:.06em;font-size:16px;margin-top:8px;color:var(--ink-2)}
-.letter .today{margin-top:28px;text-indent:0}
-.letter .today b{font-weight:400;font-variant:small-caps;letter-spacing:.06em;font-size:1.05em}
-
-/* Become an evangelist: the same three-step engine as /accra, on the band where readers act */
-.bring{background:var(--band)}
-.bring .in{display:flex;flex-direction:column;gap:16px;padding-top:56px;padding-bottom:56px}
-.bring h2{margin:0;font:400 28px/1.2 var(--sans);letter-spacing:-.02em}
-.plain{color:var(--ink-2)}
-.ways{list-style:none;margin:8px 0 0;padding:0;display:flex;flex-direction:column;gap:10px}
-.ways button{display:grid;grid-template-columns:32px minmax(0,1fr) 20px;gap:14px;align-items:center;width:100%;min-height:60px;padding:12px 16px;border:1px solid var(--line-2);border-radius:4px;background:var(--field);color:var(--ink);text-align:left;cursor:pointer;font:500 17px/1.3 var(--sans);transition:border-color .2s,background .2s}
-.ways button:hover{border-color:var(--ink-2)}
-.ways .n{display:grid;place-items:center;width:32px;height:32px;border-radius:50%;border:1px solid var(--line-2);font:600 14px/1 var(--sans);color:var(--ink);font-variant-numeric:tabular-nums}
-.ways svg{width:18px;height:18px;color:var(--ink-2);transition:transform .2s}
-.ways button:hover svg{transform:translateX(3px)}
-.ways .done button{background:var(--paper)}
-.ways .done .n{background:var(--ink) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 12.5l4 4 8-9' fill='none' stroke='%23ece5d8' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/18px no-repeat;border-color:var(--ink);color:transparent}
-.tally{margin-top:2px;font-weight:600}
-.on{margin-top:16px;font-size:15px;color:var(--ink-2)}
-.copied{min-height:1.4em;font-size:14px;color:var(--dim)}
-.copied:empty{min-height:0}
-.icons{display:flex;flex-wrap:wrap;gap:5px;margin-top:4px}
-.icons a,.icons button{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;border:1px solid var(--line-2);background:var(--field);color:var(--ink);cursor:pointer;transition:border-color .15s}
-.icons a:hover,.icons button:hover{border-color:var(--ink)}
-.icons svg{width:18px;height:18px}
-.next{padding-top:48px}
-/* The hero: no picture. The night with one faint shaft of light, crossed by a softer glow, as on /accra; the title in Caslon */
-.dark{position:relative;overflow:hidden;isolation:isolate}
-.dark::before{content:"";position:absolute;z-index:-1;pointer-events:none;inset:-10% -10% -40% auto;width:min(70vw,780px);
-  background:
-    radial-gradient(ellipse 46% 7% at 58% 38%,rgba(236,229,216,.10),rgba(236,229,216,0) 70%),
-    linear-gradient(90deg,rgba(236,229,216,0) 52%,rgba(236,229,216,.09) 57.5%,rgba(236,229,216,.13) 58%,rgba(236,229,216,.09) 58.5%,rgba(236,229,216,0) 64%);
-  -webkit-mask:linear-gradient(180deg,rgba(0,0,0,.2),#000 25%,#000 55%,rgba(0,0,0,0) 80%);mask:linear-gradient(180deg,rgba(0,0,0,.2),#000 25%,#000 55%,rgba(0,0,0,0) 80%);
-  transform:rotate(8deg);transform-origin:top right}
-.dark .kicker{padding-top:calc(48px + env(safe-area-inset-top))}
-.dark h1{margin:0;padding-top:min(28vh,200px);font:400 clamp(40px,11vw,60px)/1.1 "Caslon",Georgia,serif;letter-spacing:-.012em;color:var(--bone);text-wrap:balance}
-.dark .hr{margin:18px 0 0;padding-bottom:56px;font:400 18px/1 "Caslon",Georgia,serif;font-variant:small-caps;letter-spacing:.08em;color:var(--soft)}
-/* BOOK: Jimi's words are set in Caslon, the typeface the site already gives a real person speaking.
-   Everything you act on stays in Albert Sans. Only what a book does for reading: the serif, the indent, the quiet page. */
-@font-face{font-family:"Caslon";src:url(/assets/fonts/libre-caslon-text-latin-400-normal.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
-@font-face{font-family:"Caslon";src:url(/assets/fonts/libre-caslon-text-latin-400-italic.woff2) format("woff2");font-weight:400;font-style:italic;font-display:swap}
-.letter{display:block;font:400 19px/1.7 "Caslon",Georgia,serif;color:#1d1a16;padding-top:48px}
-.letter p{margin:0;text-indent:1.3em}
-.letter .open{font:400 21px/1.55 "Caslon",Georgia,serif;letter-spacing:0;text-indent:0;margin-bottom:6px}
-.letter .verse{font-style:italic;line-height:1.6;text-indent:0;margin:24px 0;padding:0 0 0 1.2em}
-.letter .verse+p{text-indent:0}
-.letter .ref{font-style:normal;font-variant:small-caps;letter-spacing:.06em;font-size:16px;margin-top:8px;color:var(--ink-2)}
-.letter .today{margin-top:28px;text-indent:0}
-.letter .today b{font-weight:400;font-variant:small-caps;letter-spacing:.06em;font-size:1.05em}
-
-/* Become an evangelist: the same three-step engine as /accra, on the band where readers act */
-.bring{background:var(--band)}
-.bring .in{display:flex;flex-direction:column;gap:16px;padding-top:56px;padding-bottom:56px}
-.bring h2{margin:0;font:400 28px/1.2 var(--sans);letter-spacing:-.02em}
-.plain{color:var(--ink-2)}
-.ways{list-style:none;margin:8px 0 0;padding:0;display:flex;flex-direction:column;gap:10px}
-.ways button{display:grid;grid-template-columns:32px minmax(0,1fr) 20px;gap:14px;align-items:center;width:100%;min-height:60px;padding:12px 16px;border:1px solid var(--line-2);border-radius:4px;background:var(--field);color:var(--ink);text-align:left;cursor:pointer;font:500 17px/1.3 var(--sans);transition:border-color .2s,background .2s}
-.ways button:hover{border-color:var(--ink-2)}
-.ways .n{display:grid;place-items:center;width:32px;height:32px;border-radius:50%;border:1px solid var(--line-2);font:600 14px/1 var(--sans);color:var(--ink);font-variant-numeric:tabular-nums}
-.ways svg{width:18px;height:18px;color:var(--ink-2);transition:transform .2s}
-.ways button:hover svg{transform:translateX(3px)}
-.ways .done button{background:var(--paper)}
-.ways .done .n{background:var(--ink) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 12.5l4 4 8-9' fill='none' stroke='%23ece5d8' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/18px no-repeat;border-color:var(--ink);color:transparent}
-.tally{margin-top:2px;font-weight:600}
-.on{margin-top:16px;font-size:15px;color:var(--ink-2)}
-.copied{min-height:1.4em;font-size:14px;color:var(--dim)}
-.copied:empty{min-height:0}
-.icons{display:flex;flex-wrap:wrap;gap:5px;margin-top:4px}
-.icons a,.icons button{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;border:1px solid var(--line-2);background:var(--field);color:var(--ink);cursor:pointer;transition:border-color .15s}
-.icons a:hover,.icons button:hover{border-color:var(--ink)}
-.icons svg{width:18px;height:18px}
-.next{padding-top:48px}
-/* The hero: no picture. The night with one faint shaft of light, crossed by a softer glow, as on /accra; the title in Caslon */
-.dark{position:relative;overflow:hidden;isolation:isolate}
-.dark::before{content:"";position:absolute;z-index:-1;pointer-events:none;inset:-10% -10% -40% auto;width:min(70vw,780px);
-  background:
-    radial-gradient(ellipse 46% 7% at 58% 38%,rgba(236,229,216,.10),rgba(236,229,216,0) 70%),
-    linear-gradient(90deg,rgba(236,229,216,0) 52%,rgba(236,229,216,.09) 57.5%,rgba(236,229,216,.13) 58%,rgba(236,229,216,.09) 58.5%,rgba(236,229,216,0) 64%);
-  -webkit-mask:linear-gradient(180deg,rgba(0,0,0,.2),#000 25%,#000 55%,rgba(0,0,0,0) 80%);mask:linear-gradient(180deg,rgba(0,0,0,.2),#000 25%,#000 55%,rgba(0,0,0,0) 80%);
-  transform:rotate(8deg);transform-origin:top right}
-.dark .kicker{padding-top:calc(48px + env(safe-area-inset-top))}
-.dark h1{margin:0;padding-top:min(28vh,200px);font:400 clamp(40px,11vw,60px)/1.1 "Caslon",Georgia,serif;letter-spacing:-.012em;color:var(--bone);text-wrap:balance}
-.dark .hr{margin:18px 0 0;padding-bottom:56px;font:400 18px/1 "Caslon",Georgia,serif;font-variant:small-caps;letter-spacing:.08em;color:var(--soft)}
-/* BOOK: Jimi's words are set in Caslon, the typeface the site already gives a real person speaking.
-   Everything you act on stays in Albert Sans. Only what a book does for reading: the serif, the indent, the quiet page. */
-@font-face{font-family:"Caslon";src:url(/assets/fonts/libre-caslon-text-latin-400-normal.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
-@font-face{font-family:"Caslon";src:url(/assets/fonts/libre-caslon-text-latin-400-italic.woff2) format("woff2");font-weight:400;font-style:italic;font-display:swap}
-.letter{display:block;font:400 19px/1.7 "Caslon",Georgia,serif;color:#1d1a16;padding-top:48px}
-.letter p{margin:0;text-indent:1.3em}
-.letter .open{font:400 21px/1.55 "Caslon",Georgia,serif;letter-spacing:0;text-indent:0;margin-bottom:6px}
-.letter .verse{font-style:italic;line-height:1.6;text-indent:0;margin:24px 0;padding:0 0 0 1.2em}
-.letter .verse+p{text-indent:0}
-.letter .ref{font-style:normal;font-variant:small-caps;letter-spacing:.06em;font-size:16px;margin-top:8px;color:var(--ink-2)}
-.letter .today{margin-top:28px;text-indent:0}
-.letter .today b{font-weight:400;font-variant:small-caps;letter-spacing:.06em;font-size:1.05em}
-
-/* Become an evangelist: the same three-step engine as /accra, on the band where readers act */
-.bring{background:var(--band)}
-.bring .in{display:flex;flex-direction:column;gap:16px;padding-top:56px;padding-bottom:56px}
-.bring h2{margin:0;font:400 28px/1.2 var(--sans);letter-spacing:-.02em}
-.plain{color:var(--ink-2)}
-.ways{list-style:none;margin:8px 0 0;padding:0;display:flex;flex-direction:column;gap:10px}
-.ways button{display:grid;grid-template-columns:32px minmax(0,1fr) 20px;gap:14px;align-items:center;width:100%;min-height:64px;padding:12px 16px;border:1px solid var(--ink-2);box-shadow:0 1px 0 rgba(11,10,9,.10);border-radius:4px;background:var(--field);color:var(--ink);text-align:left;cursor:pointer;font:500 17px/1.3 var(--sans);transition:border-color .2s,background .2s}
-.ways button:hover{border-color:var(--ink-2)}
-.ways .n{display:grid;place-items:center;width:32px;height:32px;border-radius:50%;border:1px solid var(--ink-2);font:600 14px/1 var(--sans);color:var(--ink);font-variant-numeric:tabular-nums}
-.ways svg{width:18px;height:18px;color:var(--ink);transition:transform .2s}
-.ways button:hover svg{transform:translateX(3px)}
-.ways .done button{background:var(--paper)}
+.ways .done button{background:var(--paper);color:var(--ink);border-color:var(--ink-2);box-shadow:none}.ways .done svg{color:var(--ink-2)}
 .ways .done .n{background:var(--ink) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 12.5l4 4 8-9' fill='none' stroke='%23ece5d8' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/18px no-repeat;border-color:var(--ink);color:transparent}
 .tally{margin-top:2px;font-weight:600}
 .on{margin-top:16px;font-size:15px;color:var(--ink-2)}
@@ -281,6 +97,7 @@ p{margin:0}
 .icons a:hover,.icons button:hover{border-color:var(--ink)}
 .icons svg{width:18px;height:18px}
 .next{padding-top:48px}
+.btn.follow{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}.btn.follow:hover{background:var(--ink);color:var(--bone)}
 .btn.wa{gap:10px;text-align:center}.btn.wa svg{width:19px;height:19px;flex:none}
 .foot .back svg{display:inline-block;width:15px;height:15px;margin-right:8px;vertical-align:-2px}
 /* The hero: no picture. The night with one faint shaft of light, crossed by a softer glow, as on /accra; the title in Caslon */
@@ -299,8 +116,8 @@ p{margin:0}
 @font-face{font-family:"Caslon";src:url(/assets/fonts/libre-caslon-text-latin-400-normal.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
 @font-face{font-family:"Caslon";src:url(/assets/fonts/libre-caslon-text-latin-400-italic.woff2) format("woff2");font-weight:400;font-style:italic;font-display:swap}
 .letter{display:block;font:400 19px/1.7 "Caslon",Georgia,serif;color:#1d1a16;padding-top:48px}
-.letter p{margin:0;text-indent:1.3em}
-.letter .open{font:400 21px/1.55 "Caslon",Georgia,serif;letter-spacing:0;text-indent:0;margin-bottom:6px}
+.letter p{margin:0 0 .95em;text-indent:0}
+.letter .open{font:400 21px/1.55 "Caslon",Georgia,serif;letter-spacing:0;text-indent:0;margin-bottom:.95em}
 .letter .verse{font-style:italic;line-height:1.6;text-indent:0;margin:24px 0;padding:0 0 0 1.2em}
 .letter .verse+p{text-indent:0}
 .letter .ref{font-style:normal;font-variant:small-caps;letter-spacing:.06em;font-size:16px;margin-top:8px;color:var(--ink-2)}
@@ -358,7 +175,7 @@ p{margin:0}
 
   <div class="col">
   <div class="next wrap">
-    <a class="btn wa" href="https://whatsapp.com/channel/0029VbCgjedBA1f6YQ0DvB3s" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 19.5l1.2-3.6A7.8 7.8 0 1 1 8.4 18.5z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>Get tomorrow&rsquo;s letter from Brother Jimi</a>
+    <a class="btn follow" href="https://whatsapp.com/channel/0029VbCgjedBA1f6YQ0DvB3s" target="_blank" rel="noopener">Get tomorrow&rsquo;s letter on WhatsApp</a>
   </div>
 
   <footer class="wrap foot">
