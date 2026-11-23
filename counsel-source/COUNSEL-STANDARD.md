@@ -11,6 +11,13 @@ Every letter must read as well as they do, or it does not ship.
 4. Let the message decide its own way in (a story, a verse, a question, a hard line), its own order and its own length.
 5. If Jimi wrote a prayer or a declaration, it is the prayer. If not, a short prayer from his lines.
 
+6. The core message is said plainly, once, in Jimi's own words, so no reader has to guess or infer what the letter means. If his post states it, that line goes in. Nothing is invented to make it clear.
+
+7. Short sentences that land beat complete sentences that explain. A long sentence of Jimi's may be split into two, never reworded.
+8. The letter's key line stands on its own. Turn to the reader once, in his words where his post has them.
+9. Close on his strongest short line; the prayer echoes it.
+10. Before a batch ships, Jimi reads two or three letters aloud. Wherever he stumbles, the sentence is too long.
+
 ## Fixed in every letter
 - Title: a line exactly as Jimi wrote it in that message. Never shortened, rephrased or invented.
 - One verse, NIV, word for word, checked against a source.
