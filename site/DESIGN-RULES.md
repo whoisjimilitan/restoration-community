@@ -56,7 +56,7 @@ Colour carries the story. It is never decoration.
 - **The primary element on each screen is bigger and heavier.** Everything else recedes.
 - **Moments get a screen; everything else gets rhythm.** What you *watch* (a title, a story beat, Jimi's word) holds its own screen. What you *read* or *do* (a letter, a form, the steps) flows, separated by two spaces only: a **cut** between chapters and a **breath** inside a thought.
 - **Weight marks what matters, never colour.** On every page the moments that carry the story are set larger, and the rest speaks quietly. On / the prayer ("My mother died praying for me") and its answer ("Then one night… Jesus Christ met me") are set alike, and only the answer stands in the light. In a letter, the opening line and the line before "Today, say:" carry the weight.
-- **A letter is set like a book: one rhythm from the line.** Lines at 1.6. A breath (half a line) between paragraphs; a pause (one full line) around the verse, before the closing line and before "Today, say:". No other gaps. No indents and no justified text on a phone, so short key lines still stand alone.
+- **A letter is set like a printed book.** Lines at 1.6. Ordinary paragraphs run on with an indent and no gap, so it reads as one person talking. A key line (one sentence of ten words or fewer) stands on its own with a half-line breath around it. The moments pause a full line: after the opening, around the verse, before the closing line and before "Today, say:". No justified text on a phone.
 
 ## 5. Copy
 
