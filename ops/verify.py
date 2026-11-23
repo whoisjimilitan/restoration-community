@@ -29,7 +29,7 @@ FILES = [
     "images/counsel/the-weapon-of-testimony-og.jpg", "images/counsel/the-weapon-of-testimony-post.jpg", "images/counsel/the-weapon-of-testimony-status.jpg",
     "images/counsel/gods-time-is-the-best-og.jpg", "images/counsel/gods-time-is-the-best-post.jpg", "images/counsel/gods-time-is-the-best-status.jpg",
     "images/partner/listening-phone.jpg", "images/partner/listening-wide.jpg",
-    "index.html", "accra/index.html", "counsel/index.html", "counsel/value-in-challenges/index.html", "counsel/warfare-and-salvation/index.html", "counsel/one-anothers-strength/index.html", "counsel/jesus-is-a-tomorrow-thinker/index.html", "counsel/do-you-want-to-speak/index.html", "counsel/your-future-has-to-move-into-you/index.html", "counsel/beyond-offence-there-god-is/index.html", "counsel/meditation-is-a-visit-with-him/index.html", "counsel/the-weapon-of-testimony/index.html", "counsel/gods-time-is-the-best/index.html", "privacy/index.html", "partner/index.html", "404.html", "robots.txt",
+    "index.html", "accra.html", "counsel.html", "counsel/value-in-challenges.html", "counsel/warfare-and-salvation.html", "counsel/one-anothers-strength.html", "counsel/jesus-is-a-tomorrow-thinker.html", "counsel/do-you-want-to-speak.html", "counsel/your-future-has-to-move-into-you.html", "counsel/beyond-offence-there-god-is.html", "counsel/meditation-is-a-visit-with-him.html", "counsel/the-weapon-of-testimony.html", "counsel/gods-time-is-the-best.html", "privacy.html", "partner.html", "404.html", "robots.txt",
     "video/hero-loop.mp4", "video/brother-jimi-trailer.mp4",
 ]
 SLOT = re.compile(r'<(\w+)([^>]*?)\sdata-slot="(\w+)"([^>]*)>(.*?)</\1>', re.S)
