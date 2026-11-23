@@ -77,7 +77,7 @@ Colour carries the story. It is never decoration.
 ## 7. Motion
 
 - **One moment per page, and it must mean something.** Animate transform and opacity only, with slow deceleration, never bounce. Respect reduced motion.
-- **No fade-ins on scroll, no ticking for drama, no parallax.**
+- **No fade-ins on scroll, no ticking for drama, no parallax.** The single exception is the story on /: as you scroll, the line leaving the screen dims to a shadow and the line arriving takes the screen, because the past giving way is the story itself. CSS only, off for reduced motion, and older phones see the lines still.
 - **A countdown shows days.** Seconds appear only on the final day.
 
 ## 8. Controls
