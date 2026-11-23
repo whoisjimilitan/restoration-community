@@ -97,6 +97,18 @@ p{margin:0}
 .icons a:hover,.icons button:hover{border-color:var(--ink)}
 .icons svg{width:18px;height:18px}
 .next{padding-top:48px}
+/* One primary per screen: every step reads as a button, and only the next one to do is in night.
+   As each is done it turns to paper with a tick, and the night moves on to the next. */
+.ways li button{background:var(--field);color:var(--ink);border:1.5px solid var(--night);box-shadow:0 2px 0 rgba(11,10,9,.16)}
+.ways li button .n{border-color:var(--ink-2);color:var(--ink)}.ways li button svg{color:var(--ink)}
+.ways li button:hover{background:var(--paper)}
+.ways li:not(.done):not(.ways li:not(.done) ~ li) button{background:var(--night);color:var(--bone);box-shadow:0 2px 0 rgba(11,10,9,.25)}
+.ways li:not(.done):not(.ways li:not(.done) ~ li) button:hover{background:#1d1a16}
+.ways li:not(.done):not(.ways li:not(.done) ~ li) button .n{border-color:rgba(236,229,216,.55);color:var(--bone)}
+.ways li:not(.done):not(.ways li:not(.done) ~ li) button svg{color:var(--bone)}
+.ways .done button{border-width:1px;color:var(--ink-2)}
+/* A cut, not a breath: the letter ends, the prayer is left alone a moment, then the band where readers act */
+.bring{margin-top:72px}.bring .in{padding-top:64px}
 .btn.follow{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}.btn.follow:hover{background:var(--ink);color:var(--bone)}
 .btn.wa{gap:10px;text-align:center}.btn.wa svg{width:19px;height:19px;flex:none}
 .foot .back svg{display:inline-block;width:15px;height:15px;margin-right:8px;vertical-align:-2px}
@@ -118,6 +130,7 @@ p{margin:0}
 .letter{display:block;font:400 19px/1.7 "Caslon",Georgia,serif;color:#1d1a16;padding-top:48px}
 .letter p{margin:0 0 .95em;text-indent:0}
 .letter .open{font:400 21px/1.55 "Caslon",Georgia,serif;letter-spacing:0;text-indent:0;margin-bottom:.95em}
+.letter .close{font:400 21px/1.55 "Caslon",Georgia,serif;margin-top:1.7em}
 .letter .verse{font-style:italic;line-height:1.6;text-indent:0;margin:24px 0;padding:0 0 0 1.2em}
 .letter .verse+p{text-indent:0}
 .letter .ref{font-style:normal;font-variant:small-caps;letter-spacing:.06em;font-size:16px;margin-top:8px;color:var(--ink-2)}
@@ -144,7 +157,7 @@ p{margin:0}
       <p class="verse">“Then neither do I condemn you,” Jesus declared. “Go now and leave your life of sin.”<span class="ref">John 8:11</span></p>
       <p>He was saying: your past is over now; stop looking back. I am not interested in your unworthy past. Focus on your future, and I am that future.</p>
       <p>Do not look back; it is a dangerous thing to do unless it is meant to glorify God for what He has done in your life.</p>
-      <p>Be a forward looker. Discovery is for forward lookers.</p>
+      <p class="close">Be a forward looker. Discovery is for forward lookers.</p>
       <p class="today"><b>Today, say:</b> Lord Jesus, my past is over. You are my future. Make me a forward looker. Amen.</p>
     </div>
     </div>

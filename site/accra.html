@@ -202,6 +202,16 @@ input[type=text]:focus,select:focus{outline:none;border-color:var(--ink)}
 .ways button:hover svg{transform:translateX(3px)}
 .ways .done button{background:var(--paper);color:var(--ink);border-color:var(--ink-2);box-shadow:none}.ways .done svg{color:var(--ink-2)}
 .ways .done .n{background:var(--ink) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 12.5l4 4 8-9' fill='none' stroke='%23ece5d8' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/18px no-repeat;border-color:var(--ink);color:transparent}
+/* One primary per screen: every step reads as a button, and only the next one to do is in night.
+   As each is done it turns to paper with a tick, and the night moves on to the next. */
+.ways li button{background:var(--field);color:var(--ink);border:1.5px solid var(--night);box-shadow:0 2px 0 rgba(11,10,9,.16)}
+.ways li button .n{border-color:var(--ink-2);color:var(--ink)}.ways li button svg{color:var(--ink)}
+.ways li button:hover{background:var(--paper)}
+.ways li:not(.done):not(.ways li:not(.done) ~ li) button{background:var(--night);color:var(--bone);box-shadow:0 2px 0 rgba(11,10,9,.25)}
+.ways li:not(.done):not(.ways li:not(.done) ~ li) button:hover{background:#1d1a16}
+.ways li:not(.done):not(.ways li:not(.done) ~ li) button .n{border-color:rgba(236,229,216,.55);color:var(--bone)}
+.ways li:not(.done):not(.ways li:not(.done) ~ li) button svg{color:var(--bone)}
+.ways .done button{border-width:1px;color:var(--ink-2)}
 .tally{margin-top:2px;font-weight:600}
 .on{margin-top:16px;font-size:15px;color:var(--ink-2)}
 .acts{display:flex;flex-direction:column;gap:10px;margin-top:12px}
