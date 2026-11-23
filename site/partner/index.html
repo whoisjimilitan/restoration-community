@@ -51,7 +51,7 @@ a{color:inherit}
 
 /* ---------- 1. The invitation, built like the homepage title: the photo is the key art ----------
    One real moment of the work, falling into the night; the words stand in the dark beneath it. */
-.title{position:relative;overflow:hidden;background:var(--night);color:var(--bone);isolation:isolate;display:flex;flex-direction:column}
+.title{position:relative;overflow:hidden;background:var(--night);color:var(--bone);isolation:isolate;display:flex;flex-direction:column;min-height:calc(100svh - 56px)}
 .title :focus-visible{outline-color:var(--bone)}
 .art{position:relative;z-index:-1;overflow:hidden}
 .art img{display:block;width:100%;max-width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;animation:drift 28s ease-out both}
@@ -83,7 +83,9 @@ h1{margin:0;font:300 clamp(42px,11.5vw,72px)/1.02 var(--sans);letter-spacing:-.0
 .city .arrow{width:24px;height:24px;margin-left:10px;color:var(--dim);vertical-align:middle;transition:transform .2s,color .2s}
 .city a:hover .arrow{transform:translateX(3px);color:var(--ink)}
 .facts{margin-top:14px;color:var(--ink-2)}
-.free .wrap{padding-top:16px;padding-bottom:96px}
+/* The one line holds its own screen, centred, the way the homepage story does */
+.free{min-height:72svh;display:flex;flex-direction:column;justify-content:center}
+.free .wrap{padding-top:64px;padding-bottom:96px;width:100%}
 .one{font:300 clamp(28px,7.6vw,40px)/1.2 var(--sans);letter-spacing:-.02em;max-width:15em;text-wrap:balance}
 .list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
 .list a{font:400 21px/1.35 var(--sans);letter-spacing:-.015em;color:var(--ink);text-decoration:none}
@@ -93,7 +95,7 @@ h1{margin:0;font:300 clamp(42px,11.5vw,72px)/1.02 var(--sans);letter-spacing:-.0
 /* ---------- 3. The gift: willing, never pressed ---------- */
 /* The giving moment sits on its own ground: a deeper daylight, so the decision is a place, not more text */
 .gift{background:var(--band)}
-.gift .wrap{padding-top:72px;padding-bottom:80px}
+.gift .wrap{padding-top:96px;padding-bottom:96px}
 .verse{margin:0}
 .verse blockquote{margin:0;font:400 clamp(21px,5.6vw,26px)/1.38 var(--sans);letter-spacing:-.02em;color:var(--ink);max-width:21em}
 .verse figcaption{margin-top:10px;font-size:14px;color:var(--dim)}
