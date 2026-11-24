@@ -89,6 +89,7 @@ p{margin:0}
 .ways .done button{background:var(--paper);color:var(--ink);border-color:var(--ink-2);box-shadow:none}.ways .done svg{color:var(--ink-2)}
 .ways .done .n{background:var(--ink) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 12.5l4 4 8-9' fill='none' stroke='%23ece5d8' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/18px no-repeat;border-color:var(--ink);color:transparent}
 .tally{margin-top:2px;font-weight:600}
+.hint{margin:12px 0 0;font-size:15px;line-height:1.45;color:var(--ink-2)}
 .on{margin-top:16px;font-size:15px;color:var(--ink-2)}
 .copied{min-height:1.4em;font-size:14px;color:var(--dim)}
 .copied:empty{min-height:0}
@@ -154,12 +155,12 @@ p{margin:0}
     <div class="col">
     <div class="letter wrap">
       <p class="open">You see that situation that looks impossible? I assure you there is value in it.</p>
-      <p>Anything close to Jesus receives attack. Your challenge may be sickness or poverty. And the devil will ask where your God is.</p>
-      <p>But when the sea is calm, no one is really tested. It is only when challenges come that we know whether truly you are a Christian. That is how the devil gets many to his side: they measure God’s presence by their circumstances.</p>
+      <p>Anything close to Jesus receives attack. As Christians, we may have challenges, but our challenges are not like those of others. Your challenge could be sickness or poverty. But you must understand that challenges are meant to strengthen our desire and determination for God. They are to improve us, not to impair us.</p>
       <p class="verse">“Consider it pure joy, my brothers and sisters, whenever you face trials of many kinds, because you know that the testing of your faith produces perseverance.”<span class="ref">James 1:2-3</span></p>
-      <p>Your challenge is meant to improve you, not to impair you.</p>
-      <p>So do not listen to the panic of the moment. Watch and pray. Be still, and hear what the Holy Spirit is saying. God has not abandoned you.</p>
-      <p class="close">True believers welcome adversity as a friend. Match your actions with your words, for action is of the heart, and words are of the mouth.</p>
+      <p>Many submit to panic even when they say they are Christians. True believers must determine not to listen to the panic of the moment, but to find the quiet voice of counsel and hear what the Holy Spirit has to say concerning the matter. That challenge may be to stop you awhile in order to prepare you for a new level in life.</p>
+      <p>It is only when challenges come that we can know whether truly you are a Christian. When times are stable and the sea is calm and secure, no one is really tested. The devil gets many to his side because of challenges. When you are facing challenges, the devil will ask where your God is.</p>
+      <p>Therefore, you must match your actions with your words. Action is of the heart, and words are of the mouth.</p>
+      <p class="close">True believers welcome adversities and challenges as friends.</p>
       <p class="today"><b>Today, say:</b> Lord, release my spirit to follow You. I have surrendered everything to You. Give me the grace to overcome my pain, in Jesus’ name. Amen.</p>
     </div>
     </div>
@@ -174,6 +175,7 @@ p{margin:0}
         <li><button type="button" data-status><span class="n">2</span><span>Post it to my Status</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button></li>
         <li><button type="button" data-pastor><span class="n">3</span><span>Send it to my pastor</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button></li>
       </ol>
+      <p class="hint" data-hint hidden>The link is copied. When you post the picture, paste it as your caption so people can read the letter.</p>
       <p class="tally" data-tally aria-live="polite">0 of 3 done</p>
       <p class="on">Then share it everywhere else</p>
       <div class="icons">
@@ -230,10 +232,14 @@ p{margin:0}
   $('[data-pastor]').addEventListener('click',function(){ send(pastor); });
   /* Status: hand the letter's picture to the phone's share sheet, or save it */
   $('[data-status]').addEventListener('click',function(){
-    var src='/images/counsel/'+location.pathname.split('/').filter(Boolean).pop()+'-status.jpg', name=src.split('/').pop();
+    /* The picture goes with the link: copied first (while the tap still counts), and passed as the caption where the phone allows */
+    var slug=location.pathname.split('/').filter(Boolean).pop(), link='Read it here: https://brotherjimi.com/counsel/'+slug;
+    try{ navigator.clipboard&&navigator.clipboard.writeText(link).catch(function(){}); }catch(e){}
+    var hint=$('[data-hint]'); if(hint) hint.hidden=false;
+    var src='/images/counsel/'+slug+'-status.jpg', name=src.split('/').pop();
     fetch(src).then(function(r){ return r.blob(); }).then(function(blob){
       var file=new File([blob],name,{type:'image/jpeg'});
-      if(navigator.canShare&&navigator.canShare({files:[file]})){ navigator.share({files:[file]}).catch(function(){}); return; }
+      if(navigator.canShare&&navigator.canShare({files:[file]})){ navigator.share({files:[file],text:link}).catch(function(){}); return; }
       var a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=name;
       document.body.appendChild(a); a.click(); a.remove(); setTimeout(function(){ URL.revokeObjectURL(a.href); },4000);
     }).catch(function(){ location.href=src; });

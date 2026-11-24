@@ -89,6 +89,7 @@ p{margin:0}
 .ways .done button{background:var(--paper);color:var(--ink);border-color:var(--ink-2);box-shadow:none}.ways .done svg{color:var(--ink-2)}
 .ways .done .n{background:var(--ink) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 12.5l4 4 8-9' fill='none' stroke='%23ece5d8' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/18px no-repeat;border-color:var(--ink);color:transparent}
 .tally{margin-top:2px;font-weight:600}
+.hint{margin:12px 0 0;font-size:15px;line-height:1.45;color:var(--ink-2)}
 .on{margin-top:16px;font-size:15px;color:var(--ink-2)}
 .copied{min-height:1.4em;font-size:14px;color:var(--dim)}
 .copied:empty{min-height:0}
@@ -153,10 +154,13 @@ p{margin:0}
     <img class="dust" src="/images/film/dust-edge.jpg" alt="" width="2400" height="560">
     <div class="col">
     <div class="letter wrap">
-      <p class="open">Child of God, what is your situation? Is it barrenness, poverty, sickness, stagnation, rejection, or limitation?</p>
+      <p class="open">Today, when people testify about the goodness of God in their lives, they always talk about the immediate goodness of God, forgetting to mention what God did in the past.</p>
       <p class="verse">“They triumphed over him by the blood of the Lamb and by the word of their testimony; they did not love their lives so much as to shrink from death.”<span class="ref">Revelation 12:11</span></p>
-      <p>The word of our testimony is a weapon. We are meant to glorify God, not only for what He is doing presently in our situation but for what He did in the past.</p>
-      <p>If your situation is sickness, remember the sickness you had in the past and how God delivered you from the shackles of death. Even when Lazarus was still in the grave, Jesus gave thanks to His Heavenly Father.</p>
+      <p>This means that the word of our testimony is a weapon, a weapon of victory that brings us into our ordained position as overcomers.</p>
+      <p>We are meant to glorify God not only for what He is doing presently in our situation, but for what He did in the past and what He is able to do in the future. If your situation is sickness, remember the sickness you had in the past and how God delivered you from the shackles of death.</p>
+      <p>Remember that the devil wants you to focus on what you don’t have, so you can see a reason to start lamenting and complaining instead of giving thanks to God.</p>
+      <p>At the grave of Lazarus, our Lord Jesus Christ used the weapon of testimony. He gave thanks to His Heavenly Father while Lazarus was still in the grave. While people were crying and wailing, Jesus refused to let the situation at hand derail Him or affect His confidence in God.</p>
+      <p>Child of God, what is your situation? Is it barrenness, poverty, sickness, stagnation, rejection or limitation?</p>
       <p class="close">As long as God is aware of your situation, He will not leave you without a solution.</p>
       <p class="today"><b>Today, say:</b> I am no longer condemned, I am what God says I am, I have what God says I have and I can do what God says I can do, in Jesus’ name. Amen.</p>
     </div>
@@ -172,6 +176,7 @@ p{margin:0}
         <li><button type="button" data-status><span class="n">2</span><span>Post it to my Status</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button></li>
         <li><button type="button" data-pastor><span class="n">3</span><span>Send it to my pastor</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button></li>
       </ol>
+      <p class="hint" data-hint hidden>The link is copied. When you post the picture, paste it as your caption so people can read the letter.</p>
       <p class="tally" data-tally aria-live="polite">0 of 3 done</p>
       <p class="on">Then share it everywhere else</p>
       <div class="icons">
@@ -228,10 +233,14 @@ p{margin:0}
   $('[data-pastor]').addEventListener('click',function(){ send(pastor); });
   /* Status: hand the letter's picture to the phone's share sheet, or save it */
   $('[data-status]').addEventListener('click',function(){
-    var src='/images/counsel/'+location.pathname.split('/').filter(Boolean).pop()+'-status.jpg', name=src.split('/').pop();
+    /* The picture goes with the link: copied first (while the tap still counts), and passed as the caption where the phone allows */
+    var slug=location.pathname.split('/').filter(Boolean).pop(), link='Read it here: https://brotherjimi.com/counsel/'+slug;
+    try{ navigator.clipboard&&navigator.clipboard.writeText(link).catch(function(){}); }catch(e){}
+    var hint=$('[data-hint]'); if(hint) hint.hidden=false;
+    var src='/images/counsel/'+slug+'-status.jpg', name=src.split('/').pop();
     fetch(src).then(function(r){ return r.blob(); }).then(function(blob){
       var file=new File([blob],name,{type:'image/jpeg'});
-      if(navigator.canShare&&navigator.canShare({files:[file]})){ navigator.share({files:[file]}).catch(function(){}); return; }
+      if(navigator.canShare&&navigator.canShare({files:[file]})){ navigator.share({files:[file],text:link}).catch(function(){}); return; }
       var a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=name;
       document.body.appendChild(a); a.click(); a.remove(); setTimeout(function(){ URL.revokeObjectURL(a.href); },4000);
     }).catch(function(){ location.href=src; });

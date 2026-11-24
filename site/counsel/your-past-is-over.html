@@ -89,6 +89,7 @@ p{margin:0}
 .ways .done button{background:var(--paper);color:var(--ink);border-color:var(--ink-2);box-shadow:none}.ways .done svg{color:var(--ink-2)}
 .ways .done .n{background:var(--ink) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 12.5l4 4 8-9' fill='none' stroke='%23ece5d8' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/18px no-repeat;border-color:var(--ink);color:transparent}
 .tally{margin-top:2px;font-weight:600}
+.hint{margin:12px 0 0;font-size:15px;line-height:1.45;color:var(--ink-2)}
 .on{margin-top:16px;font-size:15px;color:var(--ink-2)}
 .copied{min-height:1.4em;font-size:14px;color:var(--dim)}
 .copied:empty{min-height:0}
@@ -153,13 +154,17 @@ p{margin:0}
     <img class="dust" src="/images/film/dust-edge.jpg" alt="" width="2400" height="560">
     <div class="col">
     <div class="letter wrap">
-      <p class="open">When your past is over, your accuser would flee, because the only thing that connects you to him is your past. He has no other information about you.</p>
-      <p>Jesus is a tomorrow thinker. He is not so much concerned about our present as our future. To the woman caught in the act of adultery, He said:</p>
+      <p class="open">Jesus is a tomorrow thinker. He is not so much concerned about our present as our future.</p>
+      <p>We are made in our heart to be like Him. To be like Jesus is our goal. If you would be like Jesus, you are to be a tomorrow thinker.</p>
+      <p>Jesus said to the woman caught in the act of adultery:</p>
       <p class="verse">“Then neither do I condemn you,” Jesus declared. “Go now and leave your life of sin.”<span class="ref">John 8:11</span></p>
-      <p>He was saying: your past is over now; stop looking back. I am not interested in your unworthy past. Focus on your future, and I am that future.</p>
-      <p>Do not look back; it is a dangerous thing to do unless it is meant to glorify God for what He has done in your life.</p>
-      <p class="close">Be a forward looker. Discovery is for forward lookers.</p>
-      <p class="today"><b>Today, say:</b> Lord Jesus, my past is over. You are my future. Make me a forward looker. Amen.</p>
+      <p>When He met the man He healed at the pool of Bethesda, Jesus said to him: “See, you are well again. Stop sinning or something worse may happen to you.”</p>
+      <p>Jesus was simply sending the same message to both of them. Both were rescued from death by His grace. He was saying: your past is over now; stop looking back. I am not interested in your unworthy past. Now that you are cleansed by the words I have spoken to you, you should remain cleansed. Focus on your future, and I am that future.</p>
+      <p>When your past is over, your accuser would flee, because the only thing that connects you to him is your past. He has no other information about you.</p>
+      <p>Do not look back; it is a dangerous thing to do unless it is meant to glorify God for what He has done in your life. Discovery is for forward lookers. It is by looking forward that you discover new things, new horizons and new opportunities you would not have ordinarily dreamt of.</p>
+      <p>Remember, only faith pleases God, and faith focuses on God instead of our past. If you are to solve today’s problems using the approach of yesterday, you would not make a difference. You must reset your mind.</p>
+      <p class="close">Be a forward looker.</p>
+      <p class="today"><b>Today, say:</b> Lord Jesus, thank You that You do not condemn me. Keep me cleansed by Your word, and teach me to look forward to You, in Jesus’ name. Amen.</p>
     </div>
     </div>
   </article>
@@ -173,6 +178,7 @@ p{margin:0}
         <li><button type="button" data-status><span class="n">2</span><span>Post it to my Status</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button></li>
         <li><button type="button" data-pastor><span class="n">3</span><span>Send it to my pastor</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button></li>
       </ol>
+      <p class="hint" data-hint hidden>The link is copied. When you post the picture, paste it as your caption so people can read the letter.</p>
       <p class="tally" data-tally aria-live="polite">0 of 3 done</p>
       <p class="on">Then share it everywhere else</p>
       <div class="icons">
@@ -229,10 +235,14 @@ p{margin:0}
   $('[data-pastor]').addEventListener('click',function(){ send(pastor); });
   /* Status: hand the letter's picture to the phone's share sheet, or save it */
   $('[data-status]').addEventListener('click',function(){
-    var src='/images/counsel/'+location.pathname.split('/').filter(Boolean).pop()+'-status.jpg', name=src.split('/').pop();
+    /* The picture goes with the link: copied first (while the tap still counts), and passed as the caption where the phone allows */
+    var slug=location.pathname.split('/').filter(Boolean).pop(), link='Read it here: https://brotherjimi.com/counsel/'+slug;
+    try{ navigator.clipboard&&navigator.clipboard.writeText(link).catch(function(){}); }catch(e){}
+    var hint=$('[data-hint]'); if(hint) hint.hidden=false;
+    var src='/images/counsel/'+slug+'-status.jpg', name=src.split('/').pop();
     fetch(src).then(function(r){ return r.blob(); }).then(function(blob){
       var file=new File([blob],name,{type:'image/jpeg'});
-      if(navigator.canShare&&navigator.canShare({files:[file]})){ navigator.share({files:[file]}).catch(function(){}); return; }
+      if(navigator.canShare&&navigator.canShare({files:[file]})){ navigator.share({files:[file],text:link}).catch(function(){}); return; }
       var a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=name;
       document.body.appendChild(a); a.click(); a.remove(); setTimeout(function(){ URL.revokeObjectURL(a.href); },4000);
     }).catch(function(){ location.href=src; });

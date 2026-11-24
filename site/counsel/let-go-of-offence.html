@@ -89,6 +89,7 @@ p{margin:0}
 .ways .done button{background:var(--paper);color:var(--ink);border-color:var(--ink-2);box-shadow:none}.ways .done svg{color:var(--ink-2)}
 .ways .done .n{background:var(--ink) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 12.5l4 4 8-9' fill='none' stroke='%23ece5d8' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/18px no-repeat;border-color:var(--ink);color:transparent}
 .tally{margin-top:2px;font-weight:600}
+.hint{margin:12px 0 0;font-size:15px;line-height:1.45;color:var(--ink-2)}
 .on{margin-top:16px;font-size:15px;color:var(--ink-2)}
 .copied{min-height:1.4em;font-size:14px;color:var(--dim)}
 .copied:empty{min-height:0}
@@ -153,14 +154,14 @@ p{margin:0}
     <img class="dust" src="/images/film/dust-edge.jpg" alt="" width="2400" height="560">
     <div class="col">
     <div class="letter wrap">
-      <p class="open">Who has hurt you today or in the past? Are you having feelings of resentment or harbouring a grudge as a result of offence?</p>
-      <p>As a child of God, how you respond to your situation matters.</p>
-      <p>Imagine the deep hurt Joseph felt when his brothers tore his coat of many colours, threw him into a dry pit and left him for dead. Joseph did not hold onto the offence. He let go of it, knowing that beyond offence, there God is.</p>
+      <p class="open">Imagine the deep hurt Joseph felt when his brothers tore his favourite coat of many colours, threw him into a dry pit and left him for dead.</p>
+      <p>Although treated badly by his brothers, Joseph did not hold onto the offence; rather, he let go of it, knowing that beyond offence, there God is. Joseph released forgiveness and obtained the Lord’s favour. He was exalted to the highest position, prime minister and special adviser to the king.</p>
+      <p>Who has hurt you today or in the past? Are you having feelings of resentment, or harbouring a grudge as a result of offence? As a child of God, how you respond to your situation matters.</p>
       <p class="verse">“For if you forgive other people when they sin against you, your heavenly Father will also forgive you.”<span class="ref">Matthew 6:14</span></p>
-      <p>Many are asking for blessing but have not let go of the grudge that is holding the blessing ransom.</p>
-      <p>Don’t remain a victim of self-imprisonment. You will receive in a moment what you have been seeking for years, the moment you let go of offence.</p>
-      <p class="close">Release yourself.</p>
-      <p class="today"><b>Today, say:</b> I release them, and I release myself, in Jesus’ name. Amen.</p>
+      <p>Many are asking for blessing but have not let go of the grudge that is holding the blessing ransom. Offence is an effective instrument used by satan to rob many Christians of their blessings.</p>
+      <p>So be on your guard, for like a fish suddenly caught in a net and like a bird suddenly caught in a trap, the devil lies in wait to catch you in the trap of offence. Don’t remain a victim of self-imprisonment.</p>
+      <p class="close">Release yourself, for you will receive in a moment what you have been seeking for years the moment you let go of offence.</p>
+      <p class="today"><b>Today, say:</b> Lord Jesus, I let go of every offence I have held. I forgive those who hurt me. Free me from the trap of offence, in Jesus’ name. Amen.</p>
     </div>
     </div>
   </article>
@@ -174,6 +175,7 @@ p{margin:0}
         <li><button type="button" data-status><span class="n">2</span><span>Post it to my Status</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button></li>
         <li><button type="button" data-pastor><span class="n">3</span><span>Send it to my pastor</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button></li>
       </ol>
+      <p class="hint" data-hint hidden>The link is copied. When you post the picture, paste it as your caption so people can read the letter.</p>
       <p class="tally" data-tally aria-live="polite">0 of 3 done</p>
       <p class="on">Then share it everywhere else</p>
       <div class="icons">
@@ -230,10 +232,14 @@ p{margin:0}
   $('[data-pastor]').addEventListener('click',function(){ send(pastor); });
   /* Status: hand the letter's picture to the phone's share sheet, or save it */
   $('[data-status]').addEventListener('click',function(){
-    var src='/images/counsel/'+location.pathname.split('/').filter(Boolean).pop()+'-status.jpg', name=src.split('/').pop();
+    /* The picture goes with the link: copied first (while the tap still counts), and passed as the caption where the phone allows */
+    var slug=location.pathname.split('/').filter(Boolean).pop(), link='Read it here: https://brotherjimi.com/counsel/'+slug;
+    try{ navigator.clipboard&&navigator.clipboard.writeText(link).catch(function(){}); }catch(e){}
+    var hint=$('[data-hint]'); if(hint) hint.hidden=false;
+    var src='/images/counsel/'+slug+'-status.jpg', name=src.split('/').pop();
     fetch(src).then(function(r){ return r.blob(); }).then(function(blob){
       var file=new File([blob],name,{type:'image/jpeg'});
-      if(navigator.canShare&&navigator.canShare({files:[file]})){ navigator.share({files:[file]}).catch(function(){}); return; }
+      if(navigator.canShare&&navigator.canShare({files:[file]})){ navigator.share({files:[file],text:link}).catch(function(){}); return; }
       var a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=name;
       document.body.appendChild(a); a.click(); a.remove(); setTimeout(function(){ URL.revokeObjectURL(a.href); },4000);
     }).catch(function(){ location.href=src; });

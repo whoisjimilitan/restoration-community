@@ -8,7 +8,7 @@
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Brother Jimi">
 <meta property="og:title" content="We are one another’s strength">
-<meta property="og:description" content="When you are conscious of your neighbour’s weakness, you will not put them in a position that will cause them to fall.">
+<meta property="og:description" content="When you correct others, is it from a place of offence, pride or love?">
 <meta property="og:url" content="https://brotherjimi.com/counsel/one-anothers-strength">
 <link rel="canonical" href="https://brotherjimi.com/counsel/one-anothers-strength">
 <meta property="og:image" content="https://brotherjimi.com/images/counsel/one-anothers-strength-og.jpg">
@@ -89,6 +89,7 @@ p{margin:0}
 .ways .done button{background:var(--paper);color:var(--ink);border-color:var(--ink-2);box-shadow:none}.ways .done svg{color:var(--ink-2)}
 .ways .done .n{background:var(--ink) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 12.5l4 4 8-9' fill='none' stroke='%23ece5d8' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/18px no-repeat;border-color:var(--ink);color:transparent}
 .tally{margin-top:2px;font-weight:600}
+.hint{margin:12px 0 0;font-size:15px;line-height:1.45;color:var(--ink-2)}
 .on{margin-top:16px;font-size:15px;color:var(--ink-2)}
 .copied{min-height:1.4em;font-size:14px;color:var(--dim)}
 .copied:empty{min-height:0}
@@ -153,13 +154,16 @@ p{margin:0}
     <img class="dust" src="/images/film/dust-edge.jpg" alt="" width="2400" height="560">
     <div class="col">
     <div class="letter wrap">
-      <p class="open">When you are conscious of your neighbour’s weakness, you will not put them in a position that will cause them to fall.</p>
-      <p>People are faced with different weaknesses: jealousy, anger, urges of all kinds.</p>
+      <p class="open">Child of God, when you are conscious of your neighbour’s weakness, you will not put them in a position that will lead them into temptation, causing them to fall.</p>
+      <p>People are faced with different weaknesses: jealousy, anger, and urges of all kinds.</p>
       <p class="key">We are one another’s strength.</p>
       <p class="verse">“Woe to the world because of the things that cause people to stumble! Such things must come, but woe to the person through whom they come!”<span class="ref">Matthew 18:7</span></p>
-      <p>You are standing upon God’s grace. So do nothing to jeopardise your brother or sister’s standing.</p>
-      <p>What are the intentions of the words you speak to your neighbour? Do you intend to build or break?</p>
-      <p class="close">When you correct others, is it from a place of offence, pride or love?</p>
+      <p>When you understand that you are standing upon God’s grace as a result of His love for humankind, you will not do anything to jeopardise your brother or sister’s standing.</p>
+      <p>Are you conscious that your actions, whether good or bad, are akin to planting seeds? Remember that your actions are judged by your intentions. God looks at man’s heart, not man’s appearance.</p>
+      <p>What are the intentions of the words you speak to your neighbour? Do you intend to build or break? When you correct others, is it from a place of offence, pride or love?</p>
+      <p>When you live consciously as a child of God, you will watch every step to ensure you are living in accordance with God’s Spirit. This is why the Bible urges us: “Walk by the Spirit, and you will not gratify the desires of the flesh.”</p>
+      <p>We ought to be conscious of the life we live, knowing that one day we will receive a reward for what we did while in this body, whether good or bad.</p>
+      <p class="close">The consciousness of who you are and who you serve changes everything.</p>
       <p class="today"><b>Today, say:</b> Lord Jesus, have mercy on me. Help me to live consciously, in accordance with Your Spirit. Help me to live a life that will please You, in Jesus’ name. Amen.</p>
     </div>
     </div>
@@ -174,6 +178,7 @@ p{margin:0}
         <li><button type="button" data-status><span class="n">2</span><span>Post it to my Status</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button></li>
         <li><button type="button" data-pastor><span class="n">3</span><span>Send it to my pastor</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button></li>
       </ol>
+      <p class="hint" data-hint hidden>The link is copied. When you post the picture, paste it as your caption so people can read the letter.</p>
       <p class="tally" data-tally aria-live="polite">0 of 3 done</p>
       <p class="on">Then share it everywhere else</p>
       <div class="icons">
@@ -230,10 +235,14 @@ p{margin:0}
   $('[data-pastor]').addEventListener('click',function(){ send(pastor); });
   /* Status: hand the letter's picture to the phone's share sheet, or save it */
   $('[data-status]').addEventListener('click',function(){
-    var src='/images/counsel/'+location.pathname.split('/').filter(Boolean).pop()+'-status.jpg', name=src.split('/').pop();
+    /* The picture goes with the link: copied first (while the tap still counts), and passed as the caption where the phone allows */
+    var slug=location.pathname.split('/').filter(Boolean).pop(), link='Read it here: https://brotherjimi.com/counsel/'+slug;
+    try{ navigator.clipboard&&navigator.clipboard.writeText(link).catch(function(){}); }catch(e){}
+    var hint=$('[data-hint]'); if(hint) hint.hidden=false;
+    var src='/images/counsel/'+slug+'-status.jpg', name=src.split('/').pop();
     fetch(src).then(function(r){ return r.blob(); }).then(function(blob){
       var file=new File([blob],name,{type:'image/jpeg'});
-      if(navigator.canShare&&navigator.canShare({files:[file]})){ navigator.share({files:[file]}).catch(function(){}); return; }
+      if(navigator.canShare&&navigator.canShare({files:[file]})){ navigator.share({files:[file],text:link}).catch(function(){}); return; }
       var a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=name;
       document.body.appendChild(a); a.click(); a.remove(); setTimeout(function(){ URL.revokeObjectURL(a.href); },4000);
     }).catch(function(){ location.href=src; });

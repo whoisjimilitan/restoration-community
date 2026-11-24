@@ -8,7 +8,7 @@
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Brother Jimi">
 <meta property="og:title" content="Wait for God’s time">
-<meta property="og:description" content="When it is time to start a race, everybody waits for the blast of the gun.">
+<meta property="og:description" content="We all know that when it is time to start a race, everybody waits for the blast of the gun or the sound of the whistle.">
 <meta property="og:url" content="https://brotherjimi.com/counsel/wait-for-gods-time">
 <link rel="canonical" href="https://brotherjimi.com/counsel/wait-for-gods-time">
 <meta property="og:image" content="https://brotherjimi.com/images/counsel/wait-for-gods-time-og.jpg">
@@ -89,6 +89,7 @@ p{margin:0}
 .ways .done button{background:var(--paper);color:var(--ink);border-color:var(--ink-2);box-shadow:none}.ways .done svg{color:var(--ink-2)}
 .ways .done .n{background:var(--ink) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 12.5l4 4 8-9' fill='none' stroke='%23ece5d8' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/18px no-repeat;border-color:var(--ink);color:transparent}
 .tally{margin-top:2px;font-weight:600}
+.hint{margin:12px 0 0;font-size:15px;line-height:1.45;color:var(--ink-2)}
 .on{margin-top:16px;font-size:15px;color:var(--ink-2)}
 .copied{min-height:1.4em;font-size:14px;color:var(--dim)}
 .copied:empty{min-height:0}
@@ -153,13 +154,13 @@ p{margin:0}
     <img class="dust" src="/images/film/dust-edge.jpg" alt="" width="2400" height="560">
     <div class="col">
     <div class="letter wrap">
-      <p class="open">Our hearts are so taken up by worldly considerations that we are impatient to recognise the fact that there is an appointed time for everything. This is why we try to move the hands of the clock forward by hook and crook.</p>
-      <p>When it is time to start a race, everybody waits for the blast of the gun. If any person beats the gun, that person would be called back to begin afresh, while others are still waiting patiently.</p>
-      <p>When His mother urged Him to turn water into wine, Jesus simply said, “My hour has not yet come,” knowing that there is an appointed time for everything.</p>
+      <p class="open">We all know that when it is time to start a race, everybody waits for the blast of the gun or the sound of the whistle. But in our daily lives, the opposite is the case.</p>
+      <p>Our hearts are so taken up by worldly considerations that we are impatient to recognise that there is an appointed time for everything. This is why we try to move the hands of the clock forward by hook and crook. In order to beat the gun, we kill, join cults, steal and destroy.</p>
       <p class="verse">“There is a time for everything, and a season for every activity under the heavens.”<span class="ref">Ecclesiastes 3:1</span></p>
-      <p>If you are in a haste to achieve something, you are likely to make costly mistakes that would pull you back, if not down.</p>
+      <p>When His brothers urged Jesus to show Himself in public before the appointed time, He did not. Had He been impatient, He may have been killed by His enemies, who were looking for Him at all costs. When His mother urged Him to turn water into wine, He answered that His hour had not yet come.</p>
+      <p>If any person beats the gun, that person is called back to begin afresh, while others are still waiting patiently for the sound of the gun. More haste, less speed: if you are in a haste to achieve something, you are likely to make costly mistakes that would pull you back, if not down.</p>
       <p class="close">Always remember: God’s time is the best.</p>
-      <p class="today"><b>Today, say:</b> My times are in Your hands, Lord. I will not beat the gun. Amen.</p>
+      <p class="today"><b>Today, say:</b> Lord, Your time is the best. Give me the patience to wait for Your appointed time, and keep me from beating the gun, in Jesus’ name. Amen.</p>
     </div>
     </div>
   </article>
@@ -173,6 +174,7 @@ p{margin:0}
         <li><button type="button" data-status><span class="n">2</span><span>Post it to my Status</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button></li>
         <li><button type="button" data-pastor><span class="n">3</span><span>Send it to my pastor</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button></li>
       </ol>
+      <p class="hint" data-hint hidden>The link is copied. When you post the picture, paste it as your caption so people can read the letter.</p>
       <p class="tally" data-tally aria-live="polite">0 of 3 done</p>
       <p class="on">Then share it everywhere else</p>
       <div class="icons">
@@ -229,10 +231,14 @@ p{margin:0}
   $('[data-pastor]').addEventListener('click',function(){ send(pastor); });
   /* Status: hand the letter's picture to the phone's share sheet, or save it */
   $('[data-status]').addEventListener('click',function(){
-    var src='/images/counsel/'+location.pathname.split('/').filter(Boolean).pop()+'-status.jpg', name=src.split('/').pop();
+    /* The picture goes with the link: copied first (while the tap still counts), and passed as the caption where the phone allows */
+    var slug=location.pathname.split('/').filter(Boolean).pop(), link='Read it here: https://brotherjimi.com/counsel/'+slug;
+    try{ navigator.clipboard&&navigator.clipboard.writeText(link).catch(function(){}); }catch(e){}
+    var hint=$('[data-hint]'); if(hint) hint.hidden=false;
+    var src='/images/counsel/'+slug+'-status.jpg', name=src.split('/').pop();
     fetch(src).then(function(r){ return r.blob(); }).then(function(blob){
       var file=new File([blob],name,{type:'image/jpeg'});
-      if(navigator.canShare&&navigator.canShare({files:[file]})){ navigator.share({files:[file]}).catch(function(){}); return; }
+      if(navigator.canShare&&navigator.canShare({files:[file]})){ navigator.share({files:[file],text:link}).catch(function(){}); return; }
       var a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=name;
       document.body.appendChild(a); a.click(); a.remove(); setTimeout(function(){ URL.revokeObjectURL(a.href); },4000);
     }).catch(function(){ location.href=src; });

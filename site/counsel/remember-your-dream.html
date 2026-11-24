@@ -89,6 +89,7 @@ p{margin:0}
 .ways .done button{background:var(--paper);color:var(--ink);border-color:var(--ink-2);box-shadow:none}.ways .done svg{color:var(--ink-2)}
 .ways .done .n{background:var(--ink) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 12.5l4 4 8-9' fill='none' stroke='%23ece5d8' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/18px no-repeat;border-color:var(--ink);color:transparent}
 .tally{margin-top:2px;font-weight:600}
+.hint{margin:12px 0 0;font-size:15px;line-height:1.45;color:var(--ink-2)}
 .on{margin-top:16px;font-size:15px;color:var(--ink-2)}
 .copied{min-height:1.4em;font-size:14px;color:var(--dim)}
 .copied:empty{min-height:0}
@@ -153,12 +154,15 @@ p{margin:0}
     <img class="dust" src="/images/film/dust-edge.jpg" alt="" width="2400" height="560">
     <div class="col">
     <div class="letter wrap">
-      <p class="open">The situation with you now on the outside may be poor, painful, frightening and discouraging. Looking at your situation on the outside would give you worries, discouragement, fear and anxiety.</p>
-      <p>While Goliath was busy looking at David from the human point of view, David was busy looking at Goliath from God’s point of view. David was a small boy compared to Goliath in age, size and experience in warfare, but he had a dream that was known to him alone.</p>
+      <p class="open">Many look at their situation today from the outside. The situation with you now on the outside may be poor, painful, frightening and discouraging. Looking at it from the outside would give you worries, fear and anxiety.</p>
+      <p>A good example is David’s encounter with Goliath. While Goliath was busy looking at David from the human point of view, considering his physical appearance, David was busy looking at Goliath from God’s point of view. If David had looked at Goliath from the human point of view, he would have been frightened or scared into submission.</p>
+      <p>David was a small boy compared to Goliath in age, size and experience in warfare, but he had a dream that was known to him alone. Goliath’s dream was in his size, his weapons, his experience in warfare and his words of humiliation. Goliath’s dream was seen by everyone. David’s dream was known to him alone.</p>
+      <p class="key">Remember, the Bible says:</p>
       <p class="verse">“So we fix our eyes not on what is seen, but on what is unseen, since what is seen is temporary, but what is unseen is eternal.”<span class="ref">2 Corinthians 4:18</span></p>
-      <p>But remember your dream. That dream should be your focus, not your present situation. Your dream will impart strength to endure your present trials. If it is raining now and you know that the rain is for a moment, you would endure.</p>
+      <p>But remember your dream. That dream should be your focus, not your present situation. Your dream will impart strength to endure your present trials and difficulty.</p>
+      <p>If it is raining now and you know that the rain is for a moment, you would endure. Trouble becomes easier to handle when you know it will not last long.</p>
       <p class="close">For you to walk toward your future, your future has to move into you first.</p>
-      <p class="today"><b>Today, say:</b> Lord, let me see my situation from Your point of view. Let my future move into me today. Amen.</p>
+      <p class="today"><b>Today, say:</b> Lord, help me to look at my situation from Your point of view and not from the outside. Let the dream You have given me strengthen me today, in Jesus’ name. Amen.</p>
     </div>
     </div>
   </article>
@@ -172,6 +176,7 @@ p{margin:0}
         <li><button type="button" data-status><span class="n">2</span><span>Post it to my Status</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button></li>
         <li><button type="button" data-pastor><span class="n">3</span><span>Send it to my pastor</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button></li>
       </ol>
+      <p class="hint" data-hint hidden>The link is copied. When you post the picture, paste it as your caption so people can read the letter.</p>
       <p class="tally" data-tally aria-live="polite">0 of 3 done</p>
       <p class="on">Then share it everywhere else</p>
       <div class="icons">
@@ -228,10 +233,14 @@ p{margin:0}
   $('[data-pastor]').addEventListener('click',function(){ send(pastor); });
   /* Status: hand the letter's picture to the phone's share sheet, or save it */
   $('[data-status]').addEventListener('click',function(){
-    var src='/images/counsel/'+location.pathname.split('/').filter(Boolean).pop()+'-status.jpg', name=src.split('/').pop();
+    /* The picture goes with the link: copied first (while the tap still counts), and passed as the caption where the phone allows */
+    var slug=location.pathname.split('/').filter(Boolean).pop(), link='Read it here: https://brotherjimi.com/counsel/'+slug;
+    try{ navigator.clipboard&&navigator.clipboard.writeText(link).catch(function(){}); }catch(e){}
+    var hint=$('[data-hint]'); if(hint) hint.hidden=false;
+    var src='/images/counsel/'+slug+'-status.jpg', name=src.split('/').pop();
     fetch(src).then(function(r){ return r.blob(); }).then(function(blob){
       var file=new File([blob],name,{type:'image/jpeg'});
-      if(navigator.canShare&&navigator.canShare({files:[file]})){ navigator.share({files:[file]}).catch(function(){}); return; }
+      if(navigator.canShare&&navigator.canShare({files:[file]})){ navigator.share({files:[file],text:link}).catch(function(){}); return; }
       var a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=name;
       document.body.appendChild(a); a.click(); a.remove(); setTimeout(function(){ URL.revokeObjectURL(a.href); },4000);
     }).catch(function(){ location.href=src; });
