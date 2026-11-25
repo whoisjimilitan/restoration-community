@@ -17,6 +17,7 @@ FILES = [
     "assets/cities.js", "assets/letters.js",
     "assets/fonts/albert-sans-latin-wght-normal.woff2", "assets/fonts/libre-caslon-text-latin-400-italic.woff2", "assets/fonts/libre-caslon-text-latin-400-normal.woff2",
     "images/favicon.png", "images/apple-touch-icon.png",
+    "favicon.ico",
     "images/film/dust-edge.jpg", "images/film/jimi-face.jpg", "images/film/key-art-760.jpg", "images/film/key-art-1200.jpg", "images/film/og-2.jpg", "images/film/og-accra-2.jpg", "images/film/og-partner.jpg", "images/film/trailer-poster.jpg",
     "images/counsel/counsel-og.jpg", "images/counsel/value-in-challenges-og.jpg", "images/counsel/value-in-challenges-post.jpg", "images/counsel/value-in-challenges-status.jpg",
     "images/counsel/warfare-and-salvation-og.jpg", "images/counsel/warfare-and-salvation-post.jpg", "images/counsel/warfare-and-salvation-status.jpg",
